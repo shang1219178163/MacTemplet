@@ -19,6 +19,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints"];
+    [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"LAYOUT_CONSTRAINTS_NOT_SATISFIABLE"];
+
+    
     //窗口 关闭，缩小，放大等功能，根据需求自行组合
     NSUInteger style =  NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
     self.window = [[NSWindow alloc]initWithContentRect:CGRectMake(0, 0, kScreenWidth*0.5, kScreenHeight*0.5) styleMask:style backing:NSBackingStoreBuffered defer:YES];

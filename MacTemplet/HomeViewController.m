@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSTextField *textFieldTwo;
 @property (nonatomic, strong) NSButton *btn;
 
+@property (nonatomic, strong) NSArray *list;
+
 @end
 
 @implementation HomeViewController
@@ -37,7 +39,7 @@
     self.title = @"Home";
     self.view.wantsLayer = YES;
     self.view.layer.backgroundColor = NSColor.lightGrayColor.CGColor;
-    
+
     self.scrollView.documentView = self.textView;
     [self.view addSubview:self.scrollView];
     
@@ -50,6 +52,7 @@
     [self.view addSubview:self.bottomView];
 
 
+    self.list = @[self.scrollView, self.scrollViewTwo];
     [self.view getViewLayer];
 }
 
@@ -61,11 +64,14 @@
     CGFloat padding = 8;
     CGFloat bottom = 50;
     CGFloat gap = 15;
-
-    [self.scrollView makeConstraints:^(MASConstraintMaker *make) {
+    
+    NSWindow *window = NSApplication.sharedApplication.mainWindow;
+    
+    NSLog(@"%@_%@", @(width),@(window.frame));
+    //水平方向控件间隔固定等间隔
+    [self.list mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:padding leadSpacing:0 tailSpacing:0];
+    [self.list mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.scrollView.superview);
-        make.left.equalTo(self.scrollView.superview);
-        make.width.equalTo((width - padding)/2.0);
         make.bottom.equalTo(self.scrollView.superview).offset(-50);
     }];
     
@@ -73,12 +79,6 @@
         make.edges.equalTo(self.scrollView);
     }];
 
-    [self.scrollViewTwo makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.scrollViewTwo.superview);
-        make.left.equalTo(self.scrollView.right).offset(padding);
-        make.right.equalTo(self.scrollViewTwo.superview);
-        make.bottom.equalTo(self.scrollView.bottom);
-    }];
     
     [self.textViewTwo makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.scrollViewTwo);
@@ -105,11 +105,74 @@
     }];
 }
 
+//-(void)viewDidLayout{
+//    [super viewDidLayout];
+//
+//    CGFloat width = CGRectGetWidth(self.view.frame);
+//    CGFloat height = CGRectGetHeight(self.view.frame);
+//    CGFloat padding = 8;
+//    CGFloat bottom = 50;
+//    CGFloat gap = 15;
+//
+//    NSWindow *window = NSApplication.sharedApplication.mainWindow;
+//
+//    NSLog(@"%@_%@", @(width),@(window.frame));
+//
+//
+//    [self.scrollView makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.scrollView.superview);
+//        make.left.equalTo(self.scrollView.superview);
+//        make.width.equalTo((width - padding)/2.0);
+//        make.bottom.equalTo(self.scrollView.superview).offset(-50);
+//    }];
+//
+//    [self.textView makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.scrollView);
+//    }];
+//
+//    [self.scrollViewTwo makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.scrollViewTwo.superview);
+//        make.left.equalTo(self.scrollView.right).offset(padding);
+//        make.right.equalTo(self.scrollViewTwo.superview);
+//        make.bottom.equalTo(self.scrollView.bottom);
+//    }];
+//
+//    [self.textViewTwo makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.scrollViewTwo);
+//    }];
+//
+//    [self.bottomView makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.scrollView.bottom).offset(padding);
+//        make.left.right.equalTo(self.bottomView.superview);
+//        make.bottom.equalTo(self.bottomView.superview);
+//    }];
+//
+//    [self.textField makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.textField.superview).offset(padding);
+//        make.left.equalTo(self.bottomView.superview).offset(gap);
+//        make.width.equalTo(150);
+//        make.bottom.equalTo(self.bottomView.superview).offset(-padding);
+//    }];
+//
+//    [self.btn makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.textField.superview).offset(padding);
+//        make.right.equalTo(self.bottomView.superview).offset(-gap);
+//        make.width.equalTo(80);
+//        make.bottom.equalTo(self.bottomView.superview).offset(-padding);
+//    }];
+//}
+
 #pragma mark -funtions
 
 - (void)textDidChange:(NSNotification *)notification{
+    NSTextView * view = notification.object;
+    NSLog(@"%@", view);
+    NSLog(@"length:%@", @(view.string.length));
+
+    NSLog(@"containerSize:%@", @([view textContainer].containerSize));
+    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
+
     
-    NSLog(@"%@", notification.object);
 }
 
 #pragma mark -funtions
@@ -125,12 +188,15 @@
     if (!_textView) {
         _textView = ({
             NSTextView * view = [[NSTextView alloc]init];
-            view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+//            view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
             
+            view.horizontallyResizable = false;
+            view.verticallyResizable = true;
             view.maxSize = CGSizeMake(FLT_MAX, FLT_MAX);
             [view textContainer].containerSize = NSMakeSize(FLT_MAX, FLT_MAX);
             [view textContainer].widthTracksTextView = true;
-            
+            view.autoresizingMask = NSViewWidthSizable;
+
             view.delegate = self;
             view.backgroundColor = NSColor.yellowColor;
             view;
@@ -143,6 +209,8 @@
     if (!_textViewTwo) {
         _textViewTwo = ({
             NSTextView * view = [[NSTextView alloc]init];
+            view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+
             view.backgroundColor = NSColor.greenColor;
             view;
         });
@@ -154,8 +222,10 @@
     if (!_scrollView) {
         _scrollView = ({
             NSScrollView * view = [[NSScrollView alloc]init];
-            view.hasHorizontalScroller = true;
-            view.hasVerticalScroller = true;
+            view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+
+//            view.hasHorizontalScroller = true;
+//            view.hasVerticalScroller = true;
             view.backgroundColor = NSColor.randomColor;
             view;
         });
@@ -167,6 +237,8 @@
     if (!_scrollViewTwo) {
         _scrollViewTwo = ({
             NSScrollView * view = [[NSScrollView alloc]init];
+            view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+
             view.hasHorizontalScroller = true;
             view.hasVerticalScroller = true;
             view.backgroundColor = NSColor.randomColor;
@@ -180,6 +252,8 @@
     if (!_bottomView) {
         _bottomView = ({
             NNView *view = [[NNView alloc]init];
+            view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+
             view.layer.backgroundColor = NSColor.cyanColor.CGColor;
             
             view;
@@ -192,6 +266,8 @@
     if (!_textField) {
         _textField = ({
             NSTextField *view = [[NSTextField alloc]init];
+            view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+
 //            view.editable = false;  ///是否可编辑
             view.bordered = false;  ///是否显示边框
             view.backgroundColor = NSColor.orangeColor; ///背景色
@@ -210,6 +286,8 @@
     if (!_textFieldTwo) {
         _textFieldTwo = ({
             NSTextField *view = [[NSTextField alloc]init];
+            view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+
 //            view.editable = false;  ///是否可编辑
             view.bordered = false;  ///是否显示边框
             view.backgroundColor = NSColor.orangeColor; ///背景色
@@ -229,6 +307,8 @@
     if (!_btn) {
         _btn = ({
             NSButton *view = [[NSButton alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
+            view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+
             view.title = @"保存";
             [view setContentTintColor:NSColor.blueColor];
             [view addActionHandler:^(NSControl * _Nonnull control) {
