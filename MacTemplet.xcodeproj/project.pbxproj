@@ -1,0 +1,434 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		070967CF6BBBA408F67F8E13 /* Pods_MacTemplet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */; };
+		1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71722AB8BD400A7C5E1 /* AppDelegate.m */; };
+		1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1482F71922AB8BD500A7C5E1 /* Assets.xcassets */; };
+		1482F72022AB8BD500A7C5E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71F22AB8BD500A7C5E1 /* main.m */; };
+		1482F72A22AB8F9300A7C5E1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F72922AB8F9300A7C5E1 /* HomeViewController.m */; };
+		1482F84F22AB920C00A7C5E1 /* NSView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F84E22AB920C00A7C5E1 /* NSView+Helper.m */; };
+		1482F85522AB96CE00A7C5E1 /* NSControl+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85422AB96CE00A7C5E1 /* NSControl+Helper.m */; };
+		1482F85922AB9C2E00A7C5E1 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85722AB9C2E00A7C5E1 /* TableViewController.m */; };
+		1482F85D22ABA1CA00A7C5E1 /* NSColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85C22ABA1CA00A7C5E1 /* NSColor+Helper.m */; };
+		1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85F22ABA55F00A7C5E1 /* NNView.m */; };
+		1482F86422ABA8C100A7C5E1 /* BNTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F86322ABA8C100A7C5E1 /* BNTextView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1482F71322AB8BD400A7C5E1 /* MacTemplet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacTemplet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1482F71622AB8BD400A7C5E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1482F71722AB8BD400A7C5E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1482F71922AB8BD500A7C5E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1482F71E22AB8BD500A7C5E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1482F71F22AB8BD500A7C5E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1482F72122AB8BD500A7C5E1 /* MacTemplet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacTemplet.entitlements; sourceTree = "<group>"; };
+		1482F72722AB8EC600A7C5E1 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		1482F72822AB8F9300A7C5E1 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		1482F72922AB8F9300A7C5E1 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		1482F84D22AB920C00A7C5E1 /* NSView+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+Helper.h"; sourceTree = "<group>"; };
+		1482F84E22AB920C00A7C5E1 /* NSView+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+Helper.m"; sourceTree = "<group>"; };
+		1482F85322AB96CE00A7C5E1 /* NSControl+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSControl+Helper.h"; sourceTree = "<group>"; };
+		1482F85422AB96CE00A7C5E1 /* NSControl+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSControl+Helper.m"; sourceTree = "<group>"; };
+		1482F85622AB9C2E00A7C5E1 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		1482F85722AB9C2E00A7C5E1 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		1482F85B22ABA1CA00A7C5E1 /* NSColor+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+Helper.h"; sourceTree = "<group>"; };
+		1482F85C22ABA1CA00A7C5E1 /* NSColor+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Helper.m"; sourceTree = "<group>"; };
+		1482F85E22ABA55F00A7C5E1 /* NNView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNView.h; sourceTree = "<group>"; };
+		1482F85F22ABA55F00A7C5E1 /* NNView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNView.m; sourceTree = "<group>"; };
+		1482F86222ABA8C100A7C5E1 /* BNTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNTextView.h; sourceTree = "<group>"; };
+		1482F86322ABA8C100A7C5E1 /* BNTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNTextView.m; sourceTree = "<group>"; };
+		750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacTemplet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.debug.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.debug.xcconfig"; sourceTree = "<group>"; };
+		CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.release.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1482F71022AB8BD400A7C5E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				070967CF6BBBA408F67F8E13 /* Pods_MacTemplet.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		018E125E61B7E1C8A8B6176D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1482F70A22AB8BD400A7C5E1 = {
+			isa = PBXGroup;
+			children = (
+				1482F71522AB8BD400A7C5E1 /* MacTemplet */,
+				1482F71422AB8BD400A7C5E1 /* Products */,
+				2FC3B9408044A2619FB61A13 /* Pods */,
+				018E125E61B7E1C8A8B6176D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1482F71422AB8BD400A7C5E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1482F71322AB8BD400A7C5E1 /* MacTemplet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1482F71522AB8BD400A7C5E1 /* MacTemplet */ = {
+			isa = PBXGroup;
+			children = (
+				1482F71622AB8BD400A7C5E1 /* AppDelegate.h */,
+				1482F71722AB8BD400A7C5E1 /* AppDelegate.m */,
+				1482F85E22ABA55F00A7C5E1 /* NNView.h */,
+				1482F85F22ABA55F00A7C5E1 /* NNView.m */,
+				1482F86222ABA8C100A7C5E1 /* BNTextView.h */,
+				1482F86322ABA8C100A7C5E1 /* BNTextView.m */,
+				1482F72822AB8F9300A7C5E1 /* HomeViewController.h */,
+				1482F72922AB8F9300A7C5E1 /* HomeViewController.m */,
+				1482F85622AB9C2E00A7C5E1 /* TableViewController.h */,
+				1482F85722AB9C2E00A7C5E1 /* TableViewController.m */,
+				1482F86122ABA5A400A7C5E1 /* Cagtegory */,
+				1482F71922AB8BD500A7C5E1 /* Assets.xcassets */,
+				1482F71E22AB8BD500A7C5E1 /* Info.plist */,
+				1482F71F22AB8BD500A7C5E1 /* main.m */,
+				1482F72722AB8EC600A7C5E1 /* PrefixHeader.pch */,
+				1482F72122AB8BD500A7C5E1 /* MacTemplet.entitlements */,
+			);
+			path = MacTemplet;
+			sourceTree = "<group>";
+		};
+		1482F86122ABA5A400A7C5E1 /* Cagtegory */ = {
+			isa = PBXGroup;
+			children = (
+				1482F84D22AB920C00A7C5E1 /* NSView+Helper.h */,
+				1482F84E22AB920C00A7C5E1 /* NSView+Helper.m */,
+				1482F85322AB96CE00A7C5E1 /* NSControl+Helper.h */,
+				1482F85422AB96CE00A7C5E1 /* NSControl+Helper.m */,
+				1482F85B22ABA1CA00A7C5E1 /* NSColor+Helper.h */,
+				1482F85C22ABA1CA00A7C5E1 /* NSColor+Helper.m */,
+			);
+			path = Cagtegory;
+			sourceTree = "<group>";
+		};
+		2FC3B9408044A2619FB61A13 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */,
+				CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1482F71222AB8BD400A7C5E1 /* MacTemplet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1482F72422AB8BD500A7C5E1 /* Build configuration list for PBXNativeTarget "MacTemplet" */;
+			buildPhases = (
+				6EA340B95869B73EEE817551 /* [CP] Check Pods Manifest.lock */,
+				1482F70F22AB8BD400A7C5E1 /* Sources */,
+				1482F71022AB8BD400A7C5E1 /* Frameworks */,
+				1482F71122AB8BD400A7C5E1 /* Resources */,
+				8E323FC6F5CA9D2988D98874 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacTemplet;
+			productName = MacTemplet;
+			productReference = 1482F71322AB8BD400A7C5E1 /* MacTemplet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1482F70B22AB8BD400A7C5E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Bin Shang";
+				TargetAttributes = {
+					1482F71222AB8BD400A7C5E1 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 1482F70E22AB8BD400A7C5E1 /* Build configuration list for PBXProject "MacTemplet" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1482F70A22AB8BD400A7C5E1;
+			productRefGroup = 1482F71422AB8BD400A7C5E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1482F71222AB8BD400A7C5E1 /* MacTemplet */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1482F71122AB8BD400A7C5E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6EA340B95869B73EEE817551 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MacTemplet-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E323FC6F5CA9D2988D98874 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MacTemplet/Pods-MacTemplet-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MacTemplet/Pods-MacTemplet-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MacTemplet/Pods-MacTemplet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1482F70F22AB8BD400A7C5E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1482F86422ABA8C100A7C5E1 /* BNTextView.m in Sources */,
+				1482F85522AB96CE00A7C5E1 /* NSControl+Helper.m in Sources */,
+				1482F85922AB9C2E00A7C5E1 /* TableViewController.m in Sources */,
+				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
+				1482F72022AB8BD500A7C5E1 /* main.m in Sources */,
+				1482F84F22AB920C00A7C5E1 /* NSView+Helper.m in Sources */,
+				1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */,
+				1482F72A22AB8F9300A7C5E1 /* HomeViewController.m in Sources */,
+				1482F85D22ABA1CA00A7C5E1 /* NSColor+Helper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1482F72222AB8BD500A7C5E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1482F72322AB8BD500A7C5E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1482F72522AB8BD500A7C5E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MacTemplet/MacTemplet.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREFIX_HEADER = MacTemplet/PrefixHeader.pch;
+				INFOPLIST_FILE = MacTemplet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1482F72622AB8BD500A7C5E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MacTemplet/MacTemplet.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREFIX_HEADER = MacTemplet/PrefixHeader.pch;
+				INFOPLIST_FILE = MacTemplet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1482F70E22AB8BD400A7C5E1 /* Build configuration list for PBXProject "MacTemplet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1482F72222AB8BD500A7C5E1 /* Debug */,
+				1482F72322AB8BD500A7C5E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1482F72422AB8BD500A7C5E1 /* Build configuration list for PBXNativeTarget "MacTemplet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1482F72522AB8BD500A7C5E1 /* Debug */,
+				1482F72622AB8BD500A7C5E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1482F70B22AB8BD400A7C5E1 /* Project object */;
+}
