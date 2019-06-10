@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "NSApplication+Helper.h"
 
 @interface AppDelegate ()
 
@@ -26,9 +25,9 @@
 //    self.window.contentViewController = controller;
     NSApplication.windowDefault.contentViewController = controller;
 
-    NSLog(@"%@_%@",NSStringFromSelector(_cmd), NSApplication.sharedApplication.mainWindow);
-    NSLog(@"%@_%@",NSStringFromSelector(_cmd), NSApp.mainWindow);
-    NSLog(@"%@_%@",NSStringFromSelector(_cmd), NSApplication.windowDefault);
+//    NSLog(@"%@_%@",NSStringFromSelector(_cmd), NSApplication.sharedApplication.mainWindow);
+//    NSLog(@"%@_%@",NSStringFromSelector(_cmd), NSApp.mainWindow);
+//    NSLog(@"%@_%@",NSStringFromSelector(_cmd), NSApplication.windowDefault);
 
 }
 

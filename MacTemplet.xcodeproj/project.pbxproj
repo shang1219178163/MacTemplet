@@ -24,6 +24,8 @@
 		14F0FDA622ADF20400057093 /* NSView+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDA522ADF20400057093 /* NSView+Hook.m */; };
 		14F0FDA922AE008F00057093 /* NSApplication+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDA822AE008F00057093 /* NSApplication+Helper.m */; };
 		14F0FDAD22AE359D00057093 /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDAC22AE359D00057093 /* NSString+Helper.m */; };
+		14F0FDB022AE573800057093 /* NSSegmentedControl+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDAF22AE573800057093 /* NSSegmentedControl+Helper.m */; };
+		14F0FDB922AE662D00057093 /* NSUserDefaults+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDB822AE662D00057093 /* NSUserDefaults+Helper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,11 @@
 		14F0FDA822AE008F00057093 /* NSApplication+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSApplication+Helper.m"; sourceTree = "<group>"; };
 		14F0FDAB22AE359D00057093 /* NSString+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
 		14F0FDAC22AE359D00057093 /* NSString+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helper.m"; sourceTree = "<group>"; };
+		14F0FDAE22AE573800057093 /* NSSegmentedControl+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSSegmentedControl+Helper.h"; sourceTree = "<group>"; };
+		14F0FDAF22AE573800057093 /* NSSegmentedControl+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSSegmentedControl+Helper.m"; sourceTree = "<group>"; };
+		14F0FDB722AE662D00057093 /* NSUserDefaults+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Helper.h"; sourceTree = "<group>"; };
+		14F0FDB822AE662D00057093 /* NSUserDefaults+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Helper.m"; sourceTree = "<group>"; };
+		14F0FDBA22AE68F300057093 /* MacExpand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacExpand.h; sourceTree = "<group>"; };
 		750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacTemplet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.debug.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.debug.xcconfig"; sourceTree = "<group>"; };
 		CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.release.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +134,7 @@
 		1482F86122ABA5A400A7C5E1 /* Cagtegory */ = {
 			isa = PBXGroup;
 			children = (
+				14F0FDBA22AE68F300057093 /* MacExpand.h */,
 				14F0FDA722AE008F00057093 /* NSApplication+Helper.h */,
 				14F0FDA822AE008F00057093 /* NSApplication+Helper.m */,
 				1482F85322AB96CE00A7C5E1 /* NSControl+Helper.h */,
@@ -145,6 +153,10 @@
 				14F0FD9C22ADDD2F00057093 /* NSTextView+Helper.m */,
 				14F0FDAB22AE359D00057093 /* NSString+Helper.h */,
 				14F0FDAC22AE359D00057093 /* NSString+Helper.m */,
+				14F0FDAE22AE573800057093 /* NSSegmentedControl+Helper.h */,
+				14F0FDAF22AE573800057093 /* NSSegmentedControl+Helper.m */,
+				14F0FDB722AE662D00057093 /* NSUserDefaults+Helper.h */,
+				14F0FDB822AE662D00057093 /* NSUserDefaults+Helper.m */,
 			);
 			path = Cagtegory;
 			sourceTree = "<group>";
@@ -290,12 +302,14 @@
 				14F0FDA922AE008F00057093 /* NSApplication+Helper.m in Sources */,
 				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
 				1482F72022AB8BD500A7C5E1 /* main.m in Sources */,
+				14F0FDB922AE662D00057093 /* NSUserDefaults+Helper.m in Sources */,
 				1482F84F22AB920C00A7C5E1 /* NSView+Helper.m in Sources */,
 				14F0FD9D22ADDD3000057093 /* NSTextView+Helper.m in Sources */,
 				14F0FDA622ADF20400057093 /* NSView+Hook.m in Sources */,
 				1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */,
 				1482F72A22AB8F9300A7C5E1 /* HomeViewController.m in Sources */,
 				1482F85D22ABA1CA00A7C5E1 /* NSColor+Helper.m in Sources */,
+				14F0FDB022AE573800057093 /* NSSegmentedControl+Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

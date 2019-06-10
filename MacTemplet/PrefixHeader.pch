@@ -16,15 +16,19 @@
 
 #import "NNView.h"
 
-#import "NSView+Helper.h"
-#import "NSControl+Helper.h"
-#import "NSColor+Helper.h"
+#import "MacExpand.h"
 
 #define MAS_SHORTHAND_GLOBALS
 #define MAS_SHORTHAND
 #import "Masonry.h"
 
 
+#ifdef DEBUG
+#define DDLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#else
+#define DDLog(...)
+#endif
 
 #ifndef weakify
 #if DEBUG
