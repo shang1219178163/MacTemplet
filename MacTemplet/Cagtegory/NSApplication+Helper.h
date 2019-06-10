@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSApplication (Helper)
 
+/// 自定义mainWindow
 @property (class, nonatomic, nonnull) NSWindow *windowDefault;
 
 @end
