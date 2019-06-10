@@ -14,16 +14,9 @@
 
 @implementation TableViewController
 
-- (void)loadView{
-    //NSMakeRect(0, 0, 250, 150)
-    NSWindow *window = NSApplication.sharedApplication.mainWindow;
-    self.view = [[NSView alloc]initWithFrame:window.frame];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.view.wantsLayer = YES;
     self.view.layer.backgroundColor = NSColor.whiteColor.CGColor;
     
 }

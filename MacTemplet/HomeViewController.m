@@ -27,17 +27,11 @@
 
 @implementation HomeViewController
 
-- (void)loadView{
-    
-    NSWindow *window = NSApplication.sharedApplication.mainWindow;
-    self.view = [[NNView alloc]initWithFrame:window.frame];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
     self.title = @"Home";
-    self.view.wantsLayer = YES;
+    
     self.view.layer.backgroundColor = NSColor.lightGrayColor.CGColor;
 
     self.scrollView.documentView = self.textView;

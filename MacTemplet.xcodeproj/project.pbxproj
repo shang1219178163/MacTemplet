@@ -19,6 +19,10 @@
 		1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85F22ABA55F00A7C5E1 /* NNView.m */; };
 		1482F86422ABA8C100A7C5E1 /* BNTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F86322ABA8C100A7C5E1 /* BNTextView.m */; };
 		14F0FD9D22ADDD3000057093 /* NSTextView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FD9C22ADDD2F00057093 /* NSTextView+Helper.m */; };
+		14F0FDA022ADF12C00057093 /* NSObject+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */; };
+		14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDA222ADF14100057093 /* NSViewController+Hook.m */; };
+		14F0FDA622ADF20400057093 /* NSView+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDA522ADF20400057093 /* NSView+Hook.m */; };
+		14F0FDA922AE008F00057093 /* NSApplication+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDA822AE008F00057093 /* NSApplication+Helper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,14 @@
 		1482F86322ABA8C100A7C5E1 /* BNTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNTextView.m; sourceTree = "<group>"; };
 		14F0FD9B22ADDD2F00057093 /* NSTextView+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTextView+Helper.h"; sourceTree = "<group>"; };
 		14F0FD9C22ADDD2F00057093 /* NSTextView+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+Helper.m"; sourceTree = "<group>"; };
+		14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Hook.m"; sourceTree = "<group>"; };
+		14F0FD9F22ADF12C00057093 /* NSObject+Hook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Hook.h"; sourceTree = "<group>"; };
+		14F0FDA122ADF14100057093 /* NSViewController+Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSViewController+Hook.h"; sourceTree = "<group>"; };
+		14F0FDA222ADF14100057093 /* NSViewController+Hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSViewController+Hook.m"; sourceTree = "<group>"; };
+		14F0FDA422ADF20400057093 /* NSView+Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+Hook.h"; sourceTree = "<group>"; };
+		14F0FDA522ADF20400057093 /* NSView+Hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+Hook.m"; sourceTree = "<group>"; };
+		14F0FDA722AE008F00057093 /* NSApplication+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSApplication+Helper.h"; sourceTree = "<group>"; };
+		14F0FDA822AE008F00057093 /* NSApplication+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSApplication+Helper.m"; sourceTree = "<group>"; };
 		750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacTemplet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.debug.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.debug.xcconfig"; sourceTree = "<group>"; };
 		CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.release.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +127,14 @@
 		1482F86122ABA5A400A7C5E1 /* Cagtegory */ = {
 			isa = PBXGroup;
 			children = (
+				14F0FD9F22ADF12C00057093 /* NSObject+Hook.h */,
+				14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */,
+				14F0FDA122ADF14100057093 /* NSViewController+Hook.h */,
+				14F0FDA222ADF14100057093 /* NSViewController+Hook.m */,
+				14F0FDA722AE008F00057093 /* NSApplication+Helper.h */,
+				14F0FDA822AE008F00057093 /* NSApplication+Helper.m */,
+				14F0FDA422ADF20400057093 /* NSView+Hook.h */,
+				14F0FDA522ADF20400057093 /* NSView+Hook.m */,
 				1482F84D22AB920C00A7C5E1 /* NSView+Helper.h */,
 				1482F84E22AB920C00A7C5E1 /* NSView+Helper.m */,
 				1482F85322AB96CE00A7C5E1 /* NSControl+Helper.h */,
@@ -248,13 +268,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F0FDA022ADF12C00057093 /* NSObject+Hook.m in Sources */,
 				1482F86422ABA8C100A7C5E1 /* BNTextView.m in Sources */,
+				14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */,
 				1482F85522AB96CE00A7C5E1 /* NSControl+Helper.m in Sources */,
 				1482F85922AB9C2E00A7C5E1 /* TableViewController.m in Sources */,
+				14F0FDA922AE008F00057093 /* NSApplication+Helper.m in Sources */,
 				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
 				1482F72022AB8BD500A7C5E1 /* main.m in Sources */,
 				1482F84F22AB920C00A7C5E1 /* NSView+Helper.m in Sources */,
 				14F0FD9D22ADDD3000057093 /* NSTextView+Helper.m in Sources */,
+				14F0FDA622ADF20400057093 /* NSView+Hook.m in Sources */,
 				1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */,
 				1482F72A22AB8F9300A7C5E1 /* HomeViewController.m in Sources */,
 				1482F85D22ABA1CA00A7C5E1 /* NSColor+Helper.m in Sources */,
