@@ -21,7 +21,7 @@ static NSWindow *_windowDefault = nil;
             CGFloat screenWidth = NSScreen.mainScreen.frame.size.width;
             CGFloat screenHeight = NSScreen.mainScreen.frame.size.height;
             
-            NSWindow * window = [[NSWindow alloc]initWithContentRect:CGRectMake(0, 0, screenWidth*0.4, screenHeight*0.4) styleMask:style backing:NSBackingStoreBuffered defer:YES];
+            NSWindow * window = [[NSWindow alloc]initWithContentRect:CGRectMake(0, 0, screenWidth*0.4, screenHeight*0.4) styleMask:style backing:NSBackingStoreBuffered defer:true];
             window.contentMinSize = window.frame.size;
             window.title = @"Main Window";
             [window makeKeyAndOrderFront:self]; //设置 NSApplication.sharedApplication.mainWindow
