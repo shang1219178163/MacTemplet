@@ -27,7 +27,8 @@
     NSApplication.windowDefault.contentViewController = controller;
 
     NSLog(@"%@_%@",NSStringFromSelector(_cmd), NSApplication.sharedApplication.mainWindow);
-//    NSLog(@"%@_%@",NSStringFromSelector(_cmd), self.window);
+    NSLog(@"%@_%@",NSStringFromSelector(_cmd), NSApp.mainWindow);
+    NSLog(@"%@_%@",NSStringFromSelector(_cmd), NSApplication.windowDefault);
 
 }
 
