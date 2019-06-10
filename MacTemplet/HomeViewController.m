@@ -42,7 +42,7 @@
 
     self.scrollView.documentView = self.textView;
     [self.view addSubview:self.scrollView];
-    
+
     self.scrollViewTwo.documentView = self.textViewTwo;
     [self.view addSubview:self.scrollViewTwo];
     
@@ -53,6 +53,11 @@
 
 
     self.list = @[self.scrollView, self.scrollViewTwo];
+    
+    
+    self.textView.string = @"上一次高光时刻，与微博很早就意识到下沉用户的重要性，以及提早布局直播和短视频有关。2014年，微博便将渠道下沉作为首要任务。赴港上市的路演PPT中，“用户拓展向三四线下沉”被列入未来的三大战略之一。2016年11月，微博1.2亿美元投资一下科技，通过后者的一直播和秒拍入局直播及短视频领域。同时，微博频繁对信息流进行改版，在社交关系中加入算法，微博2016年Q2的月活达到2.82亿，仅次于微信、QQ等应用。上一次高光时刻，与微博很早就意识到下沉用户的重要性，以及提早布局直播和短视频有关。2014年，微博便将渠道下沉作为首要任务。赴港上市的路演PPT中，“用户拓展向三四线下沉”被列入未来的三大战略之一。2016年11月，微博1.2亿美元投资一下科技，通过后者的一直播和秒拍入局直播及短视频领域。同时，微博频繁对信息流进行改版，在社交关系中加入算法，微博2016年Q2的月活达到2.82亿，仅次于微信、QQ等应用。上一次高光时刻，与微博很早就意识到下沉用户的重要性，以及提早布局直播和短视频有关。2014年，微博便将渠道下沉作为首要任务。赴港上市的路演PPT中，“用户拓展向三四线下沉”被列入未来的三大战略之一。2016年11月，微博1.2亿美元投资一下科技，通过后者的一直播和秒拍入局直播及短视频领域。同时，微博频繁对信息流进行改版，在社交关系中加入算法，微博2016年Q2的月活达到2.82亿，仅次于微信、QQ等应用。上一次高光时刻，与微博很早就意识到下沉用户的重要性，以及提早布局直播和短视频有关。2014年，微博便将渠道下沉作为首要任务。赴港上市的路演PPT中，“用户拓展向三四线下沉”被列入未来的三大战略之一。2016年11月，微博1.2亿美元投资一下科技，通过后者的一直播和秒拍入局直播及短视频领域。同时，微博频繁对信息流进行改版，在社交关系中加入算法，微博2016年Q2的月活达到2.82亿，仅次于微信、QQ等应用。上一次高光时刻，与微博很早就意识到下沉用户的重要性，以及提早布局直播和短视频有关。2014年，微博便将渠道下沉作为首要任务。赴港上市的路演PPT中，“用户拓展向三四线下沉”被列入未来的三大战略之一。2016年11月，微博1.2亿美元投资一下科技，通过后者的一直播和秒拍入局直播及短视频领域。同时，微博频繁对信息流进行改版，在社交关系中加入算法，微博2016年Q2的月活达到2.82亿，仅次于微信、QQ等应用。演PPT中，“用户拓展向三四线下沉”被列入未来的三大战略之一。2016年11月，微博1.2亿美元投资一下科技，通过后者的一直播和秒拍入局直播及短视频领域。同时，微博频繁对信息流进行改版，在社交关系中加入算法，微博2016年Q2的月活达到2.82亿，仅次于微信、QQ等应用。上一次高光时刻，与微博很早就意识到下沉用户的重要性，以及提早布局直播和短视频有关。2014年，微博便将渠道下沉作为首要任务。赴港上市的路演PPT中，“用户拓展向三四线下沉”被列入未来的三大战略之一。2016年11月，微博1.2亿美元投资一下科技，通过后者的一直播和秒拍入局直播及短视频领域。同时，微博频繁对信息流进行改版，在社交关系中加入算法，微博2016年Q2的月活达到2.82亿，仅次于微信、QQ等应用。上一次高光时刻，与微博很早就意识到下沉用户的重要性，以及提早布局直播和短视频有关。2014年，微博便将渠道下沉作为首要任务。赴港上市的路演PPT中，“用户拓展向三四线下沉”被列入未来的三大战略之一。2016年11月，微博1.2亿美元投资一下科技，通过后者的一直播和秒拍入局直播及短视频领域。同时，微博频繁对信息流进行改版，在社交关系中加入算法，微博2016年Q2的月活达到2.82亿，仅次于微信、QQ等应用。=====================";
+    
+    
     [self.view getViewLayer];
 }
 
@@ -103,75 +108,16 @@
         make.width.equalTo(80);
         make.bottom.equalTo(self.bottomView.superview).offset(-padding);
     }];
+    
 }
-
-//-(void)viewDidLayout{
-//    [super viewDidLayout];
-//
-//    CGFloat width = CGRectGetWidth(self.view.frame);
-//    CGFloat height = CGRectGetHeight(self.view.frame);
-//    CGFloat padding = 8;
-//    CGFloat bottom = 50;
-//    CGFloat gap = 15;
-//
-//    NSWindow *window = NSApplication.sharedApplication.mainWindow;
-//
-//    NSLog(@"%@_%@", @(width),@(window.frame));
-//
-//
-//    [self.scrollView makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.scrollView.superview);
-//        make.left.equalTo(self.scrollView.superview);
-//        make.width.equalTo((width - padding)/2.0);
-//        make.bottom.equalTo(self.scrollView.superview).offset(-50);
-//    }];
-//
-//    [self.textView makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.scrollView);
-//    }];
-//
-//    [self.scrollViewTwo makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.scrollViewTwo.superview);
-//        make.left.equalTo(self.scrollView.right).offset(padding);
-//        make.right.equalTo(self.scrollViewTwo.superview);
-//        make.bottom.equalTo(self.scrollView.bottom);
-//    }];
-//
-//    [self.textViewTwo makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.scrollViewTwo);
-//    }];
-//
-//    [self.bottomView makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.scrollView.bottom).offset(padding);
-//        make.left.right.equalTo(self.bottomView.superview);
-//        make.bottom.equalTo(self.bottomView.superview);
-//    }];
-//
-//    [self.textField makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.textField.superview).offset(padding);
-//        make.left.equalTo(self.bottomView.superview).offset(gap);
-//        make.width.equalTo(150);
-//        make.bottom.equalTo(self.bottomView.superview).offset(-padding);
-//    }];
-//
-//    [self.btn makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.textField.superview).offset(padding);
-//        make.right.equalTo(self.bottomView.superview).offset(-gap);
-//        make.width.equalTo(80);
-//        make.bottom.equalTo(self.bottomView.superview).offset(-padding);
-//    }];
-//}
 
 #pragma mark -funtions
 
 - (void)textDidChange:(NSNotification *)notification{
     NSTextView * view = notification.object;
-    NSLog(@"%@", view);
     NSLog(@"length:%@", @(view.string.length));
-
-    NSLog(@"containerSize:%@", @([view textContainer].containerSize));
-    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
-
+    NSLog(@"containerSize:%@", @(view.textContainer.containerSize));
+//    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
     
 }
 
@@ -193,12 +139,18 @@
             view.horizontallyResizable = false;
             view.verticallyResizable = true;
             view.maxSize = CGSizeMake(FLT_MAX, FLT_MAX);
-            [view textContainer].containerSize = NSMakeSize(FLT_MAX, FLT_MAX);
-            [view textContainer].widthTracksTextView = true;
+//            view.textContainer.containerSize = NSMakeSize(FLT_MAX, FLT_MAX);
+            view.textContainer.widthTracksTextView = true;
             view.autoresizingMask = NSViewWidthSizable;
 
             view.delegate = self;
             view.backgroundColor = NSColor.yellowColor;
+            view.selectable = true;
+            view.drawsBackground = true;
+            
+            view.font = [NSFont systemFontOfSize:17];
+            view.string = @"NSScrollView上无法滚动的NSTextView";
+            
             view;
         });
     }
@@ -225,7 +177,7 @@
             view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
 
 //            view.hasHorizontalScroller = true;
-//            view.hasVerticalScroller = true;
+            view.hasVerticalScroller = true;
             view.backgroundColor = NSColor.randomColor;
             view;
         });
