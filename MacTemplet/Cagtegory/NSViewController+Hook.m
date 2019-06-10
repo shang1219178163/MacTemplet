@@ -24,6 +24,8 @@
 - (void)hook_loadView{
     NSWindow *window = NSApplication.sharedApplication.mainWindow;
     self.view = [[NNView alloc]initWithFrame:window.frame];
+    self.view.layer.backgroundColor = NSColor.lightGrayColor.CGColor;
+
     NSLog(@"%@_%@",NSStringFromSelector(_cmd), window);
 
 }

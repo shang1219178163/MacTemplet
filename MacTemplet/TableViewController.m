@@ -17,7 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.view.layer.backgroundColor = NSColor.whiteColor.CGColor;
     
 }
 

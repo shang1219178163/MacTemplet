@@ -32,8 +32,6 @@
     // Do view setup here.
     self.title = @"Home";
     
-    self.view.layer.backgroundColor = NSColor.lightGrayColor.CGColor;
-
     self.scrollView.documentView = self.textView;
     [self.view addSubview:self.scrollView];
 
