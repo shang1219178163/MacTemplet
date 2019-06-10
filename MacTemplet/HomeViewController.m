@@ -170,7 +170,7 @@
             NSScrollView * view = [[NSScrollView alloc]init];
             view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
 
-//            view.hasHorizontalScroller = true;
+            view.hasHorizontalScroller = false;
             view.hasVerticalScroller = true;
             view.backgroundColor = NSColor.yellowColor;
             view;
@@ -185,7 +185,7 @@
             NSScrollView * view = [[NSScrollView alloc]init];
             view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
 
-            view.hasHorizontalScroller = true;
+            view.hasHorizontalScroller = false;
             view.hasVerticalScroller = true;
             view.backgroundColor = NSColor.greenColor;
             view;
