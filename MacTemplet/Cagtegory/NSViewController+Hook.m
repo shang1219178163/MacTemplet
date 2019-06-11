@@ -26,7 +26,7 @@
     self.view = [[NNView alloc]initWithFrame:window.frame];
     self.view.layer.backgroundColor = NSColor.lightGrayColor.CGColor;
 
-    NSLog(@"%@_%@",NSStringFromSelector(_cmd), window);
+//    NSLog(@"%@_%@",NSStringFromSelector(_cmd), window);
 
 }
 
