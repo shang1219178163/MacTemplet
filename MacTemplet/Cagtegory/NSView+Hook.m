@@ -11,36 +11,21 @@
 
 @implementation NSView (Hook)
 
-//+ (void)initialize{
-//    if (self == self.class) {
-//        static dispatch_once_t onceToken;
-//        dispatch_once(&onceToken, ^{
-//            Ivar nameIvar = class_getInstanceVariable(self.class, "_wantsLayer");
-//            object_setIvar(self.class, nameIvar, @(true));
-//            NSLog(@"%@", object_getIvar(self.class, nameIvar));
-//                  
-//            [self swizzleMethodInstance:self.class origSel:@selector(init:) replSel:@selector(hook_init:)];
-//            [self swizzleMethodInstance:self.class origSel:@selector(initWithFrame:) replSel:@selector(hook_initWithFrame:)];
-//
-////            SwizzleMethodInstance(@"NSView", @selector(init), @selector(hook_init));
-//            
-//        });
-//    }
-//}
++ (void)initialize{
+    if (self == self.class) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            [self swizzleMethodInstance:self.class origSel:@selector(viewDidMoveToSuperview) replSel:@selector(hook_viewDidMoveToSuperview)];
 
+        });
+    }
+}
 
-
-//
-//- (void)hook_setWantsLayer:(BOOL)wantsLayer{
-//
-//}
-
-// 我们自己实现的方法，也就是和self的viewDidLoad方法进行交换的方法。
-//- (instancetype)hook_init{
-//  
-//    [self hook_init];
-//    
-//}
+- (void)hook_viewDidMoveToSuperview{
+    self.wantsLayer = true;
+    [self hook_viewDidMoveToSuperview];
+    
+}
 
 
 @end

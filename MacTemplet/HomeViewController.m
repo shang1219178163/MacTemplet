@@ -252,7 +252,6 @@ NSString *const kDefaultsPodName = @"keyPodName";
             view.font = [NSFont systemFontOfSize:17];
             view.cell.wraps = false;
             view.cell.scrollable = true;
-
             //            view.delegate = self;
             view;
         });

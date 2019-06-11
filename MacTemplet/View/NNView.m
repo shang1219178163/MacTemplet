@@ -10,25 +10,6 @@
 
 @implementation NNView
 
-- (instancetype)init{
-    self = [super init];
-    if (self) {
-        self.wantsLayer = true;
-        
-    }
-    return self;
-}
-
-- (instancetype)initWithFrame:(NSRect)frame{
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.wantsLayer = true;
-
-    }
-    return self;
-}
-
-
 - (BOOL)isFlipped{
     return YES;
 }

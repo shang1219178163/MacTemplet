@@ -27,11 +27,11 @@
 //    return [super resolveInstanceMethod:sel];
 //}
 
-- (CGRect)adjustedFrameToVerticallyCenter:(CGRect)rect {
-    CGFloat fontSize = self.font.boundingRectForFont.size.height;
-    NSInteger offset = floor((NSHeight(rect) - ceilf(fontSize))/2);
-    NSRect centeredRect = NSInsetRect(rect, 0, offset);
-    return centeredRect;
-}
+//- (CGRect)adjustedFrameToVerticallyCenter:(CGRect)rect {
+//    CGFloat fontSize = self.font.boundingRectForFont.size.height;
+//    NSInteger offset = floor((NSHeight(rect) - ceilf(fontSize))/2);
+//    NSRect centeredRect = NSInsetRect(rect, 0, offset);
+//    return centeredRect;
+//}
 
 @end
