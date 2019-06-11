@@ -1,5 +1,5 @@
 //
-//  NSTextFieldCell+Helper.h
+//  NSScrollView+Helper.h
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/11.
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSTextFieldCell (Helper)
+@interface NSScrollView (Helper)
 
-//- (CGRect)adjustedFrameToVerticallyCenter:(CGRect)rect;
+- (void)scrollToTop;
 
 @end
 

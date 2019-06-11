@@ -15,6 +15,7 @@
 #import "NSColor+Helper.h"
 #import "NSControl+Helper.h"
 #import "NSObject+Hook.h"
+#import "NSScrollView+Helper.h"
 #import "NSSegmentedControl+Helper.h"
 #import "NSString+Helper.h"
 #import "NSTextView+Helper.h"
