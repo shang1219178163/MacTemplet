@@ -1,2 +1,2 @@
 # MacTemplet
-MacApp自学
+MacApp项目
