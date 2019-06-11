@@ -14,6 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getViewLayer;
 
++(NSTextField *)createTextFieldRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder;
+
++(NSTextView *)createTextViewRect:(CGRect)rect text:(NSString *)text;
+
++(NSImageView *)createImgViewRect:(CGRect)rect image:(id)image;
+
 @end
 
 NS_ASSUME_NONNULL_END

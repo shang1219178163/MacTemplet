@@ -18,6 +18,8 @@
 #import "NSScrollView+Helper.h"
 #import "NSSegmentedControl+Helper.h"
 #import "NSString+Helper.h"
+#import "NSTableColumn+Helper.h"
+
 #import "NSTextView+Helper.h"
 #import "NSTextFieldCell+Helper.h"
 
@@ -25,5 +27,6 @@
 #import "NSView+Helper.h"
 #import "NSView+Hook.h"
 #import "NSViewController+Hook.h"
+#import "NSWindow+Helper.h"
 
 #endif /* MacExpand_h */

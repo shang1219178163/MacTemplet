@@ -21,8 +21,10 @@
 
     
     NSString * controllerName = @"HomeViewController";
+    controllerName = @"FirstViewController";
+    
     NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
-//    self.window.contentViewController = controller;
+    
     NSApplication.windowDefault.contentViewController = controller;
     NSApplication.windowDefault.title = NSApplication.appName;
 //    DDLog(@"%@",NSApplication.sharedApplication.mainWindow);
@@ -31,9 +33,15 @@
 
 }
 
-
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
+}
+/// 点击dock图标重新弹出窗口方法
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
+    NSLog(@"hasVisibleWindows:%d",flag);
+    [NSApp activateIgnoringOtherApps:false];//取消其他程序的响应
+    [NSApp.mainWindow makeKeyAndOrderFront:self];//主窗口显示自己方法一
+    return YES;
 }
 
 

@@ -16,20 +16,20 @@ static NSWindow *_windowDefault = nil;
 
 +(NSWindow *)windowDefault{
     if (!_windowDefault) {
-        _windowDefault = ({
-            //窗口 关闭，缩小，放大等功能，根据需求自行组合
-            NSUInteger style = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
-            CGFloat screenWidth = NSScreen.mainScreen.frame.size.width;
-            CGFloat screenHeight = NSScreen.mainScreen.frame.size.height;
-            
-            NSWindow * window = [[NSWindow alloc]initWithContentRect:CGRectMake(0, 0, screenWidth*0.4, screenHeight*0.4) styleMask:style backing:NSBackingStoreBuffered defer:true];
-            window.contentMinSize = window.frame.size;
-            window.title = @"Main Window";
-            [window makeKeyAndOrderFront:self]; //设置 NSApplication.sharedApplication.mainWindow
-            [window center];
-            
-            window;
-        });
+        _windowDefault = [NSWindow createWithTitle:@"Main Window"];
+//        _windowDefault = ({
+//            //窗口 关闭，缩小，放大等功能，根据需求自行组合
+//            NSUInteger style = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
+//            CGFloat screenWidth = NSScreen.mainScreen.frame.size.width;
+//            CGFloat screenHeight = NSScreen.mainScreen.frame.size.height;
+//
+//            NSWindow * window = [[NSWindow alloc]initWithContentRect:CGRectMake(0, 0, screenWidth*0.4, screenHeight*0.4) styleMask:style backing:NSBackingStoreBuffered defer:true];
+//            window.contentMinSize = window.frame.size;
+//            window.title = @"Main Window";
+//            [window makeKeyAndOrderFront:self]; //设置 NSApplication.sharedApplication.mainWindow
+//            [window center];
+//            window;
+//        });
     }
     return _windowDefault;
 }
