@@ -9,6 +9,7 @@
 #import "NSApplication+Helper.h"
 #import <objc/runtime.h>
 
+
 @implementation NSApplication (Helper)
 
 static NSWindow *_windowDefault = nil;
@@ -17,7 +18,7 @@ static NSWindow *_windowDefault = nil;
     if (!_windowDefault) {
         _windowDefault = ({
             //窗口 关闭，缩小，放大等功能，根据需求自行组合
-            NSUInteger style =  NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
+            NSUInteger style = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
             CGFloat screenWidth = NSScreen.mainScreen.frame.size.width;
             CGFloat screenHeight = NSScreen.mainScreen.frame.size.height;
             
@@ -37,5 +38,26 @@ static NSWindow *_windowDefault = nil;
     _windowDefault = windowDefault;
 }
 
++(NSString *)appName{
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
+    return  infoDict[@"CFBundleDisplayName"] ? : infoDict[@"CFBundleName"];
+}
+
++(NSImage *)appIcon{
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
+    NSString *icon = [[infoDict valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject];
+    NSImage * image = [NSImage imageNamed:icon];
+    return image;
+}
+
++(NSString *)appVer{
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
+    return  infoDict[@"CFBundleShortVersionString"];
+}
+
++(NSString *)appBuild{
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
+    return  infoDict[@"CFBundleVersion"];
+}
 
 @end

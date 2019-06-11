@@ -15,6 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 自定义mainWindow
 @property (class, nonatomic, nonnull) NSWindow *windowDefault;
 
+@property (class, readonly, nullable) NSString *appName;
+@property (class, readonly, nullable) NSImage *appIcon;
+@property (class, readonly, nullable) NSString *appVer;
+@property (class, readonly, nullable) NSString *appBuild;
+
 @end
 
 NS_ASSUME_NONNULL_END

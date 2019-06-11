@@ -24,10 +24,10 @@
     NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
 //    self.window.contentViewController = controller;
     NSApplication.windowDefault.contentViewController = controller;
-
-//    NSLog(@"%@_%@",NSStringFromSelector(_cmd), NSApplication.sharedApplication.mainWindow);
-//    NSLog(@"%@_%@",NSStringFromSelector(_cmd), NSApp.mainWindow);
-//    NSLog(@"%@_%@",NSStringFromSelector(_cmd), NSApplication.windowDefault);
+    NSApplication.windowDefault.title = NSApplication.appName;
+//    DDLog(@"%@",NSApplication.sharedApplication.mainWindow);
+//    DDLog(@"%@",NSApp.mainWindow);
+//    DDLog(@"%@",NSApplication.windowDefault);
 
 }
 

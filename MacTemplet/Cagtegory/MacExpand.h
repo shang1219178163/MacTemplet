@@ -18,6 +18,8 @@
 #import "NSSegmentedControl+Helper.h"
 #import "NSString+Helper.h"
 #import "NSTextView+Helper.h"
+#import "NSTextFieldCell+Helper.h"
+
 #import "NSUserDefaults+Helper.h"
 #import "NSView+Helper.h"
 #import "NSView+Hook.h"

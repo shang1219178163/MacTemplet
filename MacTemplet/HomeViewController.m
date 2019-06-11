@@ -74,7 +74,7 @@ NSString *const kDefaultsPodName = @"keyPodName";
     [self.list mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:padding leadSpacing:0 tailSpacing:0];
     [self.list mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.scrollView.superview);
-        make.bottom.equalTo(self.scrollView.superview).offset(-50);
+        make.bottom.equalTo(self.scrollView.superview).offset(-55);
     }];
     
     [self.textView makeConstraints:^(MASConstraintMaker *make) {
@@ -108,14 +108,14 @@ NSString *const kDefaultsPodName = @"keyPodName";
     
     [self.popBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.superview).offset(padding);
-        make.right.equalTo(self.btn.left).offset(-padding);
+        make.right.equalTo(self.btn.left).offset(-gap);
         make.width.equalTo(120);
         make.bottom.equalTo(self.bottomView.superview).offset(-padding);
     }];
     
     [self.segmentCtl makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.superview).offset(padding);
-        make.right.equalTo(self.popBtn.left).offset(-padding);
+        make.right.equalTo(self.popBtn.left).offset(-gap);
         make.width.equalTo(150);
         make.bottom.equalTo(self.bottomView.superview).offset(-padding);
     }];
@@ -133,18 +133,17 @@ NSString *const kDefaultsPodName = @"keyPodName";
 
 #pragma mark -funtions
 
-- (void)controlTextDidChange:(NSNotification *)obj {
-    // You can get the NSTextField, which is calling the method, through the userInfo dictionary.
-    NSTextField *textField = (NSTextField *)obj.object;
-    DDLog(@"%@",textField.stringValue);
-}
-
-- (void)controlTextDidEndEditing:(NSNotification *)obj{
-    NSTextField *textField = (NSTextField *)obj.object;
-    DDLog(@"%@",textField.stringValue);
-}
-
-
+//- (void)controlTextDidChange:(NSNotification *)obj {
+//    // You can get the NSTextField, which is calling the method, through the userInfo dictionary.
+//    NSTextField *textField = (NSTextField *)obj.object;
+//    DDLog(@"%@",textField.stringValue);
+//}
+//
+//- (void)controlTextDidEndEditing:(NSNotification *)obj{
+//    NSTextField *textField = (NSTextField *)obj.object;
+//    DDLog(@"%@",textField.stringValue);
+//}
+//
 //- (void)hanldeAction:(NSButton *)sender{
 //    NSLog(@"%@", sender);
 //}
@@ -246,12 +245,15 @@ NSString *const kDefaultsPodName = @"keyPodName";
             view.backgroundColor = NSColor.orangeColor; ///背景色
             view.textColor = NSColor.whiteColor;
             view.alignment = NSTextAlignmentCenter;
-            view.usesSingleLineMode = true;
-            view.alignment = NSTextAlignmentNatural;
+//            view.alignment = NSTextAlignmentNatural;
             view.drawsBackground = true;
             view.placeholderString = @"Class Prefix";
             view.stringValue = @"";
-            view.delegate = self;
+            view.font = [NSFont systemFontOfSize:17];
+            view.cell.wraps = false;
+            view.cell.scrollable = true;
+
+            //            view.delegate = self;
             view;
         });
     }
