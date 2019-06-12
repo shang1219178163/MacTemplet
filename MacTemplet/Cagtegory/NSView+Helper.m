@@ -27,6 +27,24 @@
     }
 }
 
++(NSImageView *)createImgViewRect:(CGRect)rect image:(id)image{
+    assert([image isKindOfClass:NSImage.class] || [image isKindOfClass:NSString.class]);
+    NSImageView *view = [[NSImageView alloc] init];
+    view.frame = rect;
+    
+    view.imageFrameStyle = NSImageFramePhoto;
+    view.imageScaling = NSImageScaleNone;
+    view.image = [image isKindOfClass:NSImage.class] ? image : [NSImage imageNamed:image];
+    
+    //图片内容对于ImageView内的位置
+    view.imageAlignment = NSImageAlignCenter;
+    //能否直接将图片拖到一个NSImageView类里
+    view.editable = true;
+    //能否对图片内容进行剪切、复制、粘贴行操作
+    view.allowsCutCopyPaste = true;
+    return view;
+}
+
 +(NSTextField *)createTextFieldRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder{
     NSTextField *view = [[NSTextField alloc]init];
     view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
@@ -64,22 +82,26 @@
     return view;
 }
 
-+(NSImageView *)createImgViewRect:(CGRect)rect image:(id)image{
-    assert([image isKindOfClass:NSImage.class] || [image isKindOfClass:NSString.class]);
-    NSImageView *view = [[NSImageView alloc] init];
++(NSScrollView *)createScrollViewRect:(CGRect)rect{
+    NSScrollView *view = [[NSScrollView alloc] init];
     view.frame = rect;
+    view.backgroundColor = NSColor.redColor;
     
-    view.imageFrameStyle = NSImageFramePhoto;
-    view.imageScaling = NSImageScaleNone;
-    view.image = [image isKindOfClass:NSImage.class] ? image : [NSImage imageNamed:image];
-
-    //图片内容对于ImageView内的位置
-    view.imageAlignment = NSImageAlignCenter;
-    //能否直接将图片拖到一个NSImageView类里
-    view.editable = true;
-    //能否对图片内容进行剪切、复制、粘贴行操作
-    view.allowsCutCopyPaste = true;
+    view.drawsBackground = false;//不画背景（背景默认画成白色）
+    view.hasHorizontalScroller = true;
+    view.hasVerticalScroller = true;
+    view.autohidesScrollers = YES;//自动隐藏滚动条（滚动的时候出现）
     return view;
 }
 
++(NSTableView *)createTableViewRect:(CGRect)rect{
+    NSTableView *view = [[NSTableView alloc] init];
+    view.frame = rect;
+    view.focusRingType = NSFocusRingTypeNone;//tableview获得焦点时的风格
+    view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleRegular;//行高亮的风格
+    view.backgroundColor = NSColor.orangeColor;
+    view.usesAlternatingRowBackgroundColors = YES; //背景颜色的交替，一行白色，一行灰色。设置后，原来设置的 backgroundColor 就无效了。
+    view.gridColor = NSColor.redColor;
+    return view;
+}
 @end

@@ -84,14 +84,14 @@ NSString *const kDefaultsPodName = @"keyPodName";
         make.bottom.equalTo(self.scrollView.superview).offset(-50);
     }];
     
-    [self.textView makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.scrollView);
-    }];
-
-    
-    [self.textViewTwo makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.scrollViewTwo);
-    }];
+//    [self.textView makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.scrollView);
+//    }];
+//
+//    
+//    [self.textViewTwo makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.scrollViewTwo);
+//    }];
     
     [self.bottomView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.scrollView.bottom).offset(padding);

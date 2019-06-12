@@ -7,11 +7,11 @@
 //
 
 #import "TableViewController.h"
+#import "NNTableView.h"
 
 @interface TableViewController ()<NSTableViewDelegate, NSTableViewDataSource>
 
-@property (nonatomic, strong) NSTableView *tableView;
-@property (nonatomic, strong) NSScrollView *tableScrollView;
+@property (nonatomic, strong) NNTableView *tableView;
 
 @property (nonatomic, strong) NSArray *list;
 
@@ -22,19 +22,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.view.wantsLayer = true;
+//    self.view.wantsLayer = true;
 //    self.view.layer.backgroundColor = NSColor.redColor.CGColor;
     
+    DDLog(@"%@",self.tableView.enclosingScrollView);
     [self setupTableView];
-    [self.view addSubview:self.tableScrollView];
+//    [self.view addSubview:self.tableScrollView];
+    [self.view addSubview:self.tableView.enclosingScrollView];
 
 }
 
 - (void)viewDidLayout{
     [super viewDidLayout];
     
-    [self.tableScrollView makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.tableScrollView.superview);
+    [self.tableView.enclosingScrollView makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.tableView.enclosingScrollView.superview);
     }];
 }
 
@@ -54,7 +56,13 @@
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
     return 60;
 }
-
+//// 使用默认cell显示数据
+//-(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
+//    NSInteger item = [tableView.tableColumns indexOfObject:tableColumn];
+//    NSArray * array = self.list[row];
+//    return array[item];
+//}
+//// 使用自定义cell显示数据
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     
     NSInteger item = [tableView.tableColumns indexOfObject:tableColumn];
@@ -62,52 +70,27 @@
     
     //获取表格列的标识符
     NSString *columnID = tableColumn.identifier;
-    NSLog(@"columnID : %@ ,row : %d",columnID,row);
+    NSLog(@"columnID : %@ ,row : %ld",columnID,row);
     
     static NSString *cellIdentifier = @"one";
-    NSTableCellView *cell = [tableView makeViewWithIdentifier:cellIdentifier owner:self];
-    if (!cell) {
-        cell = [[NSTableCellView alloc]init];
-        cell.identifier = cellIdentifier;
-    }
-    
-    cell.wantsLayer = YES;
-    cell.layer.backgroundColor = NSColor.yellowColor.CGColor;
-    
-//    cell.imageView.image = [NSImage imageNamed:@"swift"];
-    cell.textField.stringValue = [NSString stringWithFormat:@"cell %ld",(long)row];
-    cell.textField.stringValue = [NSString stringWithFormat:@"%@",array[item]];
-    NSTextField * textField = [NSView createTextFieldRect:cell.bounds text:array[item] placeholder:@""];
-    
-    DDLog(@"%@", array[item]);
-//    cell.textField = textField;
-    [cell addSubview:textField];
-    
-    
-    return cell;
-}
-
-//-(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
-//
-//    //获取表格列的标识符
-//    NSString *columnID = tableColumn.identifier;
-//    NSLog(@"columnID : %@ ,row : %d",columnID,row);
-//
-//    static NSString *cellIdentifier = @"one";
+    NSTableCellView *cell = [NSTableCellView viewWithTableView:tableView identifier:cellIdentifier owner:self];
 //    NSTableCellView *cell = [tableView makeViewWithIdentifier:cellIdentifier owner:self];
 //    if (!cell) {
 //        cell = [[NSTableCellView alloc]init];
 //        cell.identifier = cellIdentifier;
+//        cell.wantsLayer = YES;
 //    }
-//
-//    cell.wantsLayer = YES;
-//    cell.layer.backgroundColor = NSColor.yellowColor.CGColor;
-//
-//    cell.imageView.image = [NSImage imageNamed:@"swift"];
-//    cell.textField.stringValue = [NSString stringWithFormat:@"cell %ld",(long)row];
-//
-//    return cell;
-//}
+    
+    cell.layer.backgroundColor = NSColor.yellowColor.CGColor;
+    
+    //    cell.imageView.image = [NSImage imageNamed:@"swift"];
+    cell.textField.stringValue = [NSString stringWithFormat:@"cell %ld",(long)row];
+    cell.textField.stringValue = [NSString stringWithFormat:@"%@",array[item]];
+    
+    NSTextField * textField = [NSView createTextFieldRect:cell.bounds text:array[item] placeholder:@""];
+    [cell addSubview:textField];
+    return cell;
+}
 
 #pragma mark - 是否可以选中单元格
 -(BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row{
@@ -148,10 +131,10 @@
 
 #pragma mark -lazy
 
--(NSTableView *)tableView{
+-(NNTableView *)tableView{
     if (!_tableView) {
         _tableView = ({
-            NSTableView *view = [[NSTableView alloc] init];
+            NNTableView *view = [[NNTableView alloc] init];
             view.focusRingType = NSFocusRingTypeNone;//tableview获得焦点时的风格
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleRegular;//行高亮的风格
             view.backgroundColor = NSColor.orangeColor;
@@ -163,23 +146,6 @@
         });
     }
     return _tableView;
-}
-
--(NSScrollView *)tableScrollView{
-    if (!_tableScrollView) {
-        _tableScrollView = ({
-            NSScrollView *view = [[NSScrollView alloc] initWithFrame:CGRectMake(5, 5, 300, 300)];
-            view.backgroundColor = [NSColor redColor];
-            
-            view.documentView = self.tableView;
-            view.drawsBackground = false;//不画背景（背景默认画成白色）
-            view.hasHorizontalScroller = true;
-            view.hasVerticalScroller = true;
-            view.autohidesScrollers = YES;//自动隐藏滚动条（滚动的时候出现）
-            view;
-        });
-    }
-    return _tableScrollView;
 }
 
 - (NSArray *)list{

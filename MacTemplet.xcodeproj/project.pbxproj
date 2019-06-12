@@ -32,6 +32,10 @@
 		14F0FDD022AFA56900057093 /* OneWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDCE22AFA56900057093 /* OneWindowController.m */; };
 		14F0FDD722AFAF8400057093 /* NSWindow+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDD622AFAF8400057093 /* NSWindow+Helper.m */; };
 		14F0FDDA22AFBA9E00057093 /* NSTableColumn+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDD922AFBA9E00057093 /* NSTableColumn+Helper.m */; };
+		14F0FDDD22B07F4400057093 /* NSTableCellView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDDC22B07F4400057093 /* NSTableCellView+Helper.m */; };
+		14F0FDE322B082AD00057093 /* NNTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDE222B082AD00057093 /* NNTableView.m */; };
+		14F0FDE622B084CF00057093 /* NSTableView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDE522B084CF00057093 /* NSTableView+Helper.m */; };
+		14F0FDE922B084EC00057093 /* NSTableView+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDE822B084EC00057093 /* NSTableView+Hook.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +90,14 @@
 		14F0FDD622AFAF8400057093 /* NSWindow+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+Helper.m"; sourceTree = "<group>"; };
 		14F0FDD822AFBA9E00057093 /* NSTableColumn+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTableColumn+Helper.h"; sourceTree = "<group>"; };
 		14F0FDD922AFBA9E00057093 /* NSTableColumn+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTableColumn+Helper.m"; sourceTree = "<group>"; };
+		14F0FDDB22B07F4400057093 /* NSTableCellView+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTableCellView+Helper.h"; sourceTree = "<group>"; };
+		14F0FDDC22B07F4400057093 /* NSTableCellView+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTableCellView+Helper.m"; sourceTree = "<group>"; };
+		14F0FDE122B082AD00057093 /* NNTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNTableView.h; sourceTree = "<group>"; };
+		14F0FDE222B082AD00057093 /* NNTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTableView.m; sourceTree = "<group>"; };
+		14F0FDE422B084CF00057093 /* NSTableView+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTableView+Helper.h"; sourceTree = "<group>"; };
+		14F0FDE522B084CF00057093 /* NSTableView+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTableView+Helper.m"; sourceTree = "<group>"; };
+		14F0FDE722B084EC00057093 /* NSTableView+Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTableView+Hook.h"; sourceTree = "<group>"; };
+		14F0FDE822B084EC00057093 /* NSTableView+Hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTableView+Hook.m"; sourceTree = "<group>"; };
 		750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacTemplet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.debug.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.debug.xcconfig"; sourceTree = "<group>"; };
 		CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.release.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.release.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +169,12 @@
 			isa = PBXGroup;
 			children = (
 				14F0FDBA22AE68F300057093 /* MacExpand.h */,
+				14F0FDE722B084EC00057093 /* NSTableView+Hook.h */,
+				14F0FDE822B084EC00057093 /* NSTableView+Hook.m */,
+				14F0FDE422B084CF00057093 /* NSTableView+Helper.h */,
+				14F0FDE522B084CF00057093 /* NSTableView+Helper.m */,
+				14F0FDDB22B07F4400057093 /* NSTableCellView+Helper.h */,
+				14F0FDDC22B07F4400057093 /* NSTableCellView+Helper.m */,
 				14F0FDA722AE008F00057093 /* NSApplication+Helper.h */,
 				14F0FDA822AE008F00057093 /* NSApplication+Helper.m */,
 				14F0FDD522AFAF8400057093 /* NSWindow+Helper.h */,
@@ -198,6 +216,8 @@
 				1482F85F22ABA55F00A7C5E1 /* NNView.m */,
 				14F0FDC722AF97E200057093 /* NNTextField.h */,
 				14F0FDC822AF97E200057093 /* NNTextField.m */,
+				14F0FDE122B082AD00057093 /* NNTableView.h */,
+				14F0FDE222B082AD00057093 /* NNTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -325,17 +345,21 @@
 			files = (
 				14F0FDA022ADF12C00057093 /* NSObject+Hook.m in Sources */,
 				14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */,
+				14F0FDDD22B07F4400057093 /* NSTableCellView+Helper.m in Sources */,
 				14F0FDDA22AFBA9E00057093 /* NSTableColumn+Helper.m in Sources */,
 				1482F85522AB96CE00A7C5E1 /* NSControl+Helper.m in Sources */,
 				14F0FDBD22AF391300057093 /* NSTextFieldCell+Helper.m in Sources */,
 				14F0FDC922AF97E200057093 /* NNTextField.m in Sources */,
 				1482F85922AB9C2E00A7C5E1 /* TableViewController.m in Sources */,
+				14F0FDE922B084EC00057093 /* NSTableView+Hook.m in Sources */,
 				14F0FDD022AFA56900057093 /* OneWindowController.m in Sources */,
 				14F0FDAD22AE359D00057093 /* NSString+Helper.m in Sources */,
+				14F0FDE622B084CF00057093 /* NSTableView+Helper.m in Sources */,
 				14F0FDA922AE008F00057093 /* NSApplication+Helper.m in Sources */,
 				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
 				1482F72022AB8BD500A7C5E1 /* main.m in Sources */,
 				14F0FDB922AE662D00057093 /* NSUserDefaults+Helper.m in Sources */,
+				14F0FDE322B082AD00057093 /* NNTableView.m in Sources */,
 				1482F84F22AB920C00A7C5E1 /* NSView+Helper.m in Sources */,
 				14F0FDC622AF934D00057093 /* NSScrollView+Helper.m in Sources */,
 				14F0FD9D22ADDD3000057093 /* NSTextView+Helper.m in Sources */,

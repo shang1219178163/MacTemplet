@@ -18,7 +18,10 @@
 #import "NSScrollView+Helper.h"
 #import "NSSegmentedControl+Helper.h"
 #import "NSString+Helper.h"
+#import "NSTableCellView+Helper.h"
 #import "NSTableColumn+Helper.h"
+#import "NSTableView+Helper.h"
+#import "NSTableView+Hook.h"
 
 #import "NSTextView+Helper.h"
 #import "NSTextFieldCell+Helper.h"
