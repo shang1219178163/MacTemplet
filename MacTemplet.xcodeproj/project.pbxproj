@@ -36,6 +36,20 @@
 		14F0FDE322B082AD00057093 /* NNTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDE222B082AD00057093 /* NNTableView.m */; };
 		14F0FDE622B084CF00057093 /* NSTableView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDE522B084CF00057093 /* NSTableView+Helper.m */; };
 		14F0FDE922B084EC00057093 /* NSTableView+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDE822B084EC00057093 /* NSTableView+Hook.m */; };
+		14F2F55B22B77DB1009D49CE /* NSImage+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F55A22B77DB1009D49CE /* NSImage+Helper.m */; };
+		14F2F55E22B77DDF009D49CE /* NSImage+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F55D22B77DDF009D49CE /* NSImage+Helper.swift */; };
+		14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F58322B8707C009D49CE /* NNTextFieldCell.m */; };
+		14F2F58722B87A58009D49CE /* NSTextField+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F58622B87A58009D49CE /* NSTextField+Helper.m */; };
+		14F2F58A22B87B8E009D49CE /* NSTextField+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F58922B87B8E009D49CE /* NSTextField+Hook.m */; };
+		14F2F58D22B881C4009D49CE /* NSTextFieldCell+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F58C22B881C4009D49CE /* NSTextFieldCell+Hook.m */; };
+		14F2F59022B8C13F009D49CE /* NSTableRowView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F58F22B8C13E009D49CE /* NSTableRowView+Helper.m */; };
+		14F2F59322B8D826009D49CE /* NNTableRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F59222B8D826009D49CE /* NNTableRowView.m */; };
+		14F2F59622B8D9A2009D49CE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F59522B8D9A2009D49CE /* MainViewController.m */; };
+		14F2F59922B8DB25009D49CE /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F59822B8DB25009D49CE /* SecondViewController.m */; };
+		14F2F59D22B8DB3D009D49CE /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F59B22B8DB3D009D49CE /* ThirdViewController.m */; };
+		14F2F5A122B8DBF7009D49CE /* NSTabViewItem+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F5A022B8DBF7009D49CE /* NSTabViewItem+Helper.m */; };
+		14F2F5A522B8E147009D49CE /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F5A322B8E147009D49CE /* GroupViewController.m */; };
+		14F2F5A922B8F2E6009D49CE /* NSTabView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F5A822B8F2E6009D49CE /* NSTabView+Helper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +112,34 @@
 		14F0FDE522B084CF00057093 /* NSTableView+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTableView+Helper.m"; sourceTree = "<group>"; };
 		14F0FDE722B084EC00057093 /* NSTableView+Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTableView+Hook.h"; sourceTree = "<group>"; };
 		14F0FDE822B084EC00057093 /* NSTableView+Hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTableView+Hook.m"; sourceTree = "<group>"; };
+		14F2F55922B77DB1009D49CE /* NSImage+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+Helper.h"; sourceTree = "<group>"; };
+		14F2F55A22B77DB1009D49CE /* NSImage+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Helper.m"; sourceTree = "<group>"; };
+		14F2F55C22B77DDE009D49CE /* MacTemplet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MacTemplet-Bridging-Header.h"; sourceTree = "<group>"; };
+		14F2F55D22B77DDF009D49CE /* NSImage+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Helper.swift"; sourceTree = "<group>"; };
+		14F2F58222B8707C009D49CE /* NNTextFieldCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNTextFieldCell.h; sourceTree = "<group>"; };
+		14F2F58322B8707C009D49CE /* NNTextFieldCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTextFieldCell.m; sourceTree = "<group>"; };
+		14F2F58522B87A58009D49CE /* NSTextField+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTextField+Helper.h"; sourceTree = "<group>"; };
+		14F2F58622B87A58009D49CE /* NSTextField+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTextField+Helper.m"; sourceTree = "<group>"; };
+		14F2F58822B87B8E009D49CE /* NSTextField+Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTextField+Hook.h"; sourceTree = "<group>"; };
+		14F2F58922B87B8E009D49CE /* NSTextField+Hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTextField+Hook.m"; sourceTree = "<group>"; };
+		14F2F58B22B881C4009D49CE /* NSTextFieldCell+Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTextFieldCell+Hook.h"; sourceTree = "<group>"; };
+		14F2F58C22B881C4009D49CE /* NSTextFieldCell+Hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTextFieldCell+Hook.m"; sourceTree = "<group>"; };
+		14F2F58E22B8C13E009D49CE /* NSTableRowView+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTableRowView+Helper.h"; sourceTree = "<group>"; };
+		14F2F58F22B8C13E009D49CE /* NSTableRowView+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTableRowView+Helper.m"; sourceTree = "<group>"; };
+		14F2F59122B8D826009D49CE /* NNTableRowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNTableRowView.h; sourceTree = "<group>"; };
+		14F2F59222B8D826009D49CE /* NNTableRowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTableRowView.m; sourceTree = "<group>"; };
+		14F2F59422B8D9A2009D49CE /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		14F2F59522B8D9A2009D49CE /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		14F2F59722B8DB25009D49CE /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		14F2F59822B8DB25009D49CE /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		14F2F59A22B8DB3D009D49CE /* ThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		14F2F59B22B8DB3D009D49CE /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		14F2F59F22B8DBF7009D49CE /* NSTabViewItem+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTabViewItem+Helper.h"; sourceTree = "<group>"; };
+		14F2F5A022B8DBF7009D49CE /* NSTabViewItem+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTabViewItem+Helper.m"; sourceTree = "<group>"; };
+		14F2F5A222B8E147009D49CE /* GroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
+		14F2F5A322B8E147009D49CE /* GroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
+		14F2F5A722B8F2E6009D49CE /* NSTabView+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTabView+Helper.h"; sourceTree = "<group>"; };
+		14F2F5A822B8F2E6009D49CE /* NSTabView+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTabView+Helper.m"; sourceTree = "<group>"; };
 		750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacTemplet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.debug.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.debug.xcconfig"; sourceTree = "<group>"; };
 		CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.release.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,10 +196,20 @@
 				14F0FDCB22AFA48E00057093 /* FirstViewController.m */,
 				14F0FDCD22AFA56900057093 /* OneWindowController.h */,
 				14F0FDCE22AFA56900057093 /* OneWindowController.m */,
+				14F2F59722B8DB25009D49CE /* SecondViewController.h */,
+				14F2F59822B8DB25009D49CE /* SecondViewController.m */,
+				14F2F59A22B8DB3D009D49CE /* ThirdViewController.h */,
+				14F2F59B22B8DB3D009D49CE /* ThirdViewController.m */,
+				14F2F59422B8D9A2009D49CE /* MainViewController.h */,
+				14F2F59522B8D9A2009D49CE /* MainViewController.m */,
+				14F2F5A222B8E147009D49CE /* GroupViewController.h */,
+				14F2F5A322B8E147009D49CE /* GroupViewController.m */,
 				14F0FDAA22AE097A00057093 /* View */,
 				1482F86122ABA5A400A7C5E1 /* Cagtegory */,
+				14F2F55F22B78078009D49CE /* Other */,
 				1482F71922AB8BD500A7C5E1 /* Assets.xcassets */,
 				1482F71E22AB8BD500A7C5E1 /* Info.plist */,
+				14F2F55C22B77DDE009D49CE /* MacTemplet-Bridging-Header.h */,
 				1482F71F22AB8BD500A7C5E1 /* main.m */,
 				1482F72722AB8EC600A7C5E1 /* PrefixHeader.pch */,
 				1482F72122AB8BD500A7C5E1 /* MacTemplet.entitlements */,
@@ -169,42 +221,56 @@
 			isa = PBXGroup;
 			children = (
 				14F0FDBA22AE68F300057093 /* MacExpand.h */,
-				14F0FDE722B084EC00057093 /* NSTableView+Hook.h */,
-				14F0FDE822B084EC00057093 /* NSTableView+Hook.m */,
-				14F0FDE422B084CF00057093 /* NSTableView+Helper.h */,
-				14F0FDE522B084CF00057093 /* NSTableView+Helper.m */,
-				14F0FDDB22B07F4400057093 /* NSTableCellView+Helper.h */,
-				14F0FDDC22B07F4400057093 /* NSTableCellView+Helper.m */,
 				14F0FDA722AE008F00057093 /* NSApplication+Helper.h */,
 				14F0FDA822AE008F00057093 /* NSApplication+Helper.m */,
-				14F0FDD522AFAF8400057093 /* NSWindow+Helper.h */,
-				14F0FDD622AFAF8400057093 /* NSWindow+Helper.m */,
-				14F0FDD822AFBA9E00057093 /* NSTableColumn+Helper.h */,
-				14F0FDD922AFBA9E00057093 /* NSTableColumn+Helper.m */,
 				1482F85322AB96CE00A7C5E1 /* NSControl+Helper.h */,
 				1482F85422AB96CE00A7C5E1 /* NSControl+Helper.m */,
 				1482F85B22ABA1CA00A7C5E1 /* NSColor+Helper.h */,
 				1482F85C22ABA1CA00A7C5E1 /* NSColor+Helper.m */,
+				14F2F55922B77DB1009D49CE /* NSImage+Helper.h */,
+				14F2F55A22B77DB1009D49CE /* NSImage+Helper.m */,
 				14F0FD9F22ADF12C00057093 /* NSObject+Hook.h */,
 				14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */,
+				14F0FDD522AFAF8400057093 /* NSWindow+Helper.h */,
+				14F0FDD622AFAF8400057093 /* NSWindow+Helper.m */,
+				14F0FDB722AE662D00057093 /* NSUserDefaults+Helper.h */,
+				14F0FDB822AE662D00057093 /* NSUserDefaults+Helper.m */,
 				14F0FDA122ADF14100057093 /* NSViewController+Hook.h */,
 				14F0FDA222ADF14100057093 /* NSViewController+Hook.m */,
 				14F0FDA422ADF20400057093 /* NSView+Hook.h */,
 				14F0FDA522ADF20400057093 /* NSView+Hook.m */,
 				1482F84D22AB920C00A7C5E1 /* NSView+Helper.h */,
 				1482F84E22AB920C00A7C5E1 /* NSView+Helper.m */,
-				14F0FD9B22ADDD2F00057093 /* NSTextView+Helper.h */,
-				14F0FD9C22ADDD2F00057093 /* NSTextView+Helper.m */,
 				14F0FDAB22AE359D00057093 /* NSString+Helper.h */,
 				14F0FDAC22AE359D00057093 /* NSString+Helper.m */,
 				14F0FDAE22AE573800057093 /* NSSegmentedControl+Helper.h */,
 				14F0FDAF22AE573800057093 /* NSSegmentedControl+Helper.m */,
-				14F0FDB722AE662D00057093 /* NSUserDefaults+Helper.h */,
-				14F0FDB822AE662D00057093 /* NSUserDefaults+Helper.m */,
-				14F0FDBB22AF391300057093 /* NSTextFieldCell+Helper.h */,
-				14F0FDBC22AF391300057093 /* NSTextFieldCell+Helper.m */,
 				14F0FDC422AF934D00057093 /* NSScrollView+Helper.h */,
 				14F0FDC522AF934D00057093 /* NSScrollView+Helper.m */,
+				14F0FDBB22AF391300057093 /* NSTextFieldCell+Helper.h */,
+				14F0FDBC22AF391300057093 /* NSTextFieldCell+Helper.m */,
+				14F2F58B22B881C4009D49CE /* NSTextFieldCell+Hook.h */,
+				14F2F58C22B881C4009D49CE /* NSTextFieldCell+Hook.m */,
+				14F2F58522B87A58009D49CE /* NSTextField+Helper.h */,
+				14F2F58622B87A58009D49CE /* NSTextField+Helper.m */,
+				14F2F58822B87B8E009D49CE /* NSTextField+Hook.h */,
+				14F2F58922B87B8E009D49CE /* NSTextField+Hook.m */,
+				14F0FD9B22ADDD2F00057093 /* NSTextView+Helper.h */,
+				14F0FD9C22ADDD2F00057093 /* NSTextView+Helper.m */,
+				14F0FDE722B084EC00057093 /* NSTableView+Hook.h */,
+				14F0FDE822B084EC00057093 /* NSTableView+Hook.m */,
+				14F0FDE422B084CF00057093 /* NSTableView+Helper.h */,
+				14F0FDE522B084CF00057093 /* NSTableView+Helper.m */,
+				14F2F5A722B8F2E6009D49CE /* NSTabView+Helper.h */,
+				14F2F5A822B8F2E6009D49CE /* NSTabView+Helper.m */,
+				14F2F59F22B8DBF7009D49CE /* NSTabViewItem+Helper.h */,
+				14F2F5A022B8DBF7009D49CE /* NSTabViewItem+Helper.m */,
+				14F0FDDB22B07F4400057093 /* NSTableCellView+Helper.h */,
+				14F0FDDC22B07F4400057093 /* NSTableCellView+Helper.m */,
+				14F2F58E22B8C13E009D49CE /* NSTableRowView+Helper.h */,
+				14F2F58F22B8C13E009D49CE /* NSTableRowView+Helper.m */,
+				14F0FDD822AFBA9E00057093 /* NSTableColumn+Helper.h */,
+				14F0FDD922AFBA9E00057093 /* NSTableColumn+Helper.m */,
 			);
 			path = Cagtegory;
 			sourceTree = "<group>";
@@ -214,12 +280,24 @@
 			children = (
 				1482F85E22ABA55F00A7C5E1 /* NNView.h */,
 				1482F85F22ABA55F00A7C5E1 /* NNView.m */,
-				14F0FDC722AF97E200057093 /* NNTextField.h */,
-				14F0FDC822AF97E200057093 /* NNTextField.m */,
 				14F0FDE122B082AD00057093 /* NNTableView.h */,
 				14F0FDE222B082AD00057093 /* NNTableView.m */,
+				14F0FDC722AF97E200057093 /* NNTextField.h */,
+				14F0FDC822AF97E200057093 /* NNTextField.m */,
+				14F2F58222B8707C009D49CE /* NNTextFieldCell.h */,
+				14F2F58322B8707C009D49CE /* NNTextFieldCell.m */,
+				14F2F59122B8D826009D49CE /* NNTableRowView.h */,
+				14F2F59222B8D826009D49CE /* NNTableRowView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		14F2F55F22B78078009D49CE /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				14F2F55D22B77DDF009D49CE /* NSImage+Helper.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		2FC3B9408044A2619FB61A13 /* Pods */ = {
@@ -264,6 +342,7 @@
 				TargetAttributes = {
 					1482F71222AB8BD400A7C5E1 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -344,11 +423,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				14F0FDA022ADF12C00057093 /* NSObject+Hook.m in Sources */,
+				14F2F55E22B77DDF009D49CE /* NSImage+Helper.swift in Sources */,
 				14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */,
 				14F0FDDD22B07F4400057093 /* NSTableCellView+Helper.m in Sources */,
+				14F2F59922B8DB25009D49CE /* SecondViewController.m in Sources */,
 				14F0FDDA22AFBA9E00057093 /* NSTableColumn+Helper.m in Sources */,
+				14F2F58722B87A58009D49CE /* NSTextField+Helper.m in Sources */,
 				1482F85522AB96CE00A7C5E1 /* NSControl+Helper.m in Sources */,
 				14F0FDBD22AF391300057093 /* NSTextFieldCell+Helper.m in Sources */,
+				14F2F55B22B77DB1009D49CE /* NSImage+Helper.m in Sources */,
+				14F2F59D22B8DB3D009D49CE /* ThirdViewController.m in Sources */,
+				14F2F59322B8D826009D49CE /* NNTableRowView.m in Sources */,
 				14F0FDC922AF97E200057093 /* NNTextField.m in Sources */,
 				1482F85922AB9C2E00A7C5E1 /* TableViewController.m in Sources */,
 				14F0FDE922B084EC00057093 /* NSTableView+Hook.m in Sources */,
@@ -359,13 +444,21 @@
 				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
 				1482F72022AB8BD500A7C5E1 /* main.m in Sources */,
 				14F0FDB922AE662D00057093 /* NSUserDefaults+Helper.m in Sources */,
+				14F2F58A22B87B8E009D49CE /* NSTextField+Hook.m in Sources */,
 				14F0FDE322B082AD00057093 /* NNTableView.m in Sources */,
+				14F2F59022B8C13F009D49CE /* NSTableRowView+Helper.m in Sources */,
 				1482F84F22AB920C00A7C5E1 /* NSView+Helper.m in Sources */,
 				14F0FDC622AF934D00057093 /* NSScrollView+Helper.m in Sources */,
 				14F0FD9D22ADDD3000057093 /* NSTextView+Helper.m in Sources */,
+				14F2F5A522B8E147009D49CE /* GroupViewController.m in Sources */,
 				14F0FDD722AFAF8400057093 /* NSWindow+Helper.m in Sources */,
+				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
+				14F2F5A922B8F2E6009D49CE /* NSTabView+Helper.m in Sources */,
+				14F2F5A122B8DBF7009D49CE /* NSTabViewItem+Helper.m in Sources */,
 				14F0FDCC22AFA48E00057093 /* FirstViewController.m in Sources */,
+				14F2F58D22B881C4009D49CE /* NSTextFieldCell+Hook.m in Sources */,
 				14F0FDA622ADF20400057093 /* NSView+Hook.m in Sources */,
+				14F2F59622B8D9A2009D49CE /* MainViewController.m in Sources */,
 				1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */,
 				1482F72A22AB8F9300A7C5E1 /* HomeViewController.m in Sources */,
 				1482F85D22ABA1CA00A7C5E1 /* NSColor+Helper.m in Sources */,
@@ -492,6 +585,7 @@
 			baseConfigurationReference = 76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MacTemplet/MacTemplet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -503,6 +597,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MacTemplet/MacTemplet-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -511,6 +608,7 @@
 			baseConfigurationReference = CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MacTemplet/MacTemplet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -522,6 +620,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MacTemplet/MacTemplet-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
