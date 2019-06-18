@@ -14,15 +14,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getViewLayer;
 
-+(NSImageView *)createImgViewRect:(CGRect)rect image:(id)image;
++(__kindof NSImageView *)createImgViewRect:(CGRect)rect image:(id)image;
 
-+(NSTextField *)createTextFieldRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder;
++(__kindof NSTextField *)createTextFieldRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder;
 
-+(NSTextView *)createTextViewRect:(CGRect)rect text:(NSString *)text;
++(__kindof NSTextView *)createTextViewRect:(CGRect)rect text:(NSString *)text;
 
-+(NSScrollView *)createScrollViewRect:(CGRect)rect;
++(__kindof NSScrollView *)createScrollViewRect:(CGRect)rect;
 
-+(NSTableView *)createTableViewRect:(CGRect)rect;
++(__kindof NSTableView *)createTableViewRect:(CGRect)rect;
+
++(__kindof NSTabView *)createTabViewRect:(CGRect)rect;
 
 @end
 

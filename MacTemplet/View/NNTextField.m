@@ -7,15 +7,30 @@
 //
 
 #import "NNTextField.h"
+#import "NNTextFieldCell.h"
 
 @implementation NNTextField
 
-- (void)drawRect:(NSRect)dirtyRect {
-    //    [super drawRect:dirtyRect];
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        self.cell = [[NNTextFieldCell alloc]initTextCell:@"NNTextFieldCell"];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(NSRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.cell = [[NNTextFieldCell alloc]initTextCell:@"NNTextFieldCell"];
+    }
+    return self;
+}
+
+- (void)setIsTextAlignmentVerticalCenter:(BOOL)isTextAlignmentVerticalCenter{
+    _isTextAlignmentVerticalCenter = isTextAlignmentVerticalCenter;
     
-    // Drawing code here.
-    CGRect rect = CGRectMake(0, (dirtyRect.size.height - 22)/2.0, dirtyRect.size.width, 22);
-    return [super drawRect:rect];
+    ((NNTextFieldCell *)self.cell).isTextAlignmentVerticalCenter = true;
 }
 
 @end

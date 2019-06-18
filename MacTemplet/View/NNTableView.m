@@ -9,6 +9,7 @@
 #import "NNTableView.h"
 
 @interface NNTableView ()
+
 @property (nonatomic, strong) NSScrollView *scrollView;
 
 @end
@@ -19,7 +20,6 @@
     self = [super init];
     if (self) {
         self.scrollView.documentView = self;
-        
     }
     return self;
 }
@@ -29,6 +29,9 @@
     
     // Drawing code here.
 }
+
+
+#pragma mark -lazy
 
 -(NSScrollView *)scrollView{
     if (!_scrollView) {

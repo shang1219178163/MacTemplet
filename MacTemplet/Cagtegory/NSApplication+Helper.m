@@ -45,19 +45,34 @@ static NSWindow *_windowDefault = nil;
 
 +(NSImage *)appIcon{
     NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
-    NSString *icon = [[infoDict valueForKeyPath:@"CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles"] lastObject];
+    NSString *icon = infoDict[@"CFBundleIconName"];
     NSImage * image = [NSImage imageNamed:icon];
     return image;
 }
 
 +(NSString *)appVer{
     NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
-    return  infoDict[@"CFBundleShortVersionString"];
+    return infoDict[@"CFBundleShortVersionString"];
 }
 
 +(NSString *)appBuild{
     NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
-    return  infoDict[@"CFBundleVersion"];
+    return infoDict[@"CFBundleVersion"];
+}
+
++(NSString *)platforms{
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
+    return infoDict[@"CFBundleSupportedPlatforms"];
+}
+
++(NSString *)systemInfo{
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
+    return infoDict[@"DTSDKName"];
+}
+
++(NSString *)appCopyright{
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
+    return infoDict[@"NSHumanReadableCopyright"];
 }
 
 @end

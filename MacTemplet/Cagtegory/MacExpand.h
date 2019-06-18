@@ -10,21 +10,26 @@
 #define MacExpand_h
 
 #import "NSApplication+Helper.h"
-
-#import "NSApplication+Helper.h"
 #import "NSColor+Helper.h"
 #import "NSControl+Helper.h"
+#import "NSImage+Helper.h"
 #import "NSObject+Hook.h"
 #import "NSScrollView+Helper.h"
 #import "NSSegmentedControl+Helper.h"
 #import "NSString+Helper.h"
 #import "NSTableCellView+Helper.h"
 #import "NSTableColumn+Helper.h"
+#import "NSTableRowView+Helper.h"
 #import "NSTableView+Helper.h"
 #import "NSTableView+Hook.h"
+#import "NSTabView+Helper.h"
+#import "NSTabViewItem+Helper.h"
 
 #import "NSTextView+Helper.h"
 #import "NSTextFieldCell+Helper.h"
+#import "NSTextFieldCell+Hook.h"
+#import "NSTextField+Helper.h"
+#import "NSTextField+Hook.h"
 
 #import "NSUserDefaults+Helper.h"
 #import "NSView+Helper.h"

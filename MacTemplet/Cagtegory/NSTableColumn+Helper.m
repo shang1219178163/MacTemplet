@@ -14,8 +14,25 @@
 @implementation NSTableColumn (Helper)
 
 + (instancetype)createWithIdentifier:(NSUserInterfaceItemIdentifier)identifier title:(NSString *)title{
-    NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:identifier];
+    NSTableColumn *column = [[self alloc] initWithIdentifier:identifier];
     column.title = title;
+    column.minWidth = 40;
+    column.maxWidth = 200;
+    column.headerToolTip = column.title;
+    column.resizingMask = NSTableColumnAutoresizingMask;
+    column.headerCell.alignment = NSTextAlignmentCenter;
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:column.identifier
+                                                           ascending:false
+                                                          comparator:^(id obj1, id obj2) {
+                                                               if (obj1 < obj2) {
+                                                                   return NSOrderedAscending;
+                                                               }
+                                                               if (obj1 > obj2) {
+                                                                   return NSOrderedDescending;
+                                                               }
+                                                               return NSOrderedSame;
+                                                           }];
+    column.sortDescriptorPrototype = sort;
     return column;
 }
 

@@ -15,7 +15,7 @@
 +(instancetype)viewWithTableView:(NSTableView *)tableView identifier:(NSString *)identifier owner:(nullable id)owner{
     NSTableCellView *cell = [tableView makeViewWithIdentifier:identifier owner:owner];
     if (!cell) {
-        cell = [[NSTableCellView alloc]init];
+        cell = [[self alloc]init];
         cell.identifier = identifier;
         cell.wantsLayer = YES;
 
