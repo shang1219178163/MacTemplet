@@ -101,8 +101,6 @@
     return _windowCtrl;
 }
 
-
-
 -(NSSegmentedControl *)segmentCtl{
     if (!_segmentCtl) {
         _segmentCtl = ({

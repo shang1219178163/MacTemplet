@@ -21,7 +21,9 @@
 
     
     NSString * controllerName = @"HomeViewController";
-    controllerName = @"FirstViewController";
+//    controllerName = @"FirstViewController";
+//    controllerName = @"MainViewController";
+//    controllerName = @"GroupViewController";
     
     NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
     
@@ -30,7 +32,7 @@
 //    DDLog(@"%@",NSApplication.sharedApplication.mainWindow);
 //    DDLog(@"%@",NSApp.mainWindow);
 //    DDLog(@"%@",NSApplication.windowDefault);
-
+    [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
