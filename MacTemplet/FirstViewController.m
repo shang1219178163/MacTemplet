@@ -12,9 +12,7 @@
 @interface FirstViewController ()
 
 @property (nonatomic, strong) OneWindowController *windowCtrl;
-
 @property (nonatomic, strong) NSSegmentedControl *segmentCtl;
-
 @property (nonatomic, assign) NSModalSession modalSession;
 
 @end
@@ -42,8 +40,12 @@
 
 }
 
+- (void)viewWillAppear{
+    [super viewWillAppear];
+
+}
+
 - (void)handleActionSender:(NSSegmentedControl *)sender{
-    
     switch (sender.selectedSegment) {
         case 0:
         {
@@ -108,7 +110,7 @@
             NSSegmentedControl * view = [[NSSegmentedControl alloc] init];
             view.items = items;
             [view addActionHandler:^(NSControl * _Nonnull control) {
-                NSSegmentedControl * sender = control;
+                NSSegmentedControl * sender = (NSSegmentedControl *)control;
                 NSLog(@"%@", @(sender.selectedSegment));
                 [self handleActionSender:sender];
                 

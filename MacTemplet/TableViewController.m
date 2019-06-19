@@ -11,6 +11,7 @@
 #import "NNTableRowView.h"
 #import "NNTextField.h"
 
+
 @interface TableViewController ()<NSTableViewDelegate, NSTableViewDataSource>
 
 @property (nonatomic, strong) NNTableView *tableView;
@@ -23,11 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-//    self.view.wantsLayer = true;
 //    self.view.layer.backgroundColor = NSColor.redColor.CGColor;
     
     [self setupTableView];
-//    [self.view addSubview:self.tableScrollView];
     [self.view addSubview:self.tableView.enclosingScrollView];
 }
 
@@ -43,6 +42,7 @@
     [super viewWillAppear];
     
     DDLog(@"111");
+ 
 }
 
 #pragma mark - NSTableViewDelegate,NSTableViewDataSource

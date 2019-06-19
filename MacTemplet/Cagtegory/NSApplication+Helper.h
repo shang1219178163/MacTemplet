@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, readonly, nullable) NSString *platforms;
 @property (class, readonly, nullable) NSString *systemInfo;
 @property (class, readonly, nullable) NSString *appCopyright;
+@property (class, readonly, nullable) NSString *macUserName;
+@property (class, readonly, nullable) NSString *macLocalizedName;
 
 @end
 

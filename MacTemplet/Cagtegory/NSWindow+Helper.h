@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(NSWindow *)createWithTitle:(NSString *)title;
 
++(NSWindow *)createWithSize:(CGSize)size title:(NSString *)title;
+
 @end
 
 NS_ASSUME_NONNULL_END

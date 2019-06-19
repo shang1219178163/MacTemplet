@@ -75,4 +75,12 @@ static NSWindow *_windowDefault = nil;
     return infoDict[@"NSHumanReadableCopyright"];
 }
 
++(NSString *)macUserName{
+    return NSProcessInfo.processInfo.userName;
+}
+
++(NSString *)macLocalizedName{
+    return NSHost.currentHost.localizedName;
+}
+
 @end

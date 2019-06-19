@@ -25,9 +25,19 @@
                       @[@"ThirdViewController", @"消息",],
                       
                       ];
-    [self.tabView addItems:list];
-
-    self.tabView.tabViewBorderType = NSTabViewBorderTypeBezel;//边框样式：bezel类型边框
+    [list enumerateObjectsUsingBlock:^(NSArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSViewController * controller = [[NSClassFromString(obj.firstObject) alloc] init];
+        controller.title = obj[1];
+        
+        NSTabViewItem * item = [NSTabViewItem tabViewItemWithViewController:controller];
+        item.view = controller.view;
+        [self addTabViewItem:item];
+    }];
+    
+    if (@available(macOS 10.12, *)) {
+        self.tabView.tabViewBorderType = NSTabViewBorderTypeBezel;//边框样式：bezel类型边框
+    }
+    
     self.selectedTabViewItemIndex = 0;
 }
 

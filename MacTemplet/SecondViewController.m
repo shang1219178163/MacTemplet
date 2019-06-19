@@ -19,8 +19,6 @@
     // Do view setup here.
     
     self.view.layer.backgroundColor = NSColor.yellowColor.CGColor;
-    
-    DDLog(@"SecondViewController_%@",self.view);
 
 }
 

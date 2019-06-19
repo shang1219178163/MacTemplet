@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(__kindof NSTabView *)createTabViewRect:(CGRect)rect;
 
+
 @end
 
 NS_ASSUME_NONNULL_END

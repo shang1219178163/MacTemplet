@@ -16,7 +16,6 @@
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             [self swizzleMethodInstance:self.class origSel:@selector(loadView) replSel:@selector(hook_loadView)];
-            
         });
     }
 }
@@ -24,11 +23,8 @@
 - (void)hook_loadView{
     NSWindow *window = NSApplication.sharedApplication.mainWindow;
     self.view = [[NNView alloc]initWithFrame:window.frame];
-    self.view.layer.backgroundColor = NSColor.lightGrayColor.CGColor;
-
-//    NSLog(@"%@_%@",NSStringFromSelector(_cmd), window);
-
 }
+
 
 
 @end

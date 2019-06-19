@@ -25,4 +25,13 @@
     return window;
 }
 
++(NSWindow *)createWithSize:(CGSize)size title:(NSString *)title{
+    //窗口 关闭，缩小，放大等功能，根据需求自行组合
+    NSUInteger style = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
+    NSWindow * window = [[NSWindow alloc]initWithContentRect:CGRectMake(0, 0, size.width, size.height) styleMask:style backing:NSBackingStoreBuffered defer:false];
+    window.title = title;
+    
+    return window;
+}
+
 @end

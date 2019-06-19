@@ -10,6 +10,9 @@
 #import "GroupViewController.h"
 #import "NNTextField.h"
 
+#import "OneWindowController.h"
+#import "BNDialogWindowController.h"
+
 @interface GroupViewController ()<NSTabViewDelegate>
 
 @property (nonatomic, strong) NSImageView * imgView;
@@ -39,6 +42,20 @@
     
     self.textField.stringValue = NSApplication.appName;
     self.textFieldOne.stringValue = NSApplication.appCopyright;
+    
+    OneWindowController *dialogWindow = [[OneWindowController alloc]init];
+    DDLog(@"dialogWindow.window:%@", dialogWindow.window);
+    DDLog(@"dialogWindow:%@", dialogWindow);
+
+//    [NSApp beginSheet:dialogWindow.window modalForWindow:NSApp.mainWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
+//    [NSApp runModalForWindow:dialogWindow.window];
+
+    [NSApp.mainWindow beginSheet:dialogWindow.window completionHandler:^(NSModalResponse returnCode) {
+        DDLog(@"%@", @(returnCode));
+        
+    }];
+    [NSApp.mainWindow endSheet:dialogWindow.window returnCode:0];
+      
     
     [self.view getViewLayer];
 }

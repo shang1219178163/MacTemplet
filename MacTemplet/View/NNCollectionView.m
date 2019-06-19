@@ -1,20 +1,20 @@
 //
-//  NNTableView.m
+//  NNCollectionView.m
 //  MacTemplet
 //
-//  Created by Bin Shang on 2019/6/12.
+//  Created by Bin Shang on 2019/6/18.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
-#import "NNTableView.h"
+#import "NNCollectionView.h"
 
-@interface NNTableView ()
+@interface NNCollectionView ()
 
 @property (nonatomic, strong) NSScrollView *scrollView;
 
 @end
 
-@implementation NNTableView
+@implementation NNCollectionView
 
 - (instancetype)init{
     self = [super init];
@@ -58,3 +58,4 @@
 }
 
 @end
+

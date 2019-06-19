@@ -21,7 +21,7 @@
     self = [super initWithWindow:window];
     if (self) {
         self.contentViewController = self.tableController;
-        
+        self.window.contentView = self.contentViewController.view;
     }
     return self;
 }

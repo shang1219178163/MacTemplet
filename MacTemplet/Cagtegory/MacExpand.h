@@ -9,6 +9,7 @@
 #ifndef MacExpand_h
 #define MacExpand_h
 
+#import "NSAlert+Helper.h"
 #import "NSApplication+Helper.h"
 #import "NSColor+Helper.h"
 #import "NSControl+Helper.h"
@@ -17,6 +18,8 @@
 #import "NSScrollView+Helper.h"
 #import "NSSegmentedControl+Helper.h"
 #import "NSString+Helper.h"
+#import "NSStatusItem+Helper.h"
+
 #import "NSTableCellView+Helper.h"
 #import "NSTableColumn+Helper.h"
 #import "NSTableRowView+Helper.h"
@@ -35,6 +38,9 @@
 #import "NSView+Helper.h"
 #import "NSView+Hook.h"
 #import "NSViewController+Hook.h"
+#import "NSViewController+Helper.h"
 #import "NSWindow+Helper.h"
+#import "NSPanel+Helper.h"
+#import "NSPopover+Helper.h"
 
 #endif /* MacExpand_h */

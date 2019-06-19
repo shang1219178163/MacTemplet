@@ -32,7 +32,6 @@
 //}
 
 #pragma mark -lazy
-
 //-(NSScrollView *)scrollView{
 //    id obj = objc_getAssociatedObject(self, _cmd);
 //    if (!obj) {
