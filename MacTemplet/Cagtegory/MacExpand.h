@@ -13,7 +13,13 @@
 #import "NSApplication+Helper.h"
 #import "NSColor+Helper.h"
 #import "NSControl+Helper.h"
+#import "NSDate+Helper.h"
+#import "NSDateFormatter+Helper.h"
+
 #import "NSImage+Helper.h"
+#import "NSMenu+Helper.h"
+#import "NSMenuItem+Helper.h"
+#import "NSObject+Helper.h"
 #import "NSObject+Hook.h"
 #import "NSScrollView+Helper.h"
 #import "NSSegmentedControl+Helper.h"

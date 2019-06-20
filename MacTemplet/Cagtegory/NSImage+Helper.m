@@ -25,9 +25,15 @@
     NSImage * newImage = [[NSImage alloc]initWithSize:toRect.size];
     
     [newImage lockFocus];
-    [newImage drawInRect:toRect fromRect:fromRect operation:NSCompositingOperationCopy fraction:1.0];
+    [self drawInRect:toRect fromRect:fromRect operation:NSCompositingOperationCopy fraction:1.0];
     [newImage unlockFocus];
     return newImage;
+}
+
+- (CGSize)sizeFromImage:(NSImage *)image{
+    NSBitmapImageRep *rep = [NSBitmapImageRep imageRepWithData:image.TIFFRepresentation];
+    CGSize size = NSMakeSize(rep.pixelsWide, rep.pixelsHigh);
+    return size;
 }
 
 @end

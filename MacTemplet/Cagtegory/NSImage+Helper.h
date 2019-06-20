@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSImage *)resize:(CGSize)to isPixels:(BOOL)isPixels;
 
+- (CGSize)sizeFromImage:(NSImage *)image;
+
 @end
 
 NS_ASSUME_NONNULL_END

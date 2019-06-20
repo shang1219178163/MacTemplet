@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSButton * btn;
 @property (nonatomic, strong) NSButton * btnCancell;
+@property (nonatomic, strong) NSDatePicker * datePicker;
 
 @end
 
@@ -20,8 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.view.layer.backgroundColor = NSColor.greenColor.CGColor;
+    self.view.layer.backgroundColor = NSColor.randomColor.CGColor;
     
+    [self.view addSubview:self.datePicker];
     [self.view addSubview:self.btn];
     [self.view addSubview:self.btnCancell];
 }
@@ -32,7 +34,11 @@
     CGFloat padding = 8;
     CGFloat gap = 15;
     
-    //水平方向控件间隔固定等间隔
+    [self.datePicker mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(30);
+        make.left.equalTo(self.view).offset(30);
+    }];
+    
     [self.btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(30);
         make.bottom.equalTo(self.view).offset(-30);
@@ -49,7 +55,29 @@
 #pragma mark -funtions
 
 
+-(NSDatePicker *)datePicker{
+    if (!_datePicker) {
+        _datePicker = ({
+            NSDatePicker *view = [[NSDatePicker alloc] init];
 
+            view.datePickerStyle = NSClockAndCalendarDatePickerStyle;
+            view.datePickerStyle = NSDatePickerStyleTextFieldAndStepper;
+            view.layer.backgroundColor = NSColor.cyanColor.CGColor;
+            
+            // 设置日期选择控件的类型为“时钟和日历”。其他类型有如，NSTextField文本框
+            view.dateValue = NSDate.date;
+            [view addActionHandler:^(NSControl * _Nonnull control) {
+                NSDatePicker *sender = (NSDatePicker *)control;
+                NSString * dateStr = [NSDateFormatter stringFromDate:sender.dateValue format:kFormatDate];
+                DDLog(@"%@", dateStr);
+                
+            } forControlEvents:NSEventMaskLeftMouseDown];
+            
+            view;
+        });
+    }
+    return _datePicker;
+}
 
 #pragma mark -lazy
 

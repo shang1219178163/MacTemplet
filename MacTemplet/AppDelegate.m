@@ -7,33 +7,24 @@
 //
 
 #import "AppDelegate.h"
+#import "AppDelegate+Menu.h"
+
 #import "MainWindowController.h"
 #import "FirstViewController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) MainWindowController *windowCtrl;
 
-@property(nonatomic,strong) NSPopover *firstPopover;
+@property(nonatomic,strong) NSPopover *popover;
 @property(nonatomic,strong) FirstViewController * firstVC;
+
+@property (nonatomic,strong) NSStatusItem *statusItem; //必须应用、且强引用，否则不会显示。
+@property (nonatomic,strong) NSMenu *dockMenu;
+
 
 @end
 
 @implementation AppDelegate
-
-//- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-//    // Insert code here to initialize your application
-//
-//    NSString * controllerName = @"HomeViewController";
-////    controllerName = @"FirstViewController";
-//    controllerName = @"MainViewController";
-////    controllerName = @"GroupViewController";
-//
-//    NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
-//    self.windowCtrl.window.contentViewController = controller;
-//    self.windowCtrl.window.title = NSApplication.appName;
-//
-//    [self addStatusItemRight];
-//}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
@@ -49,12 +40,16 @@
     NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
     NSApplication.windowDefault.contentViewController = controller;
     NSApplication.windowDefault.title = NSApplication.appName;
-
+    //    self.windowCtrl.window.contentViewController = controller;
+    //    self.windowCtrl.window.title = NSApplication.appName;
+    
 //    DDLog(@"%@",NSApplication.sharedApplication.mainWindow);
 //    DDLog(@"%@",NSApp.mainWindow);
 //    DDLog(@"%@",NSApplication.windowDefault);
     [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
-    [self addStatusItemRight];
+    
+    [AppDelegate setupMainMenu];
+    [AppDelegate setupStatusItem:self.statusItem popover:self.popover];
 
 }
 
@@ -70,44 +65,54 @@
     return YES;
 }
 
+- (NSMenu *)applicationDockMenu:(NSApplication *)sender{
+    return self.dockMenu;
+}
+
 #pragma mark -funtions
+
+#pragma mark -addMainMenu
+
 
 #pragma mark -addStatusItemRight
 
-- (void)addStatusItemRight{
-    self.statusItem = [NSStatusItem createStatusItemImageName:nil];
-    self.statusItem.menu = ({
-        NSMenu *menu = [[NSMenu alloc] initWithTitle:@"menu_right"];
-        [menu addItemWithTitle:@"Load1"action:@selector(menuItemAction0) keyEquivalent:@"E"];
-        [menu addItemWithTitle:@"退出"  action:@selector(menuItemQuit) keyEquivalent:@""];
+#pragma mark -dockMenu
 
-        menu;
-    });
-    
-    self.statusItem.button.target = self;
-    self.statusItem.button.action = @selector(hanldeStatusBtnClick:);
-    
-//    self.statusItem.view = ({
-//        NSView *view = [[NSView alloc]init];
-//        //    view.wantsLayer = YES;
-//        view.layer.backgroundColor = NSColor.redColor.CGColor;
-//        view;
-//    });
+-(NSMenu *)dockMenu{
+    if (!_dockMenu) {
+        _dockMenu = ({
+            NSMenuItem *oneItem = ({
+                NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"新的Dock目录" action:nil keyEquivalent:@"P"];
+//                [item addActionHandler:^(NSMenuItem * _Nonnull menuItem) {
+//                    DDLog(@"%@_%@", menuItem.title, menuItem.keyEquivalent);
+//
+//                }];
+                
+                NSMenu *subMenu = [[NSMenu alloc] initWithTitle:@"一级目录"]; //这里设置一级目录的名字有效
+                [subMenu addItemWithTitle:@"Load1" keyEquivalent:@"E" handler:^(NSMenuItem * _Nonnull menuItem) {
+                    DDLog(@"%@_%@", menuItem.title, menuItem.keyEquivalent);
+
+                }];
+                [subMenu addItemWithTitle:@"Load2" keyEquivalent:@"E" handler:^(NSMenuItem * _Nonnull menuItem) {
+                    DDLog(@"%@_%@", menuItem.title, menuItem.keyEquivalent);
+
+                }];
+                // NSMenuItem 有子菜单时,本身响应时间默认为显示e子菜单
+                item.submenu = subMenu;
+                
+                item;
+            });
+            
+            NSMenu *menu = [[NSMenu alloc] initWithTitle:@"DockMenu"];
+            menu.autoenablesItems = false;
+            [menu addItem:oneItem];
+
+            menu;
+        });
+    }
+    return _dockMenu;
 }
 
-- (void)menuItemAction0{
-    NSLog(@"load1 ---- ");
-}
-    
-- (void)menuItemQuit{
-    NSLog(@"load3 ---- ");
-    [NSApplication.sharedApplication terminate:self];
-    
-}
-
-- (void)hanldeStatusBtnClick:(NSButton *)sender{
-    [self.firstPopover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSRectEdgeMaxY];
-}
 
 #pragma mark -lazy
 //-(MainWindowController *)windowCtrl{
@@ -117,14 +122,14 @@
 //    return _windowCtrl;
 //}
 
-- (NSPopover *)firstPopover{
-    if(!_firstPopover) {
-        _firstPopover = ({
+- (NSPopover *)popover{
+    if(!_popover) {
+        _popover = ({
             NSPopover *popover = [NSPopover popoverWithController:self.firstVC];
             popover;
         });
     }
-    return _firstPopover;
+    return _popover;
 }
 
 - (FirstViewController *)firstVC{

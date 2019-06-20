@@ -19,12 +19,11 @@
         
         NSStatusItem *item = [statusBar statusItemWithLength:NSSquareStatusItemLength];
         item.button.cell.highlighted = true;
-        item.button.image = image ? : NSApplication.appIcon;
+        item.button.image = image ? : [NSApplication.appIcon resize:CGSizeMake(17, 17) isPixels:true];
         item.button.toolTip = NSApplication.appName;
         
         item;
     });
-    
     return statusItem;
 }
 
