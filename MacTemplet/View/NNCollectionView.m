@@ -19,7 +19,7 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
-        self.scrollView.documentView = self;
+        [self setupUI];
     }
     return self;
 }
@@ -27,9 +27,13 @@
 - (instancetype)initWithFrame:(NSRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        self.scrollView.documentView = self;
+        [self setupUI];
     }
     return self;
+}
+
+- (void)setupUI{
+    self.scrollView.documentView = self;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
@@ -37,7 +41,6 @@
     
     // Drawing code here.
 }
-
 
 #pragma mark -lazy
 

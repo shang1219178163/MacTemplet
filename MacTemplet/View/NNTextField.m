@@ -14,7 +14,7 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
-        self.cell = [[NNTextFieldCell alloc]initTextCell:@"NNTextFieldCell"];
+        [self setupUI];
     }
     return self;
 }
@@ -22,9 +22,14 @@
 - (instancetype)initWithFrame:(NSRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        self.cell = [[NNTextFieldCell alloc]initTextCell:@"NNTextFieldCell"];
+        [self setupUI];
     }
     return self;
+}
+
+- (void)setupUI{
+    self.cell = [[NNTextFieldCell alloc]initTextCell:@""];
+    self.editable = true;  ///是否可编辑
 }
 
 - (void)setIsTextAlignmentVerticalCenter:(BOOL)isTextAlignmentVerticalCenter{

@@ -73,6 +73,7 @@
 		14F92C1222BB250A00A5C5E4 /* NSMenu+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C1122BB250A00A5C5E4 /* NSMenu+Helper.m */; };
 		14F92C1522BB3ADC00A5C5E4 /* AppDelegate+Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C1422BB3ADC00A5C5E4 /* AppDelegate+Menu.m */; };
 		14F92C1822BB611600A5C5E4 /* NNTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C1722BB611600A5C5E4 /* NNTextView.m */; };
+		14F92C1B22BB6F3400A5C5E4 /* NNLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C1A22BB6F3400A5C5E4 /* NNLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -211,6 +212,8 @@
 		14F92C1422BB3ADC00A5C5E4 /* AppDelegate+Menu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Menu.m"; sourceTree = "<group>"; };
 		14F92C1622BB611600A5C5E4 /* NNTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNTextView.h; sourceTree = "<group>"; };
 		14F92C1722BB611600A5C5E4 /* NNTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTextView.m; sourceTree = "<group>"; };
+		14F92C1922BB6F3400A5C5E4 /* NNLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNLabel.h; sourceTree = "<group>"; };
+		14F92C1A22BB6F3400A5C5E4 /* NNLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNLabel.m; sourceTree = "<group>"; };
 		750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacTemplet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.debug.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.debug.xcconfig"; sourceTree = "<group>"; };
 		CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.release.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.release.xcconfig"; sourceTree = "<group>"; };
@@ -384,6 +387,8 @@
 				1482F85F22ABA55F00A7C5E1 /* NNView.m */,
 				14F0FDE122B082AD00057093 /* NNTableView.h */,
 				14F0FDE222B082AD00057093 /* NNTableView.m */,
+				14F92C1922BB6F3400A5C5E4 /* NNLabel.h */,
+				14F92C1A22BB6F3400A5C5E4 /* NNLabel.m */,
 				14F92C1622BB611600A5C5E4 /* NNTextView.h */,
 				14F92C1722BB611600A5C5E4 /* NNTextView.m */,
 				14F0FDC722AF97E200057093 /* NNTextField.h */,
@@ -598,6 +603,7 @@
 				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
 				14F92BE622BA124E00A5C5E4 /* MainWindowController.m in Sources */,
 				14F2F5BD22B90109009D49CE /* NSCTViewCellOne.m in Sources */,
+				14F92C1B22BB6F3400A5C5E4 /* NNLabel.m in Sources */,
 				14F92BEA22BA17B200A5C5E4 /* DialogViewController.m in Sources */,
 				1482F72022AB8BD500A7C5E1 /* main.m in Sources */,
 				14F0FDB922AE662D00057093 /* NSUserDefaults+Helper.m in Sources */,

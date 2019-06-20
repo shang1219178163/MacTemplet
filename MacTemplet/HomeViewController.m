@@ -222,15 +222,15 @@ NSString *const kDefaultsPodName = @"keyPodName";
     if (!_textField) {
         _textField = ({
             NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Class Prefix"];
-            view.editable = true;  ///是否可编辑
             view.bordered = true;  ///是否显示边框
+            
+            view.alignment = NSTextAlignmentCenter;
+            view.isTextAlignmentVerticalCenter = true;
             
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
-            view.alignment = NSTextAlignmentCenter;
-            view.isTextAlignmentVerticalCenter = true;
             view.delegate = self;
-            
+
             view;
         });
     }
@@ -241,7 +241,6 @@ NSString *const kDefaultsPodName = @"keyPodName";
     if (!_textFieldTwo) {
         _textFieldTwo = ({
             NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Root Class name"];
-            view.editable = true;  ///是否可编辑
             view.bordered = true;  ///是否显示边框
 
             view.alignment = NSTextAlignmentCenter;
