@@ -33,8 +33,8 @@
 
     NSString * controllerName = @"HomeViewController";
 //    controllerName = @"FirstViewController";
-    controllerName = @"MainViewController";
-    controllerName = @"GroupViewController";
+//    controllerName = @"MainViewController";
+//    controllerName = @"GroupViewController";
 //    controllerName = @"CollectionViewController";
 
     NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
