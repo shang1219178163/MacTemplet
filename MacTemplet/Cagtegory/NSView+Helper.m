@@ -45,7 +45,7 @@
     return view;
 }
 
-+(__kindof NSTextField *)createTextFieldRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder{
++(__kindof NSTextField *)createTextFieldRect:(CGRect)rect placeholder:(NSString *)placeholder{
     assert([self isSubclassOfClass:NSTextField.class]);
     
     NSTextField *view = [[self alloc] initWithFrame:rect];
@@ -61,12 +61,11 @@
     view.cell.wraps = false;
     view.cell.scrollable = true;
     view.placeholderString = placeholder;
-    view.stringValue = text;
     
     return view;
 }
 
-+(__kindof NSTextView *)createTextViewRect:(CGRect)rect text:(NSString *)text{
++(__kindof NSTextView *)createTextViewRect:(CGRect)rect{
     assert([self isSubclassOfClass:NSTextView.class]);
 
     NSTextView * view = [[self alloc] initWithFrame:rect];
@@ -82,7 +81,6 @@
     view.drawsBackground = true;
     
     view.font = [NSFont systemFontOfSize:15];
-    view.string = text;
     return view;
 }
 

@@ -81,9 +81,11 @@
     cell.textField.stringValue = [NSString stringWithFormat:@"%@",array[item]];
     
 //    NSTextField * textField = [NSTextField createTextFieldRect:cell.bounds text:array[item] placeholder:@""];
-    NNTextField * textField = [NNTextField createTextFieldRect:cell.bounds text:array[item] placeholder:@""];
+    NNTextField * textField = [NNTextField createTextFieldRect:cell.bounds placeholder:@""];
     textField.alignment = NSTextAlignmentCenter;
     textField.isTextAlignmentVerticalCenter = true;
+    textField.stringValue = array[item];
+
     [cell addSubview:textField];
     return cell;
 }

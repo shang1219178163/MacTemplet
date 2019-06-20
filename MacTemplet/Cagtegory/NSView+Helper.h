@@ -16,9 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(__kindof NSImageView *)createImgViewRect:(CGRect)rect image:(id)image;
 
-+(__kindof NSTextField *)createTextFieldRect:(CGRect)rect text:(NSString *)text placeholder:(NSString *)placeholder;
++(__kindof NSTextField *)createTextFieldRect:(CGRect)rect placeholder:(NSString *)placeholder;
 
-+(__kindof NSTextView *)createTextViewRect:(CGRect)rect text:(NSString *)text;
++(__kindof NSTextView *)createTextViewRect:(CGRect)rect;
 
 +(__kindof NSScrollView *)createScrollViewRect:(CGRect)rect;
 

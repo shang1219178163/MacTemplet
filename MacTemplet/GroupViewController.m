@@ -117,7 +117,7 @@
 - (NNTextField *)textField{
     if (!_textField) {
         _textField = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero text:@"" placeholder:@"简单介绍"];
+            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"简单介绍"];
             view.editable = false;
 //            view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
@@ -130,7 +130,7 @@
 - (NNTextField *)textFieldOne{
     if (!_textFieldOne) {
         _textFieldOne = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero text:@"" placeholder:@"简单介绍"];
+            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"简单介绍"];
             view.editable = false;
 //            view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;

@@ -82,11 +82,12 @@
 - (NNTextField *)label{
     if (!_label) {
         _label = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero text:@"" placeholder:@"简单介绍"];
+            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"简单介绍"];
             view.editable = false;
             view.font = [NSFont systemFontOfSize:12];
             view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
+            
             view;
         });
     }
