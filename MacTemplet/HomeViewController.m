@@ -74,33 +74,15 @@
     [super viewDidAppear];
     
     NSString * folderPath = @"/Users/shang/Downloads";
-    [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:@"folderPath"];
+    [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:kFolderPath];
 
     [NSUserDefaults.standardUserDefaults setObject:@"BN" forKey:kClassPrefix];
     [NSUserDefaults.standardUserDefaults setObject:@"NSObject" forKey:kSuperClass];
-    [NSUserDefaults.standardUserDefaults setBool:false forKey:@"isSwift"];
+    [NSUserDefaults.standardUserDefaults setBool:false forKey:kIsSwift];
+    [NSUserDefaults.standardUserDefaults setBool:true forKey:kIsYYModel];
+
     [NSUserDefaults.standardUserDefaults synchronize];
     
-    [self testNSFileManager];
-}
-
--(void)testNSFileManager{
-    NSString * folderPath = @"/Users/shang/Downloads";
-    NSFileManager *manager = NSFileManager.defaultManager;
-    NSString *fileAtPath = [folderPath stringByAppendingPathComponent:@"BNRootModel.h"];
-    bool isSuccess = [manager createFileAtPath:fileAtPath contents:[@"22222" dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
-    
-    bool isExist = [NSFileManager.defaultManager fileExistsAtPath:fileAtPath];
-    bool isWritable = [NSFileManager.defaultManager isWritableFileAtPath:folderPath];
-    
-    NSError * error = nil;
-    [@"2222" writeToFile:fileAtPath atomically:false encoding:NSUTF8StringEncoding error:&error];
-    if (error) {
-        NSAlert *alert = [NSAlert alertWithError:error];
-        [alert runModal];
-    }
-    
-    DDLog(@"__%@_%@_%@", @(isWritable), @(isExist), @(isSuccess));
 }
 
 -(void)viewDidLayout{
@@ -179,13 +161,13 @@
 - (void)controlTextDidChange:(NSNotification *)obj {
     // You can get the NSTextField, which is calling the method, through the userInfo dictionary.
     NSTextField *textField = (NSTextField *)obj.object;
-    DDLog(@"%@",textField.stringValue);
+//    DDLog(@"%@",textField.stringValue);
  
 }
 
 - (void)controlTextDidEndEditing:(NSNotification *)obj{
     NSTextField *textField = (NSTextField *)obj.object;
-    DDLog(@"%@",textField.stringValue);
+//    DDLog(@"%@",textField.stringValue);
     
     if (textField == self.textField || textField == self.textFieldTwo) {
         NSString * defaultsKey = (textField == self.textField) ? kClassPrefix : kSuperClass;
@@ -215,7 +197,7 @@
 }
 
 - (void)clearFileOutputPath {
-    [NSUserDefaults.standardUserDefaults removeObjectForKey:@"folderPath"];
+    [NSUserDefaults.standardUserDefaults removeObjectForKey:kFolderPath];
     [NSUserDefaults.standardUserDefaults synchronize];
     NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = @"\nClear Success.";
@@ -253,44 +235,28 @@
     __block ESClassInfo *classInfo = nil;
     //如果当前是JSON对应是字典
     if ([result isKindOfClass:[NSDictionary class]]) {
-        //如果是生成到文件，提示输入Root class name
-        if (![NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
-            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
-            if (self.isSwift) {
-                self.hFilename = [NSString stringWithFormat:@"%@.swift",className];
-                self.mFilename = @"";
+        //如果是生成到文件
+        NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
+        classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
+        if ([NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
+            self.hFilename = [NSString stringWithFormat:@"%@.swift",className];
+            self.mFilename = @"";
 
-            } else {
-                self.hFilename = [NSString stringWithFormat:@"%@.h",className];
-                self.mFilename = [NSString stringWithFormat:@"%@.m",className];
-
-            }
-            [self dealPropertyNameWithClassInfo:classInfo];
-            
         } else {
-            //不生成到文件，Root class 里面用户自己创建
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
-            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
-            [self dealPropertyNameWithClassInfo:classInfo];
-            
+            self.hFilename = [NSString stringWithFormat:@"%@.h",className];
+            self.mFilename = [NSString stringWithFormat:@"%@.m",className];
+
         }
+        [self dealPropertyNameWithClassInfo:classInfo];
+     
     } else if ([result isKindOfClass:[NSArray class]]){
-        if ([NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
-            //当前是JSON代表数组，生成到文件需要提示用户输入Root Class name，
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
-                //输入完毕之后，将这个class设置
-            NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
-            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
-            
-            [self dealPropertyNameWithClassInfo:classInfo];
-        } else {
-            //Root class 已存在，只需要输入JSON对应的key的名字
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
-            NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
-            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
-            [self dealPropertyNameWithClassInfo:classInfo];
-        }
+        //当前是JSON代表数组
+        NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
+        NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
+        classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
+        
+        [self dealPropertyNameWithClassInfo:classInfo];
+    
     }
     return classInfo;
 }
@@ -352,7 +318,7 @@
 
 -(void)outputResult:(ESClassInfo*)classInfo{
     
-    if ([NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
+    if (![NSUserDefaults.standardUserDefaults valueForKey:kFolderPath]) {
         //选择保存路径
         NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
         if ([panel runModal] == NSModalResponseOK) {
@@ -363,7 +329,7 @@
         
     } else {
         if (!self.hTextView) return;
-        if (!self.isSwift) {
+        if (!kIsSwift) {
             NSString *mContent = [NSString stringWithFormat:@"%@\n%@",classInfo.classContentForM,classInfo.classInsertTextViewContentForM];
             self.mTextView.string = mContent;
             
@@ -381,7 +347,7 @@
 }
 
 - (void)creatFile{
-    NSString *folderPath = [NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"];
+    NSString *folderPath = [NSUserDefaults.standardUserDefaults valueForKey:kFolderPath];
     if (folderPath) {
         [FileManager.sharedInstance handleBaseData:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:self.hTextView.string mContent:self.mTextView.string];
         [NSWorkspace.sharedWorkspace openFile:folderPath];
@@ -391,7 +357,7 @@
 
         if (panel.runModal == NSModalResponseOK) {
             folderPath = [panel.URLs.firstObject relativePath];
-            [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:@"folderPath"];
+            [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:kFolderPath];
             NSLog(@"%@",folderPath);
             [FileManager.sharedInstance handleBaseData:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:self.hTextView.string mContent:self.mTextView.string];
             [NSWorkspace.sharedWorkspace openFile:folderPath];

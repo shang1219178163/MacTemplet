@@ -61,7 +61,7 @@
     
     NSMutableArray *array = [NSMutableArray arrayWithArray:atClassArray];
     
-    NSMutableString *resultStr = [NSMutableString stringWithFormat:@"@class "];
+    NSMutableString *resultStr = [NSMutableString stringWithFormat:@"\n@class "];
     for (ESClassInfo *classInfo in array) {
         [resultStr appendFormat:@"%@,",classInfo.className];
     }

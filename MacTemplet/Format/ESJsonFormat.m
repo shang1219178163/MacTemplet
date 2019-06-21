@@ -79,7 +79,7 @@
 
 -(void)outputResult:(NSNotification*)noti{
     ESClassInfo *classInfo = noti.object;
-    if ([NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
+    if ([NSUserDefaults.standardUserDefaults valueForKey:kFolderPath]) {
         //选择保存路径
         NSOpenPanel *panel = NSOpenPanel.openPanel;
         panel.title = @"ESJsonFormat";
@@ -94,7 +94,7 @@
         
     }else{
         if (!self.currentTextView) return;
-        if (!self.isSwift) {
+        if (!kIsSwift) {
             //先添加主类的属性
             [self.currentTextView insertText:classInfo.propertyContent];
             

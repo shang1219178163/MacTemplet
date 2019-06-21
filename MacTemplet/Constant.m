@@ -16,6 +16,8 @@ NSString *const kSuperClass = @"SuperClass";
 NSString *const kIsSwift = @"isSwift";
 NSString *const kPodName = @"PodName";
 
+NSString *const kIsYYModel = @"isYYModel";
+
 NSString *const ESFormatResultNotification = @"ESFormatResultNotification";
 NSString *const ESRootClassName = @"RootModel";
 NSString *const ESItemClassName = @"ItemModel";

@@ -26,30 +26,30 @@
              mFileName:(NSString *)mFileName
               hContent:(NSString *)hContent
               mContent:(NSString *)mContent{
-    NSString *modelStr = [NSString stringWithFormat:@"//\n//Created by ESJsonFormatForMac on %@.\n//\n\n",[self getDateStr]];
+    NSString *modelStr = [NSString stringWithFormat:@"//\n//Created by ESJsonFormatForMac on %@.\n//\n",[self getDateStr]];
     NSMutableString *hImportStr = nil;
     NSString *mImportStr = nil;
     NSString *newHContent = nil;
     NSString *newMContent = nil;
-     if (![NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
+     if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
          
-         hImportStr = [NSMutableString stringWithString:@"#import <Foundation/Foundation.h>\n\n"];
-         NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
+         hImportStr = [NSMutableString stringWithString:@"#import <Foundation/Foundation.h>\n"];
+         NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
          if (superClassString&&superClassString.length > 0) {
-             [hImportStr appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n\n",superClassString]];
+             [hImportStr appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n",superClassString]];
          }
          
          mImportStr = [NSString stringWithFormat:@"#import \"%@\"\n",hFileName];
-         newHContent = [NSString stringWithFormat:@"%@%@%@",modelStr,hImportStr,hContent];
-         newMContent = [NSString stringWithFormat:@"%@%@%@",modelStr,mImportStr,mContent];
-     }else{
+         newHContent = [NSString stringWithFormat:@"%@%@%@",modelStr, hImportStr, hContent];
+         newMContent = [NSString stringWithFormat:@"%@%@%@",modelStr, mImportStr, mContent];
          
-         hImportStr = [NSMutableString stringWithString:@"import UIKit\n\n"];
-         NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
+     } else {
+         hImportStr = [NSMutableString stringWithString:@"import UIKit\n"];
+         NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
          if (superClassString&&superClassString.length>0) {
-             [hImportStr appendString:[NSString stringWithFormat:@"import %@ \n\n",superClassString]];
+             [hImportStr appendString:[NSString stringWithFormat:@"import %@ \n",superClassString]];
          }
-         newHContent = [NSString stringWithFormat:@"%@%@%@",modelStr,hImportStr,hContent];
+         newHContent = [NSString stringWithFormat:@"%@%@%@",modelStr, hImportStr, hContent];
      }
     
     [self createFileWithFolderPath:folderPath hFileName:hFileName mFileName:mFileName hContent:newHContent mContent:newMContent];
@@ -62,7 +62,7 @@
                        mFileName:(NSString *)mFileName
                        hContent :(NSString *)hContent
                        mContent :(NSString *)mContent{
-    if (![NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
+    if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
         //创建.h文件
         BOOL isSuccessH = [NSFileManager createFileWithFolderPath:folderPath name:hFileName content:hContent];
         //创建.m文件

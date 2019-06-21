@@ -8,13 +8,12 @@
 
 #import "TableViewController.h"
 #import "NNTableView.h"
-#import "NNTableRowView.h"
-#import "NNTextField.h"
 
 
 @interface TableViewController ()<NSTableViewDelegate, NSTableViewDataSource>
 
 @property (nonatomic, strong) NNTableView *tableView;
+
 @property (nonatomic, strong) NSArray *list;
 
 @end
@@ -26,8 +25,10 @@
     // Do view setup here.
 //    self.view.layer.backgroundColor = NSColor.redColor.CGColor;
     
+    DDLog(@"%@",self.tableView.enclosingScrollView);
     [self setupTableView];
     [self.view addSubview:self.tableView.enclosingScrollView];
+
 }
 
 - (void)viewDidLayout{
@@ -73,28 +74,31 @@
     
     static NSString *cellIdentifier = @"one";
     NSTableCellView *cell = [NSTableCellView viewWithTableView:tableView identifier:cellIdentifier owner:self];
-//    cell.layer.backgroundColor = NSColor.greenColor.CGColor;
-
-//    cell.layer.backgroundColor = NSColor.yellowColor.CGColor;
-//    cell.imageView.image = [NSImage imageNamed:@"swift"];
+//    NSTableCellView *cell = [tableView makeViewWithIdentifier:cellIdentifier owner:self];
+//    if (!cell) {
+//        cell = [[NSTableCellView alloc]init];
+//        cell.identifier = cellIdentifier;
+//        cell.wantsLayer = YES;
+//    }
+    
+    cell.layer.backgroundColor = NSColor.yellowColor.CGColor;
+    
+    //    cell.imageView.image = [NSImage imageNamed:@"swift"];
     cell.textField.stringValue = [NSString stringWithFormat:@"cell %ld",(long)row];
     cell.textField.stringValue = [NSString stringWithFormat:@"%@",array[item]];
     
+<<<<<<< HEAD:MacTemplet/Controller/TableViewController.m
 //    NSTextField * textField = [NSTextField createTextFieldRect:cell.bounds text:array[item] placeholder:@""];
     NNTextField * textField = [NNTextField createTextFieldRect:cell.bounds placeholder:@""];
     textField.alignment = NSTextAlignmentCenter;
     textField.isTextAlignmentVerticalCenter = true;
     textField.stringValue = array[item];
 
+=======
+    NSTextField * textField = [NSView createTextFieldRect:cell.bounds text:array[item] placeholder:@""];
+>>>>>>> parent of cf5b59e... 需求模块:MacTemplet/TableViewController.m
     [cell addSubview:textField];
     return cell;
-}
-
-//设置每行容器视图
-- (nullable NSTableRowView *)tableView:(NSTableView *)tableView rowViewForRow:(NSInteger)row{
-    NNTableRowView * rowView = [[NNTableRowView alloc]init];
-    rowView.backgroundColor = NSColor.yellowColor;
-    return rowView;
 }
 
 #pragma mark - 是否可以选中单元格
@@ -103,7 +107,6 @@
     NSTableRowView *rowView = [tableView rowViewAtRow:row makeIfNecessary:NO];
     rowView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleRegular;
     rowView.emphasized = false;
-    
     NSLog(@"shouldSelectRow : %ld",row);
     return YES;
 }
@@ -120,37 +123,32 @@
 //    NSLog(@"didSelect：%@",notification);
 }
 
-- (NSString *)tableView:(NSTableView *)tableView toolTipForCell:(NSCell *)cell rect:(NSRectPointer)rect tableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row mouseLocation:(NSPoint)mouseLocation{
-    NSInteger item = [tableView.tableColumns indexOfObject:tableColumn];
-    NSString * string = [NSString stringWithFormat:@"{%@,%@}", @(row), @(item)];
-    return string;
-}
-
-- (BOOL)tableView:(NSTableView *)tableView shouldShowCellExpansionForTableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row{
-    return true;
-}
-
-- (BOOL)tableView:(NSTableView *)tableView shouldTrackCell:(NSCell *)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    return YES;
-}
-
 #pragma mark -funtions
 
 -(void)setupTableView{
-    NSArray * columns = @[@"columeOne", @"columeTwo", @"columeThree",];
-    columns = self.list.firstObject;
-    [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSTableColumn * column = [NSTableColumn createWithIdentifier:obj title:obj];
-        [self.tableView addTableColumn:column];
+    
+    NSArray * colums = @[@"columeOne", @"columeTwo", @"columeThree",];
+    colums = self.list.firstObject;
+    [colums enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSTableColumn * colum = [NSTableColumn createWithIdentifier:obj title:obj];
+        colum.minWidth = 40;
+        colum.maxWidth = 200;
+        [self.tableView addTableColumn:colum];
     }];
 
 }
 
 #pragma mark -lazy
+
 -(NNTableView *)tableView{
     if (!_tableView) {
         _tableView = ({
-            NNTableView *view = [NNTableView createTableViewRect:CGRectZero];
+            NNTableView *view = [[NNTableView alloc] init];
+            view.focusRingType = NSFocusRingTypeNone;//tableview获得焦点时的风格
+            view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleRegular;//行高亮的风格
+            view.backgroundColor = NSColor.orangeColor;
+            view.usesAlternatingRowBackgroundColors = YES; //背景颜色的交替，一行白色，一行灰色。设置后，原来设置的 backgroundColor 就无效了。
+            view.gridColor = NSColor.redColor;
             view.delegate = self;
             view.dataSource = self;
             view;
@@ -176,6 +174,5 @@
     }
     return _list;
 }
-
 
 @end
