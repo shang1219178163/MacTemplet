@@ -10,6 +10,31 @@
 
 @implementation NSString (Helper)
 
+-(id)objc{
+    NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    id obj = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                    options:kNilOptions
+                                                      error:&error];
+    if (error) {
+        return error;
+    }
+    return obj;
+}
+
+-(NSDictionary *)dict{
+    if ([self.objc isKindOfClass:[NSDictionary class]]) {
+        return self.objc;
+    }
+    return nil;
+}
+
+-(NSArray *)array{
+    if ([self.objc isKindOfClass:[NSArray class]]) {
+        return self.objc;
+    }
+    return nil;
+}
 
 
 @end
