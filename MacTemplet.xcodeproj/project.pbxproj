@@ -73,7 +73,22 @@
 		14F92C1222BB250A00A5C5E4 /* NSMenu+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C1122BB250A00A5C5E4 /* NSMenu+Helper.m */; };
 		14F92C1522BB3ADC00A5C5E4 /* AppDelegate+Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C1422BB3ADC00A5C5E4 /* AppDelegate+Menu.m */; };
 		14F92C1822BB611600A5C5E4 /* NNTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C1722BB611600A5C5E4 /* NNTextView.m */; };
-		14F92C1B22BB6F3400A5C5E4 /* NNLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C1A22BB6F3400A5C5E4 /* NNLabel.m */; };
+		14F92C1B22BB6F3400A5C5E4 /* NNTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C1A22BB6F3400A5C5E4 /* NNTextLabel.m */; };
+		14F92C1E22BB768400A5C5E4 /* appinfo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14F92C1D22BB768400A5C5E4 /* appinfo.txt */; };
+		14F92C2122BB7D9600A5C5E4 /* NSFileManager+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C2022BB7D9600A5C5E4 /* NSFileManager+Helper.m */; };
+		14F92C4122BB8DE800A5C5E4 /* ESJsonFormatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C3822BB8DE800A5C5E4 /* ESJsonFormatManager.m */; };
+		14F92C4222BB8DE800A5C5E4 /* ESJsonFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C3922BB8DE800A5C5E4 /* ESJsonFormat.m */; };
+		14F92C4D22BB8E0900A5C5E4 /* ESFormatInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C4522BB8E0800A5C5E4 /* ESFormatInfo.m */; };
+		14F92C4E22BB8E0900A5C5E4 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C4722BB8E0800A5C5E4 /* DataModel.m */; };
+		14F92C4F22BB8E0900A5C5E4 /* ESPbxprojInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C4822BB8E0800A5C5E4 /* ESPbxprojInfo.m */; };
+		14F92C5022BB8E0900A5C5E4 /* ESPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C4922BB8E0800A5C5E4 /* ESPair.m */; };
+		14F92C5122BB8E0900A5C5E4 /* ESClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C4C22BB8E0900A5C5E4 /* ESClassInfo.m */; };
+		14F92C5422BB925F00A5C5E4 /* ESJsonFormatSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C5222BB925F00A5C5E4 /* ESJsonFormatSetting.m */; };
+		14F92C5622BB93EB00A5C5E4 /* DataModelsTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14F92C5522BB93EA00A5C5E4 /* DataModelsTemplate.txt */; };
+		14F92C5922BB951700A5C5E4 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C5822BB951700A5C5E4 /* FileManager.m */; };
+		14F92CF622BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92CF322BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m */; };
+		14F92CF722BC6E6C00A5C5E4 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92CF422BC6E6C00A5C5E4 /* NoodleLineNumberView.m */; };
+		14F92D5122BC824000A5C5E4 /* BNRootModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92D4F22BC823F00A5C5E4 /* BNRootModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,8 +227,36 @@
 		14F92C1422BB3ADC00A5C5E4 /* AppDelegate+Menu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Menu.m"; sourceTree = "<group>"; };
 		14F92C1622BB611600A5C5E4 /* NNTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNTextView.h; sourceTree = "<group>"; };
 		14F92C1722BB611600A5C5E4 /* NNTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTextView.m; sourceTree = "<group>"; };
-		14F92C1922BB6F3400A5C5E4 /* NNLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNLabel.h; sourceTree = "<group>"; };
-		14F92C1A22BB6F3400A5C5E4 /* NNLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNLabel.m; sourceTree = "<group>"; };
+		14F92C1922BB6F3400A5C5E4 /* NNTextLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNTextLabel.h; sourceTree = "<group>"; };
+		14F92C1A22BB6F3400A5C5E4 /* NNTextLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTextLabel.m; sourceTree = "<group>"; };
+		14F92C1D22BB768400A5C5E4 /* appinfo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = appinfo.txt; sourceTree = "<group>"; };
+		14F92C1F22BB7D9600A5C5E4 /* NSFileManager+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Helper.h"; sourceTree = "<group>"; };
+		14F92C2022BB7D9600A5C5E4 /* NSFileManager+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Helper.m"; sourceTree = "<group>"; };
+		14F92C3622BB8DE800A5C5E4 /* ESJsonFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESJsonFormat.h; sourceTree = "<group>"; };
+		14F92C3722BB8DE800A5C5E4 /* ESJsonFormatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESJsonFormatManager.h; sourceTree = "<group>"; };
+		14F92C3822BB8DE800A5C5E4 /* ESJsonFormatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESJsonFormatManager.m; sourceTree = "<group>"; };
+		14F92C3922BB8DE800A5C5E4 /* ESJsonFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESJsonFormat.m; sourceTree = "<group>"; };
+		14F92C4322BB8E0800A5C5E4 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		14F92C4422BB8E0800A5C5E4 /* ESClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESClassInfo.h; sourceTree = "<group>"; };
+		14F92C4522BB8E0800A5C5E4 /* ESFormatInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESFormatInfo.m; sourceTree = "<group>"; };
+		14F92C4622BB8E0800A5C5E4 /* ESPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPair.h; sourceTree = "<group>"; };
+		14F92C4722BB8E0800A5C5E4 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
+		14F92C4822BB8E0800A5C5E4 /* ESPbxprojInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPbxprojInfo.m; sourceTree = "<group>"; };
+		14F92C4922BB8E0800A5C5E4 /* ESPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPair.m; sourceTree = "<group>"; };
+		14F92C4A22BB8E0800A5C5E4 /* ESPbxprojInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPbxprojInfo.h; sourceTree = "<group>"; };
+		14F92C4B22BB8E0800A5C5E4 /* ESFormatInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESFormatInfo.h; sourceTree = "<group>"; };
+		14F92C4C22BB8E0900A5C5E4 /* ESClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESClassInfo.m; sourceTree = "<group>"; };
+		14F92C5222BB925F00A5C5E4 /* ESJsonFormatSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESJsonFormatSetting.m; sourceTree = "<group>"; };
+		14F92C5322BB925F00A5C5E4 /* ESJsonFormatSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESJsonFormatSetting.h; sourceTree = "<group>"; };
+		14F92C5522BB93EA00A5C5E4 /* DataModelsTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DataModelsTemplate.txt; sourceTree = "<group>"; };
+		14F92C5722BB951700A5C5E4 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		14F92C5822BB951700A5C5E4 /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		14F92CF222BC6E6B00A5C5E4 /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberMarker.h; sourceTree = "<group>"; };
+		14F92CF322BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberMarker.m; sourceTree = "<group>"; };
+		14F92CF422BC6E6C00A5C5E4 /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberView.m; sourceTree = "<group>"; };
+		14F92CF522BC6E6C00A5C5E4 /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberView.h; sourceTree = "<group>"; };
+		14F92D4F22BC823F00A5C5E4 /* BNRootModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRootModel.m; sourceTree = "<group>"; };
+		14F92D5022BC824000A5C5E4 /* BNRootModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRootModel.h; sourceTree = "<group>"; };
 		750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacTemplet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.debug.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.debug.xcconfig"; sourceTree = "<group>"; };
 		CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.release.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.release.xcconfig"; sourceTree = "<group>"; };
@@ -260,6 +303,8 @@
 		1482F71522AB8BD400A7C5E1 /* MacTemplet */ = {
 			isa = PBXGroup;
 			children = (
+				14F92C3522BB8DE800A5C5E4 /* Format */,
+				14F92C2622BB8DE500A5C5E4 /* Model */,
 				1482F71622AB8BD400A7C5E1 /* AppDelegate.h */,
 				1482F71722AB8BD400A7C5E1 /* AppDelegate.m */,
 				14F92C1322BB3ADC00A5C5E4 /* AppDelegate+Menu.h */,
@@ -268,36 +313,14 @@
 				14F92BE422BA124E00A5C5E4 /* MainWindowController.m */,
 				1482F72822AB8F9300A7C5E1 /* HomeViewController.h */,
 				1482F72922AB8F9300A7C5E1 /* HomeViewController.m */,
-				1482F85622AB9C2E00A7C5E1 /* TableViewController.h */,
-				1482F85722AB9C2E00A7C5E1 /* TableViewController.m */,
-				14F2F5AA22B8FD18009D49CE /* CollectionViewController.h */,
-				14F2F5AB22B8FD18009D49CE /* CollectionViewController.m */,
-				14F0FDCA22AFA48E00057093 /* FirstViewController.h */,
-				14F0FDCB22AFA48E00057093 /* FirstViewController.m */,
-				14F0FDCD22AFA56900057093 /* OneWindowController.h */,
-				14F0FDCE22AFA56900057093 /* OneWindowController.m */,
-				14F2F59722B8DB25009D49CE /* SecondViewController.h */,
-				14F2F59822B8DB25009D49CE /* SecondViewController.m */,
-				14F2F59A22B8DB3D009D49CE /* ThirdViewController.h */,
-				14F2F59B22B8DB3D009D49CE /* ThirdViewController.m */,
-				14F2F59422B8D9A2009D49CE /* MainViewController.h */,
-				14F2F59522B8D9A2009D49CE /* MainViewController.m */,
-				14F2F5A222B8E147009D49CE /* GroupViewController.h */,
-				14F2F5A322B8E147009D49CE /* GroupViewController.m */,
-				14F92BDB22B9E75100A5C5E4 /* BNDialogWindowController.h */,
-				14F92BDC22B9E75100A5C5E4 /* BNDialogWindowController.m */,
-				14F92BE822BA17B200A5C5E4 /* DialogViewController.h */,
-				14F92BE922BA17B200A5C5E4 /* DialogViewController.m */,
+				14F92D5022BC824000A5C5E4 /* BNRootModel.h */,
+				14F92D4F22BC823F00A5C5E4 /* BNRootModel.m */,
+				14F92C2522BB8DBB00A5C5E4 /* Controller */,
 				14F2F5AD22B8FEB1009D49CE /* ViewHeight */,
 				14F0FDAA22AE097A00057093 /* View */,
 				1482F86122ABA5A400A7C5E1 /* Cagtegory */,
 				14F2F55F22B78078009D49CE /* Other */,
-				1482F71922AB8BD500A7C5E1 /* Assets.xcassets */,
-				1482F71E22AB8BD500A7C5E1 /* Info.plist */,
-				14F2F55C22B77DDE009D49CE /* MacTemplet-Bridging-Header.h */,
-				1482F71F22AB8BD500A7C5E1 /* main.m */,
-				1482F72722AB8EC600A7C5E1 /* PrefixHeader.pch */,
-				1482F72122AB8BD500A7C5E1 /* MacTemplet.entitlements */,
+				14F92C1C22BB766A00A5C5E4 /* Resource */,
 			);
 			path = MacTemplet;
 			sourceTree = "<group>";
@@ -306,6 +329,8 @@
 			isa = PBXGroup;
 			children = (
 				14F0FDBA22AE68F300057093 /* MacExpand.h */,
+				14F92C1F22BB7D9600A5C5E4 /* NSFileManager+Helper.h */,
+				14F92C2022BB7D9600A5C5E4 /* NSFileManager+Helper.m */,
 				14F92BD822B9E12000A5C5E4 /* NSAlert+Helper.h */,
 				14F92BD922B9E12000A5C5E4 /* NSAlert+Helper.m */,
 				14F0FDA722AE008F00057093 /* NSApplication+Helper.h */,
@@ -387,8 +412,8 @@
 				1482F85F22ABA55F00A7C5E1 /* NNView.m */,
 				14F0FDE122B082AD00057093 /* NNTableView.h */,
 				14F0FDE222B082AD00057093 /* NNTableView.m */,
-				14F92C1922BB6F3400A5C5E4 /* NNLabel.h */,
-				14F92C1A22BB6F3400A5C5E4 /* NNLabel.m */,
+				14F92C1922BB6F3400A5C5E4 /* NNTextLabel.h */,
+				14F92C1A22BB6F3400A5C5E4 /* NNTextLabel.m */,
 				14F92C1622BB611600A5C5E4 /* NNTextView.h */,
 				14F92C1722BB611600A5C5E4 /* NNTextView.m */,
 				14F0FDC722AF97E200057093 /* NNTextField.h */,
@@ -408,6 +433,7 @@
 		14F2F55F22B78078009D49CE /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				14F92CF122BC6E5F00A5C5E4 /* NoodleLineNumber */,
 				14F92C0022BB1AC700A5C5E4 /* BNGloble */,
 				14F2F55D22B77DDF009D49CE /* NSImage+Helper.swift */,
 			);
@@ -446,6 +472,91 @@
 				14F92C0522BB1AC700A5C5E4 /* Media.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		14F92C1C22BB766A00A5C5E4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				14F92C5522BB93EA00A5C5E4 /* DataModelsTemplate.txt */,
+				14F92C1D22BB768400A5C5E4 /* appinfo.txt */,
+				1482F71F22AB8BD500A7C5E1 /* main.m */,
+				1482F72722AB8EC600A7C5E1 /* PrefixHeader.pch */,
+				1482F72122AB8BD500A7C5E1 /* MacTemplet.entitlements */,
+				1482F71922AB8BD500A7C5E1 /* Assets.xcassets */,
+				1482F71E22AB8BD500A7C5E1 /* Info.plist */,
+				14F2F55C22B77DDE009D49CE /* MacTemplet-Bridging-Header.h */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		14F92C2522BB8DBB00A5C5E4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1482F85622AB9C2E00A7C5E1 /* TableViewController.h */,
+				1482F85722AB9C2E00A7C5E1 /* TableViewController.m */,
+				14F2F5AA22B8FD18009D49CE /* CollectionViewController.h */,
+				14F2F5AB22B8FD18009D49CE /* CollectionViewController.m */,
+				14F0FDCA22AFA48E00057093 /* FirstViewController.h */,
+				14F0FDCB22AFA48E00057093 /* FirstViewController.m */,
+				14F0FDCD22AFA56900057093 /* OneWindowController.h */,
+				14F0FDCE22AFA56900057093 /* OneWindowController.m */,
+				14F2F59722B8DB25009D49CE /* SecondViewController.h */,
+				14F2F59822B8DB25009D49CE /* SecondViewController.m */,
+				14F2F59A22B8DB3D009D49CE /* ThirdViewController.h */,
+				14F2F59B22B8DB3D009D49CE /* ThirdViewController.m */,
+				14F2F59422B8D9A2009D49CE /* MainViewController.h */,
+				14F2F59522B8D9A2009D49CE /* MainViewController.m */,
+				14F2F5A222B8E147009D49CE /* GroupViewController.h */,
+				14F2F5A322B8E147009D49CE /* GroupViewController.m */,
+				14F92BDB22B9E75100A5C5E4 /* BNDialogWindowController.h */,
+				14F92BDC22B9E75100A5C5E4 /* BNDialogWindowController.m */,
+				14F92BE822BA17B200A5C5E4 /* DialogViewController.h */,
+				14F92BE922BA17B200A5C5E4 /* DialogViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		14F92C2622BB8DE500A5C5E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				14F92C4322BB8E0800A5C5E4 /* DataModel.h */,
+				14F92C4722BB8E0800A5C5E4 /* DataModel.m */,
+				14F92C4422BB8E0800A5C5E4 /* ESClassInfo.h */,
+				14F92C4C22BB8E0900A5C5E4 /* ESClassInfo.m */,
+				14F92C4B22BB8E0800A5C5E4 /* ESFormatInfo.h */,
+				14F92C4522BB8E0800A5C5E4 /* ESFormatInfo.m */,
+				14F92C4622BB8E0800A5C5E4 /* ESPair.h */,
+				14F92C4922BB8E0800A5C5E4 /* ESPair.m */,
+				14F92C4A22BB8E0800A5C5E4 /* ESPbxprojInfo.h */,
+				14F92C4822BB8E0800A5C5E4 /* ESPbxprojInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		14F92C3522BB8DE800A5C5E4 /* Format */ = {
+			isa = PBXGroup;
+			children = (
+				14F92C3722BB8DE800A5C5E4 /* ESJsonFormatManager.h */,
+				14F92C3822BB8DE800A5C5E4 /* ESJsonFormatManager.m */,
+				14F92C3622BB8DE800A5C5E4 /* ESJsonFormat.h */,
+				14F92C3922BB8DE800A5C5E4 /* ESJsonFormat.m */,
+				14F92C5322BB925F00A5C5E4 /* ESJsonFormatSetting.h */,
+				14F92C5222BB925F00A5C5E4 /* ESJsonFormatSetting.m */,
+				14F92C5722BB951700A5C5E4 /* FileManager.h */,
+				14F92C5822BB951700A5C5E4 /* FileManager.m */,
+			);
+			path = Format;
+			sourceTree = "<group>";
+		};
+		14F92CF122BC6E5F00A5C5E4 /* NoodleLineNumber */ = {
+			isa = PBXGroup;
+			children = (
+				14F92CF222BC6E6B00A5C5E4 /* NoodleLineNumberMarker.h */,
+				14F92CF322BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m */,
+				14F92CF522BC6E6C00A5C5E4 /* NoodleLineNumberView.h */,
+				14F92CF422BC6E6C00A5C5E4 /* NoodleLineNumberView.m */,
+			);
+			path = NoodleLineNumber;
 			sourceTree = "<group>";
 		};
 		2FC3B9408044A2619FB61A13 /* Pods */ = {
@@ -491,6 +602,11 @@
 					1482F71222AB8BD400A7C5E1 = {
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -518,6 +634,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				14F92C0B22BB1AC700A5C5E4 /* Media.xcassets in Resources */,
+				14F92C1E22BB768400A5C5E4 /* appinfo.txt in Resources */,
+				14F92C5622BB93EB00A5C5E4 /* DataModelsTemplate.txt in Resources */,
 				1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,6 +702,7 @@
 				14F2F58722B87A58009D49CE /* NSTextField+Helper.m in Sources */,
 				14F92C1222BB250A00A5C5E4 /* NSMenu+Helper.m in Sources */,
 				1482F85522AB96CE00A7C5E1 /* NSControl+Helper.m in Sources */,
+				14F92C4222BB8DE800A5C5E4 /* ESJsonFormat.m in Sources */,
 				14F92C0A22BB1AC700A5C5E4 /* BNAttStringKey.m in Sources */,
 				14F2F5AC22B8FD18009D49CE /* CollectionViewController.m in Sources */,
 				14F2F5B122B8FEE5009D49CE /* NSCTViewItemOne.m in Sources */,
@@ -592,9 +711,12 @@
 				14F2F59D22B8DB3D009D49CE /* ThirdViewController.m in Sources */,
 				14F92BF322BA49A800A5C5E4 /* NSViewController+Helper.m in Sources */,
 				14F2F59322B8D826009D49CE /* NNTableRowView.m in Sources */,
+				14F92C4D22BB8E0900A5C5E4 /* ESFormatInfo.m in Sources */,
 				14F92BDA22B9E12000A5C5E4 /* NSAlert+Helper.m in Sources */,
 				14F0FDC922AF97E200057093 /* NNTextField.m in Sources */,
+				14F92C4F22BB8E0900A5C5E4 /* ESPbxprojInfo.m in Sources */,
 				1482F85922AB9C2E00A7C5E1 /* TableViewController.m in Sources */,
+				14F92C5922BB951700A5C5E4 /* FileManager.m in Sources */,
 				14F0FDE922B084EC00057093 /* NSTableView+Hook.m in Sources */,
 				14F0FDD022AFA56900057093 /* OneWindowController.m in Sources */,
 				14F0FDAD22AE359D00057093 /* NSString+Helper.m in Sources */,
@@ -603,11 +725,15 @@
 				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
 				14F92BE622BA124E00A5C5E4 /* MainWindowController.m in Sources */,
 				14F2F5BD22B90109009D49CE /* NSCTViewCellOne.m in Sources */,
-				14F92C1B22BB6F3400A5C5E4 /* NNLabel.m in Sources */,
+				14F92C1B22BB6F3400A5C5E4 /* NNTextLabel.m in Sources */,
 				14F92BEA22BA17B200A5C5E4 /* DialogViewController.m in Sources */,
+				14F92C4122BB8DE800A5C5E4 /* ESJsonFormatManager.m in Sources */,
 				1482F72022AB8BD500A7C5E1 /* main.m in Sources */,
 				14F0FDB922AE662D00057093 /* NSUserDefaults+Helper.m in Sources */,
 				14F2F58A22B87B8E009D49CE /* NSTextField+Hook.m in Sources */,
+				14F92C5022BB8E0900A5C5E4 /* ESPair.m in Sources */,
+				14F92C5122BB8E0900A5C5E4 /* ESClassInfo.m in Sources */,
+				14F92C5422BB925F00A5C5E4 /* ESJsonFormatSetting.m in Sources */,
 				14F0FDE322B082AD00057093 /* NNTableView.m in Sources */,
 				14F2F59022B8C13F009D49CE /* NSTableRowView+Helper.m in Sources */,
 				1482F84F22AB920C00A7C5E1 /* NSView+Helper.m in Sources */,
@@ -617,21 +743,26 @@
 				14F2F5A522B8E147009D49CE /* GroupViewController.m in Sources */,
 				14F92BF622BB13E900A5C5E4 /* NSObject+Helper.m in Sources */,
 				14F0FDD722AFAF8400057093 /* NSWindow+Helper.m in Sources */,
+				14F92CF722BC6E6C00A5C5E4 /* NoodleLineNumberView.m in Sources */,
 				14F92BFF22BB1A2800A5C5E4 /* NSDate+Helper.m in Sources */,
 				14F92BDE22B9E75100A5C5E4 /* BNDialogWindowController.m in Sources */,
 				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
 				14F92BF922BB178C00A5C5E4 /* NNDocument.m in Sources */,
+				14F92D5122BC824000A5C5E4 /* BNRootModel.m in Sources */,
 				14F92C0C22BB1AC700A5C5E4 /* BNGeneralConst.m in Sources */,
 				14F2F5A922B8F2E6009D49CE /* NSTabView+Helper.m in Sources */,
 				14F2F5A122B8DBF7009D49CE /* NSTabViewItem+Helper.m in Sources */,
 				14F92C1522BB3ADC00A5C5E4 /* AppDelegate+Menu.m in Sources */,
 				14F92C0F22BB21EC00A5C5E4 /* NSMenuItem+Helper.m in Sources */,
 				14F0FDCC22AFA48E00057093 /* FirstViewController.m in Sources */,
+				14F92C2122BB7D9600A5C5E4 /* NSFileManager+Helper.m in Sources */,
+				14F92CF622BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m in Sources */,
 				14F2F58D22B881C4009D49CE /* NSTextFieldCell+Hook.m in Sources */,
 				14F0FDA622ADF20400057093 /* NSView+Hook.m in Sources */,
 				14F2F59622B8D9A2009D49CE /* MainViewController.m in Sources */,
 				1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */,
 				14F2F5B522B8FF98009D49CE /* NNCollectionView.m in Sources */,
+				14F92C4E22BB8E0900A5C5E4 /* DataModel.m in Sources */,
 				1482F72A22AB8F9300A7C5E1 /* HomeViewController.m in Sources */,
 				1482F85D22ABA1CA00A7C5E1 /* NSColor+Helper.m in Sources */,
 				14F0FDB022AE573800057093 /* NSSegmentedControl+Helper.m in Sources */,

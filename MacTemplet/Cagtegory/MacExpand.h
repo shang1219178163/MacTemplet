@@ -17,6 +17,7 @@
 #import "NSDateFormatter+Helper.h"
 
 #import "NSImage+Helper.h"
+#import "NSFileManager+Helper.h"
 #import "NSMenu+Helper.h"
 #import "NSMenuItem+Helper.h"
 #import "NSObject+Helper.h"

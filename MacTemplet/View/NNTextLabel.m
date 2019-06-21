@@ -1,14 +1,14 @@
 //
-//  NNLabel.m
+//  NNTextLabel.m
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/20.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
-#import "NNLabel.h"
+#import "NNTextLabel.h"
 
-@implementation NNLabel
+@implementation NNTextLabel
 
 - (instancetype)init{
     self = [super init];

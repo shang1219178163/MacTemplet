@@ -12,7 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSPanel (Helper)
 
-+(__kindof NSOpenPanel *)createOpenPanelFileTypes:(NSArray *)fileTypes;
++(__kindof NSOpenPanel *)openPanelChooseFileTypes:(NSArray *)fileTypes;
+
++(__kindof NSOpenPanel *)openPanelChooseDirs:(BOOL)isMultipleSelection;
 
 +(void)openPanelFileTypes:(NSArray *)fileTypes;
 
