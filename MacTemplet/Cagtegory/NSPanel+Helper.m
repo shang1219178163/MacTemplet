@@ -10,12 +10,12 @@
 
 @implementation NSPanel (Helper)
 
-+(__kindof NSOpenPanel *)createOpenPanelFileTypes:(NSArray *)fileTypes{
++(__kindof NSOpenPanel *)openPanelChooseFileTypes:(NSArray *)fileTypes{
     assert([self isSubclassOfClass:NSOpenPanel.class]);
     
     NSOpenPanel *panel = NSOpenPanel.openPanel;
     panel.canChooseFiles = true;
-    panel.canChooseDirectories = false;
+    panel.canChooseDirectories = true;
     panel.allowsMultipleSelection = true;
     panel.allowedFileTypes = fileTypes;
     NSString * path = [NSString stringWithFormat:@"/Users/%@/Downloads", NSProcessInfo.processInfo.userName];
@@ -27,8 +27,20 @@
     return panel;
 }
 
++(__kindof NSOpenPanel *)openPanelChooseDirs:(BOOL)isMultipleSelection{
+    assert([self isSubclassOfClass:NSOpenPanel.class]);
+    
+    NSOpenPanel *panel = NSOpenPanel.openPanel;
+    panel.canChooseFiles = false;
+    panel.canChooseDirectories = true;
+    panel.allowsMultipleSelection = isMultipleSelection;
+    NSString * path = [NSString stringWithFormat:@"/Users/%@/Downloads", NSProcessInfo.processInfo.userName];
+    panel.directoryURL = [NSURL fileURLWithPath:path];
+    return panel;
+}
+
 +(void)openPanelFileTypes:(NSArray *)fileTypes{    
-    NSOpenPanel *panel = [NSOpenPanel createOpenPanelFileTypes:fileTypes];
+    NSOpenPanel *panel = [NSOpenPanel openPanelChooseFileTypes:fileTypes];
     [panel runModal];
     if (panel.runModal == NSModalResponseOK) {
         NSLog(@"%@", panel.URLs);

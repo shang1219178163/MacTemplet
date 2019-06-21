@@ -21,6 +21,17 @@
 
 #import "DataModel.h"
 
+NSString *const kDefaultsClassPrefix = @"keyClassPrefix";
+NSString *const kDefaultsRootClassName = @"SuperClass";
+
+NSString *const kDefaultsSwift = @"isSwift";
+NSString *const kDefaultsPodName = @"keyPodName";
+
+#define ESRootClassName @"RootModel"
+#define ESItemClassName @"ItemModel"
+#define ESArrayKeyName @"esArray"
+
+
 @interface HomeViewController ()<NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>
 
 @property (nonatomic, strong) NNTextView *textView;
@@ -66,6 +77,7 @@
 
 //    [self.view getViewLayer];
     
+    self.segmentCtl.selectedSegment = 1;
     [self readFile];
     
 }
@@ -74,11 +86,11 @@
     [super viewDidAppear];
     
     NSString * folderPath = @"/Users/shang/Downloads";
-    [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:kFolderPath];
+    [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:@"folderPath"];
 
-    [NSUserDefaults.standardUserDefaults setObject:@"BN" forKey:kClassPrefix];
-    [NSUserDefaults.standardUserDefaults setObject:@"NSObject" forKey:kSuperClass];
-    [NSUserDefaults.standardUserDefaults setBool:false forKey:kIsSwift];
+    [NSUserDefaults.standardUserDefaults setObject:@"BN" forKey:kDefaultsClassPrefix];
+    [NSUserDefaults.standardUserDefaults setObject:@"NSObject" forKey:kDefaultsRootClassName];
+    [NSUserDefaults.standardUserDefaults setBool:false forKey:@"isSwift"];
     [NSUserDefaults.standardUserDefaults synchronize];
     
     [self testNSFileManager];
@@ -126,14 +138,14 @@
     [self.textField makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.superview).offset(padding);
         make.left.equalTo(self.bottomView.superview).offset(gap);
-        make.width.equalTo(120);
+        make.width.equalTo(150);
         make.bottom.equalTo(self.bottomView.superview).offset(-padding);
     }];
     
     [self.textFieldTwo makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.superview).offset(padding);
         make.left.equalTo(self.textField.right).offset(gap);
-        make.width.equalTo(120);
+        make.width.equalTo(150);
         make.bottom.equalTo(self.bottomView.superview).offset(-padding);
     }];
     
@@ -188,7 +200,7 @@
     DDLog(@"%@",textField.stringValue);
     
     if (textField == self.textField || textField == self.textFieldTwo) {
-        NSString * defaultsKey = (textField == self.textField) ? kClassPrefix : kSuperClass;
+        NSString * defaultsKey = (textField == self.textField) ? kDefaultsClassPrefix : kDefaultsRootClassName;
         [NSUserDefaults.standardUserDefaults setObject:textField.stringValue forKey:defaultsKey];
         [NSUserDefaults.standardUserDefaults synchronize];
         
@@ -215,7 +227,7 @@
 }
 
 - (void)clearFileOutputPath {
-    [NSUserDefaults.standardUserDefaults removeObjectForKey:kFolderPath];
+    [NSUserDefaults.standardUserDefaults removeObjectForKey:@"folderPath"];
     [NSUserDefaults.standardUserDefaults synchronize];
     NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = @"\nClear Success.";
@@ -244,7 +256,9 @@
 #pragma mark - Change ESJsonFormat
 /**
  *  初始类名，RootClass/JSON为数组/创建文件与否
+ *
  *  @param result JSON转成字典或者数组
+ *
  *  @return 类信息
  */
 - (ESClassInfo *)dealClassNameWithJsonResult:(id)result{
@@ -253,49 +267,52 @@
     if ([result isKindOfClass:[NSDictionary class]]) {
         //如果是生成到文件，提示输入Root class name
         if (!ESJsonFormatSetting.defaultSetting.outputToFiles) {
-            
-            NSString *rootClassName = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
-            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:rootClassName classDic:result];
-            if ([NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
-                self.hFilename = [NSString stringWithFormat:@"%@.swift",rootClassName];
+            NSString *className = [[NSUserDefaults objectForKey:kDefaultsClassPrefix] stringByAppendingString:ESRootClassName];
+            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
+            if (self.isSwift) {
+                self.hFilename = [NSString stringWithFormat:@"%@.swift",className];
                 self.mFilename = @"";
-                
+
             } else {
-                self.hFilename = [NSString stringWithFormat:@"%@.h",rootClassName];
-                self.mFilename = [NSString stringWithFormat:@"%@.m",rootClassName];
-                
+                self.hFilename = [NSString stringWithFormat:@"%@.h",className];
+                self.mFilename = [NSString stringWithFormat:@"%@.m",className];
+
             }
-            
             [self dealPropertyNameWithClassInfo:classInfo];
+            
         } else {
             //不生成到文件，Root class 里面用户自己创建
-            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:ESRootClassName classDic:result];
+            NSString *className = [[NSUserDefaults objectForKey:kDefaultsClassPrefix] stringByAppendingString:ESRootClassName];
+            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
             [self dealPropertyNameWithClassInfo:classInfo];
+            
         }
     } else if ([result isKindOfClass:[NSArray class]]){
         if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
             //当前是JSON代表数组，生成到文件需要提示用户输入Root Class name，
-            NSString *rootClassName = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
-            NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:rootClassName];
-            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:rootClassName classDic:dic];
+            NSString *className = [[NSUserDefaults objectForKey:kDefaultsClassPrefix] stringByAppendingString:ESRootClassName];
+                //输入完毕之后，将这个class设置
+            NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
+            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
             
             [self dealPropertyNameWithClassInfo:classInfo];
-            
         } else {
             //Root class 已存在，只需要输入JSON对应的key的名字
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESArrayKeyName];
+            NSString *className = [[NSUserDefaults objectForKey:kDefaultsClassPrefix] stringByAppendingString:ESRootClassName];
             NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
-            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:ESRootClassName classDic:dic];
-      
+            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
             [self dealPropertyNameWithClassInfo:classInfo];
         }
     }
     return classInfo;
 }
 
+
 /**
  *  处理属性名字(用户输入属性对应字典对应类或者集合里面对应类的名字)
+ *
  *  @param classInfo 要处理的ClassInfo
+ *
  *  @return 处理完毕的ClassInfo
  */
 - (ESClassInfo *)dealPropertyNameWithClassInfo:(ESClassInfo *)classInfo{
@@ -305,16 +322,21 @@
         //取出的可能是NSDictionary或者NSArray
         id obj = dic[key];
         if ([obj isKindOfClass:[NSArray class]] || [obj isKindOfClass:[NSDictionary class]]) {
+
+            NSString *msg = [NSString stringWithFormat:@"The '%@' correspond class name is:",key];
             if ([obj isKindOfClass:[NSArray class]]) {
                 //May be 'NSString'，will crash
                 if (!([[obj firstObject] isKindOfClass:[NSDictionary class]] || [[obj firstObject] isKindOfClass:[NSArray class]])) {
                     continue;
                 }
+                msg = [NSString stringWithFormat:@"The '%@' child items class name is:",key];
             }
-           NSString *childClassName = [[NSUserDefaults.standardUserDefaults objectForKey:kClassPrefix] stringByAppendingString: key.capitalizedString];
+//            __block NSString *childClassName = [key capitalizedString];
+            __block NSString *childClassName = [[NSUserDefaults.standardUserDefaults objectForKey:kDefaultsClassPrefix] stringByAppendingString: key.capitalizedString];
             if (![childClassName containsString:@"Model"]) {
                 childClassName = [childClassName stringByAppendingString:@"Model"];
             }
+            
             //如果当前obj是 NSDictionary 或者 NSArray，继续向下遍历
             if ([obj isKindOfClass:[NSDictionary class]]) {
                 ESClassInfo *childClassInfo = [[ESClassInfo alloc] initWithClassNameKey:key ClassName:childClassName classDic:obj];
@@ -340,7 +362,7 @@
     return classInfo;
 }
 
-- (void)outputResult:(ESClassInfo*)classInfo{
+-(void)outputResult:(ESClassInfo*)classInfo{
     
     if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
         //选择保存路径
@@ -357,27 +379,25 @@
         
     } else {
         if (!self.hTextView) return;
-        if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
+        if (!self.isSwift) {
             NSString *mContent = [NSString stringWithFormat:@"%@\n%@",classInfo.classContentForM,classInfo.classInsertTextViewContentForM];
             self.mTextView.string = mContent;
             
-            //如果输入主类的话就一起显示了
-            NSString *hContent = [NSString stringWithFormat:@"%@\n%@\n%@",classInfo.atClassContent, classInfo.classContentForH, classInfo.classInsertTextViewContentForH];
+            NSString * hContent = [NSString stringWithFormat:@"%@\n%@\n%@",classInfo.atClassContent, classInfo.classContentForH, classInfo.classInsertTextViewContentForH];
             self.hTextView.string = hContent;
             
         } else {
-            //Swift
-            NSString *hContent = [NSString stringWithFormat:@"%@\n%@",classInfo.classContentForH, classInfo.classInsertTextViewContentForH];
+            NSString * hContent = [NSString stringWithFormat:@"%@\n\n%@",classInfo.classContentForH, classInfo.classInsertTextViewContentForH];
             self.hTextView.string = hContent;
+        
         }
         
 //        [self creatFile];
     }
 }
 
-
 - (void)creatFile{
-    NSString *folderPath = [NSUserDefaults.standardUserDefaults valueForKey:kFolderPath];
+    NSString *folderPath = [NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"];
     if (folderPath) {
         [FileManager.sharedInstance handleBaseData:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:self.hTextView.string mContent:self.mTextView.string];
         [NSWorkspace.sharedWorkspace openFile:folderPath];
@@ -387,7 +407,7 @@
 
         if (panel.runModal == NSModalResponseOK) {
             folderPath = [panel.URLs.firstObject relativePath];
-            [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:kFolderPath];
+            [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:@"folderPath"];
             NSLog(@"%@",folderPath);
             [FileManager.sharedInstance handleBaseData:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:self.hTextView.string mContent:self.mTextView.string];
             [NSWorkspace.sharedWorkspace openFile:folderPath];
@@ -467,8 +487,7 @@
             
             view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
-            view.font = [NSFont systemFontOfSize:14];
-
+            
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
             view.delegate = self;
@@ -487,7 +506,6 @@
 
             view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
-            view.font = [NSFont systemFontOfSize:14];
 
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
@@ -511,12 +529,10 @@
                 NSLog(@"%@", @(sender.selectedSegment));
                 
                 BOOL isSwift = (sender.selectedSegment == 0) ? false : true;
-                [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kIsSwift];
+                [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kDefaultsSwift];
                 [NSUserDefaults.standardUserDefaults synchronize];
                 
-                DDLog(@"kIsSwift_%@",@([NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]));
                 [self hanldeJson];
-
 //                [self clearFileOutputPath];
 
             } forControlEvents:NSEventMaskLeftMouseDown];
@@ -537,7 +553,7 @@
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSPopUpButton *sender = (NSPopUpButton *)control;
                 NSLog(@"%@", sender.titleOfSelectedItem);
-                [NSUserDefaults setObject:sender.titleOfSelectedItem forKey:kPodName];
+                [NSUserDefaults setObject:sender.titleOfSelectedItem forKey:kDefaultsPodName];
 
             } forControlEvents:NSEventMaskLeftMouseDown];
             view;
@@ -557,6 +573,7 @@
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSLog(@"%@", control);
                 [NSApp.mainWindow makeFirstResponder:nil];
+                
                 [self creatFile];
 
             } forControlEvents:NSEventMaskLeftMouseDown];
@@ -566,5 +583,8 @@
     return _btn;
 }
 
+- (BOOL)isSwift{
+    return [NSUserDefaults.standardUserDefaults boolForKey:kDefaultsSwift];
+}
 
 @end

@@ -42,7 +42,7 @@
                                                  selector:@selector(didApplicationFinishLaunchingNotification:)
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
-        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(outputResult:) name:ESFormatResultNotification object:nil];
+//        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(outputResult:) name:ESFormatResultNotification object:nil];
         [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(notificationLog:) name:NSTextViewDidChangeSelectionNotification object:nil];
         [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(notificationLog:) name:@"IDEEditorDocumentDidChangeNotification" object:nil];
         [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(notificationLog:) name:@"PBXProjectDidOpenNotification" object:nil];
@@ -65,6 +65,11 @@
         if (![url isKindOfClass:[NSNull class]]) {
             NSString *path = [url absoluteString];
             self.currentFilePath = path;
+//            if ([self.currentFilePath hasSuffix:@"swift"]) {
+//                self.swift = YES;
+//            }else{
+//                self.swift = NO;
+//            }
         }
     } else if ([notify.name isEqualToString:@"PBXProjectDidOpenNotification"]){
         self.currentProjectPath = [notify.object valueForKey:@"path"];
@@ -74,7 +79,7 @@
 
 -(void)outputResult:(NSNotification*)noti{
     ESClassInfo *classInfo = noti.object;
-    if (![NSUserDefaults.standardUserDefaults valueForKey:kFolderPath]) {
+    if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
         //选择保存路径
         NSOpenPanel *panel = NSOpenPanel.openPanel;
         panel.title = @"ESJsonFormat";
@@ -144,7 +149,7 @@
         
         //Input JSON window
         NSMenuItem *inputJsonWindow = [[NSMenuItem alloc] initWithTitle:@"Input JSON window" action:@selector(showInputJsonWindow:) keyEquivalent:@"J"];
-        [inputJsonWindow setKeyEquivalentModifierMask:NSEventModifierFlagCapsLock | NSEventModifierFlagControl];
+        [inputJsonWindow setKeyEquivalentModifierMask:NSAlphaShiftKeyMask | NSControlKeyMask];
         inputJsonWindow.target = self;
         [menu addItem:inputJsonWindow];
         

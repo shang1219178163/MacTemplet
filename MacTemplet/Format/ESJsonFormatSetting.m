@@ -13,7 +13,6 @@ NSString *const kESJsonFormatOutputToFiles = @"com.EnjoySR.ESJsonFormat.OutputTo
 NSString *const kESJsonFormatImpObjClassInArray = @"com.EnjoySR.ESJsonFormat.ImpObjClassInArray";
 NSString *const kESJsonFormatUppercaseKeyWordForId = @"com.EnjoySR.ESJsonFormat.UppercaseKeyWordForId";
 
-
 @implementation ESJsonFormatSetting
 
 + (ESJsonFormatSetting *)defaultSetting{

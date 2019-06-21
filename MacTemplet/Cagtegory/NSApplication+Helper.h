@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (class, readonly, nullable) NSString *appName;
 @property (class, readonly, nullable) NSImage *appIcon;
-@property (class, readonly, nullable) NSString *appExecutable;
 @property (class, readonly, nullable) NSString *appVer;
 @property (class, readonly, nullable) NSString *appBuild;
 @property (class, readonly, nullable) NSString *platforms;
