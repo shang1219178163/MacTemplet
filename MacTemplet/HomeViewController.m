@@ -27,10 +27,14 @@ NSString *const kDefaultsRootClassName = @"SuperClass";
 NSString *const kDefaultsSwift = @"isSwift";
 NSString *const kDefaultsPodName = @"keyPodName";
 
+NSString *const kDefaultsFolderPath = @"folderPath";
+//NSString *const kDefaultsClassPrefix = @"keyClassPrefix";
+//NSString *const kDefaultsClassPrefix = @"keyClassPrefix";
+//NSString *const kDefaultsClassPrefix = @"keyClassPrefix";
+
 #define ESRootClassName @"RootModel"
 #define ESItemClassName @"ItemModel"
 #define ESArrayKeyName @"esArray"
-
 
 @interface HomeViewController ()<NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>
 
@@ -137,14 +141,14 @@ NSString *const kDefaultsPodName = @"keyPodName";
     [self.textField makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.superview).offset(padding);
         make.left.equalTo(self.bottomView.superview).offset(gap);
-        make.width.equalTo(150);
+        make.width.equalTo(120);
         make.bottom.equalTo(self.bottomView.superview).offset(-padding);
     }];
     
     [self.textFieldTwo makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.superview).offset(padding);
         make.left.equalTo(self.textField.right).offset(gap);
-        make.width.equalTo(150);
+        make.width.equalTo(120);
         make.bottom.equalTo(self.bottomView.superview).offset(-padding);
     }];
     
@@ -265,7 +269,7 @@ NSString *const kDefaultsPodName = @"keyPodName";
     //如果当前是JSON对应是字典
     if ([result isKindOfClass:[NSDictionary class]]) {
         //如果是生成到文件，提示输入Root class name
-        if (!ESJsonFormatSetting.defaultSetting.outputToFiles) {
+        if (![NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
             NSString *className = [[NSUserDefaults objectForKey:kDefaultsClassPrefix] stringByAppendingString:ESRootClassName];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
             if (self.isSwift) {
@@ -287,7 +291,7 @@ NSString *const kDefaultsPodName = @"keyPodName";
             
         }
     } else if ([result isKindOfClass:[NSArray class]]){
-        if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
+        if ([NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
             //当前是JSON代表数组，生成到文件需要提示用户输入Root Class name，
             NSString *className = [[NSUserDefaults objectForKey:kDefaultsClassPrefix] stringByAppendingString:ESRootClassName];
                 //输入完毕之后，将这个class设置
@@ -363,13 +367,9 @@ NSString *const kDefaultsPodName = @"keyPodName";
 
 -(void)outputResult:(ESClassInfo*)classInfo{
     
-    if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
+    if ([NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
         //选择保存路径
-        NSOpenPanel *panel = NSOpenPanel.openPanel;
-        panel.title = @"ESJsonFormat";
-        panel.canChooseDirectories = YES;
-        panel.canChooseFiles = NO;
-        
+        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
         if ([panel runModal] == NSModalResponseOK) {
             NSString *folderPath = [panel.URLs.firstObject relativePath];
             [classInfo createFileWithFolderPath:folderPath];
@@ -486,7 +486,8 @@ NSString *const kDefaultsPodName = @"keyPodName";
             
             view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
-            
+            view.font = [NSFont systemFontOfSize:14];
+
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
             view.delegate = self;
@@ -505,6 +506,7 @@ NSString *const kDefaultsPodName = @"keyPodName";
 
             view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
+            view.font = [NSFont systemFontOfSize:14];
 
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;

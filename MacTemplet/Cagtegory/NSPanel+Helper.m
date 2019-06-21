@@ -15,7 +15,7 @@
     
     NSOpenPanel *panel = NSOpenPanel.openPanel;
     panel.canChooseFiles = true;
-    panel.canChooseDirectories = true;
+    panel.canChooseDirectories = false;
     panel.allowsMultipleSelection = true;
     panel.allowedFileTypes = fileTypes;
     NSString * path = [NSString stringWithFormat:@"/Users/%@/Downloads", NSProcessInfo.processInfo.userName];

@@ -214,7 +214,7 @@
         [result appendFormat:@"@implementation %@\n\n@end\n",classInfo.className];
     }
     
-    if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
+    if ([NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
         //headerStr
         NSMutableString *headerString = [NSMutableString stringWithString:[self dealHeaderStrWithClassInfo:classInfo type:@"m"]];
         //import
@@ -244,7 +244,7 @@
     [result appendString:classInfo.propertyContent];
     [result appendString:@"\n@end"];
     
-    if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
+    if ([NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
         //headerStr
         NSMutableString *headerString = [NSMutableString stringWithString:[self dealHeaderStrWithClassInfo:classInfo type:@"h"]];
         //@class
@@ -269,7 +269,7 @@
     
     [result appendString:classInfo.propertyContent];
     [result appendString:@"\n}"];
-    if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
+    if ([NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
         [result insertString:@"import UIKit\n\n" atIndex:0];
         //headerStr
         NSMutableString *headerString = [NSMutableString stringWithString:[self dealHeaderStrWithClassInfo:classInfo type:@"swift"]];
