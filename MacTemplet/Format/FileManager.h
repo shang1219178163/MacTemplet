@@ -7,14 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ESClassInfo.h"
 
 @interface FileManager : NSObject
 
 + (FileManager *)sharedInstance;
-- (void)handleBaseData:(NSString *)folderPath
-             hFileName:(NSString *)hFileName
-             mFileName:(NSString *)mFileName
-              hContent:(NSString *)hContent
-              mContent:(NSString *)mContent;
 
+//- (NSString *)classDesFromClass:(ESClassInfo *)classInfo isFirstFile:(BOOL)isFirstFile;
+
+- (void)createFileWithFolderPath:(NSString *)folderPath
+                       hFileName:(NSString *)hFileName
+                       mFileName:(NSString *)mFileName
+                       hContent :(NSString *)hContent
+                       mContent :(NSString *)mContent;
 @end

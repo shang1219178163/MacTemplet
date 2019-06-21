@@ -39,7 +39,7 @@
     NSArray * list = [dic.allKeys sortedArrayUsingSelector:@selector(compare:)];
     [list enumerateObjectsUsingBlock:^(id  _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
         NSObject *obj = dic[key];
-        if ([NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
+        if ([NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
             [resultStr appendFormat:@"\n%@\n",[self formatSwiftWithKey:key value:obj classInfo:classInfo]];
         } else {
             [resultStr appendFormat:@"\n%@\n",[self formatObjcWithKey:key value:obj classInfo:classInfo]];
@@ -52,7 +52,7 @@
 //    NSMutableString *resultStr = [NSMutableString string];
 //    NSDictionary *dic = classInfo.classDic;
 //    [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
-//        if ([NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
+//        if ([NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
 //            [resultStr appendFormat:@"\n%@\n",[self formatSwiftWithKey:key value:obj classInfo:classInfo]];
 //        }else{
 //            [resultStr appendFormat:@"\n%@\n",[self formatObjcWithKey:key value:obj classInfo:classInfo]];
@@ -185,7 +185,7 @@
 
 
 + (NSString *)parseClassHeaderContentWithClassInfo:(ESClassInfo *)classInfo{
-    if ([NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
+    if ([NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
         return [self parseClassContentForSwiftWithClassInfo:classInfo];
     } else {
         return [self parseClassHeaderContentForOjbcWithClassInfo:classInfo];
@@ -194,7 +194,7 @@
 
 + (NSString *)parseClassImpContentWithClassInfo:(ESClassInfo *)classInfo{
     
-    if ([NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
+    if ([NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
         return @"";
     }
     
@@ -365,7 +365,7 @@
     //时间
     templateString = [templateString stringByReplacingOccurrencesOfString:@"__DATE__" withString:[self dateStr]];
     
-    if ([type isEqualToString:@"h"] || [type isEqualToString:@"switf"]) {
+    if ([type isEqualToString:@"h"] || [type isEqualToString:@"swift"]) {
         NSMutableString *string = [NSMutableString stringWithString:templateString];
         if ([type isEqualToString:@"h"]) {
             [string appendString:@"#import <Foundation/Foundation.h>\n\n"];
@@ -398,7 +398,7 @@
 
 
 + (void)createFileWithFolderPath:(NSString *)folderPath classInfo:(ESClassInfo *)classInfo{
-    if (![NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
+    if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
         //创建.h文件
         [self createFileWithFileName:[folderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.h",classInfo.className]] content:classInfo.classContentForH];
         //创建.m文件
