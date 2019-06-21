@@ -11,6 +11,7 @@
 
 #import "MainWindowController.h"
 #import "FirstViewController.h"
+#import "ESPbxprojInfo.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) MainWindowController *windowCtrl;
@@ -53,7 +54,6 @@
     if (!self.statusItem) {
         self.statusItem = [AppDelegate setupStatusItemPopover:self.popover];
     }
-
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

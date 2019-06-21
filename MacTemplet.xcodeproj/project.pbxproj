@@ -88,7 +88,6 @@
 		14F92C5922BB951700A5C5E4 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C5822BB951700A5C5E4 /* FileManager.m */; };
 		14F92CF622BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92CF322BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m */; };
 		14F92CF722BC6E6C00A5C5E4 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92CF422BC6E6C00A5C5E4 /* NoodleLineNumberView.m */; };
-		14F92D5122BC824000A5C5E4 /* BNRootModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92D4F22BC823F00A5C5E4 /* BNRootModel.m */; };
 		14F92D5422BC8D1F00A5C5E4 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92D5322BC8D1F00A5C5E4 /* Constant.m */; };
 /* End PBXBuildFile section */
 
@@ -256,8 +255,6 @@
 		14F92CF322BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberMarker.m; sourceTree = "<group>"; };
 		14F92CF422BC6E6C00A5C5E4 /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberView.m; sourceTree = "<group>"; };
 		14F92CF522BC6E6C00A5C5E4 /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberView.h; sourceTree = "<group>"; };
-		14F92D4F22BC823F00A5C5E4 /* BNRootModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRootModel.m; sourceTree = "<group>"; };
-		14F92D5022BC824000A5C5E4 /* BNRootModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRootModel.h; sourceTree = "<group>"; };
 		14F92D5222BC8D1F00A5C5E4 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		14F92D5322BC8D1F00A5C5E4 /* Constant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
 		750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacTemplet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,8 +315,6 @@
 				1482F72922AB8F9300A7C5E1 /* HomeViewController.m */,
 				14F92D5222BC8D1F00A5C5E4 /* Constant.h */,
 				14F92D5322BC8D1F00A5C5E4 /* Constant.m */,
-				14F92D5022BC824000A5C5E4 /* BNRootModel.h */,
-				14F92D4F22BC823F00A5C5E4 /* BNRootModel.m */,
 				14F92C2522BB8DBB00A5C5E4 /* Controller */,
 				14F2F5AD22B8FEB1009D49CE /* ViewHeight */,
 				14F0FDAA22AE097A00057093 /* View */,
@@ -754,7 +749,6 @@
 				14F92BDE22B9E75100A5C5E4 /* BNDialogWindowController.m in Sources */,
 				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
 				14F92BF922BB178C00A5C5E4 /* NNDocument.m in Sources */,
-				14F92D5122BC824000A5C5E4 /* BNRootModel.m in Sources */,
 				14F92C0C22BB1AC700A5C5E4 /* BNGeneralConst.m in Sources */,
 				14F2F5A922B8F2E6009D49CE /* NSTabView+Helper.m in Sources */,
 				14F2F5A122B8DBF7009D49CE /* NSTabViewItem+Helper.m in Sources */,

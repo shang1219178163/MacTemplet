@@ -8,6 +8,22 @@
 
 #import "Constant.h"
 
+
+NSString *const kFolderPath = @"folderPath";
+
+NSString *const kClassPrefix = @"ClassPrefix";
+NSString *const kSuperClass = @"SuperClass";
+
+NSString *const kIsSwift = @"isSwift";
+NSString *const kPodName = @"PodName";
+
+NSString *const ESFormatResultNotification = @"ESFormatResultNotification";
+NSString *const ESRootClassName = @"RootModel";
+NSString *const ESItemClassName = @"ItemModel";
+NSString *const ESArrayKeyName = @"esArray";
+
 @implementation Constant
+
+
 
 @end

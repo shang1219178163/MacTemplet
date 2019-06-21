@@ -50,6 +50,11 @@ static NSWindow *_windowDefault = nil;
     return image;
 }
 
++ (NSString *)appExecutable{
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
+    return infoDict[@"CFBundleExecutable"];
+}
+
 +(NSString *)appVer{
     NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
     return infoDict[@"CFBundleShortVersionString"];

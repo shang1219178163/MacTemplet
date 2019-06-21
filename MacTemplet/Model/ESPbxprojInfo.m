@@ -8,17 +8,29 @@
 
 #import "ESPbxprojInfo.h"
 
+@interface ESPbxprojInfo ()
 
-static ESPbxprojInfo *instance;
+
+@end
 
 @implementation ESPbxprojInfo
 
+static ESPbxprojInfo *_instance;
 +(instancetype)shareInstance{
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
-        instance = [[ESPbxprojInfo alloc] init];
+        _instance = [[ESPbxprojInfo alloc] init];
+        
+        NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
+        NSString * executable = infoDict[@"CFBundleExecutable"];
+        NSString * path = [NSString stringWithFormat:@"%@.xcodeproj/project.pbxproj", executable];
+        
+        DDLog(@"%@", @([NSFileManager.defaultManager isExecutableFileAtPath:path]));
+        NSData *pbxprojData = [NSData dataWithContentsOfFile:path];
+        NSString *pbxprojStr = [[NSString alloc] initWithData:pbxprojData encoding:NSUTF8StringEncoding];
+        _instance.pbxprojStr = pbxprojStr;
     });
-    return instance;
+    return _instance;
 }
 
 -(void)setParamsWithPath:(NSString *)path{
@@ -51,5 +63,7 @@ static ESPbxprojInfo *instance;
     };
     return resultStr;
 }
+
+
 
 @end

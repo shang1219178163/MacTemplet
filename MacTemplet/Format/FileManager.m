@@ -31,10 +31,10 @@
     NSString *mImportStr = nil;
     NSString *newHContent = nil;
     NSString *newMContent = nil;
-     if (![NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
+     if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
          
          hImportStr = [NSMutableString stringWithString:@"#import <Foundation/Foundation.h>\n\n"];
-         NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
+         NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
          if (superClassString&&superClassString.length > 0) {
              [hImportStr appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n\n",superClassString]];
          }
@@ -45,7 +45,7 @@
      }else{
          
          hImportStr = [NSMutableString stringWithString:@"import UIKit\n\n"];
-         NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
+         NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
          if (superClassString&&superClassString.length>0) {
              [hImportStr appendString:[NSString stringWithFormat:@"import %@ \n\n",superClassString]];
          }
@@ -64,14 +64,12 @@
                        mContent :(NSString *)mContent{
     if (![NSUserDefaults.standardUserDefaults boolForKey:@"isSwift"]) {
         //创建.h文件
-        BOOL isSuccessH = [NSFileManager createFileWithFolderPath:folderPath name:hFileName content:hContent];
+        [NSFileManager createFileWithFolderPath:folderPath name:hFileName content:hContent];
         //创建.m文件
-        BOOL isSuccessM = [NSFileManager createFileWithFolderPath:folderPath name:mFileName content:mContent];
-        DDLog(@"_%@_%@",@(isSuccessH), @(isSuccessM));
+        [NSFileManager createFileWithFolderPath:folderPath name:mFileName content:mContent];
     }else{
         //创建.swift文件
-        BOOL isSuccess = [NSFileManager createFileWithFolderPath:folderPath name:hFileName content:hContent];
-        DDLog(@"_%@",@(isSuccess));
+        [NSFileManager createFileWithFolderPath:folderPath name:hFileName content:hContent];
     }
 }
 

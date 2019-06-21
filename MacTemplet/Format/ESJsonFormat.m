@@ -42,7 +42,7 @@
                                                  selector:@selector(didApplicationFinishLaunchingNotification:)
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
-//        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(outputResult:) name:ESFormatResultNotification object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(outputResult:) name:ESFormatResultNotification object:nil];
         [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(notificationLog:) name:NSTextViewDidChangeSelectionNotification object:nil];
         [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(notificationLog:) name:@"IDEEditorDocumentDidChangeNotification" object:nil];
         [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(notificationLog:) name:@"PBXProjectDidOpenNotification" object:nil];
@@ -65,11 +65,6 @@
         if (![url isKindOfClass:[NSNull class]]) {
             NSString *path = [url absoluteString];
             self.currentFilePath = path;
-//            if ([self.currentFilePath hasSuffix:@"swift"]) {
-//                self.swift = YES;
-//            }else{
-//                self.swift = NO;
-//            }
         }
     } else if ([notify.name isEqualToString:@"PBXProjectDidOpenNotification"]){
         self.currentProjectPath = [notify.object valueForKey:@"path"];
@@ -79,7 +74,7 @@
 
 -(void)outputResult:(NSNotification*)noti{
     ESClassInfo *classInfo = noti.object;
-    if ([NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
+    if (![NSUserDefaults.standardUserDefaults valueForKey:kFolderPath]) {
         //选择保存路径
         NSOpenPanel *panel = NSOpenPanel.openPanel;
         panel.title = @"ESJsonFormat";
