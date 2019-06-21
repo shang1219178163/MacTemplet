@@ -21,21 +21,6 @@
 
 #import "DataModel.h"
 
-NSString *const kDefaultsClassPrefix = @"keyClassPrefix";
-NSString *const kDefaultsRootClassName = @"SuperClass";
-
-NSString *const kDefaultsSwift = @"isSwift";
-NSString *const kDefaultsPodName = @"keyPodName";
-
-NSString *const kDefaultsFolderPath = @"folderPath";
-//NSString *const kDefaultsClassPrefix = @"keyClassPrefix";
-//NSString *const kDefaultsClassPrefix = @"keyClassPrefix";
-//NSString *const kDefaultsClassPrefix = @"keyClassPrefix";
-
-#define ESRootClassName @"RootModel"
-#define ESItemClassName @"ItemModel"
-#define ESArrayKeyName @"esArray"
-
 @interface HomeViewController ()<NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>
 
 @property (nonatomic, strong) NNTextView *textView;
@@ -91,8 +76,8 @@ NSString *const kDefaultsFolderPath = @"folderPath";
     NSString * folderPath = @"/Users/shang/Downloads";
     [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:@"folderPath"];
 
-    [NSUserDefaults.standardUserDefaults setObject:@"BN" forKey:kDefaultsClassPrefix];
-    [NSUserDefaults.standardUserDefaults setObject:@"NSObject" forKey:kDefaultsRootClassName];
+    [NSUserDefaults.standardUserDefaults setObject:@"BN" forKey:kClassPrefix];
+    [NSUserDefaults.standardUserDefaults setObject:@"NSObject" forKey:kSuperClass];
     [NSUserDefaults.standardUserDefaults setBool:false forKey:@"isSwift"];
     [NSUserDefaults.standardUserDefaults synchronize];
     
@@ -203,7 +188,7 @@ NSString *const kDefaultsFolderPath = @"folderPath";
     DDLog(@"%@",textField.stringValue);
     
     if (textField == self.textField || textField == self.textFieldTwo) {
-        NSString * defaultsKey = (textField == self.textField) ? kDefaultsClassPrefix : kDefaultsRootClassName;
+        NSString * defaultsKey = (textField == self.textField) ? kClassPrefix : kSuperClass;
         [NSUserDefaults.standardUserDefaults setObject:textField.stringValue forKey:defaultsKey];
         [NSUserDefaults.standardUserDefaults synchronize];
         
@@ -270,7 +255,7 @@ NSString *const kDefaultsFolderPath = @"folderPath";
     if ([result isKindOfClass:[NSDictionary class]]) {
         //如果是生成到文件，提示输入Root class name
         if (![NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
-            NSString *className = [[NSUserDefaults objectForKey:kDefaultsClassPrefix] stringByAppendingString:ESRootClassName];
+            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
             if (self.isSwift) {
                 self.hFilename = [NSString stringWithFormat:@"%@.swift",className];
@@ -285,7 +270,7 @@ NSString *const kDefaultsFolderPath = @"folderPath";
             
         } else {
             //不生成到文件，Root class 里面用户自己创建
-            NSString *className = [[NSUserDefaults objectForKey:kDefaultsClassPrefix] stringByAppendingString:ESRootClassName];
+            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
             [self dealPropertyNameWithClassInfo:classInfo];
             
@@ -293,7 +278,7 @@ NSString *const kDefaultsFolderPath = @"folderPath";
     } else if ([result isKindOfClass:[NSArray class]]){
         if ([NSUserDefaults.standardUserDefaults valueForKey:@"folderPath"]) {
             //当前是JSON代表数组，生成到文件需要提示用户输入Root Class name，
-            NSString *className = [[NSUserDefaults objectForKey:kDefaultsClassPrefix] stringByAppendingString:ESRootClassName];
+            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
                 //输入完毕之后，将这个class设置
             NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
@@ -301,7 +286,7 @@ NSString *const kDefaultsFolderPath = @"folderPath";
             [self dealPropertyNameWithClassInfo:classInfo];
         } else {
             //Root class 已存在，只需要输入JSON对应的key的名字
-            NSString *className = [[NSUserDefaults objectForKey:kDefaultsClassPrefix] stringByAppendingString:ESRootClassName];
+            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
             NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
             [self dealPropertyNameWithClassInfo:classInfo];
@@ -335,7 +320,7 @@ NSString *const kDefaultsFolderPath = @"folderPath";
                 msg = [NSString stringWithFormat:@"The '%@' child items class name is:",key];
             }
 //            __block NSString *childClassName = [key capitalizedString];
-            __block NSString *childClassName = [[NSUserDefaults.standardUserDefaults objectForKey:kDefaultsClassPrefix] stringByAppendingString: key.capitalizedString];
+            __block NSString *childClassName = [[NSUserDefaults.standardUserDefaults objectForKey:kClassPrefix] stringByAppendingString: key.capitalizedString];
             if (![childClassName containsString:@"Model"]) {
                 childClassName = [childClassName stringByAppendingString:@"Model"];
             }
@@ -530,7 +515,7 @@ NSString *const kDefaultsFolderPath = @"folderPath";
                 NSLog(@"%@", @(sender.selectedSegment));
                 
                 BOOL isSwift = (sender.selectedSegment == 0) ? YES : NO;
-                [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kDefaultsSwift];
+                [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kIsSwift];
                 [NSUserDefaults.standardUserDefaults synchronize];
                 
                 [self clearFileOutputPath];
@@ -553,7 +538,7 @@ NSString *const kDefaultsFolderPath = @"folderPath";
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSPopUpButton *sender = (NSPopUpButton *)control;
                 NSLog(@"%@", sender.titleOfSelectedItem);
-                [NSUserDefaults setObject:sender.titleOfSelectedItem forKey:kDefaultsPodName];
+                [NSUserDefaults setObject:sender.titleOfSelectedItem forKey:kPodName];
 
             } forControlEvents:NSEventMaskLeftMouseDown];
             view;
@@ -584,7 +569,7 @@ NSString *const kDefaultsFolderPath = @"folderPath";
 }
 
 - (BOOL)isSwift{
-    return [NSUserDefaults.standardUserDefaults boolForKey:kDefaultsSwift];
+    return [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
 }
 
 @end
