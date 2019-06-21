@@ -9,23 +9,20 @@
 #import "HomeViewController.h"
 #import "NNTextView.h"
 #import "NNTextField.h"
-#import "NNTableView.h"
-#import "NoodleLineNumberView.h"
 
-#import "ESJsonFormatManager.h"
-#import "ESJsonFormat.h"
-#import "ESClassInfo.h"
-#import "ESJsonFormatSetting.h"
-#import "ESPair.h"
-#import "FileManager.h"
+<<<<<<< HEAD
+=======
+NSString *const kDefaultsClassPrefix = @"keyClassPrefix";
+NSString *const kDefaultsRootClassName = @"kDefaultsRootClassName";
 
-#import "DataModel.h"
+NSString *const kDefaultsSwift = @"keySwift";
+NSString *const kDefaultsPodName = @"keyPodName";
 
+>>>>>>> parent of 6cc0a40... update
 @interface HomeViewController ()<NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>
 
 @property (nonatomic, strong) NNTextView *textView;
-@property (nonatomic, strong) NNTextView *hTextView;
-@property (nonatomic, strong) NNTextView *mTextView;
+@property (nonatomic, strong) NNTextView *textViewTwo;
 
 @property (nonatomic, strong) NNView *bottomView;
 @property (nonatomic, strong) NNTextField *textField;
@@ -38,11 +35,6 @@
 
 @property (nonatomic, strong) NSArray *list;
 
-@property (nonatomic, strong) NSString *hFilename;
-@property (nonatomic, strong) NSString *mFilename;
-
-//@property (nonatomic, strong) NNTableView *tableView;
-
 @end
 
 @implementation HomeViewController
@@ -53,26 +45,30 @@
     self.title = @"Home";
     
     [self.view addSubview:self.textView.enclosingScrollView];
-    [self.view addSubview:self.hTextView.enclosingScrollView];
-    [self.view addSubview:self.mTextView.enclosingScrollView];
-
+    [self.view addSubview:self.textViewTwo.enclosingScrollView];
+    
     [self.bottomView addSubview:self.textField];
     [self.bottomView addSubview:self.textFieldTwo];
-
     [self.bottomView addSubview:self.btn];
     [self.bottomView addSubview:self.popBtn];
     [self.bottomView addSubview:self.segmentCtl];
     [self.view addSubview:self.bottomView];
 
+    
+    self.list = @[self.textView.enclosingScrollView, self.textViewTwo.enclosingScrollView];
+
+//    self.textView.string = @"---有问题的NSTextView---\n\n第一杯酒，阳光明媚，窗外的青藤爬进了我的眼。\n第二杯酒，春风轻漾，叶梢轻拂着我的眉。\n第三杯酒，鸟儿鸣叫，轻啄着我的心。\n第四杯酒，影上窗楣，让我忘了我是谁。\n第五杯酒，少年将飞，穿越层林叠翠。\n第六杯酒，十六轻狂，笑斥天下执念。\n第七杯酒，人上心头，紫衣白裙小马尾。\n第八杯酒，月光轻舞，你的脸儿红云飘。\n第九杯酒，大漠孤烟，未知的前程孤独的脚印。\n第十杯酒，长河旭日，谁家孩儿无齿地笑。\n十一杯酒，群山苍翠，有个老翁枕石而醉。\n十二杯酒，临渊而窥，山崖还给年岁。\n十三杯酒，蜗牛有角，彼世界如此世界一般疲惫。\n十四杯酒，迷眼渐累，火堆旁的人们渐要沉睡。\n十五杯酒，形只影单，远方的人儿可曾安睡。\n十六杯酒，抬头望月，白衣白裙与白兔。\n十七杯酒，漫天星星，谁真谁幻谁在乎。\n十八杯酒，残酒映月，谁的容颜依稀浮现。\n十九杯酒，仰天长啸，该死的老天操蛋的命运。\n二十杯酒，闭了双眼，是是非非皆已不见。\n二十一杯酒，想起妹妹，你的虎牙为谁而笑。\n二十二杯酒，我的弟弟，是否忙着拯救地球。\n二十三杯酒，想起妈妈，你的头发烤面包啦。\n二十四杯酒，我的朋友，天堂的你可曾安好。\n二十五杯酒，想起父亲，窗外的雨点坠了下来。\n二十六杯酒，乌蝇不飞，若心悸的你我躲在叶下看秋雨渐衰。\n二十七杯酒，弹几点泪，轻轻放下酒杯。\n......";
+    
+    self.textView.string = @"       美国、日本、英国、法国作为发达国家的典型代表，均建立起了完善的现代税制体系。目前，个人所得税和社会保障税是四国的主要税种，合计占比高达50%左右；企业所得税在四国税收收入中占比不高，只有日本超过了10%；英法增值税占比较高，美国无增值税。需要注意的是，中日两国消费税存在较大差异。我国的消费税是在已经对商品普遍征收增值税的基础上，选择少数消费品再征收的一个税种，类似于“奢侈品税”或“环境损害补偿税”，占比较低。日本的消费税是对除土地交易和房屋出租以外的一切商品和服务贸易征收，类似于国内的增值税，占比较高。美国、日本、英国、法国作为发达国家的典型代表，均建立起了完善的现代税制体系。目前，个人所得税和社会保障税是四国的主要税种，合计占比高达50%左右；企业所得税在四国税收收入中占比不高，只有日本超过了10%；英法增值税占比较高，美国无增值税。需要注意的是，中日两国消费税存在较大差异。我国的消费税是在已经对商品普遍征收增值税的基础上，选择少数消费品再征收的一个税种，类似于“奢侈品税”或“环境损害补偿税”，占比较低。日本的消费税是对除土地交易和房屋出租以外的一切商品和服务贸易征收，类似于国内的增值税，占比较高。美国、日本、英国、法国作为发达国家的典型代表，均建立起了完善的现代税制体系。目前，个人所得税和社会保障税是四国的主要税种，合计占比高达50%左右；企业所得税在四国税收收入中占比不高，只有日本超过了10%；英法增值税占比较高，美国无增值税。需要注意的是，中日两国消费税存在较大差异。我国的消费税是在已经对商品普遍征收增值税的基础上，选择少数消费品再征收的一个税种，类似于“奢侈品税”或“环境损害补偿税”，占比较低。日本的消费税是对除土地交易和房屋出租以外的一切商品和服务贸易征收，类似于国内的增值税，占比较高。美国、日本、英国、法国作为发达国家的典型代表，均建立起了完善的现代税制体系。目前，个人所得税和社会保障税是四国的主要税种，合计占比高达50%左右；企业所得税在四国税收收入中占比不高，只有日本超过了10%；英法增值税占比较高，美国无增值税。需要注意的是，中日两国消费税存在较大差异。我国的消费税是在已经对商品普遍征收增值税的基础上，选择少数消费品再征收的一个税种，类似于“奢侈品税”或“环境损害补偿税”，占比较低。日本的消费税是对除土地交易和房屋出租以外的一切商品和服务贸易征收，类似于国内的增值税，占比较高。=====";
 //    [self.view getViewLayer];
     
-    [self readFile];
     
 }
 
 -(void)viewDidAppear{
     [super viewDidAppear];
     
+<<<<<<< HEAD
     NSString * folderPath = @"/Users/shang/Downloads";
     [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:kFolderPath];
 
@@ -83,6 +79,10 @@
 
     [NSUserDefaults.standardUserDefaults synchronize];
     
+=======
+//    [self.scrollView scrollToTop];
+
+>>>>>>> parent of 6cc0a40... update
 }
 
 -(void)viewDidLayout{
@@ -91,14 +91,22 @@
     CGFloat padding = 8;
     CGFloat gap = 15;
     
-    self.list = @[self.textView.enclosingScrollView, self.hTextView.enclosingScrollView, self.mTextView.enclosingScrollView];
     //水平方向控件间隔固定等间隔
     [self.list mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:gap leadSpacing:0 tailSpacing:0];
     [self.list mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textView.enclosingScrollView.superview);
         make.bottom.equalTo(self.textView.enclosingScrollView.superview).offset(-55);
     }];
-        
+    
+//    [self.textView makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.scrollView);
+//    }];
+//
+//    
+//    [self.textViewTwo makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.scrollViewTwo);
+//    }];
+    
     [self.bottomView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textView.enclosingScrollView.bottom).offset(padding);
         make.left.right.equalTo(self.bottomView.superview);
@@ -142,7 +150,7 @@
     
 }
 
-#pragma mark -NSTextDelegate
+#pragma mark -funtions
 
 - (void)textDidChange:(NSNotification *)notification{
     NSTextView * view = notification.object;
@@ -153,37 +161,53 @@
 
 - (void)textDidEndEditing:(NSNotification *)notification{
     
+    
 }
 
 
-#pragma mark -NSControlTextEditingDelegate
+#pragma mark -funtions
 
 - (void)controlTextDidChange:(NSNotification *)obj {
     // You can get the NSTextField, which is calling the method, through the userInfo dictionary.
     NSTextField *textField = (NSTextField *)obj.object;
+<<<<<<< HEAD
 //    DDLog(@"%@",textField.stringValue);
  
+=======
+    DDLog(@"%@",textField.stringValue);
+>>>>>>> parent of 6cc0a40... update
 }
 
 - (void)controlTextDidEndEditing:(NSNotification *)obj{
     NSTextField *textField = (NSTextField *)obj.object;
 //    DDLog(@"%@",textField.stringValue);
     
+<<<<<<< HEAD
     if (textField == self.textField || textField == self.textFieldTwo) {
         NSString * defaultsKey = (textField == self.textField) ? kClassPrefix : kSuperClass;
         [NSUserDefaults.standardUserDefaults setObject:textField.stringValue forKey:defaultsKey];
         [NSUserDefaults.standardUserDefaults synchronize];
         
+=======
+    if (textField == self.textField) {
+        [NSUserDefaults setObject:textField.stringValue forKey:kDefaultsClassPrefix];
+
+    }
+    else if (textField == self.textFieldTwo) {
+        [NSUserDefaults setObject:textField.stringValue forKey:kDefaultsRootClassName];
+
+>>>>>>> parent of 6cc0a40... update
     }
     else {
         DDLog(@"未知错误:%@",textField);
     }
 }
-
+//
 //- (void)hanldeAction:(NSButton *)sender{
 //    NSLog(@"%@", sender);
 //}
 
+<<<<<<< HEAD
 #pragma mark -funtions
 
 - (void)readFile{
@@ -366,7 +390,10 @@
 }
 
 
+=======
+>>>>>>> parent of 6cc0a40... update
 #pragma mark -lazy
+
 
 -(NNTextView *)textView{
     if (!_textView) {
@@ -374,47 +401,23 @@
             NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
             view.delegate = self;
             view.string = @"NSScrollView上无法滚动的NSTextView";
-            view.font = [NSFont systemFontOfSize:12];
-            
-//            NoodleLineNumberView *lineNumberView = [[NoodleLineNumberView alloc]initWithScrollView:view.enclosingScrollView];
-//            view.enclosingScrollView.hasHorizontalRuler = false;
-//            view.enclosingScrollView.hasVerticalRuler = true;
-//            view.enclosingScrollView.verticalRulerView = lineNumberView;
-//            view.enclosingScrollView.rulersVisible = true;
-//            view.font = [NSFont systemFontOfSize:NSFont.smallSystemFontSize];
-            
             view;
         });
     }
     return _textView;
 }
 
--(NNTextView *)hTextView{
-    if (!_hTextView) {
-        _hTextView = ({
+-(NNTextView *)textViewTwo{
+    if (!_textViewTwo) {
+        _textViewTwo = ({
             NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
             view.editable = false;
             view.delegate = self;
-            view.font = [NSFont systemFontOfSize:14];
 
             view;
         });
     }
-    return _hTextView;
-}
-
--(NNTextView *)mTextView{
-    if (!_mTextView) {
-        _mTextView = ({
-            NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
-            view.editable = false;
-            view.delegate = self;
-            view.font = [NSFont systemFontOfSize:14];
-
-            view;
-        });
-    }
-    return _mTextView;
+    return _textViewTwo;
 }
 
 -(NNView *)bottomView{
@@ -480,11 +483,15 @@
                 NSSegmentedControl *sender = (NSSegmentedControl *)control;
                 NSLog(@"%@", @(sender.selectedSegment));
                 
+<<<<<<< HEAD
                 BOOL isSwift = (sender.selectedSegment == 0) ? YES : NO;
                 [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kIsSwift];
                 [NSUserDefaults.standardUserDefaults synchronize];
                 
                 [self clearFileOutputPath];
+=======
+                [NSUserDefaults setObject:@(sender.selectedSegment) forKey:kDefaultsSwift];
+>>>>>>> parent of 6cc0a40... update
 
             } forControlEvents:NSEventMaskLeftMouseDown];
             view;
@@ -523,9 +530,7 @@
             view.title = @"保存";
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSLog(@"%@", control);
-                [NSApp.mainWindow makeFirstResponder:nil];
-                
-                [self hanldeJson];
+                NSLog(@"%@", self.textField.stringValue);
 
             } forControlEvents:NSEventMaskLeftMouseDown];
             view;
@@ -534,8 +539,11 @@
     return _btn;
 }
 
+<<<<<<< HEAD
 - (BOOL)isSwift{
     return [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
 }
 
+=======
+>>>>>>> parent of 6cc0a40... update
 @end

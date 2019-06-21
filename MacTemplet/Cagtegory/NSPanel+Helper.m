@@ -10,7 +10,7 @@
 
 @implementation NSPanel (Helper)
 
-+(__kindof NSOpenPanel *)openPanelChooseFileTypes:(NSArray *)fileTypes{
++(__kindof NSOpenPanel *)createOpenPanelFileTypes:(NSArray *)fileTypes{
     assert([self isSubclassOfClass:NSOpenPanel.class]);
     
     NSOpenPanel *panel = NSOpenPanel.openPanel;
@@ -27,20 +27,8 @@
     return panel;
 }
 
-+(__kindof NSOpenPanel *)openPanelChooseDirs:(BOOL)isMultipleSelection{
-    assert([self isSubclassOfClass:NSOpenPanel.class]);
-    
-    NSOpenPanel *panel = NSOpenPanel.openPanel;
-    panel.canChooseFiles = false;
-    panel.canChooseDirectories = true;
-    panel.allowsMultipleSelection = isMultipleSelection;
-    NSString * path = [NSString stringWithFormat:@"/Users/%@/Downloads", NSProcessInfo.processInfo.userName];
-    panel.directoryURL = [NSURL fileURLWithPath:path];
-    return panel;
-}
-
 +(void)openPanelFileTypes:(NSArray *)fileTypes{    
-    NSOpenPanel *panel = [NSOpenPanel openPanelChooseFileTypes:fileTypes];
+    NSOpenPanel *panel = [NSOpenPanel createOpenPanelFileTypes:fileTypes];
     [panel runModal];
     if (panel.runModal == NSModalResponseOK) {
         NSLog(@"%@", panel.URLs);

@@ -46,10 +46,8 @@
 
 + (id)objectForKey:(NSString *)key{
     id obj = [self.standardUserDefaults objectForKey:key];
-//    Class clz = [obj isKindOfClass: NSData.class] ? NSData.class : NSObject.class;
-    if ([obj isKindOfClass: NSData.class] ) {
-        obj = [NSKeyedUnarchiver unarchivedObjectOfClass:NSData.class fromData:obj error:nil];//解档自定义对象
-    }
+    Class clz = [obj isKindOfClass: NSData.class] ? NSData.class : NSObject.class;
+    obj = [NSKeyedUnarchiver unarchivedObjectOfClass:clz fromData:obj error:nil];//解档自定义对象
     return obj;
 }
 
