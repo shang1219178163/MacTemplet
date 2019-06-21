@@ -32,11 +32,16 @@
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"LAYOUT_CONSTRAINTS_NOT_SATISFIABLE"];
 
     NSString * controllerName = @"HomeViewController";
+<<<<<<< HEAD
 //    controllerName = @"FirstViewController";
 //    controllerName = @"MainViewController";
 //    controllerName = @"GroupViewController";
 //    controllerName = @"CollectionViewController";
 
+=======
+    controllerName = @"FirstViewController";
+    
+>>>>>>> parent of cf5b59e... 需求模块
     NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
     NSApplication.windowDefault.contentViewController = controller;
     NSApplication.windowDefault.title = NSApplication.appName;
@@ -46,10 +51,16 @@
 //    DDLog(@"%@",NSApplication.sharedApplication.mainWindow);
 //    DDLog(@"%@",NSApp.mainWindow);
 //    DDLog(@"%@",NSApplication.windowDefault);
+<<<<<<< HEAD
     [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
     
     [AppDelegate setupMainMenu];
-    [AppDelegate setupStatusItem:self.statusItem popover:self.popover];
+//    [AppDelegate setupStatusItem:self.statusItem popover:self.popover];
+    if (!self.statusItem) {
+        self.statusItem = [AppDelegate setupStatusItemPopover:self.popover];
+    }
+=======
+>>>>>>> parent of cf5b59e... 需求模块
 
 }
 

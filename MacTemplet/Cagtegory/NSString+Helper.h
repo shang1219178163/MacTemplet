@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Helper)
 
+/// NSDictionary/NSArray/NSError
+@property (nonatomic, strong, readonly) id objc;
+@property (nonatomic, strong, readonly) NSDictionary * dict;
+@property (nonatomic, strong, readonly) NSArray * array;
 
 @end
 

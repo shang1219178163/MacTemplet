@@ -17,6 +17,7 @@
 #import "NNView.h"
 
 #import "MacExpand.h"
+#import "Constant.h"
 
 #define MAS_SHORTHAND_GLOBALS
 #define MAS_SHORTHAND

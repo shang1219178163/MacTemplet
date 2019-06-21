@@ -79,7 +79,7 @@
 
 -(void)outputResult:(NSNotification*)noti{
     ESClassInfo *classInfo = noti.object;
-    if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
+    if ([NSUserDefaults.standardUserDefaults valueForKey:kFolderPath]) {
         //选择保存路径
         NSOpenPanel *panel = NSOpenPanel.openPanel;
         panel.title = @"ESJsonFormat";
@@ -94,7 +94,7 @@
         
     }else{
         if (!self.currentTextView) return;
-        if (!self.isSwift) {
+        if (!kIsSwift) {
             //先添加主类的属性
             [self.currentTextView insertText:classInfo.propertyContent];
             
@@ -149,7 +149,7 @@
         
         //Input JSON window
         NSMenuItem *inputJsonWindow = [[NSMenuItem alloc] initWithTitle:@"Input JSON window" action:@selector(showInputJsonWindow:) keyEquivalent:@"J"];
-        [inputJsonWindow setKeyEquivalentModifierMask:NSAlphaShiftKeyMask | NSControlKeyMask];
+        [inputJsonWindow setKeyEquivalentModifierMask:NSEventModifierFlagCapsLock | NSEventModifierFlagControl];
         inputJsonWindow.target = self;
         [menu addItem:inputJsonWindow];
         

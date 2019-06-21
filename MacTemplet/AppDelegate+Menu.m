@@ -126,4 +126,35 @@
     
 }
 
++ (NSStatusItem *)setupStatusItemPopover:(NSPopover *)popover{
+   
+    NSStatusItem *statusItem = [NSStatusItem createStatusItemImageName:nil];
+    statusItem.menu = ({
+        NSMenu *menu = [[NSMenu alloc] initWithTitle:@"menu_right"];
+        [menu addItemWithTitle:@"重置文件路径" keyEquivalent:@"E" handler:^(NSMenuItem * _Nonnull menuItem) {
+            DDLog(@"%@_%@", menuItem.title, menuItem.keyEquivalent);
+            [NSUserDefaults.standardUserDefaults removeObjectForKey:@""];
+        }];
+        [menu addItemWithTitle:@"退出" keyEquivalent:@"" handler:^(NSMenuItem * _Nonnull menuItem) {
+            [NSApplication.sharedApplication terminate:self];
+            
+        }];
+        menu;
+    });
+    
+    [statusItem.button addActionHandler:^(NSControl * _Nonnull control) {
+        NSButton *sender = (NSButton *)control;
+        [popover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSRectEdgeMaxY];
+        
+    } forControlEvents:NSEventMaskLeftMouseDown];
+    //    statusItem.view = ({
+    //        NSView *view = [[NSView alloc]init];
+    //        //    view.wantsLayer = YES;
+    //        view.layer.backgroundColor = NSColor.redColor.CGColor;
+    //        view;
+    //    });
+    
+    return statusItem;
+}
+
 @end
