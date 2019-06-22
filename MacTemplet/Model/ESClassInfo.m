@@ -197,7 +197,7 @@
                 }
                 msg = [NSString stringWithFormat:@"The '%@' child items class name is:",key];
             }
-            //            __block NSString *childClassName = [key capitalizedString];
+            
             __block NSString *childClassName = [[NSUserDefaults.standardUserDefaults objectForKey:kClassPrefix] stringByAppendingString: key.capitalizedString];
             if (![childClassName containsString:@"Model"]) {
                 childClassName = [childClassName stringByAppendingString:@"Model"];

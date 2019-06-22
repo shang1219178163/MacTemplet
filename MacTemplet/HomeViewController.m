@@ -21,7 +21,7 @@
 
 #import "DataModel.h"
 
-
+#import "BNLanguageModel.h"
 
 @interface HomeViewController ()<NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>
 
@@ -34,7 +34,7 @@
 @property (nonatomic, strong) NNTextField *textFieldTwo;
 @property (nonatomic, strong) NNTextField *textFieldThree;
 
-@property (nonatomic, strong) NSSegmentedControl *segmentCtl;
+//@property (nonatomic, strong) NSSegmentedControl *segmentCtl;
 
 @property (nonatomic, strong) NSPopUpButton *popBtn;
 @property (nonatomic, strong) NSButton *btn;
@@ -45,6 +45,8 @@
 @property (nonatomic, strong) NSString *mFilename;
 
 //@property (nonatomic, strong) NNTableView *tableView;
+@property (nonatomic, strong) NSDictionary * langsDic;
+@property (nonatomic, strong) BNLanguageModel * langModel;
 
 @end
 
@@ -65,15 +67,17 @@
 
     [self.bottomView addSubview:self.btn];
     [self.bottomView addSubview:self.popBtn];
-    [self.bottomView addSubview:self.segmentCtl];
+//    [self.bottomView addSubview:self.segmentCtl];
     [self.view addSubview:self.bottomView];
 
 //    [self.view getViewLayer];
     
-    self.segmentCtl.selectedSegment = 1;
+//    self.segmentCtl.selectedSegment = 1;
     [self readFile];
-    
+    [self updateLanguages];
+
     NSApplication.windowDefault.minSize = CGSizeMake(kScreenWidth*0.5, kScreenHeight*0.5);
+    
 }
 
 -(void)viewDidAppear{
@@ -143,16 +147,16 @@
     [self.popBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.superview).offset(padding);
         make.right.equalTo(self.btn.left).offset(-gap);
-        make.width.equalTo(120);
+        make.width.equalTo(160);
         make.bottom.equalTo(self.bottomView.superview).offset(-padding);
     }];
     
-    [self.segmentCtl makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.textField.superview).offset(padding);
-        make.right.equalTo(self.popBtn.left).offset(-gap);
-        make.width.equalTo(150);
-        make.bottom.equalTo(self.bottomView.superview).offset(-padding);
-    }];
+//    [self.segmentCtl makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.textField.superview).offset(padding);
+//        make.right.equalTo(self.popBtn.left).offset(-gap);
+//        make.width.equalTo(150);
+//        make.bottom.equalTo(self.bottomView.superview).offset(-padding);
+//    }];
     
 }
 
@@ -287,6 +291,35 @@
     }
 }
 
+- (void)updateLanguages{
+    NSArray * items = [self.langsDic.allKeys sortedArrayUsingSelector:@selector(compare:)];
+    [self.popBtn removeAllItems];
+    [self.popBtn addItemsWithTitles:items];
+    
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        __block NSMutableDictionary * mdic = [NSMutableDictionary dictionary];
+//        NSArray * list = [NSBundle.mainBundle URLsForResourcesWithExtension:@"json" subdirectory:nil];
+//        [list enumerateObjectsUsingBlock:^(NSURL * _Nonnull url, NSUInteger idx, BOOL * _Nonnull stop) {
+//            NSData * data = [NSData dataWithContentsOfURL:url];
+//
+//            NSError * error = nil;
+//            NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+//            if (error) {
+//                [NSAlert showAlertWithError:error];
+//                return ;
+//            }
+//            BNLanguageModel * langModel = [[BNLanguageModel alloc]initWithDic:dic];
+//            mdic[langModel.displayLangName] = langModel;
+//        }];
+//
+//        NSArray * items = [mdic.allKeys sortedArrayUsingSelector:@selector(compare:)];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self.popBtn removeAllItems];
+//            [self.popBtn addItemsWithTitles:items];
+//        });
+//    });
+}
+
 #pragma mark -lazy
 
 -(NNTextView *)textView{
@@ -410,31 +443,31 @@
     return _textFieldThree;
 }
 
--(NSSegmentedControl *)segmentCtl{
-    if (!_segmentCtl) {
-        _segmentCtl = ({
-            NSArray *items = @[@"OC", @"Swift",];
-            NSSegmentedControl * view = [[NSSegmentedControl alloc] init];
-            view.items = items;
-            [view addActionHandler:^(NSControl * _Nonnull control) {
-                [NSApp.mainWindow makeFirstResponder:nil];
-
-                NSSegmentedControl *sender = (NSSegmentedControl *)control;
-                NSLog(@"%@", @(sender.selectedSegment));
-                
-                BOOL isSwift = (sender.selectedSegment == 0) ? false : true;
-                [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kIsSwift];
-                [NSUserDefaults.standardUserDefaults synchronize];
-                
-                [self hanldeJson];
-//                [self clearFileOutputPath];
-
-            } forControlEvents:NSEventMaskLeftMouseDown];
-            view;
-        });
-    }
-    return _segmentCtl;
-}
+//-(NSSegmentedControl *)segmentCtl{
+//    if (!_segmentCtl) {
+//        _segmentCtl = ({
+//            NSArray *items = @[@"OC", @"Swift",];
+//            NSSegmentedControl * view = [[NSSegmentedControl alloc] init];
+//            view.items = items;
+//            [view addActionHandler:^(NSControl * _Nonnull control) {
+//                [NSApp.mainWindow makeFirstResponder:nil];
+//
+//                NSSegmentedControl *sender = (NSSegmentedControl *)control;
+//                NSLog(@"%@", @(sender.selectedSegment));
+//
+//                BOOL isSwift = (sender.selectedSegment == 0) ? false : true;
+//                [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kIsSwift];
+//                [NSUserDefaults.standardUserDefaults synchronize];
+//
+//                [self hanldeJson];
+////                [self clearFileOutputPath];
+//
+//            } forControlEvents:NSEventMaskLeftMouseDown];
+//            view;
+//        });
+//    }
+//    return _segmentCtl;
+//}
 
 - (NSPopUpButton *)popBtn{
     if (!_popBtn) {
@@ -449,7 +482,15 @@
 
                 NSPopUpButton *sender = (NSPopUpButton *)control;
                 NSLog(@"%@", sender.titleOfSelectedItem);
-                [NSUserDefaults setObject:sender.titleOfSelectedItem forKey:kPodName];
+                self.langModel = self.langsDic[sender.titleOfSelectedItem];
+                DDLog(@"%@", self.langModel);
+
+                [NSUserDefaults.standardUserDefaults setObject:sender.titleOfSelectedItem forKey:kLanguageName];
+                bool isSwift = [sender.titleOfSelectedItem containsString:@"Swift"] || [sender.titleOfSelectedItem containsString:@"swift"];
+                [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kIsSwift];
+                [NSUserDefaults.standardUserDefaults synchronize];
+
+                [self hanldeJson];
 
             } forControlEvents:NSEventMaskLeftMouseDown];
             view;
@@ -479,5 +520,27 @@
     return _btn;
 }
 
-
+- (NSDictionary *)langsDic{
+    if (!_langsDic) {
+        _langsDic = ({
+            __block NSMutableDictionary * mdic = [NSMutableDictionary dictionary];
+            NSArray * list = [NSBundle.mainBundle URLsForResourcesWithExtension:@"json" subdirectory:nil];
+            [list enumerateObjectsUsingBlock:^(NSURL * _Nonnull url, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSData * data = [NSData dataWithContentsOfURL:url];
+                
+                NSError * error = nil;
+                NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+                if (error) {
+                    [NSAlert showAlertWithError:error];
+                    return ;
+                }
+                BNLanguageModel * langModel = [[BNLanguageModel alloc]initWithDic:dic];
+                mdic[langModel.displayLangName] = langModel;
+            }];
+                
+            mdic.copy;
+        });
+    }
+    return _langsDic;
+}
 @end

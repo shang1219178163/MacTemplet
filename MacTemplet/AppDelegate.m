@@ -57,7 +57,7 @@
             
         } forControlEvents:NSEventMaskLeftMouseDown];
     }
-
+    
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
