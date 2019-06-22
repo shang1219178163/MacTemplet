@@ -62,33 +62,42 @@
     "briefDescription": "Defines how your JSON objects can be mapped to Swift classes using the built-in NSJSONSerialization class",
     "utilityMethods": [
         {
-            "PropertyMapModel": "\n+ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{\n    return @{%@};\n}\n",
-            "PropertyMapProperty": "\n+ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{\n    return @{%@};\n}\n",
+            "propertyMapModelMethod": "\n+ (NSDictionary *)mj_objectClassInArray{\n    return @{%@};\n}\n",
+            "propertyMapPropertyMethod": "\n+ (NSDictionary<NSString *,id> *)mj_replacedKeyFromPropertyName{\n    return @{%@};\n}\n",
         }
     ],
     "dataTypes": {
-        "stringType": "NSString",
-        "boolType": "BOOL",
+        "stringType": "String",
+        "boolType": "Bool",
         "floatType": "CGFloat",
-        "doubleType": "double",
-        "characterType": "char",
-        "longType": "long",
-        "intType": "NSInteger"
+        "doubleType": "CGFloat",
+        "characterType": "Character",
+        "longType": "Double",
+        "intType": "Int"
     },
     "wordsToRemoveToGetArrayElementsType": [
         "[",
         "]"
     ],
-    "defaultParentWithUtilityMethods": "NSObject",
+    "defaultParentWithUtilityMethods": "HandyJSON",
     "constructors": [
-      
+        {
+            "signature": "\trequired override init()",
+            "fetchArrayOfCustomTypePropertyFromMap": "",
+            "fetchBasicTypePropertyFromMap": "",
+            "fetchBasicTypeWithSpecialNeedsPropertyFromMap": "",
+            "fetchCustomTypePropertyFromMap": "",
+            "bodyStart": "{\n",
+            "bodyEnd": "\t}\n",
+            "comment": "\t///\timplement an empty initializer.\n",
+        }
     ],
     "modelDefinition": "\nclass <!ModelName!>",
     "genericType": "AnyObject",
     "getter": "",
     "setter": "",
-    "displayLangName": "ObjC - YYModel",
-    "fileExtension": "m",
+    "displayLangName": "ObjC - MJExtension",
+    "fileExtension": "swift",
     "basicTypesWithSpecialFetchingNeeds": [
     ],
     "arrayType": "[<!ElementType!>]",

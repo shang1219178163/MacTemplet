@@ -61,17 +61,9 @@
     "booleanGetter": "",
     "briefDescription": "Defines how your JSON objects can be mapped to Swift classes using the built-in NSJSONSerialization class",
     "utilityMethods": [
-                       {
-                        "signature": "\tfunc mapping(mapper: HelpingMapper)",
-                        "forEachProperty": "\t\tmapper <<< <!VarName!> <-- \"<!JsonKeyName!>\"\n",
-                        "forEachCustomTypeProperty": "\t\tmapper <<< <!VarName!> <-- \"<!JsonKeyName!>\"\n",
-                        "forEachArrayOfCustomTypeProperty": "\t\tmapper <<< <!VarName!> <-- \"<!JsonKeyName!>\"\n",
-                        "returnStatement": "\t\t\n",
-                        "body": "",
-                        "bodyStart": "\t{\n",
-                        "bodyEnd": "\t}\n",
-                        "comment": "\t///\tHandyJSON - Comment out does not need to convert.\n",
-                        }
+        {
+            "propertyMapPropertyMethod": "func mapping(mapper: HelpingMapper) {\n%@\n    }",
+        }
     ],
     "dataTypes": {
         "stringType": "String",
@@ -88,16 +80,7 @@
     ],
     "defaultParentWithUtilityMethods": "HandyJSON",
     "constructors": [
-        {
-            "signature": "\trequired override init()",
-            "fetchArrayOfCustomTypePropertyFromMap": "",
-            "fetchBasicTypePropertyFromMap": "",
-            "fetchBasicTypeWithSpecialNeedsPropertyFromMap": "",
-            "fetchCustomTypePropertyFromMap": "",
-            "bodyStart": "{\n",
-            "bodyEnd": "\t}\n",
-            "comment": "\t///\timplement an empty initializer.\n",
-        }
+        "required override init() {}"
     ],
     "modelDefinition": "\nclass <!ModelName!>",
     "genericType": "AnyObject",

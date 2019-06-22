@@ -6,12 +6,8 @@
 
 @implementation BNLanguageModel
 
-- (instancetype)initWithDic:(NSDictionary *)dic{
-    self = [super init];
-    if (self) {
-        [self setValuesForKeysWithDictionary:dic];
-    }
-    return self;
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
+    return @{@"utilityMethods" : [BNUtilitymethodsModel class]};
 }
 
 

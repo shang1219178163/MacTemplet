@@ -61,50 +61,34 @@
     "booleanGetter": "",
     "briefDescription": "Defines how your JSON objects can be mapped to Swift classes using the built-in NSJSONSerialization class",
     "utilityMethods": [
-                       {
-                        "signature": "\tfunc mapping(mapper: HelpingMapper)",
-                        "forEachProperty": "\t\tmapper <<< <!VarName!> <-- \"<!JsonKeyName!>\"\n",
-                        "forEachCustomTypeProperty": "\t\tmapper <<< <!VarName!> <-- \"<!JsonKeyName!>\"\n",
-                        "forEachArrayOfCustomTypeProperty": "\t\tmapper <<< <!VarName!> <-- \"<!JsonKeyName!>\"\n",
-                        "returnStatement": "\t\t\n",
-                        "body": "",
-                        "bodyStart": "\t{\n",
-                        "bodyEnd": "\t}\n",
-                        "comment": "\t///\tHandyJSON - Comment out does not need to convert.\n",
-                        }
+        {
+            "propertyMapModelMethod": "\n+ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{\n    return @{%@};\n}\n",
+            "propertyMapPropertyMethod": "\n+ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{\n    return @{%@};\n}\n",
+        }
     ],
     "dataTypes": {
-        "stringType": "String",
-        "boolType": "Bool",
+        "stringType": "NSString",
+        "boolType": "BOOL",
         "floatType": "CGFloat",
-        "doubleType": "CGFloat",
-        "characterType": "Character",
-        "longType": "Double",
-        "intType": "Int"
+        "doubleType": "double",
+        "characterType": "char",
+        "longType": "long",
+        "intType": "NSInteger"
     },
     "wordsToRemoveToGetArrayElementsType": [
         "[",
         "]"
     ],
-    "defaultParentWithUtilityMethods": "HandyJSON",
+    "defaultParentWithUtilityMethods": "NSObject",
     "constructors": [
-        {
-            "signature": "\trequired override init()",
-            "fetchArrayOfCustomTypePropertyFromMap": "",
-            "fetchBasicTypePropertyFromMap": "",
-            "fetchBasicTypeWithSpecialNeedsPropertyFromMap": "",
-            "fetchCustomTypePropertyFromMap": "",
-            "bodyStart": "{\n",
-            "bodyEnd": "\t}\n",
-            "comment": "\t///\timplement an empty initializer.\n",
-        }
+      
     ],
     "modelDefinition": "\nclass <!ModelName!>",
     "genericType": "AnyObject",
     "getter": "",
     "setter": "",
-    "displayLangName": "ObjC - MJExtension",
-    "fileExtension": "swift",
+    "displayLangName": "ObjC - YYModel",
+    "fileExtension": "m",
     "basicTypesWithSpecialFetchingNeeds": [
     ],
     "arrayType": "[<!ElementType!>]",

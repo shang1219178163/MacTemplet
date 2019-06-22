@@ -45,7 +45,7 @@
 
 @property (nonatomic, copy) NSString *modelStart;
 
-@property (nonatomic, strong) NSArray<NSString *> *reservedKeywords;
+@property (nonatomic, strong) NSArray *reservedKeywords;
 
 @property (nonatomic, copy) NSString *setter;
 
@@ -53,11 +53,9 @@
 
 @property (nonatomic, copy) NSString *supportsFirstLineStatement;
 
-@property (nonatomic, strong) NSArray<BNUtilitymethodsModel *> *utilityMethods;
+@property (nonatomic, strong) NSArray *utilityMethods;
 
-@property (nonatomic, strong) NSArray<NSString *> *wordsToRemoveToGetArrayElementsType;
-
-- (instancetype)initWithDic:(NSDictionary *)dic;
+@property (nonatomic, strong) NSArray *wordsToRemoveToGetArrayElementsType;
 
 @end
 
@@ -84,9 +82,8 @@
 
 @interface BNUtilitymethodsModel : NSObject
 
-@property (nonatomic, copy) NSString *PropertyMapModel;
-
-@property (nonatomic, copy) NSString *PropertyMapProperty;
+@property (nonatomic, copy) NSString *propertyMapModelMethod;
+@property (nonatomic, copy) NSString *propertyMapPropertyMethod;
 
 @end
 

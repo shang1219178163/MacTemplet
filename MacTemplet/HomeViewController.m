@@ -21,6 +21,7 @@
 
 #import "DataModel.h"
 
+#import <YYModel/YYModel.h>
 #import "BNLanguageModel.h"
 
 @interface HomeViewController ()<NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>
@@ -243,6 +244,7 @@
         self.hFilename = hFilename;
         self.mFilename = mFilename;
     }];
+    classInfo.langModel = self.langModel;
     [self outputResult:classInfo];
     
 }
@@ -296,28 +298,6 @@
     [self.popBtn removeAllItems];
     [self.popBtn addItemsWithTitles:items];
     
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        __block NSMutableDictionary * mdic = [NSMutableDictionary dictionary];
-//        NSArray * list = [NSBundle.mainBundle URLsForResourcesWithExtension:@"json" subdirectory:nil];
-//        [list enumerateObjectsUsingBlock:^(NSURL * _Nonnull url, NSUInteger idx, BOOL * _Nonnull stop) {
-//            NSData * data = [NSData dataWithContentsOfURL:url];
-//
-//            NSError * error = nil;
-//            NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-//            if (error) {
-//                [NSAlert showAlertWithError:error];
-//                return ;
-//            }
-//            BNLanguageModel * langModel = [[BNLanguageModel alloc]initWithDic:dic];
-//            mdic[langModel.displayLangName] = langModel;
-//        }];
-//
-//        NSArray * items = [mdic.allKeys sortedArrayUsingSelector:@selector(compare:)];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self.popBtn removeAllItems];
-//            [self.popBtn addItemsWithTitles:items];
-//        });
-//    });
 }
 
 #pragma mark -lazy
@@ -488,6 +468,7 @@
                 [NSUserDefaults.standardUserDefaults setObject:sender.titleOfSelectedItem forKey:kLanguageName];
                 bool isSwift = [sender.titleOfSelectedItem containsString:@"Swift"] || [sender.titleOfSelectedItem containsString:@"swift"];
                 [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kIsSwift];
+                [NSUserDefaults.standardUserDefaults setObject:self.langModel.defaultParentWithUtilityMethods forKey:kSuperClass];
                 [NSUserDefaults.standardUserDefaults synchronize];
 
                 [self hanldeJson];
@@ -534,7 +515,7 @@
                     [NSAlert showAlertWithError:error];
                     return ;
                 }
-                BNLanguageModel * langModel = [[BNLanguageModel alloc]initWithDic:dic];
+                BNLanguageModel *langModel = [BNLanguageModel yy_modelWithJSON:dic];
                 mdic[langModel.displayLangName] = langModel;
             }];
                 

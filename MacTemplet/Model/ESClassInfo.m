@@ -89,12 +89,16 @@
     NSMutableString *result = [NSMutableString stringWithFormat:@""];
     for (NSString *key in self.propertyClassDic) {
         ESClassInfo *classInfo = self.propertyClassDic[key];
+        classInfo.langModel = self.langModel;
+
         [result appendFormat:@"%@\n\n",classInfo.classContentForH];
         [result appendString:classInfo.classInsertTextViewContentForH];
     }
     
     for (NSString *key in self.propertyArrayDic) {
         ESClassInfo *classInfo = self.propertyArrayDic[key];
+        classInfo.langModel = self.langModel;
+
         [result appendFormat:@"%@\n\n",classInfo.classContentForH];
         [result appendString:classInfo.classInsertTextViewContentForH];
     }
@@ -105,12 +109,16 @@
     NSMutableString *result = [NSMutableString stringWithFormat:@""];
     for (NSString *key in self.propertyClassDic) {
         ESClassInfo *classInfo = self.propertyClassDic[key];
+        classInfo.langModel = self.langModel;
+        
         [result appendFormat:@"%@\n\n",classInfo.classContentForM];
         [result appendString:classInfo.classInsertTextViewContentForM];
     }
     
     for (NSString *key in self.propertyArrayDic) {
         ESClassInfo *classInfo = self.propertyArrayDic[key];
+        classInfo.langModel = self.langModel;
+        
         [result appendFormat:@"%@\n\n",classInfo.classContentForM];
         [result appendString:classInfo.classInsertTextViewContentForM];
     }
@@ -121,11 +129,15 @@
 - (void)createFileWithFolderPath:(NSString *)folderPath{
     for (NSString *key in self.propertyClassDic) {
         ESClassInfo *classInfo = self.propertyClassDic[key];
+        classInfo.langModel = self.langModel;
+
         [classInfo createFileWithFolderPath:folderPath];
     }
     
     for (NSString *key in self.propertyArrayDic) {
         ESClassInfo *classInfo = self.propertyArrayDic[key];
+        classInfo.langModel = self.langModel;
+
         [classInfo createFileWithFolderPath:folderPath];
     }
     [ESJsonFormatManager createFileWithFolderPath:folderPath classInfo:self];
