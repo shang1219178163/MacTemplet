@@ -93,12 +93,9 @@
     NSApp.mainMenu = mainMenu;
 }
 
-+ (void)setupStatusItem:(NSStatusItem *)statusItem popover:(NSPopover *)popover{
-    if (statusItem) {
-        return;
-    }
-    
-    statusItem = [NSStatusItem createStatusItemImageName:nil];
++ (NSStatusItem *)setupStatusItem{
+   
+    NSStatusItem *statusItem = [NSStatusItem createStatusItemImageName:nil];
     statusItem.menu = ({
         NSMenu *menu = [[NSMenu alloc] initWithTitle:@"menu_right"];
         [menu addItemWithTitle:@"Load1" keyEquivalent:@"E" handler:^(NSMenuItem * _Nonnull menuItem) {
@@ -112,18 +109,13 @@
         menu;
     });
     
-    [statusItem.button addActionHandler:^(NSControl * _Nonnull control) {
-        NSButton *sender = (NSButton *)control;
-        [popover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSRectEdgeMaxY];
-        
-    } forControlEvents:NSEventMaskLeftMouseDown];
     //    statusItem.view = ({
     //        NSView *view = [[NSView alloc]init];
     //        //    view.wantsLayer = YES;
     //        view.layer.backgroundColor = NSColor.redColor.CGColor;
     //        view;
     //    });
-    
+    return statusItem;
 }
 
 @end

@@ -94,7 +94,7 @@
         
     }else{
         if (!self.currentTextView) return;
-        if (!self.isSwift) {
+        if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
             //先添加主类的属性
             [self.currentTextView insertText:classInfo.propertyContent];
             
@@ -149,7 +149,7 @@
         
         //Input JSON window
         NSMenuItem *inputJsonWindow = [[NSMenuItem alloc] initWithTitle:@"Input JSON window" action:@selector(showInputJsonWindow:) keyEquivalent:@"J"];
-        [inputJsonWindow setKeyEquivalentModifierMask:NSAlphaShiftKeyMask | NSControlKeyMask];
+        [inputJsonWindow setKeyEquivalentModifierMask:NSEventModifierFlagCapsLock | NSEventModifierFlagControl];
         inputJsonWindow.target = self;
         [menu addItem:inputJsonWindow];
         

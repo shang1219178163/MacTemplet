@@ -10,13 +10,11 @@
 #import "AppDelegate+Menu.h"
 
 #import "MainWindowController.h"
-#import "FirstViewController.h"
 
 @interface AppDelegate ()
 @property (nonatomic, strong) MainWindowController *windowCtrl;
 
 @property(nonatomic,strong) NSPopover *popover;
-@property(nonatomic,strong) FirstViewController * firstVC;
 
 @property (nonatomic,strong) NSStatusItem *statusItem; //必须应用、且强引用，否则不会显示。
 @property (nonatomic,strong) NSMenu *dockMenu;
@@ -49,8 +47,17 @@
     [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
     
     [AppDelegate setupMainMenu];
-    [AppDelegate setupStatusItem:self.statusItem popover:self.popover];
-
+    if (!self.statusItem) {
+        self.statusItem = [AppDelegate setupStatusItem];
+        @weakify(self);
+        [self.statusItem.button addActionHandler:^(NSControl * _Nonnull control) {
+            @strongify(self);
+            NSButton *sender = (NSButton *)control;
+            [self.popover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSRectEdgeMaxY];
+            
+        } forControlEvents:NSEventMaskLeftMouseDown];
+    }
+    
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -125,20 +132,18 @@
 - (NSPopover *)popover{
     if(!_popover) {
         _popover = ({
-            NSPopover *popover = [NSPopover popoverWithController:self.firstVC];
+            NSString * controllerName = @"FirstViewController";
+            NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
+            controller.view.frame = CGRectMake(0, 0, kScreenWidth*0.2, 200);
+            
+            NSPopover *popover = [NSPopover popoverWithController:controller];
+            
             popover;
         });
     }
     return _popover;
 }
 
-- (FirstViewController *)firstVC{
-    if(!_firstVC) {
-        _firstVC = [[FirstViewController alloc]init];
-        _firstVC.view.frame = CGRectMake(0, 0, kScreenWidth*0.2, 200);
-    }
-    return _firstVC;
-}
 
 
 @end

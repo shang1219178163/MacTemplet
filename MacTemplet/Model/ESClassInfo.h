@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BNLanguageModel.h"
 
 @interface ESClassInfo : NSObject
 /**
@@ -69,6 +70,7 @@
  */
 @property (nonatomic, copy) NSString *classInsertTextViewContentForM;
 
+@property (nonatomic, strong) BNLanguageModel *langModel;
 
 - (instancetype)initWithClassNameKey:(NSString *)classNameKey ClassName:(NSString *)className classDic:(NSDictionary *)classDic;
 
@@ -78,6 +80,32 @@
  *  @param folderPath 文件路径
  */
 - (void)createFileWithFolderPath:(NSString *)folderPath;
+
+/**
+ *  初始类名，RootClass/JSON为数组/创建文件与否
+ *
+ *  @param result JSON转成字典或者数组
+ *
+ *  @return 类信息
+ */
++ (ESClassInfo *)dealClassNameWithJsonResult:(id)result handler:(void(^)(NSString *hFilename, NSString *mFilename))handler;
+
+/**
+ *  处理属性名字(用户输入属性对应字典对应类或者集合里面对应类的名字)
+ *
+ *  @param classInfo 要处理的ClassInfo
+ *
+ *  @return 处理完毕的ClassInfo
+ */
++ (ESClassInfo *)dealPropertyNameWithClassInfo:(ESClassInfo *)classInfo;
+
+/**
+ 根据类模型返回完整的文字信息
+
+ @param isFirstFile 是否是.h/.swift文件
+ @return 文字信息
+ */
+- (NSString *)classDescWithFirstFile:(BOOL)isFirstFile;
 
 @end
 

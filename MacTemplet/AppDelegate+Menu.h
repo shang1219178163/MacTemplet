@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)setupMainMenu;
 
-+ (void)setupStatusItem:(NSStatusItem *)statusItem popover:(NSPopover *)popover;
++ (NSStatusItem *)setupStatusItem;
 
 @end
 
