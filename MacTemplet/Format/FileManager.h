@@ -13,8 +13,6 @@
 
 + (FileManager *)sharedInstance;
 
-//- (NSString *)classDesFromClass:(ESClassInfo *)classInfo isFirstFile:(BOOL)isFirstFile;
-
 - (void)createFileWithFolderPath:(NSString *)folderPath
                        hFileName:(NSString *)hFileName
                        mFileName:(NSString *)mFileName

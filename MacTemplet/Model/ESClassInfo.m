@@ -133,11 +133,17 @@
 
 + (ESClassInfo *)dealClassNameWithJsonResult:(id)result handler:(void(^)(NSString *hFilename, NSString *mFilename))handler{
     __block ESClassInfo *classInfo = nil;
+    
+    NSString *rootClassName = [NSUserDefaults.standardUserDefaults objectForKey:kRootClass];
+    if (rootClassName.length <= 0) {
+        rootClassName = ESRootClassName;
+    }
+    
     //如果当前是JSON对应是字典
     if ([result isKindOfClass:[NSDictionary class]]) {
         //如果是生成到文件，提示输入Root class name
         if (!ESJsonFormatSetting.defaultSetting.outputToFiles) {
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
+            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
             
             BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
@@ -150,7 +156,7 @@
             
         } else {
             //不生成到文件，Root class 里面用户自己创建
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
+            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
             [ESClassInfo dealPropertyNameWithClassInfo:classInfo];
             
@@ -158,7 +164,7 @@
     } else if ([result isKindOfClass:[NSArray class]]){
         if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
             //当前是JSON代表数组，生成到文件需要提示用户输入Root Class name，
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
+            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
             //输入完毕之后，将这个class设置
             NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
@@ -166,7 +172,7 @@
             [ESClassInfo dealPropertyNameWithClassInfo:classInfo];
         } else {
             //Root class 已存在，只需要输入JSON对应的key的名字
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:ESRootClassName];
+            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
             NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
             [ESClassInfo dealPropertyNameWithClassInfo:classInfo];
@@ -235,12 +241,12 @@
         NSString *mContent = [NSString stringWithFormat:@"%@\n%@",classInfo.classContentForM,classInfo.classInsertTextViewContentForM];
         
         hImportStr = [NSMutableString stringWithString:@"#import <Foundation/Foundation.h>\n\n"];
-        NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
+        NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
         if (superClassString.length > 0 && ![superClassString isEqualToString:@"NSObject"]) {
             [hImportStr appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n\n",superClassString]];
         }
         
-        mImportStr = [NSString stringWithFormat:@"#import \"%@\"\n",classInfo.className];
+        mImportStr = [NSString stringWithFormat:@"#import \"%@.h\"\n",classInfo.className];
         hContent = [NSString stringWithFormat:@"%@%@%@",modelStr, hImportStr, hContent];
         mContent = [NSString stringWithFormat:@"%@%@%@",modelStr, mImportStr, mContent];
         return (isFirstFile ? hContent : mContent);
@@ -248,7 +254,7 @@
         NSString *hContent = [NSString stringWithFormat:@"%@\n\n%@",classInfo.classContentForH, classInfo.classInsertTextViewContentForH];
         
         hImportStr = [NSMutableString stringWithString:@"import UIKit\n\n"];
-        NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
+        NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
         if (superClassString.length > 0 && ![superClassString isEqualToString:@"NSObject"]) {
             [hImportStr appendString:[NSString stringWithFormat:@"import %@ \n\n",superClassString]];
         }

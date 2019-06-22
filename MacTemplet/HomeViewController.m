@@ -32,6 +32,7 @@
 @property (nonatomic, strong) NNView *bottomView;
 @property (nonatomic, strong) NNTextField *textField;
 @property (nonatomic, strong) NNTextField *textFieldTwo;
+@property (nonatomic, strong) NNTextField *textFieldThree;
 
 @property (nonatomic, strong) NSSegmentedControl *segmentCtl;
 
@@ -60,6 +61,7 @@
 
     [self.bottomView addSubview:self.textField];
     [self.bottomView addSubview:self.textFieldTwo];
+    [self.bottomView addSubview:self.textFieldThree];
 
     [self.bottomView addSubview:self.btn];
     [self.bottomView addSubview:self.popBtn];
@@ -71,6 +73,7 @@
     self.segmentCtl.selectedSegment = 1;
     [self readFile];
     
+    NSApplication.windowDefault.minSize = CGSizeMake(kScreenWidth*0.5, kScreenHeight*0.5);
 }
 
 -(void)viewDidAppear{
@@ -81,6 +84,8 @@
 
     [NSUserDefaults.standardUserDefaults setObject:@"BN" forKey:kClassPrefix];
     [NSUserDefaults.standardUserDefaults setObject:@"NSObject" forKey:kSuperClass];
+    [NSUserDefaults.standardUserDefaults setObject:@"LanguageModel" forKey:kRootClass];
+    
     [NSUserDefaults.standardUserDefaults setBool:false forKey:kIsSwift];
     [NSUserDefaults.standardUserDefaults synchronize];
     
@@ -117,6 +122,13 @@
     [self.textFieldTwo makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.superview).offset(padding);
         make.left.equalTo(self.textField.right).offset(gap);
+        make.width.equalTo(150);
+        make.bottom.equalTo(self.bottomView.superview).offset(-padding);
+    }];
+    
+    [self.textFieldThree makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.textField.superview).offset(padding);
+        make.left.equalTo(self.textFieldTwo.right).offset(gap);
         make.width.equalTo(150);
         make.bottom.equalTo(self.bottomView.superview).offset(-padding);
     }];
@@ -169,17 +181,19 @@
 
 - (void)controlTextDidEndEditing:(NSNotification *)obj{
     NSTextField *textField = (NSTextField *)obj.object;
-    DDLog(@"%@",textField.stringValue);
+//    DDLog(@"%@",textField.stringValue);
     
-    if (textField == self.textField || textField == self.textFieldTwo) {
-        NSString * defaultsKey = (textField == self.textField) ? kClassPrefix : kSuperClass;
-        [NSUserDefaults.standardUserDefaults setObject:textField.stringValue forKey:defaultsKey];
-        [NSUserDefaults.standardUserDefaults synchronize];
-        
-    }
-    else {
-        DDLog(@"未知错误:%@",textField);
-    }
+    NSDictionary *dic = @{
+                         @(100): kClassPrefix,
+                         @(101): kSuperClass,
+                         @(102): kRootClass,
+
+                         };
+    NSString * defaultsKey = dic[@(textField.tag)];
+    [NSUserDefaults.standardUserDefaults setObject:textField.stringValue forKey:defaultsKey];
+    [NSUserDefaults.standardUserDefaults synchronize];
+//    DDLog(@"%@_%@_%@",@(textField.tag), defaultsKey, textField.stringValue);
+
 }
 
 //- (void)hanldeAction:(NSButton *)sender{
@@ -347,8 +361,9 @@
             
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
+            view.tag = 100;
             view.delegate = self;
-
+            
             view;
         });
     }
@@ -358,7 +373,7 @@
 -(NNTextField *)textFieldTwo{
     if (!_textFieldTwo) {
         _textFieldTwo = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Root Class name"];
+            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Supper Class name"];
             view.bordered = true;  ///是否显示边框
 
             view.alignment = NSTextAlignmentCenter;
@@ -366,13 +381,33 @@
 
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
-
+            view.tag = 101;
             view.delegate = self;
             
             view;
         });
     }
     return _textFieldTwo;
+}
+
+-(NNTextField *)textFieldThree{
+    if (!_textFieldThree) {
+        _textFieldThree = ({
+            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Root Class name"];
+            view.bordered = true;  ///是否显示边框
+            
+            view.alignment = NSTextAlignmentCenter;
+            view.isTextAlignmentVerticalCenter = true;
+            
+            view.maximumNumberOfLines = 1;
+            view.usesSingleLineMode = true;
+            view.tag = 102;
+            view.delegate = self;
+            
+            view;
+        });
+    }
+    return _textFieldThree;
 }
 
 -(NSSegmentedControl *)segmentCtl{

@@ -13,6 +13,7 @@ NSString *const kFolderPath = @"folderPath";
 
 NSString *const kClassPrefix = @"ClassPrefix";
 NSString *const kSuperClass = @"SuperClass";
+NSString *const kRootClass = @"RootClass";
 
 NSString *const kIsSwift = @"isSwift";
 NSString *const kPodName = @"PodName";

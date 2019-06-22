@@ -149,7 +149,7 @@
         
         //Input JSON window
         NSMenuItem *inputJsonWindow = [[NSMenuItem alloc] initWithTitle:@"Input JSON window" action:@selector(showInputJsonWindow:) keyEquivalent:@"J"];
-        [inputJsonWindow setKeyEquivalentModifierMask:NSAlphaShiftKeyMask | NSControlKeyMask];
+        [inputJsonWindow setKeyEquivalentModifierMask:NSEventModifierFlagCapsLock | NSEventModifierFlagControl];
         inputJsonWindow.target = self;
         [menu addItem:inputJsonWindow];
         

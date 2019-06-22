@@ -237,7 +237,7 @@
  *  @return NSString
  */
 + (NSString *)parseClassHeaderContentForOjbcWithClassInfo:(ESClassInfo *)classInfo{
-    NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
+    NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
     superClassString = superClassString.length > 0 ? superClassString : @"NSObject";
 
     NSMutableString *result = [NSMutableString stringWithFormat:@"\n\n@interface %@ : %@\n",classInfo.className,superClassString];
@@ -262,7 +262,7 @@
  *  @return NSString
  */
 + (NSString *)parseClassContentForSwiftWithClassInfo:(ESClassInfo *)classInfo{
-    NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
+    NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
     superClassString = superClassString.length > 0 ? superClassString : @"NSObject";
 
     NSMutableString *result = [NSMutableString stringWithFormat:@"class %@: %@ {\n",classInfo.className,superClassString];
@@ -320,7 +320,7 @@
     
     NSMutableString *result = [NSMutableString string];
     NSDictionary *dic = classInfo.classDic;
-    NSLog(@"%@",dic);
+//    NSLog(@"%@",dic);
     [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
 //        NSLog(@"%@: _%@_",key,obj);
         if ([self.dicSwitch.allKeys containsObject:key] && ESJsonFormatSetting.defaultSetting.uppercaseKeyWordForId) {
@@ -363,20 +363,21 @@
         templateString = [templateString stringByReplacingOccurrencesOfString:@"__ORGANIZATIONNAME__" withString:organizationName];
     }
     //时间
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"__DATE__" withString:[self dateStr]];
+    NSString *dateStr = [NSDateFormatter stringFromDate:NSDate.date format:@"yy/MM/dd"];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"__DATE__" withString:dateStr];
     
     if ([type isEqualToString:@"h"] || [type isEqualToString:@"swift"]) {
         NSMutableString *string = [NSMutableString stringWithString:templateString];
         if ([type isEqualToString:@"h"]) {
             [string appendString:@"#import <Foundation/Foundation.h>\n\n"];
-            NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
-            if (superClassString&&superClassString.length>0) {
+            NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
+            if (superClassString.length > 0) {
                 [string appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n\n",superClassString]];
             }
         } else {
             [string appendString:@"import UIKit\n\n"];
-            NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:@"SuperClass"];
-            if (superClassString&&superClassString.length>0) {
+            NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
+            if (superClassString.length > 0) {
                 [string appendString:[NSString stringWithFormat:@"import %@ \n\n",superClassString]];
             }
         }
@@ -385,39 +386,20 @@
     return [templateString copy];
 }
 
-/**
- *  返回模板信息里面日期字符串
- *
- *  @return NSString
- */
-+ (NSString *)dateStr{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"yy/MM/dd";
-    return [formatter stringFromDate: NSDate.date];
-}
-
-
 + (void)createFileWithFolderPath:(NSString *)folderPath classInfo:(ESClassInfo *)classInfo{
     if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
         //创建.h文件
-        [self createFileWithFileName:[folderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.h",classInfo.className]] content:classInfo.classContentForH];
+        NSString * hFilename = [NSString stringWithFormat:@"%@.h",classInfo.className];
+        [NSFileManager createFileWithFolderPath:folderPath name:hFilename content:classInfo.classContentForH];
         //创建.m文件
-        [self createFileWithFileName:[folderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m",classInfo.className]] content:classInfo.classContentForM];
+        NSString * mFilename = [NSString stringWithFormat:@"%@.m",classInfo.className];
+        [NSFileManager createFileWithFolderPath:folderPath name:mFilename content:classInfo.classContentForM];
+
     } else {
         //创建.swift文件
-        [self createFileWithFileName:[folderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.swift",classInfo.className]] content:classInfo.classContentForH];
+        NSString * hFilename = [NSString stringWithFormat:@"%@.swift",classInfo.className];
+        [NSFileManager createFileWithFolderPath:folderPath name:hFilename content:classInfo.classContentForH];
     }
-}
-
-/**
- *  创建文件
- *
- *  @param FileName 文件名字
- *  @param content  文件内容
- */
-+ (void)createFileWithFileName:(NSString *)FileName content:(NSString *)content{
-    NSFileManager *manager = NSFileManager.defaultManager;
-    [manager createFileAtPath:FileName contents:[content dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
 }
 
 @end
