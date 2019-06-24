@@ -925,7 +925,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet;
+				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet.jsonToModel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MacTemplet/MacTemplet-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -949,7 +949,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet;
+				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet.jsonToModel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MacTemplet/MacTemplet-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
