@@ -40,7 +40,7 @@
     return jsonString;
 }
 
-- (id)objValue{
+-(id)objValue{
     assert([self isKindOfClass: NSString.class] || [self isKindOfClass:NSData.class] || [self isKindOfClass: NSDictionary.class] || [self isKindOfClass: NSArray.class]);
     if ([self isKindOfClass: NSDictionary.class] || [self isKindOfClass: NSArray.class]) {
         return self;
@@ -68,13 +68,100 @@
     return nil;
 }
 
-- (NSDictionary *)dictValue{
+-(NSDictionary *)dictValue{
     if ([self.objValue isKindOfClass: NSDictionary.class]) {
         return self.objValue;
     }
     return nil;
 }
 
+//为 NSObject 扩展 NSCoding 协议里的两个方法, 用来便捷实现复杂对象的归档与反归档
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    // 一个临时数据, 用来记录一个类成员变量的个数
+    unsigned int ivarCount = 0;
+    // 获取一个类所有的成员变量
+    Ivar *ivars = class_copyIvarList(self.class, &ivarCount);
+    
+    // 变量成员变量列表
+    for (int i = 0; i < ivarCount; i ++) {
+        // 获取单个成员变量
+        Ivar ivar = ivars[i];
+        // 获取成员变量的名字并将其转换为 OC 字符串
+        NSString *ivarName = [NSString stringWithUTF8String:ivar_getName(ivar)];
+        // 获取该成员变量对应的值
+        id value = [self valueForKey:ivarName];
+        // 归档, 就是把对象 key-value 对一对一对的 encode
+        [aCoder encodeObject:value forKey:ivarName];
+    }
+    // 释放 ivars
+    free(ivars);
+}
 
+-(instancetype)initWithCoder:(NSCoder *)aDecoder {
+    // 因为没有 superClass 了
+    self = [self init];
+    if (self != nil) {
+        unsigned int ivarCount = 0;
+        Ivar *ivars = class_copyIvarList(self.class, &ivarCount);
+        for (int i = 0; i < ivarCount; i ++) {
+            
+            Ivar ivar = ivars[i];
+            NSString *ivarName = [NSString stringWithUTF8String:ivar_getName(ivar)];
+            // 反归档, 就是把 key-value 对一对一对 decode
+            id value = [aDecoder decodeObjectForKey:ivarName];
+            // 赋值
+            [self setValue:value forKey:ivarName];
+        }
+        free(ivars);
+    }
+    return self;
+}
+
+//KVC
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    NSLog(@"不存在键_%@:%@",key,value);
+}
+
+-(id)valueForUndefinedKey:(NSString *)key{
+    return nil;
+}
+
+-(BOOL)validObject{
+    if ([self isKindOfClass:[NSNull class]]) return NO;
+    
+    if ([self isKindOfClass:[NSString class]] || [self isKindOfClass:[NSAttributedString class]]){
+        NSString *str = @"";
+        if ([self isKindOfClass:[NSAttributedString class]]){
+            str = [(NSAttributedString *)self string];
+            
+        } else {
+            str = (NSString *)self;
+            
+        }
+        
+        str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        NSArray * array = @[@"",@"nil",@"null"];
+        if ([array containsObject:str] || [str containsString:@"null"]) {
+            //            NSLog(@"无效字符->(%@)",string);
+            return NO;
+        }
+        
+    }
+    else if ([self isKindOfClass:[NSArray class]]){
+        if ([(NSArray *)self count] == 0){
+            //            NSLog(@"空数组->(%@)",self);
+            return NO;
+        }
+    }
+    else if ([self isKindOfClass:[NSDictionary class]]){
+        if ([(NSDictionary *)self count] == 0){
+            //            NSLog(@"空字典->(%@)",self);
+            return NO;
+        }
+    }
+    return YES;
+}
 
 @end

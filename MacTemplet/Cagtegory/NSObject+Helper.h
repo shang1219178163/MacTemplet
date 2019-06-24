@@ -21,6 +21,19 @@ NS_ASSUME_NONNULL_BEGIN
 /// NSString/NSData->NSDictionary
 @property (nonatomic, strong, readonly) NSDictionary * _Nullable dictValue;
 
+
+//为 NSObject 扩展 NSCoding 协议里的两个方法, 用来便捷实现复杂对象的归档与反归档
+-(void)encodeWithCoder:(NSCoder *)aCoder;
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder;
+//KVC
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key;
+
+-(id)valueForUndefinedKey:(NSString *)key;
+
+-(BOOL)validObject;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

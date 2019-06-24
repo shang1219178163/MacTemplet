@@ -243,7 +243,7 @@
 - (NSString *)classDescWithFirstFile:(BOOL)isFirstFile{
     ESClassInfo *classInfo = self;
     NSString *dateStr = [NSDateFormatter stringFromDate:NSDate.date format:@"yy/MM/dd"];
-    NSString *modelStr = [NSString stringWithFormat:@"//\n//Created by ESJsonFormatForMac on %@.\n//\n\n", dateStr];
+    NSString *modelStr = [NSString stringWithFormat:@"//\n//Created by %@ on %@.\n//\n\n", NSApplication.macUserName, dateStr];
     
     NSMutableString *hImportStr = nil;
     NSString *mImportStr = nil;
