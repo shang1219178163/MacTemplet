@@ -16,7 +16,7 @@ NSString *const kSuperClass = @"SuperClass";
 NSString *const kRootClass = @"RootClass";
 
 NSString *const kIsSwift = @"isSwift";
-NSString *const kLanguageName = @"languageName";
+NSString *const kDisplayName = @"kDisplayName";
 
 NSString *const ESRootClassName = @"RootModel";
 NSString *const ESItemClassName = @"ItemModel";

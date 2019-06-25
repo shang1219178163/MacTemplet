@@ -34,6 +34,8 @@
 //    controllerName = @"MainViewController";
 //    controllerName = @"GroupViewController";
 //    controllerName = @"CollectionViewController";
+    controllerName = @"JsonToModelController";
+
 
     NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
     NSApplication.windowDefault.contentViewController = controller;

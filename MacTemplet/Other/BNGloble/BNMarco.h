@@ -52,8 +52,8 @@ fprintf(stderr,"%s【line -%d】%s %s\n",[str UTF8String], __LINE__,__PRETTY_FUN
 #pragma mark - -MacroGeometry与计算有关的尺寸属性
 
 //屏幕 rect
-#define kScreenWidth        (UIScreen.mainScreen.bounds.size.width)
-#define kScreenHeight       (UIScreen.mainScreen.bounds.size.height)
+#define kScreenWidth        (NSScreen.mainScreen.frame.size.width)
+#define kScreenHeight       (NSScreen.mainScreen.frame.size.height)
 
 #define kSizeArrow          CGSizeMake(25.0, 35.0)
 #define kSizeBSelected      CGSizeMake(35.0, 35.0)

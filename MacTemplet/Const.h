@@ -14,7 +14,7 @@ FOUNDATION_EXPORT NSString *const kSuperClass ;
 FOUNDATION_EXPORT NSString *const kRootClass;
 
 FOUNDATION_EXPORT NSString *const kIsSwift ;
-FOUNDATION_EXPORT NSString *const kLanguageName ;
+FOUNDATION_EXPORT NSString *const kDisplayName ;
 
 FOUNDATION_EXPORT NSString *const ESRootClassName ;
 FOUNDATION_EXPORT NSString *const ESItemClassName ;

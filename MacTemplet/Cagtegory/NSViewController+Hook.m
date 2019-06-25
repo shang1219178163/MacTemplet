@@ -8,6 +8,7 @@
 
 #import "NSViewController+Hook.h"
 #import "NSObject+Hook.h"
+#import "NNView.h"
 
 @implementation NSViewController (Hook)
 

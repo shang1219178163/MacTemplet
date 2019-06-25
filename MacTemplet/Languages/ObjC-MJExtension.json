@@ -79,7 +79,7 @@
         "[",
         "]"
     ],
-    "defaultParentWithUtilityMethods": "HandyJSON",
+    "defaultParentWithUtilityMethods": "NSObject",
     "constructors": [
         {
             "signature": "\trequired override init()",

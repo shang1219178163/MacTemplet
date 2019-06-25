@@ -13,6 +13,9 @@
 		1445780522BDDB540007C7B3 /* ObjC-YYModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780422BDDB540007C7B3 /* ObjC-YYModel.json */; };
 		1445780922BDDBBC0007C7B3 /* ObjC-MJExtension.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780722BDDBBC0007C7B3 /* ObjC-MJExtension.json */; };
 		1445780F22BDF0520007C7B3 /* BNLanguageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445780E22BDF0520007C7B3 /* BNLanguageModel.m */; };
+		1445782522C1C9380007C7B3 /* JsonToModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782422C1C9380007C7B3 /* JsonToModelController.m */; };
+		1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */; };
+		1445783B22C1FFE20007C7B3 /* BNClassInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783A22C1FFE20007C7B3 /* BNClassInfoModel.m */; };
 		1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71722AB8BD400A7C5E1 /* AppDelegate.m */; };
 		1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1482F71922AB8BD500A7C5E1 /* Assets.xcassets */; };
 		1482F72022AB8BD500A7C5E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71F22AB8BD500A7C5E1 /* main.m */; };
@@ -68,7 +71,6 @@
 		14F92BF022BA39C600A5C5E4 /* NSPopover+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BEF22BA39C600A5C5E4 /* NSPopover+Helper.m */; };
 		14F92BF322BA49A800A5C5E4 /* NSViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BF222BA49A800A5C5E4 /* NSViewController+Helper.m */; };
 		14F92BF622BB13E900A5C5E4 /* NSObject+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BF522BB13E900A5C5E4 /* NSObject+Helper.m */; };
-		14F92BF922BB178C00A5C5E4 /* NNDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BF822BB178C00A5C5E4 /* NNDocument.m */; };
 		14F92BFE22BB1A2800A5C5E4 /* NSDateFormatter+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BFA22BB1A2700A5C5E4 /* NSDateFormatter+Helper.m */; };
 		14F92BFF22BB1A2800A5C5E4 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BFC22BB1A2700A5C5E4 /* NSDate+Helper.m */; };
 		14F92C0A22BB1AC700A5C5E4 /* BNAttStringKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C0122BB1AC700A5C5E4 /* BNAttStringKey.m */; };
@@ -103,6 +105,13 @@
 		1445780722BDDBBC0007C7B3 /* ObjC-MJExtension.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ObjC-MJExtension.json"; sourceTree = "<group>"; };
 		1445780D22BDF0520007C7B3 /* BNLanguageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNLanguageModel.h; sourceTree = "<group>"; };
 		1445780E22BDF0520007C7B3 /* BNLanguageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNLanguageModel.m; sourceTree = "<group>"; };
+		1445782322C1C9380007C7B3 /* JsonToModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonToModelController.h; sourceTree = "<group>"; };
+		1445782422C1C9380007C7B3 /* JsonToModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonToModelController.m; sourceTree = "<group>"; };
+		1445782622C1CABA0007C7B3 /* NNHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNHeaderView.h; sourceTree = "<group>"; };
+		1445782822C1CDC90007C7B3 /* NSTableCellViewTen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTableCellViewTen.h; sourceTree = "<group>"; };
+		1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTableCellViewTen.m; sourceTree = "<group>"; };
+		1445783922C1FFE20007C7B3 /* BNClassInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNClassInfoModel.h; sourceTree = "<group>"; };
+		1445783A22C1FFE20007C7B3 /* BNClassInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNClassInfoModel.m; sourceTree = "<group>"; };
 		1482F71322AB8BD400A7C5E1 /* MacTemplet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacTemplet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1482F71622AB8BD400A7C5E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1482F71722AB8BD400A7C5E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -216,8 +225,6 @@
 		14F92BF222BA49A800A5C5E4 /* NSViewController+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSViewController+Helper.m"; sourceTree = "<group>"; };
 		14F92BF422BB13E900A5C5E4 /* NSObject+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Helper.h"; sourceTree = "<group>"; };
 		14F92BF522BB13E900A5C5E4 /* NSObject+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Helper.m"; sourceTree = "<group>"; };
-		14F92BF722BB178C00A5C5E4 /* NNDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNDocument.h; sourceTree = "<group>"; };
-		14F92BF822BB178C00A5C5E4 /* NNDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNDocument.m; sourceTree = "<group>"; };
 		14F92BFA22BB1A2700A5C5E4 /* NSDateFormatter+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Helper.m"; sourceTree = "<group>"; };
 		14F92BFB22BB1A2700A5C5E4 /* NSDateFormatter+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Helper.h"; sourceTree = "<group>"; };
 		14F92BFC22BB1A2700A5C5E4 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
@@ -301,6 +308,15 @@
 			path = Languages;
 			sourceTree = "<group>";
 		};
+		1445782722C1CD6E0007C7B3 /* BNView */ = {
+			isa = PBXGroup;
+			children = (
+				1445782822C1CDC90007C7B3 /* NSTableCellViewTen.h */,
+				1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */,
+			);
+			path = BNView;
+			sourceTree = "<group>";
+		};
 		1482F70A22AB8BD400A7C5E1 = {
 			isa = PBXGroup;
 			children = (
@@ -333,10 +349,15 @@
 				14F92BE422BA124E00A5C5E4 /* MainWindowController.m */,
 				1482F72822AB8F9300A7C5E1 /* HomeViewController.h */,
 				1482F72922AB8F9300A7C5E1 /* HomeViewController.m */,
+				1445782322C1C9380007C7B3 /* JsonToModelController.h */,
+				1445782422C1C9380007C7B3 /* JsonToModelController.m */,
+				1445783922C1FFE20007C7B3 /* BNClassInfoModel.h */,
+				1445783A22C1FFE20007C7B3 /* BNClassInfoModel.m */,
 				144577FE22BCF50E0007C7B3 /* Const.h */,
 				144577FF22BCF50E0007C7B3 /* Const.m */,
 				1445780D22BDF0520007C7B3 /* BNLanguageModel.h */,
 				1445780E22BDF0520007C7B3 /* BNLanguageModel.m */,
+				1445782722C1CD6E0007C7B3 /* BNView */,
 				14F92C2522BB8DBB00A5C5E4 /* Controller */,
 				14F2F5AD22B8FEB1009D49CE /* ViewHeight */,
 				14F0FDAA22AE097A00057093 /* View */,
@@ -430,6 +451,7 @@
 		14F0FDAA22AE097A00057093 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1445782622C1CABA0007C7B3 /* NNHeaderView.h */,
 				1482F85E22ABA55F00A7C5E1 /* NNView.h */,
 				1482F85F22ABA55F00A7C5E1 /* NNView.m */,
 				14F0FDE122B082AD00057093 /* NNTableView.h */,
@@ -446,8 +468,6 @@
 				14F2F59222B8D826009D49CE /* NNTableRowView.m */,
 				14F2F5B322B8FF98009D49CE /* NNCollectionView.h */,
 				14F2F5B422B8FF98009D49CE /* NNCollectionView.m */,
-				14F92BF722BB178C00A5C5E4 /* NNDocument.h */,
-				14F92BF822BB178C00A5C5E4 /* NNDocument.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -476,14 +496,14 @@
 		14F92C0022BB1AC700A5C5E4 /* BNGloble */ = {
 			isa = PBXGroup;
 			children = (
-				14F92C0122BB1AC700A5C5E4 /* BNAttStringKey.m */,
-				14F92C0222BB1AC700A5C5E4 /* BNGeneralConst.h */,
-				14F92C0322BB1AC700A5C5E4 /* BNMarco.h */,
+				14F92C0922BB1AC700A5C5E4 /* BNGloble.h */,
 				14F92C0422BB1AC700A5C5E4 /* Resources */,
+				14F92C0322BB1AC700A5C5E4 /* BNMarco.h */,
 				14F92C0622BB1AC700A5C5E4 /* BNShared.h */,
 				14F92C0722BB1AC700A5C5E4 /* BNAttStringKey.h */,
+				14F92C0122BB1AC700A5C5E4 /* BNAttStringKey.m */,
+				14F92C0222BB1AC700A5C5E4 /* BNGeneralConst.h */,
 				14F92C0822BB1AC700A5C5E4 /* BNGeneralConst.m */,
-				14F92C0922BB1AC700A5C5E4 /* BNGloble.h */,
 			);
 			path = BNGloble;
 			sourceTree = "<group>";
@@ -718,6 +738,7 @@
 				14F92BED22BA25D800A5C5E4 /* NSStatusItem+Helper.m in Sources */,
 				14F2F55E22B77DDF009D49CE /* NSImage+Helper.swift in Sources */,
 				14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */,
+				1445782522C1C9380007C7B3 /* JsonToModelController.m in Sources */,
 				14F92BD722B9DD8A00A5C5E4 /* NSPanel+Helper.m in Sources */,
 				14F0FDDD22B07F4400057093 /* NSTableCellView+Helper.m in Sources */,
 				14F2F59922B8DB25009D49CE /* SecondViewController.m in Sources */,
@@ -748,6 +769,8 @@
 				14F0FDE622B084CF00057093 /* NSTableView+Helper.m in Sources */,
 				14F0FDA922AE008F00057093 /* NSApplication+Helper.m in Sources */,
 				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
+				1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */,
+				1445783B22C1FFE20007C7B3 /* BNClassInfoModel.m in Sources */,
 				14F92BE622BA124E00A5C5E4 /* MainWindowController.m in Sources */,
 				14F2F5BD22B90109009D49CE /* NSCTViewCellOne.m in Sources */,
 				14F92C1B22BB6F3400A5C5E4 /* NNTextLabel.m in Sources */,
@@ -772,7 +795,6 @@
 				14F92BFF22BB1A2800A5C5E4 /* NSDate+Helper.m in Sources */,
 				14F92BDE22B9E75100A5C5E4 /* BNDialogWindowController.m in Sources */,
 				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
-				14F92BF922BB178C00A5C5E4 /* NNDocument.m in Sources */,
 				14F92C0C22BB1AC700A5C5E4 /* BNGeneralConst.m in Sources */,
 				1445780022BCF50E0007C7B3 /* Const.m in Sources */,
 				14F2F5A922B8F2E6009D49CE /* NSTabView+Helper.m in Sources */,

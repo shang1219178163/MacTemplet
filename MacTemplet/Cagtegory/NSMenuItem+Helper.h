@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)addActionHandler:(void(^)(NSMenuItem *menuItem))handler;
 
-- (instancetype)initWithTitle:(NSString *)string keyEquivalent:(NSString *)charCode handler:(void(^)(NSMenuItem *menuItem))handler;
+- (NSMenuItem *)initWithTitle:(NSString *)string keyEquivalent:(NSString *)charCode handler:(void(^)(NSMenuItem *menuItem))handler;
 
 @end
 

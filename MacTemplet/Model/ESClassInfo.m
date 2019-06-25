@@ -253,7 +253,7 @@
         NSString *mContent = [NSString stringWithFormat:@"%@\n%@",classInfo.classContentForM,classInfo.classInsertTextViewContentForM];
         
         hImportStr = [NSMutableString stringWithString:@"#import <Foundation/Foundation.h>\n\n"];
-        NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
+        NSString *superClassString = [NSUserDefaults.standardUserDefaults objectForKey:kSuperClass];
         if (superClassString.length > 0 && ![superClassString isEqualToString:@"NSObject"]) {
             [hImportStr appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n\n",superClassString]];
         }
@@ -266,7 +266,7 @@
         NSString *hContent = [NSString stringWithFormat:@"%@\n\n%@",classInfo.classContentForH, classInfo.classInsertTextViewContentForH];
         
         hImportStr = [NSMutableString stringWithString:@"import UIKit\n\n"];
-        NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
+        NSString *superClassString = [NSUserDefaults.standardUserDefaults objectForKey:kSuperClass];
         if (superClassString.length > 0 && ![superClassString isEqualToString:@"NSObject"]) {
             [hImportStr appendString:[NSString stringWithFormat:@"import %@ \n\n",superClassString]];
         }

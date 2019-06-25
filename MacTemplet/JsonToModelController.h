@@ -1,8 +1,8 @@
 //
-//  NNDocument.h
+//  JsonToModelController.h
 //  MacTemplet
 //
-//  Created by Bin Shang on 2019/6/20.
+//  Created by Bin Shang on 2019/6/25.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NNDocument : NSDocument
+@interface JsonToModelController : NSViewController
 
 @end
 

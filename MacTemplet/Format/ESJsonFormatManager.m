@@ -277,7 +277,6 @@
     NSString *methodStr = [utilityMethodsModel.propertyMapPropertyMethod stringByReplacingOccurrencesOfString:@"%@" withString:result];
  
     return methodStr;
-    
 }
 
 /**

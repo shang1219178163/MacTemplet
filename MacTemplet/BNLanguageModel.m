@@ -20,7 +20,6 @@
 @end
 
 
-
 @implementation BNUtilitymethodsModel
 
 
