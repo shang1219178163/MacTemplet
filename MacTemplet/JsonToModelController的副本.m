@@ -30,14 +30,18 @@
 @property (nonatomic, strong) NNTextView *textView;
 @property (nonatomic, strong) NNTableView *tableView;
 
+//@property (nonatomic, strong) NNTextView *hTextView;
+//@property (nonatomic, strong) NNTextView *mTextView;
+
 @property (nonatomic, strong) NNView *bottomView;
 @property (nonatomic, strong) NNTextField *textField;
 @property (nonatomic, strong) NNTextField *textFieldTwo;
 @property (nonatomic, strong) NNTextField *textFieldThree;
-@property (nonatomic, strong) NNTextLabel *textLabel;
 
 @property (nonatomic, strong) NSPopUpButton *popBtn;
 @property (nonatomic, strong) NSButton *btn;
+
+@property (nonatomic, strong) NSArray *list;
 
 @property (nonatomic, strong) NSString *hFilename;
 @property (nonatomic, strong) NSString *mFilename;
@@ -58,6 +62,13 @@
     
     [self.view addSubview:self.textView.enclosingScrollView];
     [self.view addSubview:self.tableView.enclosingScrollView];
+    
+    [self.bottomView addSubview:self.textField];
+    [self.bottomView addSubview:self.textFieldTwo];
+    [self.bottomView addSubview:self.textFieldThree];
+    
+    [self.bottomView addSubview:self.btn];
+    [self.bottomView addSubview:self.popBtn];
     [self.view addSubview:self.bottomView];
     
     
@@ -95,25 +106,17 @@
     self.textFieldTwo.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kRootClass];
     self.textFieldThree.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kSuperClass];
 
-    [NSApp.mainWindow makeFirstResponder:nil];
-
 }
 
 - (void)viewDidLayout{
     [super viewDidLayout];
-    
-    [self.textView.enclosingScrollView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view);
-        make.left.equalTo(self.view);
-        make.width.equalTo(400);
-        make.bottom.equalTo(self.view).offset(-45);
-    }];
-    
-    [self.tableView.enclosingScrollView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view);
-        make.left.equalTo(self.textView.enclosingScrollView.right).offset(15);
-        make.right.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(-45);
+        
+    self.list = @[self.textView.enclosingScrollView, self.tableView.enclosingScrollView,];
+    //水平方向控件间隔固定等间隔
+    [self.list mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:kX_GAP leadSpacing:0 tailSpacing:0];
+    [self.list mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.textView.enclosingScrollView.superview);
+        make.bottom.equalTo(self.textView.enclosingScrollView.superview).offset(-55);
     }];
     
     [self.bottomView makeConstraints:^(MASConstraintMaker *make) {
@@ -143,13 +146,6 @@
         make.bottom.equalTo(self.bottomView.superview).offset(-kPadding);
     }];
     
-    [self.textLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.textField.superview).offset(kPadding);
-        make.left.equalTo(self.textFieldThree.right).offset(kX_GAP);
-        make.width.equalTo(150);
-        make.bottom.equalTo(self.bottomView.superview).offset(-kPadding);
-    }];
-    
     [self.btn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.superview).offset(kPadding);
         make.right.equalTo(self.bottomView.superview).offset(-kX_GAP);
@@ -169,8 +165,6 @@
     NSTableColumn * column = self.tableView.tableColumns.firstObject;
     column.width = CGRectGetWidth(rect);
     column.maxWidth = CGFLOAT_MAX;
-    
-    [self.tableView reloadData];
 }
 
 
@@ -337,18 +331,15 @@
         [NSUserDefaults.standardUserDefaults synchronize];
     }
     
-//    self.hTextView.string = @"";
-//    self.mTextView.string = @"";
+    self.hTextView.string = @"";
+    self.mTextView.string = @"";
     
     id result = self.textView.string.objValue;
-    self.textLabel.stringValue = result ? @"Valid JSON Structure" : @"JSON isn't valid";
-    self.textLabel.textColor = result ? NSColor.greenColor : NSColor.redColor;
-
     if (!result) {
-//        NSError *error = [NSError errorWithDomain:@"Error：Json is invalid" code:3840 userInfo:nil];
-//        NSAlert *alert = [NSAlert alertWithError:error];
-//        [alert runModal];
-//        NSLog(@"Error：Json is invalid");
+        NSError *error = [NSError errorWithDomain:@"Error：Json is invalid" code:3840 userInfo:nil];
+        NSAlert *alert = [NSAlert alertWithError:error];
+        [alert runModal];
+        NSLog(@"Error：Json is invalid");
         
         return;
     }
@@ -364,6 +355,7 @@
 
 #pragma mark - Change ESJsonFormat
 -(void)outputResult:(ESClassInfo*)classInfo{
+    [self.dataList removeAllObjects];
 
     if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
         //选择保存路径
@@ -380,15 +372,18 @@
             BNClassInfoModel *classModel = self.dataList.firstObject;
             classModel.className = classInfo.className;
             classModel.hContent = [classInfo classDescWithFirstFile:true];
+            [self.dataList addObject:classModel];
 
             BNClassInfoModel *classModelOne = self.dataList.lastObject;
             classModelOne.className = classInfo.className;
             classModelOne.mContent = [classInfo classDescWithFirstFile:false];
+            [self.dataList addObject:classModelOne];
 
         } else {
             BNClassInfoModel *classModel = self.dataList.firstObject;
             classModel.className = classInfo.className;
             classModel.hContent = [classInfo classDescWithFirstFile:true];
+            [self.dataList addObject:classModel];
 
         }
         [self.tableView reloadData];
@@ -399,12 +394,13 @@
 - (void)creatFile{
     BNClassInfoModel *classModelH = self.dataList.firstObject;
     BNClassInfoModel *classModelM = self.dataList.lastObject;
-    NSString * hContent = classModelH.hContent;
-    NSString * mContent = classModelM.mContent;
+    
+    NSString * hTextView = classModelH.hContent;
+    NSString * mTextView = classModelM.mContent;
 
     NSString *folderPath = [NSUserDefaults.standardUserDefaults valueForKey:kFolderPath];
     if (folderPath) {
-        [FileManager.sharedInstance createFileWithFolderPath:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:hContent mContent:mContent];
+        [FileManager.sharedInstance createFileWithFolderPath:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:hTextView mContent:mTextView];
         [NSWorkspace.sharedWorkspace openFile:folderPath];
         
     } else {
@@ -413,7 +409,7 @@
             folderPath = [panel.URLs.firstObject relativePath];
             [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:kFolderPath];
             NSLog(@"%@",folderPath);
-            [FileManager.sharedInstance createFileWithFolderPath:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:hContent mContent:mContent];
+            [FileManager.sharedInstance createFileWithFolderPath:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:hTextView mContent:mTextView];
             [NSWorkspace.sharedWorkspace openFile:folderPath];
         }
     }
@@ -448,7 +444,7 @@
             view.delegate = self;
             view.string = @"NSScrollView上无法滚动的NSTextView";
             view.font = [NSFont systemFontOfSize:12];
-    
+            
 //            NoodleLineNumberView *lineNumberView = [[NoodleLineNumberView alloc]initWithScrollView:view.enclosingScrollView];
 //            view.enclosingScrollView.hasHorizontalRuler = false;
 //            view.enclosingScrollView.hasVerticalRuler = true;
@@ -490,13 +486,6 @@
             NNView *view = [[NNView alloc]init];
             view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
             
-            [view addSubview:self.textField];
-            [view addSubview:self.textFieldTwo];
-            [view addSubview:self.textFieldThree];
-            [view addSubview:self.textLabel];
-
-            [view addSubview:self.btn];
-            [view addSubview:self.popBtn];
             view;
         });
     }
@@ -508,8 +497,7 @@
         _textField = ({
             NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Class Prefix"];
             view.bordered = true;  ///是否显示边框
-            view.font = [NSFont systemFontOfSize:13];
-
+            
             view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
             
@@ -529,8 +517,7 @@
         _textFieldTwo = ({
             NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Root Class name"];
             view.bordered = true;  ///是否显示边框
-            view.font = [NSFont systemFontOfSize:13];
-
+            
             view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
             
@@ -550,8 +537,7 @@
         _textFieldThree = ({
             NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Supper Class name"];
             view.bordered = true;  ///是否显示边框
-            view.font = [NSFont systemFontOfSize:13];
-
+            
             view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
             
@@ -564,25 +550,6 @@
         });
     }
     return _textFieldThree;
-}
-
--(NNTextLabel *)textLabel{
-    if (!_textLabel) {
-        _textLabel = ({
-            NNTextLabel * view = [[NNTextLabel alloc]initWithFrame:CGRectZero];
-//            view.bordered = true;  ///是否显示边框
-            view.font = [NSFont systemFontOfSize:13];
-
-            view.alignment = NSTextAlignmentCenter;
-//            view.isTextAlignmentVerticalCenter = true;
-
-            view.maximumNumberOfLines = 1;
-            view.usesSingleLineMode = true;
-            
-            view;
-        });
-    }
-    return _textLabel;
 }
 
 - (NSPopUpButton *)popBtn{

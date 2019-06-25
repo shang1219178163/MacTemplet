@@ -8,6 +8,11 @@
 
 #import "NSTableCellViewTen.h"
 
+@interface NSTableCellViewTen ()
+
+
+@end
+
 @implementation NSTableCellViewTen
 
 - (instancetype)initWithFrame:(NSRect)frame{
@@ -17,7 +22,7 @@
         [self addSubview:self.textLabel];
         [self addSubview:self.textView.enclosingScrollView];
 
-        [self getViewLayer];
+//        [self getViewLayer];
     }
     return self;
 }
@@ -78,6 +83,8 @@
             NNTextLabel * view = [[NNTextLabel alloc]initWithFrame:CGRectZero];
             view.font = [NSFont systemFontOfSize:13];
             view.alignment = NSTextAlignmentRight;
+            view.bordered = false;
+            view.backgroundColor = [NSColor.clearColor colorWithAlphaComponent:0];
 
             view.stringValue = self.className;
             view;
@@ -92,11 +99,14 @@
             NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
 //            view.delegate = self;
             view.font = [NSFont systemFontOfSize:12];
+            view.layer.borderWidth = 1;
+            view.layer.borderColor = NSColor.lightGrayColor.CGColor;
             
             view;
         });
     }
     return _textView;
 }
+
 
 @end
