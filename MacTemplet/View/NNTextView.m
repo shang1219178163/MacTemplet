@@ -51,7 +51,7 @@
             view.backgroundColor = NSColor.redColor;
             
             view.drawsBackground = false;//不画背景（背景默认画成白色）
-            view.hasHorizontalScroller = true;
+            view.hasHorizontalScroller = false;
             view.hasVerticalScroller = true;
             view.autohidesScrollers = YES;//自动隐藏滚动条（滚动的时候出现）
             view;

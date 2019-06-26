@@ -36,9 +36,8 @@
  */
 
 @interface NoodleLineNumberMarker : NSRulerMarker
-{
-	NSUInteger		_lineNumber;
-}
+
+@property (nonatomic, assign) NSUInteger lineNumber;
 
 - (id)initWithRulerView:(NSRulerView *)aRulerView lineNumber:(CGFloat)line image:(NSImage *)anImage imageOrigin:(NSPoint)imageOrigin;
 

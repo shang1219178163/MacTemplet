@@ -59,7 +59,8 @@
     [self.view addSubview:self.textView.enclosingScrollView];
     [self.view addSubview:self.tableView.enclosingScrollView];
     [self.view addSubview:self.bottomView];
-    
+    [NoodleLineNumberView setupLineNumberWithTextView:self.textView];
+
     
     for (NSInteger i = 0; i < 2; i++) {
         BNClassInfoModel *classModel = [[BNClassInfoModel alloc]init];
@@ -448,14 +449,7 @@
             view.delegate = self;
             view.string = @"NSScrollView上无法滚动的NSTextView";
             view.font = [NSFont systemFontOfSize:12];
-    
-//            NoodleLineNumberView *lineNumberView = [[NoodleLineNumberView alloc]initWithScrollView:view.enclosingScrollView];
-//            view.enclosingScrollView.hasHorizontalRuler = false;
-//            view.enclosingScrollView.hasVerticalRuler = true;
-//            view.enclosingScrollView.verticalRulerView = lineNumberView;
-//            view.enclosingScrollView.rulersVisible = true;
-//            view.font = [NSFont systemFontOfSize:NSFont.smallSystemFontSize];
-            
+                
             view;
         });
     }
@@ -570,14 +564,13 @@
     if (!_textLabel) {
         _textLabel = ({
             NNTextLabel * view = [[NNTextLabel alloc]initWithFrame:CGRectZero];
-//            view.bordered = true;  ///是否显示边框
-            view.font = [NSFont systemFontOfSize:13];
-
+            view.bordered = false;  ///是否显示边框
+            view.font = [NSFont systemFontOfSize:15];
             view.alignment = NSTextAlignmentCenter;
-//            view.isTextAlignmentVerticalCenter = true;
 
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
+            view.backgroundColor = NSColor.clearColor;
             
             view;
         });

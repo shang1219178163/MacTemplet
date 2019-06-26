@@ -64,4 +64,7 @@
 - (NSUInteger)lineNumberForLocation:(CGFloat)location;
 - (NoodleLineNumberMarker *)markerAtLine:(NSUInteger)line;
 
++ (void)setupLineNumberWithTextView:(NSTextView *)textView;
+
+
 @end

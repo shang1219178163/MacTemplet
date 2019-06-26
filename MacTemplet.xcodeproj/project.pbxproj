@@ -16,6 +16,7 @@
 		1445782522C1C9380007C7B3 /* JsonToModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782422C1C9380007C7B3 /* JsonToModelController.m */; };
 		1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */; };
 		1445783B22C1FFE20007C7B3 /* BNClassInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783A22C1FFE20007C7B3 /* BNClassInfoModel.m */; };
+		1445783E22C2FDCE0007C7B3 /* BNTextViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783D22C2FDCD0007C7B3 /* BNTextViewContoller.m */; };
 		1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71722AB8BD400A7C5E1 /* AppDelegate.m */; };
 		1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1482F71922AB8BD500A7C5E1 /* Assets.xcassets */; };
 		1482F72022AB8BD500A7C5E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71F22AB8BD500A7C5E1 /* main.m */; };
@@ -112,6 +113,8 @@
 		1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTableCellViewTen.m; sourceTree = "<group>"; };
 		1445783922C1FFE20007C7B3 /* BNClassInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNClassInfoModel.h; sourceTree = "<group>"; };
 		1445783A22C1FFE20007C7B3 /* BNClassInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNClassInfoModel.m; sourceTree = "<group>"; };
+		1445783C22C2FDCD0007C7B3 /* BNTextViewContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNTextViewContoller.h; sourceTree = "<group>"; };
+		1445783D22C2FDCD0007C7B3 /* BNTextViewContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNTextViewContoller.m; sourceTree = "<group>"; };
 		1482F71322AB8BD400A7C5E1 /* MacTemplet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacTemplet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1482F71622AB8BD400A7C5E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1482F71722AB8BD400A7C5E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -554,6 +557,8 @@
 				14F92BDC22B9E75100A5C5E4 /* BNDialogWindowController.m */,
 				14F92BE822BA17B200A5C5E4 /* DialogViewController.h */,
 				14F92BE922BA17B200A5C5E4 /* DialogViewController.m */,
+				1445783C22C2FDCD0007C7B3 /* BNTextViewContoller.h */,
+				1445783D22C2FDCD0007C7B3 /* BNTextViewContoller.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -782,6 +787,7 @@
 				14F92C5022BB8E0900A5C5E4 /* ESPair.m in Sources */,
 				14F92C5122BB8E0900A5C5E4 /* ESClassInfo.m in Sources */,
 				14F92C5422BB925F00A5C5E4 /* ESJsonFormatSetting.m in Sources */,
+				1445783E22C2FDCE0007C7B3 /* BNTextViewContoller.m in Sources */,
 				14F0FDE322B082AD00057093 /* NNTableView.m in Sources */,
 				14F2F59022B8C13F009D49CE /* NSTableRowView+Helper.m in Sources */,
 				1482F84F22AB920C00A7C5E1 /* NSView+Helper.m in Sources */,

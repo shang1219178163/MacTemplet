@@ -34,7 +34,9 @@
 - (id)initWithFrame_hook:(NSRect)frameRect{
     self = [self initWithFrame_hook:frameRect];
     if (self) {
-        self.wantsLayer = true;
+        if ([self.class isKindOfClass:NSRulerView.class]) {
+            self.wantsLayer = true;
+        }
     }
     return self;
 }

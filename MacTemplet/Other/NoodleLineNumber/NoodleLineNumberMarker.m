@@ -32,55 +32,36 @@
 
 @implementation NoodleLineNumberMarker
 
-- (id)initWithRulerView:(NSRulerView *)aRulerView lineNumber:(CGFloat)line image:(NSImage *)anImage imageOrigin:(NSPoint)imageOrigin
-{
-	if ((self = [super initWithRulerView:aRulerView markerLocation:0.0 image:anImage imageOrigin:imageOrigin]) != nil)
-	{
+- (id)initWithRulerView:(NSRulerView *)aRulerView lineNumber:(CGFloat)line image:(NSImage *)anImage imageOrigin:(NSPoint)imageOrigin {
+    self = [super initWithRulerView:aRulerView markerLocation:0.0 image:anImage imageOrigin:imageOrigin];
+	if (self) {
 		_lineNumber = line;
 	}
 	return self;
-}
-
-- (void)setLineNumber:(NSUInteger)line
-{
-	_lineNumber = line;
-}
-
-- (NSUInteger)lineNumber
-{
-	return _lineNumber;
 }
 
 #pragma mark NSCoding methods
 
 #define NOODLE_LINE_CODING_KEY		@"line"
 
-- (id)initWithCoder:(NSCoder *)decoder
-{
-	if ((self = [super initWithCoder:decoder]) != nil)
-	{
-		if ([decoder allowsKeyedCoding])
-		{
+- (id)initWithCoder:(NSCoder *)decoder {
+    self = [super initWithCoder:decoder];
+	if (self) {
+		if (decoder.allowsKeyedCoding) {
 			_lineNumber = [[decoder decodeObjectForKey:NOODLE_LINE_CODING_KEY] unsignedIntegerValue];
-		}
-		else
-		{
+		} else {
 			_lineNumber = [[decoder decodeObject] unsignedIntegerValue];
 		}
 	}
 	return self;
 }
 
-- (void)encodeWithCoder:(NSCoder *)encoder
-{
+- (void)encodeWithCoder:(NSCoder *)encoder {
 	[super encodeWithCoder:encoder];
 	
-	if ([encoder allowsKeyedCoding])
-	{
+	if (encoder.allowsKeyedCoding) {
 		[encoder encodeObject:[NSNumber numberWithUnsignedInteger:_lineNumber] forKey:NOODLE_LINE_CODING_KEY];
-	}
-	else
-	{
+	} else {
 		[encoder encodeObject:[NSNumber numberWithUnsignedInteger:_lineNumber]];
 	}
 }
@@ -88,11 +69,8 @@
 
 #pragma mark NSCopying methods
 
-- (id)copyWithZone:(NSZone *)zone
-{
-	id		copy;
-	
-	copy = [super copyWithZone:zone];
+- (id)copyWithZone:(NSZone *)zone {
+	id copy = [super copyWithZone:zone];
 	[copy setLineNumber:_lineNumber];
 	
 	return copy;

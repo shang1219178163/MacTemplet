@@ -88,10 +88,9 @@
     assert([self isSubclassOfClass:NSScrollView.class]);
 
     NSScrollView *view = [[self alloc] initWithFrame:rect];
-    view.backgroundColor = NSColor.redColor;
-    
-    view.drawsBackground = false;//不画背景（背景默认画成白色）
-    view.hasHorizontalScroller = true;
+//    view.backgroundColor = NSColor.redColor;
+    view.drawsBackground = true;//不画背景（背景默认画成白色）
+    view.hasHorizontalScroller = false;
     view.hasVerticalScroller = true;
     view.autohidesScrollers = YES;//自动隐藏滚动条（滚动的时候出现）
     return view;

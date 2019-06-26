@@ -28,7 +28,7 @@
 }
 
 - (void)setupUI{
-    self.cell = [[NNTextFieldCell alloc]initTextCell:@"NNTextFieldCell"];
+    self.cell = [[NNTextFieldCell alloc]initTextCell:@""];
     self.editable = true;  ///是否可编辑
 }
 
