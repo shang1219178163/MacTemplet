@@ -56,6 +56,18 @@
     // Do view setup here.
     self.title = @"Home";
     
+  
+    [NSUserDefaults.standardUserDefaults setObject:@"BN" forKey:kClassPrefix];
+    [NSUserDefaults.standardUserDefaults setObject:@"RootModel" forKey:kRootClass];
+    [NSUserDefaults.standardUserDefaults setObject:@"NSObject" forKey:kSuperClass];
+    [NSUserDefaults.standardUserDefaults synchronize];
+    
+    self.textField.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kClassPrefix];
+    self.textFieldTwo.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kRootClass];
+    self.textFieldThree.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kSuperClass];
+
+    DDLog(@"%@_%@_%@",self.textField.stringValue, self.textFieldTwo.stringValue, self.textFieldThree.stringValue);
+    
     [self.view addSubview:self.textView.enclosingScrollView];
     [self.view addSubview:self.tableView.enclosingScrollView];
     [self.view addSubview:self.bottomView];
@@ -72,7 +84,6 @@
     
     NSApplication.windowDefault.minSize = CGSizeMake(kScreenWidth*0.5, kScreenHeight*0.5);
     
-    [self.textFieldThree resignFirstResponder];
     //    [self.view getViewLayer];
 }
 
@@ -83,7 +94,7 @@
     DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
     [self.popBtn selectItemWithTitle:titleOfSelectedItem];
     
-//    [self.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 -(void)viewDidAppear{
@@ -92,9 +103,7 @@
     NSString * folderPath = @"/Users/shang/Downloads";
     [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:kFolderPath];
 
-    self.textField.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kClassPrefix];
-    self.textFieldTwo.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kRootClass];
-    self.textFieldThree.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kSuperClass];
+    
 
     [self.textField resignFirstResponder];
 }

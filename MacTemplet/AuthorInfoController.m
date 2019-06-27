@@ -37,7 +37,7 @@
     self.textFieldOne.stringValue = [NSString stringWithFormat:@"%@\n%@\n%@", NSApplication.appName, NSApplication.appCopyright, @"github/shang1219178163"];
     [self.textFieldOne setHyperlinkDic:dic];
     
-    [self.view getViewLayer];
+//    [self.view getViewLayer];
 }
 
 - (void)viewDidLayout{

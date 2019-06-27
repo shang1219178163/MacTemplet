@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *copyright;
 
+@property (nonatomic, copy) NSString *classPrefix;
 @property (nonatomic, copy) NSString *className;
 @property (nonatomic, copy) NSString *superClassName;
 
