@@ -1,8 +1,8 @@
 //
-//  NSTextField+Helper.h
+//  AuthorInfoController.h
 //  MacTemplet
 //
-//  Created by Bin Shang on 2019/6/18.
+//  Created by Bin Shang on 2019/6/27.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSTextField (Helper)
-
--(void)setHyperlinkDic:(NSDictionary *)dic;
+@interface AuthorInfoController : NSViewController
 
 @end
 

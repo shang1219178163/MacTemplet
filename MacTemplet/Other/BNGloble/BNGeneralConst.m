@@ -8,6 +8,7 @@
 
 #import "BNGeneralConst.h"
 
+NSString * const kMainWindowFrame     =   @"kMainWindowFrame";
 
 NSString * const kLanguageCN     =   @"zh-CN";
 NSString * const kLanguageEN     =   @"en-US";

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (class, readonly, nullable) NSDictionary *dic;
 
+- (void)setHyperlinkDic:(NSDictionary *)dic;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)getViewLayer;
 
++(__kindof NSButton *)createBtnRect:(CGRect)rect;
+
 +(__kindof NSImageView *)createImgViewRect:(CGRect)rect image:(id)image;
 
 +(__kindof NSTextField *)createTextFieldRect:(CGRect)rect placeholder:(NSString *)placeholder;

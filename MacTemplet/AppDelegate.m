@@ -12,9 +12,11 @@
 #import "MainWindowController.h"
 
 @interface AppDelegate ()
+@property (nonatomic,strong) NSWindow *window;
+
 @property (nonatomic, strong) MainWindowController *windowCtrl;
 
-@property(nonatomic,strong) NSPopover *popover;
+@property (nonatomic,strong) NSPopover *popover;
 
 @property (nonatomic,strong) NSStatusItem *statusItem; //必须应用、且强引用，否则不会显示。
 @property (nonatomic,strong) NSMenu *dockMenu;
@@ -32,21 +34,30 @@
     NSString * controllerName = @"HomeViewController";
 //    controllerName = @"FirstViewController";
 //    controllerName = @"MainViewController";
-//    controllerName = @"GroupViewController";
+    controllerName = @"BNTabViewController";
 //    controllerName = @"CollectionViewController";
-    controllerName = @"JsonToModelController";
+//    controllerName = @"JsonToModelController";
 //    controllerName = @"BNTextViewContoller";
+//    controllerName = @"ProppertyLazyController";
+    controllerName = @"TabViewController";
 
+    
     NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
-    NSApplication.windowDefault.contentViewController = controller;
-    NSApplication.windowDefault.title = NSApplication.appName;
+    self.window.contentViewController = controller;
+    self.window.title = NSApplication.appName;
     //    self.windowCtrl.window.contentViewController = controller;
     //    self.windowCtrl.window.title = NSApplication.appName;
     
 //    DDLog(@"%@",NSApplication.sharedApplication.mainWindow);
-//    DDLog(@"%@",NSApp.mainWindow);
+    DDLog(@"%@",NSApp.mainWindow);
 //    DDLog(@"%@",NSApplication.windowDefault);
     [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
+
+//    id obj = [NSUserDefaults.standardUserDefaults objectForKey:kMainWindowFrame];
+//    DDLog(@"%@", obj);
+//    if (CGRectContainsRect(NSScreen.mainScreen.frame, NSRectFromString(obj))) {
+//        [self.window setFrame:NSRectFromString(obj) display:false animate:false];
+//    }
     
     [AppDelegate setupMainMenu];
     if (!self.statusItem) {
@@ -59,19 +70,29 @@
             
         } forControlEvents:NSEventMaskLeftMouseDown];
     }
-    
+}
+
+-(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *) sender{
+    return YES;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
+    [NSUserDefaults.standardUserDefaults setObject: NSStringFromRect(self.window.frame) forKey:kMainWindowFrame];
+
+    [NSUserDefaults.standardUserDefaults synchronize];
+    
+    DDLog(@"%@", NSStringFromRect(self.window.frame));
 }
 /// 点击dock图标重新弹出窗口方法
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
-    NSLog(@"hasVisibleWindows:%d",flag);
-    [NSApp activateIgnoringOtherApps:false];//取消其他程序的响应
-    [NSApp.mainWindow makeKeyAndOrderFront:self];//主窗口显示自己方法一
-    
-    return YES;
+    NSLog(@"%@,%@,hasVisibleWindows:%d", self.window, sender.mainWindow, flag);
+    if (!flag){
+        [NSApp activateIgnoringOtherApps:false];
+        [self.window makeKeyAndOrderFront:self];
+        return true;
+    }
+    return false;
 }
 
 - (NSMenu *)applicationDockMenu:(NSApplication *)sender{
@@ -124,6 +145,14 @@
 
 
 #pragma mark -lazy
+-(NSWindow *)window{
+    if (!_window) {
+        _window = NSApplication.windowDefault;
+        _window.contentMinSize = CGSizeMake(kScreenWidth*0.56, kScreenHeight*0.5);
+    }
+    return _window;
+}
+
 //-(MainWindowController *)windowCtrl{
 //    if (!_windowCtrl) {
 //        _windowCtrl = [[MainWindowController alloc]initWithWindow:[NSWindow createWithTitle:@"999"]];

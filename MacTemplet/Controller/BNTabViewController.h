@@ -1,5 +1,5 @@
 //
-//  NSTextField+Helper.h
+//  BNTabViewController.h
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/18.
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSTextField (Helper)
-
--(void)setHyperlinkDic:(NSDictionary *)dic;
+@interface BNTabViewController : NSViewController
 
 @end
 

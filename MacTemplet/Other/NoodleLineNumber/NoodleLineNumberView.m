@@ -473,7 +473,6 @@
     textView.enclosingScrollView.hasVerticalRuler = true;
     textView.enclosingScrollView.verticalRulerView = lineNumberView;
     textView.enclosingScrollView.rulersVisible = true;
-    textView.font = [NSFont systemFontOfSize:NSFont.smallSystemFontSize];
 }
 
 

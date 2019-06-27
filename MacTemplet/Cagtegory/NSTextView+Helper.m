@@ -45,5 +45,43 @@ static NSDictionary *_dic;
     return [super performKeyEquivalent:event];
 }
 
+//- (void)setHyperlinkDic:(NSDictionary *)dic{
+//    // both are needed, otherwise hyperlink won't accept mousedown
+//    NSTextView *textView = self;
+//    textView.selectable = true;
+//
+//    __block NSMutableAttributedString * string = [[NSMutableAttributedString alloc] init];
+//    [dic enumerateKeysAndObjectsUsingBlock:^(NSString * key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+//        NSURL *url = [NSURL URLWithString:obj];
+//        [string appendAttributedString: [NSAttributedString hyperlinkFromString:key withURL:url font:textView.font]];
+//
+//    }];
+//    [textView.textStorage setAttributedString:string];
+//}
 
+-(void)setHyperlinkDic:(NSDictionary *)dic{
+    // both are needed, otherwise hyperlink won't accept mousedown
+    NSTextView *textView = self;
+    
+    NSDictionary * attributes = @{
+                                  NSFontAttributeName: textView.font,
+                                  };
+    
+    NSAttributedString * attStr = [[NSAttributedString alloc]initWithString:textView.string attributes:attributes];
+    
+    __block NSMutableAttributedString * mattStr = [[NSMutableAttributedString alloc]init];
+    [mattStr replaceCharactersInRange:NSMakeRange(0, 0) withString:attStr.string];
+    [dic enumerateKeysAndObjectsUsingBlock:^(NSString * key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        NSURL *url = [NSURL URLWithString:obj];
+        NSAttributedString * attStr = [NSAttributedString hyperlinkFromString:key withURL:url font:textView.font];
+        NSRange range = [mattStr.string rangeOfString:key];
+        [mattStr replaceCharactersInRange:range withAttributedString:attStr];
+        
+    }];
+    [textView.textStorage setAttributedString:mattStr];
+
+    textView.editable = false;
+    textView.selectable = true;
+    
+}
 @end

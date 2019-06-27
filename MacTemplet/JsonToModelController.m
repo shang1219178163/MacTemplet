@@ -72,7 +72,7 @@
     
     NSApplication.windowDefault.minSize = CGSizeMake(kScreenWidth*0.5, kScreenHeight*0.5);
     
-    
+    [self.textFieldThree resignFirstResponder];
     //    [self.view getViewLayer];
 }
 
@@ -83,7 +83,7 @@
     DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
     [self.popBtn selectItemWithTitle:titleOfSelectedItem];
     
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
 }
 
 -(void)viewDidAppear{
@@ -96,8 +96,7 @@
     self.textFieldTwo.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kRootClass];
     self.textFieldThree.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kSuperClass];
 
-    [NSApp.mainWindow makeFirstResponder:nil];
-
+    [self.textField resignFirstResponder];
 }
 
 - (void)viewDidLayout{
@@ -392,7 +391,7 @@
             classModel.hContent = [classInfo classDescWithFirstFile:true];
 
         }
-        [self.tableView reloadData];
+//        [self.tableView reloadData];
     }
 
 }
@@ -449,7 +448,7 @@
             view.delegate = self;
             view.string = @"NSScrollView上无法滚动的NSTextView";
             view.font = [NSFont systemFontOfSize:12];
-                
+            
             view;
         });
     }

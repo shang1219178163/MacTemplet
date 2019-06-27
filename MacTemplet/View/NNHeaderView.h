@@ -9,6 +9,7 @@
 #ifndef NNHeaderView_h
 #define NNHeaderView_h
 
+#import "NNButton.h"
 #import "NNView.h"
 #import "NNTableView.h"
 #import "NNTextLabel.h"

@@ -11,6 +11,9 @@
 typedef NSTableCellView *(^BlockCellForRow)(NSTableView *tableView, NSIndexPath *indexPath);
 typedef void(^BlockDidSelectRow)(NSTableView *tableView, NSIndexPath *indexPath);
 
+/// 主窗口位置大小
+FOUNDATION_EXPORT NSString * const kMainWindowFrame ;
+
 #pragma mark - - kLanguage
 /// 中文
 FOUNDATION_EXPORT NSString * const kLanguageCN ;

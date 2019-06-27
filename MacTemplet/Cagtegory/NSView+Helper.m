@@ -27,6 +27,15 @@
     }
 }
 
++(__kindof NSButton*)createBtnRect:(CGRect)rect{
+    assert([self isSubclassOfClass:NSButton.class]);
+    
+    NSButton * view = [[self alloc] initWithFrame:rect];
+    view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    view.bezelStyle = NSBezelStyleRegularSquare;
+    return view;
+}
+
 +(__kindof NSImageView *)createImgViewRect:(CGRect)rect image:(id)image{
     assert([self isSubclassOfClass:NSImageView.class]);
     if (image) assert([image isKindOfClass:NSImage.class] || [image isKindOfClass:NSString.class]);
@@ -56,7 +65,6 @@
     
     view.bordered = false;  ///是否显示边框
     view.drawsBackground = true;
-    view.backgroundColor = [NSColor.clearColor colorWithAlphaComponent:0.0];//背景透明
     
     view.cell.wraps = false;
     view.cell.scrollable = true;
@@ -80,7 +88,7 @@
     view.selectable = true;
     view.drawsBackground = true;
     
-    view.font = [NSFont systemFontOfSize:15];
+    view.font = [NSFont systemFontOfSize:14];
     return view;
 }
 
@@ -115,7 +123,7 @@
     assert([self isSubclassOfClass:NSTabView.class]);
     
     NSTabView *view = [[self alloc] initWithFrame:rect];
-    view.tabPosition = NSTabPositionTop; //显示位置：显示在左侧
+    view.tabPosition = NSTabPositionTop;
     view.tabViewBorderType = NSTabViewBorderTypeBezel;//边框样式：bezel类型边框
     
     return view;

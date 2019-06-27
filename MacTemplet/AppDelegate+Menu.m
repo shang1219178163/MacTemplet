@@ -98,6 +98,12 @@
     NSStatusItem *statusItem = [NSStatusItem createStatusItemImageName:nil];
     statusItem.menu = ({
         NSMenu *menu = [[NSMenu alloc] initWithTitle:@"menu_right"];
+        [menu addItemWithTitle:@"保持为默认大小" keyEquivalent:@"E" handler:^(NSMenuItem * _Nonnull menuItem) {
+            DDLog(@"%@_%@_%@", menuItem.title, menuItem.keyEquivalent, @(NSApp.mainWindow.frame));
+            [NSUserDefaults.standardUserDefaults setObject: NSStringFromRect(NSApp.mainWindow.frame) forKey:kMainWindowFrame];
+            [NSUserDefaults.standardUserDefaults synchronize];
+            
+        }];
         [menu addItemWithTitle:@"Load1" keyEquivalent:@"E" handler:^(NSMenuItem * _Nonnull menuItem) {
             DDLog(@"%@_%@", menuItem.title, menuItem.keyEquivalent);
             

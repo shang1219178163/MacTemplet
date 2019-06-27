@@ -1,19 +1,19 @@
 
 //
-//  GroupViewController.m
+//  BNTabViewController.m
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/18.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
-#import "GroupViewController.h"
+#import "BNTabViewController.h"
 #import "NNTextField.h"
 
 #import "OneWindowController.h"
 #import "BNDialogWindowController.h"
 
-@interface GroupViewController ()<NSTabViewDelegate>
+@interface BNTabViewController ()<NSTabViewDelegate>
 
 @property (nonatomic, strong) NSImageView * imgView;
 @property (nonatomic, strong) NNTextField * textField;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation GroupViewController
+@implementation BNTabViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,9 +33,9 @@
     [self.view addSubview:self.textFieldOne];
     [self.view addSubview:self.tabView];
 
-    NSArray *list = @[@[@"FirstViewController", @"首页", ],
-                      @[@"SecondViewController", @"圈子",],
-                      @[@"ThirdViewController", @"消息",],
+    NSArray *list = @[@[@"JsonToModelController", @"json转模型", ],
+                      @[@"ProppertyLazyController", @"属性Lazy",],
+                      @[@"BNTextViewContoller", @"其他",],
                       
                       ];
     [self.tabView addItems:list];

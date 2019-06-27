@@ -11,6 +11,8 @@
 
 #import "NSAlert+Helper.h"
 #import "NSApplication+Helper.h"
+#import "NSAttributedString+Helper.h"
+
 #import "NSColor+Helper.h"
 #import "NSControl+Helper.h"
 #import "NSDate+Helper.h"
