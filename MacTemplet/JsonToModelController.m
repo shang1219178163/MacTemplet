@@ -90,6 +90,8 @@
 - (void)viewWillAppear{
     [super viewWillAppear];
     
+    [self.tableView reloadData];
+
     NSString * titleOfSelectedItem = [NSUserDefaults.standardUserDefaults objectForKey:kDisplayName];
     DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
     [self.popBtn selectItemWithTitle:titleOfSelectedItem];
@@ -179,7 +181,7 @@
     column.width = CGRectGetWidth(rect);
     column.maxWidth = CGFLOAT_MAX;
     
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
 }
 
 
