@@ -17,11 +17,7 @@
     NSDictionary * attributes = @{
                                   NSFontAttributeName: textField.font,
                                   };
-    
-    NSAttributedString * attStr = [[NSAttributedString alloc]initWithString:textField.stringValue attributes:attributes];
-    
-    __block NSMutableAttributedString * mattStr = [[NSMutableAttributedString alloc]init];
-    [mattStr replaceCharactersInRange:NSMakeRange(0, 0) withAttributedString:attStr];
+    __block NSMutableAttributedString *mattStr = [[NSMutableAttributedString alloc]initWithString:textField.stringValue attributes:attributes];
     [dic enumerateKeysAndObjectsUsingBlock:^(NSString * key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         NSURL *url = [NSURL URLWithString:obj];
         NSAttributedString * attStr = [NSAttributedString hyperlinkFromString:key withURL:url font:textField.font];
