@@ -94,7 +94,7 @@
     DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
     [self.popBtn selectItemWithTitle:titleOfSelectedItem];
     
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
 }
 
 -(void)viewDidAppear{

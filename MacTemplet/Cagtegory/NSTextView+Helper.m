@@ -39,25 +39,12 @@ static NSDictionary *_dic;
         } else if ([event.charactersIgnoringModifiers isEqualToString:@"a"]) {
             return [NSApp sendAction:@selector(selectAll:) to:self.window.firstResponder from:self];
         } else if ([event.charactersIgnoringModifiers isEqualToString:@"z"]) {
-            return [NSApp sendAction:@selector(keyDown:) to:self.window.firstResponder from:self];
+//            return [NSApp sendAction:@selector(keyDown:) to:self.window.firstResponder from:self];
+            
         }
     }
     return [super performKeyEquivalent:event];
 }
-
-//- (void)setHyperlinkDic:(NSDictionary *)dic{
-//    // both are needed, otherwise hyperlink won't accept mousedown
-//    NSTextView *textView = self;
-//    textView.selectable = true;
-//
-//    __block NSMutableAttributedString * string = [[NSMutableAttributedString alloc] init];
-//    [dic enumerateKeysAndObjectsUsingBlock:^(NSString * key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-//        NSURL *url = [NSURL URLWithString:obj];
-//        [string appendAttributedString: [NSAttributedString hyperlinkFromString:key withURL:url font:textView.font]];
-//
-//    }];
-//    [textView.textStorage setAttributedString:string];
-//}
 
 -(void)setHyperlinkDic:(NSDictionary *)dic{
     // both are needed, otherwise hyperlink won't accept mousedown
@@ -65,12 +52,13 @@ static NSDictionary *_dic;
     
     NSDictionary * attributes = @{
                                   NSFontAttributeName: textView.font,
+
                                   };
     
     NSAttributedString * attStr = [[NSAttributedString alloc]initWithString:textView.string attributes:attributes];
     
     __block NSMutableAttributedString * mattStr = [[NSMutableAttributedString alloc]init];
-    [mattStr replaceCharactersInRange:NSMakeRange(0, 0) withString:attStr.string];
+    [mattStr replaceCharactersInRange:NSMakeRange(0, 0) withAttributedString:attStr];
     [dic enumerateKeysAndObjectsUsingBlock:^(NSString * key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         NSURL *url = [NSURL URLWithString:obj];
         NSAttributedString * attStr = [NSAttributedString hyperlinkFromString:key withURL:url font:textView.font];

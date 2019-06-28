@@ -32,9 +32,10 @@
 
 +(id)hyperlinkFromString:(NSString *)string withURL:(NSURL *)aURL font:(NSFont *)font{
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString: string];
+    
     NSRange range = NSMakeRange(0, attrString.length);
     
-    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc]init];
+//    NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc]init];
     NSDictionary * dic = @{
                            NSFontAttributeName: font,
                            NSForegroundColorAttributeName: NSColor.blueColor,
@@ -48,7 +49,7 @@
     [attrString beginEditing];
     [attrString addAttributes:dic range:range];
     [attrString endEditing];
-    return attrString ;
+    return attrString;
 }
 
 

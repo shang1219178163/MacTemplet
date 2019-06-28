@@ -7,13 +7,14 @@
 //
 
 #import "AuthorInfoController.h"
-#import "NNTextField.h"
+#import "NNHeaderView.h"
 
 @interface AuthorInfoController ()
 
 @property (nonatomic, strong) NSImageView * imgView;
 @property (nonatomic, strong) NNTextField * textField;
 @property (nonatomic, strong) NSTextField * textFieldOne;
+@property (nonatomic, strong) NNTextView * textView;
 
 @end
 
@@ -25,8 +26,12 @@
     [self.view addSubview:self.imgView];
     [self.view addSubview:self.textField];
     [self.view addSubview:self.textFieldOne];
+    [self.view addSubview:self.textView];
+   
+
     self.textFieldOne.hidden = true;
-    
+    self.textView.hidden = true;
+
     NSDictionary *dic = @{
                           @"github/shang1219178163": @"https://github.com/shang1219178163",
                           };
@@ -37,6 +42,8 @@
     self.textFieldOne.stringValue = [NSString stringWithFormat:@"%@\n%@\n%@", NSApplication.appName, NSApplication.appCopyright, @"github/shang1219178163"];
     [self.textFieldOne setHyperlinkDic:dic];
     
+    self.textView.string = [NSString stringWithFormat:@"%@\n%@\n%@", NSApplication.appName, NSApplication.appCopyright, @"github/shang1219178163"];
+    [self.textView setHyperlinkDic:dic];
 //    [self.view getViewLayer];
 }
 
@@ -63,6 +70,12 @@
         make.height.equalTo(80);
     }];
     
+    [self.textView makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.textFieldOne.bottom).offset(kPadding);
+        make.left.equalTo(self.textField).offset(0);
+        make.right.equalTo(self.view).offset(-30);
+        make.height.equalTo(80);
+    }];
 }
 
 
@@ -127,6 +140,27 @@
     return _textFieldOne;
 }
 
+-(NNTextView *)textView{
+    if (!_textView) {
+        _textView = ({
+            NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
+//            view.delegate = self;
+            view.string = @"";
+            view.font = [NSFont fontWithName:@"PingFangSC-Light" size:14];
+            
+            
+            view.editable = false;
+            view.selectable = true;
+            if (@available(macOS 10.12.2, *)) {
+                view.automaticTextCompletionEnabled = true;
+            } else {
+                // Fallback on earlier versions
+            }
+            view;
+        });
+    }
+    return _textView;
+}
 
 @end
 

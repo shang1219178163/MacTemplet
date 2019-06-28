@@ -70,6 +70,9 @@
             
         } forControlEvents:NSEventMaskLeftMouseDown];
     }
+    
+   
+
 }
 
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *) sender{
