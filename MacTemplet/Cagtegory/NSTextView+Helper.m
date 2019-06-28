@@ -10,26 +10,9 @@
 
 @implementation NSTextView (Helper)
 
-static NSDictionary *_dic;
-
-+ (NSDictionary *)dic{
-    if (!_dic) {
-        _dic = @{
-                 @"x": @"cut:",
-                 @"c": @"copy:",
-                 @"v": @"paste:",
-                 @"a": @"selectAll:",
-                 @"z": @"keyDown:",
-                 };
-    }
-    return _dic;
-}
-
 - (BOOL)performKeyEquivalent:(NSEvent *)event{
     if ((event.modifierFlags & NSEventModifierFlagDeviceIndependentFlagsMask) == NSEventModifierFlagCommand) {
         // The command key is the ONLY modifier key being pressed.
-//        SEL selector = NSSelectorFromString(NSTextView.dic[event.charactersIgnoringModifiers]);
-//        return [NSApp sendAction:selector to: self.window.firstResponder from:self];
         if ([event.charactersIgnoringModifiers isEqualToString:@"x"]) {
             return [NSApp sendAction:@selector(cut:) to: self.window.firstResponder from:self];
         } else if ([event.charactersIgnoringModifiers isEqualToString:@"c"]) {
@@ -49,16 +32,11 @@ static NSDictionary *_dic;
 -(void)setHyperlinkDic:(NSDictionary *)dic{
     // both are needed, otherwise hyperlink won't accept mousedown
     NSTextView *textView = self;
-    
     NSDictionary * attributes = @{
                                   NSFontAttributeName: textView.font,
-
                                   };
     
-    NSAttributedString * attStr = [[NSAttributedString alloc]initWithString:textView.string attributes:attributes];
-    
-    __block NSMutableAttributedString * mattStr = [[NSMutableAttributedString alloc]init];
-    [mattStr replaceCharactersInRange:NSMakeRange(0, 0) withAttributedString:attStr];
+    __block NSMutableAttributedString *mattStr = [[NSMutableAttributedString alloc]initWithString:textView.string attributes:attributes];
     [dic enumerateKeysAndObjectsUsingBlock:^(NSString * key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         NSURL *url = [NSURL URLWithString:obj];
         NSAttributedString * attStr = [NSAttributedString hyperlinkFromString:key withURL:url font:textView.font];
@@ -72,4 +50,5 @@ static NSDictionary *_dic;
     textView.selectable = true;
     
 }
+
 @end

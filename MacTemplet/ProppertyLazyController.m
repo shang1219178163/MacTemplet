@@ -19,11 +19,6 @@
 
 @property (nonatomic, strong) NSArray *btnItems;
 
-@property (nonatomic, strong) NSMutableArray *list;
-@property (nonatomic, strong) NSMutableDictionary *dic;
-@property (nonatomic, strong) NSMutableString *mstr;
-@property (nonatomic, strong) NSMutableSet *mset;
-
 @end
 
 @implementation ProppertyLazyController
@@ -39,7 +34,7 @@
 
     [NoodleLineNumberView setupLineNumberWithTextView:self.textView];
     
-    self.textView.string = @"@property (nonatomic, strong) NNTextView *textView;\n@property (nonatomic, strong) NNTextView *textViewOne;\n@property (nonatomic, strong) NNView *bottomView;\n@property (nonatomic, strong) NSMutableArray *list;\n@property (nonatomic, strong) NSMutableDictionary *dic;\n@property (nonatomic, strong) NSMutableString *mstr;";
+    self.textView.string = @"@property (nonatomic, strong) NNTextView *textView;\n@property (nonatomic, strong) NNView *bottomView;\n@property (nonatomic, strong) NSMutableArray *list;\n@property (nonatomic, strong) NSMutableDictionary *dic;\n@property (nonatomic, strong) NSMutableString *mstr;";
     
     [self.textView resignFirstResponder];
 
@@ -82,19 +77,8 @@
     NSTextView * textView = notification.object;
     
     DDLog(@"%@",textView.string);
-    NSString * string = textView.string;
-//    NSArray * list = [self propertyNamesWithString:textView.string];
-    NSArray * list = [BNPropertyInfoModel modelsWithString:textView.string];
+    self.textViewOne.string = [self createResult:textView.string];
 
-    DDLog(@"包含换行符_%@", @([string containsString:@"\n"]));
-    
-    NSMutableString *mStr = [NSMutableString string];
-    [list enumerateObjectsUsingBlock:^(BNPropertyInfoModel * model, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString * desc = model.lazyDes;
-        [mStr appendFormat:@"%@\n", desc];
-        
-    }];
-    self.textViewOne.string = mStr;
 }
 
 - (void)textDidChange:(NSNotification *)notification{
@@ -104,6 +88,16 @@
 
 #pragma mark -funtions
 
+- (NSString *)createResult:(NSString *)string{
+    NSArray * list = [BNPropertyInfoModel modelsWithString:string];
+    NSMutableString *mStr = [NSMutableString string];
+    [list enumerateObjectsUsingBlock:^(BNPropertyInfoModel * model, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString * desc = model.lazyDes;
+        [mStr appendFormat:@"%@\n", desc];
+        
+    }];
+    return mStr;
+}
 
 #pragma mark -lazy
 
@@ -147,9 +141,10 @@
 
                 btn.title = self.btnItems[i];
                 [btn addActionHandler:^(NSControl * _Nonnull control) {
-                    NSLog(@"%@", control);
                     [NSApp.mainWindow makeFirstResponder:nil];
                     
+                    self.textViewOne.string = [self createResult:self.textView.string];
+
                 } forControlEvents:NSEventMaskLeftMouseDown];
                 [view addSubview:btn];
             }
@@ -158,5 +153,6 @@
     }
     return _bottomView;
 }
+
 
 @end

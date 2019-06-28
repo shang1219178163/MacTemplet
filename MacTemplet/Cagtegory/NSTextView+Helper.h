@@ -12,8 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSTextView (Helper)
 
-@property (class, readonly, nullable) NSDictionary *dic;
-
 - (void)setHyperlinkDic:(NSDictionary *)dic;
 
 @end
