@@ -10,7 +10,7 @@
 
 @implementation NSPanel (Helper)
 
-+(__kindof NSOpenPanel *)openPanelChooseFileTypes:(NSArray *)fileTypes{
++(NSOpenPanel *)openPanelChooseFileTypes:(NSArray *)fileTypes{
     assert([self isSubclassOfClass:NSOpenPanel.class]);
     
     NSOpenPanel *panel = NSOpenPanel.openPanel;
@@ -27,7 +27,7 @@
     return panel;
 }
 
-+(__kindof NSOpenPanel *)openPanelChooseDirs:(BOOL)isMultipleSelection{
++(NSOpenPanel *)openPanelChooseDirs:(BOOL)isMultipleSelection{
     assert([self isSubclassOfClass:NSOpenPanel.class]);
     
     NSOpenPanel *panel = NSOpenPanel.openPanel;

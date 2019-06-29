@@ -11,7 +11,7 @@
 
 @implementation NSAttributedString (Helper)
 
-+ (__kindof NSAttributedString *)attrString:(NSString *)string font:(CGFloat)font alignment:(NSTextAlignment)alignment{
++ (NSAttributedString *)attrString:(NSString *)string font:(CGFloat)font alignment:(NSTextAlignment)alignment{
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc]init];
     paraStyle.alignment = alignment;

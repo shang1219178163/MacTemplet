@@ -10,6 +10,4 @@
 
 @implementation NSTabViewItem (Helper)
 
-//NSArray<__kindof NSTabViewItem *> *tabViewItems;
-
 @end

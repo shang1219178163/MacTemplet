@@ -33,7 +33,9 @@
     
     NSArray *list = @[@[@"JsonToModelController", @"json转模型", ],
                       @[@"ProppertyLazyController", @"属性Lazy",],
-                      @[@"AuthorInfoController", @"其他",],                      
+                      @[@"AuthorInfoController", @"其他",],
+                      @[@"ThirdViewController", @"Third",],
+                      
                       ];
     [self.tabView addItems:list];
 }

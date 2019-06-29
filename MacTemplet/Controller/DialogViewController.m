@@ -31,9 +31,6 @@
 - (void)viewDidLayout{
     [super viewDidLayout];
 
-    CGFloat padding = 8;
-    CGFloat gap = 15;
-    
     [self.datePicker mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(30);
         make.left.equalTo(self.view).offset(30);
