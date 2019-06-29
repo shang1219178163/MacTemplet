@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)showAlertWithError:(NSError *)error;
 
++(instancetype)createAlertTitle:(NSString *)title msg:(NSString *)msg btnTitles:(NSArray<NSString *> *)btnTitles;
+
 @end
 
 NS_ASSUME_NONNULL_END

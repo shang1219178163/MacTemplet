@@ -78,6 +78,57 @@
     }];
 }
 
+- (void)viewWillAppear{
+    [super viewWillAppear];
+    
+//    [self showAlert];
+}
+
+#pragma mark -lazy
+
+- (void)showAlert{
+//    NSAlert * alert = [[NSAlert alloc]init];
+//    alert.messageText = @"This is messageText";
+//    alert.alertStyle = NSAlertStyleInformational;
+//    [alert addButtonWithTitle:@"continue"];
+//    [alert addButtonWithTitle:@"cancle"];
+//    [alert setInformativeText:@"NSWarningAlertStyle \r Do you want to continue with delete of selected records"];
+//    [alert beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow completionHandler:^(NSModalResponse returnCode) {
+//        if (returnCode == NSModalResponseOK){
+//            NSLog(@"(returnCode == NSOKButton)");
+//        }else if (returnCode == NSModalResponseCancel){
+//            NSLog(@"(returnCode == NSCancelButton)");
+//        }else if(returnCode == NSAlertFirstButtonReturn){
+//            NSLog(@"if (returnCode == NSAlertFirstButtonReturn)");
+//        }else if (returnCode == NSAlertSecondButtonReturn){
+//            NSLog(@"else if (returnCode == NSAlertSecondButtonReturn)");
+//        }else if (returnCode == NSAlertThirdButtonReturn){
+//            NSLog(@"else if (returnCode == NSAlertThirdButtonReturn)");
+//        }else{
+//            NSLog(@"All Other return code %ld",(long)returnCode);
+//        }
+//    }];
+    
+    NSString *title = @"This is messageText";
+    NSString *msg = @"NSWarningAlertStyle \r Do you want to continue with delete of selected records";
+    NSArray * list = @[@"continue", @"cancle",];
+    NSAlert * alert = [NSAlert createAlertTitle:title msg:msg btnTitles:list];
+    [alert beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow completionHandler:^(NSModalResponse returnCode) {
+        if (returnCode == NSModalResponseOK){
+            NSLog(@"(returnCode == NSOKButton)");
+        }else if (returnCode == NSModalResponseCancel){
+            NSLog(@"(returnCode == NSCancelButton)");
+        }else if(returnCode == NSAlertFirstButtonReturn){
+            NSLog(@"if (returnCode == NSAlertFirstButtonReturn)");
+        }else if (returnCode == NSAlertSecondButtonReturn){
+            NSLog(@"else if (returnCode == NSAlertSecondButtonReturn)");
+        }else if (returnCode == NSAlertThirdButtonReturn){
+            NSLog(@"else if (returnCode == NSAlertThirdButtonReturn)");
+        }else{
+            NSLog(@"All Other return code %ld",(long)returnCode);
+        }
+    }];
+}
 
 #pragma mark -lazy
 -(NSImageView *)imgView{

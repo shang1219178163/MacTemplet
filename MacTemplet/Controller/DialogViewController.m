@@ -52,6 +52,9 @@
 #pragma mark -funtions
 
 
+
+#pragma mark -lazy
+
 -(NSDatePicker *)datePicker{
     if (!_datePicker) {
         _datePicker = ({
