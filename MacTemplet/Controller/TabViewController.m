@@ -35,6 +35,7 @@
                       @[@"ProppertyLazyController", @"属性Lazy",],
                       @[@"AuthorInfoController", @"其他",],
                       @[@"ThirdViewController", @"Third",],
+//                      @[@"FirstViewController", @"First",],
                       
                       ];
     [self.tabView addItems:list];

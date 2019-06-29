@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+FOUNDATION_EXPORT NSViewController * NSCtrlFromString(NSString *aControllerName);
+
+    
 @interface NSViewController (Helper)
 
 @property (nonatomic, weak) NSWindow * currentWindow;

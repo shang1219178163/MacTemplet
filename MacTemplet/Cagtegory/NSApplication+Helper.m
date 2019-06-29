@@ -16,7 +16,7 @@ static NSWindow *_windowDefault = nil;
 
 +(NSWindow *)windowDefault{
     if (!_windowDefault) {
-        _windowDefault = [NSWindow createWithTitle:@"Main Window"];
+        _windowDefault = [NSWindow createMainWindowTitle:@"Main Window"];
 //        _windowDefault = ({
 //            //窗口 关闭，缩小，放大等功能，根据需求自行组合
 //            NSUInteger style = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable |NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;

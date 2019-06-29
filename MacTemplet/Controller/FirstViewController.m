@@ -33,9 +33,6 @@
 -(void)viewDidLayout{
     [super viewDidLayout];
     
-    CGFloat padding = 8;
-    CGFloat gap = 15;
-    
     self.segmentCtl.frame = CGRectMake(0, 0, 200, 50);
 
 }
@@ -98,7 +95,7 @@
 -(OneWindowController *)windowCtrl{
     if (!_windowCtrl) {
 //        _windowCtrl = [[OneWindowController alloc]init];// 崩溃
-        _windowCtrl = [[OneWindowController alloc]initWithWindow:[NSWindow createWithTitle:@"First"]];
+        _windowCtrl = [[OneWindowController alloc]initWithWindow:[NSWindow createWithSize:CGSizeZero title:@"First"]];
     }
     return _windowCtrl;
 }

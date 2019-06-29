@@ -12,9 +12,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSWindow (Helper)
 
-+(NSWindow *)createWithTitle:(NSString *)title;
++(NSWindow *)createWithRect:(CGRect)rect title:(NSString *)title;
 
 +(NSWindow *)createWithSize:(CGSize)size title:(NSString *)title;
+
++(NSWindow *)createMainWindowTitle:(NSString *)title;
+
++(NSWindow *)createWithCtrlName:(NSString *)ctrlName size:(CGSize)size;
+
+//+(NSWindow *)createWithTitle:(NSString *)title;
+//
+//+(NSWindow *)createWithSize:(CGSize)size title:(NSString *)title;
+//
+//+(NSWindow *)createWithCtrlName:(NSString *)ctrlName size:(CGSize)size;
 
 @end
 

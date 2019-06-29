@@ -82,7 +82,6 @@
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
     [NSUserDefaults.standardUserDefaults setObject: NSStringFromRect(self.window.frame) forKey:kMainWindowFrame];
-
     [NSUserDefaults.standardUserDefaults synchronize];
     
     DDLog(@"%@", NSStringFromRect(self.window.frame));
