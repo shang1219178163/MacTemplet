@@ -16,7 +16,6 @@ NSViewController * NSCtrlFromString(NSString *aControllerName){
     return [[NSClassFromString(aControllerName) alloc] init];
 }
 
-
 @implementation NSViewController (Helper)
 
 - (NSWindow *)currentWindow{

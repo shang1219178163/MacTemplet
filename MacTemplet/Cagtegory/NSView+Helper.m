@@ -27,7 +27,7 @@
     }
 }
 
-+(NSButton*)createBtnRect:(CGRect)rect{
++(__kindof NSButton*)createBtnRect:(CGRect)rect{
     assert([self isSubclassOfClass:NSButton.class]);
     
     NSButton * view = [[self alloc] initWithFrame:rect];
@@ -36,7 +36,7 @@
     return view;
 }
 
-+(NSImageView *)createImgViewRect:(CGRect)rect image:(id)image{
++(__kindof NSImageView *)createImgViewRect:(CGRect)rect image:(id)image{
     assert([self isSubclassOfClass:NSImageView.class]);
     if (image) assert([image isKindOfClass:NSImage.class] || [image isKindOfClass:NSString.class]);
     
@@ -54,7 +54,7 @@
     return view;
 }
 
-+(NSTextField *)createTextFieldRect:(CGRect)rect placeholder:(NSString *)placeholder{
++(__kindof NSTextField *)createTextFieldRect:(CGRect)rect placeholder:(NSString *)placeholder{
     assert([self isSubclassOfClass:NSTextField.class]);
     
     NSTextField *view = [[self alloc] initWithFrame:rect];
@@ -73,7 +73,7 @@
     return view;
 }
 
-+(NSTextView *)createTextViewRect:(CGRect)rect{
++(__kindof NSTextView *)createTextViewRect:(CGRect)rect{
     assert([self isSubclassOfClass:NSTextView.class]);
 
     NSTextView * view = [[self alloc] initWithFrame:rect];
@@ -92,7 +92,7 @@
     return view;
 }
 
-+(NSScrollView *)createScrollViewRect:(CGRect)rect{
++(__kindof NSScrollView *)createScrollViewRect:(CGRect)rect{
     assert([self isSubclassOfClass:NSScrollView.class]);
 
     NSScrollView *view = [[self alloc] initWithFrame:rect];
@@ -104,7 +104,7 @@
     return view;
 }
 
-+(NSTableView *)createTableViewRect:(CGRect)rect{
++(__kindof NSTableView *)createTableViewRect:(CGRect)rect{
     assert([self isSubclassOfClass:NSTableView.class]);
 
     NSTableView *view = [[self alloc] initWithFrame:rect];
@@ -119,7 +119,7 @@
     return view;
 }
 
-+(NSTabView *)createTabViewRect:(CGRect)rect{
++(__kindof NSTabView *)createTabViewRect:(CGRect)rect{
     assert([self isSubclassOfClass:NSTabView.class]);
     
     NSTabView *view = [[self alloc] initWithFrame:rect];

@@ -84,6 +84,7 @@
     if (!_imgView) {
         _imgView = ({
             NSImageView *view = [NSImageView createImgViewRect:CGRectZero image:NSApplication.appIcon];
+            view.editable = false;
             view;
         });
     }

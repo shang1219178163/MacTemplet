@@ -44,7 +44,6 @@
     
     NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
     self.window.contentViewController = controller;
-    self.window.title = NSApplication.appName;
     //    self.windowCtrl.window.contentViewController = controller;
     //    self.windowCtrl.window.title = NSApplication.appName;
     
@@ -71,8 +70,6 @@
         } forControlEvents:NSEventMaskLeftMouseDown];
     }
     
-   
-
 }
 
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *) sender{
@@ -150,7 +147,9 @@
 -(NSWindow *)window{
     if (!_window) {
         _window = NSApplication.windowDefault;
+        _window.title = NSApplication.appName;
         _window.contentMinSize = CGSizeMake(kScreenWidth*0.56, kScreenHeight*0.5);
+
     }
     return _window;
 }

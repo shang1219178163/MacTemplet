@@ -11,7 +11,7 @@
 @implementation NSWindow (Helper)
 
 
-+(NSWindow *)createWithRect:(CGRect)rect title:(NSString *)title{
++(instancetype)createWithRect:(CGRect)rect title:(NSString *)title{
     //窗口 关闭，缩小，放大等功能，根据需求自行组合
     NSUInteger style = NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable;
     NSWindow * window = [[NSWindow alloc]initWithContentRect:rect styleMask:style backing:NSBackingStoreBuffered defer:false];
@@ -21,13 +21,13 @@
     return window;
 }
 
-+(NSWindow *)createWithSize:(CGSize)size title:(NSString *)title{
++(instancetype)createWithSize:(CGSize)size title:(NSString *)title{
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
     NSWindow * window = [NSWindow createWithRect:rect title:title];
     return window;
 }
 
-+(NSWindow *)createMainWindowTitle:(NSString *)title{
++(instancetype)createMainWindowTitle:(NSString *)title{
     //窗口 关闭，缩小，放大等功能，根据需求自行组合
     CGFloat screenWidth = NSScreen.mainScreen.frame.size.width;
     CGFloat screenHeight = NSScreen.mainScreen.frame.size.height;
@@ -40,7 +40,7 @@
     return window;
 }
 
-+(NSWindow *)createWithCtrlName:(NSString *)ctrlName size:(CGSize)size{
++(instancetype)createWithCtrlName:(NSString *)ctrlName size:(CGSize)size{
     NSViewController * controller = [[NSClassFromString(ctrlName) alloc] init];
     if (!CGSizeEqualToSize(CGSizeZero, size)) {
         controller.view.frame = CGRectMake(0, 0, size.width, size.height);

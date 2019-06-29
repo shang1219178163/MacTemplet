@@ -24,7 +24,7 @@
     if (block) block(menuItem);
 }
 
-- (NSMenuItem *)initWithTitle:(NSString *)string keyEquivalent:(NSString *)charCode handler:(void(^)(NSMenuItem *menuItem))handler{
+- (instancetype)itemWithTitle:(NSString *)string keyEquivalent:(NSString *)charCode handler:(void(^)(NSMenuItem *menuItem))handler{
     NSMenuItem * item = [[NSMenuItem alloc]initWithTitle:string action:nil keyEquivalent:charCode];
     [item addActionHandler:handler];
     return item;

@@ -95,6 +95,7 @@
     [self.popBtn selectItemWithTitle:titleOfSelectedItem];
     
     [self.tableView reloadData];
+
 }
 
 -(void)viewDidAppear{
@@ -171,10 +172,10 @@
     }];
     
     // 重设宽度
-    CGRect rect = self.tableView.frame;
-    NSTableColumn * column = self.tableView.tableColumns.firstObject;
-    column.width = CGRectGetWidth(rect);
-    column.maxWidth = CGFLOAT_MAX;
+//    CGRect rect = self.tableView.frame;
+//    NSTableColumn * column = self.tableView.tableColumns.firstObject;
+//    column.width = CGRectGetWidth(rect);
+//    column.maxWidth = CGFLOAT_MAX;
     
 //    [self.tableView reloadData];
 }
@@ -474,7 +475,7 @@
             NSArray * columns = @[@"columeOne", ];
             [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 NSTableColumn * column = [NSTableColumn createWithIdentifier:obj title:obj];
-                column.resizingMask = NSTableColumnAutoresizingMask;
+
                 [view addTableColumn:column];
             }];
             view;

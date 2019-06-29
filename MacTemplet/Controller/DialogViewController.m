@@ -87,8 +87,8 @@
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSButton * sender = (NSButton *)control;
                 DDLog(@"%@", sender.title);
-                
-                [NSApp.mainWindow endSheet:self.currentWindow returnCode:NSModalResponseOK];
+
+                [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseOK];
             } forControlEvents:NSEventMaskLeftMouseDown];
             view;
         });
@@ -106,7 +106,7 @@
                 NSButton * sender = (NSButton *)control;
                 DDLog(@"%@", sender.title);
                 
-                [NSApp.mainWindow endSheet:self.currentWindow returnCode:NSModalResponseCancel];
+                [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseCancel];
             } forControlEvents:NSEventMaskLeftMouseDown];
             view;
         });

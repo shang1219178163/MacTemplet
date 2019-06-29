@@ -13,7 +13,7 @@
 - (void)addItems:(NSArray<NSArray *> *)items{
     [items enumerateObjectsUsingBlock:^(NSArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSViewController * controller = [[NSClassFromString(obj.firstObject) alloc] init];
-        controller.title = obj[1];
+        controller.title = controller.title ? : (obj[1] ? : @"");
         
         NSTabViewItem * item = [NSTabViewItem tabViewItemWithViewController:controller];
         item.view = controller.view;

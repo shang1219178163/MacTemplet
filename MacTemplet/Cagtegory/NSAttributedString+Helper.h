@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSAttributedString *)attrString:(NSString *)string;
 
-+(NSAttributedString *)hyperlinkFromString:(NSString *)string withURL:(NSURL *)aURL font:(NSFont *)font;
++ (NSAttributedString *)hyperlinkFromString:(NSString *)string withURL:(NSURL *)aURL font:(NSFont *)font;
 
 @end
 
