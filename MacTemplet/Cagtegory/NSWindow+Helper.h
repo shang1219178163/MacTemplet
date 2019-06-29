@@ -20,12 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(NSWindow *)createWithCtrlName:(NSString *)ctrlName size:(CGSize)size;
 
-//+(NSWindow *)createWithTitle:(NSString *)title;
-//
-//+(NSWindow *)createWithSize:(CGSize)size title:(NSString *)title;
-//
-//+(NSWindow *)createWithCtrlName:(NSString *)ctrlName size:(CGSize)size;
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -90,13 +90,11 @@
 - (void)viewWillAppear{
     [super viewWillAppear];
     
-    [self.tableView reloadData];
-
     NSString * titleOfSelectedItem = [NSUserDefaults.standardUserDefaults objectForKey:kDisplayName];
     DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
     [self.popBtn selectItemWithTitle:titleOfSelectedItem];
     
-//    [self.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 -(void)viewDidAppear{
@@ -104,10 +102,7 @@
     
     NSString * folderPath = @"/Users/shang/Downloads";
     [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:kFolderPath];
-
     
-
-    [self.textField resignFirstResponder];
 }
 
 - (void)viewDidLayout{
