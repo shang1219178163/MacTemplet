@@ -76,7 +76,7 @@
 - (void)textDidEndEditing:(NSNotification *)notification{
     NSTextView * textView = notification.object;
     
-    DDLog(@"%@",textView.string);
+//    DDLog(@"%@",textView.string);
     self.textViewOne.string = [self createResult:textView.string];
 
 }

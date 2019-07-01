@@ -359,9 +359,8 @@
 		1482F71522AB8BD400A7C5E1 /* MacTemplet */ = {
 			isa = PBXGroup;
 			children = (
+				14F0EE8822C9AEBA003C3811 /* JsonToModel */,
 				1445780122BDDAD80007C7B3 /* Languages */,
-				14F92C3522BB8DE800A5C5E4 /* Format */,
-				14F92C2622BB8DE500A5C5E4 /* Model */,
 				1482F71622AB8BD400A7C5E1 /* AppDelegate.h */,
 				1482F71722AB8BD400A7C5E1 /* AppDelegate.m */,
 				14F92C1322BB3ADC00A5C5E4 /* AppDelegate+Menu.h */,
@@ -376,14 +375,6 @@
 				14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */,
 				14D40A1022C4A6DA00AF74B9 /* AuthorInfoController.h */,
 				14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */,
-				1445783922C1FFE20007C7B3 /* BNClassInfoModel.h */,
-				1445783A22C1FFE20007C7B3 /* BNClassInfoModel.m */,
-				14D40A0722C449B300AF74B9 /* BNPropertyInfoModel.h */,
-				14D40A0822C449B300AF74B9 /* BNPropertyInfoModel.m */,
-				144577FE22BCF50E0007C7B3 /* Const.h */,
-				144577FF22BCF50E0007C7B3 /* Const.m */,
-				1445780D22BDF0520007C7B3 /* BNLanguageModel.h */,
-				1445780E22BDF0520007C7B3 /* BNLanguageModel.m */,
 				1445782722C1CD6E0007C7B3 /* BNView */,
 				14F92C2522BB8DBB00A5C5E4 /* Controller */,
 				14F2F5AD22B8FEB1009D49CE /* ViewHeight */,
@@ -475,6 +466,23 @@
 				14F92BEF22BA39C600A5C5E4 /* NSPopover+Helper.m */,
 			);
 			path = Cagtegory;
+			sourceTree = "<group>";
+		};
+		14F0EE8822C9AEBA003C3811 /* JsonToModel */ = {
+			isa = PBXGroup;
+			children = (
+				144577FE22BCF50E0007C7B3 /* Const.h */,
+				144577FF22BCF50E0007C7B3 /* Const.m */,
+				1445780D22BDF0520007C7B3 /* BNLanguageModel.h */,
+				1445780E22BDF0520007C7B3 /* BNLanguageModel.m */,
+				1445783922C1FFE20007C7B3 /* BNClassInfoModel.h */,
+				1445783A22C1FFE20007C7B3 /* BNClassInfoModel.m */,
+				14D40A0722C449B300AF74B9 /* BNPropertyInfoModel.h */,
+				14D40A0822C449B300AF74B9 /* BNPropertyInfoModel.m */,
+				14F92C3522BB8DE800A5C5E4 /* Format */,
+				14F92C2622BB8DE500A5C5E4 /* Model */,
+			);
+			path = JsonToModel;
 			sourceTree = "<group>";
 		};
 		14F0FDAA22AE097A00057093 /* View */ = {

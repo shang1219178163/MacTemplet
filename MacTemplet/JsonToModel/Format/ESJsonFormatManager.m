@@ -139,11 +139,11 @@
         key = self.dicSwitch[key];
     }
     if ([value isKindOfClass:[NSString class]]) {
-        return [NSString stringWithFormat:@"    var %@: %@",key,typeStr];
+        return [NSString stringWithFormat:@"    @objc var %@: %@",key,typeStr];
         
     } else if ([value isKindOfClass:[@(YES) class]]){
         typeStr = @"Bool";
-        return [NSString stringWithFormat:@"    var %@: %@ = false",key,typeStr];
+        return [NSString stringWithFormat:@"    @objc var %@: %@ = false",key,typeStr];
         
     } else if ([value isKindOfClass:[NSNumber class]]){
         NSString *valueStr = [NSString stringWithFormat:@"%@",value];
@@ -152,12 +152,12 @@
         } else {
             typeStr = @"Int";
         }
-        return [NSString stringWithFormat:@"    var %@: %@ = 0",key,typeStr];
+        return [NSString stringWithFormat:@"    @objc var %@: %@ = 0",key,typeStr];
         
     } else if ([value isKindOfClass:[NSArray class]]){
         ESClassInfo *childInfo = classInfo.propertyArrayDic[key];
         NSString *type = childInfo.className;
-        return [NSString stringWithFormat:@"    var %@: [%@]?",key,type == nil ? @"String" : type];
+        return [NSString stringWithFormat:@"    @objc var %@: [%@]?",key,type == nil ? @"String" : type];
         
     } else if ([value isKindOfClass:[NSDictionary class]]){
         ESClassInfo *childInfo = classInfo.propertyClassDic[key];
@@ -165,9 +165,9 @@
         if (!typeStr) {
             typeStr = [key capitalizedString];
         }
-        return [NSString stringWithFormat:@"    var %@: %@?",key,typeStr];
+        return [NSString stringWithFormat:@"    @objc var %@: %@?",key,typeStr];
     }
-    return [NSString stringWithFormat:@"    var %@: %@",key,typeStr];
+    return [NSString stringWithFormat:@"    @objc var %@: %@",key,typeStr];
 }
 
 

@@ -81,7 +81,8 @@
 - (void)viewWillAppear{
     [super viewWillAppear];
     
-    [self showAlert];
+//    [self showAlert];
+
 }
 
 #pragma mark -lazy
@@ -110,7 +111,7 @@
 //    }];
     
     NSString *title = @"This is messageText";
-    NSString *msg = @"NSWarningAlertStyle \r Do you want to continue with delete of selected records";
+    NSString *msg = @"NSWarningAlertStyle \rDo you want to continue with delete of selected records";
     NSArray * list = @[@"continue", @"cancle",];
     NSAlert * alert = [NSAlert createAlertTitle:title msg:msg btnTitles:list];
     [alert beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow completionHandler:^(NSModalResponse returnCode) {
