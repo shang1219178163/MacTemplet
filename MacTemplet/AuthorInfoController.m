@@ -81,7 +81,7 @@
 - (void)viewWillAppear{
     [super viewWillAppear];
     
-//    [self showAlert];
+    [self showAlert];
 }
 
 #pragma mark -lazy
@@ -96,15 +96,15 @@
 //    [alert beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow completionHandler:^(NSModalResponse returnCode) {
 //        if (returnCode == NSModalResponseOK){
 //            NSLog(@"(returnCode == NSOKButton)");
-//        }else if (returnCode == NSModalResponseCancel){
+//        } else if (returnCode == NSModalResponseCancel){
 //            NSLog(@"(returnCode == NSCancelButton)");
-//        }else if(returnCode == NSAlertFirstButtonReturn){
+//        } else if(returnCode == NSAlertFirstButtonReturn){
 //            NSLog(@"if (returnCode == NSAlertFirstButtonReturn)");
-//        }else if (returnCode == NSAlertSecondButtonReturn){
+//        } else if (returnCode == NSAlertSecondButtonReturn){
 //            NSLog(@"else if (returnCode == NSAlertSecondButtonReturn)");
-//        }else if (returnCode == NSAlertThirdButtonReturn){
+//        } else if (returnCode == NSAlertThirdButtonReturn){
 //            NSLog(@"else if (returnCode == NSAlertThirdButtonReturn)");
-//        }else{
+//        } else{
 //            NSLog(@"All Other return code %ld",(long)returnCode);
 //        }
 //    }];
@@ -116,18 +116,19 @@
     [alert beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow completionHandler:^(NSModalResponse returnCode) {
         if (returnCode == NSModalResponseOK){
             NSLog(@"(returnCode == NSOKButton)");
-        }else if (returnCode == NSModalResponseCancel){
+        } else if (returnCode == NSModalResponseCancel){
             NSLog(@"(returnCode == NSCancelButton)");
-        }else if(returnCode == NSAlertFirstButtonReturn){
+        } else if(returnCode == NSAlertFirstButtonReturn){
             NSLog(@"if (returnCode == NSAlertFirstButtonReturn)");
-        }else if (returnCode == NSAlertSecondButtonReturn){
+        } else if (returnCode == NSAlertSecondButtonReturn){
             NSLog(@"else if (returnCode == NSAlertSecondButtonReturn)");
-        }else if (returnCode == NSAlertThirdButtonReturn){
+        } else if (returnCode == NSAlertThirdButtonReturn){
             NSLog(@"else if (returnCode == NSAlertThirdButtonReturn)");
-        }else{
+        } else {
             NSLog(@"All Other return code %ld",(long)returnCode);
         }
     }];
+ 
 }
 
 #pragma mark -lazy

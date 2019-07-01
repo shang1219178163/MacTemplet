@@ -42,5 +42,10 @@
     return alert;
 }
 
+- (void)beginSheetModalHandler:(void (^ __nullable)(NSModalResponse returnCode))handler{
+    assert(NSApplication.sharedApplication.mainWindow);
+    [self beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow completionHandler:handler];
+    
+}
 
 @end
