@@ -445,7 +445,7 @@
 //                [self hanldeJson];
 ////                [self clearFileOutputPath];
 //
-//            } forControlEvents:NSEventMaskLeftMouseDown];
+//            }];
 //            view;
 //        });
 //    }
@@ -476,7 +476,7 @@
 
                 [self hanldeJson];
 
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             view;
         });
     }
@@ -497,7 +497,7 @@
                 
                 [self creatFile];
 
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             view;
         });
     }

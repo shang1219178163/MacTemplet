@@ -10,7 +10,7 @@
 
 @implementation NSTextField (Helper)
 
--(void)setHyperlinkDic:(NSDictionary *)dic{
+- (void)setHyperlinkDic:(NSDictionary *)dic{
     // both are needed, otherwise hyperlink won't accept mousedown
     NSTextField *textField = self;
     

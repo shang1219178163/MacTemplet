@@ -29,7 +29,7 @@
     return [super performKeyEquivalent:event];
 }
 
--(void)setHyperlinkDic:(NSDictionary *)dic{
+- (void)setHyperlinkDic:(NSDictionary *)dic{
     // both are needed, otherwise hyperlink won't accept mousedown
     NSTextView *textView = self;
     NSDictionary * attributes = @{

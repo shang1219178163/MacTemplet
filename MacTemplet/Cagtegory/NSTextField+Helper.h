@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSTextField (Helper)
 
--(void)setHyperlinkDic:(NSDictionary *)dic;
+- (void)setHyperlinkDic:(NSDictionary *)dic;
 
 @end
 

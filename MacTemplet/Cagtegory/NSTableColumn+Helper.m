@@ -17,7 +17,7 @@
     NSTableColumn *column = [[self alloc] initWithIdentifier:identifier];
     column.title = title;
     column.minWidth = 40;
-    column.maxWidth = 200;
+    column.maxWidth = CGFLOAT_MAX;
     column.headerToolTip = column.title;
     column.resizingMask = NSTableColumnAutoresizingMask;
     column.headerCell.alignment = NSTextAlignmentCenter;

@@ -14,6 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)showAlertWithError:(NSError *)error;
 
++(instancetype)createAlertTitle:(NSString *)title msg:(NSString *)msg btnTitles:(NSArray<NSString *> *)btnTitles;
+
+- (void)beginSheetModalHandler:(void (^ __nullable)(NSModalResponse returnCode))handler;
+
 @end
 
 NS_ASSUME_NONNULL_END

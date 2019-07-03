@@ -33,7 +33,7 @@
     
     
     NSMenuItem *oneItem3 = ({
-        NSMenuItem *item = [[NSMenuItem alloc]initWithTitle:@"Load3" keyEquivalent:@"T" handler:^(NSMenuItem * _Nonnull menuItem) {
+        NSMenuItem *item = [[NSMenuItem alloc]itemWithTitle:@"Load3" keyEquivalent:@"T" handler:^(NSMenuItem * _Nonnull menuItem) {
             DDLog(@"%@_%@", menuItem.title, menuItem.keyEquivalent);
             
         }];

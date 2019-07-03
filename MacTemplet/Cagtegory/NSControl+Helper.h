@@ -11,8 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSControl (Helper)
-
-- (void)addActionHandler:(void(^)(NSControl *control))handler forControlEvents:(NSEventMask)controlEvents;
+/// NSControl
+- (void)addActionHandler:(void(^)(NSControl *control))handler;
+/// NSSegment
+- (void)addActionHandler:(void(^)(NSControl *control))handler forTrackingMode:(NSSegmentSwitchTracking)trackingMode;
 
 
 @end

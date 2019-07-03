@@ -76,7 +76,7 @@
 - (void)textDidEndEditing:(NSNotification *)notification{
     NSTextView * textView = notification.object;
     
-    DDLog(@"%@",textView.string);
+//    DDLog(@"%@",textView.string);
     self.textViewOne.string = [self createResult:textView.string];
 
 }
@@ -145,7 +145,7 @@
                     
                     self.textViewOne.string = [self createResult:self.textView.string];
 
-                } forControlEvents:NSEventMaskLeftMouseDown];
+                }];
                 [view addSubview:btn];
             }
             view;

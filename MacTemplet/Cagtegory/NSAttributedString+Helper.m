@@ -11,7 +11,7 @@
 
 @implementation NSAttributedString (Helper)
 
-+ (__kindof NSAttributedString *)attrString:(NSString *)string font:(CGFloat)font alignment:(NSTextAlignment)alignment{
++ (NSAttributedString *)attrString:(NSString *)string font:(CGFloat)font alignment:(NSTextAlignment)alignment{
     
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc]init];
     paraStyle.alignment = alignment;
@@ -30,7 +30,7 @@
     return [NSAttributedString attrString:string font:14 alignment:NSTextAlignmentLeft];
 }
 
-+(NSAttributedString *)hyperlinkFromString:(NSString *)string withURL:(NSURL *)aURL font:(NSFont *)font{
++ (NSAttributedString *)hyperlinkFromString:(NSString *)string withURL:(NSURL *)aURL font:(NSFont *)font{
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString: string];
     
     NSRange range = NSMakeRange(0, attrString.length);

@@ -11,6 +11,11 @@
 #import "NSViewController+Helper.h"
 #import <objc/runtime.h>
 
+//FOUNDATION_EXPORT Class _Nullable NSClassFromString(NSString *aClassName);
+NSViewController * NSCtrlFromString(NSString *aControllerName){
+    return [[NSClassFromString(aControllerName) alloc] init];
+}
+
 @implementation NSViewController (Helper)
 
 - (NSWindow *)currentWindow{
@@ -19,5 +24,6 @@
 - (void)setCurrentWindow:(NSWindow *)currentWindow{
     objc_setAssociatedObject(self, @selector(currentWindow), currentWindow, OBJC_ASSOCIATION_RETAIN);
 }
+
 
 @end

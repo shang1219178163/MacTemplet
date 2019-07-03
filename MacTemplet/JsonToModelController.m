@@ -90,13 +90,12 @@
 - (void)viewWillAppear{
     [super viewWillAppear];
     
-    [self.tableView reloadData];
-
     NSString * titleOfSelectedItem = [NSUserDefaults.standardUserDefaults objectForKey:kDisplayName];
     DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
     [self.popBtn selectItemWithTitle:titleOfSelectedItem];
     
 //    [self.tableView reloadData];
+
 }
 
 -(void)viewDidAppear{
@@ -104,10 +103,7 @@
     
     NSString * folderPath = @"/Users/shang/Downloads";
     [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:kFolderPath];
-
     
-
-    [self.textField resignFirstResponder];
 }
 
 - (void)viewDidLayout{
@@ -176,10 +172,10 @@
     }];
     
     // 重设宽度
-    CGRect rect = self.tableView.frame;
-    NSTableColumn * column = self.tableView.tableColumns.firstObject;
-    column.width = CGRectGetWidth(rect);
-    column.maxWidth = CGFLOAT_MAX;
+//    CGRect rect = self.tableView.frame;
+//    NSTableColumn * column = self.tableView.tableColumns.firstObject;
+//    column.width = CGRectGetWidth(rect);
+//    column.maxWidth = CGFLOAT_MAX;
     
 //    [self.tableView reloadData];
 }
@@ -188,15 +184,14 @@
 #pragma mark -NSTableView
 //返回行数
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
-//    BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
-//    NSInteger count = isSwift ? 1 : 2;
-//    return count;
-    return self.dataList.count;
+    BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
+    NSInteger count = isSwift ? 1 : 2;
+    return count;
 }
 
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
     BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
-    CGFloat height = isSwift ? (CGRectGetHeight(NSApp.keyWindow.frame) - 50) : (CGRectGetHeight(NSApp.keyWindow.frame) - 50)*0.5;
+    CGFloat height = isSwift ? (CGRectGetHeight(NSApp.keyWindow.frame) - 50 - 40) : (CGRectGetHeight(NSApp.keyWindow.frame) - 50)*0.5;
     return height;
 }
 
@@ -356,11 +351,10 @@
     self.textLabel.textColor = result ? NSColor.greenColor : NSColor.redColor;
 
     if (!result) {
-//        NSError *error = [NSError errorWithDomain:@"Error：Json is invalid" code:3840 userInfo:nil];
-//        NSAlert *alert = [NSAlert alertWithError:error];
-//        [alert runModal];
-//        NSLog(@"Error：Json is invalid");
-        
+        NSAlert * alert = [NSAlert createAlertTitle:@"警告" msg:@"Error：Json is invalid" btnTitles:@[kActionTitle_Know]];
+        [alert beginSheetModalHandler:^(NSModalResponse returnCode) {
+            DDLog(@"%@", @(returnCode));
+        }];
         return;
     }
     
@@ -402,7 +396,7 @@
             classModel.hContent = [classInfo classDescWithFirstFile:true];
 
         }
-//        [self.tableView reloadData];
+        [self.tableView reloadData];
     }
 
 }
@@ -479,7 +473,7 @@
             NSArray * columns = @[@"columeOne", ];
             [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 NSTableColumn * column = [NSTableColumn createWithIdentifier:obj title:obj];
-                column.resizingMask = NSTableColumnAutoresizingMask;
+
                 [view addTableColumn:column];
             }];
             view;
@@ -604,7 +598,7 @@
                 
                 [self hanldeJson];
                 
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             view;
         });
     }
@@ -625,7 +619,7 @@
                 
                 [self creatFile];
                 
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             view;
         });
     }

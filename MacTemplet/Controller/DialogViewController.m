@@ -31,9 +31,6 @@
 - (void)viewDidLayout{
     [super viewDidLayout];
 
-    CGFloat padding = 8;
-    CGFloat gap = 15;
-    
     [self.datePicker mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(30);
         make.left.equalTo(self.view).offset(30);
@@ -55,6 +52,9 @@
 #pragma mark -funtions
 
 
+
+#pragma mark -lazy
+
 -(NSDatePicker *)datePicker{
     if (!_datePicker) {
         _datePicker = ({
@@ -71,7 +71,7 @@
                 NSString * dateStr = [NSDateFormatter stringFromDate:sender.dateValue format:kFormatDate];
                 DDLog(@"%@", dateStr);
                 
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             
             view;
         });
@@ -90,9 +90,9 @@
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSButton * sender = (NSButton *)control;
                 DDLog(@"%@", sender.title);
-                
-                [NSApp.mainWindow endSheet:self.currentWindow returnCode:NSModalResponseOK];
-            } forControlEvents:NSEventMaskLeftMouseDown];
+
+                [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseOK];
+            }];
             view;
         });
     }
@@ -109,8 +109,8 @@
                 NSButton * sender = (NSButton *)control;
                 DDLog(@"%@", sender.title);
                 
-                [NSApp.mainWindow endSheet:self.currentWindow returnCode:NSModalResponseCancel];
-            } forControlEvents:NSEventMaskLeftMouseDown];
+                [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseCancel];
+            }];
             view;
         });
     }

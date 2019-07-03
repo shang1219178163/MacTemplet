@@ -12,11 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSAttributedString (Helper)
 
-+ (__kindof NSAttributedString *)attrString:(NSString *)string font:(CGFloat)font alignment:(NSTextAlignment)alignment;
++ (NSAttributedString *)attrString:(NSString *)string font:(CGFloat)font alignment:(NSTextAlignment)alignment;
 
 + (NSAttributedString *)attrString:(NSString *)string;
 
-+(NSAttributedString *)hyperlinkFromString:(NSString *)string withURL:(NSURL *)aURL font:(NSFont *)font;
++ (NSAttributedString *)hyperlinkFromString:(NSString *)string withURL:(NSURL *)aURL font:(NSFont *)font;
 
 @end
 

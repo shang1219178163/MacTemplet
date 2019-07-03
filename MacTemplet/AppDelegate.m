@@ -44,7 +44,6 @@
     
     NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
     self.window.contentViewController = controller;
-    self.window.title = NSApplication.appName;
     //    self.windowCtrl.window.contentViewController = controller;
     //    self.windowCtrl.window.title = NSApplication.appName;
     
@@ -68,11 +67,12 @@
             NSButton *sender = (NSButton *)control;
             [self.popover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSRectEdgeMaxY];
             
-        } forControlEvents:NSEventMaskLeftMouseDown];
+        }];
+        
+        [self.statusItem.button resignFirstResponder];
+
     }
     
-   
-
 }
 
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *) sender{
@@ -82,7 +82,6 @@
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
     [NSUserDefaults.standardUserDefaults setObject: NSStringFromRect(self.window.frame) forKey:kMainWindowFrame];
-
     [NSUserDefaults.standardUserDefaults synchronize];
     
     DDLog(@"%@", NSStringFromRect(self.window.frame));
@@ -151,7 +150,9 @@
 -(NSWindow *)window{
     if (!_window) {
         _window = NSApplication.windowDefault;
+        _window.title = NSApplication.appName;
         _window.contentMinSize = CGSizeMake(kScreenWidth*0.56, kScreenHeight*0.5);
+
     }
     return _window;
 }

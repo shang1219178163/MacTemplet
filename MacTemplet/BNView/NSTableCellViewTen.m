@@ -33,7 +33,7 @@
     CGSize checkBoxSize = [self.checkBox sizeThatFits:CGSizeMake(100, 30)];
     [self.checkBox makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(kX_GAP);
-        make.left.equalTo(self).offset(kX_GAP);
+        make.left.equalTo(self).offset(0);
         make.width.equalTo(checkBoxSize.width);
         make.height.equalTo(checkBoxSize.height);
     }];
@@ -70,7 +70,7 @@
                 NSButton *sender = (NSButton *)control;
                 DDLog(@"state_%@", @(sender.state));
                 
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             view;
         });
     }
