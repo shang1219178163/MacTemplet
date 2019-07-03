@@ -67,7 +67,10 @@
             NSButton *sender = (NSButton *)control;
             [self.popover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSRectEdgeMaxY];
             
-        } forControlEvents:NSEventMaskLeftMouseDown];
+        }];
+        
+        [self.statusItem.button resignFirstResponder];
+
     }
     
 }

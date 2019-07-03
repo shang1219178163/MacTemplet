@@ -111,7 +111,7 @@
                 NSLog(@"%@", @(sender.selectedSegment));
                 [self handleActionSender:sender];
                 
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             view;
         });
     }

@@ -11,19 +11,44 @@
 
 @implementation NSControl (Helper)
 
-- (void)addActionHandler:(void(^)(NSControl *control))handler forControlEvents:(NSEventMask)controlEvents{    
+- (void)addActionHandler:(void(^)(NSControl *control))handler{
     self.action = @selector(p_handleActionBtn:);
     self.target = self;
-    [self sendActionOn:controlEvents];
-    
     objc_setAssociatedObject(self, _cmd, handler, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (void)p_handleActionBtn:(NSControl *)sender{
-    void(^block)(NSControl *control) = objc_getAssociatedObject(self, @selector(addActionHandler:forControlEvents:));
+    void(^block)(NSControl *control) = objc_getAssociatedObject(self, @selector(addActionHandler:));
     if (block) block(sender);
-    
 }
+
+- (void)addActionHandler:(void(^)(NSControl *control))handler forTrackingMode:(NSSegmentSwitchTracking)trackingMode{
+    assert([self isKindOfClass:NSSegmentedControl.class]);
+    self.action = @selector(p_handleActionSegmentCtl:);
+    self.target = self;
+    ((NSSegmentedControl *)self).trackingMode = trackingMode;
+    objc_setAssociatedObject(self, _cmd, handler, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (void)p_handleActionSegmentCtl:(NSControl *)sender{
+    void(^block)(NSControl *control) = objc_getAssociatedObject(self, @selector(addActionHandler:forTrackingMode:));
+    if (block) block(sender);
+
+}
+
+//- (void)addActionHandler:(void(^)(NSControl *control))handler forControlEvents:(NSEventMask)controlEvents{
+//    self.action = @selector(p_handleActionBtn:);
+//    self.target = self;
+//    [self sendActionOn:controlEvents];
+//
+//    objc_setAssociatedObject(self, _cmd, handler, OBJC_ASSOCIATION_COPY_NONATOMIC);
+//}
+//
+//- (void)p_handleActionBtn:(NSControl *)sender{
+//    void(^block)(NSControl *control) = objc_getAssociatedObject(self, @selector(addActionHandler:forControlEvents:));
+//    if (block) block(sender);
+//
+//}
 
 
 @end

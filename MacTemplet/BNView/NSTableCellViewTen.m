@@ -70,7 +70,7 @@
                 NSButton *sender = (NSButton *)control;
                 DDLog(@"state_%@", @(sender.state));
                 
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             view;
         });
     }

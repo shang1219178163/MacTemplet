@@ -71,7 +71,7 @@
                 NSString * dateStr = [NSDateFormatter stringFromDate:sender.dateValue format:kFormatDate];
                 DDLog(@"%@", dateStr);
                 
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             
             view;
         });
@@ -92,7 +92,7 @@
                 DDLog(@"%@", sender.title);
 
                 [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseOK];
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             view;
         });
     }
@@ -110,7 +110,7 @@
                 DDLog(@"%@", sender.title);
                 
                 [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseCancel];
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             view;
         });
     }

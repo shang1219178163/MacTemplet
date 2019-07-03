@@ -598,7 +598,7 @@
                 
                 [self hanldeJson];
                 
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             view;
         });
     }
@@ -619,7 +619,7 @@
                 
                 [self creatFile];
                 
-            } forControlEvents:NSEventMaskLeftMouseDown];
+            }];
             view;
         });
     }

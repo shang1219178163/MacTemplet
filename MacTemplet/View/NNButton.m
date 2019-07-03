@@ -67,7 +67,6 @@
 }
 
 - (void)viewWillMoveToSuperview:(NSView *)newSuperview {
-    
     [super viewWillMoveToSuperview:newSuperview];
     [self updateButtonApperaceWithState:self.buttonState];
 }

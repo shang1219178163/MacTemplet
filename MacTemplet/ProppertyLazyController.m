@@ -145,7 +145,7 @@
                     
                     self.textViewOne.string = [self createResult:self.textView.string];
 
-                } forControlEvents:NSEventMaskLeftMouseDown];
+                }];
                 [view addSubview:btn];
             }
             view;
