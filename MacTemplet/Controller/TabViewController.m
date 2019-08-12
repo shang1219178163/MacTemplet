@@ -12,6 +12,8 @@
 #import "OneWindowController.h"
 #import "BNDialogWindowController.h"
 
+static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
+
 @interface TabViewController ()<NSTabViewDelegate>
 
 @property (nonatomic, strong) NSTabView * tabView;
@@ -39,6 +41,11 @@
                       
                       ];
     [self.tabView addItems:list];
+    
+    NSInteger idx = [NSUserDefaults.standardUserDefaults integerForKey:kDefaultTabIndex];
+    if (idx >= 0 && idx < list.count) {
+        [self.tabView selectTabViewItemAtIndex:idx];
+    }
 }
 
 - (void)viewDidLayout{
@@ -63,6 +70,8 @@
     NSInteger item = [self.tabView.tabViewItems indexOfObject:tabViewItem];
     DDLog(@"index_%@_%@",@(item), tabViewItem.view);
     
+    [NSUserDefaults.standardUserDefaults setInteger:item forKey:kDefaultTabIndex];
+    [NSUserDefaults.standardUserDefaults synchronize];
 }
 
 #pragma mark -lazy
