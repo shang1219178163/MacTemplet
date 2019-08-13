@@ -447,6 +447,9 @@
     [NSUserDefaults.standardUserDefaults setObject:self.langModel.defaultParentWithUtilityMethods forKey:kSuperClass];
     [NSUserDefaults.standardUserDefaults synchronize];
     
+    [NSUserDefaults setArcObject:self.langModel forKey:@"langModel"];
+    [NSUserDefaults synchronize];
+    id langModel = [NSUserDefaults arcObjectForKey:@"langModel"];
 }
 
 #pragma mark -lazy
