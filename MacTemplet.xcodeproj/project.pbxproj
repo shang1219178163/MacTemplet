@@ -377,7 +377,7 @@
 				14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */,
 				1445782722C1CD6E0007C7B3 /* BNView */,
 				14F92C2522BB8DBB00A5C5E4 /* Controller */,
-				14F2F5AD22B8FEB1009D49CE /* ViewHeight */,
+				14F2F5AD22B8FEB1009D49CE /* NSCollectionView */,
 				14F0FDAA22AE097A00057093 /* View */,
 				1482F86122ABA5A400A7C5E1 /* Cagtegory */,
 				14F2F55F22B78078009D49CE /* Other */,
@@ -521,7 +521,7 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
-		14F2F5AD22B8FEB1009D49CE /* ViewHeight */ = {
+		14F2F5AD22B8FEB1009D49CE /* NSCollectionView */ = {
 			isa = PBXGroup;
 			children = (
 				14F2F5AE22B8FEE5009D49CE /* NSCTViewItemOne.h */,
@@ -529,7 +529,7 @@
 				14F2F5BB22B90109009D49CE /* NSCTViewCellOne.h */,
 				14F2F5BC22B90109009D49CE /* NSCTViewCellOne.m */,
 			);
-			path = ViewHeight;
+			path = NSCollectionView;
 			sourceTree = "<group>";
 		};
 		14F92C0022BB1AC700A5C5E4 /* BNGloble */ = {

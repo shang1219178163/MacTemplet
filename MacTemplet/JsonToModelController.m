@@ -72,7 +72,9 @@
     [self.view addSubview:self.tableView.enclosingScrollView];
     [self.view addSubview:self.bottomView];
     [NoodleLineNumberView setupLineNumberWithTextView:self.textView];
-
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     for (NSInteger i = 0; i < 2; i++) {
         BNClassInfoModel *classModel = [[BNClassInfoModel alloc]init];
@@ -395,6 +397,9 @@
             classModel.className = classInfo.className;
             classModel.hContent = [classInfo classDescWithFirstFile:true];
 
+            classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"import UIKit" withString:self.langModel.staticImports];
+            NSString * tmp = [NSString stringWithFormat:@"NSObject, %@ {", self.langModel.defaultParentWithUtilityMethods];
+            classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"NSObject {" withString:tmp];
         }
         [self.tableView reloadData];
     }
@@ -467,8 +472,8 @@
             view.headerView = nil;// 隐藏表头
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
 
-            view.delegate = self;
-            view.dataSource = self;
+//            view.delegate = self;
+//            view.dataSource = self;
             
             NSArray * columns = @[@"columeOne", ];
             [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
