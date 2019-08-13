@@ -10,18 +10,24 @@
 
 @interface NSUserDefaults (Helper)
 
-@property (class, nonatomic, readonly) NSArray *typeList;
++ (BOOL)isSupport:(nullable id)value;
 
 + (void)setObject:(id)value forKey:(NSString *)key iCloudSync:(BOOL)sync;
 
+//保存自定义对象
 + (void)setObject:(id)value forKey:(NSString *)key;
 
 + (id)objectForKey:(NSString *)key iCloudSync:(BOOL)sync;
 
+//解档自定义对象
 + (id)objectForKey:(NSString *)key;
 
 + (void)synchronizeAndCloudSync:(BOOL)sync;
 
 + (void)synchronize;
-    
+
++ (void)setArcObject:(id)value forKey:(NSString *)key;
+
++ (id)arcObjectForKey:(NSString *)key;
+
 @end

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSObject (Helper)
+@interface NSObject (Helper)<NSSecureCoding>
 
 /// NSObject->NSData
 @property (nonatomic, strong, readonly) NSData * _Nullable jsonData;

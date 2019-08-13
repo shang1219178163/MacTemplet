@@ -117,6 +117,10 @@
     return self;
 }
 
++ (BOOL)supportsSecureCoding {
+    return YES; //支持加密编码
+}
+
 //KVC
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
     NSLog(@"不存在键_%@:%@",key,value);
