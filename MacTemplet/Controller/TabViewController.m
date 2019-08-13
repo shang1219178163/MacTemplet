@@ -41,11 +41,9 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       
                       ];
     [self.tabView addItems:list];
-    
-    NSInteger idx = [NSUserDefaults.standardUserDefaults integerForKey:kDefaultTabIndex];
-    if (idx >= 0 && idx < list.count) {
-        [self.tabView selectTabViewItemAtIndex:idx];
-    }
+
+    NSInteger idx = [[NSUserDefaults.standardUserDefaults objectForKey:kDefaultTabIndex]integerValue];
+    [self.tabView selectTabViewItemAtIndex:idx];
 }
 
 - (void)viewDidLayout{
@@ -67,10 +65,12 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 #pragma mark -NSTabViewDelegate
 
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(nullable NSTabViewItem *)tabViewItem{
-    NSInteger item = [self.tabView.tabViewItems indexOfObject:tabViewItem];
-    DDLog(@"index_%@_%@",@(item), tabViewItem.view);
-    
-    [NSUserDefaults.standardUserDefaults setInteger:item forKey:kDefaultTabIndex];
+    NSInteger index = [tabView.tabViewItems indexOfObject:tabViewItem];
+    DDLog(@"index_%@_%@",@(index), tabViewItem.view);
+    if (index == 0) {
+        return;
+    }
+    [NSUserDefaults.standardUserDefaults setObject:@(index) forKey:kDefaultTabIndex];
     [NSUserDefaults.standardUserDefaults synchronize];
 }
 
