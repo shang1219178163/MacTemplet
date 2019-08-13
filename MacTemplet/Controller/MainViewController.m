@@ -25,7 +25,7 @@
                       @[@"ThirdViewController", @"消息",],
                       
                       ];
-    [self addItems:list];
+    [self.tabView addItems:list];
         
     if (@available(macOS 10.12, *)) {
         self.tabView.tabViewBorderType = NSTabViewBorderTypeBezel;//边框样式：bezel类型边框
@@ -46,16 +46,16 @@
 
 #pragma mark -funtions
 
-- (void)addItems:(NSArray<NSArray *> *)items{
-    [items enumerateObjectsUsingBlock:^(NSArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSViewController * controller = [[NSClassFromString(obj.firstObject) alloc] init];
-        controller.title = controller.title ? : (obj[1] ? : @"");
-        
-        NSTabViewItem * item = [NSTabViewItem tabViewItemWithViewController:controller];
-        item.view = controller.view;
-        [self addTabViewItem:item];
-    }];
-}
+//- (void)addItems:(NSArray<NSArray *> *)items{
+//    [items enumerateObjectsUsingBlock:^(NSArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        NSViewController * controller = [[NSClassFromString(obj.firstObject) alloc] init];
+//        controller.title = controller.title ? : (obj[1] ? : @"");
+//
+//        NSTabViewItem * item = [NSTabViewItem tabViewItemWithViewController:controller];
+//        item.view = controller.view;
+//        [self addTabViewItem:item];
+//    }];
+//}
 
 
 @end
