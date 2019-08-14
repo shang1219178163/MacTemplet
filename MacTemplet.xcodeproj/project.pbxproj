@@ -32,6 +32,7 @@
 		14D40A0F22C4983D00AF74B9 /* NNButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0E22C4983C00AF74B9 /* NNButton.m */; };
 		14D40A1222C4A6DA00AF74B9 /* AuthorInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */; };
 		14D40A1822C4ACC300AF74B9 /* NSAttributedString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A1722C4ACC300AF74B9 /* NSAttributedString+Helper.m */; };
+		14F08BCC2303BC1800B75842 /* JsonToModelNewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F08BCB2303BC1800B75842 /* JsonToModelNewController.m */; };
 		14F0FD9D22ADDD3000057093 /* NSTextView+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FD9C22ADDD2F00057093 /* NSTextView+Helper.m */; };
 		14F0FDA022ADF12C00057093 /* NSObject+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */; };
 		14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDA222ADF14100057093 /* NSViewController+Hook.m */; };
@@ -153,6 +154,8 @@
 		14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthorInfoController.m; sourceTree = "<group>"; };
 		14D40A1622C4ACC300AF74B9 /* NSAttributedString+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Helper.h"; sourceTree = "<group>"; };
 		14D40A1722C4ACC300AF74B9 /* NSAttributedString+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Helper.m"; sourceTree = "<group>"; };
+		14F08BCA2303BC1800B75842 /* JsonToModelNewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonToModelNewController.h; sourceTree = "<group>"; };
+		14F08BCB2303BC1800B75842 /* JsonToModelNewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonToModelNewController.m; sourceTree = "<group>"; };
 		14F0FD9B22ADDD2F00057093 /* NSTextView+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTextView+Helper.h"; sourceTree = "<group>"; };
 		14F0FD9C22ADDD2F00057093 /* NSTextView+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+Helper.m"; sourceTree = "<group>"; };
 		14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Hook.m"; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 				1482F72922AB8F9300A7C5E1 /* HomeViewController.m */,
 				1445782322C1C9380007C7B3 /* JsonToModelController.h */,
 				1445782422C1C9380007C7B3 /* JsonToModelController.m */,
+				14F08BCA2303BC1800B75842 /* JsonToModelNewController.h */,
+				14F08BCB2303BC1800B75842 /* JsonToModelNewController.m */,
 				14D40A0422C3884900AF74B9 /* ProppertyLazyController.h */,
 				14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */,
 				14D40A1022C4A6DA00AF74B9 /* AuthorInfoController.h */,
@@ -850,6 +855,7 @@
 				14D40A0F22C4983D00AF74B9 /* NNButton.m in Sources */,
 				14F2F5A122B8DBF7009D49CE /* NSTabViewItem+Helper.m in Sources */,
 				14F92C1522BB3ADC00A5C5E4 /* AppDelegate+Menu.m in Sources */,
+				14F08BCC2303BC1800B75842 /* JsonToModelNewController.m in Sources */,
 				14F92C0F22BB21EC00A5C5E4 /* NSMenuItem+Helper.m in Sources */,
 				14F0FDCC22AFA48E00057093 /* FirstViewController.m in Sources */,
 				14F92C2122BB7D9600A5C5E4 /* NSFileManager+Helper.m in Sources */,

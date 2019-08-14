@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface NNTextLabel : NNTextField
 
+@property(nonatomic, strong) void(^mouseDownBlock)(NNTextLabel *sender);
+
 @end
 
 NS_ASSUME_NONNULL_END

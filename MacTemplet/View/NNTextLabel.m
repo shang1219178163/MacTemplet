@@ -8,6 +8,11 @@
 
 #import "NNTextLabel.h"
 
+@interface NNTextLabel ()
+
+ 
+@end
+
 @implementation NNTextLabel
 
 - (instancetype)init{
@@ -42,6 +47,12 @@
     [super drawRect:dirtyRect];
     
     // Drawing code here.
+}
+
+- (void)mouseDown:(NSEvent *)event{
+    if (self.mouseDownBlock) {
+        self.mouseDownBlock(self);
+    }
 }
 
 @end

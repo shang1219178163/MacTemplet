@@ -37,7 +37,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"ProppertyLazyController", @"属性Lazy",],
                       @[@"AuthorInfoController", @"其他",],
                       @[@"ThirdViewController", @"Third",],
-//                      @[@"FirstViewController", @"First",],
+                      @[@"JsonToModelNewController", @"new",],
                       
                       ];
     [self.tabView addItems:list];
