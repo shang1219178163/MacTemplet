@@ -294,7 +294,7 @@
         NSMutableString *result = [NSMutableString string];
         for (NSString *key in classInfo.propertyArrayDic) {
             ESClassInfo *childClassInfo = classInfo.propertyArrayDic[key];
-            [result appendFormat:@"@\"%@\" : [%@ class], ",key,childClassInfo.className];
+            [result appendFormat:@"@\"%@\" : [%@ class],\n\t\t",key,childClassInfo.className];
         }
         if ([result hasSuffix:@", "]) {
             result = [NSMutableString stringWithFormat:@"%@",[result substringToIndex:result.length-2]];
