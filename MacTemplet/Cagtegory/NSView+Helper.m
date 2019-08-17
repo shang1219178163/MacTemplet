@@ -114,7 +114,9 @@
     view.backgroundColor = NSColor.orangeColor;
     view.usesAlternatingRowBackgroundColors = YES; //背景颜色的交替，一行白色，一行灰色。设置后，原来设置的 backgroundColor 就无效了。
 //    view.gridColor = NSColor.redColor;
-    view.appearance = [NSAppearance appearanceNamed:NSAppearanceNameAqua] ;
+    view.appearance = [NSAppearance appearanceNamed:NSAppearanceNameAqua];
+    view.headerView = nil;// 隐藏表头
+    view.rowHeight = 70;
 
     return view;
 }

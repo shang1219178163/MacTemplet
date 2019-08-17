@@ -33,17 +33,20 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 -(void)viewWillAppear{
     [super viewWillAppear];
     
-    NSArray *list = @[@[@"JsonToModelController", @"json转模型", ],
+    NSArray *list = @[@[@"JsonToModelNewController", @"json转模型", ],
                       @[@"ProppertyLazyController", @"属性Lazy",],
                       @[@"AuthorInfoController", @"其他",],
-                      @[@"ThirdViewController", @"Third",],
-                      @[@"JsonToModelNewController", @"new",],
+//                      @[@"ThirdViewController", @"Third",],
                       
                       ];
     [self.tabView addItems:list];
 
-    NSInteger idx = [[NSUserDefaults.standardUserDefaults objectForKey:kDefaultTabIndex]integerValue];
-    [self.tabView selectTabViewItemAtIndex:idx];
+    if ([NSUserDefaults.standardUserDefaults objectForKey:kDefaultTabIndex]) {
+        NSInteger idx = [[NSUserDefaults.standardUserDefaults objectForKey:kDefaultTabIndex]integerValue];
+        idx = idx < list.count ? idx : 0;
+        [self.tabView selectTabViewItemAtIndex:idx];
+    }
+
 }
 
 - (void)viewDidLayout{

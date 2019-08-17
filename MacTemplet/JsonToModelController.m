@@ -73,8 +73,8 @@
     [self.view addSubview:self.bottomView];
     [NoodleLineNumberView setupLineNumberWithTextView:self.textView];
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+//    self.tableView.delegate = self;
+//    self.tableView.dataSource = self;
     
     for (NSInteger i = 0; i < 2; i++) {
         BNClassInfoModel *classModel = [[BNClassInfoModel alloc]init];
@@ -474,9 +474,9 @@
             NNTableView *view = [NNTableView createTableViewRect:CGRectZero];
             view.headerView = nil;// 隐藏表头
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
-
-//            view.delegate = self;
-//            view.dataSource = self;
+            view.rowHeight = 70;
+            view.delegate = self;
+            view.dataSource = self;
             
             NSArray * columns = @[@"columeOne", ];
             [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

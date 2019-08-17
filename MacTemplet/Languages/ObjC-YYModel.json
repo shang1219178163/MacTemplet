@@ -97,5 +97,5 @@
     "supportsFirstLineStatement": "false",
     "modelEnd": "\n}",
     "staticImports": "import Foundation \nimport HandyJSON",
-    "langName": "Swift"
+    "langName": "OC"
 }

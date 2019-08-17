@@ -25,6 +25,8 @@
 #import "BNLanguageModel.h"
 #import "BNClassInfoModel.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @interface JsonToModelNewController ()<NSTableViewDataSource, NSTableViewDelegate, NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>
 
 @property (nonatomic, strong) NNTextView *textView;
@@ -47,6 +49,8 @@
 @property (nonatomic, strong) BNLanguageModel * langModel;
 @property (nonatomic, strong) BNClassInfoModel * classFileModel;
 @property (nonatomic, strong) NSMutableArray * dataList;
+
+@property (nonatomic, strong) NSArray * typeList;
 
 @end
 
@@ -73,9 +77,6 @@
     [self.view addSubview:self.tableView.enclosingScrollView];
     [self.view addSubview:self.bottomView];
     [NoodleLineNumberView setupLineNumberWithTextView:self.textView];
-    
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     
     for (NSInteger i = 0; i < 2; i++) {
         BNClassInfoModel *classModel = [[BNClassInfoModel alloc]init];
@@ -399,6 +400,11 @@
             BNClassInfoModel *classModelOne = self.dataList.lastObject;
             classModelOne.className = classInfo.className;
             classModelOne.mContent = [classInfo classDescWithFirstFile:false];
+            if (self.valueTypeLab.isSelectable == true) {
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"assign) NSInteger " withString:@"copy) NSString *"];
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"assign) long long " withString:@"copy) NSString *"];
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"assign) CGFloat " withString:@"copy) NSString *"];
+            }
             
         } else {
             BNClassInfoModel *classModel = self.dataList.firstObject;
@@ -408,7 +414,12 @@
             classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"import UIKit" withString:self.langModel.staticImports];
             NSString * tmp = [NSString stringWithFormat:@"NSObject, %@ {", self.langModel.defaultParentWithUtilityMethods];
             classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"NSObject {" withString:tmp];
+            if (self.valueTypeLab.isSelectable == true) {
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Int = 0" withString:@": String?"];
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Double = 0" withString:@": String?"];
+            }
         }
+       
         [self.tableView reloadData];
     }
     
@@ -480,11 +491,9 @@
     if (!_tableView) {
         _tableView = ({
             NNTableView *view = [NNTableView createTableViewRect:CGRectZero];
-            view.headerView = nil;// 隐藏表头
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
-            
-            //            view.delegate = self;
-            //            view.dataSource = self;
+            view.delegate = self;
+            view.dataSource = self;
             
             NSArray * columns = @[@"columeOne", ];
             [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -600,22 +609,25 @@
     return _textLabel;
 }
 
-- (NNTextLabel *)valueTypeLab{
+-(NNTextLabel *)valueTypeLab{
     if (!_valueTypeLab) {
         _valueTypeLab = ({
             NNTextLabel * view = [[NNTextLabel alloc]initWithFrame:CGRectZero];
             view.bordered = false;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:13];
+            view.textColor = NSColor.grayColor;
             view.alignment = NSTextAlignmentCenter;
             
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
             view.backgroundColor = NSColor.clearColor;
-            view.stringValue = @"默认类型";
+            view.stringValue = self.typeList.firstObject;
             view.mouseDownBlock = ^(NNTextLabel * _Nonnull sender) {
                 sender.selectable = !sender.selectable;
-                sender.stringValue = sender.selectable == false ? @"默认类型" : @"字符串类型";
+                sender.stringValue = sender.selectable == false ? self.typeList.firstObject : self.typeList.lastObject;
                 sender.textColor = sender.selectable == false ? NSColor.grayColor : NSColor.redColor;
+                
+                [self hanldeJson];
             };
             view;
         });
@@ -623,7 +635,14 @@
     return _valueTypeLab;
 }
 
-- (NSPopUpButton *)popBtn{
+-(NSArray *)typeList{
+    if (!_typeList) {
+        _typeList = @[@"默认类型", @"字符串类型",];
+    }
+    return _typeList;
+}
+
+-(NSPopUpButton *)popBtn{
     if (!_popBtn) {
         _popBtn = ({
             NSPopUpButton *view = [[NSPopUpButton alloc] initWithFrame:CGRectZero pullsDown:false];
@@ -667,7 +686,7 @@
     return _btn;
 }
 
-- (NSDictionary *)langsDic{
+-(NSDictionary *)langsDic{
     if (!_langsDic) {
         _langsDic = ({
             __block NSMutableDictionary * mdic = [NSMutableDictionary dictionary];
@@ -691,7 +710,7 @@
     return _langsDic;
 }
 
-- (NSMutableArray *)dataList{
+-(NSMutableArray *)dataList{
     if (!_dataList) {
         _dataList = [NSMutableArray array];
     }
