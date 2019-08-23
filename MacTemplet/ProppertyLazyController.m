@@ -34,7 +34,7 @@
 
     [NoodleLineNumberView setupLineNumberWithTextView:self.textView];
     
-    self.textView.string = @"@property (nonatomic, strong) NNTextView *textView;\n@property (nonatomic, strong) NNView *bottomView;\n@property (nonatomic, strong) NSMutableArray *list;\n@property (nonatomic, strong) NSMutableDictionary *dic;\n@property (nonatomic, strong) NSMutableString *mstr;";
+    self.textView.string = @"@property (nonatomic, strong) NNTextView *textView;\n@property (nonatomic, strong) NNView *bottomView;\n@property (nonatomic, strong) NSMutableArray *list;\n@property (nonatomic, strong) NSMutableDictionary *dic;\n@property (nonatomic, strong) NSMutableString *mstr;\n@property (nonatomic, strong) UIImageView * imgView;\n@property (nonatomic, strong) UIButton * btn;";
     
     [self.textView resignFirstResponder];
 

@@ -21,42 +21,57 @@
     //    Class clz = NSClassFromString(model.propertyType);
     if ([model.type containsString:@"NSMutable"]) {
         NSString * supperClass = [model.type stringByReplacingOccurrencesOfString:@"NSMutable" withString:@""];
-        string = [NSString stringWithFormat:@"           _%@ = [%@ %@];\n", model.name, model.type, supperClass.lowercaseString];
+        string = [NSString stringWithFormat:@"\t_%@ = [%@ %@];\n", model.name, model.type, supperClass.lowercaseString];
         
+    } else if ([model.type hasSuffix:@"ImageView"]) {
+        string = [string stringByAppendingFormat:@"\t_%@ = ({\n", model.name];
+        string = [string stringByAppendingFormat:@"\t\t%@ *view = [[%@ alloc]initWithFrame:CGRectZero];\n", model.type, model.type];
+        NSString *other = @"\t\tview.contentMode = UIViewContentModeScaleAspectFit;\n\
+        \t\tview.backgroundColor = UIColor.blackColor;\n\
+        \t\tview.userInteractionEnabled = YES;\n\
+        \t\tview;\n\
+        \t});\n";
+        string = [string stringByAppendingString:other];
+
     } else if ([model.type hasSuffix:@"View"]) {
-        string = [string stringByAppendingFormat:@"           _%@ = ({\n", model.name];
-        string = [string stringByAppendingFormat:@"                  %@ *view = [[%@ alloc]initWithFrame:CGRectZero];\n", model.type, model.type];
-        string = [string stringByAppendingString:@"                  view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;\n\n"];
+        string = [string stringByAppendingFormat:@"\t_%@ = ({\n", model.name];
+        string = [string stringByAppendingFormat:@"\t\t%@ *view = [[%@ alloc]initWithFrame:CGRectZero];\n", model.type, model.type];
+        NSString *other = @"\t\tview;\n\
+        \t});\n";
+        string = [string stringByAppendingString:other];
         
-        string = [string stringByAppendingString:@"                  view;\n"];
-        string = [string stringByAppendingString:@"              });\n"];
+    } else if ([model.type hasSuffix:@"Button"]) {
+        string = [string stringByAppendingFormat:@"\t_%@ = ({\n", model.name];
+        string = [string stringByAppendingFormat:@"\t\t%@ *view = [%@ buttonWithType:UIButtonTypeCustom];\n", model.type, model.type];
+        NSString *other = @"\t\t[view setTitle:@\"\" forState:UIControlStateNormal];\n\
+        \t\tview.titleLabel.adjustsFontSizeToFitWidth = YES;\n\
+        \t\tview.imageView.contentMode = UIViewContentModeScaleAspectFit;\n\
+        \t\tview;\n\
+        \t});\n";
+        string = [string stringByAppendingString:other];
         
     } else {
-        string = [string stringByAppendingFormat:@"           _%@ = [[%@ alloc]init];\n", model.name, model.type];
+        string = [string stringByAppendingFormat:@"\t_%@ = [[%@ alloc]init];\n", model.name, model.type];
         
     }
-//    DDLog(@"%@, %@",model.propertyType, string);
+    //    DDLog(@"%@, %@",model.propertyType, string);
     return string;
 }
 
 - (NSString *)lazyDes{
     assert(self.valid);
 
-    BNPropertyInfoModel *model = self;
-
     NSMutableString *mStr = [NSMutableString string];
-    [mStr appendFormat:@"- (%@ *)%@{\n", model.type, model.name];
-    [mStr appendFormat:@"       if (!_%@) {\n", model.name];
-    [mStr appendString:model.lazyAllocDes];
-    //    [mStr appendFormat:@"           _%@ = [[%@ alloc]init];\n", model.propertyName, model.propertyType];
-    [mStr appendString:@"       }\n"];
-    [mStr appendFormat:@"       return _%@;\n", model.name];
+    [mStr appendFormat:@"- (%@ *)%@{\n", self.type, self.name];
+    [mStr appendFormat:@"\tif (!_%@) {\n", self.name];
+    [mStr appendString:self.lazyAllocDes];
+    [mStr appendString:@"\t}\n"];
+    [mStr appendFormat:@"\treturn _%@;\n", self.name];
     [mStr appendString:@"}\n"];
     return mStr;
 }
 
 + (NSArray<BNPropertyInfoModel *> *)modelsWithString:(NSString *)string{
-    
     if (![string componentsSeparatedByString:@";"]) {
         NSAlert * alert = [[NSAlert alloc]init];
         alert.messageText = @"属性必须;结尾";
