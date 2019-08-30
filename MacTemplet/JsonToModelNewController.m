@@ -492,8 +492,8 @@
         _tableView = ({
             NNTableView *view = [NNTableView createTableViewRect:CGRectZero];
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
-            view.delegate = self;
-            view.dataSource = self;
+//            view.delegate = self;
+//            view.dataSource = self;
             
             NSArray * columns = @[@"columeOne", ];
             [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -503,6 +503,8 @@
             }];
             view;
         });
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
     }
     return _tableView;
 }

@@ -27,7 +27,7 @@
         string = [string stringByAppendingFormat:@"\t_%@ = ({\n", model.name];
         string = [string stringByAppendingFormat:@"\t\t%@ *view = [[%@ alloc]initWithFrame:CGRectZero];\n", model.type, model.type];
         NSString *other = @"\t\tview.contentMode = UIViewContentModeScaleAspectFit;\n\
-        \t\tview.backgroundColor = UIColor.blackColor;\n\
+        \t\tview.backgroundColor = NSColor.blackColor;\n\
         \t\tview.userInteractionEnabled = YES;\n\
         \t\tview;\n\
         \t});\n";

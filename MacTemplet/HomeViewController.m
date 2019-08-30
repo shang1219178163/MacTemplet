@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import <Photos/Photos.h>
 #import "NNView.h"
 #import "NNTextView.h"
 #import "NNTextField.h"

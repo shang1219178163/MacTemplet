@@ -20,7 +20,7 @@
         subview.wantsLayer = true;
         subview.layer.borderWidth = 1.5;
         subview.layer.borderColor = NSColor.blueColor.CGColor;
-//        subview.layer.borderColor = UIColor.clearColor.CGColor;
+//        subview.layer.borderColor = NSColor.clearColor.CGColor;
         
         [subview getViewLayer];
         

@@ -17,7 +17,7 @@
     paraStyle.alignment = alignment;
     
     NSDictionary *attrDic = @{
-                              NSFontAttributeName: [NSFont fontWithName:@"PingFangSC-Light" size:font],
+                              NSFontAttributeName: [NSFont systemFontOfSize:font],
                               NSForegroundColorAttributeName: NSColor.blackColor,
                               NSParagraphStyleAttributeName: paraStyle,
                               };

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		070967CF6BBBA408F67F8E13 /* Pods_MacTemplet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */; };
+		140D292E2317E8C200867785 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D292D2317E8C200867785 /* QuartzCore.framework */; };
+		140D294F23189D9600867785 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D294E23189D9600867785 /* Photos.framework */; };
 		1445780022BCF50E0007C7B3 /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 144577FF22BCF50E0007C7B3 /* Const.m */; };
 		1445780322BDDAF90007C7B3 /* Swift-HandyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780222BDDAF90007C7B3 /* Swift-HandyJSON.json */; };
 		1445780522BDDB540007C7B3 /* ObjC-YYModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780422BDDB540007C7B3 /* ObjC-YYModel.json */; };
@@ -106,6 +108,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		140D292D2317E8C200867785 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		140D294E23189D9600867785 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		144577FE22BCF50E0007C7B3 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		144577FF22BCF50E0007C7B3 /* Const.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
 		1445780222BDDAF90007C7B3 /* Swift-HandyJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Swift-HandyJSON.json"; sourceTree = "<group>"; };
@@ -307,6 +311,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				140D294F23189D9600867785 /* Photos.framework in Frameworks */,
+				140D292E2317E8C200867785 /* QuartzCore.framework in Frameworks */,
 				070967CF6BBBA408F67F8E13 /* Pods_MacTemplet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +323,8 @@
 		018E125E61B7E1C8A8B6176D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				140D294E23189D9600867785 /* Photos.framework */,
+				140D292D2317E8C200867785 /* QuartzCore.framework */,
 				750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */,
 			);
 			name = Frameworks;
@@ -368,8 +376,8 @@
 				1482F71722AB8BD400A7C5E1 /* AppDelegate.m */,
 				14F92C1322BB3ADC00A5C5E4 /* AppDelegate+Menu.h */,
 				14F92C1422BB3ADC00A5C5E4 /* AppDelegate+Menu.m */,
-				14F92BE322BA124E00A5C5E4 /* MainWindowController.h */,
 				14F92BE422BA124E00A5C5E4 /* MainWindowController.m */,
+				14F92BE322BA124E00A5C5E4 /* MainWindowController.h */,
 				1482F72822AB8F9300A7C5E1 /* HomeViewController.h */,
 				1482F72922AB8F9300A7C5E1 /* HomeViewController.m */,
 				1445782322C1C9380007C7B3 /* JsonToModelController.h */,

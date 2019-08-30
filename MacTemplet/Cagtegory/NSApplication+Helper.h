@@ -15,15 +15,21 @@ NS_ASSUME_NONNULL_BEGIN
 /// 自定义mainWindow
 @property (class, nonatomic, nonnull) NSWindow *windowDefault;
 
-@property (class, readonly, nullable) NSString *appName;
+@property (class, readonly) NSDictionary *infoDic;
+@property (class, readonly) NSString *appName;
 @property (class, readonly, nullable) NSImage *appIcon;
-@property (class, readonly, nullable) NSString *appVer;
+@property (class, readonly) NSString *appVer;
 @property (class, readonly, nullable) NSString *appBuild;
 @property (class, readonly, nullable) NSString *platforms;
 @property (class, readonly, nullable) NSString *systemInfo;
 @property (class, readonly, nullable) NSString *appCopyright;
 @property (class, readonly, nullable) NSString *macUserName;
 @property (class, readonly, nullable) NSString *macLocalizedName;
+
+@property (class, readonly) NSDictionary *macSystemDic;
+@property (class, readonly) NSString *macProductName;
+@property (class, readonly) NSString *macCoryright;
+@property (class, readonly) NSString *macSystemVers;
 
 @end
 
