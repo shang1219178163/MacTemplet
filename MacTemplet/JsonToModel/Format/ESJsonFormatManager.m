@@ -133,7 +133,7 @@
  *  @return NSString
  */
 + (NSString *)formatSwiftWithKey:(NSString *)key value:(NSObject *)value classInfo:(ESClassInfo *)classInfo{
-    NSString *typeStr = @"String?";
+    NSString *typeStr = @"String = \"\"";
     //判断大小写
     if ([self.dicSwitch.allKeys containsObject:key] && ESJsonFormatSetting.defaultSetting.uppercaseKeyWordForId) {
         key = self.dicSwitch[key];
