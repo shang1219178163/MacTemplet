@@ -22,8 +22,8 @@
 #import "DataModel.h"
 
 #import <YYModel/YYModel.h>
-#import "BNLanguageModel.h"
-#import "BNClassInfoModel.h"
+#import "NNLanguageModel.h"
+#import "NNClassInfoModel.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -46,8 +46,8 @@
 @property (nonatomic, strong) NSString *mFilename;
 
 @property (nonatomic, strong) NSDictionary * langsDic;
-@property (nonatomic, strong) BNLanguageModel * langModel;
-@property (nonatomic, strong) BNClassInfoModel * classFileModel;
+@property (nonatomic, strong) NNLanguageModel * langModel;
+@property (nonatomic, strong) NNClassInfoModel * classFileModel;
 @property (nonatomic, strong) NSMutableArray * dataList;
 
 @property (nonatomic, strong) NSArray * typeList;
@@ -62,7 +62,7 @@
     self.title = @"Home";
     
     
-    [NSUserDefaults.standardUserDefaults setObject:@"BN" forKey:kClassPrefix];
+    [NSUserDefaults.standardUserDefaults setObject:@"NN" forKey:kClassPrefix];
     [NSUserDefaults.standardUserDefaults setObject:@"RootModel" forKey:kRootClass];
     [NSUserDefaults.standardUserDefaults setObject:@"NSObject" forKey:kSuperClass];
     [NSUserDefaults.standardUserDefaults synchronize];
@@ -79,7 +79,7 @@
     [NoodleLineNumberView setupLineNumberWithTextView:self.textView];
     
     for (NSInteger i = 0; i < 2; i++) {
-        BNClassInfoModel *classModel = [[BNClassInfoModel alloc]init];
+        NNClassInfoModel *classModel = [[NNClassInfoModel alloc]init];
         [self.dataList addObject:classModel];
     }
     
@@ -219,7 +219,7 @@
     cell.checkBox.hidden = true;
     
     if (self.dataList.count > 0) {
-        BNClassInfoModel * classModel = self.dataList[row];
+        NNClassInfoModel * classModel = self.dataList[row];
         
         BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
         if (!isSwift) {
@@ -393,11 +393,11 @@
     } else {
         bool isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
         if (!isSwift) {
-            BNClassInfoModel *classModel = self.dataList.firstObject;
+            NNClassInfoModel *classModel = self.dataList.firstObject;
             classModel.className = classInfo.className;
             classModel.hContent = [classInfo classDescWithFirstFile:true];
             
-            BNClassInfoModel *classModelOne = self.dataList.lastObject;
+            NNClassInfoModel *classModelOne = self.dataList.lastObject;
             classModelOne.className = classInfo.className;
             classModelOne.mContent = [classInfo classDescWithFirstFile:false];
             if (self.valueTypeLab.isSelectable == true) {
@@ -407,7 +407,7 @@
             }
             
         } else {
-            BNClassInfoModel *classModel = self.dataList.firstObject;
+            NNClassInfoModel *classModel = self.dataList.firstObject;
             classModel.className = classInfo.className;
             classModel.hContent = [classInfo classDescWithFirstFile:true];
             
@@ -415,8 +415,8 @@
             NSString * tmp = [NSString stringWithFormat:@"NSObject, %@ {", self.langModel.defaultParentWithUtilityMethods];
             classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"NSObject {" withString:tmp];
             if (self.valueTypeLab.isSelectable == true) {
-                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Int = 0" withString:@": String?"];
-                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Double = 0" withString:@": String?"];
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Int = 0" withString:@": String = \"\""];
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Double = 0" withString:@": String = \"\""];
             }
         }
        
@@ -426,8 +426,8 @@
 }
 
 - (void)creatFile{
-    BNClassInfoModel *classModelH = self.dataList.firstObject;
-    BNClassInfoModel *classModelM = self.dataList.lastObject;
+    NNClassInfoModel *classModelH = self.dataList.firstObject;
+    NNClassInfoModel *classModelM = self.dataList.lastObject;
     NSString * hContent = classModelH.hContent;
     NSString * mContent = classModelM.mContent;
     
@@ -492,8 +492,8 @@
         _tableView = ({
             NNTableView *view = [NNTableView createTableViewRect:CGRectZero];
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
-            view.delegate = self;
-            view.dataSource = self;
+//            view.delegate = self;
+//            view.dataSource = self;
             
             NSArray * columns = @[@"columeOne", ];
             [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -503,6 +503,8 @@
             }];
             view;
         });
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
     }
     return _tableView;
 }
@@ -700,7 +702,7 @@
                     [NSAlert showAlertWithError:error];
                     return ;
                 }
-                BNLanguageModel *langModel = [BNLanguageModel yy_modelWithJSON:dic];
+                NNLanguageModel *langModel = [NNLanguageModel yy_modelWithJSON:dic];
                 mdic[langModel.displayLangName] = langModel;
             }];
             

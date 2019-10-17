@@ -26,7 +26,7 @@ formatter.timeZone = [NSTimeZone systemTimeZone];\
 [threadDic setObject:formatter forKey:formatStr];\
 }\
 NSString *str = [formatter stringFromDate:[NSDate date]];\
-fprintf(stderr,"%s【line -%d】%s %s\n",[str UTF8String], __LINE__,__PRETTY_FUNCTION__,[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);\
+fprintf(stderr,"%s【line -%d】%s %s\n", [str UTF8String], __LINE__,__PRETTY_FUNCTION__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);\
 }
 
 #else

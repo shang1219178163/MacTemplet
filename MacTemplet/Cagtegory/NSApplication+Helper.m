@@ -13,7 +13,6 @@
 @implementation NSApplication (Helper)
 
 static NSWindow *_windowDefault = nil;
-
 +(NSWindow *)windowDefault{
     if (!_windowDefault) {
         _windowDefault = [NSWindow createMainWindowTitle:@"MainWindow"];
@@ -38,41 +37,42 @@ static NSWindow *_windowDefault = nil;
     _windowDefault = windowDefault;
 }
 
+static NSDictionary *_infoDic = nil;
++ (NSDictionary *)infoDic{
+    if(!_infoDic){
+        _infoDic = NSBundle.mainBundle.infoDictionary;
+    }
+    return _infoDic;
+}
+
 +(NSString *)appName{
-    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
-    return  infoDict[@"CFBundleDisplayName"] ? : infoDict[@"CFBundleName"];
+    return self.infoDic[@"CFBundleDisplayName"] ? : self.infoDic[@"CFBundleName"];
 }
 
 +(NSImage *)appIcon{
-    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
-    NSString *icon = infoDict[@"CFBundleIconName"];
+    NSString *icon = self.infoDic[@"CFBundleIconName"];
     NSImage * image = [NSImage imageNamed:icon];
     return image;
 }
 
 +(NSString *)appVer{
-    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
-    return infoDict[@"CFBundleShortVersionString"];
+    return self.infoDic[@"CFBundleShortVersionString"];
 }
 
 +(NSString *)appBuild{
-    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
-    return infoDict[@"CFBundleVersion"];
+    return self.infoDic[@"CFBundleVersion"];
 }
 
 +(NSString *)platforms{
-    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
-    return infoDict[@"CFBundleSupportedPlatforms"];
+    return self.infoDic[@"CFBundleSupportedPlatforms"];
 }
 
 +(NSString *)systemInfo{
-    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
-    return infoDict[@"DTSDKName"];
+    return self.infoDic[@"DTSDKName"];
 }
 
 +(NSString *)appCopyright{
-    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
-    return infoDict[@"NSHumanReadableCopyright"];
+    return self.infoDic[@"NSHumanReadableCopyright"];
 }
 
 +(NSString *)macUserName{
@@ -81,6 +81,26 @@ static NSWindow *_windowDefault = nil;
 
 +(NSString *)macLocalizedName{
     return NSHost.currentHost.localizedName;
+}
+
+static NSDictionary * _macSystemDic = nil;
++(NSDictionary *)macSystemDic{
+    if (!_macSystemDic) {
+        _macSystemDic = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+    }
+    return _macSystemDic;
+}
+
++(NSString *)macProductName{
+    return self.macSystemDic[@"ProductName"] ? : @"";
+}
+
++(NSString *)macCoryright{
+    return self.macSystemDic[@"ProductCopyright"] ? : @"";
+}
+
++(NSString *)macSystemVers{
+    return self.macSystemDic[@"ProductVersion"] ? : @"";
 }
 
 @end

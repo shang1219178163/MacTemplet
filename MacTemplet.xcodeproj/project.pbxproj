@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		070967CF6BBBA408F67F8E13 /* Pods_MacTemplet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */; };
+		140D292E2317E8C200867785 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D292D2317E8C200867785 /* QuartzCore.framework */; };
+		140D294F23189D9600867785 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D294E23189D9600867785 /* Photos.framework */; };
 		1445780022BCF50E0007C7B3 /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 144577FF22BCF50E0007C7B3 /* Const.m */; };
 		1445780322BDDAF90007C7B3 /* Swift-HandyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780222BDDAF90007C7B3 /* Swift-HandyJSON.json */; };
 		1445780522BDDB540007C7B3 /* ObjC-YYModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780422BDDB540007C7B3 /* ObjC-YYModel.json */; };
 		1445780922BDDBBC0007C7B3 /* ObjC-MJExtension.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780722BDDBBC0007C7B3 /* ObjC-MJExtension.json */; };
-		1445780F22BDF0520007C7B3 /* BNLanguageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445780E22BDF0520007C7B3 /* BNLanguageModel.m */; };
+		1445780F22BDF0520007C7B3 /* NNLanguageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445780E22BDF0520007C7B3 /* NNLanguageModel.m */; };
 		1445782522C1C9380007C7B3 /* JsonToModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782422C1C9380007C7B3 /* JsonToModelController.m */; };
 		1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */; };
-		1445783B22C1FFE20007C7B3 /* BNClassInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783A22C1FFE20007C7B3 /* BNClassInfoModel.m */; };
+		1445783B22C1FFE20007C7B3 /* NNClassInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783A22C1FFE20007C7B3 /* NNClassInfoModel.m */; };
 		1445783E22C2FDCE0007C7B3 /* BNTextViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783D22C2FDCD0007C7B3 /* BNTextViewContoller.m */; };
 		1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71722AB8BD400A7C5E1 /* AppDelegate.m */; };
 		1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1482F71922AB8BD500A7C5E1 /* Assets.xcassets */; };
@@ -27,7 +29,7 @@
 		1482F85D22ABA1CA00A7C5E1 /* NSColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85C22ABA1CA00A7C5E1 /* NSColor+Helper.m */; };
 		1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85F22ABA55F00A7C5E1 /* NNView.m */; };
 		14D40A0622C3884900AF74B9 /* ProppertyLazyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */; };
-		14D40A0922C449B300AF74B9 /* BNPropertyInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0822C449B300AF74B9 /* BNPropertyInfoModel.m */; };
+		14D40A0922C449B300AF74B9 /* NNPropertyInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0822C449B300AF74B9 /* NNPropertyInfoModel.m */; };
 		14D40A0C22C462E200AF74B9 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0B22C462E200AF74B9 /* TabViewController.m */; };
 		14D40A0F22C4983D00AF74B9 /* NNButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0E22C4983C00AF74B9 /* NNButton.m */; };
 		14D40A1222C4A6DA00AF74B9 /* AuthorInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */; };
@@ -81,9 +83,9 @@
 		14F92BF622BB13E900A5C5E4 /* NSObject+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BF522BB13E900A5C5E4 /* NSObject+Helper.m */; };
 		14F92BFE22BB1A2800A5C5E4 /* NSDateFormatter+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BFA22BB1A2700A5C5E4 /* NSDateFormatter+Helper.m */; };
 		14F92BFF22BB1A2800A5C5E4 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BFC22BB1A2700A5C5E4 /* NSDate+Helper.m */; };
-		14F92C0A22BB1AC700A5C5E4 /* BNAttStringKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C0122BB1AC700A5C5E4 /* BNAttStringKey.m */; };
+		14F92C0A22BB1AC700A5C5E4 /* NNAttStringKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C0122BB1AC700A5C5E4 /* NNAttStringKey.m */; };
 		14F92C0B22BB1AC700A5C5E4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14F92C0522BB1AC700A5C5E4 /* Media.xcassets */; };
-		14F92C0C22BB1AC700A5C5E4 /* BNGeneralConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C0822BB1AC700A5C5E4 /* BNGeneralConst.m */; };
+		14F92C0C22BB1AC700A5C5E4 /* NNGeneralConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C0822BB1AC700A5C5E4 /* NNGeneralConst.m */; };
 		14F92C0F22BB21EC00A5C5E4 /* NSMenuItem+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C0E22BB21EC00A5C5E4 /* NSMenuItem+Helper.m */; };
 		14F92C1222BB250A00A5C5E4 /* NSMenu+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C1122BB250A00A5C5E4 /* NSMenu+Helper.m */; };
 		14F92C1522BB3ADC00A5C5E4 /* AppDelegate+Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C1422BB3ADC00A5C5E4 /* AppDelegate+Menu.m */; };
@@ -106,20 +108,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		140D292D2317E8C200867785 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		140D294E23189D9600867785 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		144577FE22BCF50E0007C7B3 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		144577FF22BCF50E0007C7B3 /* Const.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
 		1445780222BDDAF90007C7B3 /* Swift-HandyJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Swift-HandyJSON.json"; sourceTree = "<group>"; };
 		1445780422BDDB540007C7B3 /* ObjC-YYModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ObjC-YYModel.json"; sourceTree = "<group>"; };
 		1445780722BDDBBC0007C7B3 /* ObjC-MJExtension.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ObjC-MJExtension.json"; sourceTree = "<group>"; };
-		1445780D22BDF0520007C7B3 /* BNLanguageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNLanguageModel.h; sourceTree = "<group>"; };
-		1445780E22BDF0520007C7B3 /* BNLanguageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNLanguageModel.m; sourceTree = "<group>"; };
+		1445780D22BDF0520007C7B3 /* NNLanguageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNLanguageModel.h; sourceTree = "<group>"; };
+		1445780E22BDF0520007C7B3 /* NNLanguageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNLanguageModel.m; sourceTree = "<group>"; };
 		1445782322C1C9380007C7B3 /* JsonToModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonToModelController.h; sourceTree = "<group>"; };
 		1445782422C1C9380007C7B3 /* JsonToModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonToModelController.m; sourceTree = "<group>"; };
 		1445782622C1CABA0007C7B3 /* NNHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNHeaderView.h; sourceTree = "<group>"; };
 		1445782822C1CDC90007C7B3 /* NSTableCellViewTen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTableCellViewTen.h; sourceTree = "<group>"; };
 		1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTableCellViewTen.m; sourceTree = "<group>"; };
-		1445783922C1FFE20007C7B3 /* BNClassInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNClassInfoModel.h; sourceTree = "<group>"; };
-		1445783A22C1FFE20007C7B3 /* BNClassInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNClassInfoModel.m; sourceTree = "<group>"; };
+		1445783922C1FFE20007C7B3 /* NNClassInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNClassInfoModel.h; sourceTree = "<group>"; };
+		1445783A22C1FFE20007C7B3 /* NNClassInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNClassInfoModel.m; sourceTree = "<group>"; };
 		1445783C22C2FDCD0007C7B3 /* BNTextViewContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNTextViewContoller.h; sourceTree = "<group>"; };
 		1445783D22C2FDCD0007C7B3 /* BNTextViewContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNTextViewContoller.m; sourceTree = "<group>"; };
 		1482F71322AB8BD400A7C5E1 /* MacTemplet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacTemplet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,8 +148,8 @@
 		1482F85F22ABA55F00A7C5E1 /* NNView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNView.m; sourceTree = "<group>"; };
 		14D40A0422C3884900AF74B9 /* ProppertyLazyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProppertyLazyController.h; sourceTree = "<group>"; };
 		14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProppertyLazyController.m; sourceTree = "<group>"; };
-		14D40A0722C449B300AF74B9 /* BNPropertyInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNPropertyInfoModel.h; sourceTree = "<group>"; };
-		14D40A0822C449B300AF74B9 /* BNPropertyInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNPropertyInfoModel.m; sourceTree = "<group>"; };
+		14D40A0722C449B300AF74B9 /* NNPropertyInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNPropertyInfoModel.h; sourceTree = "<group>"; };
+		14D40A0822C449B300AF74B9 /* NNPropertyInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNPropertyInfoModel.m; sourceTree = "<group>"; };
 		14D40A0A22C462E200AF74B9 /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		14D40A0B22C462E200AF74B9 /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		14D40A0D22C4983C00AF74B9 /* NNButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNButton.h; sourceTree = "<group>"; };
@@ -253,14 +257,14 @@
 		14F92BFB22BB1A2700A5C5E4 /* NSDateFormatter+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Helper.h"; sourceTree = "<group>"; };
 		14F92BFC22BB1A2700A5C5E4 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		14F92BFD22BB1A2700A5C5E4 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
-		14F92C0122BB1AC700A5C5E4 /* BNAttStringKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNAttStringKey.m; sourceTree = "<group>"; };
-		14F92C0222BB1AC700A5C5E4 /* BNGeneralConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNGeneralConst.h; sourceTree = "<group>"; };
-		14F92C0322BB1AC700A5C5E4 /* BNMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNMarco.h; sourceTree = "<group>"; };
+		14F92C0122BB1AC700A5C5E4 /* NNAttStringKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNAttStringKey.m; sourceTree = "<group>"; };
+		14F92C0222BB1AC700A5C5E4 /* NNGeneralConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNGeneralConst.h; sourceTree = "<group>"; };
+		14F92C0322BB1AC700A5C5E4 /* NNMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNMarco.h; sourceTree = "<group>"; };
 		14F92C0522BB1AC700A5C5E4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		14F92C0622BB1AC700A5C5E4 /* BNShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNShared.h; sourceTree = "<group>"; };
-		14F92C0722BB1AC700A5C5E4 /* BNAttStringKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNAttStringKey.h; sourceTree = "<group>"; };
-		14F92C0822BB1AC700A5C5E4 /* BNGeneralConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNGeneralConst.m; sourceTree = "<group>"; };
-		14F92C0922BB1AC700A5C5E4 /* BNGloble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNGloble.h; sourceTree = "<group>"; };
+		14F92C0622BB1AC700A5C5E4 /* NNShared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNShared.h; sourceTree = "<group>"; };
+		14F92C0722BB1AC700A5C5E4 /* NNAttStringKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNAttStringKey.h; sourceTree = "<group>"; };
+		14F92C0822BB1AC700A5C5E4 /* NNGeneralConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNGeneralConst.m; sourceTree = "<group>"; };
+		14F92C0922BB1AC700A5C5E4 /* NNGloble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNGloble.h; sourceTree = "<group>"; };
 		14F92C0D22BB21EC00A5C5E4 /* NSMenuItem+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMenuItem+Helper.h"; sourceTree = "<group>"; };
 		14F92C0E22BB21EC00A5C5E4 /* NSMenuItem+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMenuItem+Helper.m"; sourceTree = "<group>"; };
 		14F92C1022BB250A00A5C5E4 /* NSMenu+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMenu+Helper.h"; sourceTree = "<group>"; };
@@ -307,6 +311,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				140D294F23189D9600867785 /* Photos.framework in Frameworks */,
+				140D292E2317E8C200867785 /* QuartzCore.framework in Frameworks */,
 				070967CF6BBBA408F67F8E13 /* Pods_MacTemplet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +323,8 @@
 		018E125E61B7E1C8A8B6176D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				140D294E23189D9600867785 /* Photos.framework */,
+				140D292D2317E8C200867785 /* QuartzCore.framework */,
 				750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */,
 			);
 			name = Frameworks;
@@ -478,12 +486,12 @@
 			children = (
 				144577FE22BCF50E0007C7B3 /* Const.h */,
 				144577FF22BCF50E0007C7B3 /* Const.m */,
-				1445780D22BDF0520007C7B3 /* BNLanguageModel.h */,
-				1445780E22BDF0520007C7B3 /* BNLanguageModel.m */,
-				1445783922C1FFE20007C7B3 /* BNClassInfoModel.h */,
-				1445783A22C1FFE20007C7B3 /* BNClassInfoModel.m */,
-				14D40A0722C449B300AF74B9 /* BNPropertyInfoModel.h */,
-				14D40A0822C449B300AF74B9 /* BNPropertyInfoModel.m */,
+				1445780D22BDF0520007C7B3 /* NNLanguageModel.h */,
+				1445780E22BDF0520007C7B3 /* NNLanguageModel.m */,
+				1445783922C1FFE20007C7B3 /* NNClassInfoModel.h */,
+				1445783A22C1FFE20007C7B3 /* NNClassInfoModel.m */,
+				14D40A0722C449B300AF74B9 /* NNPropertyInfoModel.h */,
+				14D40A0822C449B300AF74B9 /* NNPropertyInfoModel.m */,
 				14F92C3522BB8DE800A5C5E4 /* Format */,
 				14F92C2622BB8DE500A5C5E4 /* Model */,
 			);
@@ -520,7 +528,7 @@
 			isa = PBXGroup;
 			children = (
 				14F92CF122BC6E5F00A5C5E4 /* NoodleLineNumber */,
-				14F92C0022BB1AC700A5C5E4 /* BNGloble */,
+				14F92C0022BB1AC700A5C5E4 /* NNGloble */,
 				14F2F55D22B77DDF009D49CE /* NSImage+Helper.swift */,
 			);
 			path = Other;
@@ -537,19 +545,19 @@
 			path = NSCollectionView;
 			sourceTree = "<group>";
 		};
-		14F92C0022BB1AC700A5C5E4 /* BNGloble */ = {
+		14F92C0022BB1AC700A5C5E4 /* NNGloble */ = {
 			isa = PBXGroup;
 			children = (
-				14F92C0922BB1AC700A5C5E4 /* BNGloble.h */,
+				14F92C0922BB1AC700A5C5E4 /* NNGloble.h */,
 				14F92C0422BB1AC700A5C5E4 /* Resources */,
-				14F92C0322BB1AC700A5C5E4 /* BNMarco.h */,
-				14F92C0622BB1AC700A5C5E4 /* BNShared.h */,
-				14F92C0722BB1AC700A5C5E4 /* BNAttStringKey.h */,
-				14F92C0122BB1AC700A5C5E4 /* BNAttStringKey.m */,
-				14F92C0222BB1AC700A5C5E4 /* BNGeneralConst.h */,
-				14F92C0822BB1AC700A5C5E4 /* BNGeneralConst.m */,
+				14F92C0322BB1AC700A5C5E4 /* NNMarco.h */,
+				14F92C0622BB1AC700A5C5E4 /* NNShared.h */,
+				14F92C0722BB1AC700A5C5E4 /* NNAttStringKey.h */,
+				14F92C0122BB1AC700A5C5E4 /* NNAttStringKey.m */,
+				14F92C0222BB1AC700A5C5E4 /* NNGeneralConst.h */,
+				14F92C0822BB1AC700A5C5E4 /* NNGeneralConst.m */,
 			);
-			path = BNGloble;
+			path = NNGloble;
 			sourceTree = "<group>";
 		};
 		14F92C0422BB1AC700A5C5E4 /* Resources */ = {
@@ -799,7 +807,7 @@
 				14F92C1222BB250A00A5C5E4 /* NSMenu+Helper.m in Sources */,
 				1482F85522AB96CE00A7C5E1 /* NSControl+Helper.m in Sources */,
 				14F92C4222BB8DE800A5C5E4 /* ESJsonFormat.m in Sources */,
-				14F92C0A22BB1AC700A5C5E4 /* BNAttStringKey.m in Sources */,
+				14F92C0A22BB1AC700A5C5E4 /* NNAttStringKey.m in Sources */,
 				14F2F5AC22B8FD18009D49CE /* CollectionViewController.m in Sources */,
 				14F2F5B122B8FEE5009D49CE /* NSCTViewItemOne.m in Sources */,
 				14F0FDBD22AF391300057093 /* NSTextFieldCell+Helper.m in Sources */,
@@ -821,7 +829,7 @@
 				14D40A1222C4A6DA00AF74B9 /* AuthorInfoController.m in Sources */,
 				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
 				1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */,
-				1445783B22C1FFE20007C7B3 /* BNClassInfoModel.m in Sources */,
+				1445783B22C1FFE20007C7B3 /* NNClassInfoModel.m in Sources */,
 				14F92BE622BA124E00A5C5E4 /* MainWindowController.m in Sources */,
 				14F2F5BD22B90109009D49CE /* NSCTViewCellOne.m in Sources */,
 				14F92C1B22BB6F3400A5C5E4 /* NNTextLabel.m in Sources */,
@@ -843,13 +851,13 @@
 				14F92C1822BB611600A5C5E4 /* NNTextView.m in Sources */,
 				14F2F5A522B8E147009D49CE /* BNTabViewController.m in Sources */,
 				14F92BF622BB13E900A5C5E4 /* NSObject+Helper.m in Sources */,
-				14D40A0922C449B300AF74B9 /* BNPropertyInfoModel.m in Sources */,
+				14D40A0922C449B300AF74B9 /* NNPropertyInfoModel.m in Sources */,
 				14F0FDD722AFAF8400057093 /* NSWindow+Helper.m in Sources */,
 				14F92CF722BC6E6C00A5C5E4 /* NoodleLineNumberView.m in Sources */,
 				14F92BFF22BB1A2800A5C5E4 /* NSDate+Helper.m in Sources */,
 				14F92BDE22B9E75100A5C5E4 /* BNDialogWindowController.m in Sources */,
 				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
-				14F92C0C22BB1AC700A5C5E4 /* BNGeneralConst.m in Sources */,
+				14F92C0C22BB1AC700A5C5E4 /* NNGeneralConst.m in Sources */,
 				1445780022BCF50E0007C7B3 /* Const.m in Sources */,
 				14F2F5A922B8F2E6009D49CE /* NSTabView+Helper.m in Sources */,
 				14D40A0F22C4983D00AF74B9 /* NNButton.m in Sources */,
@@ -861,7 +869,7 @@
 				14F92C2122BB7D9600A5C5E4 /* NSFileManager+Helper.m in Sources */,
 				14F92CF622BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m in Sources */,
 				14F2F58D22B881C4009D49CE /* NSTextFieldCell+Hook.m in Sources */,
-				1445780F22BDF0520007C7B3 /* BNLanguageModel.m in Sources */,
+				1445780F22BDF0520007C7B3 /* NNLanguageModel.m in Sources */,
 				14F0FDA622ADF20400057093 /* NSView+Hook.m in Sources */,
 				14F2F59622B8D9A2009D49CE /* MainViewController.m in Sources */,
 				1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */,

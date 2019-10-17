@@ -152,7 +152,7 @@
     }
     
     //如果当前是JSON对应是字典
-    if ([result isKindOfClass:[NSDictionary class]]) {
+    if ([result isKindOfClass: NSDictionary.class]) {
         //如果是生成到文件，提示输入Root class name
         if (!ESJsonFormatSetting.defaultSetting.outputToFiles) {
             NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
@@ -173,7 +173,7 @@
             [ESClassInfo dealPropertyNameWithClassInfo:classInfo];
             
         }
-    } else if ([result isKindOfClass:[NSArray class]]){
+    } else if ([result isKindOfClass: NSArray.class]){
         if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
             //当前是JSON代表数组，生成到文件需要提示用户输入Root Class name，
             NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
@@ -199,12 +199,12 @@
     for (NSString *key in dic) {
         //取出的可能是NSDictionary或者NSArray
         id obj = dic[key];
-        if ([obj isKindOfClass:[NSArray class]] || [obj isKindOfClass:[NSDictionary class]]) {
+        if ([obj isKindOfClass: NSArray.class] || [obj isKindOfClass: NSDictionary.class]) {
             
             NSString *msg = [NSString stringWithFormat:@"The '%@' correspond class name is:",key];
-            if ([obj isKindOfClass:[NSArray class]]) {
+            if ([obj isKindOfClass: NSArray.class]) {
                 //May be 'NSString'，will crash
-                if (!([[obj firstObject] isKindOfClass:[NSDictionary class]] || [[obj firstObject] isKindOfClass:[NSArray class]])) {
+                if (!([[obj firstObject] isKindOfClass: NSDictionary.class] || [[obj firstObject] isKindOfClass: NSArray.class])) {
                     continue;
                 }
                 msg = [NSString stringWithFormat:@"The '%@' child items class name is:",key];
@@ -216,18 +216,19 @@
             }
             
             //如果当前obj是 NSDictionary 或者 NSArray，继续向下遍历
-            if ([obj isKindOfClass:[NSDictionary class]]) {
+            if ([obj isKindOfClass: NSDictionary.class]) {
                 ESClassInfo *childClassInfo = [[ESClassInfo alloc] initWithClassNameKey:key ClassName:childClassName classDic:obj];
                 [ESClassInfo dealPropertyNameWithClassInfo:childClassInfo];
                 //设置classInfo里面属性对应class
                 [classInfo.propertyClassDic setObject:childClassInfo forKey:key];
-            }else if([obj isKindOfClass:[NSArray class]]){
+                
+            } else if ([obj isKindOfClass: NSArray.class]) {
                 //如果是 NSArray 取出第一个元素向下遍历
                 NSArray *array = obj;
                 if (array.firstObject) {
                     NSObject *obj = array.firstObject;
                     //May be 'NSString'，will crash
-                    if ([obj isKindOfClass:[NSDictionary class]]) {
+                    if ([obj isKindOfClass: NSDictionary.class]) {
                         ESClassInfo *childClassInfo = [[ESClassInfo alloc] initWithClassNameKey:key ClassName:childClassName classDic:(NSDictionary *)obj];
                         [ESClassInfo dealPropertyNameWithClassInfo:childClassInfo];
                         //设置classInfo里面属性类型为 NSArray 情况下，NSArray 内部元素类型的对应的class

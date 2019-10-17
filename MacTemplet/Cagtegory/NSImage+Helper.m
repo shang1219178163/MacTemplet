@@ -11,7 +11,6 @@
 @implementation NSImage (Helper)
 
 - (NSImage *)resize:(CGSize)to isPixels:(BOOL)isPixels{
-    
     CGSize toSize = to;
     CGFloat screenScale = NSScreen.mainScreen.backingScaleFactor;
     

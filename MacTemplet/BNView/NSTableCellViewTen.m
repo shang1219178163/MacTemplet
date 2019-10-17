@@ -43,7 +43,7 @@
         make.centerY.equalTo(self.checkBox);
         make.right.equalTo(self).offset(-kX_GAP);
         make.width.equalTo(180);
-        make.height.equalTo(textLabelSize.height);
+        make.height.lessThanOrEqualTo(textLabelSize.height);
     }];
     
     [self.textView.enclosingScrollView makeConstraints:^(MASConstraintMaker *make) {

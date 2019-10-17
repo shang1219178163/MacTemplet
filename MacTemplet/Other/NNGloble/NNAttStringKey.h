@@ -1,5 +1,5 @@
 //
-//  BNAttStringKey.h
+//  NNAttStringKey.h
 //  ProductTemplet
 //
 //  Created by hsf on 2018/8/30.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BNAttStringKey : NSObject
+@interface NNAttStringKey : NSObject
 
 @property (class, nonatomic, readonly) NSString *obj;
 @property (class, nonatomic, readonly) NSString *title;

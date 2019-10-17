@@ -73,6 +73,12 @@
 
     }
     
+    NSDictionary *systemDic = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+    DDLog(@"systemDic_%@", systemDic);
+    
+    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
+    DDLog(@"infoDict_%@", infoDict);
+
 }
 
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *) sender{

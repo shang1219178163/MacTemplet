@@ -40,9 +40,9 @@
     [list enumerateObjectsUsingBlock:^(id  _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
         NSObject *obj = dic[key];
         if ([NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
-            [resultStr appendFormat:@"\n%@\n",[self formatSwiftWithKey:key value:obj classInfo:classInfo]];
+            [resultStr appendFormat:@"\n%@\n", [self formatSwiftWithKey:key value:obj classInfo:classInfo]];
         } else {
-            [resultStr appendFormat:@"\n%@\n",[self formatObjcWithKey:key value:obj classInfo:classInfo]];
+            [resultStr appendFormat:@"\n%@\n", [self formatObjcWithKey:key value:obj classInfo:classInfo]];
         }
     }];
     return resultStr;
@@ -88,13 +88,13 @@
         }
         return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ %@;",qualifierStr,typeStr,key];
         
-    } else if ([value isKindOfClass:[NSArray class]]){
+    } else if ([value isKindOfClass: NSArray.class]){
         NSArray *array = (NSArray *)value;
         
         //May be 'NSString'，will crash
         NSString *genericTypeStr = @"";
         NSObject *firstObj = array.firstObject;
-        if ([firstObj isKindOfClass:[NSDictionary class]]) {
+        if ([firstObj isKindOfClass: NSDictionary.class]) {
             ESClassInfo *childInfo = classInfo.propertyArrayDic[key];
             genericTypeStr = [NSString stringWithFormat:@"<%@ *>",childInfo.className];
         } else if ([firstObj isKindOfClass:[NSString class]]){
@@ -110,7 +110,7 @@
         }
         return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
         
-    } else if ([value isKindOfClass:[NSDictionary class]]){
+    } else if ([value isKindOfClass: NSDictionary.class]){
         qualifierStr = @"strong";
         ESClassInfo *childInfo = classInfo.propertyClassDic[key];
         typeStr = childInfo.className;
@@ -133,7 +133,7 @@
  *  @return NSString
  */
 + (NSString *)formatSwiftWithKey:(NSString *)key value:(NSObject *)value classInfo:(ESClassInfo *)classInfo{
-    NSString *typeStr = @"String?";
+    NSString *typeStr = @"String = \"\"";
     //判断大小写
     if ([self.dicSwitch.allKeys containsObject:key] && ESJsonFormatSetting.defaultSetting.uppercaseKeyWordForId) {
         key = self.dicSwitch[key];
@@ -154,12 +154,12 @@
         }
         return [NSString stringWithFormat:@"    var %@: %@ = 0",key,typeStr];
         
-    } else if ([value isKindOfClass:[NSArray class]]){
+    } else if ([value isKindOfClass: NSArray.class]){
         ESClassInfo *childInfo = classInfo.propertyArrayDic[key];
         NSString *type = childInfo.className;
         return [NSString stringWithFormat:@"    var %@: [%@]?",key,type == nil ? @"String" : type];
         
-    } else if ([value isKindOfClass:[NSDictionary class]]){
+    } else if ([value isKindOfClass: NSDictionary.class]){
         ESClassInfo *childInfo = classInfo.propertyClassDic[key];
         typeStr = childInfo.className;
         if (!typeStr) {
@@ -187,7 +187,7 @@
     
     NSMutableString *result = [NSMutableString stringWithString:@""];
     if (ESJsonFormatSetting.defaultSetting.impOjbClassInArray) {
-        [result appendFormat:@"\n@implementation %@\n%@\n%@\n@end\n",classInfo.className,[self methodContentOfObjectClassInArrayWithClassInfo:classInfo],[self methodContentOfObjectIDInArrayWithClassInfo:classInfo]];
+        [result appendFormat:@"\n@implementation %@\n%@\n%@\n@end\n",classInfo.className, [self methodContentOfObjectClassInArrayWithClassInfo:classInfo], [self methodContentOfObjectIDInArrayWithClassInfo:classInfo]];
         
     } else {
         [result appendFormat:@"@implementation %@\n\n@end\n",classInfo.className];
@@ -264,16 +264,18 @@
 + (NSString *)methodContentOfSwiftMapMethodWithClassInfo:(ESClassInfo *)classInfo{
   
     NSMutableString *result = [NSMutableString string];
-    for (NSString *key in classInfo.propertyArrayDic) {
+    NSArray *keys = classInfo.propertyArrayDic.allKeys.count > 0 ? classInfo.propertyArrayDic.allKeys : classInfo.classDic.allKeys;
+    for (NSString *key in keys) {
         if ([self.dicSwitch.allKeys containsObject:key]) {
-            [result appendFormat:@"        mapper <<< %@ <-- \"%@\";\n",key, key];
+            [result appendFormat:@"        mapper <<< %@ <-- \"%@\";\n", self.dicSwitch[key], key];
         }
     }
+    
     if ([result hasSuffix:@";"]) {
-        result = [NSMutableString stringWithFormat:@"%@",[result substringToIndex:result.length-2]];
+        result = [NSMutableString stringWithFormat:@"%@", [result substringToIndex:result.length-2]];
     }
     
-    BNUtilitymethodsModel * utilityMethodsModel = classInfo.langModel.utilityMethods.firstObject;
+    NNUtilitymethodsModel * utilityMethodsModel = classInfo.langModel.utilityMethods.firstObject;
     NSString *methodStr = [utilityMethodsModel.propertyMapPropertyMethod stringByReplacingOccurrencesOfString:@"%@" withString:result];
  
     return methodStr;
@@ -297,10 +299,10 @@
             [result appendFormat:@"@\"%@\" : [%@ class],\n\t\t",key,childClassInfo.className];
         }
         if ([result hasSuffix:@", "]) {
-            result = [NSMutableString stringWithFormat:@"%@",[result substringToIndex:result.length-2]];
+            result = [NSMutableString stringWithFormat:@"%@", [result substringToIndex:result.length-2]];
         }
         
-        BNUtilitymethodsModel * utilityMethodsModel = classInfo.langModel.utilityMethods.firstObject;
+        NNUtilitymethodsModel * utilityMethodsModel = classInfo.langModel.utilityMethods.firstObject;
         NSString *methodStr = [utilityMethodsModel.propertyMapModelMethod stringByReplacingOccurrencesOfString:@"%@" withString:result];
         return methodStr;
     }
@@ -320,9 +322,9 @@
     }];
     
     if ([result hasSuffix:@", "]) {
-        result = [NSMutableString stringWithFormat:@"%@",[result substringToIndex:result.length-2]];
+        result = [NSMutableString stringWithFormat:@"%@", [result substringToIndex:result.length-2]];
 //        NSString *methodStr = [NSString stringWithFormat:@"\n+ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{\n    return @{%@};\n}\n",result];
-        BNUtilitymethodsModel * utilityMethodsModel = classInfo.langModel.utilityMethods.firstObject;
+        NNUtilitymethodsModel * utilityMethodsModel = classInfo.langModel.utilityMethods.firstObject;
         NSString *methodStr = [utilityMethodsModel.propertyMapPropertyMethod stringByReplacingOccurrencesOfString:@"%@" withString:result];
 
         return methodStr;

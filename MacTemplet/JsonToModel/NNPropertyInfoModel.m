@@ -1,14 +1,14 @@
 //
-//  BNPropertyInfoModel.m
+//  NNPropertyInfoModel.m
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/27.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
-#import "BNPropertyInfoModel.h"
+#import "NNPropertyInfoModel.h"
 
-@implementation BNPropertyInfoModel
+@implementation NNPropertyInfoModel
 
 - (BOOL)valid{
     BOOL isValid = ![self.type isEqualToString:@""] && ![self.name isEqualToString:@""] && self.type != nil && self.name != nil;
@@ -16,7 +16,7 @@
 }
 
 - (NSString *)lazyAllocDes{
-    BNPropertyInfoModel *model = self;
+    NNPropertyInfoModel *model = self;
     NSString * string = @"";
     //    Class clz = NSClassFromString(model.propertyType);
     if ([model.type containsString:@"NSMutable"]) {
@@ -27,7 +27,7 @@
         string = [string stringByAppendingFormat:@"\t_%@ = ({\n", model.name];
         string = [string stringByAppendingFormat:@"\t\t%@ *view = [[%@ alloc]initWithFrame:CGRectZero];\n", model.type, model.type];
         NSString *other = @"\t\tview.contentMode = UIViewContentModeScaleAspectFit;\n\
-        \t\tview.backgroundColor = UIColor.blackColor;\n\
+        \t\tview.backgroundColor = NSColor.blackColor;\n\
         \t\tview.userInteractionEnabled = YES;\n\
         \t\tview;\n\
         \t});\n";
@@ -71,7 +71,7 @@
     return mStr;
 }
 
-+ (NSArray<BNPropertyInfoModel *> *)modelsWithString:(NSString *)string{
++ (NSArray<NNPropertyInfoModel *> *)modelsWithString:(NSString *)string{
     if (![string componentsSeparatedByString:@";"]) {
         NSAlert * alert = [[NSAlert alloc]init];
         alert.messageText = @"属性必须;结尾";
@@ -83,7 +83,7 @@
     
     NSArray *propertys = [string componentsSeparatedByString:@";"];
     [propertys enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        BNPropertyInfoModel * propertyModel = [[BNPropertyInfoModel alloc]init];
+        NNPropertyInfoModel * propertyModel = [[NNPropertyInfoModel alloc]init];
         if ([obj rangeOfString:@")"].location != NSNotFound) {
             NSRange range = [obj rangeOfString:@")"];
             NSString * content = [obj substringFromIndex:(range.location + 1)];
@@ -100,12 +100,12 @@
     return marr.copy;
 }
 
-//+ (NSString *)lazyDesWithModel:(BNPropertyInfoModel *)model{
+//+ (NSString *)lazyDesWithModel:(NNPropertyInfoModel *)model{
 //
 //    NSMutableString *mStr = [NSMutableString string];
 //    [mStr appendFormat:@"- (%@ *)%@{\n", model.propertyType, model.propertyName];
 //    [mStr appendFormat:@"       if (!_%@) {\n", model.propertyName];
-//    [mStr appendString:[BNPropertyInfoModel lazyAllocDesWithModel:model]];
+//    [mStr appendString:[NNPropertyInfoModel lazyAllocDesWithModel:model]];
 //    //    [mStr appendFormat:@"           _%@ = [[%@ alloc]init];\n", model.propertyName, model.propertyType];
 //    [mStr appendString:@"       }\n"];
 //    [mStr appendFormat:@"       return _%@;\n", model.propertyName];
@@ -113,7 +113,7 @@
 //    return mStr;
 //}
 //
-//+ (NSString *)lazyAllocDesWithModel:(BNPropertyInfoModel *)model{
+//+ (NSString *)lazyAllocDesWithModel:(NNPropertyInfoModel *)model{
 //    NSString * string = @"";
 //    //    Class clz = NSClassFromString(model.propertyType);
 //    if ([model.propertyType containsString:@"NSMutable"]) {

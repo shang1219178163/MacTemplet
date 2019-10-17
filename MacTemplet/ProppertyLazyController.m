@@ -9,7 +9,7 @@
 #import "ProppertyLazyController.h"
 #import "NNHeaderView.h"
 #import "NoodleLineNumberView.h"
-#import "BNPropertyInfoModel.h"
+#import "NNPropertyInfoModel.h"
 
 @interface ProppertyLazyController ()<NSTextViewDelegate>
 
@@ -89,9 +89,9 @@
 #pragma mark -funtions
 
 - (NSString *)createResult:(NSString *)string{
-    NSArray * list = [BNPropertyInfoModel modelsWithString:string];
+    NSArray * list = [NNPropertyInfoModel modelsWithString:string];
     NSMutableString *mStr = [NSMutableString string];
-    [list enumerateObjectsUsingBlock:^(BNPropertyInfoModel * model, NSUInteger idx, BOOL * _Nonnull stop) {
+    [list enumerateObjectsUsingBlock:^(NNPropertyInfoModel * model, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString * desc = model.lazyDes;
         [mStr appendFormat:@"%@\n", desc];
         

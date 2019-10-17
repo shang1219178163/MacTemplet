@@ -22,7 +22,7 @@
     } else if ([obj isKindOfClass: NSString.class]) {
         data = [obj dataUsingEncoding:NSUTF8StringEncoding];
         
-    } else if ([obj isKindOfClass:[NSDictionary class]] || [obj isKindOfClass:[NSArray class]]){
+    } else if ([obj isKindOfClass: NSDictionary.class] || [obj isKindOfClass: NSArray.class]){
         NSError * error = nil;
         data = [NSJSONSerialization dataWithJSONObject:obj options:kNilOptions error:&error];
         if (error) {
@@ -153,13 +153,13 @@
         }
         
     }
-    else if ([self isKindOfClass:[NSArray class]]){
+    else if ([self isKindOfClass: NSArray.class]){
         if ([(NSArray *)self count] == 0){
             //            NSLog(@"空数组->(%@)",self);
             return NO;
         }
     }
-    else if ([self isKindOfClass:[NSDictionary class]]){
+    else if ([self isKindOfClass: NSDictionary.class]){
         if ([(NSDictionary *)self count] == 0){
             //            NSLog(@"空字典->(%@)",self);
             return NO;

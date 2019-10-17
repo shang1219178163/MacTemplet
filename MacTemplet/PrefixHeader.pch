@@ -14,7 +14,7 @@
 //#define kScreenWidth    NSScreen.mainScreen.frame.size.width
 //#define kScreenHeight   NSScreen.mainScreen.frame.size.height
 
-#import "BNGloble.h"
+#import "NNGloble.h"
 #import "Const.h"
 
 #import "MacExpand.h"

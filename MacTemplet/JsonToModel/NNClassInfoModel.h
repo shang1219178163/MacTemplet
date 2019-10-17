@@ -1,5 +1,5 @@
 //
-//  BNClassInfoModel.h
+//  NNClassInfoModel.h
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/25.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BNClassInfoModel : NSObject
+@interface NNClassInfoModel : NSObject
 
 @property (nonatomic, copy) NSString *copyright;
 
