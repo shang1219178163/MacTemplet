@@ -111,7 +111,7 @@
             }
             
             //再添加.m文件的内容
-            NSString *urlStr = [NSString stringWithFormat:@"%@m",[self.currentFilePath substringWithRange:NSMakeRange(0, self.currentFilePath.length-1)]] ;
+            NSString *urlStr = [NSString stringWithFormat:@"%@m", [self.currentFilePath substringWithRange:NSMakeRange(0, self.currentFilePath.length-1)]] ;
             NSURL *writeUrl = [NSURL URLWithString:urlStr];
             //The original content
             NSString *originalContent = [NSString stringWithContentsOfURL:writeUrl encoding:NSUTF8StringEncoding error:nil];

@@ -7,7 +7,7 @@
 //
 
 #import "NSDateFormatter+Helper.h"
-#import "BNGloble.h"
+#import "NNGloble.h"
 
 const NSInteger kDate_second = 1 ;
 const NSInteger kDate_minute = 60 ;

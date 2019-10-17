@@ -1,12 +1,12 @@
 //
-//  BNGeneralConst.m
+//  NNGeneralConst.m
 //  HuiZhuBang
 //
 //  Created by hsf on 2018/5/14.
 //  Copyright © 2018年 WeiHouKeJi. All rights reserved.
 //
 
-#import "BNGeneralConst.h"
+#import "NNGeneralConst.h"
 
 NSString * const kMainWindowFrame     =   @"kMainWindowFrame";
 
@@ -242,7 +242,7 @@ NSString * const kNotiPost_logIn           = @"kNotiPost_logIn";
 NSString * const kNotiPost_logOut          = @"kNotiPost_logOut";
 NSString * const kNotiPost_backgroudUploadLocation = @"kNotiPost_backgroudUploadLocation";
 
-@implementation BNGeneralConst
+@implementation NNGeneralConst
 
 
 

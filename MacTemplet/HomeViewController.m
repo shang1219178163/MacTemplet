@@ -24,7 +24,7 @@
 #import "DataModel.h"
 
 #import <YYModel/YYModel.h>
-#import "BNLanguageModel.h"
+#import "NNLanguageModel.h"
 
 @interface HomeViewController ()<NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>
 
@@ -49,7 +49,7 @@
 
 //@property (nonatomic, strong) NNTableView *tableView;
 @property (nonatomic, strong) NSDictionary * langsDic;
-@property (nonatomic, strong) BNLanguageModel * langModel;
+@property (nonatomic, strong) NNLanguageModel * langModel;
 
 @end
 
@@ -89,15 +89,15 @@
     NSString * folderPath = @"/Users/shang/Downloads";
     [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:kFolderPath];
 
-    [NSUserDefaults.standardUserDefaults setObject:@"BN" forKey:kClassPrefix];
+    [NSUserDefaults.standardUserDefaults setObject:@"NN" forKey:kClassPrefix];
     [NSUserDefaults.standardUserDefaults setObject:@"NSObject" forKey:kSuperClass];
-    [NSUserDefaults.standardUserDefaults setObject:@"BNRootClass" forKey:kRootClass];
+    [NSUserDefaults.standardUserDefaults setObject:@"NNRootClass" forKey:kRootClass];
     
     [NSUserDefaults.standardUserDefaults setBool:false forKey:kIsSwift];
     [NSUserDefaults.standardUserDefaults synchronize];
     
-    self.textField.stringValue = @"BN";
-    self.textFieldTwo.stringValue = @"BNRootClass";
+    self.textField.stringValue = @"NN";
+    self.textFieldTwo.stringValue = @"NNRootClass";
     self.textFieldThree.stringValue = @"NSObject";
 }
 
@@ -519,7 +519,7 @@
                     [NSAlert showAlertWithError:error];
                     return ;
                 }
-                BNLanguageModel *langModel = [BNLanguageModel yy_modelWithJSON:dic];
+                NNLanguageModel *langModel = [NNLanguageModel yy_modelWithJSON:dic];
                 mdic[langModel.displayLangName] = langModel;
             }];
                 
