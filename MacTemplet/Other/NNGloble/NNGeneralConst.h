@@ -1,5 +1,5 @@
 //
-//  BNGeneralConst.h
+//  NNGeneralConst.h
 //  HuiZhuBang
 //
 //  Created by hsf on 2018/5/14.
@@ -267,6 +267,6 @@ FOUNDATION_EXPORT NSString * const kNotiPost_logIn;
 FOUNDATION_EXPORT NSString * const kNotiPost_logOut;
 FOUNDATION_EXPORT NSString * const kNotiPost_backgroudUploadLocation ;
 
-@interface BNGeneralConst : NSObject
+@interface NNGeneralConst : NSObject
 
 @end

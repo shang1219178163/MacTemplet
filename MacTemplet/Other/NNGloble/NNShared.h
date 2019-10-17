@@ -14,7 +14,6 @@
 #if __has_feature(objc_arc)
 //ARC
 
-
 //.h头文件中的单例宏
 #define BNSingletonH(name) + (instancetype)shared;
 

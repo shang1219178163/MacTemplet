@@ -8,8 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "BNAttStringKey.h"
+#import "NNAttStringKey.h"
 #import "BNMarco.h"
-#import "BNGeneralConst.h"
+#import "NNGeneralConst.h"
 #import "BNShared.h"
 

@@ -2,9 +2,9 @@
 //Created by ESJsonFormatForMac on 19/06/22.
 //
 
-#import "BNLanguageModel.h"
+#import "NNLanguageModel.h"
 
-@implementation BNLanguageModel
+@implementation NNLanguageModel
 
 + (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
     return @{@"utilityMethods" : [BNUtilitymethodsModel class]};

@@ -1,5 +1,5 @@
 //
-//  BNPropertyInfoModel.h
+//  NNPropertyInfoModel.h
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/27.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BNPropertyInfoModel : NSObject
+@interface NNPropertyInfoModel : NSObject
 
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *name;
@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)lazyDes;
 
-+ (NSArray<BNPropertyInfoModel *> *)modelsWithString:(NSString *)string;
++ (NSArray<NNPropertyInfoModel *> *)modelsWithString:(NSString *)string;
 
 @end
 

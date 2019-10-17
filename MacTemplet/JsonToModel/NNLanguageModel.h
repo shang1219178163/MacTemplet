@@ -7,7 +7,7 @@
 @class BNDatatypesModel,BNUtilitymethodsModel;
 
 
-@interface BNLanguageModel : NSObject
+@interface NNLanguageModel : NSObject
 
 @property (nonatomic, copy) NSString *arrayType;
 
