@@ -7,20 +7,20 @@
 @implementation NNLanguageModel
 
 + (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
-    return @{@"utilityMethods" : [BNUtilitymethodsModel class]};
+    return @{@"utilityMethods" : [NNUtilitymethodsModel class]};
 }
 
 
 @end
 
 
-@implementation BNDatatypesModel
+@implementation NNDatatypesModel
 
 
 @end
 
 
-@implementation BNUtilitymethodsModel
+@implementation NNUtilitymethodsModel
 
 
 @end

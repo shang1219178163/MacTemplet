@@ -21,7 +21,7 @@
 
 -(NSString *)atClassContent{
     if (!self.classInfos.count) return nil;
-    NSMutableString *resultStr = [NSMutableString stringWithFormat:@"\n@class %@",[[self.classInfos firstObject] className]];
+    NSMutableString *resultStr = [NSMutableString stringWithFormat:@"\n@class %@", [[self.classInfos firstObject] className]];
     for (int i=0; i<self.classInfos.count-1; i++) {
         ESClassInfo *info = self.classInfos[i+1];
         [resultStr appendFormat:@",%@",info.className];

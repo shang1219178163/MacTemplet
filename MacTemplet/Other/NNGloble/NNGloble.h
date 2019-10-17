@@ -1,5 +1,5 @@
 //
-//  BNGloble.h
+//  NNGloble.h
 //  ProductTemplet
 //
 //  Created by hsf on 2018/9/29.
@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 #import "NNAttStringKey.h"
-#import "BNMarco.h"
+#import "NNMarco.h"
 #import "NNGeneralConst.h"
-#import "BNShared.h"
+#import "NNShared.h"
 

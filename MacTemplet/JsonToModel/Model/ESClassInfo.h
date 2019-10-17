@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BNLanguageModel.h"
+#import "NNLanguageModel.h"
 
 @interface ESClassInfo : NSObject
 /**
@@ -70,7 +70,7 @@
  */
 @property (nonatomic, copy) NSString *classInsertTextViewContentForM;
 
-@property (nonatomic, strong) BNLanguageModel *langModel;
+@property (nonatomic, strong) NNLanguageModel *langModel;
 
 - (instancetype)initWithClassNameKey:(NSString *)classNameKey ClassName:(NSString *)className classDic:(NSDictionary *)classDic;
 

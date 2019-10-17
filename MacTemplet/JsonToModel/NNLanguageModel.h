@@ -4,7 +4,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class BNDatatypesModel,BNUtilitymethodsModel;
+@class NNDatatypesModel,NNUtilitymethodsModel;
 
 
 @interface NNLanguageModel : NSObject
@@ -19,7 +19,7 @@
 
 @property (nonatomic, strong) NSArray *constructors;
 
-@property (nonatomic, strong) BNDatatypesModel *dataTypes;
+@property (nonatomic, strong) NNDatatypesModel *dataTypes;
 
 @property (nonatomic, copy) NSString *defaultParentWithUtilityMethods;
 
@@ -60,7 +60,7 @@
 @end
 
 
-@interface BNDatatypesModel : NSObject
+@interface NNDatatypesModel : NSObject
 
 @property (nonatomic, copy) NSString *boolType;
 
@@ -80,7 +80,7 @@
 
 
 
-@interface BNUtilitymethodsModel : NSObject
+@interface NNUtilitymethodsModel : NSObject
 
 @property (nonatomic, copy) NSString *propertyMapModelMethod;
 @property (nonatomic, copy) NSString *propertyMapPropertyMethod;
