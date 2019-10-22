@@ -21,7 +21,7 @@
     //    Class clz = NSClassFromString(model.propertyType);
     if ([model.type containsString:@"NSMutable"]) {
         NSString * supperClass = [model.type stringByReplacingOccurrencesOfString:@"NSMutable" withString:@""];
-        string = [NSString stringWithFormat:@"\t_%@ = [%@ %@];\n", model.name, model.type, supperClass.lowercaseString];
+        string = [NSString stringWithFormat:@"\t\t_%@ = [%@ %@];\n", model.name, model.type, supperClass.lowercaseString];
         
     } else if ([model.type hasSuffix:@"ImageView"]) {
         string = [string stringByAppendingFormat:@"\t_%@ = ({\n", model.name];
@@ -51,7 +51,7 @@
         string = [string stringByAppendingString:other];
         
     } else {
-        string = [string stringByAppendingFormat:@"\t_%@ = [[%@ alloc]init];\n", model.name, model.type];
+        string = [string stringByAppendingFormat:@"\t\t_%@ = [[%@ alloc]init];\n", model.name, model.type];
         
     }
     //    DDLog(@"%@, %@",model.propertyType, string);
