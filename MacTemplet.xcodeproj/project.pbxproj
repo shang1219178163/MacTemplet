@@ -343,13 +343,13 @@
 			path = Languages;
 			sourceTree = "<group>";
 		};
-		1445782722C1CD6E0007C7B3 /* BNView */ = {
+		1445782722C1CD6E0007C7B3 /* NNView */ = {
 			isa = PBXGroup;
 			children = (
 				1445782822C1CDC90007C7B3 /* NSTableCellViewTen.h */,
 				1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */,
 			);
-			path = BNView;
+			path = NNView;
 			sourceTree = "<group>";
 		};
 		1482F70A22AB8BD400A7C5E1 = {
@@ -391,10 +391,10 @@
 				14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */,
 				14D40A1022C4A6DA00AF74B9 /* AuthorInfoController.h */,
 				14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */,
-				1445782722C1CD6E0007C7B3 /* BNView */,
 				14F92C2522BB8DBB00A5C5E4 /* Controller */,
+				1445782722C1CD6E0007C7B3 /* NNView */,
 				14F2F5AD22B8FEB1009D49CE /* NSCollectionView */,
-				14F0FDAA22AE097A00057093 /* View */,
+				14F0FDAA22AE097A00057093 /* NNBaseView */,
 				1482F86122ABA5A400A7C5E1 /* Cagtegory */,
 				14F2F55F22B78078009D49CE /* Other */,
 				14F92C1C22BB766A00A5C5E4 /* Resource */,
@@ -503,7 +503,7 @@
 			path = JsonToModel;
 			sourceTree = "<group>";
 		};
-		14F0FDAA22AE097A00057093 /* View */ = {
+		14F0FDAA22AE097A00057093 /* NNBaseView */ = {
 			isa = PBXGroup;
 			children = (
 				1445782622C1CABA0007C7B3 /* NNHeaderView.h */,
@@ -526,7 +526,7 @@
 				14F2F5B322B8FF98009D49CE /* NNCollectionView.h */,
 				14F2F5B422B8FF98009D49CE /* NNCollectionView.m */,
 			);
-			path = View;
+			path = NNBaseView;
 			sourceTree = "<group>";
 		};
 		14F2F55F22B78078009D49CE /* Other */ = {
