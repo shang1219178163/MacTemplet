@@ -10,14 +10,138 @@
 
 @implementation NSColor (Helper)
 
+static NSColor * _themeColor = nil;
+static NSColor * _backgroudColor = nil;
+static NSColor * _lineColor = nil;
+static NSColor * _btnColor_N = nil;
+static NSColor * _btnColor_H = nil;
+static NSColor * _btnColor_D = nil;
+static NSColor * _excelColor = nil;
+static NSColor * _titleColor = nil;
+static NSColor * _titleSubColor = nil;
+
+static NSColor * _lightBlue = nil;
+static NSColor * _lightOrange = nil;
+static NSColor * _lightGreen = nil;
+
+static NSColor * _titleColor3 = nil;
+static NSColor * _titleColor6 = nil;
+static NSColor * _titleColor9 = nil;
+
++ (void)setThemeColor:(NSColor *)themeColor{
+    _themeColor = themeColor;
+}
+
++ (NSColor *)themeColor{
+    if (!_themeColor) {
+        _themeColor = NSColorHexValue(0x0082e0);
+    }
+    return _themeColor;
+}
+
 + (NSColor *)randomColor{
     CGFloat red = arc4random_uniform(256);
     CGFloat green = arc4random_uniform(256);
     CGFloat blue = arc4random_uniform(256);
-    return [NSColor colorWithRed:red/255.0
-                           green:green/255.0
-                            blue:blue/255.0
-                           alpha:1];
+    return [NSColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
+}
+
++ (NSColor *)backgroudColor{
+    if (!_backgroudColor) {
+        _backgroudColor = NSColorHexValue(0xE9E9E9);//233,233,233;
+    }
+    return _backgroudColor;
+}
+
++ (NSColor *)lineColor{
+    if (!_lineColor) {
+        _lineColor = NSColorHexValue(0xBCBAC0);
+    }
+    return _lineColor;
+}
+
++ (NSColor *)btnColor_N{
+    if (!_btnColor_N) {
+        _btnColor_N = NSColorHexValue(0xfea914);
+    }
+    return _btnColor_N;
+}
+
++ (NSColor *)btnColor_H{
+    if (!_btnColor_H) {
+        _btnColor_H = NSColorHexValue(0xf1a013);
+    }
+    return _btnColor_H;
+}
+
++ (NSColor *)btnColor_D{
+    if (!_btnColor_D) {
+        _btnColor_D = NSColorHexValue(0x999999);
+    }
+    return _btnColor_D;
+}
+
++ (NSColor *)excelColor{
+    if (!_excelColor) {
+        _excelColor = [NSColor colorWithRed:238/255.0 green:238/255.0 blue:238/255.0 alpha:1];
+    }
+    return _excelColor;
+}
+
++ (NSColor *)titleColor{
+    if (!_titleColor) {
+        _titleColor = NSColorHexValue(0x333333);
+    }
+    return _titleColor;
+}
+
++ (NSColor *)titleSubColor{
+    if (!_titleSubColor) {
+        _titleSubColor = NSColorHexValue(0x999999);
+    }
+    return _titleSubColor;
+}
+
++ (NSColor *)lightBlue{
+    if (!_lightBlue) {
+        _lightBlue = NSColorHexValue(0x29B5FE);
+    }
+    return _lineColor;
+}
+
++ (NSColor *)lightOrange{
+    if (!_lightOrange) {
+        _lightOrange = NSColorHexValue(0xFFBB50);
+    }
+    return _lightOrange;
+}
+
++ (NSColor *)lightGreen{
+    if (!_lightGreen) {
+        _lightGreen = NSColorHexValue(0x1AC756);
+    }
+    return _lightGreen;
+}
+
++ (NSColor *)titleColor3{
+    if (!_titleColor) {
+        _titleColor = NSColorHexValue(0x333333);
+    }
+    return _titleColor;
+}
+
++ (NSColor *)titleColor6{
+    if (!_titleColor) {
+        _titleColor = NSColorHexValue(0x666666);
+    }
+    return _titleColor;
+}
+
++ (NSColor *)titleColor9{
+    if (!_titleColor) {
+        _titleColor = NSColorHexValue(0x999999);
+    }
+    return _titleColor;
 }
 
 NSColor * NSColorDim(CGFloat White, CGFloat a){

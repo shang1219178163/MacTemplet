@@ -12,6 +12,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSColor (Helper)
 
+@property (class, nonatomic) NSColor *themeColor;
+@property (class, nonatomic, readonly) NSColor *randomColor;
+@property (class, nonatomic, readonly) NSColor *backgroudColor;
+@property (class, nonatomic, readonly) NSColor *lineColor;
+@property (class, nonatomic, readonly) NSColor *btnColor_N;
+@property (class, nonatomic, readonly) NSColor *btnColor_H;
+@property (class, nonatomic, readonly) NSColor *btnColor_D;
+@property (class, nonatomic, readonly) NSColor *excelColor;
+ 
+@property (class, nonatomic, readonly) NSColor *titleColor;
+@property (class, nonatomic, readonly) NSColor *titleSubColor;
+
+@property (class, nonatomic, readonly) NSColor *lightBlue;
+@property (class, nonatomic, readonly) NSColor *lightOrange;
+@property (class, nonatomic, readonly) NSColor *lightGreen;
+
+@property (class, nonatomic, readonly) NSColor *titleColor3;
+@property (class, nonatomic, readonly) NSColor *titleColor6;
+@property (class, nonatomic, readonly) NSColor *titleColor9;
+
 + (NSColor *)randomColor;
 
 FOUNDATION_EXPORT NSColor * NSColorDim(CGFloat White,CGFloat a);

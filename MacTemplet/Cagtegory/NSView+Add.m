@@ -19,7 +19,8 @@
         obj = ({
             CGRect rect = CGRectMake(0, 0, CGRectGetWidth(self.bounds), kH_LINE_VIEW);
             NSView *view = [[NSView alloc] initWithFrame:rect];
-           
+            view.layer.backgroundColor = NSColor.lineColor.CGColor;
+            
             view;
         });
         objc_setAssociatedObject(self, _cmd, obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -38,7 +39,8 @@
         obj = ({
             CGRect rect = CGRectMake(0, CGRectGetHeight(self.bounds) - kH_LINE_VIEW, CGRectGetWidth(self.bounds), kH_LINE_VIEW);
             NSView *view = [[NSView alloc] initWithFrame:rect];
-           
+            view.layer.backgroundColor = NSColor.lineColor.CGColor;
+
             view;
         });
         objc_setAssociatedObject(self, _cmd, obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
