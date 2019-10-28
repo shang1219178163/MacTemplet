@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		070967CF6BBBA408F67F8E13 /* Pods_MacTemplet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */; };
+		140218312366C7CC00B27E4C /* NSView+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 140218302366C7CC00B27E4C /* NSView+Add.m */; };
 		140D292E2317E8C200867785 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D292D2317E8C200867785 /* QuartzCore.framework */; };
 		140D294F23189D9600867785 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D294E23189D9600867785 /* Photos.framework */; };
 		1445780022BCF50E0007C7B3 /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 144577FF22BCF50E0007C7B3 /* Const.m */; };
@@ -108,6 +109,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1402182F2366C7CC00B27E4C /* NSView+Add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+Add.h"; sourceTree = "<group>"; };
+		140218302366C7CC00B27E4C /* NSView+Add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+Add.m"; sourceTree = "<group>"; };
 		140D292D2317E8C200867785 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		140D294E23189D9600867785 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		144577FE22BCF50E0007C7B3 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
@@ -437,6 +440,8 @@
 				14F0FDA222ADF14100057093 /* NSViewController+Hook.m */,
 				14F92BF122BA49A800A5C5E4 /* NSViewController+Helper.h */,
 				14F92BF222BA49A800A5C5E4 /* NSViewController+Helper.m */,
+				1402182F2366C7CC00B27E4C /* NSView+Add.h */,
+				140218302366C7CC00B27E4C /* NSView+Add.m */,
 				14F0FDA422ADF20400057093 /* NSView+Hook.h */,
 				14F0FDA522ADF20400057093 /* NSView+Hook.m */,
 				1482F84D22AB920C00A7C5E1 /* NSView+Helper.h */,
@@ -817,6 +822,7 @@
 				14F2F59322B8D826009D49CE /* NNTableRowView.m in Sources */,
 				14F92C4D22BB8E0900A5C5E4 /* ESFormatInfo.m in Sources */,
 				14F92BDA22B9E12000A5C5E4 /* NSAlert+Helper.m in Sources */,
+				140218312366C7CC00B27E4C /* NSView+Add.m in Sources */,
 				14F0FDC922AF97E200057093 /* NNTextField.m in Sources */,
 				14F92C4F22BB8E0900A5C5E4 /* ESPbxprojInfo.m in Sources */,
 				1482F85922AB9C2E00A7C5E1 /* TableViewController.m in Sources */,

@@ -492,6 +492,7 @@
         _tableView = ({
             NNTableView *view = [NNTableView createTableViewRect:CGRectZero];
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
+            view.rowHeight = 70;
 //            view.delegate = self;
 //            view.dataSource = self;
             

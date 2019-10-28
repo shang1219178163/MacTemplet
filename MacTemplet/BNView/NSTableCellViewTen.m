@@ -21,7 +21,10 @@
         [self addSubview:self.checkBox];
         [self addSubview:self.textLabel];
         [self addSubview:self.textView.enclosingScrollView];
+        [self addSubview:self.lineBottom];
 
+//        self.lineBottom.wantsLayer = true;
+        self.lineBottom.layer.backgroundColor = NSColor.redColor.CGColor;
 //        [self getViewLayer];
     }
     return self;
@@ -41,7 +44,7 @@
     CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(180, 30)];
     [self.textLabel makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.checkBox);
-        make.right.equalTo(self).offset(-kX_GAP);
+        make.right.equalTo(self).offset(0);
         make.width.equalTo(180);
         make.height.lessThanOrEqualTo(textLabelSize.height);
     }];
@@ -51,6 +54,13 @@
         make.left.equalTo(self.checkBox);
         make.right.equalTo(self.textLabel);
         make.bottom.equalTo(self);
+    }];
+    
+    [self.lineBottom makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self);
+        make.right.equalTo(self);
+        make.bottom.equalTo(self.textView.top);
+        make.height.equalTo(5);
     }];
 }
 

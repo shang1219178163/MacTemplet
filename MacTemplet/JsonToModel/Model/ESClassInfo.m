@@ -9,6 +9,7 @@
 #import "ESClassInfo.h"
 #import "ESJsonFormatManager.h"
 #import "ESJsonFormatSetting.h"
+#import "NSApplication+Helper.h"
 
 @implementation ESClassInfo
 
@@ -243,8 +244,18 @@
 
 - (NSString *)classDescWithFirstFile:(BOOL)isFirstFile{
     ESClassInfo *classInfo = self;
-    NSString *dateStr = [NSDateFormatter stringFromDate:NSDate.date format:@"yy/MM/dd"];
+    NSString *dateStr = [NSDateFormatter stringFromDate:NSDate.date format:@"yyyy/MM/dd"];
     NSString *modelStr = [NSString stringWithFormat:@"//\n//Created by %@ on %@.\n//\n\n", NSApplication.macUserName, dateStr];
+    modelStr = NSApplication.classCopyright;
+//    NSString *year = [dateStr componentsSeparatedByString:@"/"].firstObject;
+//    modelStr = [NSString stringWithFormat:@"//\n\
+////\n\
+////  MacTemplet\n\
+////\n\
+////  Created by %@ on %@.\n\
+////  Copyright © %@ %@. All rights reserved.\n\
+////\n\n", NSApplication.macUserName, dateStr, year, NSApplication.macUserName];
+
     
     NSMutableString *hImportStr = nil;
     NSString *mImportStr = nil;
