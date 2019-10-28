@@ -144,7 +144,7 @@
     return _imgView;
 }
 
-- (NNTextField *)textField{
+-(NNTextField *)textField{
     if (!_textField) {
         _textField = ({
             NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"简单介绍"];
@@ -170,7 +170,7 @@
     return _textField;
 }
 
-- (NSTextField *)textFieldOne{
+-(NSTextField *)textFieldOne{
     if (!_textFieldOne) {
         _textFieldOne = ({
             NSTextField *view = [[NSTextField alloc]init];
@@ -215,6 +215,7 @@
     }
     return _textView;
 }
+
 
 @end
 

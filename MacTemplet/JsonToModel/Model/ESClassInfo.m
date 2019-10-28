@@ -64,11 +64,11 @@
     
     NSMutableString *resultStr = [NSMutableString stringWithFormat:@"@class "];
     for (ESClassInfo *classInfo in array) {
-        [resultStr appendFormat:@"%@,",classInfo.className];
+        [resultStr appendFormat:@"%@, ",classInfo.className];
     }
 
-    if ([resultStr hasSuffix:@","]) {
-        resultStr = [NSMutableString stringWithString:[resultStr substringToIndex:resultStr.length-1]];
+    if ([resultStr hasSuffix:@", "]) {
+        resultStr = [NSMutableString stringWithString:[resultStr substringToIndex:resultStr.length - 2]];
     }
     [resultStr appendString:@";"];
     return resultStr;
@@ -247,15 +247,6 @@
     NSString *dateStr = [NSDateFormatter stringFromDate:NSDate.date format:@"yyyy/MM/dd"];
     NSString *modelStr = [NSString stringWithFormat:@"//\n//Created by %@ on %@.\n//\n\n", NSApplication.macUserName, dateStr];
     modelStr = NSApplication.classCopyright;
-//    NSString *year = [dateStr componentsSeparatedByString:@"/"].firstObject;
-//    modelStr = [NSString stringWithFormat:@"//\n\
-////\n\
-////  MacTemplet\n\
-////\n\
-////  Created by %@ on %@.\n\
-////  Copyright © %@ %@. All rights reserved.\n\
-////\n\n", NSApplication.macUserName, dateStr, year, NSApplication.macUserName];
-
     
     NSMutableString *hImportStr = nil;
     NSString *mImportStr = nil;
