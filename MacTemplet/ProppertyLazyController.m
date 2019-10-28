@@ -78,7 +78,7 @@
     
 //    DDLog(@"%@",textView.string);
     self.textViewOne.string = [self createResult:textView.string];
-
+    [NSPasteboard.generalPasteboard setString:self.textViewOne.string forType:NSPasteboardTypeString];
 }
 
 - (void)textDidChange:(NSNotification *)notification{

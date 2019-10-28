@@ -24,7 +24,7 @@
         string = [NSString stringWithFormat:@"\t\t_%@ = [%@ %@];\n", model.name, model.type, supperClass.lowercaseString];
         
     } else if ([model.type hasSuffix:@"ImageView"]) {
-        string = [string stringByAppendingFormat:@"\t\t_%@ = ({\n", model.name];
+        string = [string stringByAppendingFormat:@"\t_%@ = ({\n", model.name];
         string = [string stringByAppendingFormat:@"\t\t%@ *view = [[%@ alloc]initWithFrame:CGRectZero];\n", model.type, model.type];
         NSString *other = @"\t\tview.contentMode = UIViewContentModeScaleAspectFit;\n\
         \t\tview.backgroundColor = NSColor.blackColor;\n\
@@ -34,14 +34,14 @@
         string = [string stringByAppendingString:other];
 
     } else if ([model.type hasSuffix:@"View"]) {
-        string = [string stringByAppendingFormat:@"\t\t_%@ = ({\n", model.name];
+        string = [string stringByAppendingFormat:@"\t_%@ = ({\n", model.name];
         string = [string stringByAppendingFormat:@"\t\t%@ *view = [[%@ alloc]initWithFrame:CGRectZero];\n", model.type, model.type];
         NSString *other = @"\t\tview;\n\
         \t});\n";
         string = [string stringByAppendingString:other];
         
     } else if ([model.type hasSuffix:@"Button"]) {
-        string = [string stringByAppendingFormat:@"\t\t_%@ = ({\n", model.name];
+        string = [string stringByAppendingFormat:@"\t_%@ = ({\n", model.name];
         string = [string stringByAppendingFormat:@"\t\t%@ *view = [%@ buttonWithType:UIButtonTypeCustom];\n", model.type, model.type];
         NSString *other = @"\t\t[view setTitle:@\"\" forState:UIControlStateNormal];\n\
         \t\tview.titleLabel.adjustsFontSizeToFitWidth = YES;\n\
