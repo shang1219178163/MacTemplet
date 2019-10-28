@@ -13,10 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSApplication (Helper)
 
 /// 自定义mainWindow
-@property (class, nonatomic, nonnull) NSWindow *windowDefault;
+@property (class, nonatomic) NSWindow *windowDefault;
 
 @property (class, readonly) NSDictionary *infoDic;
 @property (class, readonly) NSString *appName;
+@property (class, readonly) NSString *appBundleName;
 @property (class, readonly, nullable) NSImage *appIcon;
 @property (class, readonly) NSString *appVer;
 @property (class, readonly, nullable) NSString *appBuild;
@@ -30,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, readonly) NSString *macProductName;
 @property (class, readonly) NSString *macCoryright;
 @property (class, readonly) NSString *macSystemVers;
+/// 类文件顶部信息
+@property (class, readonly) NSString *classCopyright;
 
 @end
 

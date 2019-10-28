@@ -44,6 +44,7 @@
 #import "NSTextField+Hook.h"
 
 #import "NSUserDefaults+Helper.h"
+#import "NSView+Add.h"
 #import "NSView+Helper.h"
 #import "NSView+Hook.h"
 #import "NSViewController+Hook.h"

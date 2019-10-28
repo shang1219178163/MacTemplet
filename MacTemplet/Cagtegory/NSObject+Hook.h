@@ -20,7 +20,6 @@
 
 FOUNDATION_EXPORT Class NSClassFromObj(id clz);
 
-
 /**
  实例方法交换-所有类实例方法交换
  @param clz     Class或者NSString类型
@@ -29,24 +28,12 @@ FOUNDATION_EXPORT Class NSClassFromObj(id clz);
 + (BOOL)swizzleMethodInstance:(id)clz origSel:(SEL)origSelector replSel:(SEL)replSelector;
 
 /**
- 实例方法交换
- @return        YES成功,NO失败
- */
-+ (BOOL)swizzleMethodInstanceOrigSel:(SEL)origSelector replSel:(SEL)replSelector;
-
-/**
  类方法交换
  
  @param clz     Class或者NSString类型
  @return        YES成功,NO失败
  */
 + (BOOL)swizzleMethodClass:(id)clz origSel:(SEL)origSelector replSel:(SEL)replSelector;
-
-/**
- 类方法交换
- @return        YES成功,NO失败
- */
-+ (BOOL)swizzleMethodClassOrigSel:(SEL)origSelector replSel:(SEL)replSelector;
 
 /**
  判断方法是否在子类里override了

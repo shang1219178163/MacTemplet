@@ -8,7 +8,7 @@
 
 #import "NSApplication+Helper.h"
 #import <objc/runtime.h>
-
+#import "NSDateFormatter+Helper.h"
 
 @implementation NSApplication (Helper)
 
@@ -47,6 +47,10 @@ static NSDictionary *_infoDic = nil;
 
 +(NSString *)appName{
     return self.infoDic[@"CFBundleDisplayName"] ? : self.infoDic[@"CFBundleName"];
+}
+
++(NSString *)appBundleName{
+    return self.infoDic[@"CFBundleExecutable"];
 }
 
 +(NSImage *)appIcon{
@@ -101,6 +105,19 @@ static NSDictionary * _macSystemDic = nil;
 
 +(NSString *)macSystemVers{
     return self.macSystemDic[@"ProductVersion"] ? : @"";
+}
+
++(NSString *)classCopyright{
+    NSString *dateStr = [NSDateFormatter stringFromDate:NSDate.date format:@"yyyy/MM/dd"];
+    NSString *year = [dateStr componentsSeparatedByString:@"/"].firstObject;
+    NSString *result = [NSString stringWithFormat:@"//\n\
+//\n\
+//  MacTemplet\n\
+//\n\
+//  Created by %@ on %@.\n\
+//  Copyright © %@ %@. All rights reserved.\n\
+//\n\n", self.macUserName, dateStr, year, self.macUserName];
+    return result;
 }
 
 @end

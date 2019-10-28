@@ -45,10 +45,6 @@ Class NSClassFromObj(id clz){
     return YES;
 }
 
-+ (BOOL)swizzleMethodInstanceOrigSel:(SEL)origSelector replSel:(SEL)replSelector{
-    return [self swizzleMethodInstance:self.class origSel:origSelector replSel:replSelector];
-}
-
 + (BOOL)swizzleMethodClass:(id)clz origSel:(SEL)origSelector replSel:(SEL)replSelector{
     if (!clz || !origSelector || !replSelector) {
         NSLog(@"Nil Parameter(s) found when swizzling.");
@@ -71,10 +67,6 @@ Class NSClassFromObj(id clz){
         method_exchangeImplementations(original, replace);
     }
     return YES;
-}
-
-+ (BOOL)swizzleMethodClassOrigSel:(SEL)origSelector replSel:(SEL)replSelector{
-    return [self swizzleMethodClass:self.class origSel:origSelector replSel:replSelector];
 }
 
 - (BOOL)isMethodOverride:(id)clz selector:(SEL)sel {
