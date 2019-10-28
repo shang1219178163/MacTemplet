@@ -24,7 +24,7 @@
         [self addSubview:self.lineBottom];
 
 //        self.lineBottom.wantsLayer = true;
-        self.lineBottom.layer.backgroundColor = NSColor.redColor.CGColor;
+//        self.lineBottom.layer.backgroundColor = NSColor.redColor.CGColor;
 //        [self getViewLayer];
     }
     return self;
@@ -60,7 +60,7 @@
         make.left.equalTo(self);
         make.right.equalTo(self);
         make.bottom.equalTo(self.textView.top);
-        make.height.equalTo(5);
+        make.height.equalTo(0.35);
     }];
 }
 
