@@ -52,7 +52,7 @@
     [self.textView.enclosingScrollView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.checkBox.bottom).offset(kPadding);
         make.left.equalTo(self.checkBox);
-        make.right.equalTo(self.textLabel);
+        make.right.equalTo(self.textLabel).offset(0);
         make.bottom.equalTo(self);
     }];
     

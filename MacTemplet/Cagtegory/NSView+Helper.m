@@ -89,6 +89,7 @@
     view.drawsBackground = true;
     
     view.font = [NSFont systemFontOfSize:14];
+//    view.backgroundColor = NSColor.lightBlue;
     return view;
 }
 

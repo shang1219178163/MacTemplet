@@ -194,7 +194,7 @@
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
     BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
     CGFloat height = isSwift ? (CGRectGetHeight(NSApp.keyWindow.frame) - 50 - 40) : (CGRectGetHeight(NSApp.keyWindow.frame) - 50)*0.5;
-    return height;
+    return height > 0 ? height : 10;
 }
 
 //// 使用自定义cell显示数据
@@ -475,15 +475,17 @@
             view.headerView = nil;// 隐藏表头
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
             view.rowHeight = 70;
-            view.delegate = self;
-            view.dataSource = self;
+            if ([self conformsToProtocol:@protocol(NSTableViewDataSource)]) view.dataSource = self;
+            if ([self conformsToProtocol:@protocol(NSTableViewDelegate)]) view.delegate = self;
             
-            NSArray * columns = @[@"columeOne", ];
-            [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSTableColumn * column = [NSTableColumn createWithIdentifier:obj title:obj];
-
-                [view addTableColumn:column];
-            }];
+            [view addTableColumnTitles:@[@"columeOne",]];
+            
+//            NSArray * columns = @[@"columeOne", ];
+//            [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                NSTableColumn * column = [NSTableColumn createWithIdentifier:obj title:obj];
+//
+//                [view addTableColumn:column];
+//            }];
             view;
         });
     }

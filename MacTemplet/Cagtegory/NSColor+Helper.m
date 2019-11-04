@@ -106,7 +106,7 @@ static NSColor * _titleColor9 = nil;
     if (!_lightBlue) {
         _lightBlue = NSColorHexValue(0x29B5FE);
     }
-    return _lineColor;
+    return _lightBlue;
 }
 
 + (NSColor *)lightOrange{
@@ -164,10 +164,7 @@ NSColor * NSColorHexValueAlpha(NSInteger hex, CGFloat alpha){
 }
 
 NSColor * NSColorHexValue(NSInteger hex){
-    return [NSColor colorWithRed:((hex & 0xFF0000) >> 16)/255.0
-                           green:((hex & 0xFF00) >> 8)/255.0
-                            blue:(hex & 0xFF)/255.0
-                           alpha:1.0];
+    return NSColorHexValueAlpha(hex, 1.0);
 }
 
 NSColor * NSColorHexAlpha(NSString *hex, CGFloat alpha){

@@ -203,7 +203,7 @@
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
     BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
     CGFloat height = isSwift ? (CGRectGetHeight(NSApp.keyWindow.frame) - 50 - 40) : (CGRectGetHeight(NSApp.keyWindow.frame) - 50)*0.5;
-    return height;
+    return height > 0 ? height : 10;
 }
 
 //// 使用自定义cell显示数据
@@ -359,7 +359,7 @@
     
     id result = self.textView.string.objValue;
     self.textLabel.stringValue = result ? @"Valid JSON Structure" : @"JSON isn't valid";
-    self.textLabel.textColor = result ? NSColor.greenColor : NSColor.redColor;
+    self.textLabel.textColor = result ? NSColor.lightGreen : NSColor.redColor;
     
     if (!result) {
         NSAlert * alert = [NSAlert createAlertTitle:@"警告" msg:@"Error：Json is invalid" btnTitles:@[kActionTitle_Know]];
@@ -493,15 +493,12 @@
             NNTableView *view = [NNTableView createTableViewRect:CGRectZero];
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
             view.rowHeight = 70;
-//            view.delegate = self;
-//            view.dataSource = self;
             
-            NSArray * columns = @[@"columeOne", ];
-            [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSTableColumn * column = [NSTableColumn createWithIdentifier:obj title:obj];
-                
-                [view addTableColumn:column];
-            }];
+            if ([self conformsToProtocol:@protocol(NSTableViewDataSource)]) view.dataSource = self;
+            if ([self conformsToProtocol:@protocol(NSTableViewDelegate)]) view.delegate = self;
+            
+            [view addTableColumnTitles:@[@"columeOne",]];
+
             view;
         });
         _tableView.delegate = self;

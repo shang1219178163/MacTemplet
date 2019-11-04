@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSTableView (Helper)
 
+- (void)addTableColumnTitles:(NSArray<NSString *> *)tableColumnTitles;
+
 @end
 
 NS_ASSUME_NONNULL_END
