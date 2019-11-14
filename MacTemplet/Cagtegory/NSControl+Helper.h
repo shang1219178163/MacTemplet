@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// NSSegment
 - (void)addActionHandler:(void(^)(NSControl *control))handler forTrackingMode:(NSSegmentSwitchTracking)trackingMode;
 
+- (void)addTarget:(nullable id)target action:(SEL)action forControlEvents:(NSEventMask)controlEvents;
 
 @end
 

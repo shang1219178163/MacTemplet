@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.btnItems = @[@"属性Lazy", @"属性Lazy",];
+    self.btnItems = @[@"属性Lazy", @"Copy",];
 
     [self.view addSubview:self.textView.enclosingScrollView];
     [self.view addSubview:self.textViewOne.enclosingScrollView];
@@ -67,23 +67,22 @@
     
 }
 
-#pragma mark -lazy
+#pragma mark -NSText
 
 - (BOOL)textShouldBeginEditing:(NSText *)textObject{
     return true;
 }
 
 - (void)textDidEndEditing:(NSNotification *)notification{
-    NSTextView * textView = notification.object;
+//    NSTextView * textView = notification.object;
     
 //    DDLog(@"%@",textView.string);
-    self.textViewOne.string = [self createResult:textView.string];
-    [NSPasteboard.generalPasteboard setString:self.textViewOne.string forType:NSPasteboardTypeString];
+    [self showConvertResult];
 }
 
 - (void)textDidChange:(NSNotification *)notification{
-//    NSTextView * view = notification.object;
-    
+//    NSTextView * textView = notification.object;
+    [self showConvertResult];
 }
 
 #pragma mark -funtions
@@ -97,6 +96,11 @@
         
     }];
     return mStr;
+}
+
+- (void)showConvertResult {
+    [NSApp.mainWindow makeFirstResponder:nil];
+    self.textViewOne.string = [self createResult:self.textView.string];
 }
 
 #pragma mark -lazy
@@ -140,12 +144,12 @@
 //                btn.backgroundColor = NSColor.greenColor;
 
                 btn.title = self.btnItems[i];
-                [btn addActionHandler:^(NSControl * _Nonnull control) {
-                    [NSApp.mainWindow makeFirstResponder:nil];
-                    
-                    self.textViewOne.string = [self createResult:self.textView.string];
-
-                }];
+                btn.tag = i;
+                [btn addTarget:self action:@selector(p_handleActionSender:) forControlEvents:NSEventMaskOtherMouseUp];
+//                [btn addActionHandler:^(NSControl * _Nonnull control) {
+//                    [self showConvertResult];
+//
+//                }];
                 [view addSubview:btn];
             }
             view;
@@ -154,5 +158,32 @@
     return _bottomView;
 }
 
+- (void)p_handleActionSender:(NNButton *)sender {
+    switch (sender.tag) {
+        case 0:
+            [self showConvertResult];
+
+            break;
+        case 1:
+        {
+            [NSPasteboard.generalPasteboard clearContents];
+            [NSPasteboard.generalPasteboard setString:self.textViewOne.string forType:NSPasteboardTypeString];
+            
+//            NSAlert * alert = ({
+//                NSAlert * alert = [[NSAlert alloc]init];
+//                alert.messageText = @"已复制到剪切板";
+//                
+//            });
+//            [alert beginSheetModalHandler:^(NSModalResponse returnCode) {
+//                
+//            }];
+//            [alert runModal];
+
+        }
+            break;
+        default:
+            break;
+    }
+}
 
 @end

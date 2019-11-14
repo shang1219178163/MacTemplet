@@ -8,6 +8,5 @@ target 'MacTemplet' do
   # Pods for MacTemplet
   pod 'Masonry'
   pod 'YYModel’
-
   
 end

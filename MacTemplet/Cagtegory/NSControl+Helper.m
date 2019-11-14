@@ -50,5 +50,10 @@
 //
 //}
 
+- (void)addTarget:(nullable id)target action:(SEL)action forControlEvents:(NSEventMask)controlEvents{
+    self.target = target;
+    self.action = action;
+    [self sendActionOn:controlEvents];
+}
 
 @end
