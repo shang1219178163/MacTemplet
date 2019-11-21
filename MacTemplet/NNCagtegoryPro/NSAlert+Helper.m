@@ -26,17 +26,17 @@
     }
 //    [alert beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow completionHandler:^(NSModalResponse returnCode) {
 //        if (returnCode == NSModalResponseOK){
-//            NSLog(@"(returnCode == NSOKButton)");
+//            DDLog(@"(returnCode == NSOKButton)");
 //        }else if (returnCode == NSModalResponseCancel){
-//            NSLog(@"(returnCode == NSCancelButton)");
+//            DDLog(@"(returnCode == NSCancelButton)");
 //        }else if(returnCode == NSAlertFirstButtonReturn){
-//            NSLog(@"if (returnCode == NSAlertFirstButtonReturn)");
+//            DDLog(@"if (returnCode == NSAlertFirstButtonReturn)");
 //        }else if (returnCode == NSAlertSecondButtonReturn){
-//            NSLog(@"else if (returnCode == NSAlertSecondButtonReturn)");
+//            DDLog(@"else if (returnCode == NSAlertSecondButtonReturn)");
 //        }else if (returnCode == NSAlertThirdButtonReturn){
-//            NSLog(@"else if (returnCode == NSAlertThirdButtonReturn)");
+//            DDLog(@"else if (returnCode == NSAlertThirdButtonReturn)");
 //        }else{
-//            NSLog(@"All Other return code %ld",(long)returnCode);
+//            DDLog(@"All Other return code %ld",(long)returnCode);
 //        }
 //    }];
     return alert;

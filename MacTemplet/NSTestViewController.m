@@ -7,8 +7,13 @@
 //
 
 #import "NSTestViewController.h"
+#import "NNHeaderView.h"
+#import "NoodleLineNumberView.h"
+#import "NNPropertyInfoModel.h"
 
 @interface NSTestViewController ()
+
+
 
 @end
 
@@ -18,5 +23,7 @@
     [super viewDidLoad];
     // Do view setup here.
 }
+
+
 
 @end

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSView (Add)
 
+@property (nonatomic, assign) CGPoint center;
+
 @property (nonatomic, strong) NSView *lineTop;
 @property (nonatomic, strong) NSView *lineBottom;
 

@@ -12,14 +12,14 @@
 #import "MainWindowController.h"
 
 @interface AppDelegate ()
-@property (nonatomic,strong) NSWindow *window;
+@property (nonatomic, strong) NSWindow *window;
 
 @property (nonatomic, strong) MainWindowController *windowCtrl;
 
-@property (nonatomic,strong) NSPopover *popover;
+@property (nonatomic, strong) NSPopover *popover;
 
-@property (nonatomic,strong) NSStatusItem *statusItem; //必须应用、且强引用，否则不会显示。
-@property (nonatomic,strong) NSMenu *dockMenu;
+@property (nonatomic, strong) NSStatusItem *statusItem; //必须应用、且强引用，否则不会显示。
+@property (nonatomic, strong) NSMenu *dockMenu;
 
 
 @end
@@ -40,16 +40,16 @@
 //    controllerName = @"BNTextViewContoller";
 //    controllerName = @"ProppertyLazyController";
     controllerName = @"TabViewController";
-
     
     NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
     self.window.contentViewController = controller;
     //    self.windowCtrl.window.contentViewController = controller;
     //    self.windowCtrl.window.title = NSApplication.appName;
     
-//    DDLog(@"%@",NSApplication.sharedApplication.mainWindow);
-    DDLog(@"%@",NSApp.mainWindow);
-//    DDLog(@"%@",NSApplication.windowDefault);
+    DDLog(@"NSApplication.sharedApplication.mainWindow_%@", NSApplication.sharedApplication.mainWindow);
+    DDLog(@"NSApp.mainWindow_%@", NSApp.mainWindow);
+    DDLog(@"NSApp.keyWindow_%@", NSApp.keyWindow);
+    DDLog(@"NSApplication.windowDefault_%@", NSApplication.windowDefault);
     [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
 
 //    id obj = [NSUserDefaults.standardUserDefaults objectForKey:kMainWindowFrame];
@@ -73,11 +73,11 @@
 
     }
     
-    NSDictionary *systemDic = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
-    DDLog(@"systemDic_%@", systemDic);
-    
-    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
-    DDLog(@"infoDict_%@", infoDict);
+//    NSDictionary *systemDic = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+//    DDLog(@"systemDic_%@", systemDic);
+//
+//    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
+//    DDLog(@"infoDict_%@", infoDict);
 
 }
 
@@ -94,7 +94,7 @@
 }
 /// 点击dock图标重新弹出窗口方法
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
-    NSLog(@"%@,%@,hasVisibleWindows:%d", self.window, sender.mainWindow, flag);
+    DDLog(@"%@,%@,hasVisibleWindows:%d", self.window, sender.mainWindow, flag);
     if (!flag){
         [NSApp activateIgnoringOtherApps:false];
         [self.window makeKeyAndOrderFront:self];
@@ -158,7 +158,6 @@
         _window = NSApplication.windowDefault;
         _window.title = NSApplication.appName;
         _window.contentMinSize = CGSizeMake(kScreenWidth*0.56, kScreenHeight*0.5);
-
     }
     return _window;
 }

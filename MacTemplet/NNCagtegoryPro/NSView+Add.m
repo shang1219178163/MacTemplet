@@ -13,6 +13,18 @@
 
 @implementation NSView (Add)
 
+- (CGPoint)center{
+    return CGPointMake(self.frame.origin.x + self.frame.size.width*0.5,
+                       self.frame.origin.y + self.frame.size.height*0.5);
+}
+
+- (void)setCenter:(CGPoint)center{
+    self.frame = CGRectMake(center.x - self.frame.size.width*0.5,
+                            center.y - self.frame.size.height*0.5,
+                            self.frame.size.width,
+                            self.frame.size.height);
+}
+
 -(NSView *)lineTop{
     id obj = objc_getAssociatedObject(self, _cmd);
     if (!obj) {
@@ -24,7 +36,6 @@
             view;
         });
         objc_setAssociatedObject(self, _cmd, obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        
     }
     return obj;
 }
@@ -44,7 +55,6 @@
             view;
         });
         objc_setAssociatedObject(self, _cmd, obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        
     }
     return obj;
 }

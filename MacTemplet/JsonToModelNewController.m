@@ -70,7 +70,6 @@
     self.textField.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kClassPrefix];
     self.textFieldTwo.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kRootClass];
     self.textFieldThree.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kSuperClass];
-    
     DDLog(@"%@_%@_%@",self.textField.stringValue, self.textFieldTwo.stringValue, self.textFieldThree.stringValue);
     
     [self.view addSubview:self.textView.enclosingScrollView];
@@ -86,7 +85,6 @@
     [self updateLanguages];
     [self readFile];
     
-    NSApplication.windowDefault.minSize = CGSizeMake(kScreenWidth*0.5, kScreenHeight*0.5);
     
     //    [self.view getViewLayer];
 }
@@ -202,8 +200,11 @@
 
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
     BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
-    CGFloat height = isSwift ? (CGRectGetHeight(NSApp.keyWindow.frame) - 50 - 40) : (CGRectGetHeight(NSApp.keyWindow.frame) - 50)*0.5;
-    return height > 0 ? height : 10;
+    
+    CGFloat windowHeight = NSApplication.windowDefault.frame.size.height;
+    CGFloat height = isSwift ? (windowHeight - 50 - 40) : (windowHeight- 50)*0.5;
+//    DDLog(@"__%@_%@_%@_%@",@(NSApp.keyWindow.frame), @(NSScreen.mainScreen.frame), @(NSApp.mainWindow.frame), @(height));
+    return height > 0 ? height : tableView.rowHeight;
 }
 
 //// 使用自定义cell显示数据
@@ -212,7 +213,7 @@
     NSInteger item = [tableView.tableColumns indexOfObject:tableColumn];
     //获取表格列的标识符
     NSString *columnID = tableColumn.identifier;
-    //    NSLog(@"columnID : %@ ,row : %@, item: %@",columnID, @(row), @(item));
+    //    DDLog(@"columnID : %@ ,row : %@, item: %@",columnID, @(row), @(item));
     
     static NSString *identifier = @"NSTableCellViewTen";
     NSTableCellViewTen *cell = [NSTableCellViewTen viewWithTableView:tableView identifier:identifier owner:self];
@@ -249,7 +250,7 @@
     rowView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleRegular;
     rowView.emphasized = false;
     
-    NSLog(@"shouldSelectRow : %ld",row);
+    DDLog(@"shouldSelectRow : %ld",row);
     return YES;
 }
 
@@ -262,7 +263,7 @@
 //选中的响应
 -(void)tableViewSelectionDidChange:(nonnull NSNotification *)notification{
     //    NSTableView *tableView = notification.object;
-    //    NSLog(@"didSelect：%@",notification);
+    //    DDLog(@"didSelect：%@",notification);
 }
 
 - (NSString *)tableView:(NSTableView *)tableView toolTipForCell:(NSCell *)cell rect:(NSRectPointer)rect tableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row mouseLocation:(NSPoint)mouseLocation{
@@ -283,8 +284,8 @@
 
 - (void)textDidChange:(NSNotification *)notification{
     NSTextView * view = notification.object;
-    //    NSLog(@"length:%@", @(view.string.length));
-    //    NSLog(@"containerSize:%@", @(view.textContainer.containerSize));
+    //    DDLog(@"length:%@", @(view.string.length));
+    //    DDLog(@"containerSize:%@", @(view.textContainer.containerSize));
     //    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
     if (view.string.length > 0) {
         [self hanldeJson];
@@ -441,7 +442,7 @@
         if (panel.runModal == NSModalResponseOK) {
             folderPath = [panel.URLs.firstObject relativePath];
             [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:kFolderPath];
-            NSLog(@"%@",folderPath);
+            DDLog(@"%@",folderPath);
             [FileManager.sharedInstance createFileWithFolderPath:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:hContent mContent:mContent];
             [NSWorkspace.sharedWorkspace openFile:folderPath];
         }
@@ -492,17 +493,13 @@
         _tableView = ({
             NNTableView *view = [NNTableView createTableViewRect:CGRectZero];
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
-            view.rowHeight = 70;
-            
+            [view addTableColumnTitles:@[@"columeOne",]];
+
             if ([self conformsToProtocol:@protocol(NSTableViewDataSource)]) view.dataSource = self;
             if ([self conformsToProtocol:@protocol(NSTableViewDelegate)]) view.delegate = self;
-            
-            [view addTableColumnTitles:@[@"columeOne",]];
 
             view;
         });
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
     }
     return _tableView;
 }
@@ -654,7 +651,7 @@
                 [NSApp.mainWindow makeFirstResponder:nil];
                 
                 NSPopUpButton *sender = (NSPopUpButton *)control;
-                NSLog(@"%@", sender.titleOfSelectedItem);
+                DDLog(@"%@", sender.titleOfSelectedItem);
                 
                 [self hanldeJson];
                 
@@ -674,7 +671,7 @@
             
             view.title = @"保存";
             [view addActionHandler:^(NSControl * _Nonnull control) {
-                NSLog(@"%@", control);
+                DDLog(@"%@", control);
                 [NSApp.mainWindow makeFirstResponder:nil];
                 
                 [self creatFile];

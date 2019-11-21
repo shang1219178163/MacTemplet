@@ -20,9 +20,9 @@ Class NSClassFromObj(id clz){
 }
 
 + (BOOL)swizzleMethodInstance:(id)clz origSel:(SEL)origSelector replSel:(SEL)replSelector{
-    //    NSLog(@"%@,%@,%@",self,self.class,object_getClass(self));
+    //    DDLog(@"%@,%@,%@",self,self.class,object_getClass(self));
     if (!clz || !origSelector || !replSelector) {
-        NSLog(@"Nil Parameter(s) found when swizzling.");
+        DDLog(@"Nil Parameter(s) found when swizzling.");
         return NO;
     }
     
@@ -31,7 +31,7 @@ Class NSClassFromObj(id clz){
     Method original = class_getInstanceMethod(clz, origSelector);
     Method replace = class_getInstanceMethod(clz, replSelector);
     if (!original || !replace) {
-        NSLog(@"Swizzling Method(s) not found while swizzling class %@.", NSStringFromClass(clz));
+        DDLog(@"Swizzling Method(s) not found while swizzling class %@.", NSStringFromClass(clz));
         return NO;
     }
     
@@ -47,7 +47,7 @@ Class NSClassFromObj(id clz){
 
 + (BOOL)swizzleMethodClass:(id)clz origSel:(SEL)origSelector replSel:(SEL)replSelector{
     if (!clz || !origSelector || !replSelector) {
-        NSLog(@"Nil Parameter(s) found when swizzling.");
+        DDLog(@"Nil Parameter(s) found when swizzling.");
         return NO;
     }
     clz = NSClassFromObj(clz);
@@ -57,7 +57,7 @@ Class NSClassFromObj(id clz){
     Method original = class_getClassMethod(clz, origSelector);
     Method replace = class_getClassMethod(clz, replSelector);
     if (!original || !replace) {
-        NSLog(@"Swizzling Method(s) not found while swizzling class %@.", NSStringFromClass(clz));
+        DDLog(@"Swizzling Method(s) not found while swizzling class %@.", NSStringFromClass(clz));
         return NO;
     }
     

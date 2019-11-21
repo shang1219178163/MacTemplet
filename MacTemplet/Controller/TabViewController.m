@@ -69,7 +69,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(nullable NSTabViewItem *)tabViewItem{
     NSInteger index = [tabView.tabViewItems indexOfObject:tabViewItem];
-    DDLog(@"index_%@_%@",@(index), tabViewItem.view);
+//    DDLog(@"index_%@_%@",@(index), tabViewItem.view);
     if (index == 0) {
         return;
     }

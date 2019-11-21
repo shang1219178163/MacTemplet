@@ -7,7 +7,6 @@
 //
 
 #import "NSFont+Hook.h"
-
 #import <AppKit/AppKit.h>
 
 

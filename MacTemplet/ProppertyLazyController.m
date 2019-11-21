@@ -13,6 +13,7 @@
 
 @interface ProppertyLazyController ()<NSTextViewDelegate>
 
+@property (nonatomic, strong) NNTextLabel *textLabel;
 @property (nonatomic, strong) NNTextView *textView;
 @property (nonatomic, strong) NNTextView *textViewOne;
 @property (nonatomic, strong) NNView *bottomView;
@@ -25,16 +26,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do view setup here.
+    self.textLabel.stringValue = @"此处文本框显示的效果和XCode(Version 11.1 (11A1027))显示效果有差异, 以XCode效果为准";
     self.btnItems = @[@"属性Lazy", @"Copy",];
 
     [self.view addSubview:self.textView.enclosingScrollView];
     [self.view addSubview:self.textViewOne.enclosingScrollView];
     [self.view addSubview:self.bottomView];
+    [self.view addSubview:self.textLabel];
 
     [NoodleLineNumberView setupLineNumberWithTextView:self.textView];
     
-    self.textView.string = @"@property (nonatomic, strong) NNTextView *textView;\n@property (nonatomic, strong) NNView *bottomView;\n@property (nonatomic, strong) NSMutableArray *list;\n@property (nonatomic, strong) NSMutableDictionary *dic;\n@property (nonatomic, strong) NSMutableString *mstr;\n@property (nonatomic, strong) UIImageView * imgView;\n@property (nonatomic, strong) UIButton * btn;";
+    self.textView.string = @"@property (nonatomic, strong) NNTextView *textView;\n@property (nonatomic, strong) NNView *bottomView;\n@property (nonatomic, strong) NSMutableArray *list;\n@property (nonatomic, strong) NSMutableDictionary *dic;\n@property (nonatomic, strong) NSMutableString *mstr;\n@property (nonatomic, strong) UIImageView *imgView;\n@property (nonatomic, strong) UIButton *btn;";
     
     [self.textView resignFirstResponder];
 
@@ -43,7 +47,7 @@
 
 - (void)viewDidLayout{
     [super viewDidLayout];
-
+    
     NSArray *list = @[self.textView.enclosingScrollView, self.textViewOne.enclosingScrollView];
     [list mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:15 leadSpacing:10 tailSpacing:10];
 //    [list mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedItemLength:150 leadSpacing:10 tailSpacing:10];
@@ -58,13 +62,15 @@
         make.bottom.equalTo(self.view);
     }];
     
-    NSArray * btns = self.bottomView.subviews;
+    NSArray *btns = self.bottomView.subviews;
     [btns mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedItemLength:100 leadSpacing:10 tailSpacing:10];
     [btns makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.bottomView).offset(kY_GAP);
         make.bottom.equalTo(self.bottomView).offset(-kY_GAP);
     }];
     
+    [self.textLabel sizeToFit];
+    self.textLabel.center = self.bottomView.center;
 }
 
 #pragma mark -NSText
@@ -131,6 +137,29 @@
         });
     }
     return _textViewOne;
+}
+
+-(NNTextLabel *)textLabel{
+    if (!_textLabel) {
+        _textLabel = ({
+            NNTextLabel * view = [[NNTextLabel alloc]initWithFrame:CGRectZero];
+            view.bordered = false;  ///是否显示边框
+            view.font = [NSFont systemFontOfSize:13];
+            view.textColor = NSColor.grayColor;
+            view.textColor = NSColor.lightBlue;
+            view.alignment = NSTextAlignmentCenter;
+
+            view.maximumNumberOfLines = 1;
+            view.usesSingleLineMode = true;
+            view.backgroundColor = NSColor.clearColor;
+//            view.stringValue = @""
+            view.mouseDownBlock = ^(NNTextLabel * _Nonnull sender) {
+  
+            };
+            view;
+        });
+    }
+    return _textLabel;
 }
 
 - (NNView *)bottomView{

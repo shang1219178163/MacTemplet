@@ -69,7 +69,7 @@
     
     //获取表格列的标识符
     NSString *columnID = tableColumn.identifier;
-    NSLog(@"columnID : %@ ,row : %ld",columnID,row);
+    DDLog(@"columnID : %@ ,row : %ld",columnID,row);
     
     static NSString *cellIdentifier = @"one";
     NSTableCellView *cell = [NSTableCellView viewWithTableView:tableView identifier:cellIdentifier owner:self];
@@ -104,7 +104,7 @@
     rowView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleRegular;
     rowView.emphasized = false;
     
-    NSLog(@"shouldSelectRow : %ld",row);
+    DDLog(@"shouldSelectRow : %ld",row);
     return YES;
 }
 
@@ -117,7 +117,7 @@
 //选中的响应
 -(void)tableViewSelectionDidChange:(nonnull NSNotification *)notification{
 //    NSTableView *tableView = notification.object;
-//    NSLog(@"didSelect：%@",notification);
+//    DDLog(@"didSelect：%@",notification);
 }
 
 - (NSString *)tableView:(NSTableView *)tableView toolTipForCell:(NSCell *)cell rect:(NSRectPointer)rect tableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row mouseLocation:(NSPoint)mouseLocation{

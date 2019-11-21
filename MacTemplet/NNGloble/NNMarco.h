@@ -12,7 +12,7 @@
 #pragma mark - -BNMarco通用
 
 #ifdef DEBUG
-//#define DDLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+//#define DDLog(fmt, ...) DDLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 
 #define DDLog(FORMAT, ...) {\
 NSString *formatStr = @"yyyy-MM-dd HH:mm:ss.SSSSSSZ";\
@@ -54,6 +54,9 @@ fprintf(stderr,"%s【line -%d】%s %s\n", [str UTF8String], __LINE__,__PRETTY_FU
 //屏幕 rect
 #define kScreenWidth        (NSScreen.mainScreen.frame.size.width)
 #define kScreenHeight       (NSScreen.mainScreen.frame.size.height)
+
+#define kWindowWidth        (NSApp.keyWindow.frame.size.width)
+#define kWindowHeight       (NSApp.keyWindow.frame.size.height)
 
 #define kSizeArrow          CGSizeMake(25.0, 35.0)
 #define kSizeBSelected      CGSizeMake(35.0, 35.0)

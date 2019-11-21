@@ -27,7 +27,7 @@
         data = [NSJSONSerialization dataWithJSONObject:obj options:kNilOptions error:&error];
         if (error) {
 #ifdef DEBUG
-            NSLog(@"fail to get NSData from obj: %@, error: %@", obj, error);
+            DDLog(@"fail to get NSData from obj: %@, error: %@", obj, error);
 #endif
         }
     }
@@ -54,7 +54,7 @@
             return obj;
         }
 #ifdef DEBUG
-        NSLog(@"fail to get dictioanry from JSON: %@, error: %@", data, error);
+        DDLog(@"fail to get dictioanry from JSON: %@, error: %@", data, error);
 #endif
     } else if ([self isKindOfClass: NSData.class]) {
         id obj = [NSJSONSerialization JSONObjectWithData:(NSData *)self options:kNilOptions error:&error];
@@ -62,7 +62,7 @@
             return obj;
         }
 #ifdef DEBUG
-        NSLog(@"fail to get dictioanry from JSON: %@, error: %@", obj, error);
+        DDLog(@"fail to get dictioanry from JSON: %@, error: %@", obj, error);
 #endif
     }
     return nil;
@@ -123,7 +123,7 @@
 
 //KVC
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
-    NSLog(@"不存在键_%@:%@",key,value);
+    DDLog(@"不存在键_%@:%@",key,value);
 }
 
 -(id)valueForUndefinedKey:(NSString *)key{
@@ -148,20 +148,20 @@
         
         NSArray * array = @[@"",@"nil",@"null"];
         if ([array containsObject:str] || [str containsString:@"null"]) {
-            //            NSLog(@"无效字符->(%@)",string);
+            //            DDLog(@"无效字符->(%@)",string);
             return NO;
         }
         
     }
     else if ([self isKindOfClass: NSArray.class]){
         if ([(NSArray *)self count] == 0){
-            //            NSLog(@"空数组->(%@)",self);
+            //            DDLog(@"空数组->(%@)",self);
             return NO;
         }
     }
     else if ([self isKindOfClass: NSDictionary.class]){
         if ([(NSDictionary *)self count] == 0){
-            //            NSLog(@"空字典->(%@)",self);
+            //            DDLog(@"空字典->(%@)",self);
             return NO;
         }
     }

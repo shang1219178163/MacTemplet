@@ -22,7 +22,7 @@
     panel.directoryURL = [NSURL fileURLWithPath:path];
 //    [panel runModal];
 //    if (panel.runModal == NSModalResponseOK) {
-//        NSLog(@"%@", panel.URLs);
+//        DDLog(@"%@", panel.URLs);
 //    }
     return panel;
 }
@@ -43,7 +43,7 @@
     NSOpenPanel *panel = [NSOpenPanel openPanelChooseFileTypes:fileTypes];
     [panel runModal];
     if (panel.runModal == NSModalResponseOK) {
-        NSLog(@"%@", panel.URLs);
+        DDLog(@"%@", panel.URLs);
     }
 }
 

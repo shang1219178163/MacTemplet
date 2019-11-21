@@ -169,8 +169,8 @@
 
 - (void)textDidChange:(NSNotification *)notification{
     NSTextView * view = notification.object;
-    NSLog(@"length:%@", @(view.string.length));
-    NSLog(@"containerSize:%@", @(view.textContainer.containerSize));
+    DDLog(@"length:%@", @(view.string.length));
+    DDLog(@"containerSize:%@", @(view.textContainer.containerSize));
 //    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
 }
 
@@ -206,7 +206,7 @@
 }
 
 //- (void)hanldeAction:(NSButton *)sender{
-//    NSLog(@"%@", sender);
+//    DDLog(@"%@", sender);
 //}
 
 #pragma mark -funtions
@@ -239,7 +239,7 @@
         NSError *error = [NSError errorWithDomain:@"Error：Json is invalid" code:3840 userInfo:nil];
         NSAlert *alert = [NSAlert alertWithError:error];
         [alert runModal];
-        NSLog(@"Error：Json is invalid");
+        DDLog(@"Error：Json is invalid");
         
         return;
     }
@@ -290,7 +290,7 @@
         if (panel.runModal == NSModalResponseOK) {
             folderPath = [panel.URLs.firstObject relativePath];
             [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:kFolderPath];
-            NSLog(@"%@",folderPath);
+            DDLog(@"%@",folderPath);
             [FileManager.sharedInstance createFileWithFolderPath:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:self.hTextView.string mContent:self.mTextView.string];
             [NSWorkspace.sharedWorkspace openFile:folderPath];
         }
@@ -437,7 +437,7 @@
 //                [NSApp.mainWindow makeFirstResponder:nil];
 //
 //                NSSegmentedControl *sender = (NSSegmentedControl *)control;
-//                NSLog(@"%@", @(sender.selectedSegment));
+//                DDLog(@"%@", @(sender.selectedSegment));
 //
 //                BOOL isSwift = (sender.selectedSegment == 0) ? false : true;
 //                [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kIsSwift];
@@ -465,7 +465,7 @@
                 [NSApp.mainWindow makeFirstResponder:nil];
 
                 NSPopUpButton *sender = (NSPopUpButton *)control;
-                NSLog(@"%@", sender.titleOfSelectedItem);
+                DDLog(@"%@", sender.titleOfSelectedItem);
                 self.langModel = self.langsDic[sender.titleOfSelectedItem];
                 DDLog(@"%@", self.langModel);
 
@@ -493,7 +493,7 @@
             
             view.title = @"保存";
             [view addActionHandler:^(NSControl * _Nonnull control) {
-                NSLog(@"%@", control);
+                DDLog(@"%@", control);
                 [NSApp.mainWindow makeFirstResponder:nil];
                 
                 [self creatFile];

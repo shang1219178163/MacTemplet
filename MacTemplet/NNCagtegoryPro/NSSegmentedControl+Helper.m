@@ -21,7 +21,7 @@
     self.selectedSegment = 0;
     for (NSInteger i = 0; i < items.count; i++) {
         [self setLabel:items[i] forSegment:i];
-//        NSLog(@"%@_%@_%@",NSStringFromSelector(_cmd), self, items[i]);
+//        DDLog(@"%@_%@_%@",NSStringFromSelector(_cmd), self, items[i]);
     }
 }
 

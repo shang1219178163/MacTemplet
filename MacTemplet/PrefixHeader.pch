@@ -25,7 +25,7 @@
 
 
 //#ifdef DEBUG
-//#define DDLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+//#define DDLog(fmt, ...) DDLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 //
 //#else
 //#define DDLog(...)

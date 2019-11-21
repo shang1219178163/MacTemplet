@@ -126,7 +126,7 @@ NSString *TimeStampFromObj(id obj){
         
     }
     else{
-        NSLog(@"<%@>时间格式不对",dateStr);
+        DDLog(@"<%@>时间格式不对",dateStr);
         
     }
     //时间转时间戳的方法:

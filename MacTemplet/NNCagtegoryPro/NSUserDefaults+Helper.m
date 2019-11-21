@@ -78,25 +78,19 @@
 }
 
 + (void)setArcObject:(id)value forKey:(NSString *)key{
-    if (@available(macOS 10.13, *)) {
-        value = [NSKeyedArchiver archivedDataWithRootObject:value requiringSecureCoding:false error:nil];
-    } else {
-        value = [NSKeyedArchiver archivedDataWithRootObject:value];
+    if (!value) {
+        return;
     }
-    [self.standardUserDefaults setObject:value forKey:key];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:value];
+    [self.standardUserDefaults setObject:data forKey:key];
 }
 
 + (id)arcObjectForKey:(NSString *)key{
-    id value = [self.standardUserDefaults objectForKey:key];
-    if (@available(macOS 10.13, *)) {
-        NSError * error;
-        value = [NSKeyedUnarchiver unarchivedObjectOfClass:NSObject.class fromData:value error:&error];
-        NSLog(@"%@", error.description);
-    } else {
-        // Fallback on earlier versions
-        value = [NSKeyedUnarchiver unarchiveObjectWithData:value];
+    id value = [NSUserDefaults.standardUserDefaults objectForKey:key];
+    if (!value) {
+        return nil;
     }
-    return value;
+    return [NSKeyedUnarchiver unarchiveObjectWithData:value];
 }
 
 @end

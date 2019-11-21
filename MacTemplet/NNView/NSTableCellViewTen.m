@@ -32,13 +32,16 @@
 
 - (void)layout{
     [super layout];
-
+    
     CGSize checkBoxSize = [self.checkBox sizeThatFits:CGSizeMake(100, 30)];
+    if (CGRectGetHeight(self.bounds) <= checkBoxSize.height) {
+        return;
+    }
     [self.checkBox makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(kX_GAP);
         make.left.equalTo(self).offset(0);
         make.width.equalTo(checkBoxSize.width);
-        make.height.equalTo(checkBoxSize.height);
+        make.height.lessThanOrEqualTo(checkBoxSize.height);
     }];
     
     CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(180, 30)];

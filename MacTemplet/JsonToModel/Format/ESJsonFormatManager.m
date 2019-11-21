@@ -313,9 +313,9 @@
     
     NSMutableString *result = [NSMutableString string];
     NSDictionary *dic = classInfo.classDic;
-//    NSLog(@"%@",dic);
+//    DDLog(@"%@",dic);
     [dic enumerateKeysAndObjectsUsingBlock:^(id key, NSObject *obj, BOOL *stop) {
-//        NSLog(@"%@: _%@_",key,obj);
+//        DDLog(@"%@: _%@_",key,obj);
         if ([self.dicSwitch.allKeys containsObject:key] && ESJsonFormatSetting.defaultSetting.uppercaseKeyWordForId) {
             [result appendFormat:@"@\"%@\": @\"%@\", ",self.dicSwitch[key],key];
         }

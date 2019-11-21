@@ -203,7 +203,7 @@
     NSInteger item = [tableView.tableColumns indexOfObject:tableColumn];
     //获取表格列的标识符
     NSString *columnID = tableColumn.identifier;
-//    NSLog(@"columnID : %@ ,row : %@, item: %@",columnID, @(row), @(item));
+//    DDLog(@"columnID : %@ ,row : %@, item: %@",columnID, @(row), @(item));
     
     static NSString *identifier = @"NSTableCellViewTen";
     NSTableCellViewTen *cell = [NSTableCellViewTen viewWithTableView:tableView identifier:identifier owner:self];
@@ -240,7 +240,7 @@
     rowView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleRegular;
     rowView.emphasized = false;
     
-    NSLog(@"shouldSelectRow : %ld",row);
+    DDLog(@"shouldSelectRow : %ld",row);
     return YES;
 }
 
@@ -253,7 +253,7 @@
 //选中的响应
 -(void)tableViewSelectionDidChange:(nonnull NSNotification *)notification{
     //    NSTableView *tableView = notification.object;
-    //    NSLog(@"didSelect：%@",notification);
+    //    DDLog(@"didSelect：%@",notification);
 }
 
 - (NSString *)tableView:(NSTableView *)tableView toolTipForCell:(NSCell *)cell rect:(NSRectPointer)rect tableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row mouseLocation:(NSPoint)mouseLocation{
@@ -274,8 +274,8 @@
 
 - (void)textDidChange:(NSNotification *)notification{
     NSTextView * view = notification.object;
-//    NSLog(@"length:%@", @(view.string.length));
-//    NSLog(@"containerSize:%@", @(view.textContainer.containerSize));
+//    DDLog(@"length:%@", @(view.string.length));
+//    DDLog(@"containerSize:%@", @(view.textContainer.containerSize));
     //    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
     if (view.string.length > 0) {
         [self hanldeJson];
@@ -422,7 +422,7 @@
         if (panel.runModal == NSModalResponseOK) {
             folderPath = [panel.URLs.firstObject relativePath];
             [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:kFolderPath];
-            NSLog(@"%@",folderPath);
+            DDLog(@"%@",folderPath);
             [FileManager.sharedInstance createFileWithFolderPath:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:hContent mContent:mContent];
             [NSWorkspace.sharedWorkspace openFile:folderPath];
         }
@@ -604,7 +604,7 @@
                 [NSApp.mainWindow makeFirstResponder:nil];
                 
                 NSPopUpButton *sender = (NSPopUpButton *)control;
-                NSLog(@"%@", sender.titleOfSelectedItem);
+                DDLog(@"%@", sender.titleOfSelectedItem);
                 
                 [self hanldeJson];
                 
@@ -624,7 +624,7 @@
             
             view.title = @"保存";
             [view addActionHandler:^(NSControl * _Nonnull control) {
-                NSLog(@"%@", control);
+                DDLog(@"%@", control);
                 [NSApp.mainWindow makeFirstResponder:nil];
                 
                 [self creatFile];

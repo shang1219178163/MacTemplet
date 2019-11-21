@@ -108,7 +108,7 @@
             view.items = items;
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSSegmentedControl * sender = (NSSegmentedControl *)control;
-                NSLog(@"%@", @(sender.selectedSegment));
+                DDLog(@"%@", @(sender.selectedSegment));
                 [self handleActionSender:sender];
                 
             }];

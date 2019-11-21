@@ -100,7 +100,7 @@
 }
 
 - (void)collectionView:(NSCollectionView *)collectionView didSelectItemsAtIndexPaths:(NSSet<NSIndexPath *> *)indexPaths {
-//    NSLog(@"----%lu", (unsigned long)collectionView.selectionIndexes.firstIndex);
+//    DDLog(@"----%lu", (unsigned long)collectionView.selectionIndexes.firstIndex);
 }
 
 

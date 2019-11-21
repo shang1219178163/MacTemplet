@@ -33,7 +33,7 @@
     CGFloat screenHeight = NSScreen.mainScreen.frame.size.height;
     
     CGRect rect = CGRectMake(0, 0, screenWidth*0.4, screenHeight*0.5);
-    NSWindow * window = [NSWindow createWithRect:rect title:title];
+    NSWindow *window = [NSWindow createWithRect:rect title:title];
     window.contentMinSize = window.frame.size;
     [window makeKeyAndOrderFront:self];
     [window center];

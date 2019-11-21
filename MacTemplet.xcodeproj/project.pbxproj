@@ -11,10 +11,11 @@
 		140218312366C7CC00B27E4C /* NSView+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 140218302366C7CC00B27E4C /* NSView+Add.m */; };
 		140D292E2317E8C200867785 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D292D2317E8C200867785 /* QuartzCore.framework */; };
 		140D294F23189D9600867785 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D294E23189D9600867785 /* Photos.framework */; };
+		14132978238559CE00E7AFCA /* NSTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14132977238559CE00E7AFCA /* NSTestViewController.m */; };
+		141329842386409600E7AFCA /* NSFont+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 141329832386409600E7AFCA /* NSFont+Hook.m */; };
 		1445780022BCF50E0007C7B3 /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 144577FF22BCF50E0007C7B3 /* Const.m */; };
 		1445780322BDDAF90007C7B3 /* Swift-HandyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780222BDDAF90007C7B3 /* Swift-HandyJSON.json */; };
 		1445780522BDDB540007C7B3 /* ObjC-YYModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780422BDDB540007C7B3 /* ObjC-YYModel.json */; };
-		1445780922BDDBBC0007C7B3 /* ObjC-MJExtension.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780722BDDBBC0007C7B3 /* ObjC-MJExtension.json */; };
 		1445780F22BDF0520007C7B3 /* NNLanguageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445780E22BDF0520007C7B3 /* NNLanguageModel.m */; };
 		1445782522C1C9380007C7B3 /* JsonToModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782422C1C9380007C7B3 /* JsonToModelController.m */; };
 		1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */; };
@@ -113,11 +114,14 @@
 		140218302366C7CC00B27E4C /* NSView+Add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+Add.m"; sourceTree = "<group>"; };
 		140D292D2317E8C200867785 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		140D294E23189D9600867785 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		14132976238559CE00E7AFCA /* NSTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTestViewController.h; sourceTree = "<group>"; };
+		14132977238559CE00E7AFCA /* NSTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTestViewController.m; sourceTree = "<group>"; };
+		141329822386409600E7AFCA /* NSFont+Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFont+Hook.h"; sourceTree = "<group>"; };
+		141329832386409600E7AFCA /* NSFont+Hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFont+Hook.m"; sourceTree = "<group>"; };
 		144577FE22BCF50E0007C7B3 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		144577FF22BCF50E0007C7B3 /* Const.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
 		1445780222BDDAF90007C7B3 /* Swift-HandyJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Swift-HandyJSON.json"; sourceTree = "<group>"; };
 		1445780422BDDB540007C7B3 /* ObjC-YYModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ObjC-YYModel.json"; sourceTree = "<group>"; };
-		1445780722BDDBBC0007C7B3 /* ObjC-MJExtension.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ObjC-MJExtension.json"; sourceTree = "<group>"; };
 		1445780D22BDF0520007C7B3 /* NNLanguageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNLanguageModel.h; sourceTree = "<group>"; };
 		1445780E22BDF0520007C7B3 /* NNLanguageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNLanguageModel.m; sourceTree = "<group>"; };
 		1445782322C1C9380007C7B3 /* JsonToModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonToModelController.h; sourceTree = "<group>"; };
@@ -336,7 +340,6 @@
 		1445780122BDDAD80007C7B3 /* Languages */ = {
 			isa = PBXGroup;
 			children = (
-				1445780722BDDBBC0007C7B3 /* ObjC-MJExtension.json */,
 				1445780422BDDB540007C7B3 /* ObjC-YYModel.json */,
 				1445780222BDDAF90007C7B3 /* Swift-HandyJSON.json */,
 			);
@@ -391,18 +394,21 @@
 				14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */,
 				14D40A1022C4A6DA00AF74B9 /* AuthorInfoController.h */,
 				14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */,
+				14132976238559CE00E7AFCA /* NSTestViewController.h */,
+				14132977238559CE00E7AFCA /* NSTestViewController.m */,
 				14F92C2522BB8DBB00A5C5E4 /* Controller */,
 				1445782722C1CD6E0007C7B3 /* NNView */,
 				14F2F5AD22B8FEB1009D49CE /* NSCollectionView */,
 				14F0FDAA22AE097A00057093 /* NNBaseView */,
-				1482F86122ABA5A400A7C5E1 /* Cagtegory */,
+				14F92C0022BB1AC700A5C5E4 /* NNGloble */,
+				1482F86122ABA5A400A7C5E1 /* NNCagtegoryPro */,
 				14F2F55F22B78078009D49CE /* Other */,
 				14F92C1C22BB766A00A5C5E4 /* Resource */,
 			);
 			path = MacTemplet;
 			sourceTree = "<group>";
 		};
-		1482F86122ABA5A400A7C5E1 /* Cagtegory */ = {
+		1482F86122ABA5A400A7C5E1 /* NNCagtegoryPro */ = {
 			isa = PBXGroup;
 			children = (
 				14F0FDBA22AE68F300057093 /* MacExpand.h */,
@@ -422,6 +428,8 @@
 				14F92BFC22BB1A2700A5C5E4 /* NSDate+Helper.m */,
 				14F92BFB22BB1A2700A5C5E4 /* NSDateFormatter+Helper.h */,
 				14F92BFA22BB1A2700A5C5E4 /* NSDateFormatter+Helper.m */,
+				141329822386409600E7AFCA /* NSFont+Hook.h */,
+				141329832386409600E7AFCA /* NSFont+Hook.m */,
 				14F2F55922B77DB1009D49CE /* NSImage+Helper.h */,
 				14F2F55A22B77DB1009D49CE /* NSImage+Helper.m */,
 				14F92C0D22BB21EC00A5C5E4 /* NSMenuItem+Helper.h */,
@@ -483,7 +491,7 @@
 				14F92BEE22BA39C600A5C5E4 /* NSPopover+Helper.h */,
 				14F92BEF22BA39C600A5C5E4 /* NSPopover+Helper.m */,
 			);
-			path = Cagtegory;
+			path = NNCagtegoryPro;
 			sourceTree = "<group>";
 		};
 		14F0EE8822C9AEBA003C3811 /* JsonToModel */ = {
@@ -533,7 +541,6 @@
 			isa = PBXGroup;
 			children = (
 				14F92CF122BC6E5F00A5C5E4 /* NoodleLineNumber */,
-				14F92C0022BB1AC700A5C5E4 /* NNGloble */,
 				14F2F55D22B77DDF009D49CE /* NSImage+Helper.swift */,
 			);
 			path = Other;
@@ -741,7 +748,6 @@
 				14F92C0B22BB1AC700A5C5E4 /* Media.xcassets in Resources */,
 				14F92C1E22BB768400A5C5E4 /* appinfo.txt in Resources */,
 				14F92C5622BB93EB00A5C5E4 /* DataModelsTemplate.txt in Resources */,
-				1445780922BDDBBC0007C7B3 /* ObjC-MJExtension.json in Resources */,
 				1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -810,6 +816,7 @@
 				14D40A0C22C462E200AF74B9 /* TabViewController.m in Sources */,
 				14F2F58722B87A58009D49CE /* NSTextField+Helper.m in Sources */,
 				14F92C1222BB250A00A5C5E4 /* NSMenu+Helper.m in Sources */,
+				141329842386409600E7AFCA /* NSFont+Hook.m in Sources */,
 				1482F85522AB96CE00A7C5E1 /* NSControl+Helper.m in Sources */,
 				14F92C4222BB8DE800A5C5E4 /* ESJsonFormat.m in Sources */,
 				14F92C0A22BB1AC700A5C5E4 /* NNAttStringKey.m in Sources */,
@@ -850,6 +857,7 @@
 				14F92C5422BB925F00A5C5E4 /* ESJsonFormatSetting.m in Sources */,
 				1445783E22C2FDCE0007C7B3 /* BNTextViewContoller.m in Sources */,
 				14F0FDE322B082AD00057093 /* NNTableView.m in Sources */,
+				14132978238559CE00E7AFCA /* NSTestViewController.m in Sources */,
 				14F2F59022B8C13F009D49CE /* NSTableRowView+Helper.m in Sources */,
 				1482F84F22AB920C00A7C5E1 /* NSView+Helper.m in Sources */,
 				14F0FDC622AF934D00057093 /* NSScrollView+Helper.m in Sources */,

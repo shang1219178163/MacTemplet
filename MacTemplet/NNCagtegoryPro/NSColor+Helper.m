@@ -189,7 +189,7 @@ NSArray * RGBAFromColor(NSColor *color){
  */
 BOOL isLightColor(NSColor *color){
     NSArray *components = RGBAFromColor(color);
-    //    NSLog(@"%f %f %f", components[0], components[1], components[2]);
+    //    DDLog(@"%f %f %f", components[0], components[1], components[2]);
     CGFloat sum = [[components valueForKeyPath:kArr_sum_float] floatValue];
     bool isLight = sum < 382 ? false : true;
     return isLight;
