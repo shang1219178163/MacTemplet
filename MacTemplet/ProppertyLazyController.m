@@ -28,7 +28,7 @@
     [super viewDidLoad];
     
     // Do view setup here.
-    self.textLabel.stringValue = @"此处文本框显示的效果和XCode(Version 11.1 (11A1027))显示效果有差异, 以XCode效果为准";
+    self.textLabel.stringValue = @"此处文本框显示的效果和 XCode(Version 11.1 (11A1027))显示效果有差异, 以 XCode 实际效果为准";
     self.btnItems = @[@"属性Lazy", @"Copy",];
 
     [self.view addSubview:self.textView.enclosingScrollView];
