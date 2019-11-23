@@ -96,31 +96,33 @@
 + (NSStatusItem *)setupStatusItem{
    
     NSStatusItem *statusItem = [NSStatusItem createWithImageName:nil];
-    statusItem.menu = ({
-        NSMenu *menu = [[NSMenu alloc] initWithTitle:@"menu_right"];
-        [menu addItemWithTitle:@"保持为默认大小" keyEquivalent:@"E" handler:^(NSMenuItem * _Nonnull menuItem) {
-            DDLog(@"%@_%@_%@", menuItem.title, menuItem.keyEquivalent, @(NSApp.mainWindow.frame));
-            [NSUserDefaults.standardUserDefaults setObject: NSStringFromRect(NSApp.mainWindow.frame) forKey:kMainWindowFrame];
-            [NSUserDefaults.standardUserDefaults synchronize];
-            
-        }];
-        [menu addItemWithTitle:@"Load1" keyEquivalent:@"E" handler:^(NSMenuItem * _Nonnull menuItem) {
-            DDLog(@"%@_%@", menuItem.title, menuItem.keyEquivalent);
-            
-        }];
-        [menu addItemWithTitle:@"退出" keyEquivalent:@"" handler:^(NSMenuItem * _Nonnull menuItem) {
-            [NSApplication.sharedApplication terminate:self];
-            
-        }];
-        menu;
-    });
+//    statusItem.menu = ({
+//        NSMenu *menu = [[NSMenu alloc] initWithTitle:@"menu_right"];
+//        [menu addItemWithTitle:@"保持为默认大小" keyEquivalent:@"E" handler:^(NSMenuItem * _Nonnull menuItem) {
+//            DDLog(@"%@_%@_%@", menuItem.title, menuItem.keyEquivalent, @(NSApp.mainWindow.frame));
+//            [NSUserDefaults.standardUserDefaults setObject: NSStringFromRect(NSApp.mainWindow.frame) forKey:kMainWindowFrame];
+//            [NSUserDefaults.standardUserDefaults synchronize];
+//            
+//        }];
+//        [menu addItemWithTitle:@"Load1" keyEquivalent:@"E" handler:^(NSMenuItem * _Nonnull menuItem) {
+//            DDLog(@"%@_%@", menuItem.title, menuItem.keyEquivalent);
+//            
+//        }];
+//        [menu addItemWithTitle:@"退出" keyEquivalent:@"" handler:^(NSMenuItem * _Nonnull menuItem) {
+//            [NSApplication.sharedApplication terminate:self];
+//            
+//        }];
+//        menu;
+//    });
     
-    //    statusItem.view = ({
-    //        NSView *view = [[NSView alloc]init];
-    //        //    view.wantsLayer = YES;
-    //        view.layer.backgroundColor = NSColor.redColor.CGColor;
-    //        view;
-    //    });
+//    statusItem.view = ({
+//        NSImageView *view = [[NSImageView alloc]init];
+//        //    view.wantsLayer = YES;
+//        view.layer.backgroundColor = NSColor.redColor.CGColor;
+//        view.image = NSApplication.appIcon;
+//        view;
+//    });
+    DDLog(@"%@", @(statusItem.view.bounds));
     return statusItem;
 }
 

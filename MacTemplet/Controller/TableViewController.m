@@ -53,7 +53,7 @@
 }
 
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
-    return 60;
+    return 50;
 }
 //// 使用默认cell显示数据
 //-(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
@@ -69,7 +69,7 @@
     
     //获取表格列的标识符
     NSString *columnID = tableColumn.identifier;
-    DDLog(@"columnID : %@ ,row : %ld",columnID,row);
+//    DDLog(@"columnID : %@ ,row : %ld",columnID,row);
     
     static NSString *identifier = @"one";
     NSTableCellView *cell = [NSTableCellView makeViewWithTableView:tableView identifier:identifier owner:self];
@@ -81,7 +81,6 @@
     cell.textField.stringValue = [NSString stringWithFormat:@"cell %ld",(long)row];
     cell.textField.stringValue = [NSString stringWithFormat:@"%@",array[item]];
     
-//    NSTextField * textField = [NSTextField create:cell.bounds text:array[item] placeholder:@""];
     NNTextField * textField = [NNTextField create:cell.bounds placeholder:@""];
     textField.alignment = NSTextAlignmentCenter;
     textField.isTextAlignmentVerticalCenter = true;
@@ -93,7 +92,7 @@
 
 //设置每行容器视图
 - (nullable NSTableRowView *)tableView:(NSTableView *)tableView rowViewForRow:(NSInteger)row{
-    NNTableRowView * rowView = [[NNTableRowView alloc]init];
+    NNTableRowView *rowView = [[NNTableRowView alloc]init];
     rowView.backgroundColor = NSColor.yellowColor;
     return rowView;
 }
@@ -132,7 +131,7 @@
 }
 
 - (BOOL)tableView:(NSTableView *)tableView shouldTrackCell:(NSCell *)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    return YES;
+    return true;
 }
 
 #pragma mark -funtions
@@ -141,7 +140,7 @@
     NSArray * columns = @[@"columeOne", @"columeTwo", @"columeThree",];
     columns = self.list.firstObject;
     [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSTableColumn * column = [NSTableColumn createWithIdentifier:obj title:obj];
+        NSTableColumn *column = [NSTableColumn createWithIdentifier:obj title:obj];
         [self.tableView addTableColumn:column];
     }];
 

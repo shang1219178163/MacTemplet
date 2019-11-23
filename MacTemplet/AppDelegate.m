@@ -62,17 +62,16 @@
     
     [AppDelegate setupMainMenu];
     if (!self.statusItem) {
+        // statusItem.menu有值的时候,button方法不响应
         self.statusItem = [AppDelegate setupStatusItem];
         @weakify(self);
         [self.statusItem.button addActionHandler:^(NSControl * _Nonnull control) {
             @strongify(self);
             NSButton *sender = (NSButton *)control;
             [self.popover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSRectEdgeMaxY];
-            
-        }];
-        
-        [self.statusItem.button resignFirstResponder];
 
+        }];
+        [self.statusItem.button resignFirstResponder];
     }
     
 //    NSDictionary *systemDic = [NSDictionary dictionaryWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
@@ -158,8 +157,7 @@
 -(NSWindow *)window{
     if (!_window) {
         _window = NSApplication.windowDefault;
-        _window.title = NSApplication.appName;
-        _window.contentMinSize = CGSizeMake(kScreenWidth*0.56, kScreenHeight*0.5);
+        _window.contentMinSize = CGSizeMake(kScreenWidth*0.65, kScreenHeight*0.5);
     }
     return _window;
 }
