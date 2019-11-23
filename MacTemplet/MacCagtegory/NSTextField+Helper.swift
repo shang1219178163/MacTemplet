@@ -41,6 +41,7 @@ import Cocoa
            
         view.font = NSFont.systemFont(ofSize: 15)
         view.textColor = NSColor.black;
+        view.lineBreakMode = .byCharWrapping
 
         view.isBordered = false;  ///是否显示边框
         view.drawsBackground = true;

@@ -283,6 +283,10 @@
 
 #pragma mark -NSTextDelegate
 
+- (void)textDidBeginEditing:(NSNotification *)notification{
+    
+}
+
 - (void)textDidChange:(NSNotification *)notification{
     NSTextView * view = notification.object;
     //    DDLog(@"length:%@", @(view.string.length));
