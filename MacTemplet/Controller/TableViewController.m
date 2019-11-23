@@ -71,8 +71,9 @@
     NSString *columnID = tableColumn.identifier;
     DDLog(@"columnID : %@ ,row : %ld",columnID,row);
     
-    static NSString *cellIdentifier = @"one";
-    NSTableCellView *cell = [NSTableCellView viewWithTableView:tableView identifier:cellIdentifier owner:self];
+    static NSString *identifier = @"one";
+    NSTableCellView *cell = [NSTableCellView makeViewWithTableView:tableView identifier:identifier owner:self];
+
 //    cell.layer.backgroundColor = NSColor.greenColor.CGColor;
 
 //    cell.layer.backgroundColor = NSColor.yellowColor.CGColor;
@@ -80,8 +81,8 @@
     cell.textField.stringValue = [NSString stringWithFormat:@"cell %ld",(long)row];
     cell.textField.stringValue = [NSString stringWithFormat:@"%@",array[item]];
     
-//    NSTextField * textField = [NSTextField createTextFieldRect:cell.bounds text:array[item] placeholder:@""];
-    NNTextField * textField = [NNTextField createTextFieldRect:cell.bounds placeholder:@""];
+//    NSTextField * textField = [NSTextField create:cell.bounds text:array[item] placeholder:@""];
+    NNTextField * textField = [NNTextField create:cell.bounds placeholder:@""];
     textField.alignment = NSTextAlignmentCenter;
     textField.isTextAlignmentVerticalCenter = true;
     textField.stringValue = array[item];
@@ -150,7 +151,7 @@
 -(NNTableView *)tableView{
     if (!_tableView) {
         _tableView = ({
-            NNTableView *view = [NNTableView createTableViewRect:CGRectZero];
+            NNTableView *view = [NNTableView create:CGRectZero];
             view.delegate = self;
             view.dataSource = self;
             view;

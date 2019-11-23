@@ -55,12 +55,8 @@ fprintf(stderr,"%s【line -%d】%s %s\n", [str UTF8String], __LINE__,__PRETTY_FU
 #define kScreenWidth        (NSScreen.mainScreen.frame.size.width)
 #define kScreenHeight       (NSScreen.mainScreen.frame.size.height)
 
-#define kWindowWidth        (NSApp.keyWindow.frame.size.width)
-#define kWindowHeight       (NSApp.keyWindow.frame.size.height)
-
 #define kSizeArrow          CGSizeMake(25.0, 35.0)
 #define kSizeBSelected      CGSizeMake(35.0, 35.0)
-
 
 #pragma mark- -others其他
 

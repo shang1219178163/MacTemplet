@@ -109,7 +109,7 @@
 -(NNTextView *)textView{
     if (!_textView) {
         _textView = ({
-            NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
+            NNTextView * view = [NNTextView create:CGRectZero];
 //            view.delegate = self;
             view.font = [NSFont systemFontOfSize:12];
             view.layer.borderWidth = 1;

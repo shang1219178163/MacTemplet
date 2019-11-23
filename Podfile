@@ -16,6 +16,7 @@ def common_pods
   pod 'AFNetworking'
   pod 'Masonry'
   pod 'YYModel'
+  pod 'HandyJSON'
 
 end
 

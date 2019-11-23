@@ -29,21 +29,21 @@
     [self.view addSubview:self.textView];
    
 
-    self.textFieldOne.hidden = true;
-    self.textView.hidden = true;
+//    self.textFieldOne.hidden = true;
+//    self.textView.hidden = true;
 
     NSDictionary *dic = @{
                           @"github/shang1219178163": @"https://github.com/shang1219178163",
                           };
     
     self.textField.stringValue = [NSString stringWithFormat:@"%@\n%@\n%@", NSApplication.appName, NSApplication.appCopyright, @"github/shang1219178163"];
-    [self.textField setHyperlinkDic:dic];
+    [self.textField hyperlinkWithDic:dic];
     
     self.textFieldOne.stringValue = [NSString stringWithFormat:@"%@\n%@\n%@", NSApplication.appName, NSApplication.appCopyright, @"github/shang1219178163"];
-    [self.textFieldOne setHyperlinkDic:dic];
+    [self.textFieldOne hyperlinkWithDic:dic];
     
     self.textView.string = [NSString stringWithFormat:@"%@\n%@\n%@", NSApplication.appName, NSApplication.appCopyright, @"github/shang1219178163"];
-    [self.textView setHyperlinkDic:dic];
+    [self.textView hyperlinkWithDic:dic];
 //    [self.view getViewLayer];
 }
 
@@ -113,7 +113,7 @@
     NSString *title = @"This is messageText";
     NSString *msg = @"NSWarningAlertStyle \rDo you want to continue with delete of selected records";
     NSArray * list = @[@"continue", @"cancle",];
-    NSAlert * alert = [NSAlert createAlertTitle:title msg:msg btnTitles:list];
+    NSAlert * alert = [NSAlert create:title msg:msg btnTitles:list];
     [alert beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow completionHandler:^(NSModalResponse returnCode) {
         if (returnCode == NSModalResponseOK){
             DDLog(@"(returnCode == NSOKButton)");
@@ -136,7 +136,8 @@
 -(NSImageView *)imgView{
     if (!_imgView) {
         _imgView = ({
-            NSImageView *view = [NSImageView createImgViewRect:CGRectZero image:NSApplication.appIcon];
+            NSImageView *view = [NSImageView create:CGRectZero];
+            view.image = NSApplication.appIcon;
             view.editable = false;
             view;
         });
@@ -147,7 +148,7 @@
 -(NNTextField *)textField{
     if (!_textField) {
         _textField = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"简单介绍"];
+            NNTextField *view = [NNTextField create:CGRectZero placeholder:@"简单介绍"];
             
             view.cell.scrollable = true;
             
@@ -197,7 +198,7 @@
 -(NNTextView *)textView{
     if (!_textView) {
         _textView = ({
-            NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
+            NNTextView * view = [NNTextView create:CGRectZero];
 //            view.delegate = self;
             view.string = @"";
             view.font = [NSFont fontWithName:@"PingFangSC-Light" size:14];

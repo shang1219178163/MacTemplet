@@ -16,7 +16,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 
 @interface TabViewController ()<NSTabViewDelegate>
 
-@property (nonatomic, strong) NSTabView * tabView;
+@property (nonatomic, strong) NSTabView *tabView;
 
 @end
 
@@ -36,8 +36,8 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
     NSArray *list = @[@[@"JsonToModelNewController", @"json转模型", ],
                       @[@"ProppertyLazyController", @"属性Lazy",],
                       @[@"AuthorInfoController", @"其他",],
-//                      @[@"ThirdViewController", @"Third",],
-                      
+                      @[@"NSTestViewController", @"测试模块",],
+                      @[@"MacTemplet.TmpViewController", @"Swift模块",],
                       ];
     [self.tabView addItems:list];
 
@@ -82,7 +82,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 -(NSTabView *)tabView{
     if (!_tabView) {
         _tabView = ({
-            NSTabView * view = [NSTabView createTabViewRect:CGRectZero];
+            NSTabView * view = [NSTabView create:CGRectZero];
             view.delegate = self;
 
             view;

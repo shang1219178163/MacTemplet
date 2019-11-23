@@ -43,13 +43,15 @@
     
     NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
     self.window.contentViewController = controller;
+    [self.window makeKeyAndOrderFront:self];
+
     //    self.windowCtrl.window.contentViewController = controller;
     //    self.windowCtrl.window.title = NSApplication.appName;
     
-    DDLog(@"NSApplication.sharedApplication.mainWindow_%@", NSApplication.sharedApplication.mainWindow);
-    DDLog(@"NSApp.mainWindow_%@", NSApp.mainWindow);
-    DDLog(@"NSApp.keyWindow_%@", NSApp.keyWindow);
-    DDLog(@"NSApplication.windowDefault_%@", NSApplication.windowDefault);
+//    DDLog(@"NSApplication.sharedApplication.mainWindow_%@", NSApplication.sharedApplication.mainWindow);
+//    DDLog(@"NSApp.mainWindow_%@", NSApp.mainWindow);
+//    DDLog(@"NSApp.keyWindow_%@", NSApp.keyWindow);
+//    DDLog(@"NSApplication.windowDefault_%@", NSApplication.windowDefault);
     [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
 
 //    id obj = [NSUserDefaults.standardUserDefaults objectForKey:kMainWindowFrame];
@@ -90,11 +92,11 @@
     [NSUserDefaults.standardUserDefaults setObject: NSStringFromRect(self.window.frame) forKey:kMainWindowFrame];
     [NSUserDefaults.standardUserDefaults synchronize];
     
-    DDLog(@"%@", NSStringFromRect(self.window.frame));
+//    DDLog(@"%@", NSStringFromRect(self.window.frame));
 }
 /// 点击dock图标重新弹出窗口方法
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
-    DDLog(@"%@,%@,hasVisibleWindows:%d", self.window, sender.mainWindow, flag);
+//    DDLog(@"%@,%@,hasVisibleWindows:%d", self.window, sender.mainWindow, flag);
     if (!flag){
         [NSApp activateIgnoringOtherApps:false];
         [self.window makeKeyAndOrderFront:self];
@@ -175,9 +177,8 @@
             NSString * controllerName = @"FirstViewController";
             NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
             controller.view.frame = CGRectMake(0, 0, kScreenWidth*0.2, 200);
-            
-            NSPopover *popover = [NSPopover popoverWithController:controller];
-            
+            NSPopover *popover = [NSPopover createWithController:controller];
+//
             popover;
         });
     }

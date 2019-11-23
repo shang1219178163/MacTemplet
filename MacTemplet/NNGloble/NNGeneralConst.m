@@ -23,17 +23,36 @@ NSString * const kSetAlpha_Float =   @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmno
 
 #pragma mark - - kArr
 
-NSString * const kArr_avg_float = @"@avg.floatValue";
-NSString * const kArr_sum_inter = @"@sum.intValue";
-NSString * const kArr_max_inter = @"@max.intValue";
-NSString * const kArr_min_inter = @"@min.intValue";
-NSString * const kArr_sum_float = @"@sum.floatValue";
-NSString * const kArr_max_float = @"@max.floatValue";
-NSString * const kArr_min_float = @"@min.floatValue";
-NSString * const kArr_upper_list = @"uppercaseString";//大小写转换
-NSString * const kArr_lower_list = @"lowercaseString";//大小写转换
-NSString * const kArrs_unionDist_list = @"@distinctUnionOfArrays.self";//数组内部去重
-NSString * const kArrs_union_list = @"@unionOfArrays.self";
+NSString * const kArrAvg_float = @"@avg.floatValue";
+
+NSString * const kArrSum_float = @"@sum.floatValue";
+NSString * const kArrSum_inter = @"@sum.intValue";
+
+NSString * const kArrMax_float = @"@max.floatValue";
+NSString * const kArrMax_inter = @"@max.intValue";
+
+NSString * const kArrMin_float = @"@min.floatValue";
+NSString * const kArrMin_inter = @"@min.intValue";
+
+NSString * const kArrUpper_list = @"uppercaseString";//大小写转换
+NSString * const kArrLower_list = @"lowercaseString";//大小写转换
+
+NSString * const kArrsUnionDist_list = @"@distinctUnionOfArrays.self";//数组内部去重
+NSString * const kArrsUnion_list = @"@unionOfArrays.self";
+
+#pragma mark - - date
+
+const NSInteger kDate_minute = 60 ;
+const NSInteger kDate_hour = 3600 ;
+const NSInteger kDate_day = 86400 ;
+const NSInteger kDate_week = 604800 ;
+const NSInteger kDate_year = 31556926;
+
+NSString * const kFormatDate = @"yyyy-MM-dd HH:mm:ss";
+NSString * const kFormatDate_one = @"yyyy-MM-dd";
+NSString * const kFormatDate_two = @"yyyyMMdd";
+NSString * const kFormatDate_five = @"yyyyMMddHHmmss";
+NSString * const kFormatDate_Six = @"EEE, dd MMM yyyy HH:mm:ss 'GMT'";
 
 #pragma mark - - File
 
@@ -127,81 +146,81 @@ const CGFloat kFontSize10 =  10;
 
 #pragma mark - -视图
 
-NSString * const kIMG_arrowRight           = @"img_arrowRight_gray";
-NSString * const kIMG_arrowDown            = @"img_arrowDown_black";
-NSString * const kIMG_arrowBack            = @"img_arrowLeft_white";
-NSString * const kIMG_arrowUp              = @"img_arrowUp_blue";
+NSString * const kIMG_arrowRight       = @"img_arrowRight_gray";
+NSString * const kIMG_arrowDown        = @"img_arrowDown_black";
+NSString * const kIMG_arrowBack        = @"img_arrowLeft_white";
+NSString * const kIMG_arrowUp          = @"img_arrowUp_blue";
 
-NSString * const kIMG_portrait             = @"img_portrait_N";
-NSString * const kIMG_portrait_N           = @"img_portrait_N";
-NSString * const kIMG_portrait_H           = @"img_portrait_H";
-NSString * const kIMG_pictureAdd           = @"img_pictureAdd";
-NSString * const kIMG_pictureDelete        = @"img_pictureDelete";
+NSString * const kIMG_portrait         = @"img_portrait_N";
+NSString * const kIMG_portrait_N       = @"img_portrait_N";
+NSString * const kIMG_portrait_H       = @"img_portrait_H";
+NSString * const kIMG_pictureAdd       = @"img_pictureAdd";
+NSString * const kIMG_pictureDelete    = @"img_pictureDelete";
 
-NSString * const kIMG_defaultFailed        = @"img_failedDefault";
-NSString * const kIMG_defaultFailed_S      = @"img_failedDefault_S";
+NSString * const kIMG_defaultFailed    = @"img_failedDefault";
+NSString * const kIMG_defaultFailed_S  = @"img_failedDefault_S";
 
-NSString * const kIMG_sexBoy               = @"img_sex_boy";
-NSString * const kIMG_sexGril              = @"img_sex_gril";
+NSString * const kIMG_sexBoy           = @"img_sex_boy";
+NSString * const kIMG_sexGril          = @"img_sex_gril";
 
-NSString * const kIMG_elemetDec            = @"img_elemet_decrease";
-NSString * const kIMG_elemetInc            = @"img_elemet_increase";
+NSString * const kIMG_elemetDec        = @"img_elemet_decrease";
+NSString * const kIMG_elemetInc        = @"img_elemet_increase";
 
-NSString * const kIMG_scan                 = @"img_scan";
-NSString * const kIMG_NFC                  = @"img_NFC";
+NSString * const kIMG_scan             = @"img_scan";
+NSString * const kIMG_NFC              = @"img_NFC";
 
-NSString * const kIMG_inquiry              = @"img_dialog_inquiry";
-NSString * const kIMG_update               = @"img_dialog_update";
-NSString * const kIMG_warning              = @"img_dialog_warning";
+NSString * const kIMG_inquiry          = @"img_dialog_inquiry";
+NSString * const kIMG_update           = @"img_dialog_update";
+NSString * const kIMG_warning          = @"img_dialog_warning";
 
-NSString * const kIMG_notice               = @"img_notice";
-NSString * const kIMG_location_H           = @"img_location_H";
-NSString * const kIMG_more                 = @"img_more";
+NSString * const kIMG_notice           = @"img_notice";
+NSString * const kIMG_location_H       = @"img_location_H";
+NSString * const kIMG_more             = @"img_more";
 
-NSString * const kIMG_selected_NO          = @"btn_selected_NO";
-NSString * const kIMG_selected_YES         = @"btn_selected_YES";
-NSString * const kIMG_Add                  = @"btn_add";
+NSString * const kIMG_selected_NO      = @"btn_selected_NO";
+NSString * const kIMG_selected_YES     = @"btn_selected_YES";
+NSString * const kIMG_Add              = @"btn_add";
 
-NSString * const kIMG_like_H               = @"img_like_H";
-NSString * const kIMG_like_W               = @"img_like_W";
+NSString * const kIMG_like_H           = @"img_like_H";
+NSString * const kIMG_like_W           = @"img_like_W";
 
-NSString * const kMsg_NetWorkRequesting    = @"网络请求中...";
-NSString * const kMsg_NetWorkFailed        = @"网络请求失败,请稍后再试";
-NSString * const kMsg_NetWorkNodata        = @"暂无数据";
-NSString * const kMsg_NetWorkNoMoredata    = @"没有更多数据了";
-NSString * const kMsg_NetWorkFailed_Params = @"参数错误,请稍后再试";
+NSString * const kNetWorkRequesting    = @"网络请求中...";
+NSString * const kNetWorkFailed        = @"网络请求失败,请稍后再试";
+NSString * const kNetWorkNodata        = @"暂无数据";
+NSString * const kNetWorkNoMoredata    = @"没有更多数据了";
+NSString * const kNetWorkFailedParams = @"参数错误,请稍后再试";
 
-NSString * const kMsg_Locationing          = @"定位中...";
-NSString * const kMsg_LocationSuccess      = @"位置信息更新成功!";
-NSString * const kMsg_LocationFailed       = @"定位失败,请稍后再试";
-NSString * const kMsg_IDCardFailed         = @"身份证识别失败,请稍后再试";
-NSString * const kMsg_IDCardSuccess        = @"身份证识别成功";
+NSString * const kLocationing          = @"定位中...";
+NSString * const kLocationSuccess      = @"位置信息更新成功!";
+NSString * const kLocationFailed       = @"定位失败,请稍后再试";
+NSString * const kIDCardFailed         = @"身份证识别失败,请稍后再试";
+NSString * const kIDCardSuccess        = @"身份证识别成功";
 
+NSString * const kTitleDefault         = @"重置";
+NSString * const kTitleKnow            = @"知道了";
+NSString * const kTitleSure            = @"确定";
+NSString * const kTitleCancell         = @"取消";
+NSString * const kTitleDelete          = @"删除";
+NSString * const kTitleDrop            = @"彻底删除";
+NSString * const kTitleCall            = @"呼叫";
+NSString * const kTitleUpdate          = @"立即升级";
 
-NSString * const kActionTitle_Know         = @"知道了";
-NSString * const kActionTitle_Sure         = @"确定";
-NSString * const kActionTitle_Cancell      = @"取消";
-NSString * const kActionTitle_Delete       = @"删除";
-NSString * const kActionTitle_Drop         = @"彻底删除";
-NSString * const kActionTitle_Call         = @"呼叫";
-NSString * const kActionTitle_Update       = @"立即升级";
+NSString * const kTitleCollect         = @"收藏";
+NSString * const kTitleRecover         = @"恢复";
 
-NSString * const kActionTitle_Collect      = @"收藏";
-NSString * const kActionTitle_Recover      = @"恢复";
-
-NSString * const kNilText                  = @"--";
-NSString * const kSeparateStr              = @",";
-NSString * const kAsterisk                 = @"*";
-NSString * const kBlankHalf                = @"  ";
-NSString * const kBlankOne                 = @"    ";
-NSString * const kBlankTwo                 = @"        ";
-NSString * const kBlankFour                = @"                ";
+NSString * const kNilText              = @"--";
+NSString * const kSeparateStr          = @",";
+NSString * const kAsterisk             = @"*";
+NSString * const kBlankHalf            = @"  ";
+NSString * const kBlankOne             = @"    ";
+NSString * const kBlankTwo             = @"        ";
+NSString * const kBlankFour            = @"                ";
 
 #pragma mark - - 通用
 
-NSString * const kDes_week                 =   @"星期一,星期二,星期三,星期四,星期五,星期六,星期天";
-NSString * const kDes_month                =   @"正月, 二月, 三月, 四月, 五月, 六月, 七月, 八月,九月, 十月, 冬月, 腊月";
-NSString * const kDes_day                  =   @"初一, 初二, 初三, 初四, 初五, 初六, 初七, 初八, 初九, 初十,十一, 十二, 十三, 十四, 十五, 十六, 十七, 十八, 十九, 二十, 廿一, 廿二, 廿三, 廿四, 廿五, 廿六, 廿七, 廿八, 廿九, 三十, 三十一";
+NSString * const kDesWeek                 =   @"星期一,星期二,星期三,星期四,星期五,星期六,星期天";
+NSString * const kDesMonth                =   @"正月, 二月, 三月, 四月, 五月, 六月, 七月, 八月,九月, 十月, 冬月, 腊月";
+NSString * const kDesDay                  =   @"初一, 初二, 初三, 初四, 初五, 初六, 初七, 初八, 初九, 初十,十一, 十二, 十三, 十四, 十五, 十六, 十七, 十八, 十九, 二十, 廿一, 廿二, 廿三, 廿四, 廿五, 廿六, 廿七, 廿八, 廿九, 三十, 三十一";
 
 NSString * const kItem_obj                 =   @"kItem_obj";
 NSString * const kItem_objSeleted          =   @"kItem_objSeleted";
@@ -219,8 +238,8 @@ NSString * const kItem_image               =   @"kItem_image";
 NSString * const kItem_image_H             =   @"kItem_image_H";
 
 NSString * const kItem_controller          =   @"kItem_controller";
-NSString * const kItem_controller_Title    =   @"kItem_controller_Title";
-NSString * const kItem_Height              =   @"kItem_Height";
+NSString * const kItem_controllerTitle     =   @"kItem_controllerTitle";
+NSString * const kItem_height              =   @"kItem_height";
 
 NSString * const kItem_dataList            =   @"kItem_dataList";
 NSString * const kItem_finished            =   @"kItem_finish";
@@ -238,9 +257,9 @@ NSString * const kNoti_badge               = @"kNoti_badge";
 
 #pragma mark - -通知
 
-NSString * const kNotiPost_logIn           = @"kNotiPost_logIn";
-NSString * const kNotiPost_logOut          = @"kNotiPost_logOut";
-NSString * const kNotiPost_backgroudUploadLocation = @"kNotiPost_backgroudUploadLocation";
+NSString * const kNotiPostNameLogIn           = @"kNotiPostNameLogIn";
+NSString * const kNotiPostNameLogOut          = @"kNotiPostNameLogOut";
+NSString * const kNotiPostNameBackgroudUploadLocation = @"kNotiPostNameBackgroudUploadLocation";
 
 @implementation NNGeneralConst
 

@@ -9,7 +9,6 @@
 #import "ESClassInfo.h"
 #import "ESJsonFormatManager.h"
 #import "ESJsonFormatSetting.h"
-#import "NSApplication+Helper.h"
 
 @implementation ESClassInfo
 
@@ -244,7 +243,7 @@
 
 - (NSString *)classDescWithFirstFile:(BOOL)isFirstFile{
     ESClassInfo *classInfo = self;
-    NSString *dateStr = [NSDateFormatter stringFromDate:NSDate.date format:@"yyyy/MM/dd"];
+    NSString *dateStr = [NSDateFormatter stringFromDate:NSDate.date fmt:@"yyyy/MM/dd"];
     NSString *modelStr = [NSString stringWithFormat:@"//\n//Created by %@ on %@.\n//\n\n", NSApplication.macUserName, dateStr];
     modelStr = NSApplication.classCopyright;
     
@@ -268,7 +267,7 @@
     } else {
         NSString *hContent = [NSString stringWithFormat:@"%@\n\n%@",classInfo.classContentForH, classInfo.classInsertTextViewContentForH];
         
-        hImportStr = [NSMutableString stringWithString:@"import UIKit\n\n"];
+        hImportStr = [NSMutableString stringWithString:@"import Cocoa\n\n"];
         NSString *superClassString = [NSUserDefaults.standardUserDefaults objectForKey:kSuperClass];
         if (superClassString.length > 0 && ![superClassString isEqualToString:@"NSObject"]) {
             [hImportStr appendString:[NSString stringWithFormat:@"import %@ \n\n",superClassString]];

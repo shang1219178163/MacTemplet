@@ -253,7 +253,7 @@
     
     [result appendString:@"\n}"];
     if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
-        [result insertString:@"import UIKit\n\n" atIndex:0];
+        [result insertString:@"import Cocoa\n\n" atIndex:0];
         //headerStr
         NSMutableString *headerString = [NSMutableString stringWithString:[self dealHeaderStrWithClassInfo:classInfo type:@"swift"]];
         [result insertString:headerString atIndex:0];
@@ -359,7 +359,7 @@
         templateString = [templateString stringByReplacingOccurrencesOfString:@"__ORGANIZATIONNAME__" withString:organizationName];
     }
     //时间
-    NSString *dateStr = [NSDateFormatter stringFromDate:NSDate.date format:@"yy/MM/dd"];
+    NSString *dateStr = [NSDateFormatter stringFromDate:NSDate.date fmt:@"yy/MM/dd"];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"__DATE__" withString:dateStr];
     
     if ([type isEqualToString:@"h"] || [type isEqualToString:@"swift"]) {
@@ -371,7 +371,7 @@
                 [string appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n\n",superClassString]];
             }
         } else {
-            [string appendString:@"import UIKit\n\n"];
+            [string appendString:@"import Cocoa\n\n"];
             NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
             if (superClassString.length > 0) {
                 [string appendString:[NSString stringWithFormat:@"import %@ \n\n",superClassString]];
@@ -386,15 +386,16 @@
     if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
         //创建.h文件
         NSString * hFilename = [NSString stringWithFormat:@"%@.h",classInfo.className];
-        [NSFileManager createFileWithFolderPath:folderPath name:hFilename content:classInfo.classContentForH];
+        [NSFileManager createFile:folderPath name:hFilename content:classInfo.classContentForH attributes:nil];;
+
         //创建.m文件
         NSString * mFilename = [NSString stringWithFormat:@"%@.m",classInfo.className];
-        [NSFileManager createFileWithFolderPath:folderPath name:mFilename content:classInfo.classContentForM];
+        [NSFileManager createFile:folderPath name:mFilename content:classInfo.classContentForM attributes:nil];
 
     } else {
         //创建.swift文件
         NSString * hFilename = [NSString stringWithFormat:@"%@.swift",classInfo.className];
-        [NSFileManager createFileWithFolderPath:folderPath name:hFilename content:classInfo.classContentForH];
+        [NSFileManager createFile:folderPath name:hFilename content:classInfo.classContentForH attributes:nil];
     }
 }
 

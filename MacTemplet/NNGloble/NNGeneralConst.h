@@ -35,27 +35,51 @@ FOUNDATION_EXPORT NSString * const kSetAlpha_Float ;
 
 #pragma mark - - kArr
 /// avg.floatValue
-FOUNDATION_EXPORT NSString * const kArr_avg_float ;
-/// sum.intValue
-FOUNDATION_EXPORT NSString * const kArr_sum_inter ;
-/// max.intValue
-FOUNDATION_EXPORT NSString * const kArr_max_inter ;
-/// min.intValue
-FOUNDATION_EXPORT NSString * const kArr_min_inter ;
+FOUNDATION_EXPORT NSString * const kArrAvg_float ;
 /// sum.floatValue
-FOUNDATION_EXPORT NSString * const kArr_sum_float ;
+FOUNDATION_EXPORT NSString * const kArrSum_float ;
+/// sum.intValue
+FOUNDATION_EXPORT NSString * const kArrSum_inter ;
 /// max.floatValue
-FOUNDATION_EXPORT NSString * const kArr_max_float ;
+FOUNDATION_EXPORT NSString * const kArrMax_float ;
+/// max.intValue
+FOUNDATION_EXPORT NSString * const kArrMax_inter ;
 /// min.floatValue
-FOUNDATION_EXPORT NSString * const kArr_min_float ;
+FOUNDATION_EXPORT NSString * const kArrMin_float ;
+/// min.intValue
+FOUNDATION_EXPORT NSString * const kArrMin_inter ;
 /// uppercaseString
-FOUNDATION_EXPORT NSString * const kArr_upper_list ;
+FOUNDATION_EXPORT NSString * const kArrUpper_list ;
 /// lowercaseString
-FOUNDATION_EXPORT NSString * const kArr_lower_list ;
+FOUNDATION_EXPORT NSString * const kArrLower_list ;
 /// distinctUnionOfArrays.self(数组内部去重)
-FOUNDATION_EXPORT NSString * const kArrs_unionDist_list ;
+FOUNDATION_EXPORT NSString * const kArrsUnionDist_list ;
 /// unionOfArrays.self
-FOUNDATION_EXPORT NSString * const kArrs_union_list ;
+FOUNDATION_EXPORT NSString * const kArrsUnion_list ;
+
+#pragma mark - - date
+
+/// 60s
+FOUNDATION_EXPORT const NSInteger kDate_minute ;
+/// 3600s
+FOUNDATION_EXPORT const NSInteger kDate_hour ;
+/// 86400
+FOUNDATION_EXPORT const NSInteger kDate_day ;
+/// 604800
+FOUNDATION_EXPORT const NSInteger kDate_week ;
+/// 31556926
+FOUNDATION_EXPORT const NSInteger kDate_year ;
+
+/// yyyy-MM-dd HH:mm:ss
+FOUNDATION_EXPORT NSString * const kFormatDate ;
+/// yyyy-MM-dd
+FOUNDATION_EXPORT NSString * const kFormatDate_one ;
+/// yyyyMMdd
+FOUNDATION_EXPORT NSString * const kFormatDate_two ;
+/// yyyyMMddHHmmss
+FOUNDATION_EXPORT NSString * const kFormatDate_five ;
+/// EEE, dd MMM yyyy HH:mm:ss GMT
+FOUNDATION_EXPORT NSString * const kFormatDate_Six ;
 
 #pragma mark - - File
 
@@ -189,43 +213,59 @@ FOUNDATION_EXPORT NSString * const kIMG_Add ;
 FOUNDATION_EXPORT NSString * const kIMG_like_H ;
 FOUNDATION_EXPORT NSString * const kIMG_like_W ;
 
-FOUNDATION_EXPORT NSString * const kMsg_NetWorkRequesting;
-FOUNDATION_EXPORT NSString * const kMsg_NetWorkFailed;
-FOUNDATION_EXPORT NSString * const kMsg_NetWorkNodata;
-FOUNDATION_EXPORT NSString * const kMsg_NetWorkNoMoredata;
-FOUNDATION_EXPORT NSString * const kMsg_NetWorkFailed_Params;
+FOUNDATION_EXPORT NSString * const kNetWorkRequesting ;
+FOUNDATION_EXPORT NSString * const kNetWorkFailed ;
+FOUNDATION_EXPORT NSString * const kNetWorkNodata ;
+FOUNDATION_EXPORT NSString * const kNetWorkNoMoredata ;
+FOUNDATION_EXPORT NSString * const kNetWorkFailedParams ;
 
-FOUNDATION_EXPORT NSString * const kMsg_Locationing;
-FOUNDATION_EXPORT NSString * const kMsg_LocationSuccess;
-FOUNDATION_EXPORT NSString * const kMsg_LocationFailed;
-FOUNDATION_EXPORT NSString * const kMsg_IDCardFailed;
-FOUNDATION_EXPORT NSString * const kMsg_IDCardSuccess;
+FOUNDATION_EXPORT NSString * const kLocationing ;
+FOUNDATION_EXPORT NSString * const kLocationSuccess ;
+FOUNDATION_EXPORT NSString * const kLocationFailed ;
+FOUNDATION_EXPORT NSString * const kIDCardFailed ;
+FOUNDATION_EXPORT NSString * const kIDCardSuccess ;
 
-
-FOUNDATION_EXPORT NSString * const kActionTitle_Know;
-FOUNDATION_EXPORT NSString * const kActionTitle_Sure;
-FOUNDATION_EXPORT NSString * const kActionTitle_Cancell;
-FOUNDATION_EXPORT NSString * const kActionTitle_Delete;
-FOUNDATION_EXPORT NSString * const kActionTitle_Drop;
-FOUNDATION_EXPORT NSString * const kActionTitle_Call;
-FOUNDATION_EXPORT NSString * const kActionTitle_Update;
-
-FOUNDATION_EXPORT NSString * const kActionTitle_Collect;
-FOUNDATION_EXPORT NSString * const kActionTitle_Recover;
-
+/// 重置
+FOUNDATION_EXPORT NSString * const kTitleDefault ;
+/// 知道了
+FOUNDATION_EXPORT NSString * const kTitleKnow ;
+/// 确定
+FOUNDATION_EXPORT NSString * const kTitleSure ;
+/// 取消
+FOUNDATION_EXPORT NSString * const kTitleCancell ;
+/// 删除
+FOUNDATION_EXPORT NSString * const kTitleDelete ;
+/// 彻底删除
+FOUNDATION_EXPORT NSString * const kTitleDrop ;
+/// 呼叫
+FOUNDATION_EXPORT NSString * const kTitleCall ;
+/// 立即升级
+FOUNDATION_EXPORT NSString * const kTitleUpdate ;
+/// 收藏
+FOUNDATION_EXPORT NSString * const kTitleCollect ;
+/// 恢复
+FOUNDATION_EXPORT NSString * const kTitleRecover ;
+/// --
 FOUNDATION_EXPORT NSString * const kNilText ;
+/// ,
 FOUNDATION_EXPORT NSString * const kSeparateStr ;
+/// *
 FOUNDATION_EXPORT NSString * const kAsterisk ;
+/// 空格(半个字体)
 FOUNDATION_EXPORT NSString * const kBlankHalf ;
+/// 空格(1个字体)
 FOUNDATION_EXPORT NSString * const kBlankOne ;
+/// 空格(2个字体)
+
 FOUNDATION_EXPORT NSString * const kBlankTwo ;
+/// 空格(4个字体)
 FOUNDATION_EXPORT NSString * const kBlankFour ;
 
 #pragma mark - - 通用
 
-FOUNDATION_EXPORT NSString * const kDes_week ;
-FOUNDATION_EXPORT NSString * const kDes_month ;
-FOUNDATION_EXPORT NSString * const kDes_day ;
+FOUNDATION_EXPORT NSString * const kDesWeek ;
+FOUNDATION_EXPORT NSString * const kDesMonth ;
+FOUNDATION_EXPORT NSString * const kDesDay ;
 
 FOUNDATION_EXPORT NSString * const kItem_obj ;
 FOUNDATION_EXPORT NSString * const kItem_objSeleted ;
@@ -243,9 +283,9 @@ FOUNDATION_EXPORT NSString * const kItem_image ;
 FOUNDATION_EXPORT NSString * const kItem_image_H ;
 
 FOUNDATION_EXPORT NSString * const kItem_controller ;
-FOUNDATION_EXPORT NSString * const kItem_controller_Title ;
+FOUNDATION_EXPORT NSString * const kItem_controllerTitle ;
 
-FOUNDATION_EXPORT NSString * const kItem_Height ;
+FOUNDATION_EXPORT NSString * const kItem_height ;
 FOUNDATION_EXPORT NSString * const kItem_dataList ;
 FOUNDATION_EXPORT NSString * const kItem_finished ;
 
@@ -254,18 +294,18 @@ FOUNDATION_EXPORT NSString * const kItem_footer ;
 /**
  推送通知
  */
-FOUNDATION_EXPORT NSString * const kNoti_title;
-FOUNDATION_EXPORT NSString * const kNoti_subtitle;
-FOUNDATION_EXPORT NSString * const kNoti_body;
-FOUNDATION_EXPORT NSString * const kNoti_badge;
+FOUNDATION_EXPORT NSString * const kNoti_title ;
+FOUNDATION_EXPORT NSString * const kNoti_subtitle ;
+FOUNDATION_EXPORT NSString * const kNoti_body ;
+FOUNDATION_EXPORT NSString * const kNoti_badge ;
 
 
 /**
  通知
  */
-FOUNDATION_EXPORT NSString * const kNotiPost_logIn;
-FOUNDATION_EXPORT NSString * const kNotiPost_logOut;
-FOUNDATION_EXPORT NSString * const kNotiPost_backgroudUploadLocation ;
+FOUNDATION_EXPORT NSString * const kNotiPostNameLogIn ;
+FOUNDATION_EXPORT NSString * const kNotiPostNameLogOut ;
+FOUNDATION_EXPORT NSString * const kNotiPostNameBackgroudUploadLocation ;
 
 @interface NNGeneralConst : NSObject
 

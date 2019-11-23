@@ -68,7 +68,7 @@
             view.dateValue = NSDate.date;
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSDatePicker *sender = (NSDatePicker *)control;
-                NSString * dateStr = [NSDateFormatter stringFromDate:sender.dateValue format:kFormatDate];
+                NSString * dateStr = [NSDateFormatter stringFromDate:sender.dateValue fmt:kFormatDate];
                 DDLog(@"%@", dateStr);
                 
             }];

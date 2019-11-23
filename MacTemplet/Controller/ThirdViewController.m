@@ -34,7 +34,12 @@
 
 - (void)showDialogView{
     CGSize size = CGSizeMake(NSApp.mainWindow.minSize.width*0.5, NSApp.mainWindow.minSize.height*0.5);
-    NSWindow * window = [NSWindow createWithCtrlName: @"DialogViewController" size:size];
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+//    NSWindow *window = [NSWindow createWithCtrlName: @"DialogViewController" size:size];
+    
+    NSViewController *controller = [[NSClassFromString(@"DialogViewController") alloc]init];
+    NSWindow *window = [NSWindow create:rect controller:controller];
+
 //    window.contentViewController.currentWindow = window;
     [NSApp.mainWindow beginSheet:window completionHandler:^(NSModalResponse returnCode) {
         DDLog(@"returnCode_%@", @(returnCode));

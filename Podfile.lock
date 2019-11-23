@@ -12,11 +12,13 @@ PODS:
   - AFNetworking/Reachability (3.2.1)
   - AFNetworking/Security (3.2.1)
   - AFNetworking/Serialization (3.2.1)
+  - HandyJSON (5.0.1)
   - Masonry (1.1.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
+  - HandyJSON
   - Masonry
   - YYModel
 
@@ -26,12 +28,14 @@ SPEC REPOS:
     - YYModel
   trunk:
     - AFNetworking
+    - HandyJSON
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: f179cbef8f9ba35c98932983f4f83c5f3ef894f4
+PODFILE CHECKSUM: a2c0538d342fa858654096d3e05f67729f78506b
 
 COCOAPODS: 1.8.4

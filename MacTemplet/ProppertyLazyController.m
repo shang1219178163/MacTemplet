@@ -109,12 +109,29 @@
     self.textViewOne.string = [self createResult:self.textView.string];
 }
 
+- (IBAction)showAlert:(id)sender {
+//    NSAlert *alert = NSAlert createAlertTitle:@"提示" msg:@"Sample Test" btnTitles:@[ktit]
+//    NSAlert = [NSAlert alertWithMessageText:@"Sample Test" defaultButton:@"OK" alternateButton:@"DO Nothing" otherButton:@"CANCEL" informativeTextWithFormat:@"TEST",nil];
+//    [self.myAlert beginSheetModalForWindow:[self window]
+//                         modalDelegate:self
+//                        didEndSelector:@selector(errorAlertDidEnd:returnCode:contextInfo:)
+//                           contextInfo:nil];
+//
+//    NSArray *buttonArray = [self.myAlert buttons];
+//    NSLog(@"Button Arrays %@",buttonArray);
+//
+//    //Close by itself without a mouse click by the user
+//    //Assuming the Default Button as the Second one "Do Nothing
+//    NSButton *myBtn = buttonArray[2];
+//    [myBtn performClick:self.myAlert];
+}
+
 #pragma mark -lazy
 
 -(NNTextView *)textView{
     if (!_textView) {
         _textView = ({
-            NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
+            NNTextView * view = [NNTextView create:CGRectZero];
             view.delegate = self;
             view.string = @"";
             view.font = [NSFont systemFontOfSize:12];
@@ -128,7 +145,7 @@
 -(NNTextView *)textViewOne{
     if (!_textViewOne) {
         _textViewOne = ({
-            NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
+            NNTextView * view = [NNTextView create:CGRectZero];
 //            view.delegate = self;
             view.string = @"";
             view.font = [NSFont systemFontOfSize:12];
@@ -168,13 +185,13 @@
             NNView * view = [[NNView alloc]init];
             
             for (NSInteger i = 0; i < self.btnItems.count; i++) {
-                NNButton *btn = [NNButton createBtnRect:CGRectZero];
+                NNButton *btn = [NNButton create:CGRectZero];
 //                btn.titleColor = NSColor.redColor;
 //                btn.backgroundColor = NSColor.greenColor;
 
                 btn.title = self.btnItems[i];
                 btn.tag = i;
-                [btn addTarget:self action:@selector(p_handleActionSender:) forControlEvents:NSEventMaskOtherMouseUp];
+                [btn addTarget:self action:@selector(p_handleActionSender:) on: NSEventMaskOtherMouseUp];
 //                [btn addActionHandler:^(NSControl * _Nonnull control) {
 //                    [self showConvertResult];
 //

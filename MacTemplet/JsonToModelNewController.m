@@ -216,7 +216,8 @@
     //    DDLog(@"columnID : %@ ,row : %@, item: %@",columnID, @(row), @(item));
     
     static NSString *identifier = @"NSTableCellViewTen";
-    NSTableCellViewTen *cell = [NSTableCellViewTen viewWithTableView:tableView identifier:identifier owner:self];
+    NSTableCellViewTen *cell = [NSTableCellViewTen makeViewWithTableView:tableView identifier:identifier owner:self];
+
     cell.checkBox.hidden = true;
     
     if (self.dataList.count > 0) {
@@ -363,8 +364,8 @@
     self.textLabel.textColor = result ? NSColor.lightGreen : NSColor.redColor;
     
     if (!result) {
-        NSAlert * alert = [NSAlert createAlertTitle:@"警告" msg:@"Error：Json is invalid" btnTitles:@[kActionTitle_Know]];
-        [alert beginSheetModalHandler:^(NSModalResponse returnCode) {
+        NSAlert * alert = [NSAlert create:@"警告" msg:@"Error：Json is invalid" btnTitles:@[kTitleKnow]];
+        [alert beginSheetModalForWindow:NSApplication.windowDefault completionHandler:^(NSModalResponse returnCode) {
             DDLog(@"%@", @(returnCode));
         }];
         return;
@@ -384,7 +385,9 @@
     
     if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
         //选择保存路径
-        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
+//        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
+        NSOpenPanel *panel = [NSOpenPanel createWithFileTypes:nil allowsMultipleSelection:false];
+
         if ([panel runModal] == NSModalResponseOK) {
             NSString *folderPath = [panel.URLs.firstObject relativePath];
             [classInfo createFileWithFolderPath:folderPath];
@@ -412,7 +415,7 @@
             classModel.className = classInfo.className;
             classModel.hContent = [classInfo classDescWithFirstFile:true];
             
-            classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"import UIKit" withString:self.langModel.staticImports];
+            classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"import Cocoa" withString:self.langModel.staticImports];
             NSString * tmp = [NSString stringWithFormat:@"NSObject, %@ {", self.langModel.defaultParentWithUtilityMethods];
             classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"NSObject {" withString:tmp];
             if (self.valueTypeLab.isSelectable == true) {
@@ -438,7 +441,9 @@
         [NSWorkspace.sharedWorkspace openFile:folderPath];
         
     } else {
-        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
+//        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
+        NSOpenPanel *panel = [NSOpenPanel createWithFileTypes:nil allowsMultipleSelection:false];
+        
         if (panel.runModal == NSModalResponseOK) {
             folderPath = [panel.URLs.firstObject relativePath];
             [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:kFolderPath];
@@ -467,7 +472,7 @@
     [NSUserDefaults.standardUserDefaults setObject:self.langModel.defaultParentWithUtilityMethods forKey:kSuperClass];
     [NSUserDefaults.standardUserDefaults synchronize];
     
-    [NSUserDefaults setArcObject:self.langModel forKey:@"langModel"];
+    [NSUserDefaults setArcObject:self.langModel forkey:@"langModel"];
     [NSUserDefaults synchronize];
     id langModel = [NSUserDefaults arcObjectForKey:@"langModel"];
 }
@@ -477,7 +482,7 @@
 -(NNTextView *)textView{
     if (!_textView) {
         _textView = ({
-            NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
+            NNTextView * view = [NNTextView create:CGRectZero];
             view.delegate = self;
             view.string = @"NSScrollView上无法滚动的NSTextView";
             view.font = [NSFont systemFontOfSize:12];
@@ -491,10 +496,9 @@
 -(NNTableView *)tableView{
     if (!_tableView) {
         _tableView = ({
-            NNTableView *view = [NNTableView createTableViewRect:CGRectZero];
+            NNTableView *view = [NNTableView create:CGRectZero];
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
-            [view addTableColumnTitles:@[@"columeOne",]];
-
+            [view addTableColumnWithTitles:@[@"columeOne",]];
             if ([self conformsToProtocol:@protocol(NSTableViewDataSource)]) view.dataSource = self;
             if ([self conformsToProtocol:@protocol(NSTableViewDelegate)]) view.delegate = self;
 
@@ -528,7 +532,7 @@
 -(NNTextField *)textField{
     if (!_textField) {
         _textField = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Class Prefix"];
+            NNTextField *view = [NNTextField create:CGRectZero placeholder:@"Class Prefix"];
             view.bordered = true;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:13];
             
@@ -549,7 +553,7 @@
 -(NNTextField *)textFieldTwo{
     if (!_textFieldTwo) {
         _textFieldTwo = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Root Class name"];
+            NNTextField *view = [NNTextField create:CGRectZero placeholder:@"Root Class name"];
             view.bordered = true;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:13];
             
@@ -570,7 +574,7 @@
 -(NNTextField *)textFieldThree{
     if (!_textFieldThree) {
         _textFieldThree = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Supper Class name"];
+            NNTextField *view = [NNTextField create:CGRectZero placeholder:@"Supper Class name"];
             view.bordered = true;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:13];
             
@@ -694,7 +698,7 @@
                 NSError * error = nil;
                 NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
                 if (error) {
-                    [NSAlert showAlertWithError:error];
+                    [NSAlert showWithError:error];
                     return ;
                 }
                 NNLanguageModel *langModel = [NNLanguageModel yy_modelWithJSON:dic];

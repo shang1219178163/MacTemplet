@@ -60,7 +60,7 @@
 -(NSTextView *)textView{
     if (!_textView) {
         _textView = ({
-            NSTextView * view = [NSTextView createTextViewRect:CGRectZero];
+            NSTextView * view = [NSTextView create:CGRectZero];
             view.delegate = self;
             view.string = @"";
             view.font = [NSFont systemFontOfSize:NSFont.smallSystemFontSize];

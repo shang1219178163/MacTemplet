@@ -258,7 +258,9 @@
     
     if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
         //选择保存路径
-        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
+//        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
+        NSOpenPanel *panel = [NSOpenPanel createWithFileTypes:nil allowsMultipleSelection:false];
+
         if ([panel runModal] == NSModalResponseOK) {
             NSString *folderPath = [panel.URLs.firstObject relativePath];
             [classInfo createFileWithFolderPath:folderPath];
@@ -286,7 +288,9 @@
         [NSWorkspace.sharedWorkspace openFile:folderPath];
         
     } else {
-        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
+//        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
+        NSOpenPanel *panel = [NSOpenPanel createWithFileTypes:nil allowsMultipleSelection:false];
+
         if (panel.runModal == NSModalResponseOK) {
             folderPath = [panel.URLs.firstObject relativePath];
             [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:kFolderPath];
@@ -309,7 +313,7 @@
 -(NNTextView *)textView{
     if (!_textView) {
         _textView = ({
-            NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
+            NNTextView * view = [NNTextView create:CGRectZero];
             view.delegate = self;
             view.string = @"NSScrollView上无法滚动的NSTextView";
             view.font = [NSFont systemFontOfSize:12];
@@ -330,7 +334,7 @@
 -(NNTextView *)hTextView{
     if (!_hTextView) {
         _hTextView = ({
-            NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
+            NNTextView * view = [NNTextView create:CGRectZero];
             view.editable = false;
             view.delegate = self;
             view.font = [NSFont systemFontOfSize:14];
@@ -344,7 +348,7 @@
 -(NNTextView *)mTextView{
     if (!_mTextView) {
         _mTextView = ({
-            NNTextView * view = [NNTextView createTextViewRect:CGRectZero];
+            NNTextView * view = [NNTextView create:CGRectZero];
             view.editable = false;
             view.delegate = self;
             view.font = [NSFont systemFontOfSize:14];
@@ -370,7 +374,7 @@
 -(NNTextField *)textField{
     if (!_textField) {
         _textField = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Class Prefix"];
+            NNTextField *view = [NNTextField create:CGRectZero placeholder:@"Class Prefix"];
             view.bordered = true;  ///是否显示边框
             
             view.alignment = NSTextAlignmentCenter;
@@ -390,7 +394,7 @@
 -(NNTextField *)textFieldTwo{
     if (!_textFieldTwo) {
         _textFieldTwo = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Supper Class name"];
+            NNTextField *view = [NNTextField create:CGRectZero placeholder:@"Supper Class name"];
             view.bordered = true;  ///是否显示边框
 
             view.alignment = NSTextAlignmentCenter;
@@ -410,7 +414,7 @@
 -(NNTextField *)textFieldThree{
     if (!_textFieldThree) {
         _textFieldThree = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"Root Class name"];
+            NNTextField *view = [NNTextField create:CGRectZero placeholder:@"Root Class name"];
             view.bordered = true;  ///是否显示边框
             
             view.alignment = NSTextAlignmentCenter;
@@ -516,7 +520,7 @@
                 NSError * error = nil;
                 NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
                 if (error) {
-                    [NSAlert showAlertWithError:error];
+                    [NSAlert showWithError:error];
                     return ;
                 }
                 NNLanguageModel *langModel = [NNLanguageModel yy_modelWithJSON:dic];

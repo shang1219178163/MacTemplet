@@ -107,7 +107,9 @@
 -(NSImageView *)imgView{
     if (!_imgView) {
         _imgView = ({
-            NSImageView *view = [NSImageView createImgViewRect:CGRectZero image:NSApplication.appIcon];
+            NSImageView *view = [NSImageView create:CGRectZero];
+            view.image = NSApplication.appIcon;
+
             view;
         });
     }
@@ -117,7 +119,7 @@
 - (NNTextField *)textField{
     if (!_textField) {
         _textField = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"简单介绍"];
+            NNTextField *view = [NNTextField create:CGRectZero placeholder:@"简单介绍"];
             view.editable = false;
 //            view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
@@ -130,7 +132,7 @@
 - (NNTextField *)textFieldOne{
     if (!_textFieldOne) {
         _textFieldOne = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"简单介绍"];
+            NNTextField *view = [NNTextField create:CGRectZero placeholder:@"简单介绍"];
             view.editable = false;
 //            view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
@@ -142,7 +144,7 @@
 
 -(NSTabView *)tabView{
     if (!_tabView) {
-        _tabView = [NSTabView createTabViewRect:CGRectZero];
+        _tabView = [NSTabView create:CGRectZero];
         _tabView.delegate = self;
     }
     return _tabView;

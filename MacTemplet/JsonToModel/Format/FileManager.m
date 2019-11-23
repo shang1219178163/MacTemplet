@@ -8,7 +8,6 @@
 
 #import "FileManager.h"
 #import "ESJsonFormat.h"
-#import "NSFileManager+Helper.h"
 
 @implementation FileManager
 
@@ -28,12 +27,12 @@
                        mContent :(NSString *)mContent{
     if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
         //创建.h文件
-        [NSFileManager createFileWithFolderPath:folderPath name:hFileName content:hContent];
+        [NSFileManager createFile:folderPath name:hFileName content:hContent attributes:nil];
         //创建.m文件
-        [NSFileManager createFileWithFolderPath:folderPath name:mFileName content:mContent];
+        [NSFileManager createFile:folderPath name:mFileName content:mContent attributes:nil];
     }else{
         //创建.swift文件
-        [NSFileManager createFileWithFolderPath:folderPath name:hFileName content:hContent];
+        [NSFileManager createFile:folderPath name:hFileName content:hContent attributes:nil];
     }
 }
 
