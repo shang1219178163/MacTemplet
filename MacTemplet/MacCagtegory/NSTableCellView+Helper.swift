@@ -21,4 +21,9 @@ import Cocoa
         return cellView;
     }
     
+    
+    func udpateSelectionHighlight() {
+        textField?.textColor = backgroundStyle == .dark ? NSColor.white : NSColor.black;
+    }
+    
 }

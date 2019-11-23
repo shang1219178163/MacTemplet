@@ -83,13 +83,13 @@ public func NNStringFromClass(_ cls: Swift.AnyClass) -> String {
 //获取本地创建类
 public func NNClassFromString(_ name: String) -> AnyClass? {
     if let cls = NSClassFromString(name) {
-         print("✅_Objc类存在: \(name)")
+//         print("✅_Objc类存在: \(name)")
         return cls;
      }
      
      let swiftClassName = "\(NSApplication.appBundleName).\(name)";
      if let cls = NSClassFromString(swiftClassName) {
-         print("✅_Swift类存在: \(swiftClassName)")
+//         print("✅_Swift类存在: \(swiftClassName)")
          return cls;
      }
      print("❌_类不存在: \(name)")

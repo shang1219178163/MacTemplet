@@ -12,7 +12,7 @@ import Cocoa
 
     static func create(imageName: String?) -> NSStatusItem {
         
-        var image = NSApplication.appIcon.resize(CGSize(width: 17, height: 17), isPixels: true);
+        var image = NSApplication.appIcon.resize(CGSize(width: 40, height: 30), isPixels: true);
         if imageName != nil && (NSImage(named: imageName!) != nil) {
             image = NSImage(named: imageName!)!
         }

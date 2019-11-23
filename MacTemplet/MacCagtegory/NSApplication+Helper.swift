@@ -14,7 +14,7 @@ import Cocoa
         get {
             var obj = objc_getAssociatedObject(self, RuntimeKeySelector(#function)) as? NSWindow
             if obj == nil {
-                obj = NSWindow.create(title: "MainWindow");
+                obj = NSWindow.createMain();
                 objc_setAssociatedObject(self, RuntimeKeySelector(#function), obj, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
             }
             return obj!
