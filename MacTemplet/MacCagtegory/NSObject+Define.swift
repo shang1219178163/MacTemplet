@@ -109,12 +109,6 @@ public func NNClassFromString(_ name: String) -> AnyClass? {
 //    return cls;
 //}
 
-//获取本地创建类(Swift类,需要在名称之前加 . 符号,以示区别)
-public func SwiftClassFromString(_ name: String) -> AnyClass {
-    let className = name.contains(".") == true ? name : ".\(name)"
-    return NNClassFromString(className)!;
-}
-
 /// 获取本地 NSViewController 文件(Swift类,需要在名称之前加 . 符号,以示区别)
 public func NSCtrFromString(_ vcName: String) -> NSViewController {
     let cls: AnyClass = NNClassFromString(vcName)!;
