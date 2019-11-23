@@ -71,7 +71,8 @@
 -(NSImageView *)imgView{
     if (!_imgView) {
         _imgView = ({
-            NSImageView *view = [NSImageView createImgViewRect:CGRectZero image:NSApplication.appIcon];
+            NSImageView *view = [NSImageView create:CGRectZero];
+            view.image = NSApplication.appIcon;
             view.imageScaling = NSImageScaleProportionallyDown;
             view;
         });
@@ -82,7 +83,7 @@
 - (NNTextField *)label{
     if (!_label) {
         _label = ({
-            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero placeholder:@"简单介绍"];
+            NNTextField *view = [NNTextField create:CGRectZero placeholder:@"简单介绍"];
             view.editable = false;
             view.font = [NSFont systemFontOfSize:12];
             view.alignment = NSTextAlignmentCenter;
@@ -97,7 +98,7 @@
 //- (NNTextField *)textField{
 //    if (!_textField) {
 //        _textField = ({
-//            NNTextField *view = [NNTextField createTextFieldRect:CGRectZero text:@"" placeholder:@"简单介绍"];
+//            NNTextField *view = [NNTextField create:CGRectZero text:@"" placeholder:@"简单介绍"];
 //            view.editable = false;
 //            //            view.alignment = NSTextAlignmentCenter;
 //            view.isTextAlignmentVerticalCenter = true;

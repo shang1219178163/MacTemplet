@@ -33,10 +33,10 @@
     
     
     NSMenuItem *oneItem3 = ({
-        NSMenuItem *item = [[NSMenuItem alloc]itemWithTitle:@"Load3" keyEquivalent:@"T" handler:^(NSMenuItem * _Nonnull menuItem) {
-            DDLog(@"%@_%@", menuItem.title, menuItem.keyEquivalent);
-            
-        }];
+        NSMenuItem *item = [NSMenuItem createWithTitle:@"Load3" keyEquivalent:@"T" handler:^(NSMenuItem * _Nonnull menuItem) {
+                 DDLog(@"%@_%@", menuItem.title, menuItem.keyEquivalent);
+                 
+             }];
         item.submenu = ({
             NSMenu *menu = [[NSMenu alloc] initWithTitle:@"三级目录"];
             [menu addItemWithTitle:@"-30" keyEquivalent:@"T" handler:^(NSMenuItem * _Nonnull menuItem) {
@@ -95,7 +95,7 @@
 
 + (NSStatusItem *)setupStatusItem{
    
-    NSStatusItem *statusItem = [NSStatusItem createStatusItemImageName:nil];
+    NSStatusItem *statusItem = [NSStatusItem createWithImageName:nil];
     statusItem.menu = ({
         NSMenu *menu = [[NSMenu alloc] initWithTitle:@"menu_right"];
         [menu addItemWithTitle:@"保持为默认大小" keyEquivalent:@"E" handler:^(NSMenuItem * _Nonnull menuItem) {
