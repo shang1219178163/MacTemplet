@@ -25,15 +25,25 @@ import Cocoa
         }
     }
     /// 闭包回调
-    public func addAction(_ handler: @escaping (NSGestureRecognizer) -> Void) {
+    public func addAction(_ handler: @escaping () -> Void) {
         objc_setAssociatedObject(self, UnsafeRawPointer(bitPattern: self.hashValue)!, handler, .OBJC_ASSOCIATION_COPY_NONATOMIC);
         target = self;
         action = #selector(p_invoke(_:));
     }
     
     private func p_invoke(_ sender: NSGestureRecognizer) {
-        let handler = objc_getAssociatedObject(self, UnsafeRawPointer(bitPattern: self.hashValue)!) as! ((NSGestureRecognizer) -> Void)
-        handler(sender);
+        let handler = objc_getAssociatedObject(self, UnsafeRawPointer(bitPattern: self.hashValue)!) as! (() -> Void)
+        handler();
     }
+//    public func addAction(_ handler: @escaping (NSGestureRecognizer) -> Void) {
+//        objc_setAssociatedObject(self, UnsafeRawPointer(bitPattern: self.hashValue)!, handler, .OBJC_ASSOCIATION_COPY_NONATOMIC);
+//        target = self;
+//        action = #selector(p_invoke(_:));
+//    }
+//
+//    private func p_invoke(_ sender: NSGestureRecognizer) {
+//        let handler = objc_getAssociatedObject(self, UnsafeRawPointer(bitPattern: self.hashValue)!) as! ((NSGestureRecognizer) -> Void)
+//        handler(sender);
+//    }
     
 }

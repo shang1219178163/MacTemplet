@@ -14,7 +14,6 @@
 @interface NSTestViewController ()
 
 
-
 @end
 
 @implementation NSTestViewController
@@ -22,43 +21,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    
-    
-#if DEBUG
-    DDLog(@"NSTestViewController_测试模式");
-    
-#else
-    DDLog(@"NSTestViewController_release模式");
-#endif
+    self.view.layer.backgroundColor = NSColor.lightGreen.CGColor;
     
     NSClickGestureRecognizer * click = [[NSClickGestureRecognizer alloc]init];
     [self.view addGestureRecognizer:click];
-    [click addAction:^(NSGestureRecognizer * reco) {
-        DDLog(@"%@", reco);
-    }];
     
+//    [click addAction:^(NSGestureRecognizer * reco) {
+//        DDLog(@"%@", click);
+//    }];
+
+    [click addAction:^{
+//        NSLog(@"%@", click);
+        DDLog(@"%@", @"1111");
+    }];
 }
 
 
 - (void)viewWillAppear{
     [super viewWillAppear];
     
-//    Class myCls = NSClassFromString(@"AuthorInfoController");
-//    NSString *str = NSStringFromClass(myCls);
-//
-//    if (str.length) {
-//        NSLog(@"这个类存在");
-//
-//    }else{
-//        NSLog(@"这个类不存在");
-//    }
-//    bool isExsit = [NSFileManager isExistFileWithName:@"AuthorInfoController" isSwift:true];
-    
     Class cls = NSClassFromString(@"AuthorInfoController");
-    Class clsOne = NSClassFromString(@"AuthorInfoController1");
-    Class clsTwo = NSClassFromString(@"MacTemplet.TmpViewController");
-    Class clsThree = NSClassFromString(@"TmpViewController");
-//    DDLog(cls, clsOne, clsTwo, clsThree);
+    DDLog(cls);
 }
 
 

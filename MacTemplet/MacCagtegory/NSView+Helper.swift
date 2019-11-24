@@ -30,4 +30,38 @@ import Cocoa
         getViewLayer(.blue)
     }
     
+    
+    func setbulrEffct(){
+        let blurView = NSView(frame: self.bounds)
+        blurView.wantsLayer = true
+        blurView.layer?.backgroundColor = NSColor.clear.cgColor
+        blurView.layer?.masksToBounds = true
+        blurView.layerUsesCoreImageFilters = true
+        blurView.layer?.needsDisplayOnBoundsChange = true
+        
+        let satFilter = CIFilter(name: "CIColorControls")
+        satFilter?.setDefaults()
+        satFilter?.setValue(NSNumber(value: 2.0), forKey: "inputSaturation")
+        
+        let blurFilter = CIFilter(name: "CIGaussianBlur")
+        blurFilter!.setDefaults()
+        blurFilter?.setValue(NSNumber(value: 1.0), forKey: "inputRadius")
+        
+        blurView.layer?.backgroundFilters = [satFilter, blurFilter]        
+        self.addSubview(blurView)
+        blurView.layer?.needsDisplay()
+    }
+    
+    /// 插入模糊背景
+    @available(OSX 10.14, *)
+    func addVisualEffectView(_ rect: CGRect = .zero) -> NSVisualEffectView {
+        let tmpRect = CGRect.zero.equalTo(rect) == false ? rect : self.bounds;
+        let effectView = NSVisualEffectView(frame: tmpRect)
+        effectView.blendingMode = .behindWindow
+        effectView.material = .underWindowBackground
+        effectView.state = .active
+//        effectView.appearance = NSAppearance(named: .vibrantDark)
+        addSubview(effectView)
+        return effectView;
+    }
 }

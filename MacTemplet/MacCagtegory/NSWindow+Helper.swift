@@ -17,7 +17,7 @@ import Cocoa
     static func create(_ rect: CGRect = NSWindow.defaultRect, title: String = NSApplication.appName) -> NSWindow {
     //        let style = NSWindow.StyleMask.titled.rawValue | NSWindow.StyleMask.closable.rawValue | NSWindow.StyleMask.miniaturizable.rawValue | NSWindow.StyleMask.resizable.rawValue
         let style: NSWindow.StyleMask = [.titled, .closable, .miniaturizable, .resizable]
-        let window = NSWindow(contentRect: rect, styleMask: style, backing: NSWindow.BackingStoreType.buffered, defer: false)
+        let window = NSWindow(contentRect: rect, styleMask: style, backing: .buffered, defer: false)
         window.title = title
         return window;
     }
