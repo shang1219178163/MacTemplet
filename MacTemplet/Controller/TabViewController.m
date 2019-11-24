@@ -37,7 +37,8 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"ProppertyLazyController", @"属性Lazy",],
                       @[@"AuthorInfoController", @"其他",],
                       @[@"NSTestViewController", @"测试模块",],
-                      @[@"MacTemplet.TmpViewController", @"Swift模块",],
+                      @[@"TmpViewController", @"Swift模块",],
+                      
                       ];
     [self.tabView addItems:list];
 
