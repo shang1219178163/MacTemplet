@@ -29,8 +29,8 @@
     [self.view addSubview:self.textView];
    
 
-//    self.textFieldOne.hidden = true;
-//    self.textView.hidden = true;
+    self.textFieldOne.hidden = true;
+    self.textView.hidden = true;
 
     NSDictionary *dic = @{
                           @"github/shang1219178163": @"https://github.com/shang1219178163",

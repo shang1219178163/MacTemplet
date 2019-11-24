@@ -30,6 +30,10 @@
     // Insert code here to initialize your application
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints"];
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"LAYOUT_CONSTRAINTS_NOT_SATISFIABLE"];
+    
+    NSWindow *window = NSApplication.sharedApplication.windows.firstObject;
+    DDLog(@"windows:%@", window);
+    
 
     NSString * controllerName = @"HomeViewController";
 //    controllerName = @"FirstViewController";
@@ -41,10 +45,12 @@
 //    controllerName = @"ProppertyLazyController";
     controllerName = @"TabViewController";
     
-    NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
+    NSViewController *controller = [[NSClassFromString(controllerName) alloc] init];
     self.window.contentViewController = controller;
     [self.window makeKeyAndOrderFront:self];
 
+//    self.window.opaque = false;
+//    self.window.backgroundColor = [NSColor.whiteColor colorWithAlphaComponent:0.9];
     //    self.windowCtrl.window.contentViewController = controller;
     //    self.windowCtrl.window.title = NSApplication.appName;
     
@@ -69,7 +75,6 @@
             @strongify(self);
             NSButton *sender = (NSButton *)control;
             [self.popover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSRectEdgeMaxY];
-
         }];
         [self.statusItem.button resignFirstResponder];
     }
