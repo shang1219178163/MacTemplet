@@ -101,21 +101,21 @@ import Cocoa
     public var maxY: CGFloat {
         return frame.maxY
     }
-     /// 图层调试
+    /// 图层调试
     public func getViewLayer(_ lineColor: NSColor = .blue) {
         let subviews = self.subviews;
         if subviews.count == 0 {
             return;
         }
         for subview in subviews {
-            subview.layer!.borderWidth = kW_LayerBorder;
-            subview.layer!.borderColor = lineColor.cgColor;
- //            subview.layer.borderColor = UIColor.clear.cgColor;
+            subview.layer?.borderWidth = kW_LayerBorder;
+            subview.layer?.borderColor = lineColor.cgColor;
+ //            subview.layer?.borderColor = UIColor.clear.cgColor;
 
             subview.getViewLayer();
          }
      }
-    
+    /// 图层调试(兼容OC)
     public func getViewLayer() {
         getViewLayer(.blue)
     }

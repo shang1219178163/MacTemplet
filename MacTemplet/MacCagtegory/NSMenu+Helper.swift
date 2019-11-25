@@ -9,6 +9,19 @@
 import Cocoa
 
 @objc public extension NSMenu {
+    /// 创建下拉菜单
+    static func createMenu(withTitle title: String = "Menu", itemTitles: [String], handler: ((NSMenuItem) -> Void)? = nil) -> NSMenu {
+        
+        let menu = NSMenu(title: title)
+        for e in itemTitles.enumerated() {
+            let item = NSMenuItem(title: e.element, action: nil, keyEquivalent: "")
+            if handler != nil {
+                item.addAction(handler!)
+            }
+            menu.addItem(item)
+        }
+        return menu;
+    }
 
     func addItem(withTitle title: String, keyEquivalent: String, handler: @escaping (NSMenuItem) -> Void) -> NSMenuItem {
         let item = addItem(withTitle: title, action: nil, keyEquivalent: keyEquivalent)
@@ -21,4 +34,6 @@ import Cocoa
         item.addAction(handler)
         return item;
     }
+    
+    
 }

@@ -10,6 +10,7 @@ import Cocoa
 
 @objc public extension NSView {
 
+    
     var center: CGPoint {
         get {
             return CGPoint(x: frame.origin.x + frame.size.width*0.5,
@@ -23,36 +24,36 @@ import Cocoa
         }
     }
     
-     var lineTop: NSView {
-         get {
-             var obj = objc_getAssociatedObject(self, RuntimeKeySelector(#function)) as? NSView;
-             if obj == nil {
-                 obj = NSView(frame: CGRect(x: 0, y: 0, width: frame.width, height: kH_LINE_VIEW));
-                 obj!.layer?.backgroundColor = NSColor.line.cgColor;
+    var lineTop: NSView {
+        get {
+            var obj = objc_getAssociatedObject(self, RuntimeKeySelector(#function)) as? NSView;
+            if obj == nil {
+                obj = NSView(frame: CGRect(x: 0, y: 0, width: frame.width, height: kH_LINE_VIEW));
+                obj!.layer?.backgroundColor = NSColor.line.cgColor;
 
-                 objc_setAssociatedObject(self, RuntimeKeySelector(#function), obj, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-             }
-             return obj!;
-         }
-         set {
-             objc_setAssociatedObject(self, RuntimeKeySelector(#function), newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-         }
-     }
+                objc_setAssociatedObject(self, RuntimeKeySelector(#function), obj, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            }
+            return obj!;
+        }
+        set {
+            objc_setAssociatedObject(self, RuntimeKeySelector(#function), newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        }
+    }
      
-     var lineBottom: NSView {
-         get {
-             var obj = objc_getAssociatedObject(self, RuntimeKeySelector(#function)) as? NSView;
-             if obj == nil {
-                 obj = NSView(frame: CGRect(x: 0, y: frame.maxY - kH_LINE_VIEW, width: frame.width, height: kH_LINE_VIEW));
-                 obj!.layer?.backgroundColor = NSColor.line.cgColor;
+    var lineBottom: NSView {
+        get {
+            var obj = objc_getAssociatedObject(self, RuntimeKeySelector(#function)) as? NSView;
+            if obj == nil {
+                obj = NSView(frame: CGRect(x: 0, y: frame.maxY - kH_LINE_VIEW, width: frame.width, height: kH_LINE_VIEW));
+                obj!.layer?.backgroundColor = NSColor.line.cgColor;
 
-                 objc_setAssociatedObject(self, RuntimeKeySelector(#function), obj, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-             }
-             return obj!;
-         }
-         set {
-             objc_setAssociatedObject(self, RuntimeKeySelector(#function), newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-         }
-     }
+                objc_setAssociatedObject(self, RuntimeKeySelector(#function), obj, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            }
+            return obj!;
+        }
+        set {
+            objc_setAssociatedObject(self, RuntimeKeySelector(#function), newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        }
+    }
     
 }
