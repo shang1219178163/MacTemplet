@@ -22,8 +22,9 @@ import Cocoa
         action = #selector(p_invoke(_:));
     }
     
-    private func p_invoke(_ sender: NSMenuItem) {
-        let handler = objc_getAssociatedObject(self, UnsafeRawPointer(bitPattern: self.hashValue)!) as! ((NSMenuItem) -> Void)
-        handler(sender);
+    private func p_invoke(_ sender: NSMenuItem) {        
+        if let handler = objc_getAssociatedObject(self, UnsafeRawPointer(bitPattern: self.hashValue)!) as? ((NSMenuItem) -> Void) {
+            handler(sender);
+        }
     }
 }

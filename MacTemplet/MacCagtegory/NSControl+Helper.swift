@@ -22,26 +22,21 @@ import Cocoa
         target = self;
         action = #selector(p_invoke(_:));
     }
-    
-    private func p_invoke(_ sender: NSControl) {
-        let handler = objc_getAssociatedObject(self, UnsafeRawPointer(bitPattern: self.hashValue)!) as! ((NSControl) -> Void)
-        handler(sender);
-    }
-    
+    /// 闭包回调(NSSegmentedControl)
     public func addActionHandler(_ handler: @escaping (NSControl) -> Void, trackingMode: NSSegmentedControl.SwitchTracking) {
         target = self;
-        action = #selector(p_invokeSegment(_:));
+        action = #selector(p_invoke(_:));
         if let segmentCtl = self as? NSSegmentedControl {
             segmentCtl.trackingMode = trackingMode;
         }
         objc_setAssociatedObject(self, UnsafeRawPointer(bitPattern: self.hashValue)!, handler, .OBJC_ASSOCIATION_COPY_NONATOMIC);
     }
     
-    private func p_invokeSegment(_ sender: NSControl) {
-        let handler = objc_getAssociatedObject(self, UnsafeRawPointer(bitPattern: self.hashValue)!) as! ((NSControl) -> Void)
-        handler(sender);
+    private func p_invoke(_ sender: NSControl) {
+        if let handler = objc_getAssociatedObject(self, UnsafeRawPointer(bitPattern: self.hashValue)!) as? ((NSControl) -> Void) {
+            handler(sender);
+        }
     }
-    
     
     
 }
