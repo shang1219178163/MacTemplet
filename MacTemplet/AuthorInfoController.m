@@ -11,10 +11,10 @@
 
 @interface AuthorInfoController ()
 
-@property (nonatomic, strong) NSImageView * imgView;
-@property (nonatomic, strong) NNTextField * textField;
-@property (nonatomic, strong) NSTextField * textFieldOne;
-@property (nonatomic, strong) NNTextView * textView;
+@property (nonatomic, strong) NSImageView *imgView;
+@property (nonatomic, strong) NNTextField *textField;
+@property (nonatomic, strong) NSTextField *textFieldOne;
+@property (nonatomic, strong) NNTextView *textView;
 
 @end
 

@@ -49,7 +49,7 @@ import Cocoa
         view.cell!.wraps = false;
         view.cell!.isScrollable = true;
         view.placeholderString = placeholder;
-        
+
         return view as! Self;
     }
     

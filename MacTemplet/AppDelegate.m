@@ -28,22 +28,18 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    [NSFont initializeMethod];
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints"];
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"LAYOUT_CONSTRAINTS_NOT_SATISFIABLE"];
     
-    NSWindow *window = NSApplication.sharedApplication.windows.firstObject;
-    DDLog(@"windows:%@", window);
-    
-
     NSString * controllerName = @"HomeViewController";
 //    controllerName = @"FirstViewController";
 //    controllerName = @"MainViewController";
-    controllerName = @"BNTabViewController";
+//    controllerName = @"BNTabViewController";
 //    controllerName = @"CollectionViewController";
 //    controllerName = @"JsonToModelController";
 //    controllerName = @"BNTextViewContoller";
 //    controllerName = @"ProppertyLazyController";
-    controllerName = @"TabViewController";
     
     NSViewController *controller = [[NSClassFromString(controllerName) alloc] init];
     self.window.contentViewController = controller;

@@ -10,7 +10,7 @@ import Cocoa
 
 @objc public extension NSSearchField {
 
-    /// 创建近期搜索记录菜单
+    /// 创建近期搜索记录下拉菜单
     static func createRecentMenu(_ handler: ((NSMenuItem) -> Void)? = nil) -> NSMenu {
         let menu = NSMenu(title: "Recents")
 

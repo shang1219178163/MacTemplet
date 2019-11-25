@@ -26,14 +26,14 @@
     NSClickGestureRecognizer * click = [[NSClickGestureRecognizer alloc]init];
     [self.view addGestureRecognizer:click];
     
-//    [click addAction:^(NSGestureRecognizer * reco) {
-//        DDLog(@"%@", click);
-//    }];
-
-    [click addAction:^{
-//        NSLog(@"%@", click);
+    [click addAction:^(NSGestureRecognizer * reco) {
         DDLog(@"%@", @"1111");
     }];
+
+//    [click addAction:^{
+////        NSLog(@"%@", click);
+//        DDLog(@"%@", @"1111");
+//    }];
 }
 
 

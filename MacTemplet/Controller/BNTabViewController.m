@@ -15,11 +15,10 @@
 
 @interface BNTabViewController ()<NSTabViewDelegate>
 
-@property (nonatomic, strong) NSImageView * imgView;
-@property (nonatomic, strong) NNTextField * textField;
-@property (nonatomic, strong) NNTextField * textFieldOne;
+@property (nonatomic, strong) NSImageView *imgView;
+@property (nonatomic, strong) NNTextField *textField;
 
-@property (nonatomic, strong) NSTabView * tabView;
+@property (nonatomic, strong) NSTabView *tabView;
 
 @end
 
@@ -30,8 +29,13 @@
     // Do view setup here.
     [self.view addSubview:self.imgView];
     [self.view addSubview:self.textField];
-    [self.view addSubview:self.textFieldOne];
     [self.view addSubview:self.tabView];
+    
+    NSDictionary *dic = @{
+                          @"github/shang1219178163": @"https://github.com/shang1219178163",
+                          };
+    self.textField.stringValue = [NSString stringWithFormat:@"%@\n%@\n%@", NSApplication.appName, NSApplication.appCopyright, @"github/shang1219178163"];
+    [self.textField hyperlinkWithDic:dic];
 
     NSArray *list = @[@[@"JsonToModelController", @"json转模型", ],
                       @[@"ProppertyLazyController", @"属性Lazy",],
@@ -39,10 +43,7 @@
                       
                       ];
     [self.tabView addItems:list];
-    
-    self.textField.stringValue = NSApplication.appName;
-    self.textFieldOne.stringValue = NSApplication.appCopyright;
-    
+        
     OneWindowController *dialogWindow = [[OneWindowController alloc]init];
     DDLog(@"dialogWindow.window:%@", dialogWindow.window);
     DDLog(@"dialogWindow:%@", dialogWindow);
@@ -55,7 +56,6 @@
         
     }];
     [NSApp.mainWindow endSheet:dialogWindow.window returnCode:0];
-      
     
     [self.view getViewLayer];
 }
@@ -74,16 +74,9 @@
     
     [self.textField makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.imgView).offset(0);
-        make.left.equalTo(self.imgView.right).offset(gap);
-        make.right.equalTo(self.textField.superview).offset(-30);
-        make.height.equalTo(25);
-    }];
-    
-    [self.textFieldOne makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.textField.bottom).offset(padding);
-        make.left.equalTo(self.textField).offset(0);
-        make.right.equalTo(self.textFieldOne.superview).offset(-30);
-        make.height.equalTo(25);
+        make.left.equalTo(self.imgView.right).offset(kX_GAP);
+        make.right.equalTo(self.view).offset(-30);
+        make.height.equalTo(80);
     }];
     
     [self.tabView makeConstraints:^(MASConstraintMaker *make) {
@@ -116,30 +109,31 @@
     return _imgView;
 }
 
-- (NNTextField *)textField{
+-(NNTextField *)textField{
     if (!_textField) {
         _textField = ({
             NNTextField *view = [NNTextField create:CGRectZero placeholder:@"简单介绍"];
+            view.font = [NSFont fontWithName:@"PingFangSC-Light" size:14];
+
+            view.cell.scrollable = true;
+            view.cell.wraps = true;
+            
             view.editable = false;
-//            view.alignment = NSTextAlignmentCenter;
-            view.isTextAlignmentVerticalCenter = true;
+            view.selectable = true;
+            view.allowsEditingTextAttributes = true;
+            if (@available(macOS 10.12.2, *)) {
+                view.automaticTextCompletionEnabled = true;
+            } else {
+                // Fallback on earlier versions
+            }
+            //            view.alignment = NSTextAlignmentCenter;
+            //            view.isTextAlignmentVerticalCenter = true;
+            
+            view.backgroundColor = NSColor.clearColor;
             view;
         });
     }
     return _textField;
-}
-
-- (NNTextField *)textFieldOne{
-    if (!_textFieldOne) {
-        _textFieldOne = ({
-            NNTextField *view = [NNTextField create:CGRectZero placeholder:@"简单介绍"];
-            view.editable = false;
-//            view.alignment = NSTextAlignmentCenter;
-            view.isTextAlignmentVerticalCenter = true;
-            view;
-        });
-    }
-    return _textFieldOne;
 }
 
 -(NSTabView *)tabView{

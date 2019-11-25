@@ -137,7 +137,7 @@
 #pragma mark -funtions
 
 -(void)setupTableView{
-    NSArray * columns = @[@"columeOne", @"columeTwo", @"columeThree",];
+    NSArray *columns = @[@"columeOne", @"columeTwo", @"columeThree",];
     columns = self.list.firstObject;
     [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSTableColumn *column = [NSTableColumn createWithIdentifier:obj title:obj];

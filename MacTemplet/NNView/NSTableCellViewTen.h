@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NNTextLabel.h"
+#import "NNLabel.h"
 #import "NNTextView.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSTableCellViewTen : NSTableCellView
 
 @property (nonatomic, strong) NSButton *checkBox;
-@property (nonatomic, strong) NNTextLabel *textLabel;
+@property (nonatomic, strong) NNLabel *textLabel;
 @property (nonatomic, strong) NNTextView *textView;
 
 @end

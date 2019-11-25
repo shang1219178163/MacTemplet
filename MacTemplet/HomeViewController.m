@@ -33,7 +33,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 -(void)viewWillAppear{
     [super viewWillAppear];
     
-    NSArray *list = @[@[@"JsonToModelNewController", @"json转模型", ],
+    NSArray *list = @[@[@"JsonToModelController", @"json转模型", ],
                       @[@"ProppertyLazyController", @"属性Lazy",],
                       @[@"AuthorInfoController", @"其他",],
                       @[@"NSTestViewController", @"测试模块",],
