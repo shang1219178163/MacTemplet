@@ -2,7 +2,7 @@
 //  JsonToModelController.m
 //  MacTemplet
 //
-//  Created by Bin Shang on 2019/6/25.
+//  Created by Bin Shang on 2019/8/14.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
@@ -25,6 +25,8 @@
 #import "NNLanguageModel.h"
 #import "NNClassInfoModel.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @interface JsonToModelController ()<NSTableViewDataSource, NSTableViewDelegate, NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>
 
 @property (nonatomic, strong) NNTextView *textView;
@@ -34,8 +36,9 @@
 @property (nonatomic, strong) NNTextField *textField;
 @property (nonatomic, strong) NNTextField *textFieldTwo;
 @property (nonatomic, strong) NNTextField *textFieldThree;
-@property (nonatomic, strong) NNTextLabel *textLabel;
+@property (nonatomic, strong) NNLabel *textLabel;
 
+@property (nonatomic, strong) NNLabel *valueTypeLab;
 @property (nonatomic, strong) NSPopUpButton *popBtn;
 @property (nonatomic, strong) NSButton *btn;
 
@@ -47,6 +50,8 @@
 @property (nonatomic, strong) NNClassInfoModel * classFileModel;
 @property (nonatomic, strong) NSMutableArray * dataList;
 
+@property (nonatomic, strong) NSArray * typeList;
+
 @end
 
 @implementation JsonToModelController
@@ -56,7 +61,7 @@
     // Do view setup here.
     self.title = @"Home";
     
-  
+    
     [NSUserDefaults.standardUserDefaults setObject:@"NN" forKey:kClassPrefix];
     [NSUserDefaults.standardUserDefaults setObject:@"RootModel" forKey:kRootClass];
     [NSUserDefaults.standardUserDefaults setObject:@"NSObject" forKey:kSuperClass];
@@ -65,16 +70,12 @@
     self.textField.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kClassPrefix];
     self.textFieldTwo.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kRootClass];
     self.textFieldThree.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kSuperClass];
-
     DDLog(@"%@_%@_%@",self.textField.stringValue, self.textFieldTwo.stringValue, self.textFieldThree.stringValue);
     
     [self.view addSubview:self.textView.enclosingScrollView];
     [self.view addSubview:self.tableView.enclosingScrollView];
     [self.view addSubview:self.bottomView];
     [NoodleLineNumberView setupLineNumberWithTextView:self.textView];
-    
-//    self.tableView.delegate = self;
-//    self.tableView.dataSource = self;
     
     for (NSInteger i = 0; i < 2; i++) {
         NNClassInfoModel *classModel = [[NNClassInfoModel alloc]init];
@@ -84,7 +85,7 @@
     [self updateLanguages];
     [self readFile];
     
-    NSApplication.windowDefault.minSize = CGSizeMake(kScreenWidth*0.5, kScreenHeight*0.5);
+    
     //    [self.view getViewLayer];
 }
 
@@ -95,8 +96,8 @@
     DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
     [self.popBtn selectItemWithTitle:titleOfSelectedItem];
     
-//    [self.tableView reloadData];
-
+    //    [self.tableView reloadData];
+    
 }
 
 -(void)viewDidAppear{
@@ -172,13 +173,20 @@
         make.bottom.equalTo(self.bottomView.superview).offset(-kPadding);
     }];
     
-    // 重设宽度
-//    CGRect rect = self.tableView.frame;
-//    NSTableColumn * column = self.tableView.tableColumns.firstObject;
-//    column.width = CGRectGetWidth(rect);
-//    column.maxWidth = CGFLOAT_MAX;
+    [self.valueTypeLab makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.textField.superview).offset(kPadding);
+        make.right.equalTo(self.popBtn.left).offset(-kX_GAP);
+        make.width.equalTo(80);
+        make.bottom.equalTo(self.bottomView.superview).offset(-kPadding);
+    }];
     
-//    [self.tableView reloadData];
+    // 重设宽度
+    //    CGRect rect = self.tableView.frame;
+    //    NSTableColumn * column = self.tableView.tableColumns.firstObject;
+    //    column.width = CGRectGetWidth(rect);
+    //    column.maxWidth = CGFLOAT_MAX;
+    
+    //    [self.tableView reloadData];
 }
 
 
@@ -192,8 +200,11 @@
 
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
     BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
-    CGFloat height = isSwift ? (CGRectGetHeight(NSApp.keyWindow.frame) - 50 - 40) : (CGRectGetHeight(NSApp.keyWindow.frame) - 50)*0.5;
-    return height > 0 ? height : 10;
+    
+    CGFloat windowHeight = NSApplication.windowDefault.frame.size.height;
+    CGFloat height = isSwift ? (windowHeight - 50 - 40) : (windowHeight- 50)*0.5;
+//    DDLog(@"__%@_%@_%@_%@",@(NSApp.keyWindow.frame), @(NSScreen.mainScreen.frame), @(NSApp.mainWindow.frame), @(height));
+    return height > 0 ? height : tableView.rowHeight;
 }
 
 //// 使用自定义cell显示数据
@@ -202,7 +213,7 @@
     NSInteger item = [tableView.tableColumns indexOfObject:tableColumn];
     //获取表格列的标识符
     NSString *columnID = tableColumn.identifier;
-//    DDLog(@"columnID : %@ ,row : %@, item: %@",columnID, @(row), @(item));
+    //    DDLog(@"columnID : %@ ,row : %@, item: %@",columnID, @(row), @(item));
     
     static NSString *identifier = @"NSTableCellViewTen";
     NSTableCellViewTen *cell = [NSTableCellViewTen makeViewWithTableView:tableView identifier:identifier owner:self];
@@ -211,7 +222,7 @@
     
     if (self.dataList.count > 0) {
         NNClassInfoModel * classModel = self.dataList[row];
-
+        
         BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
         if (!isSwift) {
             cell.textLabel.stringValue = [classModel.className stringByAppendingString:(row == 0) ? @".h" : @".m"];
@@ -272,10 +283,14 @@
 
 #pragma mark -NSTextDelegate
 
+- (void)textDidBeginEditing:(NSNotification *)notification{
+    
+}
+
 - (void)textDidChange:(NSNotification *)notification{
     NSTextView * view = notification.object;
-//    DDLog(@"length:%@", @(view.string.length));
-//    DDLog(@"containerSize:%@", @(view.textContainer.containerSize));
+    //    DDLog(@"length:%@", @(view.string.length));
+    //    DDLog(@"containerSize:%@", @(view.textContainer.containerSize));
     //    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
     if (view.string.length > 0) {
         [self hanldeJson];
@@ -308,7 +323,7 @@
     NSString * defaultsKey = dic[@(textField.tag)];
     [NSUserDefaults.standardUserDefaults setObject:textField.stringValue forKey:defaultsKey];
     [NSUserDefaults.standardUserDefaults synchronize];
-//    DDLog(@"%@_%@_%@_%@",@(textField.tag), defaultsKey, textField.stringValue, [NSUserDefaults.standardUserDefaults objectForKey:defaultsKey]);
+    //    DDLog(@"%@_%@_%@_%@",@(textField.tag), defaultsKey, textField.stringValue, [NSUserDefaults.standardUserDefaults objectForKey:defaultsKey]);
     [self hanldeJson];
     
 }
@@ -337,21 +352,21 @@
 }
 
 - (void)hanldeJson{
-//    DDLog(@"titleOfSelectedItem_%@", self.popBtn.titleOfSelectedItem);
-
+    //    DDLog(@"titleOfSelectedItem_%@", self.popBtn.titleOfSelectedItem);
+    
     [self setupDefaultWithSender:self.popBtn];
     if (self.textFieldThree.stringValue.length > 0) {
         [NSUserDefaults.standardUserDefaults setObject:self.textFieldThree.stringValue forKey:kSuperClass];
         [NSUserDefaults.standardUserDefaults synchronize];
     }
     
-//    self.hTextView.string = @"";
-//    self.mTextView.string = @"";
+    //    self.hTextView.string = @"";
+    //    self.mTextView.string = @"";
     
     id result = self.textView.string.objValue;
     self.textLabel.stringValue = result ? @"Valid JSON Structure" : @"JSON isn't valid";
-    self.textLabel.textColor = result ? NSColor.greenColor : NSColor.redColor;
-
+    self.textLabel.textColor = result ? NSColor.lightGreen : NSColor.redColor;
+    
     if (!result) {
         NSAlert * alert = [NSAlert create:@"警告" msg:@"Error：Json is invalid" btnTitles:@[kTitleKnow]];
         [alert beginSheetModalForWindow:NSApplication.windowDefault completionHandler:^(NSModalResponse returnCode) {
@@ -371,7 +386,7 @@
 
 #pragma mark - Change ESJsonFormat
 -(void)outputResult:(ESClassInfo*)classInfo{
-
+    
     if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
         //选择保存路径
 //        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
@@ -389,23 +404,33 @@
             NNClassInfoModel *classModel = self.dataList.firstObject;
             classModel.className = classInfo.className;
             classModel.hContent = [classInfo classDescWithFirstFile:true];
-
+            
             NNClassInfoModel *classModelOne = self.dataList.lastObject;
             classModelOne.className = classInfo.className;
             classModelOne.mContent = [classInfo classDescWithFirstFile:false];
-
+            if (self.valueTypeLab.isSelectable == true) {
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"assign) NSInteger " withString:@"copy) NSString *"];
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"assign) long long " withString:@"copy) NSString *"];
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"assign) CGFloat " withString:@"copy) NSString *"];
+            }
+            
         } else {
             NNClassInfoModel *classModel = self.dataList.firstObject;
             classModel.className = classInfo.className;
             classModel.hContent = [classInfo classDescWithFirstFile:true];
-
+            
             classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"import Cocoa" withString:self.langModel.staticImports];
             NSString * tmp = [NSString stringWithFormat:@"NSObject, %@ {", self.langModel.defaultParentWithUtilityMethods];
             classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"NSObject {" withString:tmp];
+            if (self.valueTypeLab.isSelectable == true) {
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Int = 0" withString:@": String = \"\""];
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Double = 0" withString:@": String = \"\""];
+            }
         }
+       
         [self.tableView reloadData];
     }
-
+    
 }
 
 - (void)creatFile{
@@ -413,7 +438,7 @@
     NNClassInfoModel *classModelM = self.dataList.lastObject;
     NSString * hContent = classModelH.hContent;
     NSString * mContent = classModelM.mContent;
-
+    
     NSString *folderPath = [NSUserDefaults.standardUserDefaults valueForKey:kFolderPath];
     if (folderPath) {
         [FileManager.sharedInstance createFileWithFolderPath:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:hContent mContent:mContent];
@@ -422,7 +447,7 @@
     } else {
 //        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
         NSOpenPanel *panel = [NSOpenPanel createWithFileTypes:nil allowsMultipleSelection:false];
-
+        
         if (panel.runModal == NSModalResponseOK) {
             folderPath = [panel.URLs.firstObject relativePath];
             [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:kFolderPath];
@@ -443,7 +468,7 @@
 - (void)setupDefaultWithSender:(NSPopUpButton *)sender{
     NSString * titleOfSelectedItem = sender.titleOfSelectedItem;
     self.langModel = self.langsDic[titleOfSelectedItem];
-//    DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
+    //    DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
     
     [NSUserDefaults.standardUserDefaults setObject:titleOfSelectedItem forKey:kDisplayName];
     bool isSwift = [titleOfSelectedItem containsString:@"Swift"] || [titleOfSelectedItem containsString:@"swift"];
@@ -453,7 +478,6 @@
     
     [NSUserDefaults setArcObject:self.langModel forkey:@"langModel"];
     [NSUserDefaults synchronize];
-
     id langModel = [NSUserDefaults arcObjectForKey:@"langModel"];
 }
 
@@ -477,19 +501,11 @@
     if (!_tableView) {
         _tableView = ({
             NNTableView *view = [NNTableView create:CGRectZero];
-            view.headerView = nil;// 隐藏表头
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
-            view.rowHeight = 70;
+            [view addTableColumnWithTitles:@[@"columeOne",]];
             if ([self conformsToProtocol:@protocol(NSTableViewDataSource)]) view.dataSource = self;
             if ([self conformsToProtocol:@protocol(NSTableViewDelegate)]) view.delegate = self;
-            
-            [view addTableColumnWithTitles:@[@"columeOne",]];
-//            NSArray * columns = @[@"columeOne", ];
-//            [columns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                NSTableColumn * column = [NSTableColumn createWithIdentifier:obj title:obj];
-//
-//                [view addTableColumn:column];
-//            }];
+
             view;
         });
     }
@@ -506,9 +522,11 @@
             [view addSubview:self.textFieldTwo];
             [view addSubview:self.textFieldThree];
             [view addSubview:self.textLabel];
-
+            
             [view addSubview:self.btn];
             [view addSubview:self.popBtn];
+            [view addSubview:self.valueTypeLab];
+
             view;
         });
     }
@@ -521,7 +539,7 @@
             NNTextField *view = [NNTextField create:CGRectZero placeholder:@"Class Prefix"];
             view.bordered = true;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:13];
-
+            
             view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
             
@@ -542,7 +560,7 @@
             NNTextField *view = [NNTextField create:CGRectZero placeholder:@"Root Class name"];
             view.bordered = true;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:13];
-
+            
             view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
             
@@ -563,7 +581,7 @@
             NNTextField *view = [NNTextField create:CGRectZero placeholder:@"Supper Class name"];
             view.bordered = true;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:13];
-
+            
             view.alignment = NSTextAlignmentCenter;
             view.isTextAlignmentVerticalCenter = true;
             
@@ -578,14 +596,14 @@
     return _textFieldThree;
 }
 
--(NNTextLabel *)textLabel{
+-(NNLabel *)textLabel{
     if (!_textLabel) {
         _textLabel = ({
-            NNTextLabel * view = [[NNTextLabel alloc]initWithFrame:CGRectZero];
+            NNLabel * view = [[NNLabel alloc]initWithFrame:CGRectZero];
             view.bordered = false;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:15];
             view.alignment = NSTextAlignmentCenter;
-
+            
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
             view.backgroundColor = NSColor.clearColor;
@@ -596,7 +614,40 @@
     return _textLabel;
 }
 
-- (NSPopUpButton *)popBtn{
+-(NNLabel *)valueTypeLab{
+    if (!_valueTypeLab) {
+        _valueTypeLab = ({
+            NNLabel * view = [[NNLabel alloc]initWithFrame:CGRectZero];
+            view.bordered = false;  ///是否显示边框
+            view.font = [NSFont systemFontOfSize:13];
+            view.textColor = NSColor.grayColor;
+            view.alignment = NSTextAlignmentCenter;
+            
+            view.maximumNumberOfLines = 1;
+            view.usesSingleLineMode = true;
+            view.backgroundColor = NSColor.clearColor;
+            view.stringValue = self.typeList.firstObject;
+            view.mouseDownBlock = ^(NNLabel * _Nonnull sender) {
+                sender.selectable = !sender.selectable;
+                sender.stringValue = sender.selectable == false ? self.typeList.firstObject : self.typeList.lastObject;
+                sender.textColor = sender.selectable == false ? NSColor.grayColor : NSColor.redColor;
+                
+                [self hanldeJson];
+            };
+            view;
+        });
+    }
+    return _valueTypeLab;
+}
+
+-(NSArray *)typeList{
+    if (!_typeList) {
+        _typeList = @[@"默认类型", @"字符串类型",];
+    }
+    return _typeList;
+}
+
+-(NSPopUpButton *)popBtn{
     if (!_popBtn) {
         _popBtn = ({
             NSPopUpButton *view = [[NSPopUpButton alloc] initWithFrame:CGRectZero pullsDown:false];
@@ -640,7 +691,7 @@
     return _btn;
 }
 
-- (NSDictionary *)langsDic{
+-(NSDictionary *)langsDic{
     if (!_langsDic) {
         _langsDic = ({
             __block NSMutableDictionary * mdic = [NSMutableDictionary dictionary];
@@ -664,7 +715,7 @@
     return _langsDic;
 }
 
-- (NSMutableArray *)dataList{
+-(NSMutableArray *)dataList{
     if (!_dataList) {
         _dataList = [NSMutableArray array];
     }

@@ -1,5 +1,5 @@
 //
-//  NNTextLabel.h
+//  NNLabel.h
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/20.
@@ -13,9 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  类似 iOS中的UILabel
  */
-@interface NNTextLabel : NNTextField
+@interface NNLabel : NNTextField
 
-@property(nonatomic, strong) void(^mouseDownBlock)(NNTextLabel *sender);
+@property(nonatomic, strong) void(^mouseDownBlock)(NNLabel *sender);
 
 @end
 
