@@ -40,8 +40,8 @@
 - (void)viewWillAppear{
     [super viewWillAppear];
     
-    Class cls = NSClassFromString(@"AuthorInfoController");
-    DDLog(cls);
+//    Class cls = NSClassFromString(@"AuthorInfoController");
+//    DDLog(cls);
 }
 
 
