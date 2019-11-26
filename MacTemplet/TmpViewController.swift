@@ -16,19 +16,27 @@ class TmpViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-//        view.layer?.backgroundColor = NSColor.lightBlue.cgColor
+        view.layer?.backgroundColor = NSColor.lightBlue.cgColor
 //        setupClickView()
-        setupSearchField()
+//        setupSearchField()
         
+        let switchCtl = NSSwitch(frame: CGRectMake(10, 110, 100, 100));
+        switchCtl.state = .on
+        view.addSubview(switchCtl);
+        
+        label.frame = CGRectMake(10, switchCtl.maxY + 10, 100, 25)
+        label.stringValue = "标题显示"
+        view.addSubview(label);
+        
+//        label.backgroundColor = NSColor.red
+
         view.getViewLayer()
     }
     
     override func viewDidLayout() {
         super.viewDidLayout()
         
-        let switchCtl = NSSwitch(frame: CGRectMake(10, 110, 100, 100));
-        switchCtl.state = .on
-        view.addSubview(switchCtl);
+
     }
     
     
@@ -69,6 +77,17 @@ class TmpViewController: NSViewController {
 //        (self.searchField.cell as? NSSearchFieldCell)?.placeholderString = sender.title
         
     }
+    
+    lazy var label: NSTextField = {
+        let view = NSTextField(frame: .zero)
+        view.isBordered = false;  ///是否显示边框
+        view.wantsLayer = true;
+        view.isEditable = false;
+        view.drawsBackground = true;
+        view.backgroundColor = NSColor.clear
+
+        return view;
+    }()
     
 
 }

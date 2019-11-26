@@ -27,12 +27,12 @@
                        mContent :(NSString *)mContent{
     if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
         //创建.h文件
-        [NSFileManager createFile:folderPath name:hFileName content:hContent attributes:nil];
+        [NSFileManager createFile:folderPath name:hFileName content:hContent attributes:nil isCover:true];
         //创建.m文件
-        [NSFileManager createFile:folderPath name:mFileName content:mContent attributes:nil];
+        [NSFileManager createFile:folderPath name:mFileName content:mContent attributes:nil isCover:true];
     }else{
         //创建.swift文件
-        [NSFileManager createFile:folderPath name:hFileName content:hContent attributes:nil];
+        [NSFileManager createFile:folderPath name:hFileName content:hContent attributes:nil isCover:true];
     }
 }
 

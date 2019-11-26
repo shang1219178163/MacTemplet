@@ -31,7 +31,8 @@
     [NSFont initializeMethod];
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints"];
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"LAYOUT_CONSTRAINTS_NOT_SATISFIABLE"];
-    
+    [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
+
     NSString * controllerName = @"HomeViewController";
 //    controllerName = @"FirstViewController";
 //    controllerName = @"MainViewController";
@@ -40,6 +41,7 @@
 //    controllerName = @"JsonToModelController";
 //    controllerName = @"BNTextViewContoller";
 //    controllerName = @"ProppertyLazyController";
+//    controllerName = @"MacTemplet.MapViewController";
     
     NSViewController *controller = [[NSClassFromString(controllerName) alloc] init];
     self.window.contentViewController = controller;
@@ -54,7 +56,6 @@
 //    DDLog(@"NSApp.mainWindow_%@", NSApp.mainWindow);
 //    DDLog(@"NSApp.keyWindow_%@", NSApp.keyWindow);
 //    DDLog(@"NSApplication.windowDefault_%@", NSApplication.windowDefault);
-    [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
 
 //    id obj = [NSUserDefaults.standardUserDefaults objectForKey:kMainWindowFrame];
 //    DDLog(@"%@", obj);
@@ -158,7 +159,7 @@
 -(NSWindow *)window{
     if (!_window) {
         _window = NSApplication.windowDefault;
-        _window.contentMinSize = CGSizeMake(kScreenWidth*0.65, kScreenHeight*0.5);
+        _window.contentMinSize = CGSizeMake(kScreenWidth*0.55, kScreenHeight*0.5);
     }
     return _window;
 }

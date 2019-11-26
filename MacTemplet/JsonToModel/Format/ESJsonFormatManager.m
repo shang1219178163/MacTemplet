@@ -385,17 +385,17 @@
 + (void)createFileWithFolderPath:(NSString *)folderPath classInfo:(ESClassInfo *)classInfo{
     if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
         //创建.h文件
-        NSString * hFilename = [NSString stringWithFormat:@"%@.h",classInfo.className];
-        [NSFileManager createFile:folderPath name:hFilename content:classInfo.classContentForH attributes:nil];;
+        NSString *hFilename = [NSString stringWithFormat:@"%@.h", classInfo.className];
+        [NSFileManager createFile:folderPath name:hFilename content:classInfo.classContentForH attributes:nil isCover:true];;
 
         //创建.m文件
-        NSString * mFilename = [NSString stringWithFormat:@"%@.m",classInfo.className];
-        [NSFileManager createFile:folderPath name:mFilename content:classInfo.classContentForM attributes:nil];
+        NSString *mFilename = [NSString stringWithFormat:@"%@.m", classInfo.className];
+        [NSFileManager createFile:folderPath name:mFilename content:classInfo.classContentForM attributes:nil isCover:true];
 
     } else {
         //创建.swift文件
-        NSString * hFilename = [NSString stringWithFormat:@"%@.swift",classInfo.className];
-        [NSFileManager createFile:folderPath name:hFilename content:classInfo.classContentForH attributes:nil];
+        NSString *hFilename = [NSString stringWithFormat:@"%@.swift", classInfo.className];
+        [NSFileManager createFile:folderPath name:hFilename content:classInfo.classContentForH attributes:nil isCover:true];
     }
 }
 

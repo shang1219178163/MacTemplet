@@ -38,7 +38,9 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"AuthorInfoController", @"其他",],
                       @[@"NSTestViewController", @"测试模块",],
                       @[@"TmpViewController", @"Swift模块",],
-                      
+                      @[@"NSStackViewController", @"StackView",],
+                      @[@"MapViewController", @"MapView",],
+                      @[@"FileController", @"File处理",],                      
                       ];
     [self.tabView addItems:list];
 

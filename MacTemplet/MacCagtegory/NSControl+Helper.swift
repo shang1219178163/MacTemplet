@@ -11,7 +11,7 @@ import Cocoa
 @objc extension NSControl{
 
     
-    func addTarget(_ target: AnyObject?, action: Selector?, on mask: NSEvent.EventTypeMask) {
+    public func addTarget(_ target: AnyObject?, action: Selector?, on mask: NSEvent.EventTypeMask = .leftMouseDown) {
         self.target = target;
         self.action = action;
         sendAction(on: mask)
@@ -22,7 +22,7 @@ import Cocoa
         target = self;
         action = #selector(p_invoke(_:));
     }
-    /// 闭包回调(NSSegmentedControl)
+    /// 闭包回调(NSSegmentedControl 专用)
     public func addActionHandler(_ handler: @escaping (NSControl) -> Void, trackingMode: NSSegmentedControl.SwitchTracking) {
         target = self;
         action = #selector(p_invoke(_:));

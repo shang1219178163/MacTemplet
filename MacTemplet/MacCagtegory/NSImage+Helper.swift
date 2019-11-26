@@ -27,7 +27,7 @@ import Cocoa
         }
         return CGSize.zero
     }
-    
+    /// 调整图像大小
     func resize(_ to: CGSize, isPixels: Bool = false) -> NSImage {
         
         var toSize = to

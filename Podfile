@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :osx, '10.9'
+platform :osx, '10.11'
 use_frameworks!
 
 #target 'MacTemplet' do
@@ -15,6 +15,9 @@ use_frameworks!
 def common_pods
   pod 'AFNetworking'
   pod 'Masonry'
+  pod 'SnapKit'
+  pod 'SnapKitExtend'
+  
   pod 'YYModel'
   pod 'HandyJSON'
 

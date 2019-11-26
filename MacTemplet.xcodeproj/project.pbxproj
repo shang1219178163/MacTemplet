@@ -40,6 +40,18 @@
 		1480B0BE238B620600E24BDB /* NSSwitch+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0BD238B620600E24BDB /* NSSwitch+Helper.swift */; };
 		1480B0C0238B624900E24BDB /* NSSearchField+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0BF238B624900E24BDB /* NSSearchField+Helper.swift */; };
 		1480B0C8238BEC3B00E24BDB /* NSFont+Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0C7238BEC3B00E24BDB /* NSFont+Hook.swift */; };
+		1480B0D7238CB8F000E24BDB /* Skull.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1480B0D6238CB8F000E24BDB /* Skull.jpg */; };
+		1480B0D9238CBDC200E24BDB /* NSStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */; };
+		1480B0DB238CBDF700E24BDB /* NSStackView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0DA238CBDF700E24BDB /* NSStackView+Helper.swift */; };
+		1480B0E3238CC63900E24BDB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0E2238CC63900E24BDB /* MapViewController.swift */; };
+		1480B0E5238CC90F00E24BDB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1480B0E4238CC90F00E24BDB /* MapKit.framework */; };
+		1480B0E7238CC91F00E24BDB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1480B0E6238CC91F00E24BDB /* CoreLocation.framework */; };
+		1480B0E9238CC94100E24BDB /* MKMapView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0E8238CC94000E24BDB /* MKMapView+Helper.swift */; };
+		1480B0EB238CDA1500E24BDB /* NSVisualEffectView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0EA238CDA1500E24BDB /* NSVisualEffectView+Helper.swift */; };
+		1480B0EE238CED7200E24BDB /* NNSwitchThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0EC238CED7200E24BDB /* NNSwitchThumbView.swift */; };
+		1480B0EF238CED7200E24BDB /* NNSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0ED238CED7200E24BDB /* NNSwitch.swift */; };
+		1480B0F1238CEF7800E24BDB /* NNSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0F0238CEF7800E24BDB /* NNSwitchView.swift */; };
+		1480B0F3238D172700E24BDB /* FileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0F2238D172700E24BDB /* FileController.swift */; };
 		1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71722AB8BD400A7C5E1 /* AppDelegate.m */; };
 		1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1482F71922AB8BD500A7C5E1 /* Assets.xcassets */; };
 		1482F72022AB8BD500A7C5E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71F22AB8BD500A7C5E1 /* main.m */; };
@@ -171,6 +183,18 @@
 		1480B0BD238B620600E24BDB /* NSSwitch+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSwitch+Helper.swift"; sourceTree = "<group>"; };
 		1480B0BF238B624900E24BDB /* NSSearchField+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSearchField+Helper.swift"; sourceTree = "<group>"; };
 		1480B0C7238BEC3B00E24BDB /* NSFont+Hook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSFont+Hook.swift"; sourceTree = "<group>"; };
+		1480B0D6238CB8F000E24BDB /* Skull.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Skull.jpg; sourceTree = "<group>"; };
+		1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSStackViewController.swift; sourceTree = "<group>"; };
+		1480B0DA238CBDF700E24BDB /* NSStackView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSStackView+Helper.swift"; sourceTree = "<group>"; };
+		1480B0E2238CC63900E24BDB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		1480B0E4238CC90F00E24BDB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1480B0E6238CC91F00E24BDB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1480B0E8238CC94000E24BDB /* MKMapView+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Helper.swift"; sourceTree = "<group>"; };
+		1480B0EA238CDA1500E24BDB /* NSVisualEffectView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSVisualEffectView+Helper.swift"; sourceTree = "<group>"; };
+		1480B0EC238CED7200E24BDB /* NNSwitchThumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NNSwitchThumbView.swift; sourceTree = "<group>"; };
+		1480B0ED238CED7200E24BDB /* NNSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NNSwitch.swift; sourceTree = "<group>"; };
+		1480B0F0238CEF7800E24BDB /* NNSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNSwitchView.swift; sourceTree = "<group>"; };
+		1480B0F2238D172700E24BDB /* FileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileController.swift; sourceTree = "<group>"; };
 		1482F71322AB8BD400A7C5E1 /* MacTemplet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacTemplet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1482F71622AB8BD400A7C5E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1482F71722AB8BD400A7C5E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -328,7 +352,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				140D294F23189D9600867785 /* Photos.framework in Frameworks */,
+				1480B0E7238CC91F00E24BDB /* CoreLocation.framework in Frameworks */,
 				140D292E2317E8C200867785 /* QuartzCore.framework in Frameworks */,
+				1480B0E5238CC90F00E24BDB /* MapKit.framework in Frameworks */,
 				070967CF6BBBA408F67F8E13 /* Pods_MacTemplet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +365,8 @@
 		018E125E61B7E1C8A8B6176D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1480B0E6238CC91F00E24BDB /* CoreLocation.framework */,
+				1480B0E4238CC90F00E24BDB /* MapKit.framework */,
 				140D294E23189D9600867785 /* Photos.framework */,
 				140D292D2317E8C200867785 /* QuartzCore.framework */,
 				750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */,
@@ -360,6 +388,7 @@
 			children = (
 				1445782822C1CDC90007C7B3 /* NSTableCellViewTen.h */,
 				1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */,
+				1480B0F0238CEF7800E24BDB /* NNSwitchView.swift */,
 			);
 			path = NNView;
 			sourceTree = "<group>";
@@ -404,6 +433,10 @@
 				14132976238559CE00E7AFCA /* NSTestViewController.h */,
 				14132977238559CE00E7AFCA /* NSTestViewController.m */,
 				14C0625423878FC60016EC8A /* TmpViewController.swift */,
+				1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */,
+				1480B0F2238D172700E24BDB /* FileController.swift */,
+				1480B0E2238CC63900E24BDB /* MapViewController.swift */,
+				1480B0E8238CC94000E24BDB /* MKMapView+Helper.swift */,
 				14F92C2522BB8DBB00A5C5E4 /* Controller */,
 				1445782722C1CD6E0007C7B3 /* NNView */,
 				14F2F5AD22B8FEB1009D49CE /* NSCollectionView */,
@@ -443,27 +476,24 @@
 				14C06256238793FF0016EC8A /* NSApplication+Helper.swift */,
 				14C06258238794380016EC8A /* NSWindow+Helper.swift */,
 				14C0625A2387AFE90016EC8A /* NSScreen+Helper.swift */,
-				14C0625C2387B8FE0016EC8A /* NSImage+Helper.swift */,
 				14C0625E2387BD3B0016EC8A /* NSAlert+Helper.swift */,
-				14C062662387D15E0016EC8A /* NSFileManager+Helper.swift */,
 				14C062682387D2B20016EC8A /* NSAttributedString+Helper.swift */,
 				14C062642387CEA00016EC8A /* NSControl+Helper.swift */,
 				14C0621823877BC70016EC8A /* NSColor+Helper.swift */,
+				14C062662387D15E0016EC8A /* NSFileManager+Helper.swift */,
 				1480B0C7238BEC3B00E24BDB /* NSFont+Hook.swift */,
 				14C0621E238781830016EC8A /* NSGestureRecognizer+Helper.swift */,
 				14C062622387C6D10016EC8A /* NSMenu+Helper.swift */,
 				14C062602387C1D50016EC8A /* NSMenuItem+Helper.swift */,
-				14C0626A2387DDE00016EC8A /* NSUserDefaults+Helper.swift */,
-				1480B0A52388F5A200E24BDB /* NSViewController+Helper.swift */,
-				1480B0AD2388FA9300E24BDB /* NSView+Add.swift */,
-				1480B0AF2388FCB600E24BDB /* NSView+Helper.swift */,
 				1480B0B12388FD1F00E24BDB /* NSButton+Helper.swift */,
+				14C0625C2387B8FE0016EC8A /* NSImage+Helper.swift */,
 				1480B0B32388FD8300E24BDB /* NSImageView+Helper.swift */,
 				1480B0AB2388F61500E24BDB /* NSStatusItem+Helper.swift */,
 				1480B0A92388F60100E24BDB /* NSSegmentedControl+Helper.swift */,
 				1480B0A72388F5ED00E24BDB /* NSScrollView+Helper.swift */,
 				1480B0BD238B620600E24BDB /* NSSwitch+Helper.swift */,
 				1480B0BF238B624900E24BDB /* NSSearchField+Helper.swift */,
+				1480B0DA238CBDF700E24BDB /* NSStackView+Helper.swift */,
 				1480B09F2388E85B00E24BDB /* NSTextFieldCell+Helper.swift */,
 				1480B0A12388E9FE00E24BDB /* NSTextField+Helper.swift */,
 				1480B0A32388EA0F00E24BDB /* NSTextView+Helper.swift */,
@@ -476,6 +506,11 @@
 				1480B09D2387EC5C00E24BDB /* NSTabViewItem+Helper.swift */,
 				14C0626C2387E71C0016EC8A /* NSPopover+Helper.swift */,
 				14C062702387EA300016EC8A /* NSOpenPanel+Helper.swift */,
+				14C0626A2387DDE00016EC8A /* NSUserDefaults+Helper.swift */,
+				1480B0A52388F5A200E24BDB /* NSViewController+Helper.swift */,
+				1480B0AD2388FA9300E24BDB /* NSView+Add.swift */,
+				1480B0AF2388FCB600E24BDB /* NSView+Helper.swift */,
+				1480B0EA238CDA1500E24BDB /* NSVisualEffectView+Helper.swift */,
 				14F0FDBA22AE68F300057093 /* MacExpand.h */,
 				14F0FD9F22ADF12C00057093 /* NSObject+Hook.h */,
 				14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */,
@@ -513,6 +548,8 @@
 		14F0FDAA22AE097A00057093 /* NNBaseView */ = {
 			isa = PBXGroup;
 			children = (
+				1480B0ED238CED7200E24BDB /* NNSwitch.swift */,
+				1480B0EC238CED7200E24BDB /* NNSwitchThumbView.swift */,
 				1445782622C1CABA0007C7B3 /* NNHeaderView.h */,
 				14D40A0D22C4983C00AF74B9 /* NNButton.h */,
 				14D40A0E22C4983C00AF74B9 /* NNButton.m */,
@@ -581,6 +618,7 @@
 		14F92C1C22BB766A00A5C5E4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1480B0D6238CB8F000E24BDB /* Skull.jpg */,
 				14F92C5522BB93EA00A5C5E4 /* DataModelsTemplate.txt */,
 				14F92C1D22BB768400A5C5E4 /* appinfo.txt */,
 				1482F71F22AB8BD500A7C5E1 /* main.m */,
@@ -739,6 +777,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1480B0D7238CB8F000E24BDB /* Skull.jpg in Resources */,
 				1445780322BDDAF90007C7B3 /* Swift-HandyJSON.json in Resources */,
 				1445780522BDDB540007C7B3 /* ObjC-YYModel.json in Resources */,
 				14F92C0B22BB1AC700A5C5E4 /* Media.xcassets in Resources */,
@@ -811,6 +850,8 @@
 				14C062612387C1D50016EC8A /* NSMenuItem+Helper.swift in Sources */,
 				14D40A0622C3884900AF74B9 /* ProppertyLazyController.m in Sources */,
 				14D40A0C22C462E200AF74B9 /* HomeViewController.m in Sources */,
+				1480B0D9238CBDC200E24BDB /* NSStackViewController.swift in Sources */,
+				1480B0F3238D172700E24BDB /* FileController.swift in Sources */,
 				14C0625223878E8D0016EC8A /* CAKeyframeAnimation+Helper.swift in Sources */,
 				14C0621F238781830016EC8A /* NSGestureRecognizer+Helper.swift in Sources */,
 				14F92C4222BB8DE800A5C5E4 /* ESJsonFormat.m in Sources */,
@@ -823,6 +864,7 @@
 				14F2F5B122B8FEE5009D49CE /* NSCTViewItemOne.m in Sources */,
 				1480B0C0238B624900E24BDB /* NSSearchField+Helper.swift in Sources */,
 				1480B0B22388FD1F00E24BDB /* NSButton+Helper.swift in Sources */,
+				1480B0E3238CC63900E24BDB /* MapViewController.swift in Sources */,
 				14F2F59D22B8DB3D009D49CE /* ThirdViewController.m in Sources */,
 				1480B09E2387EC5C00E24BDB /* NSTabViewItem+Helper.swift in Sources */,
 				14C0624823878E8D0016EC8A /* DispatchQueue+Helper.swift in Sources */,
@@ -851,6 +893,7 @@
 				1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */,
 				14C0625B2387AFE90016EC8A /* NSScreen+Helper.swift in Sources */,
 				14C0623F23878E8D0016EC8A /* CATransition+Helper.swift in Sources */,
+				1480B0EE238CED7200E24BDB /* NNSwitchThumbView.swift in Sources */,
 				1445783B22C1FFE20007C7B3 /* NNClassInfoModel.m in Sources */,
 				14F92BE622BA124E00A5C5E4 /* MainWindowController.m in Sources */,
 				14F2F5BD22B90109009D49CE /* NSCTViewCellOne.m in Sources */,
@@ -865,12 +908,15 @@
 				14F92C5122BB8E0900A5C5E4 /* ESClassInfo.m in Sources */,
 				14F92C5422BB925F00A5C5E4 /* ESJsonFormatSetting.m in Sources */,
 				1480B0BE238B620600E24BDB /* NSSwitch+Helper.swift in Sources */,
+				1480B0EF238CED7200E24BDB /* NNSwitch.swift in Sources */,
 				1445783E22C2FDCE0007C7B3 /* BNTextViewContoller.m in Sources */,
 				14F0FDE322B082AD00057093 /* NNTableView.m in Sources */,
 				14132978238559CE00E7AFCA /* NSTestViewController.m in Sources */,
 				14C062632387C6D10016EC8A /* NSMenu+Helper.swift in Sources */,
+				1480B0EB238CDA1500E24BDB /* NSVisualEffectView+Helper.swift in Sources */,
 				14C062712387EA300016EC8A /* NSOpenPanel+Helper.swift in Sources */,
 				14C062732387EBC10016EC8A /* NSTableCellView+Helper.swift in Sources */,
+				1480B0E9238CC94100E24BDB /* MKMapView+Helper.swift in Sources */,
 				1480B0982387EC2D00E24BDB /* NSTableView+Helper.swift in Sources */,
 				1480B0962387EC1B00E24BDB /* NSTableRowView+Helper.swift in Sources */,
 				14C0626D2387E71C0016EC8A /* NSPopover+Helper.swift in Sources */,
@@ -887,11 +933,13 @@
 				14F92BF622BB13E900A5C5E4 /* NSObject+Helper.m in Sources */,
 				14D40A0922C449B300AF74B9 /* NNPropertyInfoModel.m in Sources */,
 				14F92CF722BC6E6C00A5C5E4 /* NoodleLineNumberView.m in Sources */,
+				1480B0F1238CEF7800E24BDB /* NNSwitchView.swift in Sources */,
 				14C0625323878E8D0016EC8A /* NSObject+Hook.swift in Sources */,
 				14C0625D2387B8FE0016EC8A /* NSImage+Helper.swift in Sources */,
 				14C0625F2387BD3C0016EC8A /* NSAlert+Helper.swift in Sources */,
 				14F92BDE22B9E75100A5C5E4 /* BNDialogWindowController.m in Sources */,
 				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
+				1480B0DB238CBDF700E24BDB /* NSStackView+Helper.swift in Sources */,
 				14F92C0C22BB1AC700A5C5E4 /* NNGeneralConst.m in Sources */,
 				14C0624F23878E8D0016EC8A /* CABasicAnimation+Helper.swift in Sources */,
 				14C062672387D15E0016EC8A /* NSFileManager+Helper.swift in Sources */,
