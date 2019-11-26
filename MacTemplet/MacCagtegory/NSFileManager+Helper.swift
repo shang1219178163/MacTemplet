@@ -10,7 +10,7 @@ import Cocoa
 
 
 @objc public extension FileManager{
-    
+    /// 下载目录
     static var downloadsDir = FileManager.default.urls( for: .downloadsDirectory, in:.userDomainMask).first;
     
 

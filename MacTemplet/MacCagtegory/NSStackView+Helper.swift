@@ -23,43 +23,29 @@ import Cocoa
     }
     
     /// 设置子视图显示比例(此方法前请设置 .orientation)
-    func setupSubViewMultiplier(_ multiplier: CGFloat, at index: Int) {
-        for e in subviews.enumerated() {
-            if e.offset == index {
-                if self.orientation == .horizontal {
-                    e.element.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: multiplier).isActive = true
-
-                } else {
-                    e.element.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: multiplier).isActive = true
-                }
-            }
-        }
-    }
-    /// 设置子视图显示比例(此方法前请设置 .orientation)
-    func setupSubViewsMultipliers(_ multipliers: [CGFloat]) {
-        if multipliers.count < subviews.count {
-            return;
-        }
-        
-        for e in subviews.enumerated() {
-            if e.offset == subviews.count - 1 {
-                // 最后一个视图用于自由填充,避免布局错误
-                return;
-            }
-            
-            if e.offset >= multipliers.count {
-                return;
-            }
-            
-            let multiplier: CGFloat = multipliers[e.offset]
+    func setSubViewMultiplier(_ multiplier: CGFloat, at index: Int) {
+        if index < subviews.count {
+            let element: NSView = subviews[index];
             if self.orientation == .horizontal {
-                e.element.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: multiplier).isActive = true
+                element.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: multiplier).isActive = true
 
             } else {
-                e.element.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: multiplier).isActive = true
+                element.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: multiplier).isActive = true
             }
         }
     }
-
+    
+//    func setupSubViewMultiplier(_ multiplier: CGFloat, at index: Int) {
+//        for e in subviews.enumerated() {
+//            if e.offset == index {
+//                if self.orientation == .horizontal {
+//                    e.element.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: multiplier).isActive = true
+//
+//                } else {
+//                    e.element.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: multiplier).isActive = true
+//                }
+//            }
+//        }
+//    }
 
 }

@@ -59,7 +59,9 @@ class NSStackViewController: NSViewController {
 //        }
         //内部视图水平排列
         stackView.orientation = .horizontal
-        stackView.setupSubViewsMultipliers([0.2, 0.2, 0.2,])
+        stackView.setSubViewMultiplier(0.2, at: 0)
+        stackView.setSubViewMultiplier(0.2, at: 1)
+
     }
     
     lazy var stackView: NSStackView = {
