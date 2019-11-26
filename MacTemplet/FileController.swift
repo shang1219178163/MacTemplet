@@ -17,4 +17,27 @@ class FileController: NSViewController {
         FileManager.createFile(content: "aGVsbG8gd29ybGQ=", name: "test.txt", openDir: true)
     }
     
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        
+        let path = "/Users/\(ProcessInfo.processInfo.userName)/Downloads"
+        DDLog(path, FileManager.downloadsDir)
+        
+        
+        let result = Bundle.readPath(forResource: "THML5常用控件总结", ofType: "txt")
+        DDLog(result)
+//        if let path = Bundle.main.path(forResource: "THML5常用控件总结", ofType: "txt") {
+//            do {
+//                let data = try String(contentsOfFile: path, encoding: .utf8)
+//                let myStrings = data.components(separatedBy: .newlines)
+//                let result = myStrings.joined(separator: ", ")
+//                DDLog(myStrings)
+//
+//            } catch {
+//                print(error)
+//            }
+//        }
+    
+    }
 }

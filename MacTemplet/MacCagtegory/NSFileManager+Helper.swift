@@ -12,7 +12,6 @@ import Cocoa
 @objc public extension FileManager{
     /// 下载目录
     static var downloadsDir = FileManager.default.urls( for: .downloadsDirectory, in:.userDomainMask).first;
-    
 
     static func createFile(_ atPath: String, name: String, content: String, attributes: [FileAttributeKey : Any]?, isCover: Bool = true) -> Bool {
 //        let filePath = atPath + "/\(name)"

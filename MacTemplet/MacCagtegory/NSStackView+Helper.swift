@@ -8,8 +8,8 @@
 
 import Cocoa
 
+@available(OSX 10.9, *)
 @objc public extension NSStackView {
-
 
     static func create(_ rect: CGRect, spacing: CGFloat = 10.0) -> Self {
         let view: NSStackView = self.init(frame: rect);
@@ -22,10 +22,10 @@ import Cocoa
         return view as! Self;
     }
     
-    /// 设置子视图显示比例(此方法前请设置 .orientation)
+    /// 设置子视图显示比例(此方法前请设置 .axis/.orientation)
     func setSubViewMultiplier(_ multiplier: CGFloat, at index: Int) {
         if index < subviews.count {
-            let element: NSView = subviews[index];
+            let element = subviews[index];
             if self.orientation == .horizontal {
                 element.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: multiplier).isActive = true
 

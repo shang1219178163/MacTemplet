@@ -52,6 +52,8 @@
 		1480B0EF238CED7200E24BDB /* NNSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0ED238CED7200E24BDB /* NNSwitch.swift */; };
 		1480B0F1238CEF7800E24BDB /* NNSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0F0238CEF7800E24BDB /* NNSwitchView.swift */; };
 		1480B0F3238D172700E24BDB /* FileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0F2238D172700E24BDB /* FileController.swift */; };
+		1480B0F5238D2D7000E24BDB /* THML5常用控件总结.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1480B0F4238D2D7000E24BDB /* THML5常用控件总结.txt */; };
+		1480B0F7238D32E100E24BDB /* NSBundle+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0F6238D32E100E24BDB /* NSBundle+Helper.swift */; };
 		1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71722AB8BD400A7C5E1 /* AppDelegate.m */; };
 		1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1482F71922AB8BD500A7C5E1 /* Assets.xcassets */; };
 		1482F72022AB8BD500A7C5E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71F22AB8BD500A7C5E1 /* main.m */; };
@@ -195,6 +197,8 @@
 		1480B0ED238CED7200E24BDB /* NNSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NNSwitch.swift; sourceTree = "<group>"; };
 		1480B0F0238CEF7800E24BDB /* NNSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNSwitchView.swift; sourceTree = "<group>"; };
 		1480B0F2238D172700E24BDB /* FileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileController.swift; sourceTree = "<group>"; };
+		1480B0F4238D2D7000E24BDB /* THML5常用控件总结.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "THML5常用控件总结.txt"; sourceTree = "<group>"; };
+		1480B0F6238D32E100E24BDB /* NSBundle+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBundle+Helper.swift"; sourceTree = "<group>"; };
 		1482F71322AB8BD400A7C5E1 /* MacTemplet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacTemplet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1482F71622AB8BD400A7C5E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1482F71722AB8BD400A7C5E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -475,6 +479,7 @@
 				14C0622F23878E8A0016EC8A /* NSTimer+Helper.swift */,
 				14C06256238793FF0016EC8A /* NSApplication+Helper.swift */,
 				14C06258238794380016EC8A /* NSWindow+Helper.swift */,
+				1480B0F6238D32E100E24BDB /* NSBundle+Helper.swift */,
 				14C0625A2387AFE90016EC8A /* NSScreen+Helper.swift */,
 				14C0625E2387BD3B0016EC8A /* NSAlert+Helper.swift */,
 				14C062682387D2B20016EC8A /* NSAttributedString+Helper.swift */,
@@ -618,6 +623,7 @@
 		14F92C1C22BB766A00A5C5E4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1480B0F4238D2D7000E24BDB /* THML5常用控件总结.txt */,
 				1480B0D6238CB8F000E24BDB /* Skull.jpg */,
 				14F92C5522BB93EA00A5C5E4 /* DataModelsTemplate.txt */,
 				14F92C1D22BB768400A5C5E4 /* appinfo.txt */,
@@ -779,6 +785,7 @@
 			files = (
 				1480B0D7238CB8F000E24BDB /* Skull.jpg in Resources */,
 				1445780322BDDAF90007C7B3 /* Swift-HandyJSON.json in Resources */,
+				1480B0F5238D2D7000E24BDB /* THML5常用控件总结.txt in Resources */,
 				1445780522BDDB540007C7B3 /* ObjC-YYModel.json in Resources */,
 				14F92C0B22BB1AC700A5C5E4 /* Media.xcassets in Resources */,
 				14F92C1E22BB768400A5C5E4 /* appinfo.txt in Resources */,
@@ -908,6 +915,7 @@
 				14F92C5122BB8E0900A5C5E4 /* ESClassInfo.m in Sources */,
 				14F92C5422BB925F00A5C5E4 /* ESJsonFormatSetting.m in Sources */,
 				1480B0BE238B620600E24BDB /* NSSwitch+Helper.swift in Sources */,
+				1480B0F7238D32E100E24BDB /* NSBundle+Helper.swift in Sources */,
 				1480B0EF238CED7200E24BDB /* NNSwitch.swift in Sources */,
 				1445783E22C2FDCE0007C7B3 /* BNTextViewContoller.m in Sources */,
 				14F0FDE322B082AD00057093 /* NNTableView.m in Sources */,
