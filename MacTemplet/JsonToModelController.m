@@ -600,13 +600,11 @@
     if (!_textLabel) {
         _textLabel = ({
             NNLabel * view = [[NNLabel alloc]initWithFrame:CGRectZero];
-            view.bordered = false;  ///是否显示边框
-            view.font = [NSFont systemFontOfSize:15];
+            view.font = [NSFont systemFontOfSize:13];
             view.alignment = NSTextAlignmentCenter;
             
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
-            view.backgroundColor = NSColor.clearColor;
             
             view;
         });
@@ -618,14 +616,12 @@
     if (!_valueTypeLab) {
         _valueTypeLab = ({
             NNLabel * view = [[NNLabel alloc]initWithFrame:CGRectZero];
-            view.bordered = false;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:13];
             view.textColor = NSColor.grayColor;
             view.alignment = NSTextAlignmentCenter;
             
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
-            view.backgroundColor = NSColor.clearColor;
             view.stringValue = self.typeList.firstObject;
             view.mouseDownBlock = ^(NNLabel * _Nonnull sender) {
                 sender.selectable = !sender.selectable;
