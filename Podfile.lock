@@ -28,14 +28,13 @@ DEPENDENCIES:
   - YYModel
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Masonry
-    - YYModel
-  trunk:
+  https://github.com/cocoapods/specs.git:
     - AFNetworking
     - HandyJSON
+    - Masonry
     - SnapKit
     - SnapKitExtend
+    - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -47,4 +46,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: e51be20967f5bc157d9b2168225aac5d3b12322c
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.0.beta.3

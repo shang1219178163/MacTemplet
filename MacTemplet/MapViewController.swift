@@ -21,7 +21,7 @@ class MapViewController: NSViewController {
                 
         view.addSubview(leftView)
         view.addSubview(mapView)
-        mapView.zoomLevel = 15
+        mapView.zoomLevel = 12
 
         
 //        view.getViewLayer()

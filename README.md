@@ -1,2 +1,2 @@
 # MacTemplet
-MacApp项目
+MacApp项目模板

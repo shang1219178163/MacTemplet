@@ -36,11 +36,11 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
     NSArray *list = @[@[@"JsonToModelController", @"json转模型", ],
                       @[@"ProppertyLazyController", @"属性Lazy",],
                       @[@"AuthorInfoController", @"其他",],
-                      @[@"NSTestViewController", @"测试模块",],
-                      @[@"TmpViewController", @"Swift模块",],
+//                      @[@"NSTestViewController", @"测试模块",],
+//                      @[@"TmpViewController", @"Swift模块",],
                       @[@"NSStackViewController", @"StackView",],
                       @[@"MapViewController", @"MapView",],
-                      @[@"FileController", @"File处理",],                      
+//                      @[@"FileController", @"File处理",],                      
                       ];
     [self.tabView addItems:list];
 
