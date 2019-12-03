@@ -216,6 +216,19 @@ public extension Substring {
     var md5: String {
         return (self as String).md5
     }
+    
+    /// 地址字符串(hostname + port)
+    static func UrlAddress(_ hostname: String, port: String) ->String {
+        var webUrl: String = hostname;
+        if !hostname.contains("http://") {
+            webUrl = "http://" + hostname;
+        }
+        if port != "" {
+            webUrl = webUrl + ":\(port)";
+        }
+        return webUrl;
+    }
+    
     /// 获取子字符串
     func substring(loc: Int, len: Int) -> String {
         return self.substring(with: NSRange(location: loc, length: len))
@@ -269,24 +282,17 @@ public extension Substring {
     func jsonFileToJSONString() -> String {
         assert(self.contains(".geojson") == true);
         
-        if self.contains(".geojson") == true {
-            let array: Array = self.components(separatedBy: ".");
-            let path = Bundle.main.path(forResource: array.first, ofType: array.last);
-            if path == nil {
-                return "";
-            }
-            if let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path!)) {
-                
-                if let jsonObj = try? JSONSerialization.jsonObject(with: jsonData, options: []) {
-                    let jsonString = ((jsonObj as! NSDictionary).jsonValue()!).removingPercentEncoding!;
-                    print(jsonString);
-                    return jsonString;
-                }
-                return "";
-            }
+        let array: Array = self.components(separatedBy: ".");
+        let path = Bundle.main.path(forResource: array.first, ofType: array.last);
+        if path == nil {
             return "";
         }
-        return "";
+        
+        guard let jsonData = try? Data(contentsOf: URL(fileURLWithPath: path!)) else { return ""}
+        guard let jsonObj = try? JSONSerialization.jsonObject(with: jsonData, options: []) else { return ""}
+            
+        let jsonString = (jsonObj as! NSDictionary).jsonString.removingPercentEncoding;
+        return jsonString ?? "";
     }
     
     /// 复制到剪切板

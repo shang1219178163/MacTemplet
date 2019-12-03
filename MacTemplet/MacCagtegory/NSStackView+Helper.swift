@@ -17,8 +17,9 @@ import Cocoa
         //设置子视图间隔
         view.spacing = spacing
         //子视图的高度或宽度保持一致
-        view.distribution = .fillEqually
-        
+//        view.distribution = .fillEqually
+        view.distribution = .fillProportionally
+
         return view as! Self;
     }
     

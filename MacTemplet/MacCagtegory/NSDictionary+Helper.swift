@@ -10,22 +10,12 @@ import Cocoa
 
 
 public extension Dictionary{
-    
-    func jsonValue() -> String! {
-        return (self as NSDictionary).jsonValue()
-    }
-    
-    func jsonString() -> String! {
-        return (self as NSObject).jsonString()
-    }
+  
 }
 
 @objc public extension NSDictionary{
     
-//    func toJsonString() -> String! {
-//        return jsonValue();
-//    }
-    
+
     
     
 }

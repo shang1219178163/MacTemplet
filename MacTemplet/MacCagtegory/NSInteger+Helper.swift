@@ -9,7 +9,9 @@
 import Cocoa
 
 public extension Int{
+    /// 偶数
     var isEven: Bool     {  return (self % 2 == 0)  }
+    /// 奇数
     var isOdd: Bool      {  return (self % 2 != 0)  }
     /// 大于0
     var isPositive: Bool {  return (self > 0)   }

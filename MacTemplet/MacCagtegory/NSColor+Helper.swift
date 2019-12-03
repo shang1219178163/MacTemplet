@@ -19,21 +19,12 @@ import Cocoa
         return NSColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: a)
     }
 
-    /// 16进制字符串
-    static func Hex(_ hex: String, _ a: CGFloat = 1.0) -> NSColor {
-        return NSColor.hex(hex, a: a);
-    }
-
     /// [源]0x开头的16进制Int数字(无#前缀十六进制数表示，开头就是0x)
-    static func HexValue(_ hex: Int, _ a: CGFloat = 1.0) -> NSColor {
+    static func hexValue(_ hex: Int, _ a: CGFloat = 1.0) -> NSColor {
         return NSColor(red: CGFloat((hex & 0xFF0000) >> 16)/255.0, green: CGFloat((hex & 0xFF00) >> 8)/255.0, blue: CGFloat(hex & 0xFF)/255.0, alpha: a)
     }
-    /// 随机颜色
-    static func Random() -> NSColor {
-        return NSColor.randomColor();
-    }
 
-    static func Dim(_ white: CGFloat, _ a: CGFloat = 1.0) -> NSColor{
+    static func dim(_ white: CGFloat, _ a: CGFloat = 1.0) -> NSColor{
         return .init(white: white, alpha: a);
     }
     
@@ -45,7 +36,7 @@ import Cocoa
     static var theme: NSColor {
         get{
             var obj = objc_getAssociatedObject(self, RuntimeKeySelector(#function)) as? NSColor;
-            obj = obj ?? NSColor.HexValue(0x0082e0)
+            obj = obj ?? NSColor.hexValue(0x0082e0)
             return obj!;
         }
         set{
@@ -54,24 +45,24 @@ import Cocoa
     }
     /// 通用背景色
     static var background: NSColor {
-        return NSColor.HexValue(0xe9e9e9);
+        return NSColor.hexValue(0xe9e9e9);
     }
     /// 线条默认颜色(同cell分割线颜色)
     static var line: NSColor {
-//        return NSColor.HexValue(0xe0e0e0);
-        return NSColor.HexValue(0xe4e4e4);
+//        return NSColor.hexValue(0xe0e0e0);
+        return NSColor.hexValue(0xe4e4e4);
     }
     
     static var btnN: NSColor {
-        return NSColor.HexValue(0xfea914);
+        return NSColor.hexValue(0xfea914);
     }
     
     static var btnH: NSColor {
-        return NSColor.HexValue(0xf1a013);
+        return NSColor.hexValue(0xf1a013);
     }
     
     static var btnD: NSColor {
-        return NSColor.HexValue(0x999999);
+        return NSColor.hexValue(0x999999);
     }
     
     static var excel: NSColor {
@@ -79,27 +70,27 @@ import Cocoa
     }
     /// 青蓝
     static var lightBlue: NSColor {
-        return NSColor.HexValue(0x29B5FE);
+        return NSColor.hexValue(0x29B5FE);
     }
     /// 亮橙
     static var lightOrange: NSColor {
-        return NSColor.HexValue(0xFFBB50);
+        return NSColor.hexValue(0xFFBB50);
     }
     /// 浅绿
     static var lightGreen: NSColor {
-        return NSColor.HexValue(0x1AC756);
+        return NSColor.hexValue(0x1AC756);
     }
     
     static var textColor3: NSColor {
-        return NSColor.HexValue(0x333333);
+        return NSColor.hexValue(0x333333);
     }
     
     static var textColor6: NSColor {
-        return NSColor.HexValue(0x666666);
+        return NSColor.hexValue(0x666666);
     }
     
     static var textColor9: NSColor {
-        return NSColor.HexValue(0x999999);
+        return NSColor.hexValue(0x999999);
     }
     
     //MARK: - -方法

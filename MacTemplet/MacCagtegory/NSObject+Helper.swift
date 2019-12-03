@@ -87,10 +87,81 @@ import Cocoa
         self.init();
         self.setValuesForKeys(dic)
     }
+
+    // MARK: - 数据类型转换 Data - String - Dictionary - Array
+    
+    /// NSObject->NSData
+    var jsonData: Data? {
+        var data: Data?
+        
+        switch self {
+        case is Data:
+            data = (self as! Data);
+            
+        case is NSString:
+            data = (self as! String).data(using: .utf8);
+            
+        case is NSImage:
+            data = (self as! NSImage).pngData;
+            
+        case is NSDictionary, is NSArray:
+            do {
+                data = try JSONSerialization.data(withJSONObject: self, options: []);
+            } catch {
+                print(error)
+            }
+            
+        default:
+            break;
+        }
+        return data;
+    }
+    
+    /// NSObject->NSString
+    var jsonString: String {
+        return JSONSerialization.jsonStringFromObj(self);
+    }
+    
+    /// NSString/NSData->NSDictionary
+    var dictValue: [String: Any]? {
+        guard let dic = self.jsonData?.objValue as? [String: Any] else { return nil }
+        return dic as [String: Any];
+    }
+    
+    /// NSString/NSData->NSArray
+    var arrayValue: [AnyObject]? {
+        guard let arr = self.jsonData?.objValue as? [AnyObject] else { return nil }
+        return arr as [AnyObject];
+    }
+    // MARK: - KVC
+
+    /// 返回key对应的值
+    func valueText(forKey key: String, defalut: String = "--") -> String{
+        if key == "" {
+            return "";
+        }
+        if let result = self.value(forKey: key) {
+            return "\(result)" != "" ? "\(result)" : defalut;
+        }
+        return defalut;
+    }
+    /// 返回key对应的值
+    func valueText(forKeyPath keyPath: String, defalut: String = "--") -> String{
+        if keyPath == "" {
+            return "";
+        }
+        if let result = self.value(forKeyPath: keyPath) {
+            return "\(result)" != "" ? "\(result)" : defalut;
+        }
+        return defalut;
+    }
+    
+    // MARK: - 视图相关
+
     ///  富文本只有同字体大小才能计算高度
     func sizeWithText(_ text: String = "", font: CGFloat = 15, width: CGFloat) -> CGSize {
         let attDic = NSAttributedString.paraDict(font, textColor: .black, alignment: .left);
-        let options : NSString.DrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
+        let options: NSString.DrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]
         
         var size = text.boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: options , attributes: attDic, context: nil).size;
         size.width = ceil(size.width);
@@ -116,111 +187,6 @@ import Cocoa
         let attString = NSAttributedString.attString(string, textTaps: [prefix], font: 15, tapFont: 15, color: .black, tapColor: colorMust, alignment: .left)
         return attString
     }
-    
-    ///MARK: NSObject转json字符串
-    func jsonValue() -> String! {
-        if JSONSerialization.isValidJSONObject(self) == false {
-            return "";
-        }
-     
-        do {
-            let data: Data! = try JSONSerialization.data(withJSONObject: self, options: []);
-            let jsonString: String! = String(data: data, encoding: .utf8);
-//            let string: String! = jsonString.removingPercentEncoding ?? "";
-            return jsonString;
-        } catch {
-            print(error)
-
-        }
-        return "";
-    }
-    
-    /// NSObject->NSData
-    func jsonData() -> NSData? {
-        var data: NSData?
-        
-        switch self {
-        case is NSData:
-            data = (self as! NSData);
-            
-        case is NSString:
-            data = (self as! NSString).data(using: String.Encoding.utf8.rawValue) as NSData?;
-            
-//        case is NSImage:
-//            data = (self as! NSImage).jpegData(compressionQuality: 1.0) as NSData?;
-            
-        case is NSDictionary:
-            fallthrough
-        case is NSArray:
-            data = try? JSONSerialization.data(withJSONObject: self, options: []) as NSData?;
-            
-        default:
-            break;
-        }
-        return data;
-    }
-    
-    /// NSObject->NSString
-    func jsonString() -> String {
-        guard let data = self.jsonData() else {
-            return "";
-        }
-        let jsonString: String = String(data: data as Data, encoding: .utf8) ?? ""
-        return jsonString;
-    }
-    
-    /// NSString/NSData->NSObject/NSDiction/NSArray
-    func objValue() -> Any? {
-        assert(self.isKind(of: NSString.classForCoder()) || self.isKind(of: NSData.classForCoder()) || self.isKind(of: NSDictionary.classForCoder()) || self.isKind(of: NSArray.classForCoder()))
-        
-        if self.isKind(of: NSDictionary.classForCoder()) || self.isKind(of: NSArray.classForCoder()) {
-            return self;
-        }
-        
-        do {
-            if let data = self.jsonData() {
-                let obj = try JSONSerialization.jsonObject(with: data as Data, options: []);
-                return obj;
-            }
-        } catch {
-            print(error)
-        }
-        return nil;
-    }
-    
-    /// NSString/NSData->NSDictionary
-    func dictValue() -> [String: Any]? {
-        guard let dic = self.objValue() as? [String: Any] else { return nil }
-        return dic as [String: Any];
-    }
-    
-    /// NSString/NSData->NSArray
-    func arrayValue() -> [AnyObject]?{
-        guard let arr = self.objValue() as? [AnyObject] else { return nil }
-        return arr as [AnyObject];
-    }
-    
-    /// 返回key对应的值
-    func valueText(forKey key: String, defalut: String = "--") -> String{
-        if key == "" {
-            return "";
-        }
-        if let result = self.value(forKey: key) {
-            return "\(result)" != "" ? "\(result)" : defalut;
-        }
-        return defalut;
-    }
-    /// 返回key对应的值
-    func valueText(forKeyPath keyPath: String, defalut: String = "--") -> String{
-        if keyPath == "" {
-            return "";
-        }
-        if let result = self.value(forKeyPath: keyPath) {
-            return "\(result)" != "" ? "\(result)" : defalut;
-        }
-        return defalut;
-    }
-    
      //MARK:数据解析通用化封装
 //   public static func modelWithJSONFile(_ fileName: String) -> AnyObject? {
 //
