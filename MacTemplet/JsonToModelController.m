@@ -333,11 +333,7 @@
 - (void)readFile{
     NSString *path = [NSBundle.mainBundle pathForResource:@"appinfo" ofType:@"txt"];
     NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    
-    id obj = content.objValue;
-    //    DDLog(@"%@", obj);
-    
-    self.textView.string = [(NSDictionary *)obj jsonString];
+    self.textView.string = content;
     
     [self hanldeJson];
 }
@@ -363,12 +359,12 @@
     //    self.hTextView.string = @"";
     //    self.mTextView.string = @"";
     
-    id result = self.textView.string.objValue;
+    id result = [NSJSONSerialization jsonObjectFromString:self.textView.string options:kNilOptions];
     self.textLabel.stringValue = result ? @"Valid JSON Structure" : @"JSON isn't valid";
     self.textLabel.textColor = result ? NSColor.lightGreen : NSColor.redColor;
     
     if (!result) {
-        NSAlert * alert = [NSAlert create:@"警告" msg:@"Error：Json is invalid" btnTitles:@[kTitleKnow]];
+        NSAlert *alert = [NSAlert create:@"警告" msg:@"Error：Json is invalid" btnTitles:@[kTitleKnow]];
         [alert beginSheetModalForWindow:NSApplication.windowDefault completionHandler:^(NSModalResponse returnCode) {
             DDLog(@"%@", @(returnCode));
         }];

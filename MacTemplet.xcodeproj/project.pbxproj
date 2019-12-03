@@ -59,6 +59,9 @@
 		1482F72022AB8BD500A7C5E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71F22AB8BD500A7C5E1 /* main.m */; };
 		1482F85922AB9C2E00A7C5E1 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85722AB9C2E00A7C5E1 /* TableViewController.m */; };
 		1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85F22ABA55F00A7C5E1 /* NNView.m */; };
+		14B6172D2395EABE00A9336D /* CAAnimation+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B6172C2395EABD00A9336D /* CAAnimation+Helper.swift */; };
+		14B6172F2395EC5B00A9336D /* NSData+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B6172E2395EC5B00A9336D /* NSData+Helper.swift */; };
+		14B617312395EE4D00A9336D /* JSONSerialization+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B617302395EE4D00A9336D /* JSONSerialization+Helper.swift */; };
 		14C0621923877BC70016EC8A /* NSColor+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0621823877BC70016EC8A /* NSColor+Helper.swift */; };
 		14C0621F238781830016EC8A /* NSGestureRecognizer+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0621E238781830016EC8A /* NSGestureRecognizer+Helper.swift */; };
 		14C0623E23878E8D0016EC8A /* CATransaction+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0622823878E890016EC8A /* CATransaction+Helper.swift */; };
@@ -211,6 +214,9 @@
 		1482F85722AB9C2E00A7C5E1 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		1482F85E22ABA55F00A7C5E1 /* NNView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNView.h; sourceTree = "<group>"; };
 		1482F85F22ABA55F00A7C5E1 /* NNView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNView.m; sourceTree = "<group>"; };
+		14B6172C2395EABD00A9336D /* CAAnimation+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAAnimation+Helper.swift"; sourceTree = "<group>"; };
+		14B6172E2395EC5B00A9336D /* NSData+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Helper.swift"; sourceTree = "<group>"; };
+		14B617302395EE4D00A9336D /* JSONSerialization+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONSerialization+Helper.swift"; sourceTree = "<group>"; };
 		14C0621823877BC70016EC8A /* NSColor+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Helper.swift"; sourceTree = "<group>"; };
 		14C0621E238781830016EC8A /* NSGestureRecognizer+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSGestureRecognizer+Helper.swift"; sourceTree = "<group>"; };
 		14C0622823878E890016EC8A /* CATransaction+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransaction+Helper.swift"; sourceTree = "<group>"; };
@@ -458,6 +464,7 @@
 			children = (
 				14C0623023878E8B0016EC8A /* Macro.swift */,
 				14C0623223878E8B0016EC8A /* DispatchQueue+Helper.swift */,
+				14B6172C2395EABD00A9336D /* CAAnimation+Helper.swift */,
 				14C0622B23878E890016EC8A /* CAAnimationGroup+Helper.swift */,
 				14C0623923878E8D0016EC8A /* CABasicAnimation+Helper.swift */,
 				14C0622E23878E8A0016EC8A /* CAGradientLayer+Helper.swift */,
@@ -466,8 +473,10 @@
 				14C0622823878E890016EC8A /* CATransaction+Helper.swift */,
 				14C0622923878E890016EC8A /* CATransition+Helper.swift */,
 				14C0623623878E8C0016EC8A /* CGRect+Helper.swift */,
+				14B617302395EE4D00A9336D /* JSONSerialization+Helper.swift */,
 				1480B0B723890FD300E24BDB /* NSInteger+Helper.swift */,
 				1480B0B823890FD300E24BDB /* NSString+Helper.swift */,
+				14B6172E2395EC5B00A9336D /* NSData+Helper.swift */,
 				1480B0BB2389105300E24BDB /* NSDate+Helper.swift */,
 				14C0622A23878E890016EC8A /* NSArray+Helper.swift */,
 				14C0623823878E8C0016EC8A /* NSDictionary+Helper.swift */,
@@ -851,6 +860,7 @@
 				1480B0B42388FD8300E24BDB /* NSImageView+Helper.swift in Sources */,
 				14C0625023878E8D0016EC8A /* NSObject+Define.swift in Sources */,
 				14F2F59922B8DB25009D49CE /* SecondViewController.m in Sources */,
+				14B617312395EE4D00A9336D /* JSONSerialization+Helper.swift in Sources */,
 				1480B0AC2388F61500E24BDB /* NSStatusItem+Helper.swift in Sources */,
 				14C0624523878E8D0016EC8A /* NSTimer+Helper.swift in Sources */,
 				14C0623E23878E8D0016EC8A /* CATransaction+Helper.swift in Sources */,
@@ -949,6 +959,7 @@
 				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
 				1480B0DB238CBDF700E24BDB /* NSStackView+Helper.swift in Sources */,
 				14F92C0C22BB1AC700A5C5E4 /* NNGeneralConst.m in Sources */,
+				14B6172F2395EC5B00A9336D /* NSData+Helper.swift in Sources */,
 				14C0624F23878E8D0016EC8A /* CABasicAnimation+Helper.swift in Sources */,
 				14C062672387D15E0016EC8A /* NSFileManager+Helper.swift in Sources */,
 				1445780022BCF50E0007C7B3 /* Const.m in Sources */,
@@ -965,6 +976,7 @@
 				1480B0B62388FDA000E24BDB /* NSTabView+Helper.swift in Sources */,
 				1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */,
 				14F2F5B522B8FF98009D49CE /* NNCollectionView.m in Sources */,
+				14B6172D2395EABE00A9336D /* CAAnimation+Helper.swift in Sources */,
 				14F92C4E22BB8E0900A5C5E4 /* DataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -70,8 +70,9 @@ class NSStackViewController: NSViewController {
         //设置子视图间隔
         stackView.spacing = 10
         //子视图的高度或宽度保持一致
-        stackView.distribution = .fillEqually
-  
+//        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
+
         return stackView;
     }()
 
