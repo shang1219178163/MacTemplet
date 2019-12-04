@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>App需要您的地理位置,为您提供周边服务信息</string>
-	<key>NSLocationUsageDescription</key>
-	<string>App需要您的地理位置,为您提供周边服务信息</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>App需要您的地理位置,为您提供周边服务信息</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>App需要您的地理位置,为您提供周边服务信息</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -27,13 +19,21 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<string>201912041503</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2019 Bin Shang. All rights reserved.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>App需要您的地理位置,为您提供周边服务信息</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>App需要您的地理位置,为您提供周边服务信息</string>
+	<key>NSLocationUsageDescription</key>
+	<string>App需要您的地理位置,为您提供周边服务信息</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>App需要您的地理位置,为您提供周边服务信息</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>

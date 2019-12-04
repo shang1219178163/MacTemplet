@@ -452,14 +452,14 @@
 				14F2F5AD22B8FEB1009D49CE /* NSCollectionView */,
 				14F0FDAA22AE097A00057093 /* NNBaseView */,
 				14F92C0022BB1AC700A5C5E4 /* NNGloble */,
-				1482F86122ABA5A400A7C5E1 /* MacCagtegory */,
+				1482F86122ABA5A400A7C5E1 /* CocoaExpand */,
 				14F2F55F22B78078009D49CE /* Other */,
 				14F92C1C22BB766A00A5C5E4 /* Resource */,
 			);
 			path = MacTemplet;
 			sourceTree = "<group>";
 		};
-		1482F86122ABA5A400A7C5E1 /* MacCagtegory */ = {
+		1482F86122ABA5A400A7C5E1 /* CocoaExpand */ = {
 			isa = PBXGroup;
 			children = (
 				14C0623023878E8B0016EC8A /* Macro.swift */,
@@ -539,7 +539,7 @@
 				14F2F58B22B881C4009D49CE /* NSTextFieldCell+Hook.h */,
 				14F2F58C22B881C4009D49CE /* NSTextFieldCell+Hook.m */,
 			);
-			path = MacCagtegory;
+			path = CocoaExpand;
 			sourceTree = "<group>";
 		};
 		14F0EE8822C9AEBA003C3811 /* JsonToModel */ = {
@@ -739,6 +739,7 @@
 				1482F71022AB8BD400A7C5E1 /* Frameworks */,
 				1482F71122AB8BD400A7C5E1 /* Resources */,
 				8E323FC6F5CA9D2988D98874 /* [CP] Embed Pods Frameworks */,
+				14B617F32397916100A9336D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -806,6 +807,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		14B617F32397916100A9336D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbundleVersion=$(date \"+%Y%m%d%H%M\")\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"$INFOPLIST_FILE\"\n";
+		};
 		6EA340B95869B73EEE817551 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
