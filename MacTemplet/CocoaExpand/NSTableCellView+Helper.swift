@@ -21,9 +21,21 @@ import Cocoa
         return cellView;
     }
     
-    
     func udpateSelectionHighlight() {
         textField?.textColor = backgroundStyle == .dark ? NSColor.white : NSColor.black;
     }
     
+}
+
+public extension NSTableView {
+    /// makeView
+    final func makeView<T: NSTableCellView>(for cellType: T.Type, identifier: String = String(describing: T.self), style: NSTableView.RowSizeStyle = .default) -> T {
+        if let view: NSTableCellView = makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: identifier), owner: T.self) as? T {
+            return view as! T;
+        }
+        let cellView = T.init()
+        cellView.identifier = NSUserInterfaceItemIdentifier(rawValue: identifier);
+        cellView.wantsLayer = true;
+        return cellView;
+    }
 }

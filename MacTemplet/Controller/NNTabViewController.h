@@ -1,5 +1,5 @@
 //
-//  BNTabViewController.h
+//  NNTabViewController.h
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/18.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BNTabViewController : NSViewController
+@interface NNTabViewController : NSViewController
 
 @end
 

@@ -1,23 +1,23 @@
 //
-//  BNTextViewContoller.m
+//  NNTextViewContoller.m
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/26.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
-#import "BNTextViewContoller.h"
+#import "NNTextViewContoller.h"
 #import "NNHeaderView.h"
 #import "NoodleLineNumberView.h"
 
 
-@interface BNTextViewContoller ()<NSTextViewDelegate>
+@interface NNTextViewContoller ()<NSTextViewDelegate>
 
 @property (nonatomic, strong) NSTextView *textView;
 
 @end
 
-@implementation BNTextViewContoller
+@implementation NNTextViewContoller
 
 - (void)viewDidLoad {
     [super viewDidLoad];

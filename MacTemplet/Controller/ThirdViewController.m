@@ -7,7 +7,7 @@
 //
 
 #import "ThirdViewController.h"
-#import "BNDialogWindowController.h"
+#import "NNDialogWindowController.h"
 
 @interface ThirdViewController ()
 

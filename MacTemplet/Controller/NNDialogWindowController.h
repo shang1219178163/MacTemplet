@@ -1,8 +1,8 @@
 //
-//  BNTextViewContoller.h
+//  NNDialogWindowController.h
 //  MacTemplet
 //
-//  Created by Bin Shang on 2019/6/26.
+//  Created by Bin Shang on 2019/6/19.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BNTextViewContoller : NSViewController
+@interface NNDialogWindowController : NSWindowController
 
 @end
 

@@ -17,7 +17,7 @@
 		1445780F22BDF0520007C7B3 /* NNLanguageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445780E22BDF0520007C7B3 /* NNLanguageModel.m */; };
 		1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */; };
 		1445783B22C1FFE20007C7B3 /* NNClassInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783A22C1FFE20007C7B3 /* NNClassInfoModel.m */; };
-		1445783E22C2FDCE0007C7B3 /* BNTextViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783D22C2FDCD0007C7B3 /* BNTextViewContoller.m */; };
+		1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */; };
 		1480B0962387EC1B00E24BDB /* NSTableRowView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0952387EC1B00E24BDB /* NSTableRowView+Helper.swift */; };
 		1480B0982387EC2D00E24BDB /* NSTableView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0972387EC2D00E24BDB /* NSTableView+Helper.swift */; };
 		1480B09A2387EC3E00E24BDB /* NSTableView+Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0992387EC3E00E24BDB /* NSTableView+Hook.swift */; };
@@ -59,6 +59,7 @@
 		1482F72022AB8BD500A7C5E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71F22AB8BD500A7C5E1 /* main.m */; };
 		1482F85922AB9C2E00A7C5E1 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85722AB9C2E00A7C5E1 /* TableViewController.m */; };
 		1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85F22ABA55F00A7C5E1 /* NNView.m */; };
+		14A63DB923AB83D90015725A /* NNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DB823AB83D90015725A /* NNTableViewController.swift */; };
 		14B6172D2395EABE00A9336D /* CAAnimation+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B6172C2395EABD00A9336D /* CAAnimation+Helper.swift */; };
 		14B6172F2395EC5B00A9336D /* NSData+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B6172E2395EC5B00A9336D /* NSData+Helper.swift */; };
 		14B617312395EE4D00A9336D /* JSONSerialization+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B617302395EE4D00A9336D /* JSONSerialization+Helper.swift */; };
@@ -118,12 +119,12 @@
 		14F2F59622B8D9A2009D49CE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F59522B8D9A2009D49CE /* MainViewController.m */; };
 		14F2F59922B8DB25009D49CE /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F59822B8DB25009D49CE /* SecondViewController.m */; };
 		14F2F59D22B8DB3D009D49CE /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F59B22B8DB3D009D49CE /* ThirdViewController.m */; };
-		14F2F5A522B8E147009D49CE /* BNTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F5A322B8E147009D49CE /* BNTabViewController.m */; };
+		14F2F5A522B8E147009D49CE /* NNTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F5A322B8E147009D49CE /* NNTabViewController.m */; };
 		14F2F5AC22B8FD18009D49CE /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F5AB22B8FD18009D49CE /* CollectionViewController.m */; };
 		14F2F5B122B8FEE5009D49CE /* NSCTViewItemOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F5AF22B8FEE5009D49CE /* NSCTViewItemOne.m */; };
 		14F2F5B522B8FF98009D49CE /* NNCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F5B422B8FF98009D49CE /* NNCollectionView.m */; };
 		14F2F5BD22B90109009D49CE /* NSCTViewCellOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F2F5BC22B90109009D49CE /* NSCTViewCellOne.m */; };
-		14F92BDE22B9E75100A5C5E4 /* BNDialogWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BDC22B9E75100A5C5E4 /* BNDialogWindowController.m */; };
+		14F92BDE22B9E75100A5C5E4 /* NNDialogWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BDC22B9E75100A5C5E4 /* NNDialogWindowController.m */; };
 		14F92BE622BA124E00A5C5E4 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BE422BA124E00A5C5E4 /* MainWindowController.m */; };
 		14F92BEA22BA17B200A5C5E4 /* DialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BE922BA17B200A5C5E4 /* DialogViewController.m */; };
 		14F92BF622BB13E900A5C5E4 /* NSObject+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92BF522BB13E900A5C5E4 /* NSObject+Helper.m */; };
@@ -164,8 +165,8 @@
 		1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTableCellViewTen.m; sourceTree = "<group>"; };
 		1445783922C1FFE20007C7B3 /* NNClassInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNClassInfoModel.h; sourceTree = "<group>"; };
 		1445783A22C1FFE20007C7B3 /* NNClassInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNClassInfoModel.m; sourceTree = "<group>"; };
-		1445783C22C2FDCD0007C7B3 /* BNTextViewContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNTextViewContoller.h; sourceTree = "<group>"; };
-		1445783D22C2FDCD0007C7B3 /* BNTextViewContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNTextViewContoller.m; sourceTree = "<group>"; };
+		1445783C22C2FDCD0007C7B3 /* NNTextViewContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNTextViewContoller.h; sourceTree = "<group>"; };
+		1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTextViewContoller.m; sourceTree = "<group>"; };
 		1480B0952387EC1B00E24BDB /* NSTableRowView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableRowView+Helper.swift"; sourceTree = "<group>"; };
 		1480B0972387EC2D00E24BDB /* NSTableView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+Helper.swift"; sourceTree = "<group>"; };
 		1480B0992387EC3E00E24BDB /* NSTableView+Hook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+Hook.swift"; sourceTree = "<group>"; };
@@ -214,6 +215,7 @@
 		1482F85722AB9C2E00A7C5E1 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		1482F85E22ABA55F00A7C5E1 /* NNView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNView.h; sourceTree = "<group>"; };
 		1482F85F22ABA55F00A7C5E1 /* NNView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNView.m; sourceTree = "<group>"; };
+		14A63DB823AB83D90015725A /* NNTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNTableViewController.swift; sourceTree = "<group>"; };
 		14B6172C2395EABD00A9336D /* CAAnimation+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAAnimation+Helper.swift"; sourceTree = "<group>"; };
 		14B6172E2395EC5B00A9336D /* NSData+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Helper.swift"; sourceTree = "<group>"; };
 		14B617302395EE4D00A9336D /* JSONSerialization+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONSerialization+Helper.swift"; sourceTree = "<group>"; };
@@ -295,8 +297,8 @@
 		14F2F59822B8DB25009D49CE /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		14F2F59A22B8DB3D009D49CE /* ThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		14F2F59B22B8DB3D009D49CE /* ThirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
-		14F2F5A222B8E147009D49CE /* BNTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNTabViewController.h; sourceTree = "<group>"; };
-		14F2F5A322B8E147009D49CE /* BNTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNTabViewController.m; sourceTree = "<group>"; };
+		14F2F5A222B8E147009D49CE /* NNTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNTabViewController.h; sourceTree = "<group>"; };
+		14F2F5A322B8E147009D49CE /* NNTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTabViewController.m; sourceTree = "<group>"; };
 		14F2F5AA22B8FD18009D49CE /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		14F2F5AB22B8FD18009D49CE /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		14F2F5AE22B8FEE5009D49CE /* NSCTViewItemOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSCTViewItemOne.h; sourceTree = "<group>"; };
@@ -305,8 +307,8 @@
 		14F2F5B422B8FF98009D49CE /* NNCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNCollectionView.m; sourceTree = "<group>"; };
 		14F2F5BB22B90109009D49CE /* NSCTViewCellOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSCTViewCellOne.h; sourceTree = "<group>"; };
 		14F2F5BC22B90109009D49CE /* NSCTViewCellOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSCTViewCellOne.m; sourceTree = "<group>"; };
-		14F92BDB22B9E75100A5C5E4 /* BNDialogWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNDialogWindowController.h; sourceTree = "<group>"; };
-		14F92BDC22B9E75100A5C5E4 /* BNDialogWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNDialogWindowController.m; sourceTree = "<group>"; };
+		14F92BDB22B9E75100A5C5E4 /* NNDialogWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNDialogWindowController.h; sourceTree = "<group>"; };
+		14F92BDC22B9E75100A5C5E4 /* NNDialogWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNDialogWindowController.m; sourceTree = "<group>"; };
 		14F92BE322BA124E00A5C5E4 /* MainWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		14F92BE422BA124E00A5C5E4 /* MainWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		14F92BE822BA17B200A5C5E4 /* DialogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DialogViewController.h; sourceTree = "<group>"; };
@@ -403,6 +405,26 @@
 			path = NNView;
 			sourceTree = "<group>";
 		};
+		1460510E23A367E600C10F34 /* CocoaExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				14F0FDBA22AE68F300057093 /* MacExpand.h */,
+				14F0FD9F22ADF12C00057093 /* NSObject+Hook.h */,
+				14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */,
+				14F92BF422BB13E900A5C5E4 /* NSObject+Helper.h */,
+				14F92BF522BB13E900A5C5E4 /* NSObject+Helper.m */,
+				14F0FDA422ADF20400057093 /* NSView+Hook.h */,
+				14F0FDA522ADF20400057093 /* NSView+Hook.m */,
+				14F0FDA122ADF14100057093 /* NSViewController+Hook.h */,
+				14F0FDA222ADF14100057093 /* NSViewController+Hook.m */,
+				14F0FDE722B084EC00057093 /* NSTableView+Hook.h */,
+				14F0FDE822B084EC00057093 /* NSTableView+Hook.m */,
+				14F2F58B22B881C4009D49CE /* NSTextFieldCell+Hook.h */,
+				14F2F58C22B881C4009D49CE /* NSTextFieldCell+Hook.m */,
+			);
+			path = CocoaExtensions;
+			sourceTree = "<group>";
+		};
 		1482F70A22AB8BD400A7C5E1 = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +469,7 @@
 				1480B0F2238D172700E24BDB /* FileController.swift */,
 				1480B0E2238CC63900E24BDB /* MapViewController.swift */,
 				1480B0E8238CC94000E24BDB /* MKMapView+Helper.swift */,
+				1460510E23A367E600C10F34 /* CocoaExtensions */,
 				14F92C2522BB8DBB00A5C5E4 /* Controller */,
 				1445782722C1CD6E0007C7B3 /* NNView */,
 				14F2F5AD22B8FEB1009D49CE /* NSCollectionView */,
@@ -525,19 +548,6 @@
 				1480B0AD2388FA9300E24BDB /* NSView+Add.swift */,
 				1480B0AF2388FCB600E24BDB /* NSView+Helper.swift */,
 				1480B0EA238CDA1500E24BDB /* NSVisualEffectView+Helper.swift */,
-				14F0FDBA22AE68F300057093 /* MacExpand.h */,
-				14F0FD9F22ADF12C00057093 /* NSObject+Hook.h */,
-				14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */,
-				14F92BF422BB13E900A5C5E4 /* NSObject+Helper.h */,
-				14F92BF522BB13E900A5C5E4 /* NSObject+Helper.m */,
-				14F0FDA422ADF20400057093 /* NSView+Hook.h */,
-				14F0FDA522ADF20400057093 /* NSView+Hook.m */,
-				14F0FDA122ADF14100057093 /* NSViewController+Hook.h */,
-				14F0FDA222ADF14100057093 /* NSViewController+Hook.m */,
-				14F0FDE722B084EC00057093 /* NSTableView+Hook.h */,
-				14F0FDE822B084EC00057093 /* NSTableView+Hook.m */,
-				14F2F58B22B881C4009D49CE /* NSTextFieldCell+Hook.h */,
-				14F2F58C22B881C4009D49CE /* NSTextFieldCell+Hook.m */,
 			);
 			path = CocoaExpand;
 			sourceTree = "<group>";
@@ -651,6 +661,7 @@
 			children = (
 				1482F85622AB9C2E00A7C5E1 /* TableViewController.h */,
 				1482F85722AB9C2E00A7C5E1 /* TableViewController.m */,
+				14A63DB823AB83D90015725A /* NNTableViewController.swift */,
 				14F2F5AA22B8FD18009D49CE /* CollectionViewController.h */,
 				14F2F5AB22B8FD18009D49CE /* CollectionViewController.m */,
 				14F0FDCA22AFA48E00057093 /* FirstViewController.h */,
@@ -663,14 +674,14 @@
 				14F2F59B22B8DB3D009D49CE /* ThirdViewController.m */,
 				14F2F59422B8D9A2009D49CE /* MainViewController.h */,
 				14F2F59522B8D9A2009D49CE /* MainViewController.m */,
-				14F2F5A222B8E147009D49CE /* BNTabViewController.h */,
-				14F2F5A322B8E147009D49CE /* BNTabViewController.m */,
-				14F92BDB22B9E75100A5C5E4 /* BNDialogWindowController.h */,
-				14F92BDC22B9E75100A5C5E4 /* BNDialogWindowController.m */,
+				14F2F5A222B8E147009D49CE /* NNTabViewController.h */,
+				14F2F5A322B8E147009D49CE /* NNTabViewController.m */,
+				14F92BDB22B9E75100A5C5E4 /* NNDialogWindowController.h */,
+				14F92BDC22B9E75100A5C5E4 /* NNDialogWindowController.m */,
 				14F92BE822BA17B200A5C5E4 /* DialogViewController.h */,
 				14F92BE922BA17B200A5C5E4 /* DialogViewController.m */,
-				1445783C22C2FDCD0007C7B3 /* BNTextViewContoller.h */,
-				1445783D22C2FDCD0007C7B3 /* BNTextViewContoller.m */,
+				1445783C22C2FDCD0007C7B3 /* NNTextViewContoller.h */,
+				1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -935,6 +946,7 @@
 				14F92C1B22BB6F3400A5C5E4 /* NNLabel.m in Sources */,
 				14F92BEA22BA17B200A5C5E4 /* DialogViewController.m in Sources */,
 				14C0624D23878E8D0016EC8A /* NSNumber+Helper.swift in Sources */,
+				14A63DB923AB83D90015725A /* NNTableViewController.swift in Sources */,
 				14F92C4122BB8DE800A5C5E4 /* ESJsonFormatManager.m in Sources */,
 				1482F72022AB8BD500A7C5E1 /* main.m in Sources */,
 				14C0621923877BC70016EC8A /* NSColor+Helper.swift in Sources */,
@@ -945,7 +957,7 @@
 				1480B0BE238B620600E24BDB /* NSSwitch+Helper.swift in Sources */,
 				1480B0F7238D32E100E24BDB /* NSBundle+Helper.swift in Sources */,
 				1480B0EF238CED7200E24BDB /* NNSwitch.swift in Sources */,
-				1445783E22C2FDCE0007C7B3 /* BNTextViewContoller.m in Sources */,
+				1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */,
 				14F0FDE322B082AD00057093 /* NNTableView.m in Sources */,
 				14132978238559CE00E7AFCA /* NSTestViewController.m in Sources */,
 				14C062632387C6D10016EC8A /* NSMenu+Helper.swift in Sources */,
@@ -963,7 +975,7 @@
 				14C062692387D2B20016EC8A /* NSAttributedString+Helper.swift in Sources */,
 				14F92C1822BB611600A5C5E4 /* NNTextView.m in Sources */,
 				14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */,
-				14F2F5A522B8E147009D49CE /* BNTabViewController.m in Sources */,
+				14F2F5A522B8E147009D49CE /* NNTabViewController.m in Sources */,
 				14C0624623878E8D0016EC8A /* Macro.swift in Sources */,
 				1480B0A22388E9FE00E24BDB /* NSTextField+Helper.swift in Sources */,
 				14F92BF622BB13E900A5C5E4 /* NSObject+Helper.m in Sources */,
@@ -973,7 +985,7 @@
 				14C0625323878E8D0016EC8A /* NSObject+Hook.swift in Sources */,
 				14C0625D2387B8FE0016EC8A /* NSImage+Helper.swift in Sources */,
 				14C0625F2387BD3C0016EC8A /* NSAlert+Helper.swift in Sources */,
-				14F92BDE22B9E75100A5C5E4 /* BNDialogWindowController.m in Sources */,
+				14F92BDE22B9E75100A5C5E4 /* NNDialogWindowController.m in Sources */,
 				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
 				1480B0DB238CBDF700E24BDB /* NSStackView+Helper.swift in Sources */,
 				14F92C0C22BB1AC700A5C5E4 /* NNGeneralConst.m in Sources */,

@@ -11,7 +11,6 @@
 #import "NNTableRowView.h"
 #import "NNTextField.h"
 
-
 @interface TableViewController ()<NSTableViewDelegate, NSTableViewDataSource>
 
 @property (nonatomic, strong) NNTableView *tableView;
@@ -81,7 +80,7 @@
     cell.textField.stringValue = [NSString stringWithFormat:@"cell %ld",(long)row];
     cell.textField.stringValue = [NSString stringWithFormat:@"%@",array[item]];
     
-    NNTextField * textField = [NNTextField create:cell.bounds placeholder:@""];
+    NNTextField *textField = [NNTextField create:cell.bounds placeholder:@""];
     textField.alignment = NSTextAlignmentCenter;
     textField.isTextAlignmentVerticalCenter = true;
     textField.stringValue = array[item];
@@ -122,7 +121,7 @@
 
 - (NSString *)tableView:(NSTableView *)tableView toolTipForCell:(NSCell *)cell rect:(NSRectPointer)rect tableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row mouseLocation:(NSPoint)mouseLocation{
     NSInteger item = [tableView.tableColumns indexOfObject:tableColumn];
-    NSString * string = [NSString stringWithFormat:@"{%@,%@}", @(row), @(item)];
+    NSString *string = [NSString stringWithFormat:@"{%@,%@}", @(row), @(item)];
     return string;
 }
 

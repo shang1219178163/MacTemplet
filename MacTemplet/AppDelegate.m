@@ -36,10 +36,10 @@
     NSString * controllerName = @"HomeViewController";
 //    controllerName = @"FirstViewController";
 //    controllerName = @"MainViewController";
-//    controllerName = @"BNTabViewController";
+//    controllerName = @"NNTabViewController";
 //    controllerName = @"CollectionViewController";
 //    controllerName = @"JsonToModelController";
-//    controllerName = @"BNTextViewContoller";
+//    controllerName = @"NNTextViewContoller";
 //    controllerName = @"ProppertyLazyController";
 //    controllerName = @"MacTemplet.MapViewController";
     

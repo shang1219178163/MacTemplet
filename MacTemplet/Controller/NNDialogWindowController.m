@@ -1,18 +1,18 @@
 //
-//  BNDialogWindowController.m
+//  NNDialogWindowController.m
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/19.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
-#import "BNDialogWindowController.h"
+#import "NNDialogWindowController.h"
 
-@interface BNDialogWindowController ()
+@interface NNDialogWindowController ()
 
 @end
 
-@implementation BNDialogWindowController
+@implementation NNDialogWindowController
 
 - (void)windowDidLoad {
     [super windowDidLoad];

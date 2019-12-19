@@ -1,19 +1,19 @@
 
 //
-//  BNTabViewController.m
+//  NNTabViewController.m
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/18.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
-#import "BNTabViewController.h"
+#import "NNTabViewController.h"
 #import "NNTextField.h"
 
 #import "OneWindowController.h"
-#import "BNDialogWindowController.h"
+#import "NNDialogWindowController.h"
 
-@interface BNTabViewController ()<NSTabViewDelegate>
+@interface NNTabViewController ()<NSTabViewDelegate>
 
 @property (nonatomic, strong) NSImageView *imgView;
 @property (nonatomic, strong) NNTextField *textField;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation BNTabViewController
+@implementation NNTabViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,7 +39,7 @@
 
     NSArray *list = @[@[@"JsonToModelController", @"json转模型", ],
                       @[@"ProppertyLazyController", @"属性Lazy",],
-                      @[@"BNTextViewContoller", @"其他",],
+                      @[@"NNTextViewContoller", @"其他",],
                       
                       ];
     [self.tabView addItems:list];

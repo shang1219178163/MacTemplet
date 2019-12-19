@@ -10,7 +10,7 @@
 #import "NNTextField.h"
 
 #import "OneWindowController.h"
-#import "BNDialogWindowController.h"
+#import "NNDialogWindowController.h"
 
 static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 
@@ -40,7 +40,9 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 //                      @[@"TmpViewController", @"Swift模块",],
                       @[@"NSStackViewController", @"StackView",],
                       @[@"MapViewController", @"MapView",],
-//                      @[@"FileController", @"File处理",],                      
+//                      @[@"FileController", @"File处理",],
+                      @[@"NNTableViewController", @"NNTable",],
+                      
                       ];
     [self.tabView addItems:list];
 
