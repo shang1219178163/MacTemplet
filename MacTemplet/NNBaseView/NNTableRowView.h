@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NNTableRowView : NSTableRowView
 
+@property (nonatomic, strong) NSColor *fillColor;
+@property (nonatomic, strong) NSColor *strokeColor;
+
 @end
 
 NS_ASSUME_NONNULL_END

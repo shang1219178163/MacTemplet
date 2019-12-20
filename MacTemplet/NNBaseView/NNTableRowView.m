@@ -21,8 +21,11 @@
 -(void)drawSelectionInRect:(NSRect)dirtyRect{
     NSRect selectionRect = NSInsetRect(self.bounds, 0, 0);
 //    [NSColor.redColor setStroke];
-    [[NSColor colorWithCalibratedWhite:.82 alpha:1.0] setStroke];
     [[NSColor colorWithCalibratedWhite:.82 alpha:1.0] setFill];
+    [[NSColor colorWithCalibratedWhite:.82 alpha:1.0] setStroke];
+    [self.strokeColor setStroke];
+    [self.fillColor setFill];
+    
     NSBezierPath *selectionPath = [NSBezierPath bezierPathWithRoundedRect:selectionRect xRadius:0 yRadius:0];
     selectionPath.lineWidth = 1.5;
     [selectionPath fill];

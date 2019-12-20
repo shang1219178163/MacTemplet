@@ -11,6 +11,8 @@
 #import "NNTableRowView.h"
 #import "NNTextField.h"
 
+#import <CocoaExpand-Swift.h>
+
 @interface TableViewController ()<NSTableViewDelegate, NSTableViewDataSource>
 
 @property (nonatomic, strong) NNTableView *tableView;

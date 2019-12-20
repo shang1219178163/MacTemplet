@@ -9,6 +9,8 @@
 import Cocoa
 import CoreFoundation
 
+import CocoaExpand
+
 @available(OSX 10.15, *)
 class TmpViewController: NSViewController {
 

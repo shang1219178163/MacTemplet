@@ -10,6 +10,9 @@
 #import "ESJsonFormatManager.h"
 #import "ESJsonFormatSetting.h"
 
+#import <CocoaExpand-Swift.h>
+
+
 @implementation ESClassInfo
 
 - (instancetype)initWithClassNameKey:(NSString *)classNameKey ClassName:(NSString *)className classDic:(NSDictionary *)classDic{

@@ -9,6 +9,9 @@
 #import "FileManager.h"
 #import "ESJsonFormat.h"
 
+#import <CocoaExpand-Swift.h>
+
+
 @implementation FileManager
 
 + (FileManager *)sharedInstance{

@@ -13,6 +13,8 @@
 #import "OneWindowController.h"
 #import "NNDialogWindowController.h"
 
+#import <CocoaExpand-Swift.h>
+
 @interface NNTabViewController ()<NSTabViewDelegate>
 
 @property (nonatomic, strong) NSImageView *imgView;

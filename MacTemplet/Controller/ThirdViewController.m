@@ -7,10 +7,12 @@
 //
 
 #import "ThirdViewController.h"
+
 #import "NNDialogWindowController.h"
 
-@interface ThirdViewController ()
+#import <CocoaExpand-Swift.h>
 
+@interface ThirdViewController ()
 
 
 @end

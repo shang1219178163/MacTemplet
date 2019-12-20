@@ -11,7 +11,11 @@
 
 #import "MainWindowController.h"
 
+#import <CocoaExpand-Swift.h>
+
+
 @interface AppDelegate ()
+
 @property (nonatomic, strong) NSWindow *window;
 
 @property (nonatomic, strong) MainWindowController *windowCtrl;

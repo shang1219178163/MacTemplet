@@ -9,6 +9,9 @@
 #import "AuthorInfoController.h"
 #import "NNHeaderView.h"
 
+#import <CocoaExpand-Swift.h>
+
+
 @interface AuthorInfoController ()
 
 @property (nonatomic, strong) NSImageView *imgView;

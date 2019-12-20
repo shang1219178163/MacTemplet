@@ -9,6 +9,8 @@
 #import "FirstViewController.h"
 #import "OneWindowController.h"
 
+#import <CocoaExpand-Swift.h>
+
 @interface FirstViewController ()
 
 @property (nonatomic, strong) OneWindowController *windowCtrl;

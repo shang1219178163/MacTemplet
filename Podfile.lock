@@ -12,15 +12,17 @@ PODS:
   - AFNetworking/Reachability (3.2.1)
   - AFNetworking/Security (3.2.1)
   - AFNetworking/Serialization (3.2.1)
+  - CocoaExpand (1.0.7)
   - HandyJSON (5.0.1)
   - Masonry (1.1.0)
-  - SnapKit (4.2.0)
+  - SnapKit (5.0.1)
   - SnapKitExtend (1.0.7):
     - SnapKit
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
+  - CocoaExpand
   - HandyJSON
   - Masonry
   - SnapKit
@@ -30,6 +32,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
+    - CocoaExpand
     - HandyJSON
     - Masonry
     - SnapKit
@@ -38,12 +41,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  CocoaExpand: b1f1b350814e1e31e5a200fe332c780ebd4d64d1
   HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SnapKitExtend: 00ee4db6d1f80bee01a1e75745f2a6ae695ba662
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: e51be20967f5bc157d9b2168225aac5d3b12322c
+PODFILE CHECKSUM: fd7ba30ae38ec1089b2060bf1624c47b06c58653
 
 COCOAPODS: 1.8.4

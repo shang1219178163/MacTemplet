@@ -10,6 +10,7 @@
 #import "NNHeaderView.h"
 #import "NoodleLineNumberView.h"
 
+#import <CocoaExpand-Swift.h>
 
 @interface NNTextViewContoller ()<NSTextViewDelegate>
 

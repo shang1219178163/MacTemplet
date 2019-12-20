@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
-platform :osx, '10.11'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :osx, '10.12'
 use_frameworks!
 
 #target 'MacTemplet' do
@@ -20,7 +21,8 @@ def common_pods
   
   pod 'YYModel'
   pod 'HandyJSON'
-
+  pod 'CocoaExpand'
+  
 end
 
 target 'MacTemplet' do

@@ -8,3 +8,5 @@
 #import "NNTableRowView.h"
 
 #import "NNTextField.h"
+
+#import "NSTableCellViewTen.h"

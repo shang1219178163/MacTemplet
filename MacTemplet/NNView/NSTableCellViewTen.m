@@ -8,6 +8,8 @@
 
 #import "NSTableCellViewTen.h"
 
+#import <CocoaExpand-Swift.h>
+
 @interface NSTableCellViewTen ()
 
 

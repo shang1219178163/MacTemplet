@@ -8,32 +8,32 @@
 
 import Cocoa
 import SnapKit
+import CocoaExpand
 
 
 class NNTableViewController: NSViewController {
 
     let list: [[String]] = [
-                            ["名称","IP","状态","状态1","状态2","状态3",],
-                            ["ces1","3.4.5.6","027641081087","1","3.4.5.6","027641081087"],
-                            ["ces2","3.4.5.6","027641081087","2","3.4.5.6","027641081087"],
-                            ["ces3","3.4.5.6","027641081087","3","3.4.5.6","027641081087"],
-                            ["ces4","3.4.5.6","027641081087","4","3.4.5.6","027641081087"],
-                            ["ces5","3.4.5.6","027641081087","5","3.4.5.6","027641081087"],
-                            ["ces6","3.4.5.6","027641081087","6","3.4.5.6","027641081087"],
-                            ["ces7","3.4.5.6","027641081087","7","3.4.5.6","027641081087"],
-                            ["ces8","3.4.5.6","027641081087","8","3.4.5.6","027641081087"],
-                            ["ces9","3.4.5.6","027641081087","9","3.4.5.6","027641081087"],
+                            ["名称","IP","状态","状态1","状态2",],
+                            ["ces1","3.4.5.6","027641081087","1","3.4.5.6",],
+                            ["ces2","3.4.5.6","027641081087","2","3.4.5.6",],
+                            ["ces3","3.4.5.6","027641081087","3","3.4.5.6",],
+                            ["ces4","3.4.5.6","027641081087","4","3.4.5.6",],
+                            ["ces5","3.4.5.6","027641081087","5","3.4.5.6",],
+                            ["ces6","3.4.5.6","027641081087","6","3.4.5.6",],
+                            ["ces7","3.4.5.6","027641081087","7","3.4.5.6",],
+                            ["ces8","3.4.5.6","027641081087","8","3.4.5.6",],
+                            ["ces9","3.4.5.6","027641081087","9","3.4.5.6",],
+                            ["ces10","3.4.5.6","027641081087","9","3.4.5.6",],
+
                             ]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
         setupTableView()
-        view.addSubview(tableView.enclosingScrollView!)
-        
-        
+        view.addSubview(tableView.enclosingScrollView!)        
     }
     
     override func viewDidLayout() {
@@ -62,9 +62,12 @@ class NNTableViewController: NSViewController {
     
     // MARK: - lazy
     
-    
     lazy var tableView: NNTableView = {
-        let view = NNTableView(frame: self.view.bounds)
+//        let view = NNTableView(frame: self.view.bounds)
+        let view = NNTableView.create(self.view.bounds)
+        /// NSTableColumn resizingMask 效果优先于 columnAutoresizingStyle
+//        view.columnAutoresizingStyle = .uniformColumnAutoresizingStyle
+
         view.dataSource = (self as NSTableViewDataSource)
         view.delegate = (self as NSTableViewDelegate)
         return view
@@ -77,7 +80,7 @@ extension NNTableViewController: NSTableViewDataSource, NSTableViewDelegate {
 
  
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return list.count;
+        return list.count - 1;
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
@@ -86,13 +89,16 @@ extension NNTableViewController: NSTableViewDataSource, NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         guard let tableColumn = tableColumn else { return nil }
+        tableColumn.resizingMask = .userResizingMask;//手动调整宽度
+
         let item = tableView.tableColumns.firstIndex(of: tableColumn)
 //        let columnID = tableColumn.identifier
+                
+        let array = list[row + 1]
         
-        let array = list[row]
-        
-        let identifier = "one"
-        let cell = NSTableCellView.makeView(tableView: tableView, identifier: identifier, owner: self)
+//        let identifier = "one"
+//        let cell = NSTableCellView.makeView(tableView: tableView, identifier: identifier, owner: self)
+        let cell = tableView.makeView(for: NSTableCellView.self)
         
         cell.textField?.stringValue = "row: \(row)"
         cell.textField?.stringValue = "row: \(array[row])"
@@ -114,7 +120,9 @@ extension NNTableViewController: NSTableViewDataSource, NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         let rowView = NNTableRowView()
-        rowView.backgroundColor = NSColor.yellow
+        rowView.strokeColor = NSColor.red
+        rowView.fillColor = NSColor.green
+
         return rowView;
     }
     

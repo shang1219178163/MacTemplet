@@ -12,6 +12,8 @@
 #import "OneWindowController.h"
 #import "NNDialogWindowController.h"
 
+#import <CocoaExpand-Swift.h>
+
 static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 
 @interface HomeViewController ()<NSTabViewDelegate>

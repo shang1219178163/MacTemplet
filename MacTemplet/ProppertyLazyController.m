@@ -11,6 +11,8 @@
 #import "NoodleLineNumberView.h"
 #import "NNPropertyInfoModel.h"
 
+#import <CocoaExpand-Swift.h>
+
 @interface ProppertyLazyController ()<NSTextViewDelegate>
 
 @property (nonatomic, strong) NNLabel *textLabel;

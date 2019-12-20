@@ -12,6 +12,8 @@ import CoreLocation
 import SnapKit
 import SnapKitExtend
 
+import CocoaExpand
+
 @available(OSX 10.14, *)
 class MapViewController: NSViewController {
 

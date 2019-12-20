@@ -8,6 +8,9 @@
 
 #import "DialogViewController.h"
 
+#import <CocoaExpand-Swift.h>
+
+
 @interface DialogViewController ()
 
 @property (nonatomic, strong) NSButton * btn;

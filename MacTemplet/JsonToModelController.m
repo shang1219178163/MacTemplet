@@ -27,6 +27,9 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#import <CocoaExpand-Swift.h>
+
+
 @interface JsonToModelController ()<NSTableViewDataSource, NSTableViewDelegate, NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>
 
 @property (nonatomic, strong) NNTextView *textView;
@@ -209,7 +212,7 @@
 
 //// 使用自定义cell显示数据
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
-    
+//    tableColumn.resizingMask = NSTableColumnAutoresizingMask;
     NSInteger item = [tableView.tableColumns indexOfObject:tableColumn];
     //获取表格列的标识符
     NSString *columnID = tableColumn.identifier;
@@ -497,7 +500,10 @@
     if (!_tableView) {
         _tableView = ({
             NNTableView *view = [NNTableView create:CGRectZero];
+            view.headerView = nil;
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
+//            view.columnAutoresizingStyle = NSTableViewUniformColumnAutoresizingStyle;
+
             [view addTableColumnWithTitles:@[@"columeOne",]];
             if ([self conformsToProtocol:@protocol(NSTableViewDataSource)]) view.dataSource = self;
             if ([self conformsToProtocol:@protocol(NSTableViewDelegate)]) view.delegate = self;

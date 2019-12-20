@@ -8,6 +8,8 @@
 
 #import "NSCTViewCellOne.h"
 
+#import <CocoaExpand-Swift.h>
+
 @interface NSCTViewCellOne ()
 
 

@@ -9,7 +9,7 @@
 #ifndef BNMarco_h
 #define BNMarco_h
 
-#pragma mark - -BNMarco通用
+#pragma mark - NNMarco通用
 
 #ifdef DEBUG
 //#define DDLog(fmt, ...) DDLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);

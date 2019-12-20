@@ -18,87 +18,25 @@
 		1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */; };
 		1445783B22C1FFE20007C7B3 /* NNClassInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783A22C1FFE20007C7B3 /* NNClassInfoModel.m */; };
 		1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */; };
-		1480B0962387EC1B00E24BDB /* NSTableRowView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0952387EC1B00E24BDB /* NSTableRowView+Helper.swift */; };
-		1480B0982387EC2D00E24BDB /* NSTableView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0972387EC2D00E24BDB /* NSTableView+Helper.swift */; };
-		1480B09A2387EC3E00E24BDB /* NSTableView+Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0992387EC3E00E24BDB /* NSTableView+Hook.swift */; };
-		1480B09E2387EC5C00E24BDB /* NSTabViewItem+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B09D2387EC5C00E24BDB /* NSTabViewItem+Helper.swift */; };
-		1480B0A02388E85B00E24BDB /* NSTextFieldCell+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B09F2388E85B00E24BDB /* NSTextFieldCell+Helper.swift */; };
-		1480B0A22388E9FE00E24BDB /* NSTextField+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0A12388E9FE00E24BDB /* NSTextField+Helper.swift */; };
-		1480B0A42388EA0F00E24BDB /* NSTextView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0A32388EA0F00E24BDB /* NSTextView+Helper.swift */; };
-		1480B0A62388F5A300E24BDB /* NSViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0A52388F5A200E24BDB /* NSViewController+Helper.swift */; };
-		1480B0A82388F5ED00E24BDB /* NSScrollView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0A72388F5ED00E24BDB /* NSScrollView+Helper.swift */; };
-		1480B0AA2388F60100E24BDB /* NSSegmentedControl+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0A92388F60100E24BDB /* NSSegmentedControl+Helper.swift */; };
-		1480B0AC2388F61500E24BDB /* NSStatusItem+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0AB2388F61500E24BDB /* NSStatusItem+Helper.swift */; };
-		1480B0AE2388FA9300E24BDB /* NSView+Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0AD2388FA9300E24BDB /* NSView+Add.swift */; };
-		1480B0B02388FCB600E24BDB /* NSView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0AF2388FCB600E24BDB /* NSView+Helper.swift */; };
-		1480B0B22388FD1F00E24BDB /* NSButton+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0B12388FD1F00E24BDB /* NSButton+Helper.swift */; };
-		1480B0B42388FD8300E24BDB /* NSImageView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0B32388FD8300E24BDB /* NSImageView+Helper.swift */; };
-		1480B0B62388FDA000E24BDB /* NSTabView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0B52388FDA000E24BDB /* NSTabView+Helper.swift */; };
-		1480B0B923890FD300E24BDB /* NSInteger+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0B723890FD300E24BDB /* NSInteger+Helper.swift */; };
-		1480B0BA23890FD300E24BDB /* NSString+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0B823890FD300E24BDB /* NSString+Helper.swift */; };
-		1480B0BC2389105300E24BDB /* NSDate+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0BB2389105300E24BDB /* NSDate+Helper.swift */; };
-		1480B0BE238B620600E24BDB /* NSSwitch+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0BD238B620600E24BDB /* NSSwitch+Helper.swift */; };
-		1480B0C0238B624900E24BDB /* NSSearchField+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0BF238B624900E24BDB /* NSSearchField+Helper.swift */; };
-		1480B0C8238BEC3B00E24BDB /* NSFont+Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0C7238BEC3B00E24BDB /* NSFont+Hook.swift */; };
 		1480B0D7238CB8F000E24BDB /* Skull.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1480B0D6238CB8F000E24BDB /* Skull.jpg */; };
 		1480B0D9238CBDC200E24BDB /* NSStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */; };
-		1480B0DB238CBDF700E24BDB /* NSStackView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0DA238CBDF700E24BDB /* NSStackView+Helper.swift */; };
 		1480B0E3238CC63900E24BDB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0E2238CC63900E24BDB /* MapViewController.swift */; };
 		1480B0E5238CC90F00E24BDB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1480B0E4238CC90F00E24BDB /* MapKit.framework */; };
 		1480B0E7238CC91F00E24BDB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1480B0E6238CC91F00E24BDB /* CoreLocation.framework */; };
 		1480B0E9238CC94100E24BDB /* MKMapView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0E8238CC94000E24BDB /* MKMapView+Helper.swift */; };
-		1480B0EB238CDA1500E24BDB /* NSVisualEffectView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0EA238CDA1500E24BDB /* NSVisualEffectView+Helper.swift */; };
 		1480B0EE238CED7200E24BDB /* NNSwitchThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0EC238CED7200E24BDB /* NNSwitchThumbView.swift */; };
 		1480B0EF238CED7200E24BDB /* NNSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0ED238CED7200E24BDB /* NNSwitch.swift */; };
 		1480B0F1238CEF7800E24BDB /* NNSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0F0238CEF7800E24BDB /* NNSwitchView.swift */; };
 		1480B0F3238D172700E24BDB /* FileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0F2238D172700E24BDB /* FileController.swift */; };
 		1480B0F5238D2D7000E24BDB /* THML5常用控件总结.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1480B0F4238D2D7000E24BDB /* THML5常用控件总结.txt */; };
-		1480B0F7238D32E100E24BDB /* NSBundle+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0F6238D32E100E24BDB /* NSBundle+Helper.swift */; };
 		1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71722AB8BD400A7C5E1 /* AppDelegate.m */; };
 		1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1482F71922AB8BD500A7C5E1 /* Assets.xcassets */; };
 		1482F72022AB8BD500A7C5E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F71F22AB8BD500A7C5E1 /* main.m */; };
 		1482F85922AB9C2E00A7C5E1 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85722AB9C2E00A7C5E1 /* TableViewController.m */; };
 		1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85F22ABA55F00A7C5E1 /* NNView.m */; };
 		14A63DB923AB83D90015725A /* NNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DB823AB83D90015725A /* NNTableViewController.swift */; };
-		14B6172D2395EABE00A9336D /* CAAnimation+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B6172C2395EABD00A9336D /* CAAnimation+Helper.swift */; };
-		14B6172F2395EC5B00A9336D /* NSData+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B6172E2395EC5B00A9336D /* NSData+Helper.swift */; };
-		14B617312395EE4D00A9336D /* JSONSerialization+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B617302395EE4D00A9336D /* JSONSerialization+Helper.swift */; };
-		14C0621923877BC70016EC8A /* NSColor+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0621823877BC70016EC8A /* NSColor+Helper.swift */; };
-		14C0621F238781830016EC8A /* NSGestureRecognizer+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0621E238781830016EC8A /* NSGestureRecognizer+Helper.swift */; };
-		14C0623E23878E8D0016EC8A /* CATransaction+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0622823878E890016EC8A /* CATransaction+Helper.swift */; };
-		14C0623F23878E8D0016EC8A /* CATransition+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0622923878E890016EC8A /* CATransition+Helper.swift */; };
-		14C0624023878E8D0016EC8A /* NSArray+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0622A23878E890016EC8A /* NSArray+Helper.swift */; };
-		14C0624123878E8D0016EC8A /* CAAnimationGroup+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0622B23878E890016EC8A /* CAAnimationGroup+Helper.swift */; };
-		14C0624423878E8D0016EC8A /* CAGradientLayer+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0622E23878E8A0016EC8A /* CAGradientLayer+Helper.swift */; };
-		14C0624523878E8D0016EC8A /* NSTimer+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0622F23878E8A0016EC8A /* NSTimer+Helper.swift */; };
-		14C0624623878E8D0016EC8A /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0623023878E8B0016EC8A /* Macro.swift */; };
-		14C0624723878E8D0016EC8A /* CALayer+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0623123878E8B0016EC8A /* CALayer+Helper.swift */; };
-		14C0624823878E8D0016EC8A /* DispatchQueue+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0623223878E8B0016EC8A /* DispatchQueue+Helper.swift */; };
-		14C0624923878E8D0016EC8A /* NSMutableParagraphStyle+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0623323878E8B0016EC8A /* NSMutableParagraphStyle+Helper.swift */; };
-		14C0624B23878E8D0016EC8A /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0623523878E8C0016EC8A /* NSObject+Helper.swift */; };
-		14C0624C23878E8D0016EC8A /* CGRect+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0623623878E8C0016EC8A /* CGRect+Helper.swift */; };
-		14C0624D23878E8D0016EC8A /* NSNumber+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0623723878E8C0016EC8A /* NSNumber+Helper.swift */; };
-		14C0624E23878E8D0016EC8A /* NSDictionary+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0623823878E8C0016EC8A /* NSDictionary+Helper.swift */; };
-		14C0624F23878E8D0016EC8A /* CABasicAnimation+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0623923878E8D0016EC8A /* CABasicAnimation+Helper.swift */; };
-		14C0625023878E8D0016EC8A /* NSObject+Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0623A23878E8D0016EC8A /* NSObject+Define.swift */; };
-		14C0625223878E8D0016EC8A /* CAKeyframeAnimation+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0623C23878E8D0016EC8A /* CAKeyframeAnimation+Helper.swift */; };
-		14C0625323878E8D0016EC8A /* NSObject+Hook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0623D23878E8D0016EC8A /* NSObject+Hook.swift */; };
+		14A63DBC23AC63910015725A /* NSTableCellViewOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */; };
 		14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0625423878FC60016EC8A /* TmpViewController.swift */; };
-		14C06257238793FF0016EC8A /* NSApplication+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C06256238793FF0016EC8A /* NSApplication+Helper.swift */; };
-		14C06259238794380016EC8A /* NSWindow+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C06258238794380016EC8A /* NSWindow+Helper.swift */; };
-		14C0625B2387AFE90016EC8A /* NSScreen+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0625A2387AFE90016EC8A /* NSScreen+Helper.swift */; };
-		14C0625D2387B8FE0016EC8A /* NSImage+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0625C2387B8FE0016EC8A /* NSImage+Helper.swift */; };
-		14C0625F2387BD3C0016EC8A /* NSAlert+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0625E2387BD3B0016EC8A /* NSAlert+Helper.swift */; };
-		14C062612387C1D50016EC8A /* NSMenuItem+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C062602387C1D50016EC8A /* NSMenuItem+Helper.swift */; };
-		14C062632387C6D10016EC8A /* NSMenu+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C062622387C6D10016EC8A /* NSMenu+Helper.swift */; };
-		14C062652387CEA00016EC8A /* NSControl+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C062642387CEA00016EC8A /* NSControl+Helper.swift */; };
-		14C062672387D15E0016EC8A /* NSFileManager+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C062662387D15E0016EC8A /* NSFileManager+Helper.swift */; };
-		14C062692387D2B20016EC8A /* NSAttributedString+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C062682387D2B20016EC8A /* NSAttributedString+Helper.swift */; };
-		14C0626B2387DDE00016EC8A /* NSUserDefaults+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0626A2387DDE00016EC8A /* NSUserDefaults+Helper.swift */; };
-		14C0626D2387E71C0016EC8A /* NSPopover+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0626C2387E71C0016EC8A /* NSPopover+Helper.swift */; };
-		14C062712387EA300016EC8A /* NSOpenPanel+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C062702387EA300016EC8A /* NSOpenPanel+Helper.swift */; };
-		14C062732387EBC10016EC8A /* NSTableCellView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C062722387EBC10016EC8A /* NSTableCellView+Helper.swift */; };
-		14C062752387EBDF0016EC8A /* NSTableColumn+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C062742387EBDF0016EC8A /* NSTableColumn+Helper.swift */; };
 		14D40A0622C3884900AF74B9 /* ProppertyLazyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */; };
 		14D40A0922C449B300AF74B9 /* NNPropertyInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0822C449B300AF74B9 /* NNPropertyInfoModel.m */; };
 		14D40A0C22C462E200AF74B9 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0B22C462E200AF74B9 /* HomeViewController.m */; };
@@ -167,42 +105,17 @@
 		1445783A22C1FFE20007C7B3 /* NNClassInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNClassInfoModel.m; sourceTree = "<group>"; };
 		1445783C22C2FDCD0007C7B3 /* NNTextViewContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNTextViewContoller.h; sourceTree = "<group>"; };
 		1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTextViewContoller.m; sourceTree = "<group>"; };
-		1480B0952387EC1B00E24BDB /* NSTableRowView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableRowView+Helper.swift"; sourceTree = "<group>"; };
-		1480B0972387EC2D00E24BDB /* NSTableView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+Helper.swift"; sourceTree = "<group>"; };
-		1480B0992387EC3E00E24BDB /* NSTableView+Hook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+Hook.swift"; sourceTree = "<group>"; };
-		1480B09D2387EC5C00E24BDB /* NSTabViewItem+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTabViewItem+Helper.swift"; sourceTree = "<group>"; };
-		1480B09F2388E85B00E24BDB /* NSTextFieldCell+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextFieldCell+Helper.swift"; sourceTree = "<group>"; };
-		1480B0A12388E9FE00E24BDB /* NSTextField+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+Helper.swift"; sourceTree = "<group>"; };
-		1480B0A32388EA0F00E24BDB /* NSTextView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextView+Helper.swift"; sourceTree = "<group>"; };
-		1480B0A52388F5A200E24BDB /* NSViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSViewController+Helper.swift"; sourceTree = "<group>"; };
-		1480B0A72388F5ED00E24BDB /* NSScrollView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScrollView+Helper.swift"; sourceTree = "<group>"; };
-		1480B0A92388F60100E24BDB /* NSSegmentedControl+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSegmentedControl+Helper.swift"; sourceTree = "<group>"; };
-		1480B0AB2388F61500E24BDB /* NSStatusItem+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSStatusItem+Helper.swift"; sourceTree = "<group>"; };
-		1480B0AD2388FA9300E24BDB /* NSView+Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Add.swift"; sourceTree = "<group>"; };
-		1480B0AF2388FCB600E24BDB /* NSView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Helper.swift"; sourceTree = "<group>"; };
-		1480B0B12388FD1F00E24BDB /* NSButton+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton+Helper.swift"; sourceTree = "<group>"; };
-		1480B0B32388FD8300E24BDB /* NSImageView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImageView+Helper.swift"; sourceTree = "<group>"; };
-		1480B0B52388FDA000E24BDB /* NSTabView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTabView+Helper.swift"; sourceTree = "<group>"; };
-		1480B0B723890FD300E24BDB /* NSInteger+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSInteger+Helper.swift"; sourceTree = "<group>"; };
-		1480B0B823890FD300E24BDB /* NSString+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Helper.swift"; sourceTree = "<group>"; };
-		1480B0BB2389105300E24BDB /* NSDate+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Helper.swift"; sourceTree = "<group>"; };
-		1480B0BD238B620600E24BDB /* NSSwitch+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSwitch+Helper.swift"; sourceTree = "<group>"; };
-		1480B0BF238B624900E24BDB /* NSSearchField+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSearchField+Helper.swift"; sourceTree = "<group>"; };
-		1480B0C7238BEC3B00E24BDB /* NSFont+Hook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSFont+Hook.swift"; sourceTree = "<group>"; };
 		1480B0D6238CB8F000E24BDB /* Skull.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Skull.jpg; sourceTree = "<group>"; };
 		1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSStackViewController.swift; sourceTree = "<group>"; };
-		1480B0DA238CBDF700E24BDB /* NSStackView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSStackView+Helper.swift"; sourceTree = "<group>"; };
 		1480B0E2238CC63900E24BDB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1480B0E4238CC90F00E24BDB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1480B0E6238CC91F00E24BDB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1480B0E8238CC94000E24BDB /* MKMapView+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Helper.swift"; sourceTree = "<group>"; };
-		1480B0EA238CDA1500E24BDB /* NSVisualEffectView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSVisualEffectView+Helper.swift"; sourceTree = "<group>"; };
 		1480B0EC238CED7200E24BDB /* NNSwitchThumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NNSwitchThumbView.swift; sourceTree = "<group>"; };
 		1480B0ED238CED7200E24BDB /* NNSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NNSwitch.swift; sourceTree = "<group>"; };
 		1480B0F0238CEF7800E24BDB /* NNSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNSwitchView.swift; sourceTree = "<group>"; };
 		1480B0F2238D172700E24BDB /* FileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileController.swift; sourceTree = "<group>"; };
 		1480B0F4238D2D7000E24BDB /* THML5常用控件总结.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "THML5常用控件总结.txt"; sourceTree = "<group>"; };
-		1480B0F6238D32E100E24BDB /* NSBundle+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSBundle+Helper.swift"; sourceTree = "<group>"; };
 		1482F71322AB8BD400A7C5E1 /* MacTemplet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacTemplet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1482F71622AB8BD400A7C5E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1482F71722AB8BD400A7C5E1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -216,45 +129,8 @@
 		1482F85E22ABA55F00A7C5E1 /* NNView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNView.h; sourceTree = "<group>"; };
 		1482F85F22ABA55F00A7C5E1 /* NNView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNView.m; sourceTree = "<group>"; };
 		14A63DB823AB83D90015725A /* NNTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNTableViewController.swift; sourceTree = "<group>"; };
-		14B6172C2395EABD00A9336D /* CAAnimation+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAAnimation+Helper.swift"; sourceTree = "<group>"; };
-		14B6172E2395EC5B00A9336D /* NSData+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Helper.swift"; sourceTree = "<group>"; };
-		14B617302395EE4D00A9336D /* JSONSerialization+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSONSerialization+Helper.swift"; sourceTree = "<group>"; };
-		14C0621823877BC70016EC8A /* NSColor+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Helper.swift"; sourceTree = "<group>"; };
-		14C0621E238781830016EC8A /* NSGestureRecognizer+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSGestureRecognizer+Helper.swift"; sourceTree = "<group>"; };
-		14C0622823878E890016EC8A /* CATransaction+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransaction+Helper.swift"; sourceTree = "<group>"; };
-		14C0622923878E890016EC8A /* CATransition+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CATransition+Helper.swift"; sourceTree = "<group>"; };
-		14C0622A23878E890016EC8A /* NSArray+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSArray+Helper.swift"; sourceTree = "<group>"; };
-		14C0622B23878E890016EC8A /* CAAnimationGroup+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAAnimationGroup+Helper.swift"; sourceTree = "<group>"; };
-		14C0622E23878E8A0016EC8A /* CAGradientLayer+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Helper.swift"; sourceTree = "<group>"; };
-		14C0622F23878E8A0016EC8A /* NSTimer+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSTimer+Helper.swift"; sourceTree = "<group>"; };
-		14C0623023878E8B0016EC8A /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
-		14C0623123878E8B0016EC8A /* CALayer+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Helper.swift"; sourceTree = "<group>"; };
-		14C0623223878E8B0016EC8A /* DispatchQueue+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Helper.swift"; sourceTree = "<group>"; };
-		14C0623323878E8B0016EC8A /* NSMutableParagraphStyle+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableParagraphStyle+Helper.swift"; sourceTree = "<group>"; };
-		14C0623523878E8C0016EC8A /* NSObject+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
-		14C0623623878E8C0016EC8A /* CGRect+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Helper.swift"; sourceTree = "<group>"; };
-		14C0623723878E8C0016EC8A /* NSNumber+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSNumber+Helper.swift"; sourceTree = "<group>"; };
-		14C0623823878E8C0016EC8A /* NSDictionary+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Helper.swift"; sourceTree = "<group>"; };
-		14C0623923878E8D0016EC8A /* CABasicAnimation+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CABasicAnimation+Helper.swift"; sourceTree = "<group>"; };
-		14C0623A23878E8D0016EC8A /* NSObject+Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Define.swift"; sourceTree = "<group>"; };
-		14C0623C23878E8D0016EC8A /* CAKeyframeAnimation+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAKeyframeAnimation+Helper.swift"; sourceTree = "<group>"; };
-		14C0623D23878E8D0016EC8A /* NSObject+Hook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Hook.swift"; sourceTree = "<group>"; };
+		14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTableCellViewOne.swift; sourceTree = "<group>"; };
 		14C0625423878FC60016EC8A /* TmpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpViewController.swift; sourceTree = "<group>"; };
-		14C06256238793FF0016EC8A /* NSApplication+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSApplication+Helper.swift"; sourceTree = "<group>"; };
-		14C06258238794380016EC8A /* NSWindow+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+Helper.swift"; sourceTree = "<group>"; };
-		14C0625A2387AFE90016EC8A /* NSScreen+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+Helper.swift"; sourceTree = "<group>"; };
-		14C0625C2387B8FE0016EC8A /* NSImage+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Helper.swift"; sourceTree = "<group>"; };
-		14C0625E2387BD3B0016EC8A /* NSAlert+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAlert+Helper.swift"; sourceTree = "<group>"; };
-		14C062602387C1D50016EC8A /* NSMenuItem+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+Helper.swift"; sourceTree = "<group>"; };
-		14C062622387C6D10016EC8A /* NSMenu+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenu+Helper.swift"; sourceTree = "<group>"; };
-		14C062642387CEA00016EC8A /* NSControl+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSControl+Helper.swift"; sourceTree = "<group>"; };
-		14C062662387D15E0016EC8A /* NSFileManager+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSFileManager+Helper.swift"; sourceTree = "<group>"; };
-		14C062682387D2B20016EC8A /* NSAttributedString+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Helper.swift"; sourceTree = "<group>"; };
-		14C0626A2387DDE00016EC8A /* NSUserDefaults+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+Helper.swift"; sourceTree = "<group>"; };
-		14C0626C2387E71C0016EC8A /* NSPopover+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPopover+Helper.swift"; sourceTree = "<group>"; };
-		14C062702387EA300016EC8A /* NSOpenPanel+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSOpenPanel+Helper.swift"; sourceTree = "<group>"; };
-		14C062722387EBC10016EC8A /* NSTableCellView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableCellView+Helper.swift"; sourceTree = "<group>"; };
-		14C062742387EBDF0016EC8A /* NSTableColumn+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableColumn+Helper.swift"; sourceTree = "<group>"; };
 		14D40A0422C3884900AF74B9 /* ProppertyLazyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProppertyLazyController.h; sourceTree = "<group>"; };
 		14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProppertyLazyController.m; sourceTree = "<group>"; };
 		14D40A0722C449B300AF74B9 /* NNPropertyInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNPropertyInfoModel.h; sourceTree = "<group>"; };
@@ -400,6 +276,7 @@
 			children = (
 				1445782822C1CDC90007C7B3 /* NSTableCellViewTen.h */,
 				1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */,
+				14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */,
 				1480B0F0238CEF7800E24BDB /* NNSwitchView.swift */,
 			);
 			path = NNView;
@@ -475,81 +352,10 @@
 				14F2F5AD22B8FEB1009D49CE /* NSCollectionView */,
 				14F0FDAA22AE097A00057093 /* NNBaseView */,
 				14F92C0022BB1AC700A5C5E4 /* NNGloble */,
-				1482F86122ABA5A400A7C5E1 /* CocoaExpand */,
 				14F2F55F22B78078009D49CE /* Other */,
 				14F92C1C22BB766A00A5C5E4 /* Resource */,
 			);
 			path = MacTemplet;
-			sourceTree = "<group>";
-		};
-		1482F86122ABA5A400A7C5E1 /* CocoaExpand */ = {
-			isa = PBXGroup;
-			children = (
-				14C0623023878E8B0016EC8A /* Macro.swift */,
-				14C0623223878E8B0016EC8A /* DispatchQueue+Helper.swift */,
-				14B6172C2395EABD00A9336D /* CAAnimation+Helper.swift */,
-				14C0622B23878E890016EC8A /* CAAnimationGroup+Helper.swift */,
-				14C0623923878E8D0016EC8A /* CABasicAnimation+Helper.swift */,
-				14C0622E23878E8A0016EC8A /* CAGradientLayer+Helper.swift */,
-				14C0623C23878E8D0016EC8A /* CAKeyframeAnimation+Helper.swift */,
-				14C0623123878E8B0016EC8A /* CALayer+Helper.swift */,
-				14C0622823878E890016EC8A /* CATransaction+Helper.swift */,
-				14C0622923878E890016EC8A /* CATransition+Helper.swift */,
-				14C0623623878E8C0016EC8A /* CGRect+Helper.swift */,
-				14B617302395EE4D00A9336D /* JSONSerialization+Helper.swift */,
-				1480B0B723890FD300E24BDB /* NSInteger+Helper.swift */,
-				1480B0B823890FD300E24BDB /* NSString+Helper.swift */,
-				14B6172E2395EC5B00A9336D /* NSData+Helper.swift */,
-				1480B0BB2389105300E24BDB /* NSDate+Helper.swift */,
-				14C0622A23878E890016EC8A /* NSArray+Helper.swift */,
-				14C0623823878E8C0016EC8A /* NSDictionary+Helper.swift */,
-				14C0623323878E8B0016EC8A /* NSMutableParagraphStyle+Helper.swift */,
-				14C0623723878E8C0016EC8A /* NSNumber+Helper.swift */,
-				14C0623A23878E8D0016EC8A /* NSObject+Define.swift */,
-				14C0623523878E8C0016EC8A /* NSObject+Helper.swift */,
-				14C0623D23878E8D0016EC8A /* NSObject+Hook.swift */,
-				14C0622F23878E8A0016EC8A /* NSTimer+Helper.swift */,
-				14C06256238793FF0016EC8A /* NSApplication+Helper.swift */,
-				14C06258238794380016EC8A /* NSWindow+Helper.swift */,
-				1480B0F6238D32E100E24BDB /* NSBundle+Helper.swift */,
-				14C0625A2387AFE90016EC8A /* NSScreen+Helper.swift */,
-				14C0625E2387BD3B0016EC8A /* NSAlert+Helper.swift */,
-				14C062682387D2B20016EC8A /* NSAttributedString+Helper.swift */,
-				14C062642387CEA00016EC8A /* NSControl+Helper.swift */,
-				14C0621823877BC70016EC8A /* NSColor+Helper.swift */,
-				14C062662387D15E0016EC8A /* NSFileManager+Helper.swift */,
-				1480B0C7238BEC3B00E24BDB /* NSFont+Hook.swift */,
-				14C0621E238781830016EC8A /* NSGestureRecognizer+Helper.swift */,
-				14C062622387C6D10016EC8A /* NSMenu+Helper.swift */,
-				14C062602387C1D50016EC8A /* NSMenuItem+Helper.swift */,
-				1480B0B12388FD1F00E24BDB /* NSButton+Helper.swift */,
-				14C0625C2387B8FE0016EC8A /* NSImage+Helper.swift */,
-				1480B0B32388FD8300E24BDB /* NSImageView+Helper.swift */,
-				1480B0AB2388F61500E24BDB /* NSStatusItem+Helper.swift */,
-				1480B0A92388F60100E24BDB /* NSSegmentedControl+Helper.swift */,
-				1480B0A72388F5ED00E24BDB /* NSScrollView+Helper.swift */,
-				1480B0BD238B620600E24BDB /* NSSwitch+Helper.swift */,
-				1480B0BF238B624900E24BDB /* NSSearchField+Helper.swift */,
-				1480B0DA238CBDF700E24BDB /* NSStackView+Helper.swift */,
-				1480B09F2388E85B00E24BDB /* NSTextFieldCell+Helper.swift */,
-				1480B0A12388E9FE00E24BDB /* NSTextField+Helper.swift */,
-				1480B0A32388EA0F00E24BDB /* NSTextView+Helper.swift */,
-				14C062722387EBC10016EC8A /* NSTableCellView+Helper.swift */,
-				14C062742387EBDF0016EC8A /* NSTableColumn+Helper.swift */,
-				1480B0952387EC1B00E24BDB /* NSTableRowView+Helper.swift */,
-				1480B0972387EC2D00E24BDB /* NSTableView+Helper.swift */,
-				1480B0992387EC3E00E24BDB /* NSTableView+Hook.swift */,
-				1480B0B52388FDA000E24BDB /* NSTabView+Helper.swift */,
-				1480B09D2387EC5C00E24BDB /* NSTabViewItem+Helper.swift */,
-				14C0626C2387E71C0016EC8A /* NSPopover+Helper.swift */,
-				14C062702387EA300016EC8A /* NSOpenPanel+Helper.swift */,
-				14C0626A2387DDE00016EC8A /* NSUserDefaults+Helper.swift */,
-				1480B0A52388F5A200E24BDB /* NSViewController+Helper.swift */,
-				1480B0AD2388FA9300E24BDB /* NSView+Add.swift */,
-				1480B0AF2388FCB600E24BDB /* NSView+Helper.swift */,
-				1480B0EA238CDA1500E24BDB /* NSVisualEffectView+Helper.swift */,
-			);
-			path = CocoaExpand;
 			sourceTree = "<group>";
 		};
 		14F0EE8822C9AEBA003C3811 /* JsonToModel */ = {
@@ -750,7 +556,7 @@
 				1482F71022AB8BD400A7C5E1 /* Frameworks */,
 				1482F71122AB8BD400A7C5E1 /* Resources */,
 				8E323FC6F5CA9D2988D98874 /* [CP] Embed Pods Frameworks */,
-				14B617F32397916100A9336D /* ShellScript */,
+				14B617F32397916100A9336D /* bundleVersion */,
 			);
 			buildRules = (
 			);
@@ -818,7 +624,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		14B617F32397916100A9336D /* ShellScript */ = {
+		14B617F32397916100A9336D /* bundleVersion */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -827,6 +633,7 @@
 			);
 			inputPaths = (
 			);
+			name = bundleVersion;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -881,117 +688,58 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1480B0A82388F5ED00E24BDB /* NSScrollView+Helper.swift in Sources */,
 				14F0FDA022ADF12C00057093 /* NSObject+Hook.m in Sources */,
-				1480B09A2387EC3E00E24BDB /* NSTableView+Hook.swift in Sources */,
 				14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */,
-				14C0624E23878E8D0016EC8A /* NSDictionary+Helper.swift in Sources */,
-				1480B0B42388FD8300E24BDB /* NSImageView+Helper.swift in Sources */,
-				14C0625023878E8D0016EC8A /* NSObject+Define.swift in Sources */,
 				14F2F59922B8DB25009D49CE /* SecondViewController.m in Sources */,
-				14B617312395EE4D00A9336D /* JSONSerialization+Helper.swift in Sources */,
-				1480B0AC2388F61500E24BDB /* NSStatusItem+Helper.swift in Sources */,
-				14C0624523878E8D0016EC8A /* NSTimer+Helper.swift in Sources */,
-				14C0623E23878E8D0016EC8A /* CATransaction+Helper.swift in Sources */,
-				14C062612387C1D50016EC8A /* NSMenuItem+Helper.swift in Sources */,
 				14D40A0622C3884900AF74B9 /* ProppertyLazyController.m in Sources */,
 				14D40A0C22C462E200AF74B9 /* HomeViewController.m in Sources */,
 				1480B0D9238CBDC200E24BDB /* NSStackViewController.swift in Sources */,
 				1480B0F3238D172700E24BDB /* FileController.swift in Sources */,
-				14C0625223878E8D0016EC8A /* CAKeyframeAnimation+Helper.swift in Sources */,
-				14C0621F238781830016EC8A /* NSGestureRecognizer+Helper.swift in Sources */,
 				14F92C4222BB8DE800A5C5E4 /* ESJsonFormat.m in Sources */,
-				14C062752387EBDF0016EC8A /* NSTableColumn+Helper.swift in Sources */,
-				1480B0AE2388FA9300E24BDB /* NSView+Add.swift in Sources */,
-				14C062652387CEA00016EC8A /* NSControl+Helper.swift in Sources */,
-				1480B0AA2388F60100E24BDB /* NSSegmentedControl+Helper.swift in Sources */,
 				14F92C0A22BB1AC700A5C5E4 /* NNAttStringKey.m in Sources */,
 				14F2F5AC22B8FD18009D49CE /* CollectionViewController.m in Sources */,
 				14F2F5B122B8FEE5009D49CE /* NSCTViewItemOne.m in Sources */,
-				1480B0C0238B624900E24BDB /* NSSearchField+Helper.swift in Sources */,
-				1480B0B22388FD1F00E24BDB /* NSButton+Helper.swift in Sources */,
 				1480B0E3238CC63900E24BDB /* MapViewController.swift in Sources */,
 				14F2F59D22B8DB3D009D49CE /* ThirdViewController.m in Sources */,
-				1480B09E2387EC5C00E24BDB /* NSTabViewItem+Helper.swift in Sources */,
-				14C0624823878E8D0016EC8A /* DispatchQueue+Helper.swift in Sources */,
-				14C06259238794380016EC8A /* NSWindow+Helper.swift in Sources */,
 				14F2F59322B8D826009D49CE /* NNTableRowView.m in Sources */,
 				14F92C4D22BB8E0900A5C5E4 /* ESFormatInfo.m in Sources */,
-				1480B0C8238BEC3B00E24BDB /* NSFont+Hook.swift in Sources */,
-				1480B0A42388EA0F00E24BDB /* NSTextView+Helper.swift in Sources */,
-				1480B0B923890FD300E24BDB /* NSInteger+Helper.swift in Sources */,
 				14F0FDC922AF97E200057093 /* NNTextField.m in Sources */,
-				14C0624023878E8D0016EC8A /* NSArray+Helper.swift in Sources */,
 				14F92C4F22BB8E0900A5C5E4 /* ESPbxprojInfo.m in Sources */,
 				1482F85922AB9C2E00A7C5E1 /* TableViewController.m in Sources */,
 				14F92C5922BB951700A5C5E4 /* FileManager.m in Sources */,
 				14F0FDE922B084EC00057093 /* NSTableView+Hook.m in Sources */,
-				1480B0BC2389105300E24BDB /* NSDate+Helper.swift in Sources */,
 				14F0FDD022AFA56900057093 /* OneWindowController.m in Sources */,
-				14C0626B2387DDE00016EC8A /* NSUserDefaults+Helper.swift in Sources */,
-				14C0624C23878E8D0016EC8A /* CGRect+Helper.swift in Sources */,
-				1480B0A62388F5A300E24BDB /* NSViewController+Helper.swift in Sources */,
-				14C0624423878E8D0016EC8A /* CAGradientLayer+Helper.swift in Sources */,
 				14D40A1222C4A6DA00AF74B9 /* AuthorInfoController.m in Sources */,
 				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
-				14C0624723878E8D0016EC8A /* CALayer+Helper.swift in Sources */,
-				14C0624B23878E8D0016EC8A /* NSObject+Helper.swift in Sources */,
 				1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */,
-				14C0625B2387AFE90016EC8A /* NSScreen+Helper.swift in Sources */,
-				14C0623F23878E8D0016EC8A /* CATransition+Helper.swift in Sources */,
+				14A63DBC23AC63910015725A /* NSTableCellViewOne.swift in Sources */,
 				1480B0EE238CED7200E24BDB /* NNSwitchThumbView.swift in Sources */,
 				1445783B22C1FFE20007C7B3 /* NNClassInfoModel.m in Sources */,
 				14F92BE622BA124E00A5C5E4 /* MainWindowController.m in Sources */,
 				14F2F5BD22B90109009D49CE /* NSCTViewCellOne.m in Sources */,
 				14F92C1B22BB6F3400A5C5E4 /* NNLabel.m in Sources */,
 				14F92BEA22BA17B200A5C5E4 /* DialogViewController.m in Sources */,
-				14C0624D23878E8D0016EC8A /* NSNumber+Helper.swift in Sources */,
 				14A63DB923AB83D90015725A /* NNTableViewController.swift in Sources */,
 				14F92C4122BB8DE800A5C5E4 /* ESJsonFormatManager.m in Sources */,
 				1482F72022AB8BD500A7C5E1 /* main.m in Sources */,
-				14C0621923877BC70016EC8A /* NSColor+Helper.swift in Sources */,
-				1480B0A02388E85B00E24BDB /* NSTextFieldCell+Helper.swift in Sources */,
 				14F92C5022BB8E0900A5C5E4 /* ESPair.m in Sources */,
 				14F92C5122BB8E0900A5C5E4 /* ESClassInfo.m in Sources */,
 				14F92C5422BB925F00A5C5E4 /* ESJsonFormatSetting.m in Sources */,
-				1480B0BE238B620600E24BDB /* NSSwitch+Helper.swift in Sources */,
-				1480B0F7238D32E100E24BDB /* NSBundle+Helper.swift in Sources */,
 				1480B0EF238CED7200E24BDB /* NNSwitch.swift in Sources */,
 				1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */,
 				14F0FDE322B082AD00057093 /* NNTableView.m in Sources */,
 				14132978238559CE00E7AFCA /* NSTestViewController.m in Sources */,
-				14C062632387C6D10016EC8A /* NSMenu+Helper.swift in Sources */,
-				1480B0EB238CDA1500E24BDB /* NSVisualEffectView+Helper.swift in Sources */,
-				14C062712387EA300016EC8A /* NSOpenPanel+Helper.swift in Sources */,
-				14C062732387EBC10016EC8A /* NSTableCellView+Helper.swift in Sources */,
 				1480B0E9238CC94100E24BDB /* MKMapView+Helper.swift in Sources */,
-				1480B0982387EC2D00E24BDB /* NSTableView+Helper.swift in Sources */,
-				1480B0962387EC1B00E24BDB /* NSTableRowView+Helper.swift in Sources */,
-				14C0626D2387E71C0016EC8A /* NSPopover+Helper.swift in Sources */,
-				1480B0BA23890FD300E24BDB /* NSString+Helper.swift in Sources */,
-				1480B0B02388FCB600E24BDB /* NSView+Helper.swift in Sources */,
-				14C06257238793FF0016EC8A /* NSApplication+Helper.swift in Sources */,
-				14C0624923878E8D0016EC8A /* NSMutableParagraphStyle+Helper.swift in Sources */,
-				14C062692387D2B20016EC8A /* NSAttributedString+Helper.swift in Sources */,
 				14F92C1822BB611600A5C5E4 /* NNTextView.m in Sources */,
 				14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */,
 				14F2F5A522B8E147009D49CE /* NNTabViewController.m in Sources */,
-				14C0624623878E8D0016EC8A /* Macro.swift in Sources */,
-				1480B0A22388E9FE00E24BDB /* NSTextField+Helper.swift in Sources */,
 				14F92BF622BB13E900A5C5E4 /* NSObject+Helper.m in Sources */,
 				14D40A0922C449B300AF74B9 /* NNPropertyInfoModel.m in Sources */,
 				14F92CF722BC6E6C00A5C5E4 /* NoodleLineNumberView.m in Sources */,
 				1480B0F1238CEF7800E24BDB /* NNSwitchView.swift in Sources */,
-				14C0625323878E8D0016EC8A /* NSObject+Hook.swift in Sources */,
-				14C0625D2387B8FE0016EC8A /* NSImage+Helper.swift in Sources */,
-				14C0625F2387BD3C0016EC8A /* NSAlert+Helper.swift in Sources */,
 				14F92BDE22B9E75100A5C5E4 /* NNDialogWindowController.m in Sources */,
 				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
-				1480B0DB238CBDF700E24BDB /* NSStackView+Helper.swift in Sources */,
 				14F92C0C22BB1AC700A5C5E4 /* NNGeneralConst.m in Sources */,
-				14B6172F2395EC5B00A9336D /* NSData+Helper.swift in Sources */,
-				14C0624F23878E8D0016EC8A /* CABasicAnimation+Helper.swift in Sources */,
-				14C062672387D15E0016EC8A /* NSFileManager+Helper.swift in Sources */,
 				1445780022BCF50E0007C7B3 /* Const.m in Sources */,
 				14D40A0F22C4983D00AF74B9 /* NNButton.m in Sources */,
 				14F92C1522BB3ADC00A5C5E4 /* AppDelegate+Menu.m in Sources */,
@@ -1002,11 +750,8 @@
 				1445780F22BDF0520007C7B3 /* NNLanguageModel.m in Sources */,
 				14F0FDA622ADF20400057093 /* NSView+Hook.m in Sources */,
 				14F2F59622B8D9A2009D49CE /* MainViewController.m in Sources */,
-				14C0624123878E8D0016EC8A /* CAAnimationGroup+Helper.swift in Sources */,
-				1480B0B62388FDA000E24BDB /* NSTabView+Helper.swift in Sources */,
 				1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */,
 				14F2F5B522B8FF98009D49CE /* NNCollectionView.m in Sources */,
-				14B6172D2395EABE00A9336D /* CAAnimation+Helper.swift in Sources */,
 				14F92C4E22BB8E0900A5C5E4 /* DataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1065,7 +810,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1118,7 +863,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
