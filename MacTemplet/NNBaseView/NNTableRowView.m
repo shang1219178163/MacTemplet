@@ -45,7 +45,7 @@
 -(void)drawBackgroundInRect:(NSRect)dirtyRect{
     [super drawBackgroundInRect:dirtyRect];
 
-    DDLog(@"backgroundColor:%@", self.backgroundColor);
+//    DDLog(@"backgroundColor:%@", self.backgroundColor);
     [NSColor.whiteColor setFill];
     NSRectFill(dirtyRect);
 }
