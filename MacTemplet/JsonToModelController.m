@@ -96,7 +96,7 @@
     [super viewWillAppear];
     
     NSString * titleOfSelectedItem = [NSUserDefaults.standardUserDefaults objectForKey:kDisplayName];
-    DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
+//    DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
     [self.popBtn selectItemWithTitle:titleOfSelectedItem];
     
     //    [self.tableView reloadData];
