@@ -193,7 +193,7 @@
 }
 
 
-#pragma mark -NSTableView
+#pragma mark - NSTableView
 //返回行数
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
     BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
@@ -284,7 +284,7 @@
     return YES;
 }
 
-#pragma mark -NSTextDelegate
+#pragma mark - NSTextDelegate
 
 - (void)textDidBeginEditing:(NSNotification *)notification{
     
@@ -331,7 +331,7 @@
     
 }
 
-#pragma mark -funtions
+#pragma mark - funtions
 
 - (void)readFile{
     NSString *path = [NSBundle.mainBundle pathForResource:@"appinfo" ofType:@"txt"];
@@ -422,8 +422,8 @@
             NSString * tmp = [NSString stringWithFormat:@"NSObject, %@ {", self.langModel.defaultParentWithUtilityMethods];
             classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"NSObject {" withString:tmp];
             if (self.valueTypeLab.isSelectable == true) {
-                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Int = 0" withString:@": String = \"\""];
-                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Double = 0" withString:@": String = \"\""];
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Int = 0" withString:@": String = \"0\""];
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Double = 0" withString:@": String = \"0\""];
             }
         }
        
@@ -480,7 +480,7 @@
     id langModel = [NSUserDefaults arcObjectForKey:@"langModel"];
 }
 
-#pragma mark -lazy
+#pragma mark - lazy
 
 -(NNTextView *)textView{
     if (!_textView) {
