@@ -1,5 +1,5 @@
 //
-//  FileManager.h
+//  NNFileManager.h
 //  ESJsonFormatForMac
 //
 //  Created by zx on 17/6/13.
@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "ESClassInfo.h"
 
-@interface FileManager : NSObject
+@interface NNFileManager : NSObject
 
-+ (FileManager *)sharedInstance;
++ (NNFileManager *)shared;
 
 - (void)createFileWithFolderPath:(NSString *)folderPath
                        hFileName:(NSString *)hFileName

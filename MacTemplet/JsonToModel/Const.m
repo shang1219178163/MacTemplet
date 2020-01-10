@@ -8,7 +8,6 @@
 
 #import "Const.h"
 
-
 NSString *const kFolderPath = @"folderPath";
 
 NSString *const kClassPrefix = @"ClassPrefix";

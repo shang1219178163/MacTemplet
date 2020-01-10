@@ -17,7 +17,7 @@
 #import "ESClassInfo.h"
 #import "ESJsonFormatSetting.h"
 #import "ESPair.h"
-#import "FileManager.h"
+#import "NNFileManager.h"
 
 #import "DataModel.h"
 
@@ -73,7 +73,7 @@
     self.textField.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kClassPrefix];
     self.textFieldTwo.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kRootClass];
     self.textFieldThree.stringValue = [NSUserDefaults.standardUserDefaults objectForKey:kSuperClass];
-    DDLog(@"%@_%@_%@",self.textField.stringValue, self.textFieldTwo.stringValue, self.textFieldThree.stringValue);
+//    DDLog(@"%@_%@_%@",self.textField.stringValue, self.textFieldTwo.stringValue, self.textFieldThree.stringValue);
     
     [self.view addSubview:self.textView.enclosingScrollView];
     [self.view addSubview:self.tableView.enclosingScrollView];
@@ -87,7 +87,6 @@
     
     [self updateLanguages];
     [self readFile];
-    
     
     //    [self.view getViewLayer];
 }
@@ -217,25 +216,26 @@
     //获取表格列的标识符
     NSString *columnID = tableColumn.identifier;
     //    DDLog(@"columnID : %@ ,row : %@, item: %@",columnID, @(row), @(item));
+    tableColumn.width = CGRectGetWidth(tableView.bounds)/tableView.tableColumns.count;
     
     static NSString *identifier = @"NSTableCellViewTen";
     NSTableCellViewTen *cell = [NSTableCellViewTen makeViewWithTableView:tableView identifier:identifier owner:self];
-
     cell.checkBox.hidden = true;
     
-    if (self.dataList.count > 0) {
-        NNClassInfoModel * classModel = self.dataList[row];
+    if (self.dataList.count == 0) {
+        return cell;
+    }
+    NNClassInfoModel *classModel = self.dataList[row];
+    
+    BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
+    if (!isSwift) {
+        cell.textLabel.stringValue = [classModel.className stringByAppendingString:(row == 0) ? @".h" : @".m"];
+        cell.textView.string = (row == 0) ? classModel.hContent : classModel.mContent;
         
-        BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
-        if (!isSwift) {
-            cell.textLabel.stringValue = [classModel.className stringByAppendingString:(row == 0) ? @".h" : @".m"];
-            cell.textView.string = (row == 0) ? classModel.hContent : classModel.mContent;
-            
-        } else {
-            cell.textLabel.stringValue = [classModel.className stringByAppendingString:@".swift"];
-            cell.textView.string = classModel.hContent;
-            
-        }
+    } else {
+        cell.textLabel.stringValue = [classModel.className stringByAppendingString:@".swift"];
+        cell.textView.string = classModel.hContent;
+        
     }
     return cell;
 }
@@ -260,19 +260,18 @@
 
 // 点击表头
 - (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn{
-    
     DDLog(@"%@", tableColumn);
 }
 
 //选中的响应
 -(void)tableViewSelectionDidChange:(nonnull NSNotification *)notification{
-    //    NSTableView *tableView = notification.object;
-    //    DDLog(@"didSelect：%@",notification);
+//    NSTableView *tableView = notification.object;
+//    DDLog(@"didSelect：%@",notification);
 }
 
 - (NSString *)tableView:(NSTableView *)tableView toolTipForCell:(NSCell *)cell rect:(NSRectPointer)rect tableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row mouseLocation:(NSPoint)mouseLocation{
     NSInteger item = [tableView.tableColumns indexOfObject:tableColumn];
-    NSString * string = [NSString stringWithFormat:@"{%@,%@}", @(row), @(item)];
+    NSString *string = [NSString stringWithFormat:@"{%@,%@}", @(row), @(item)];
     return string;
 }
 
@@ -440,18 +439,17 @@
     
     NSString *folderPath = [NSUserDefaults.standardUserDefaults valueForKey:kFolderPath];
     if (folderPath) {
-        [FileManager.sharedInstance createFileWithFolderPath:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:hContent mContent:mContent];
+        [NNFileManager.shared createFileWithFolderPath:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:hContent mContent:mContent];
         [NSWorkspace.sharedWorkspace openFile:folderPath];
         
     } else {
 //        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
         NSOpenPanel *panel = [NSOpenPanel createWithFileTypes:nil allowsMultipleSelection:false];
-        
         if (panel.runModal == NSModalResponseOK) {
             folderPath = [panel.URLs.firstObject relativePath];
             [NSUserDefaults.standardUserDefaults setValue:folderPath forKey:kFolderPath];
             DDLog(@"%@",folderPath);
-            [FileManager.sharedInstance createFileWithFolderPath:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:hContent mContent:mContent];
+            [NNFileManager.shared createFileWithFolderPath:folderPath hFileName:self.hFilename mFileName:self.mFilename hContent:hContent mContent:mContent];
             [NSWorkspace.sharedWorkspace openFile:folderPath];
         }
     }

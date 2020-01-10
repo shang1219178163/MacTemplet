@@ -100,42 +100,5 @@
     return marr.copy;
 }
 
-//+ (NSString *)lazyDesWithModel:(NNPropertyInfoModel *)model{
-//
-//    NSMutableString *mStr = [NSMutableString string];
-//    [mStr appendFormat:@"- (%@ *)%@{\n", model.propertyType, model.propertyName];
-//    [mStr appendFormat:@"       if (!_%@) {\n", model.propertyName];
-//    [mStr appendString:[NNPropertyInfoModel lazyAllocDesWithModel:model]];
-//    //    [mStr appendFormat:@"           _%@ = [[%@ alloc]init];\n", model.propertyName, model.propertyType];
-//    [mStr appendString:@"       }\n"];
-//    [mStr appendFormat:@"       return _%@;\n", model.propertyName];
-//    [mStr appendString:@"}\n"];
-//    return mStr;
-//}
-//
-//+ (NSString *)lazyAllocDesWithModel:(NNPropertyInfoModel *)model{
-//    NSString * string = @"";
-//    //    Class clz = NSClassFromString(model.propertyType);
-//    if ([model.propertyType containsString:@"NSMutable"]) {
-//        NSString * supperClass = [model.propertyType stringByReplacingOccurrencesOfString:@"NSMutable" withString:@""];
-//        string = [NSString stringWithFormat:@"           _%@ = [%@ %@];\n", model.propertyName, model.propertyType, supperClass.lowercaseString];
-//
-//    } else if ([model.propertyType hasSuffix:@"View"]) {
-//        string = [string stringByAppendingFormat:@"           _%@ = ({\n", model.propertyName];
-//        string = [string stringByAppendingFormat:@"                  %@ *view = [[%@ alloc]initWithFrame:CGRectZero];\n", model.propertyType, model.propertyType];
-//        string = [string stringByAppendingString:@"                  view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;\n\n"];
-//
-//        string = [string stringByAppendingString:@"                  view;\n"];
-//        string = [string stringByAppendingString:@"              });\n"];
-//
-//    } else {
-//        string = [string stringByAppendingFormat:@"           _%@ = [[%@ alloc]init];\n", model.propertyName, model.propertyType];
-//
-//    }
-//    DDLog(@"%@, %@",model.propertyType, string);
-//    return string;
-//}
-
-
 
 @end

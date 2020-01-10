@@ -15,7 +15,8 @@ class FileController: NSViewController {
         super.viewDidLoad()
          
         //在桌面上创建一个文件
-        FileManager.createFile(content: "aGVsbG8gd29ybGQ=", name: "test.txt", openDir: true)
+//        FileManager.createFile(content: "aGVsbG8gd29ybGQ=", name: "test.txt", openDir: true)
+        FileManager.createFile(content: "aGVsbG8gd29ybGQ=", name: "test", type: "txt")
     }
     
     

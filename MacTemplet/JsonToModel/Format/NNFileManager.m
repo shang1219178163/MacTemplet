@@ -1,21 +1,21 @@
 //
-//  FileManager.m
+//  NNFileManager.m
 //  ESJsonFormatForMac
 //
 //  Created by zx on 17/6/13.
 //  Copyright © 2017年 ZX. All rights reserved.
 //
 
-#import "FileManager.h"
+#import "NNFileManager.h"
 #import "ESJsonFormat.h"
 
 #import <CocoaExpand-Swift.h>
 
 
-@implementation FileManager
+@implementation NNFileManager
 
-+ (FileManager *)sharedInstance{
-    static FileManager *sharedInstance = nil;
++ (NNFileManager *)shared{
+    static NNFileManager *sharedInstance = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         sharedInstance = [[self alloc] init];
@@ -30,12 +30,12 @@
                        mContent :(NSString *)mContent{
     if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
         //创建.h文件
-        [NSFileManager createFile:folderPath name:hFileName content:hContent attributes:nil isCover:true];
+        [NSFileManager createFileAtPath:folderPath name:hFileName content:hContent attributes:nil isCover:true];
         //创建.m文件
-        [NSFileManager createFile:folderPath name:mFileName content:mContent attributes:nil isCover:true];
+        [NSFileManager createFileAtPath:folderPath name:mFileName content:mContent attributes:nil isCover:true];
     }else{
         //创建.swift文件
-        [NSFileManager createFile:folderPath name:hFileName content:hContent attributes:nil isCover:true];
+        [NSFileManager createFileAtPath:folderPath name:hFileName content:hContent attributes:nil isCover:true];
     }
 }
 
