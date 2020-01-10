@@ -96,10 +96,10 @@
 #pragma mark -funtions
 
 - (NSString *)createResult:(NSString *)string{
-    NSArray * list = [NNPropertyInfoModel modelsWithString:string];
+    NSArray *list = [NNPropertyInfoModel modelsWithString:string];
     NSMutableString *mStr = [NSMutableString string];
     [list enumerateObjectsUsingBlock:^(NNPropertyInfoModel * model, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString * desc = model.lazyDes;
+        NSString *desc = model.lazyDes;
         [mStr appendFormat:@"%@\n", desc];
         
     }];

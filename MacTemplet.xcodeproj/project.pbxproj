@@ -18,6 +18,8 @@
 		1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */; };
 		1445783B22C1FFE20007C7B3 /* NNClassInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783A22C1FFE20007C7B3 /* NNClassInfoModel.m */; };
 		1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */; };
+		14627D9D23C863DE00FE9918 /* BatchVCCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14627D9C23C863DD00FE9918 /* BatchVCCreateController.swift */; };
+		14627DA023C863F200FE9918 /* BatchAPICreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14627D9E23C863F200FE9918 /* BatchAPICreateController.swift */; };
 		1480B0D7238CB8F000E24BDB /* Skull.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1480B0D6238CB8F000E24BDB /* Skull.jpg */; };
 		1480B0D9238CBDC200E24BDB /* NSStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */; };
 		1480B0E3238CC63900E24BDB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0E2238CC63900E24BDB /* MapViewController.swift */; };
@@ -36,6 +38,9 @@
 		1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85F22ABA55F00A7C5E1 /* NNView.m */; };
 		14A63DB923AB83D90015725A /* NNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DB823AB83D90015725A /* NNTableViewController.swift */; };
 		14A63DBC23AC63910015725A /* NSTableCellViewOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */; };
+		14ADE20723C877EE00037B0B /* NNViewControllerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE20623C877EE00037B0B /* NNViewControllerModel.m */; };
+		14ADE20C23C87B4400037B0B /* NNCopyRightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE20B23C87B4400037B0B /* NNCopyRightModel.swift */; };
+		14ADE20E23C881FA00037B0B /* NNViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE20D23C881FA00037B0B /* NNViewControllerModel.swift */; };
 		14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0625423878FC60016EC8A /* TmpViewController.swift */; };
 		14D40A0622C3884900AF74B9 /* ProppertyLazyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */; };
 		14D40A0922C449B300AF74B9 /* NNPropertyInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0822C449B300AF74B9 /* NNPropertyInfoModel.m */; };
@@ -105,6 +110,8 @@
 		1445783A22C1FFE20007C7B3 /* NNClassInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNClassInfoModel.m; sourceTree = "<group>"; };
 		1445783C22C2FDCD0007C7B3 /* NNTextViewContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNTextViewContoller.h; sourceTree = "<group>"; };
 		1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTextViewContoller.m; sourceTree = "<group>"; };
+		14627D9C23C863DD00FE9918 /* BatchVCCreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchVCCreateController.swift; sourceTree = "<group>"; };
+		14627D9E23C863F200FE9918 /* BatchAPICreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchAPICreateController.swift; sourceTree = "<group>"; };
 		1480B0D6238CB8F000E24BDB /* Skull.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Skull.jpg; sourceTree = "<group>"; };
 		1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSStackViewController.swift; sourceTree = "<group>"; };
 		1480B0E2238CC63900E24BDB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +137,10 @@
 		1482F85F22ABA55F00A7C5E1 /* NNView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNView.m; sourceTree = "<group>"; };
 		14A63DB823AB83D90015725A /* NNTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNTableViewController.swift; sourceTree = "<group>"; };
 		14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTableCellViewOne.swift; sourceTree = "<group>"; };
+		14ADE20523C877EE00037B0B /* NNViewControllerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNViewControllerModel.h; sourceTree = "<group>"; };
+		14ADE20623C877EE00037B0B /* NNViewControllerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNViewControllerModel.m; sourceTree = "<group>"; };
+		14ADE20B23C87B4400037B0B /* NNCopyRightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNCopyRightModel.swift; sourceTree = "<group>"; };
+		14ADE20D23C881FA00037B0B /* NNViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNViewControllerModel.swift; sourceTree = "<group>"; };
 		14C0625423878FC60016EC8A /* TmpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpViewController.swift; sourceTree = "<group>"; };
 		14D40A0422C3884900AF74B9 /* ProppertyLazyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProppertyLazyController.h; sourceTree = "<group>"; };
 		14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProppertyLazyController.m; sourceTree = "<group>"; };
@@ -343,6 +354,8 @@
 				14132977238559CE00E7AFCA /* NSTestViewController.m */,
 				14C0625423878FC60016EC8A /* TmpViewController.swift */,
 				1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */,
+				14627D9C23C863DD00FE9918 /* BatchVCCreateController.swift */,
+				14627D9E23C863F200FE9918 /* BatchAPICreateController.swift */,
 				1480B0F2238D172700E24BDB /* FileController.swift */,
 				1480B0E2238CC63900E24BDB /* MapViewController.swift */,
 				1480B0E8238CC94000E24BDB /* MKMapView+Helper.swift */,
@@ -369,6 +382,10 @@
 				1445783A22C1FFE20007C7B3 /* NNClassInfoModel.m */,
 				14D40A0722C449B300AF74B9 /* NNPropertyInfoModel.h */,
 				14D40A0822C449B300AF74B9 /* NNPropertyInfoModel.m */,
+				14ADE20523C877EE00037B0B /* NNViewControllerModel.h */,
+				14ADE20623C877EE00037B0B /* NNViewControllerModel.m */,
+				14ADE20B23C87B4400037B0B /* NNCopyRightModel.swift */,
+				14ADE20D23C881FA00037B0B /* NNViewControllerModel.swift */,
 				14F92C3522BB8DE800A5C5E4 /* Format */,
 				14F92C2622BB8DE500A5C5E4 /* Model */,
 			);
@@ -697,8 +714,10 @@
 				1480B0F3238D172700E24BDB /* FileController.swift in Sources */,
 				14F92C4222BB8DE800A5C5E4 /* ESJsonFormat.m in Sources */,
 				14F92C0A22BB1AC700A5C5E4 /* NNAttStringKey.m in Sources */,
+				14ADE20C23C87B4400037B0B /* NNCopyRightModel.swift in Sources */,
 				14F2F5AC22B8FD18009D49CE /* CollectionViewController.m in Sources */,
 				14F2F5B122B8FEE5009D49CE /* NSCTViewItemOne.m in Sources */,
+				14627D9D23C863DE00FE9918 /* BatchVCCreateController.swift in Sources */,
 				1480B0E3238CC63900E24BDB /* MapViewController.swift in Sources */,
 				14F2F59D22B8DB3D009D49CE /* ThirdViewController.m in Sources */,
 				14F2F59322B8D826009D49CE /* NNTableRowView.m in Sources */,
@@ -741,9 +760,11 @@
 				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
 				14F92C0C22BB1AC700A5C5E4 /* NNGeneralConst.m in Sources */,
 				1445780022BCF50E0007C7B3 /* Const.m in Sources */,
+				14ADE20723C877EE00037B0B /* NNViewControllerModel.m in Sources */,
 				14D40A0F22C4983D00AF74B9 /* NNButton.m in Sources */,
 				14F92C1522BB3ADC00A5C5E4 /* AppDelegate+Menu.m in Sources */,
 				14F08BCC2303BC1800B75842 /* JsonToModelController.m in Sources */,
+				14627DA023C863F200FE9918 /* BatchAPICreateController.swift in Sources */,
 				14F0FDCC22AFA48E00057093 /* FirstViewController.m in Sources */,
 				14F92CF622BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m in Sources */,
 				14F2F58D22B881C4009D49CE /* NSTextFieldCell+Hook.m in Sources */,
@@ -752,6 +773,7 @@
 				14F2F59622B8D9A2009D49CE /* MainViewController.m in Sources */,
 				1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */,
 				14F2F5B522B8FF98009D49CE /* NNCollectionView.m in Sources */,
+				14ADE20E23C881FA00037B0B /* NNViewControllerModel.swift in Sources */,
 				14F92C4E22BB8E0900A5C5E4 /* DataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
