@@ -38,7 +38,6 @@
 		1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85F22ABA55F00A7C5E1 /* NNView.m */; };
 		14A63DB923AB83D90015725A /* NNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DB823AB83D90015725A /* NNTableViewController.swift */; };
 		14A63DBC23AC63910015725A /* NSTableCellViewOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */; };
-		14ADE20723C877EE00037B0B /* NNViewControllerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE20623C877EE00037B0B /* NNViewControllerModel.m */; };
 		14ADE20C23C87B4400037B0B /* NNCopyRightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE20B23C87B4400037B0B /* NNCopyRightModel.swift */; };
 		14ADE20E23C881FA00037B0B /* NNViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE20D23C881FA00037B0B /* NNViewControllerModel.swift */; };
 		14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0625423878FC60016EC8A /* TmpViewController.swift */; };
@@ -137,8 +136,6 @@
 		1482F85F22ABA55F00A7C5E1 /* NNView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNView.m; sourceTree = "<group>"; };
 		14A63DB823AB83D90015725A /* NNTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNTableViewController.swift; sourceTree = "<group>"; };
 		14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTableCellViewOne.swift; sourceTree = "<group>"; };
-		14ADE20523C877EE00037B0B /* NNViewControllerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNViewControllerModel.h; sourceTree = "<group>"; };
-		14ADE20623C877EE00037B0B /* NNViewControllerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNViewControllerModel.m; sourceTree = "<group>"; };
 		14ADE20B23C87B4400037B0B /* NNCopyRightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNCopyRightModel.swift; sourceTree = "<group>"; };
 		14ADE20D23C881FA00037B0B /* NNViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNViewControllerModel.swift; sourceTree = "<group>"; };
 		14C0625423878FC60016EC8A /* TmpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpViewController.swift; sourceTree = "<group>"; };
@@ -382,8 +379,6 @@
 				1445783A22C1FFE20007C7B3 /* NNClassInfoModel.m */,
 				14D40A0722C449B300AF74B9 /* NNPropertyInfoModel.h */,
 				14D40A0822C449B300AF74B9 /* NNPropertyInfoModel.m */,
-				14ADE20523C877EE00037B0B /* NNViewControllerModel.h */,
-				14ADE20623C877EE00037B0B /* NNViewControllerModel.m */,
 				14ADE20B23C87B4400037B0B /* NNCopyRightModel.swift */,
 				14ADE20D23C881FA00037B0B /* NNViewControllerModel.swift */,
 				14F92C3522BB8DE800A5C5E4 /* Format */,
@@ -760,7 +755,6 @@
 				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
 				14F92C0C22BB1AC700A5C5E4 /* NNGeneralConst.m in Sources */,
 				1445780022BCF50E0007C7B3 /* Const.m in Sources */,
-				14ADE20723C877EE00037B0B /* NNViewControllerModel.m in Sources */,
 				14D40A0F22C4983D00AF74B9 /* NNButton.m in Sources */,
 				14F92C1522BB3ADC00A5C5E4 /* AppDelegate+Menu.m in Sources */,
 				14F08BCC2303BC1800B75842 /* JsonToModelController.m in Sources */,
