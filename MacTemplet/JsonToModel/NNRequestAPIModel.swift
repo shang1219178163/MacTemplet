@@ -11,7 +11,7 @@ import Cocoa
 class NNRequestAPIModel: NSObject {
 
     static func getContent(with name: String, type: String) -> String {
-        let copyRight = NNCopyRightModel.getCopyRight(with: "\(name)", type: type)
+        let copyRight = NSApplication.getCopyright(with: name, type: type)
         return """
 \(copyRight)
 

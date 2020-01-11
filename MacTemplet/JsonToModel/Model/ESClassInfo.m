@@ -247,7 +247,7 @@
 - (NSString *)classDescWithFirstFile:(BOOL)isFirstFile{
     ESClassInfo *classInfo = self;
     NSString *dateStr = [NSDateFormatter stringFromDate:NSDate.date fmt:@"yyyy/MM/dd"];
-    NSString *modelStr = [NSString stringWithFormat:@"//\n//Created by %@ on %@.\n//\n\n", NSApplication.macUserName, dateStr];
+    NSString *modelStr = [NSString stringWithFormat:@"//\n//Created by %@ on %@.\n//\n\n", NSApplication.userName, dateStr];
     modelStr = NSApplication.classCopyright;
     
     NSMutableString *hImportStr = nil;

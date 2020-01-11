@@ -23,7 +23,7 @@ class BatchClassCreateController: NSViewController {
     
     lazy var segmentCtl: NSSegmentedControl = {
         let view = NSSegmentedControl(frame: .zero)
-        view.items = ["UIViewController文件", "API文件"]
+        view.items = ["UIViewController列表", "自定义视图", "API文件", ]
         return view;
     }()
 
@@ -34,7 +34,8 @@ class BatchClassCreateController: NSViewController {
 //        view.bezelColor = NSColor.blue.withAlphaComponent(0.5)
         view.addActionHandler { (control) in
             NSApp.mainWindow?.makeFirstResponder(nil)
-            self.createFiles(self.textView.string)
+            self.batchCreateFile(self.textView.string)
+
         }
         return view;
     }()
@@ -78,7 +79,9 @@ class BatchClassCreateController: NSViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
         
-        DDLog(NNCopyRightModel.getCopyRight(with: "IOPParkListController", type: "swift"))
+        return;
+        
+        DDLog(NSApplication.getCopyright(with: "IOPParkListController", type: "swift"))
         
         let result = NNViewControllerModel.getContent(with: "IOPParkListController", type: "swift")
         FileManager.createFile(content: result, name: "IOPParkListController", type: "swift", isCover: true, openDir: true)
@@ -94,42 +97,50 @@ class BatchClassCreateController: NSViewController {
 //            name = name.components(separatedBy: "Controller").first!
 //        }
         DDLog(NNViewControllerModel.getPrefix(with: name))
+        DDLog(NSApplication.classCopyright)
+
     }
     
     // MARK: -funcitons
-    /// 创建 UIViewController 文件
-    func createControllers(_ string: String, type: String = "swift") {
-        let separate = string.contains(",") ? "," : "\n"
-        let titles = string.components(separatedBy: separate)
-        
-        for e in titles.enumerated() {
-            let result = NNViewControllerModel.getContent(with: e.element, type: type)
-            FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
-        }
-    }
-    /// 创建 API 类
-    func createAPIs(_ string: String, type: String = "swift") {
-        let separate = string.contains(",") ? "," : "\n"
-        let titles = string.components(separatedBy: separate)
-        
-        for e in titles.enumerated() {
-            let result = NNRequestAPIModel.getContent(with: e.element, type: type)
-            FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
-        }
-    }
-    /// 创建文件
-    func createFiles(_ string: String) {
+    /// 批量创建文件
+    func batchCreateFile(_ string: String) {
         if string.count <= 0 {
             return
         }
-        switch segmentCtl.selectedSegment {
-        case 1:
-            createAPIs(textView.string)
-            
-        default:
-            createControllers(textView.string)
+        createFiles(string, idx: segmentCtl.selectedSegment)
+    }
+    /// 按照类型创建文件
+    func createFiles(_ string: String, type: String = "swift", idx: Int) {
+        let separate = string.contains(",") ? "," : "\n"
+        let titles = string.components(separatedBy: separate)
+        var result = ""
+        for e in titles.enumerated() {
+            switch idx {
+            case 1: // 创建自定义视图
+                if !e.element.hasSuffix("View") {
+                    _ = NSAlert.show("错误", msg: "自定义视图必须包含 View 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
+                    return
+                }
+                result = NNViewModel.getContent(with: e.element, type: type)
+
+            case 2: // 创建 API 类
+                if !e.element.hasSuffix("API") && !e.element.hasSuffix("Api") {
+                      _ = NSAlert.show("错误", msg: "API文件必须包含 Api 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
+                      return
+                  }
+                result = NNRequestAPIModel.getContent(with: e.element, type: type)
+
+            default: // 创建 UIViewController 文件
+                if !e.element.hasSuffix("Controller") {
+                    _ = NSAlert.show("错误", msg: "页面必须包含 Controller 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
+                    return
+                }
+                result = NNViewControllerModel.getContent(with: e.element, type: type)
+            }
+            FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
         }
     }
+
 
 }
 
@@ -152,7 +163,9 @@ extension BatchClassCreateController: NSTextViewDelegate {
     }
 
     func textDidChange(_ notification: Notification) {
-        createFiles(textView.string)
-
+        if textView.string.count <= 0 {
+            return
+        }
+        batchCreateFile(textView.string)
     }
 }

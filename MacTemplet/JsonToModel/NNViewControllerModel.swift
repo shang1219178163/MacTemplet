@@ -23,7 +23,7 @@ class NNViewControllerModel: NSObject {
     
     /// 获取类内容
     static func getContent(with name: String, type: String) -> String {
-        let copyRight = NNCopyRightModel.getCopyRight(with: "\(name)", type: type)
+        let copyRight = NSApplication.getCopyright(with: name, type: type)
         let prefix = getPrefix(with: name)
         return """
 \(copyRight)

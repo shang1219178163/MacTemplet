@@ -37,7 +37,6 @@
 		1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85F22ABA55F00A7C5E1 /* NNView.m */; };
 		14A63DB923AB83D90015725A /* NNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DB823AB83D90015725A /* NNTableViewController.swift */; };
 		14A63DBC23AC63910015725A /* NSTableCellViewOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */; };
-		14ADE20C23C87B4400037B0B /* NNCopyRightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE20B23C87B4400037B0B /* NNCopyRightModel.swift */; };
 		14ADE20E23C881FA00037B0B /* NNViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE20D23C881FA00037B0B /* NNViewControllerModel.swift */; };
 		14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0625423878FC60016EC8A /* TmpViewController.swift */; };
 		14D40A0622C3884900AF74B9 /* ProppertyLazyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */; };
@@ -46,6 +45,7 @@
 		14D40A0F22C4983D00AF74B9 /* NNButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0E22C4983C00AF74B9 /* NNButton.m */; };
 		14D40A1222C4A6DA00AF74B9 /* AuthorInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */; };
 		14D4ED4723C8AB4D00B8BD16 /* NNRequestAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4ED4623C8AB4D00B8BD16 /* NNRequestAPIModel.swift */; };
+		14D4ED4B23C9F36900B8BD16 /* NNViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4ED4A23C9F36900B8BD16 /* NNViewModel.swift */; };
 		14F08BCC2303BC1800B75842 /* JsonToModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F08BCB2303BC1800B75842 /* JsonToModelController.m */; };
 		14F0FDA022ADF12C00057093 /* NSObject+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */; };
 		14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDA222ADF14100057093 /* NSViewController+Hook.m */; };
@@ -135,7 +135,6 @@
 		1482F85F22ABA55F00A7C5E1 /* NNView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNView.m; sourceTree = "<group>"; };
 		14A63DB823AB83D90015725A /* NNTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNTableViewController.swift; sourceTree = "<group>"; };
 		14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTableCellViewOne.swift; sourceTree = "<group>"; };
-		14ADE20B23C87B4400037B0B /* NNCopyRightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNCopyRightModel.swift; sourceTree = "<group>"; };
 		14ADE20D23C881FA00037B0B /* NNViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNViewControllerModel.swift; sourceTree = "<group>"; };
 		14C0625423878FC60016EC8A /* TmpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpViewController.swift; sourceTree = "<group>"; };
 		14D40A0422C3884900AF74B9 /* ProppertyLazyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProppertyLazyController.h; sourceTree = "<group>"; };
@@ -149,6 +148,7 @@
 		14D40A1022C4A6DA00AF74B9 /* AuthorInfoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthorInfoController.h; sourceTree = "<group>"; };
 		14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthorInfoController.m; sourceTree = "<group>"; };
 		14D4ED4623C8AB4D00B8BD16 /* NNRequestAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestAPIModel.swift; sourceTree = "<group>"; };
+		14D4ED4A23C9F36900B8BD16 /* NNViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NNViewModel.swift; sourceTree = "<group>"; };
 		14F08BCA2303BC1800B75842 /* JsonToModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonToModelController.h; sourceTree = "<group>"; };
 		14F08BCB2303BC1800B75842 /* JsonToModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonToModelController.m; sourceTree = "<group>"; };
 		14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Hook.m"; sourceTree = "<group>"; };
@@ -378,8 +378,8 @@
 				1445783A22C1FFE20007C7B3 /* NNClassInfoModel.m */,
 				14D40A0722C449B300AF74B9 /* NNPropertyInfoModel.h */,
 				14D40A0822C449B300AF74B9 /* NNPropertyInfoModel.m */,
-				14ADE20B23C87B4400037B0B /* NNCopyRightModel.swift */,
 				14ADE20D23C881FA00037B0B /* NNViewControllerModel.swift */,
+				14D4ED4A23C9F36900B8BD16 /* NNViewModel.swift */,
 				14D4ED4623C8AB4D00B8BD16 /* NNRequestAPIModel.swift */,
 				14F92C3522BB8DE800A5C5E4 /* Format */,
 				14F92C2622BB8DE500A5C5E4 /* Model */,
@@ -702,6 +702,7 @@
 			files = (
 				14F0FDA022ADF12C00057093 /* NSObject+Hook.m in Sources */,
 				14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */,
+				14D4ED4B23C9F36900B8BD16 /* NNViewModel.swift in Sources */,
 				14F2F59922B8DB25009D49CE /* SecondViewController.m in Sources */,
 				14D40A0622C3884900AF74B9 /* ProppertyLazyController.m in Sources */,
 				14D40A0C22C462E200AF74B9 /* HomeViewController.m in Sources */,
@@ -709,7 +710,6 @@
 				1480B0F3238D172700E24BDB /* FileController.swift in Sources */,
 				14F92C4222BB8DE800A5C5E4 /* ESJsonFormat.m in Sources */,
 				14F92C0A22BB1AC700A5C5E4 /* NNAttStringKey.m in Sources */,
-				14ADE20C23C87B4400037B0B /* NNCopyRightModel.swift in Sources */,
 				14F2F5AC22B8FD18009D49CE /* CollectionViewController.m in Sources */,
 				14F2F5B122B8FEE5009D49CE /* NSCTViewItemOne.m in Sources */,
 				14627D9D23C863DE00FE9918 /* BatchClassCreateController.swift in Sources */,
