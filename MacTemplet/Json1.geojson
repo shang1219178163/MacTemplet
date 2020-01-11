@@ -1,0 +1,19 @@
+{"status":"success",
+"object":{
+"blocks":[
+{"id":1,"value":1,"level":0,"name":"A区","description":"描述信息","disabled":false},
+{"id":2,"value":2,"level":0,"name":"B区","disabled":false},
+{"id":3,"value":3,"level":0,"name":"C区","disabled":false},
+{"id":4,"value":4,"level":0,"name":"D区","disabled":false}],
+    "floors":[
+{"id":51,"value":1,"level":2,"name":"1层","disabled":false},
+{"id":52,"value":2,"level":2,"name":"2层","disabled":false},
+{"id":53,"value":3,"level":2,"name":"3层","disabled":false},
+{"id":54,"value":4,"level":2,"name":"4层","disabled":false}],
+    "buildings":[
+{"id":11,"value":1,"level":1,"name":"1栋","disabled":false},
+{"id":12,"value":2,"level":1,"name":"2栋","disabled":false},
+{"id":13,"value":3,"level":1,"name":"3栋","disabled":false},
+{"id":14,"value":4,"level":1,"name":"4栋","disabled":false}]
+        }
+}

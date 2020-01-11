@@ -39,6 +39,8 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"ProppertyLazyController", @"OC属性Lazy",],
                       @[@"BatchClassCreateController", @"iOS类文件批量生成",],
                       @[@"AuthorInfoController", @"其他",],
+                      @[@"YYModelSwiftController", @"YYModelSwift",],
+
 //                      @[@"NSTestViewController", @"测试模块",],
 //                      @[@"TmpViewController", @"Swift模块",],
 //                      @[@"NSStackViewController", @"StackView",],
