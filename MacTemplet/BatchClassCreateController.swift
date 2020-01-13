@@ -23,7 +23,7 @@ class BatchClassCreateController: NSViewController {
     
     lazy var segmentCtl: NSSegmentedControl = {
         let view = NSSegmentedControl(frame: .zero)
-        view.items = ["UIViewController列表", "自定义视图", "API文件", "RequestViewModel"]
+        view.items = ["UIViewController列表", "自定义视图", "API文件", "listViewModel", "DetailViewModel"]
         return view;
     }()
     
@@ -184,6 +184,22 @@ class BatchClassCreateController: NSViewController {
                 }
                 result = NNRequestViewModel.getContentH(with: e.element)
                 resultM = NNRequestViewModel.getContentM(with: e.element)
+                FileManager.createFile(content: result, name: e.element, type: "h", isCover: true, openDir: true)
+                FileManager.createFile(content: resultM, name: e.element, type: "m", isCover: true, openDir: true)
+                
+            case 4: //
+                if !e.element.hasSuffix("ViewModel") {
+                    _ = NSAlert.show("错误", msg: "RequestViewModel文件必须包含 ViewModel 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
+                    return
+                }
+                
+                if type == "swift" {
+                    result = NNRequestDetailViewModel.getContent(with: e.element, type: type)
+                    FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
+                    return
+                }
+                result = NNRequestDetailViewModel.getContentH(with: e.element)
+                resultM = NNRequestDetailViewModel.getContentM(with: e.element)
                 FileManager.createFile(content: result, name: e.element, type: "h", isCover: true, openDir: true)
                 FileManager.createFile(content: resultM, name: e.element, type: "m", isCover: true, openDir: true)
 
