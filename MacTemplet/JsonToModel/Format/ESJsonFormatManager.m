@@ -66,17 +66,17 @@
         key = self.dicSwitch[key];
     }
     if ([value isKindOfClass:[NSString class]]) {
-        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
+        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;", qualifierStr, typeStr, key];
         
     } else if ([value isKindOfClass:[@(YES) class]]){
         //the 'NSCFBoolean' is private subclass of 'NSNumber'
         qualifierStr = @"assign";
         typeStr = @"BOOL";
-        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ %@;",qualifierStr,typeStr,key];
+        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ %@;", qualifierStr, typeStr, key];
         
     } else if ([value isKindOfClass:[NSNumber class]]){
         qualifierStr = @"assign";
-        NSString *valueStr = [NSString stringWithFormat:@"%@",value];
+        NSString *valueStr = [NSString stringWithFormat:@"%@", value];
         if ([valueStr rangeOfString:@"."].location != NSNotFound){
             typeStr = @"CGFloat";
         } else {
@@ -87,7 +87,7 @@
                 typeStr = @"long long";
             }
         }
-        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ %@;",qualifierStr,typeStr,key];
+        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ %@;", qualifierStr, typeStr, key];
         
     } else if ([value isKindOfClass: NSArray.class]){
         NSArray *array = (NSArray *)value;
@@ -97,7 +97,7 @@
         NSObject *firstObj = array.firstObject;
         if ([firstObj isKindOfClass: NSDictionary.class]) {
             ESClassInfo *childInfo = classInfo.propertyArrayDic[key];
-            genericTypeStr = [NSString stringWithFormat:@"<%@ *>",childInfo.className];
+            genericTypeStr = [NSString stringWithFormat:@"<%@ *>", childInfo.className];
         } else if ([firstObj isKindOfClass:[NSString class]]){
             genericTypeStr = @"<NSString *>";
         } else if ([firstObj isKindOfClass:[NSNumber class]]){
@@ -107,9 +107,9 @@
         qualifierStr = @"strong";
         typeStr = @"NSArray";
         if (ESJsonFormatSetting.defaultSetting.useGeneric) {
-            return [NSString stringWithFormat:@"@property (nonatomic, %@) %@%@ *%@;",qualifierStr,typeStr,genericTypeStr,key];
+            return [NSString stringWithFormat:@"@property (nonatomic, %@) %@%@ *%@;", qualifierStr, typeStr, genericTypeStr, key];
         }
-        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
+        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;", qualifierStr, typeStr, key];
         
     } else if ([value isKindOfClass: NSDictionary.class]){
         qualifierStr = @"strong";
@@ -118,9 +118,9 @@
         if (!typeStr) {
             typeStr = [key capitalizedString];
         }
-        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
+        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;", qualifierStr, typeStr, key];
     }
-    return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
+    return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;", qualifierStr, typeStr, key];
 }
 
 
@@ -140,25 +140,25 @@
         key = self.dicSwitch[key];
     }
     if ([value isKindOfClass:[NSString class]]) {
-        return [NSString stringWithFormat:@"    var %@: %@",key,typeStr];
+        return [NSString stringWithFormat:@"    var %@: %@", key, typeStr];
         
     } else if ([value isKindOfClass:[@(YES) class]]){
         typeStr = @"Bool";
-        return [NSString stringWithFormat:@"    var %@: %@ = false",key,typeStr];
+        return [NSString stringWithFormat:@"    var %@: %@ = false", key, typeStr];
         
     } else if ([value isKindOfClass:[NSNumber class]]){
-        NSString *valueStr = [NSString stringWithFormat:@"%@",value];
+        NSString *valueStr = [NSString stringWithFormat:@"%@", value];
         if ([valueStr rangeOfString:@"."].location!=NSNotFound){
             typeStr = @"Double";
         } else {
             typeStr = @"Int";
         }
-        return [NSString stringWithFormat:@"    var %@: %@ = 0",key,typeStr];
+        return [NSString stringWithFormat:@"    var %@: %@ = 0", key, typeStr];
         
     } else if ([value isKindOfClass: NSArray.class]){
         ESClassInfo *childInfo = classInfo.propertyArrayDic[key];
         NSString *type = childInfo.className;
-        return [NSString stringWithFormat:@"    var %@: [%@]?",key,type == nil ? @"String" : type];
+        return [NSString stringWithFormat:@"    var %@: [%@]?", key, type == nil ? @"String" : type];
         
     } else if ([value isKindOfClass: NSDictionary.class]){
         ESClassInfo *childInfo = classInfo.propertyClassDic[key];
@@ -166,9 +166,9 @@
         if (!typeStr) {
             typeStr = [key capitalizedString];
         }
-        return [NSString stringWithFormat:@"    var %@: %@?",key,typeStr];
+        return [NSString stringWithFormat:@"    var %@: %@?", key, typeStr];
     }
-    return [NSString stringWithFormat:@"    var %@: %@",key,typeStr];
+    return [NSString stringWithFormat:@"    var %@: %@", key, typeStr];
 }
 
 
@@ -188,20 +188,20 @@
     
     NSMutableString *result = [NSMutableString stringWithString:@""];
     if (ESJsonFormatSetting.defaultSetting.impOjbClassInArray) {
-        [result appendFormat:@"\n@implementation %@\n%@\n%@\n@end\n",classInfo.className, [self methodContentOfObjectClassInArrayWithClassInfo:classInfo], [self methodContentOfObjectIDInArrayWithClassInfo:classInfo]];
+        [result appendFormat:@"\n@implementation %@\n%@\n%@\n@end\n", classInfo.className, [self methodContentOfObjectClassInArrayWithClassInfo:classInfo], [self methodContentOfObjectIDInArrayWithClassInfo:classInfo]];
         
     } else {
-        [result appendFormat:@"@implementation %@\n\n@end\n",classInfo.className];
+        [result appendFormat:@"@implementation %@\n\n@end\n", classInfo.className];
     }
     
     if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
         //headerStr
         NSMutableString *headerString = [NSMutableString stringWithString:[self dealHeaderStrWithClassInfo:classInfo type:@"m"]];
         //import
-        [headerString appendString:[NSString stringWithFormat:@"#import \"%@.h\"\n",classInfo.className]];
+        [headerString appendString:[NSString stringWithFormat:@"#import \"%@.h\"\n", classInfo.className]];
         for (NSString *key in classInfo.propertyArrayDic) {
             ESClassInfo *childClassInfo = classInfo.propertyArrayDic[key];
-            [headerString appendString:[NSString stringWithFormat:@"#import \"%@.h\"\n",childClassInfo.className]];
+            [headerString appendString:[NSString stringWithFormat:@"#import \"%@.h\"\n", childClassInfo.className]];
         }
         [headerString appendString:@"\n"];
         [result insertString:headerString atIndex:0];
@@ -220,7 +220,7 @@
     NSString *superClassString = [NSUserDefaults.standardUserDefaults valueForKey:kSuperClass];
     superClassString = superClassString.length > 0 ? superClassString : @"NSObject";
 
-    NSMutableString *result = [NSMutableString stringWithFormat:@"\n\n@interface %@ : %@\n",classInfo.className,superClassString];
+    NSMutableString *result = [NSMutableString stringWithFormat:@"\n\n@interface %@ : %@\n", classInfo.className, superClassString];
     [result appendString:classInfo.propertyContent];
     [result appendString:@"\n@end"];
     
@@ -228,7 +228,7 @@
         //headerStr
         NSMutableString *headerString = [NSMutableString stringWithString:[self dealHeaderStrWithClassInfo:classInfo type:@"h"]];
         //@class
-        [headerString appendString:[NSString stringWithFormat:@"%@\n\n",classInfo.atClassContent]];
+        [headerString appendString:[NSString stringWithFormat:@"%@\n\n", classInfo.atClassContent]];
         [result insertString:headerString atIndex:0];
     }
     return [result copy];
@@ -297,7 +297,7 @@
         NSMutableString *result = [NSMutableString string];
         for (NSString *key in classInfo.propertyArrayDic) {
             ESClassInfo *childClassInfo = classInfo.propertyArrayDic[key];
-            [result appendFormat:@"@\"%@\" : [%@ class],\n\t\t",key,childClassInfo.className];
+            [result appendFormat:@"@\"%@\" : [%@ class],\n\t\t", key, childClassInfo.className];
         }
         if ([result hasSuffix:@", "]) {
             result = [NSMutableString stringWithFormat:@"%@", [result substringToIndex:result.length-2]];
