@@ -23,7 +23,23 @@ class BatchClassCreateController: NSViewController {
     
     lazy var segmentCtl: NSSegmentedControl = {
         let view = NSSegmentedControl(frame: .zero)
-        view.items = ["UIViewController列表", "自定义视图", "API文件", ]
+        view.items = ["UIViewController列表", "自定义视图", "API文件", "RequestViewModel"]
+        return view;
+    }()
+    
+    lazy var btnPop: NSPopUpButton = {
+        let view = NSPopUpButton(frame: .zero, pullsDown: false)
+        view.autoenablesItems = false
+        
+        let list = ["ObjC", "Swift"]
+        view.addItems(withTitles: list)
+        view.addActionHandler { (control) in
+            NSApp.mainWindow?.makeFirstResponder(nil)
+//            let sender: NSPopUpButton = control as! NSPopUpButton;
+//            DDLog(sender.titleOfSelectedItem)
+            self.batchCreateFile(self.textView.string)
+
+        }
         return view;
     }()
 
@@ -40,6 +56,7 @@ class BatchClassCreateController: NSViewController {
         return view;
     }()
     
+    
     // MARK: - lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +64,7 @@ class BatchClassCreateController: NSViewController {
         
         title = "iOS类文件批量生成"
         view.addSubview(btn)
+        view.addSubview(btnPop)
         view.addSubview(segmentCtl)
         view.addSubview(textView.enclosingScrollView!)
         
@@ -58,6 +76,13 @@ class BatchClassCreateController: NSViewController {
                 
         btn.snp.makeConstraints { (make) in
             make.right.bottom.equalToSuperview()
+            make.height.equalTo(35)
+            make.width.equalTo(100)
+        }
+        
+        btnPop.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview()
+            make.right.equalTo(btn.snp.left).offset(-10)
             make.height.equalTo(35)
             make.width.equalTo(100)
         }
@@ -107,13 +132,19 @@ class BatchClassCreateController: NSViewController {
         if string.count <= 0 {
             return
         }
-        createFiles(string, idx: segmentCtl.selectedSegment)
+        createFiles(string, idx: segmentCtl.selectedSegment, type: btnPop.titleOfSelectedItem!.lowercased())
     }
     /// 按照类型创建文件
-    func createFiles(_ string: String, type: String = "swift", idx: Int) {
+    func createFiles(_ string: String, idx: Int, type: String = "swift") {
+        if string.count <= 0 {
+            return
+        }
+        
         let separate = string.contains(",") ? "," : "\n"
         let titles = string.components(separatedBy: separate)
         var result = ""
+        var resultM = ""
+
         for e in titles.enumerated() {
             switch idx {
             case 1: // 创建自定义视图
@@ -121,27 +152,55 @@ class BatchClassCreateController: NSViewController {
                     _ = NSAlert.show("错误", msg: "自定义视图必须包含 View 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
                     return
                 }
-                result = NNViewModel.getContent(with: e.element, type: type)
-
+                
+                if type == "swift" {
+                    result = NNViewModel.getContent(with: e.element, type: type)
+                    FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
+                    return
+                }
+                
             case 2: // 创建 API 类
                 if !e.element.hasSuffix("API") && !e.element.hasSuffix("Api") {
-                      _ = NSAlert.show("错误", msg: "API文件必须包含 Api 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
-                      return
-                  }
-                result = NNRequestAPIModel.getContent(with: e.element, type: type)
+                    _ = NSAlert.show("错误", msg: "API文件必须包含 Api 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
+                    return
+                }
+                
+                if type == "swift" {
+                    result = NNRequestAPIModel.getContent(with: e.element, type: type)
+                    FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
+                    return
+                }
+
+            case 3: //
+                if !e.element.hasSuffix("ViewModel") {
+                    _ = NSAlert.show("错误", msg: "RequestViewModel文件必须包含 ViewModel 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
+                    return
+                }
+                
+                if type == "swift" {
+                    result = NNRequestViewModel.getContent(with: e.element, type: type)
+                    FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
+                    return
+                }
+                result = NNRequestViewModel.getContentH(with: e.element)
+                resultM = NNRequestViewModel.getContentM(with: e.element)
+                FileManager.createFile(content: result, name: e.element, type: "h", isCover: true, openDir: true)
+                FileManager.createFile(content: resultM, name: e.element, type: "m", isCover: true, openDir: true)
 
             default: // 创建 UIViewController 文件
                 if !e.element.hasSuffix("Controller") {
                     _ = NSAlert.show("错误", msg: "页面必须包含 Controller 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
                     return
                 }
-                result = NNViewControllerModel.getContent(with: e.element, type: type)
+                
+                if type == "swift" {
+                    result = NNViewControllerModel.getContent(with: e.element, type: type)
+                    FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
+                    return
+                }
             }
-            FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
         }
     }
-
-
 }
 
 extension BatchClassCreateController: NSTextViewDelegate {
@@ -163,9 +222,6 @@ extension BatchClassCreateController: NSTextViewDelegate {
     }
 
     func textDidChange(_ notification: Notification) {
-        if textView.string.count <= 0 {
-            return
-        }
         batchCreateFile(textView.string)
     }
 }
