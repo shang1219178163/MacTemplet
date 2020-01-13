@@ -237,6 +237,7 @@
         cell.textView.string = classModel.hContent;
         
     }
+//    [cell getViewLayer];
     return cell;
 }
 
@@ -505,7 +506,10 @@
             [view addTableColumnWithTitles:@[@"columeOne",]];
             if ([self conformsToProtocol:@protocol(NSTableViewDataSource)]) view.dataSource = self;
             if ([self conformsToProtocol:@protocol(NSTableViewDelegate)]) view.delegate = self;
-
+            view.enclosingScrollView.hasHorizontalScroller = false;
+            view.enclosingScrollView.hasVerticalScroller = false;
+            view.enclosingScrollView.autohidesScrollers = YES;//自动隐藏滚动条（滚动的时候出现）
+            
             view;
         });
     }

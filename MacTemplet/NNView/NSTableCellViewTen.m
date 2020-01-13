@@ -49,7 +49,7 @@
     CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(180, 30)];
     [self.textLabel makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.checkBox);
-        make.right.equalTo(self).offset(0);
+        make.right.equalTo(self).offset(-kPadding);
         make.width.equalTo(180);
         make.height.lessThanOrEqualTo(textLabelSize.height);
     }];
