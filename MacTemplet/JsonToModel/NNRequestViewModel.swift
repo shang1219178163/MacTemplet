@@ -105,7 +105,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id <\(prefix)ViewModelDelegate>delegate;
 
-@property (nonatomic, weak) \(prefix)Controller *controller;
+@property (nonatomic, weak) \(prefix)Controller *parController;
 
 - (void)requestRefresh;
 
