@@ -19,14 +19,16 @@ class NNViewControllerCreater: NSObject {
 
 import UIKit
 ///
-class \(name): UIViewController{
+
+@objcMembers class \(prefix)Controller: UIViewController{
     
     /// 数据请求返回
-    var dataModel = NSObject()
+    var dataModel: \(prefix)RootModel = \(prefix)RootModel()
     
     lazy var viewModel: \(prefix)ViewModel = {
         let viewModel = \(prefix)ViewModel()
-        viewModel.delegate = self;
+        viewModel.delegate = self
+        viewModel.parController = self
         return viewModel
     }()
     
@@ -34,19 +36,35 @@ class \(name): UIViewController{
         super.viewDidLoad()
         
         setupExtendedLayout()
-        title = ""
+        title = "产品日志"
         setupUI()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
+        searchBar.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(0);
+            make.left.equalToSuperview().offset(0);
+            make.right.equalToSuperview().offset(0);
+            make.height.equalTo(50);
+        }
+                
+        tbView.snp.makeConstraints { (make) in
+            make.top.equalTo(searchBar.snp.bottom).offset(0);
+            make.left.equalToSuperview().offset(0);
+            make.right.equalToSuperview().offset(0);
+            make.bottom.equalToSuperview().offset(0);
+        }
+        
+        searchBar.lineBottom.sizeWidth = kScreenWidth
+        searchBar.addSubview(searchBar.lineBottom)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         
-        tableView.mj_header.beginRefreshing()
+        tbView.mj_header.beginRefreshing()
     }
     
         
@@ -59,18 +77,23 @@ class \(name): UIViewController{
     func setupUI() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
         
+        view.addSubview(searchBar);
         view.addSubview(tipLab);
-        view.addSubview(tableView);
+        view.addSubview(tbView);
                         
-        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
-
+        tbView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            self.viewModel.requestRefresh()
         });
         
-        tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
-
+        tbView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+            self.viewModel.requestNextPage()
         });
     }
-    
+
+    func requestForSearch(_ searchbar: UISearchBar) {
+        viewModel.listAPI.name = searchBar.text!;
+        tbView.mj_header.beginRefreshing();
+    }
     
     //MARK: -lazy
     lazy var rightBtn: UIButton = {
@@ -82,33 +105,27 @@ class \(name): UIViewController{
         return button
     }()
     
-    lazy var tableView: UITableView = {
-        let view: UITableView = UITableView.create(self.view.bounds, style: .plain, rowHeight: 60)
-        view.dataSource = self
-        view.delegate = self
-        
-        self.view.addSubview(view)
-//        view.tableFooterView = self.footerView;
-        return view
-    }()
-        
-    lazy var footerView: NNTableFooterView = {
-        let view = NNTableFooterView(frame: CGRectMake(0, 0, UIScreen.sizeWidth, 120))
-        view.topPadding = 30;
-
-        view.btn.setTitle("保存", for: .normal)
-        view.btn.setBackgroundImage(UIImageColor(UIColor.theme), for: .normal);
-        view.btn.setTitleColor(UIColor.white, for: .normal)
-        view.btn.addTarget(self, action: #selector(handleAction(_:)), for: .touchUpInside)
-        return view
-    }()
-    
     @objc func handleAction(_ sender: UIButton) {
         
     }
+    
+    lazy var searchBar: UISearchBar = {
+        let view = UISearchBar.create(CGRectMake(0, 0, kScreenWidth - 70, 50))
+        view.layer.cornerRadius = 0;
+        view.showsCancelButton = false;
+        view.backgroundColor = .white
+        view.textField?.placeholder = "请输入名称搜索";
+        view.textField?.backgroundColor = UIColor.background
+        view.textField?.layer.cornerRadius = 5;
+        view.textField?.layer.masksToBounds = true;
+
+        view.delegate = self;
+        return view
+    }()
+
 }
 
-extension \(name): UITableViewDataSource, UITableViewDelegate{
+extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     //    MARK: - tableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
@@ -167,17 +184,52 @@ extension \(name): UITableViewDataSource, UITableViewDelegate{
     }
 }
 
-
-extension \(name): \(prefix)ViewModelDelegate{
+extension \(prefix)Controller: UISearchBarDelegate{
+    // MARK: -UISearchBar
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool{
+        return true;
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        return true;
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
-    func request(with model: IOPParkModelDataModel, isRefresh: Bool, hasNextPage: Bool) {
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count < 3 {
+            return;
+        }
+        requestForSearch(searchBar)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        searchBar.showsCancelButton = !(searchBar.text!.count == 1 && text == "")
+        return true;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        requestForSearch(searchBar)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+}
+
+
+extension \(prefix)Controller: \(prefix)ViewModelDelegate{
+
+    func request(with model: \(prefix)RootModel, isRefresh: Bool, hasNextPage: Bool) {
         
         DispatchQueue.global().async {
             self.dataModel = model;
             if isRefresh == true {
                 self.dataList.removeAllObjects()
             }
-            self.dataList.addObjects(from: self.dataModel.records)
+//            self.dataList.addObjects(from: self.dataModel.records)
             DispatchQueue.main.async {
                 IOPProgressHUD.dismiss()
                 self.tbView.mj_header.endRefreshing();
@@ -189,6 +241,7 @@ extension \(name): \(prefix)ViewModelDelegate{
         }
     }
 }
+
 """
     }
 }

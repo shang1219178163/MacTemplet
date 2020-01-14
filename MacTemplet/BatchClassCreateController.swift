@@ -168,52 +168,88 @@ class BatchClassCreateController: NSViewController {
             return
         }
         
-        let separate = string.contains(",") ? "," : "\n"
+        let separate = string.contains(";") ? ";" : "\n"
         let titles = string.components(separatedBy: separate)
         var result = ""
 
         for e in titles.enumerated() {
+            if e.element == "" {
+                continue;
+            }
+            var name = e.element.trimmingCharacters(in: .whitespaces)
+            name = name.trimmingCharacters(in: CharacterSet(charactersIn: "\n"))
+            
             switch idx {
             case 1: // 创建自定义视图
-                if !e.element.hasSuffix("View") {
+                if !name.hasSuffix("View") {
                     _ = NSAlert.show("错误", msg: "自定义视图必须包含 View 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
                     return
                 }
                 
                 if type == "swift" {
-                    result = NNViewCreater.getContent(with: e.element, type: type)
-                    FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
+                    result = NNViewCreater.getContent(with: name, type: type)
+                    FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
                     break
                 }
                 
             case 2: // 创建 API 类
-                if !e.element.hasSuffix("API") && !e.element.hasSuffix("Api") {
-                    _ = NSAlert.show("错误", msg: "API文件必须包含 Api 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
+                if !name.lowercased().hasSuffix("api") {
+                    _ = NSAlert.show("错误", msg: "必须包含 api 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
                     return
                 }
-                
-                if type == "swift" {
-                    result = NNRequestAPICreater.getContent(with: e.element, type: type)
-                    FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
-                    break
-                }
+                createAPIFiles(name, btnPop: btnPopCategory, type: type)
 
             case 3: //
-                createViewModelFiles(e.element, btnPop: btnPopCategory, type: type)
+                if !name.hasSuffix("ViewModel") {
+                    _ = NSAlert.show("错误", msg: "RequestViewModel文件必须包含 ViewModel 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
+                    return
+                }
+                createViewModelFiles(name, btnPop: btnPopCategory, type: type)
                 
             default: // 创建 UIViewController 文件
-                createControllerFiles(e.element, btnPop: btnPopCategory, type: type)
+                if !name.hasSuffix("Controller") {
+                    _ = NSAlert.show("错误", msg: "页面必须包含 Controller 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
+                    return
+                }
+                createControllerFiles(name, btnPop: btnPopCategory, type: type)
+            }
+        }
+    }
+    
+    /// 生成UIViewController类型文件
+    func createAPIFiles(_ string: String, btnPop: NSPopUpButton, type: String = "swift") {
+        var result = ""
+//        var resultM = ""
+        
+        switch btnPop.titleOfSelectedItem {
+        case btnPop.itemTitles[1]:
+            if type == "swift" {
+                result = NNRequestAPIDetailCreater.getContent(with: string, type: type)
+                FileManager.createFile(content: result, name: string, type: type, isCover: true, openDir: true)
+                
+            } else if type == "objc"  {
+//                result = NNViewControllerDetailCreater.getContentH(with: string)
+//                resultM = NNViewControllerDetailCreater.getContentM(with: string)
+//                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
+//                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
+            }
+            
+        default:
+            if type == "swift" {
+                result = NNRequestAPICreater.getContent(with: string, type: type)
+                FileManager.createFile(content: result, name: string, type: type, isCover: true, openDir: true)
+                
+            } else if type == "objc"  {
+//                result = NNViewControllerCreater.getContentH(with: string)
+//                resultM = NNViewControllerCreater.getContentM(with: string)
+//                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
+//                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
             }
         }
     }
     
     /// 生成UIViewController类型文件
     func createControllerFiles(_ string: String, btnPop: NSPopUpButton, type: String = "swift") {
-        if !string.hasSuffix("Controller") {
-            _ = NSAlert.show("错误", msg: "页面必须包含 Controller 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
-            return
-        }
-        
         var result = ""
 //        var resultM = ""
         
@@ -246,35 +282,30 @@ class BatchClassCreateController: NSViewController {
     
     /// 生成ViewModel类型文件
     func createViewModelFiles(_ string: String, btnPop: NSPopUpButton, type: String = "swift") {
-        if !string.hasSuffix("ViewModel") {
-            _ = NSAlert.show("错误", msg: "RequestViewModel文件必须包含 ViewModel 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
-            return
-        }
-        
         var result = ""
         var resultM = ""
         
         switch btnPop.titleOfSelectedItem {
         case btnPop.itemTitles[1]:
             if type == "swift" {
-                result = NNRequestViewCreaterDetail.getContent(with: string, type: type)
+                result = NNRequestViewModelDetailCreater.getContent(with: string, type: type)
                 FileManager.createFile(content: result, name: string, type: type, isCover: true, openDir: true)
-                
+
             } else if type == "objc"  {
-                result = NNRequestViewCreaterDetail.getContentH(with: string)
-                resultM = NNRequestViewCreaterDetail.getContentM(with: string)
+                result = NNRequestViewModelDetailCreater.getContentH(with: string)
+                resultM = NNRequestViewModelDetailCreater.getContentM(with: string)
                 FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
                 FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
             }
             
         default:
             if type == "swift" {
-                result = NNRequestViewCreater.getContent(with: string, type: type)
+                result = NNRequestViewModelCreater.getContent(with: string, type: type)
                 FileManager.createFile(content: result, name: string, type: type, isCover: true, openDir: true)
                 
             } else if type == "objc"  {
-                result = NNRequestViewCreater.getContentH(with: string)
-                resultM = NNRequestViewCreater.getContentM(with: string)
+                result = NNRequestViewModelCreater.getContentH(with: string)
+                resultM = NNRequestViewModelCreater.getContentM(with: string)
                 FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
                 FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
             }

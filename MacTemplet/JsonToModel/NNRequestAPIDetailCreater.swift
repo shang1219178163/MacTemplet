@@ -1,15 +1,15 @@
 //
-//  NNRequestAPICreater.swift
+//  NNRequestAPIDetailCreater.swift
 //  MacTemplet
 //
-//  Created by Bin Shang on 2020/1/10.
+//  Created by Bin Shang on 2020/1/14.
 //  Copyright © 2020 Bin Shang. All rights reserved.
 //
 
 import Cocoa
 
-class NNRequestAPICreater: NSObject {
-
+class NNRequestAPIDetailCreater: NSObject {
+    
     static func getContent(with name: String, type: String) -> String {
         let copyRight = NSApplication.getCopyright(with: name, type: type)
         return """
@@ -20,12 +20,8 @@ import UIKit
 ///
 @objcMembers class \(name): IOPBaseAPIManager {
     
-    @objc var name: String = ""
+    @objc var parkCode: String = ""
         
-    @objc var dataModel: IOPDataModel = IOPDataModel()
-
-    @objc var pageModel: IOPPageModel = IOPPageModel(perPageCounts: UInt(IOPDataConstansPageSize))
-
     override func requestURI() -> String {
         return ""
     }
@@ -35,9 +31,8 @@ import UIKit
     }
     
     override func reformerParams() -> [AnyHashable : Any] {
-        let params: [AnyHashable : Any] = ["page" : pageModel.currPage,
-                                           "page_item": pageModel.perPageCounts,
-                                           "name": name,
+        let params: [AnyHashable : Any] = ["parkCode" : parkCode,
+
 
         ]
         return params
@@ -52,15 +47,7 @@ import UIKit
     }
 }
 
-/// 注册数据模型
-@objcMembers class IOPDataModel: NSObject {
-    @objc var name: String = ""
-    @objc var password: String = ""
-    @objc var phone: String = ""
-    @objc var code: String = ""
-    
-}
-
 """
     }
 }
+

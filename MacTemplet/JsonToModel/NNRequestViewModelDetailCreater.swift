@@ -1,5 +1,5 @@
 //
-//  NNRequestViewCreaterDetail.swift
+//  NNRequestViewModelDetailCreater.swift
 //  MacTemplet
 //
 //  Created by Bin Shang on 2020/1/13.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class NNRequestViewCreaterDetail: NSObject {
+class NNRequestViewModelDetailCreater: NSObject {
 
     /// 获取类内容
     static func getContent(with name: String, type: String) -> String {
@@ -21,15 +21,16 @@ import UIKit
 import YYModel
 
 @objc protocol \(prefix)ViewModelDelegate{
-    @objc func request(with model: IOPParkModelDataModel)
+    @objc func request(with model: \(prefix)RootModel)
 }
 
 @objcMembers class \(prefix)ViewModel: NSObject {
     
     @objc weak var delegate: \(prefix)ViewModelDelegate?
+    @objc weak var parController: \(prefix)Controlller?
 
-    @objc lazy var detailAPI: IOPSaasParkDetailApi = {
-        let api = IOPSaasParkDetailApi()
+    @objc lazy var detailAPI: \(prefix)Api = {
+        let api = \(prefix)Api()
         return api
     }()
     
@@ -38,7 +39,7 @@ import YYModel
         IOPProgressHUD.show(withStatus: kAPILoading)
         detailAPI.startRequest(successBlock: { [weak self] (manager, dic) in
             guard let self = self else { return }
-            var model = IOPParkModelDataModel.yy_model(with: dic)
+            var model = \(prefix)RootModel.yy_model(with: dic)
 //            let model = NSArray.yy_modelArray(with: IOPParkModelDataModel.self, json: dic)
             if model == nil {
                 IOPProgressHUD.showError(withStatus: "数据错误")
@@ -66,21 +67,21 @@ import YYModel
 \(copyRight)
 
 #import <Foundation/Foundation.h>
-#import "IOPParkModel.h"
+#import "\(prefix)RootModel.h"
 
-@class IOPSaasParkDetailApi, \(prefix)Controller;
+@class \(prefix)Api, \(prefix)Controller;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol \(prefix)ViewModelDelegate <NSObject>
 
-- (void)requestWithModel:(IOPParkModelDataModel *)model;
+- (void)requestWithModel:(\(prefix)RootModel *)model;
 
 @end
 
 @interface \(prefix)ViewModel : NSObject
 
-@property (nonatomic, strong) IOPSaasParkDetailApi *detailAPI;
+@property (nonatomic, strong) \(prefix)Api *detailAPI;
 
 @property (nonatomic, weak) id <\(prefix)ViewModelDelegate>delegate;
 
@@ -117,14 +118,14 @@ NS_ASSUME_NONNULL_END
     
     [IOPProgressHUD showWithStatus:kAPILoading];
     [self.detailAPI startRequestWithSuccessBlock:^(__kindof IOPRequestManager *manager, NSDictionary *jsonData) {
-        IOPParkModelDataModel *rootModel = [IOPParkModelDataModel yy_modelWithJSON:jsonData];
-        if (!rootModel) {
+        \(prefix)RootModel *model = [\(prefix)RootModel yy_modelWithJSON:jsonData];
+        if (!model) {
             [IOPProgressHUD showErrorWithStatus:@"数据错误"];
             return ;
         }
 
         if (self.delegate && [self.delegate respondsToSelector:@selector(requestWithModel:)]) {
-            [self.delegate requestWithModel:rootModel];
+            [self.delegate requestWithModel:model];
         }
         
     } failedBlock:^(__kindof IOPRequestManager *manager, IOPErrorModel *errorModel) {
@@ -137,9 +138,9 @@ NS_ASSUME_NONNULL_END
 
 #pragma mark - lazy
 
-- (IOPSaasParkDetailApi *)detailAPI{
+- (\(prefix)Api *)detailAPI{
     if (!_detailAPI) {
-        _detailAPI = [[IOPSaasParkDetailApi alloc]init];
+        _detailAPI = [[\(prefix)Api alloc]init];
     }
     return _detailAPI;
 }

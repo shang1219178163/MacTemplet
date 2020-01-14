@@ -14,7 +14,7 @@ class NNViewControllerDetailCreater: NSObject {
     /// 获取类内容
     static func getContent(with name: String, type: String) -> String {
         let copyRight = NSApplication.getCopyright(with: name, type: type)
-        let prefix = name.getPrefix(with: ["ViewModel",])
+        let prefix = name.getPrefix(with: ["ViewController", "Controller"])
         return """
 \(copyRight)
 
@@ -38,8 +38,8 @@ class \(prefix)Controller: UIViewController {
         
     lazy var viewModel: \(prefix)ViewModel = {
         let viewModel = \(prefix)ViewModel()
-        viewModel.delegate = self;
-        viewModel.controller = self
+        viewModel.delegate = self
+        viewModel.parController = self
         return viewModel
     }()
     
@@ -62,7 +62,7 @@ class \(prefix)Controller: UIViewController {
 
         // Do any additional setup after loading the view.
         setupExtendedLayout()
-        title = "车场详情"
+        title = "详情"
         setupUI()
     }
     
