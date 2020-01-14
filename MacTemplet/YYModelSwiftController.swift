@@ -27,18 +27,28 @@ class YYModelSwiftController: NSViewController {
         return view;
     }()
 
-    lazy var btn: NSButton = {
-        let view = NSButton(title: "Done", target: nil, action: nil)
-        view.setButtonType(.momentaryPushIn)
-        view.bezelStyle = .shadowlessSquare
-//        view.bezelColor = NSColor.blue.withAlphaComponent(0.5)
-        view.addActionHandler { (control) in
-            NSApp.mainWindow?.makeFirstResponder(nil)
-            self.createFile(self.textView.string)
-
-        }
+    lazy var comboBox: NSComboBox = {
+        let view = NSComboBox(frame: .zero)
+        view.addItems(withObjectValues: ["菜单一", "菜单二", "菜单三", ])
+//        view.usesDataSource = true
+//        view.dataSource = self
+//        view.delegate = self
+  
         return view;
     }()
+    
+//    lazy var btn: NSButton = {
+//        let view = NSButton(title: "Done", target: nil, action: nil)
+//        view.setButtonType(.momentaryPushIn)
+//        view.bezelStyle = .shadowlessSquare
+////        view.bezelColor = NSColor.blue.withAlphaComponent(0.5)
+//        view.addActionHandler { (control) in
+//            NSApp.mainWindow?.makeFirstResponder(nil)
+//            self.createFile(self.textView.string)
+//
+//        }
+//        return view;
+//    }()
     
     // MARK: - lifeCycle
     override func viewDidLoad() {
@@ -46,7 +56,7 @@ class YYModelSwiftController: NSViewController {
         // Do view setup here.
         
         title = "iOS类文件批量生成"
-        view.addSubview(btn)
+        view.addSubview(comboBox)
         view.addSubview(segmentCtl)
         view.addSubview(textView.enclosingScrollView!)
         
@@ -56,7 +66,7 @@ class YYModelSwiftController: NSViewController {
     override func viewDidLayout() {
         super.viewDidLayout()
                 
-        btn.snp.makeConstraints { (make) in
+        comboBox.snp.makeConstraints { (make) in
             make.right.bottom.equalToSuperview()
             make.height.equalTo(35)
             make.width.equalTo(100)
@@ -72,7 +82,7 @@ class YYModelSwiftController: NSViewController {
         textView.enclosingScrollView!.snp.makeConstraints { (make) in
             make.top.left.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(0.5)
-            make.bottom.equalTo(btn.snp.top).offset(-10)
+            make.bottom.equalTo(comboBox.snp.top).offset(-10)
         }
     }
     
@@ -132,4 +142,33 @@ extension YYModelSwiftController: NSTextViewDelegate {
         }
         createFile(textView.string)
     }
+}
+
+
+extension YYModelSwiftController: NSComboBoxDataSource, NSComboBoxDelegate{
+
+    func numberOfItems(in comboBox: NSComboBox) -> Int {
+        return comboBox.numberOfItems
+    }
+
+    func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
+        return comboBox.itemObjectValue(at: index)
+    }
+
+    func comboBox(_ comboBox: NSComboBox, indexOfItemWithStringValue string: String) -> Int {
+        return comboBox.indexOfItem(withObjectValue: string)
+    }
+
+    func comboBoxSelectionDidChange(_ notification: Notification) {
+
+        let comBox = notification.object as! NSComboBox
+
+        let selectedIndex = comBox.indexOfSelectedItem
+
+        let selectedContent = comBox.stringValue
+
+        print("selectedIndex = \(selectedIndex) selectedContent = \(selectedContent)")
+
+    }
+
 }

@@ -156,7 +156,7 @@ class BatchClassCreateController: NSViewController {
                 if type == "swift" {
                     result = NNViewModel.getContent(with: e.element, type: type)
                     FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
-                    return
+                    break
                 }
                 
             case 2: // 创建 API 类
@@ -168,7 +168,7 @@ class BatchClassCreateController: NSViewController {
                 if type == "swift" {
                     result = NNRequestAPIModel.getContent(with: e.element, type: type)
                     FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
-                    return
+                    break
                 }
 
             case 3: //
@@ -180,7 +180,7 @@ class BatchClassCreateController: NSViewController {
                 if type == "swift" {
                     result = NNRequestViewModel.getContent(with: e.element, type: type)
                     FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
-                    return
+                    break
                 }
                 result = NNRequestViewModel.getContentH(with: e.element)
                 resultM = NNRequestViewModel.getContentM(with: e.element)
@@ -196,7 +196,7 @@ class BatchClassCreateController: NSViewController {
                 if type == "swift" {
                     result = NNRequestDetailViewModel.getContent(with: e.element, type: type)
                     FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
-                    return
+                    break
                 }
                 result = NNRequestDetailViewModel.getContentH(with: e.element)
                 resultM = NNRequestDetailViewModel.getContentM(with: e.element)
@@ -212,7 +212,7 @@ class BatchClassCreateController: NSViewController {
                 if type == "swift" {
                     result = NNViewControllerModel.getContent(with: e.element, type: type)
                     FileManager.createFile(content: result, name: e.element, type: type, isCover: true, openDir: true)
-                    return
+                    break
                 }
             }
         }
