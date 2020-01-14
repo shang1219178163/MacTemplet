@@ -1,5 +1,5 @@
 //
-//  NNRequestAPIModel.swift
+//  NNRequestAPICreater.swift
 //  MacTemplet
 //
 //  Created by Bin Shang on 2020/1/10.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class NNRequestAPIModel: NSObject {
+class NNRequestAPICreater: NSObject {
 
     static func getContent(with name: String, type: String) -> String {
         let copyRight = NSApplication.getCopyright(with: name, type: type)

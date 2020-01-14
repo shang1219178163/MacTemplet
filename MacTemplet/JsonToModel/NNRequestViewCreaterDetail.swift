@@ -1,5 +1,5 @@
 //
-//  NNRequestDetailViewModel.swift
+//  NNRequestViewCreaterDetail.swift
 //  MacTemplet
 //
 //  Created by Bin Shang on 2020/1/13.
@@ -8,21 +8,12 @@
 
 import Cocoa
 
-class NNRequestDetailViewModel: NSObject {
+class NNRequestViewCreaterDetail: NSObject {
 
-    /// 获取类前缀
-    static func getPrefix(with name: String) -> String {
-        var reult = ""
-        if name.contains("ViewModel") {
-            reult = name.components(separatedBy: "ViewModel").first!
-        }
-        return reult;
-    }
-    
     /// 获取类内容
     static func getContent(with name: String, type: String) -> String {
         let copyRight = NSApplication.getCopyright(with: name, type: "swift")
-        let prefix = getPrefix(with: name)
+        let prefix = name.getPrefix(with: ["ViewModel",])
         return """
 \(copyRight)
 
@@ -70,7 +61,7 @@ import YYModel
     /// 获取.h类内容
     static func getContentH(with name: String) -> String {
         let copyRight = NSApplication.getCopyright(with: name, type: "h")
-        let prefix = getPrefix(with: name)
+        let prefix = name.getPrefix(with: ["ViewModel",])
         return """
 \(copyRight)
 
@@ -107,7 +98,7 @@ NS_ASSUME_NONNULL_END
     /// 获取.h类内容
     static func getContentM(with name: String) -> String {
         let copyRight = NSApplication.getCopyright(with: name, type: "m")
-        let prefix = getPrefix(with: name)
+        let prefix = name.getPrefix(with: ["ViewModel",])
         return """
 \(copyRight)
 

@@ -8,23 +8,12 @@
 
 import Cocoa
 
-class NNViewControllerModel: NSObject {
+class NNViewControllerCreater: NSObject {
 
-    /// 获取类前缀
-    static func getPrefix(with name: String) -> String {
-        var reult = ""
-        if name.contains("ViewController") {
-            reult = name.components(separatedBy: "ViewController").first!
-        } else if name.contains("Controller")  {
-            reult = name.components(separatedBy: "Controller").first!
-        }
-        return reult;
-    }
-    
     /// 获取类内容
     static func getContent(with name: String, type: String) -> String {
         let copyRight = NSApplication.getCopyright(with: name, type: type)
-        let prefix = getPrefix(with: name)
+        let prefix = name.getPrefix(with: ["ViewController", "Controller"])
         return """
 \(copyRight)
 
@@ -180,8 +169,25 @@ extension \(name): UITableViewDataSource, UITableViewDelegate{
 
 
 extension \(name): \(prefix)ViewModelDelegate{
-
-
+        
+    func request(with model: IOPParkModelDataModel, isRefresh: Bool, hasNextPage: Bool) {
+        
+        DispatchQueue.global().async {
+            self.dataModel = model;
+            if isRefresh == true {
+                self.dataList.removeAllObjects()
+            }
+            self.dataList.addObjects(from: self.dataModel.records)
+            DispatchQueue.main.async {
+                IOPProgressHUD.dismiss()
+                self.tbView.mj_header.endRefreshing();
+                self.tbView.mj_footer.endRefreshing();
+                self.tbView.mj_footer.isHidden = !hasNextPage;
+                self.tbView.isHidden = (self.dataList.count <= 0);
+                self.tbView.reloadData();
+            }
+        }
+    }
 }
 """
     }

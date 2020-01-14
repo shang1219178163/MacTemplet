@@ -1,5 +1,5 @@
 //
-//  NNViewModel.swift
+//  NNViewCreater.swift
 //  MacTemplet
 //
 //  Created by Bin Shang on 2020/1/11.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class NNViewModel: NSObject {
+class NNViewCreater: NSObject {
 
     /// 获取类内容
     static func getContent(with name: String, type: String) -> String {
