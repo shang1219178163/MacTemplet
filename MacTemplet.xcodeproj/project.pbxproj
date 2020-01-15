@@ -38,9 +38,10 @@
 		14A63DBC23AC63910015725A /* NSTableCellViewOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */; };
 		14ADE20E23C881FA00037B0B /* NNViewControllerCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE20D23C881FA00037B0B /* NNViewControllerCreater.swift */; };
 		14ADE21523CC091000037B0B /* NNClassInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE21423CC091000037B0B /* NNClassInfoModel.m */; };
-		14ADE21723CC609400037B0B /* NNRequestViewCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE21623CC609400037B0B /* NNRequestViewCreater.swift */; };
-		14ADE21F23CC815100037B0B /* NNRequestViewCreaterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE21E23CC815100037B0B /* NNRequestViewCreaterDetail.swift */; };
+		14ADE21723CC609400037B0B /* NNRequestViewModelCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE21623CC609400037B0B /* NNRequestViewModelCreater.swift */; };
+		14ADE21F23CC815100037B0B /* NNRequestViewModelDetailCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE21E23CC815100037B0B /* NNRequestViewModelDetailCreater.swift */; };
 		14ADE22323CD673200037B0B /* NNViewControllerDetailCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE22223CD673200037B0B /* NNViewControllerDetailCreater.swift */; };
+		14ADE23523CDA13900037B0B /* NNRequestAPIDetailCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE23423CDA13900037B0B /* NNRequestAPIDetailCreater.swift */; };
 		14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0625423878FC60016EC8A /* TmpViewController.swift */; };
 		14D40A0622C3884900AF74B9 /* ProppertyLazyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */; };
 		14D40A0922C449B300AF74B9 /* NNPropertyInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0822C449B300AF74B9 /* NNPropertyInfoModel.m */; };
@@ -145,9 +146,10 @@
 		14ADE20D23C881FA00037B0B /* NNViewControllerCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNViewControllerCreater.swift; sourceTree = "<group>"; };
 		14ADE21323CC090F00037B0B /* NNClassInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNClassInfoModel.h; sourceTree = "<group>"; };
 		14ADE21423CC091000037B0B /* NNClassInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNClassInfoModel.m; sourceTree = "<group>"; };
-		14ADE21623CC609400037B0B /* NNRequestViewCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestViewCreater.swift; sourceTree = "<group>"; };
-		14ADE21E23CC815100037B0B /* NNRequestViewCreaterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestViewCreaterDetail.swift; sourceTree = "<group>"; };
+		14ADE21623CC609400037B0B /* NNRequestViewModelCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestViewModelCreater.swift; sourceTree = "<group>"; };
+		14ADE21E23CC815100037B0B /* NNRequestViewModelDetailCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestViewModelDetailCreater.swift; sourceTree = "<group>"; };
 		14ADE22223CD673200037B0B /* NNViewControllerDetailCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNViewControllerDetailCreater.swift; sourceTree = "<group>"; };
+		14ADE23423CDA13900037B0B /* NNRequestAPIDetailCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestAPIDetailCreater.swift; sourceTree = "<group>"; };
 		14C0625423878FC60016EC8A /* TmpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpViewController.swift; sourceTree = "<group>"; };
 		14D40A0422C3884900AF74B9 /* ProppertyLazyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProppertyLazyController.h; sourceTree = "<group>"; };
 		14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProppertyLazyController.m; sourceTree = "<group>"; };
@@ -406,8 +408,9 @@
 				14ADE22223CD673200037B0B /* NNViewControllerDetailCreater.swift */,
 				14D4ED4A23C9F36900B8BD16 /* NNViewCreater.swift */,
 				14D4ED4623C8AB4D00B8BD16 /* NNRequestAPICreater.swift */,
-				14ADE21623CC609400037B0B /* NNRequestViewCreater.swift */,
-				14ADE21E23CC815100037B0B /* NNRequestViewCreaterDetail.swift */,
+				14ADE23423CDA13900037B0B /* NNRequestAPIDetailCreater.swift */,
+				14ADE21623CC609400037B0B /* NNRequestViewModelCreater.swift */,
+				14ADE21E23CC815100037B0B /* NNRequestViewModelDetailCreater.swift */,
 				14F92C3522BB8DE800A5C5E4 /* Format */,
 				14F92C2622BB8DE500A5C5E4 /* Model */,
 			);
@@ -745,7 +748,7 @@
 				14F2F5AC22B8FD18009D49CE /* CollectionViewController.m in Sources */,
 				14F2F5B122B8FEE5009D49CE /* NSCTViewItemOne.m in Sources */,
 				14627D9D23C863DE00FE9918 /* BatchClassCreateController.swift in Sources */,
-				14ADE21F23CC815100037B0B /* NNRequestViewCreaterDetail.swift in Sources */,
+				14ADE21F23CC815100037B0B /* NNRequestViewModelDetailCreater.swift in Sources */,
 				1480B0E3238CC63900E24BDB /* MapViewController.swift in Sources */,
 				14F2F59D22B8DB3D009D49CE /* ThirdViewController.m in Sources */,
 				14F2F59322B8D826009D49CE /* NNTableRowView.m in Sources */,
@@ -758,6 +761,7 @@
 				14D4ED5223CA08F300B8BD16 /* NNRootModel.m in Sources */,
 				14F0FDD022AFA56900057093 /* OneWindowController.m in Sources */,
 				14D40A1222C4A6DA00AF74B9 /* AuthorInfoController.m in Sources */,
+				14ADE23523CDA13900037B0B /* NNRequestAPIDetailCreater.swift in Sources */,
 				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
 				1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */,
 				14A63DBC23AC63910015725A /* NSTableCellViewOne.swift in Sources */,
@@ -801,7 +805,7 @@
 				14F2F58D22B881C4009D49CE /* NSTextFieldCell+Hook.m in Sources */,
 				1445780F22BDF0520007C7B3 /* NNLanguageModel.m in Sources */,
 				14F0FDA622ADF20400057093 /* NSView+Hook.m in Sources */,
-				14ADE21723CC609400037B0B /* NNRequestViewCreater.swift in Sources */,
+				14ADE21723CC609400037B0B /* NNRequestViewModelCreater.swift in Sources */,
 				14F2F59622B8D9A2009D49CE /* MainViewController.m in Sources */,
 				1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */,
 				14F2F5B522B8FF98009D49CE /* NNCollectionView.m in Sources */,
