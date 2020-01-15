@@ -17,10 +17,9 @@ class NNViewControllerDetailCreater: NSObject {
         let prefix = name.getPrefix(with: ["ViewController", "Controller"])
         return """
 \(copyRight)
-
 import UIKit
 ///
-class \(prefix)Controller: UIViewController {
+@objcMembers class \(prefix)Controller: UIViewController {
 
     
     @objc var parkModel: IOPParkModel = IOPParkModel()
@@ -47,10 +46,10 @@ class \(prefix)Controller: UIViewController {
         let button = UIButton.create(.zero, title: "编辑", imgName: nil, type: 6)
         button.sizeToFit()
         button.addActionHandler({ (control) in
-            let controller = IOPParkEditController()
-            controller.rightBtn.isHidden = true
-            controller.dataModel = self.dataModel
-            self.navigationController?.pushViewController(controller, animated: true)
+//            let controller = IOPParkEditController()
+//            controller.rightBtn.isHidden = true
+//            controller.dataModel = self.dataModel
+//            self.navigationController?.pushViewController(controller, animated: true)
             
         }, for: .touchUpInside)
         return button
@@ -187,19 +186,19 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            let controller = IOPParkTagsController()
-            controller.parkModel = dataModel
-            navigationController?.pushViewController(controller, animated: true)
-        } else if indexPath.section == 2 {
-            let cellList: [String] = UITableView.sectionCellList(titles, indexPath: indexPath);
-            
-            guard let controller = UICtrFromString(cellList.last!) as? UIViewController else {
-                return
-            }
-            controller.setValue(dataModel, forKey: "parkModel")
-            navigationController?.pushViewController(controller, animated: true)
-        }
+//        if indexPath.section == 1 {
+//            let controller = IOPParkTagsController()
+//            controller.parkModel = dataModel
+//            navigationController?.pushViewController(controller, animated: true)
+//        } else if indexPath.section == 2 {
+//            let cellList: [String] = UITableView.sectionCellList(titles, indexPath: indexPath);
+//            
+//            guard let controller = UICtrFromString(cellList.last!) as? UIViewController else {
+//                return
+//            }
+//            controller.setValue(dataModel, forKey: "parkModel")
+//            navigationController?.pushViewController(controller, animated: true)
+//        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

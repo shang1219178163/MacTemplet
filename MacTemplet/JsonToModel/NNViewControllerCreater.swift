@@ -16,7 +16,6 @@ class NNViewControllerCreater: NSObject {
         let prefix = name.getPrefix(with: ["ViewController", "Controller"])
         return """
 \(copyRight)
-
 import UIKit
 ///
 

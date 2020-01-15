@@ -14,7 +14,6 @@ class NNRequestAPICreater: NSObject {
         let copyRight = NSApplication.getCopyright(with: name, type: type)
         return """
 \(copyRight)
-
 import UIKit
 
 ///

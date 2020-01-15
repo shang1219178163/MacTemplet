@@ -15,7 +15,6 @@ class NNViewCreater: NSObject {
         let copyRight = NSApplication.getCopyright(with: name, type: type)
         return """
 \(copyRight)
-
 import UIKit
 
 import SnapKit

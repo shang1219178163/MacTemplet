@@ -16,7 +16,6 @@ class NNRequestViewModelCreater: NSObject {
         let prefix = name.getPrefix(with: ["ViewModel",])
         return """
 \(copyRight)
-
 import UIKit
 import YYModel
 
@@ -77,7 +76,6 @@ import YYModel
         let prefix = name.getPrefix(with: ["ViewModel",])
         return """
 \(copyRight)
-
 #import <Foundation/Foundation.h>
 #import "\(prefix)RootModel.h"
 
@@ -116,7 +114,6 @@ NS_ASSUME_NONNULL_END
         let prefix = name.getPrefix(with: ["ViewModel",])
         return """
 \(copyRight)
-
 #import "\(prefix)ViewModel.h"
 #import "YYModel.h"
 
