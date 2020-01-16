@@ -17,8 +17,8 @@ class NNViewControllerCreater: NSObject {
         return """
 \(copyRight)
 import UIKit
+        
 ///
-
 @objcMembers class \(prefix)Controller: UIViewController{
     
     /// 数据请求返回
@@ -30,71 +30,24 @@ import UIKit
         viewModel.parController = self
         return viewModel
     }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
-        setupExtendedLayout()
-        title = "产品日志"
-        setupUI()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        searchBar.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(0);
-            make.left.equalToSuperview().offset(0);
-            make.right.equalToSuperview().offset(0);
-            make.height.equalTo(50);
-        }
-                
-        tbView.snp.makeConstraints { (make) in
-            make.top.equalTo(searchBar.snp.bottom).offset(0);
-            make.left.equalToSuperview().offset(0);
-            make.right.equalToSuperview().offset(0);
-            make.bottom.equalToSuperview().offset(0);
-        }
-        
-        searchBar.lineBottom.sizeWidth = kScreenWidth
-        searchBar.addSubview(searchBar.lineBottom)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated);
-        
-        tbView.mj_header.beginRefreshing()
-    }
-    
-        
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - funtions
-    func setupUI() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
-        
-        view.addSubview(searchBar);
-        view.addSubview(tipLab);
-        view.addSubview(tbView);
-                        
-        tbView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+    // MARK: - lazy
+    lazy var tableView: UITableView = {
+        let view: UITableView = UITableView.create(self.view.bounds, style: .plain, rowHeight: 60)
+        view.dataSource = self
+        view.delegate = self
+        self.view.addSubview(view)
+
+        view.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.viewModel.requestRefresh()
         });
         
-        tbView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
-            self.viewModel.requestNextPage()
+        view.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+            self.viewModel.requestRefresh()
         });
-    }
-
-    func requestForSearch(_ searchbar: UISearchBar) {
-        viewModel.listAPI.name = searchBar.text!;
-        tbView.mj_header.beginRefreshing();
-    }
-    
-    //MARK: -lazy
+        return view
+    }()
+        
     lazy var rightBtn: UIButton = {
         let button = UIButton.create(.zero, title: "保存", imgName: nil, type: 6)
         button.sizeToFit()
@@ -121,6 +74,64 @@ import UIKit
         view.delegate = self;
         return view
     }()
+    
+    // MARK: - lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupExtendedLayout()
+        title = ""
+        setupUI()
+        
+        tableView.mj_header.beginRefreshing()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        searchBar.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(0);
+            make.left.equalToSuperview().offset(0);
+            make.right.equalToSuperview().offset(0);
+            make.height.equalTo(50);
+        }
+                
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(searchBar.snp.bottom).offset(0);
+            make.left.equalToSuperview().offset(0);
+            make.right.equalToSuperview().offset(0);
+            make.bottom.equalToSuperview().offset(0);
+        }
+        
+        searchBar.lineBottom.sizeWidth = kScreenWidth
+        searchBar.addSubview(searchBar.lineBottom)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        
+    }
+        
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - funtions
+    func setupUI() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+        
+        view.addSubview(searchBar);
+        view.addSubview(tipLab);
+        view.addSubview(tableView);
+
+    }
+
+    func requestForSearch(_ searchbar: UISearchBar) {
+        viewModel.listAPI.name = searchBar.text!;
+        tableView.mj_header.beginRefreshing();
+    }
+
 
 }
 
@@ -167,7 +178,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.01;
+        return 10.01;
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -231,11 +242,11 @@ extension \(prefix)Controller: \(prefix)ViewModelDelegate{
 //            self.dataList.addObjects(from: self.dataModel.records)
             DispatchQueue.main.async {
                 IOPProgressHUD.dismiss()
-                self.tbView.mj_header.endRefreshing();
-                self.tbView.mj_footer.endRefreshing();
-                self.tbView.mj_footer.isHidden = !hasNextPage;
-                self.tbView.isHidden = (self.dataList.count <= 0);
-                self.tbView.reloadData();
+                self.tableView.mj_header.endRefreshing();
+                self.tableView.mj_footer.endRefreshing();
+                self.tableView.mj_footer.isHidden = !hasNextPage;
+                self.tableView.isHidden = (self.dataList.count <= 0);
+                self.tableView.reloadData();
             }
         }
     }

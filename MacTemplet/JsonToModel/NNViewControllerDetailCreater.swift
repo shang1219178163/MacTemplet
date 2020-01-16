@@ -18,6 +18,7 @@ class NNViewControllerDetailCreater: NSObject {
         return """
 \(copyRight)
 import UIKit
+
 ///
 @objcMembers class \(prefix)Controller: UIViewController {
 
@@ -25,7 +26,7 @@ import UIKit
     @objc var parkModel: IOPParkModel = IOPParkModel()
     @objc var dataModel: IOPParkModel = IOPParkModel(){
        didSet{
-           tbView.reloadData()
+           tableView.reloadData()
        }
    }
 
@@ -73,12 +74,10 @@ import UIKit
     
     // MARK: - funtions
     func setupUI() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
         
-        tbView.rowHeight = 50
-        view.addSubview(tbView)
-        
-        tbView.tableHeaderView = topView;
+        tableView.rowHeight = 50
+        view.addSubview(tableView)
     }
  
     func rowCount(_ section: Int) -> Int {
