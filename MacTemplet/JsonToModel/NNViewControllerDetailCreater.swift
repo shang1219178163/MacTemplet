@@ -42,6 +42,16 @@ import UIKit
         viewModel.parController = self
         return viewModel
     }()
+        
+    // MARK: - lazy
+    lazy var tableView: UITableView = {
+        let view: UITableView = UITableView.create(self.view.bounds, style: .plain, rowHeight: 60)
+        view.dataSource = self
+        view.delegate = self
+        self.view.addSubview(view)
+
+        return view
+    }()
     
     lazy var rightBtn: UIButton = {
         let button = UIButton.create(.zero, title: "编辑", imgName: nil, type: 6)
@@ -158,9 +168,9 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
             
         } else if indexPath.section == 2 {
             let cell = UITableViewCell.dequeueReusableCell(tableView)
-            cell.textLabel!.font = UIFont.systemFont(ofSize: 15)
-            cell.textLabel!.text = "--"
-            cell.textLabel!.textColor = UIColor.textColor3;
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
+            cell.textLabel?.text = "--"
+            cell.textLabel?.textColor = UIColor.textColor3;
             //
             let cellList: [String] = UITableView.sectionCellList(titles, indexPath: indexPath);
             cell.textLabel?.text = cellList.first

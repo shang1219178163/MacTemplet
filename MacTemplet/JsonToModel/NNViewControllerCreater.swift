@@ -89,6 +89,10 @@ import UIKit
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        if searchBar.isHidden {
+            return;
+        }
+        
         searchBar.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(0);
             make.left.equalToSuperview().offset(0);
@@ -120,6 +124,7 @@ import UIKit
     // MARK: - funtions
     func setupUI() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+//        rightBtn.isHidden = true;
         
         view.addSubview(searchBar);
         view.addSubview(tipLab);
@@ -152,17 +157,17 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell.cellWithTableView(tableView, identifier: "UITableViewCellSubtitle", style: .subtitle)
-        cell.textLabel!.font = UIFont.systemFont(ofSize: 15)
-        cell.textLabel!.text = "--"
-        cell.textLabel!.textColor = UIColor.textColor3;
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
+        cell.textLabel?.text = "--"
+        cell.textLabel?.textColor = UIColor.textColor3;
 
-        cell.detailTextLabel!.font = UIFont.systemFont(ofSize: 13)
+        cell.detailtextLabel?.font = UIFont.systemFont(ofSize: 13)
         cell.detailTextLabel?.text = "--"
         cell.detailTextLabel?.textColor = UIColor.textColor6;
         cell.accessoryType = .disclosureIndicator;
         
 //        guard let model = dataList[indexPath.row] as? IOPParkModel else { return cell; }
-//        cell.textLabel!.text = model.name
+//        cell.textLabel?.text = model.name
 //        cell.detailTextLabel?.text = model.statusDes
 //        cell.detailTextLabel?.textColor = model.statusDes == "已接入" ? UIColor.theme : UIColor.textColor9;
 

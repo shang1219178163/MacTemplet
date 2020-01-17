@@ -77,7 +77,7 @@ import YYModel
         return """
 \(copyRight)
 #import <Foundation/Foundation.h>
-#import "\(prefix)RootModel.h"
+#import "\(prefix)Model.h"
 
 @class \(prefix)Api, \(prefix)Controller;
 
@@ -149,7 +149,8 @@ NS_ASSUME_NONNULL_END
         if (self.delegate && [self.delegate respondsToSelector:@selector(requestWithModel:isRefresh:hasNextPage:)]) {
             [self.delegate requestWithModel:model isRefresh:isRefresh hasNextPage:hasNextPage];
         }
-        
+        [IOPProgressHUD dismiss];
+
     } failedBlock:^(__kindof IOPRequestManager *manager, IOPErrorModel *errorModel) {
         [IOPProgressHUD showErrorWithStatus:errorModel.debugDescription];
 //        if (self.parController && [self.parController respondsToSelector:@selector(requestDetailWithModel:isSuccess:)]) {
