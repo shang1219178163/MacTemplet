@@ -26,7 +26,7 @@ import YYModel
 @objcMembers class \(prefix)ViewModel: NSObject {
     
     @objc weak var delegate: \(prefix)ViewModelDelegate?
-    @objc weak var parController: \(prefix)Controlller?
+//    @objc weak var parController: \(prefix)Controlller?
 
     @objc lazy var listAPI: \(prefix)Api = {
         let api = \(prefix)Api()
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id <\(prefix)ViewModelDelegate>delegate;
 
-@property (nonatomic, weak) \(prefix)Controller *parController;
+//@property (nonatomic, weak) \(prefix)Controller *parController;
 
 - (void)requestRefresh;
 

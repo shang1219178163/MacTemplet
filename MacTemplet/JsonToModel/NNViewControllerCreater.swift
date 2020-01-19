@@ -27,7 +27,6 @@ import UIKit
     lazy var viewModel: \(prefix)ViewModel = {
         let viewModel = \(prefix)ViewModel()
         viewModel.delegate = self
-        viewModel.parController = self
         return viewModel
     }()
         
@@ -50,6 +49,7 @@ import UIKit
         
     lazy var rightBtn: UIButton = {
         let button = UIButton.create(.zero, title: "保存", imgName: nil, type: 6)
+        button.isHidden = true;
         button.sizeToFit()
         button.addActionHandler({ (control) in
             
@@ -123,8 +123,9 @@ import UIKit
     
     // MARK: - funtions
     func setupUI() {
+        view.backgroundColor = UIColor.white
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
-//        rightBtn.isHidden = true;
         
         view.addSubview(searchBar);
         view.addSubview(tipLab);

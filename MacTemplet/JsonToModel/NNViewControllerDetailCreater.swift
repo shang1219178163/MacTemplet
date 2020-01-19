@@ -39,7 +39,7 @@ import UIKit
     lazy var viewModel: \(prefix)ViewModel = {
         let viewModel = \(prefix)ViewModel()
         viewModel.delegate = self
-        viewModel.parController = self
+//        viewModel.parController = self
         return viewModel
     }()
         
@@ -55,6 +55,7 @@ import UIKit
     
     lazy var rightBtn: UIButton = {
         let button = UIButton.create(.zero, title: "编辑", imgName: nil, type: 6)
+        button.isHidden = true;
         button.sizeToFit()
         button.addActionHandler({ (control) in
 //            let controller = IOPParkEditController()
@@ -84,7 +85,8 @@ import UIKit
     
     // MARK: - funtions
     func setupUI() {
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+        view.backgroundColor = UIColor.white
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
         
         tableView.rowHeight = 50
         view.addSubview(tableView)
