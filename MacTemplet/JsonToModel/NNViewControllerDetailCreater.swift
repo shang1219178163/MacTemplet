@@ -23,8 +23,8 @@ import UIKit
 @objcMembers class \(prefix)Controller: UIViewController {
 
     
-    @objc var parkModel: IOPParkModel = IOPParkModel()
-    @objc var dataModel: IOPParkModel = IOPParkModel(){
+    @objc var parkModel: NSObject = NSObject()
+    @objc var dataModel: NSObject = NSObject(){
        didSet{
            tableView.reloadData()
        }
@@ -39,7 +39,7 @@ import UIKit
     lazy var viewModel: \(prefix)ViewModel = {
         let viewModel = \(prefix)ViewModel()
         viewModel.delegate = self
-//        viewModel.parController = self
+        
         return viewModel
     }()
         
@@ -232,7 +232,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
 
 extension \(prefix)Controller: \(prefix)ViewModelDelegate{
 
-    func request(with model: IOPParkModel) {
+    func request(with model: NSObject) {
         dataModel = model
     }
 }

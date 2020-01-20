@@ -26,7 +26,6 @@ import YYModel
 @objcMembers class \(prefix)ViewModel: NSObject {
     
     @objc weak var delegate: \(prefix)ViewModelDelegate?
-    @objc weak var parController: \(prefix)Controlller?
 
     @objc lazy var detailAPI: \(prefix)Api = {
         let api = \(prefix)Api()
@@ -67,7 +66,7 @@ import YYModel
 #import <Foundation/Foundation.h>
 #import "\(prefix)Model.h"
 
-@class \(prefix)Api, \(prefix)Controller;
+@class \(prefix)Api;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -82,8 +81,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) \(prefix)Api *detailAPI;
 
 @property (nonatomic, weak) id <\(prefix)ViewModelDelegate>delegate;
-
-//@property (nonatomic, weak) \(prefix)Controller *parController;
 
 - (void)requestInfo;
 
@@ -111,7 +108,6 @@ NS_ASSUME_NONNULL_END
 @implementation \(prefix)ViewModel
 
 - (void)requestInfo {
-    
     [IOPProgressHUD showWithStatus:kAPILoading];
     [self.detailAPI startRequestWithSuccessBlock:^(__kindof IOPRequestManager *manager, NSDictionary *jsonData) {
         \(prefix)RootModel *model = [\(prefix)RootModel yy_modelWithJSON:jsonData];
