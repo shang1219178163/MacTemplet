@@ -11,6 +11,7 @@
 		140D292E2317E8C200867785 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D292D2317E8C200867785 /* QuartzCore.framework */; };
 		140D294F23189D9600867785 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D294E23189D9600867785 /* Photos.framework */; };
 		14132978238559CE00E7AFCA /* NSTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14132977238559CE00E7AFCA /* NSTestViewController.m */; };
+		1430562B23E844D1001F051D /* NSApplication+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1430562A23E844D1001F051D /* NSApplication+Ext.m */; };
 		1445780022BCF50E0007C7B3 /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 144577FF22BCF50E0007C7B3 /* Const.m */; };
 		1445780322BDDAF90007C7B3 /* Swift-HandyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780222BDDAF90007C7B3 /* Swift-HandyJSON.json */; };
 		1445780522BDDB540007C7B3 /* ObjC-YYModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780422BDDB540007C7B3 /* ObjC-YYModel.json */; };
@@ -106,6 +107,8 @@
 		140D294E23189D9600867785 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		14132976238559CE00E7AFCA /* NSTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTestViewController.h; sourceTree = "<group>"; };
 		14132977238559CE00E7AFCA /* NSTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTestViewController.m; sourceTree = "<group>"; };
+		1430562923E844D1001F051D /* NSApplication+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSApplication+Ext.h"; sourceTree = "<group>"; };
+		1430562A23E844D1001F051D /* NSApplication+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSApplication+Ext.m"; sourceTree = "<group>"; };
 		144577FE22BCF50E0007C7B3 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		144577FF22BCF50E0007C7B3 /* Const.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
 		1445780222BDDAF90007C7B3 /* Swift-HandyJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Swift-HandyJSON.json"; sourceTree = "<group>"; };
@@ -359,6 +362,8 @@
 				1482F71722AB8BD400A7C5E1 /* AppDelegate.m */,
 				14F92C1322BB3ADC00A5C5E4 /* AppDelegate+Menu.h */,
 				14F92C1422BB3ADC00A5C5E4 /* AppDelegate+Menu.m */,
+				1430562923E844D1001F051D /* NSApplication+Ext.h */,
+				1430562A23E844D1001F051D /* NSApplication+Ext.m */,
 				14D40A0A22C462E200AF74B9 /* HomeViewController.h */,
 				14D40A0B22C462E200AF74B9 /* HomeViewController.m */,
 				14F92BE322BA124E00A5C5E4 /* MainWindowController.h */,
@@ -792,6 +797,7 @@
 				14F92CF722BC6E6C00A5C5E4 /* NoodleLineNumberView.m in Sources */,
 				1480B0F1238CEF7800E24BDB /* NNSwitchView.swift in Sources */,
 				14F92BDE22B9E75100A5C5E4 /* NNDialogWindowController.m in Sources */,
+				1430562B23E844D1001F051D /* NSApplication+Ext.m in Sources */,
 				14D4ED4723C8AB4D00B8BD16 /* NNRequestAPICreater.swift in Sources */,
 				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
 				14F92C0C22BB1AC700A5C5E4 /* NNGeneralConst.m in Sources */,
