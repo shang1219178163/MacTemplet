@@ -26,11 +26,13 @@
 #import "NNClassInfoModel.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import "NSApplication+Ext.h"
 
 #import <CocoaExpand-Swift.h>
 
 
 @interface JsonToModelController ()<NSTableViewDataSource, NSTableViewDelegate, NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>
+
 
 @property (nonatomic, strong) NNTextView *textView;
 @property (nonatomic, strong) NNTableView *tableView;
@@ -53,7 +55,7 @@
 @property (nonatomic, strong) NNClassInfoModel * classFileModel;
 @property (nonatomic, strong) NSMutableArray * dataList;
 
-@property (nonatomic, strong) NSArray * typeList;
+@property (nonatomic, strong) NSArray *typeList;
 
 @end
 
@@ -195,13 +197,12 @@
 #pragma mark - NSTableView
 //返回行数
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
-    BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
-    NSInteger count = isSwift ? 1 : 2;
+    NSInteger count = NSApplication.isSwift ? 1 : 2;
     return count;
 }
 
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
-    BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
+    BOOL isSwift = NSApplication.isSwift;
     
     CGFloat windowHeight = NSApplication.windowDefault.frame.size.height;
     CGFloat height = isSwift ? (windowHeight - 50 - 40) : (windowHeight- 50)*0.5;
@@ -212,7 +213,7 @@
 //// 使用自定义cell显示数据
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
 //    tableColumn.resizingMask = NSTableColumnAutoresizingMask;
-    NSInteger item = [tableView.tableColumns indexOfObject:tableColumn];
+    NSInteger columnIndex = [tableView.tableColumns indexOfObject:tableColumn];
     //获取表格列的标识符
     NSString *columnID = tableColumn.identifier;
     //    DDLog(@"columnID : %@ ,row : %@, item: %@",columnID, @(row), @(item));
@@ -220,6 +221,8 @@
     
     static NSString *identifier = @"NSTableCellViewTen";
     NSTableCellViewTen *cell = [NSTableCellViewTen makeViewWithTableView:tableView identifier:identifier owner:self];
+//    NSTableCellViewTen *cell = [tableView makeViewWithIdentifier:identifier owner:self];
+
     cell.checkBox.hidden = true;
     
     if (self.dataList.count == 0) {
@@ -227,7 +230,7 @@
     }
     NNClassInfoModel *classModel = self.dataList[row];
     
-    BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
+    BOOL isSwift = NSApplication.isSwift;
     if (!isSwift) {
         cell.textLabel.stringValue = [classModel.className stringByAppendingString:(row == 0) ? @".h" : @".m"];
         cell.textView.string = (row == 0) ? classModel.hContent : classModel.mContent;
@@ -237,7 +240,11 @@
         cell.textView.string = classModel.hContent;
         
     }
-//    [cell getViewLayer];
+    
+    DDLog(@"%p_%d_%@",cell, columnIndex, columnID);
+    cell.textLabel.backgroundColor = NSColor.background;
+
+    [cell getViewLayer];
     return cell;
 }
 
@@ -248,7 +255,7 @@
 //    return rowView;
 //}
 
-#pragma mark - 是否可以选中单元格
+// - 是否可以选中单元格
 -(BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row{
     //设置cell选中高亮颜色
     NSTableRowView *rowView = [tableView rowViewAtRow:row makeIfNecessary:NO];
@@ -398,7 +405,7 @@
         }
         
     } else {
-        bool isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
+        bool isSwift = NSApplication.isSwift;
         if (!isSwift) {
             NNClassInfoModel *classModel = self.dataList.firstObject;
             classModel.className = classInfo.className;
@@ -435,8 +442,8 @@
 - (void)creatFile{
     NNClassInfoModel *classModelH = self.dataList.firstObject;
     NNClassInfoModel *classModelM = self.dataList.lastObject;
-    NSString * hContent = classModelH.hContent;
-    NSString * mContent = classModelM.mContent;
+    NSString *hContent = classModelH.hContent;
+    NSString *mContent = classModelM.mContent;
     
     NSString *folderPath = [NSUserDefaults.standardUserDefaults valueForKey:kFolderPath];
     if (folderPath) {
@@ -503,7 +510,7 @@
             view.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;//行高亮的风格
 //            view.columnAutoresizingStyle = NSTableViewUniformColumnAutoresizingStyle;
 
-            [view addTableColumnWithTitles:@[@"columeOne",]];
+            [view addTableColumnWithTitles:@[@"colume0",]];
             if ([self conformsToProtocol:@protocol(NSTableViewDataSource)]) view.dataSource = self;
             if ([self conformsToProtocol:@protocol(NSTableViewDelegate)]) view.delegate = self;
             view.enclosingScrollView.hasHorizontalScroller = false;
