@@ -85,6 +85,10 @@
 //
 //    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
 //    DDLog(@"infoDict_%@", infoDict);
+    
+    NSString *one = nil;
+    NSString *two = @"";
+    DDLog(@"%@_%@", @(one.length), @(two.length));
 
 }
 
