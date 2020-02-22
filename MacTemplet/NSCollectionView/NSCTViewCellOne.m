@@ -35,7 +35,7 @@
     [super viewDidLayout];
     
     if (CGRectEqualToRect(CGRectZero, self.view.bounds)) {
-        return
+        return;
     }
     
     CGFloat gap = 10;
