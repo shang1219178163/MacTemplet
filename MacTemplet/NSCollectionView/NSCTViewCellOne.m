@@ -34,6 +34,10 @@
 - (void)viewDidLayout{
     [super viewDidLayout];
     
+    if (CGRectEqualToRect(CGRectZero, self.view.bounds)) {
+        return
+    }
+    
     CGFloat gap = 10;
     CGFloat padding = 8;
 
