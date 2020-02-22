@@ -35,6 +35,10 @@
 - (void)layout{
     [super layout];
     
+    if (CGRectEqualToRect(CGRectZero, self.bounds)) {
+        return
+    }
+    
     CGSize checkBoxSize = [self.checkBox sizeThatFits:CGSizeMake(100, 30)];
     if (CGRectGetHeight(self.bounds) <= checkBoxSize.height) {
         return;
