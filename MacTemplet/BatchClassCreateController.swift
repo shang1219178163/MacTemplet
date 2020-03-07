@@ -32,7 +32,7 @@ class BatchClassCreateController: NSViewController {
         let view = NSPopUpButton(frame: .zero, pullsDown: false)
         view.autoenablesItems = false
         
-        let list = ["list", "detail"]
+        let list = ["list", "detail", "update"]
         view.addItems(withTitles: list)
         view.addActionHandler { (control) in
             NSApp.mainWindow?.makeFirstResponder(nil)
@@ -194,7 +194,7 @@ class BatchClassCreateController: NSViewController {
                 
             case 2: // 创建 API 类
                 if !name.lowercased().hasSuffix("api") {
-                    _ = NSAlert.show("错误", msg: "必须包含 api 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
+                    _ = NSAlert.show("错误", msg: "必须包含 API/Api 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
                     return
                 }
                 createAPIFiles(name, btnPop: btnPopCategory, type: type)
@@ -232,6 +232,15 @@ class BatchClassCreateController: NSViewController {
 //                resultM = NNViewControllerDetailCreater.getContentM(with: string)
 //                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
 //                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
+            }
+            
+        case btnPop.itemTitles[2]:
+            if type == "swift" {
+                result = NNRequestAPIUpdateCreater.getContent(with: string, type: type)
+                FileManager.createFile(content: result, name: string, type: type, isCover: true, openDir: true)
+                
+            } else if type == "objc"  {
+
             }
             
         default:
