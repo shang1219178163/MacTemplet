@@ -76,9 +76,9 @@ import YYModel
         return """
 \(copyRight)
 #import <Foundation/Foundation.h>
-#import "\(prefix)Model.h"
+#import "\(prefix)RootModel.h"
 
-@class \(prefix)Api;
+@class \(prefix)ListAPI, \(prefix)DetailAPI;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -90,13 +90,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface \(prefix)ViewModel : NSObject
 
-@property (nonatomic, strong) \(prefix)Api *listAPI;
+@property (nonatomic, strong) \(prefix)ListAPI *listAPI;
 
+@property (nonatomic, strong) \(prefix)DetailAPI *detailAPI;
+        
 @property (nonatomic, weak) id <\(prefix)ViewModelDelegate>delegate;
 
 - (void)requestRefresh;
 
 - (void)requestNextPage;
+
+/// 获取列表
+- (void)requestListWithRefresh:(BOOL)refresh
+                       success:(void(^)(NSArray<NSObject *> *, BOOL, BOOL))success
+                       failure:(void(^)(NSString *))failure;
+/// 获取详情
+- (void)requestDetailWithHandler:(void(^)(NSObject *))handler;
 
 @end
 
@@ -136,7 +145,7 @@ NS_ASSUME_NONNULL_END
     [self.listAPI startRequestWithSuccessBlock:^(__kindof IOPRequestManager *manager, NSDictionary *jsonData) {
         \(prefix)RootModel *model = [\(prefix)RootModel yy_modelWithJSON:jsonData];
         if (!model) {
-            [IOPProgressHUD showErrorWithStatus:@"数据错误"];
+            [IOPProgressHUD showErrorWithStatus:@"数据错误,请稍后重试"];
             return ;
         }
         
@@ -154,14 +163,76 @@ NS_ASSUME_NONNULL_END
 //         }
     }];
 }
+        
+- (void)requestListWithRefresh:(BOOL)refresh
+                       success:(void(^)(\(prefix)RootModel *, BOOL, BOOL))success
+                       failure:(void(^)(NSString *))failure{
+    if (refresh) {
+        [self.listAPI.pageModel turnToFirstPage];
+    } else {
+        [self.listAPI.pageModel turnToNextPage];
+    }
+    [self.listAPI startRequestWithSuccessBlock:^(__kindof IOPRequestManager *manager, NSDictionary *jsonData) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            \(prefix)RootModel *model = [\(prefix)RootModel yy_modelWithJSON:jsonData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (!model) {
+                    [IOPProgressHUD showErrorWithStatus:@"数据错误,请稍后重试"];
+                    return ;
+                }
+            });
+            BOOL isRefresh = self.listAPI.pageModel.currPage == self.listAPI.pageModel.firstPage;
+            BOOL hasMore = model.list.count == self.listAPI.pageModel.perPageCounts;
+            if (success) {
+                success(model, isRefresh, hasMore);
+            }
+        });
 
+    } failedBlock:^(__kindof IOPRequestManager *manager, IOPErrorModel *errorModel) {
+        [IOPProgressHUD showErrorWithStatus:errorModel.debugDescription];
+        if (failure) {
+            failure(errorModel.debugDescription);
+        }
+    }];
+}
+
+- (void)requestDetailWithHandler:(void(^)(NSObject *))handler{
+//    [IOPProgressHUD showWithStatus:kAPILoading];
+    [self.detailAPI startRequestWithSuccessBlock:^(__kindof IOPRequestManager *manager, NSDictionary *jsonData) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            \(prefix)DetailModel *model = [\(prefix)DetailModel yy_modelWithJSON:jsonData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (!model) {
+                    [IOPProgressHUD showErrorWithStatus:kAPIFail];
+                    return ;
+                }
+                if (handler) {
+                    handler(model);
+                }
+                [IOPProgressHUD dismiss];
+            });
+        });
+
+    } failedBlock:^(__kindof IOPRequestManager *manager, IOPErrorModel *errorModel) {
+        [IOPProgressHUD showErrorWithStatus:errorModel.debugDescription];
+    }];
+}
+        
+        
 #pragma mark - lazy
 
-- (\(prefix)Api *)listAPI{
+- (\(prefix)API *)listAPI{
     if (!_listAPI) {
-        _listAPI = [[\(prefix)Api alloc]init];
+        _listAPI = [[\(prefix)ListAPI alloc]init];
     }
     return _listAPI;
+}
+        
+- (\(prefix)DetailAPI *)detailAPI{
+    if (!_detailAPI) {
+        _detailAPI = [[\(prefix)DetailAPI alloc]init];
+    }
+    return _detailAPI;
 }
 
 @end
