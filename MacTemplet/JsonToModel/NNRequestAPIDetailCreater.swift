@@ -16,7 +16,7 @@ class NNRequestAPIDetailCreater: NSObject {
 \(copyRight)
 import UIKit
 
-///
+/// 详情
 @objcMembers class \(name): IOPBaseAPIManager {
     
     @objc var parkCode: String = ""

@@ -16,13 +16,11 @@ class NNRequestAPICreater: NSObject {
 \(copyRight)
 import UIKit
 
-///
+/// 列表
 @objcMembers class \(name): IOPBaseAPIManager {
     
     @objc var name: String = ""
-        
-    @objc var dataModel: IOPDataModel = IOPDataModel()
-
+    
     @objc var pageModel: IOPPageModel = IOPPageModel(perPageCounts: UInt(IOPDataConstansPageSize))
 
     override func requestURI() -> String {
@@ -49,15 +47,6 @@ import UIKit
 //        }
         return true;
     }
-}
-
-/// 注册数据模型
-@objcMembers class IOPDataModel: NSObject {
-    @objc var name: String = ""
-    @objc var password: String = ""
-    @objc var phone: String = ""
-    @objc var code: String = ""
-    
 }
 
 """
