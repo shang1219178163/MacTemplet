@@ -78,7 +78,7 @@ import YYModel
 #import <Foundation/Foundation.h>
 #import "\(prefix)RootModel.h"
 
-@class \(prefix)ListAPI, \(prefix)DetailAPI;
+@class \(prefix)ListAPI, \(prefix)DetailAPI, \(prefix)AddAPI, \(prefix)DeleteAPI, \(prefix)UpdateAPI;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -93,6 +93,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) \(prefix)ListAPI *listAPI;
 
 @property (nonatomic, strong) \(prefix)DetailAPI *detailAPI;
+/// 添加/创建
+@property (nonatomic, strong) \(prefix)AddAPI *addAPI;
+/// 删除
+@property (nonatomic, strong) \(prefix)DeleteAPI *deleteAPI;
+/// 修改
+@property (nonatomic, strong) \(prefix)UpdateAPI *updateAPI;
         
 @property (nonatomic, weak) id <\(prefix)ViewModelDelegate>delegate;
 
@@ -106,6 +112,12 @@ NS_ASSUME_NONNULL_BEGIN
                        failure:(void(^)(NSString *))failure;
 /// 获取详情
 - (void)requestDetailWithHandler:(void(^)(NSObject *))handler;
+/// 请求添加
+- (void)requestAddWithHandler:(void(^)(NSDictionary *))handler;
+/// 请求删除
+- (void)requestDeleteWithHandler:(void(^)(NSDictionary *))handler;
+/// 请求更新
+- (void)requestUpdateWithHandler:(void(^)(NSDictionary *))handler;
 
 @end
 
@@ -217,7 +229,57 @@ NS_ASSUME_NONNULL_END
         [IOPProgressHUD showErrorWithStatus:errorModel.debugDescription];
     }];
 }
-        
+
+- (void)requestAddWithHandler:(void(^)(NSDictionary *))handler{
+//    [IOPProgressHUD showWithStatus:kAPILoading];
+    [self.addAPI startRequestWithSuccessBlock:^(__kindof IOPRequestManager *manager, NSDictionary *jsonData) {
+        if (!jsonData) {
+            [IOPProgressHUD showErrorWithStatus:kAPIFail];
+            return ;
+        }
+        if (handler) {
+            handler(jsonData);
+        }
+        [IOPProgressHUD dismiss];
+     
+    } failedBlock:^(__kindof IOPRequestManager *manager, IOPErrorModel *errorModel) {
+        [IOPProgressHUD showErrorWithStatus:errorModel.debugDescription];
+    }];
+}
+
+- (void)requestDeleteWithHandler:(void(^)(NSDictionary *))handler{
+//    [IOPProgressHUD showWithStatus:kAPILoading];
+    [self.deleteAPI startRequestWithSuccessBlock:^(__kindof IOPRequestManager *manager, NSDictionary *jsonData) {
+        if (!jsonData) {
+            [IOPProgressHUD showErrorWithStatus:kAPIFail];
+            return ;
+        }
+        if (handler) {
+            handler(jsonData);
+        }
+        [IOPProgressHUD dismiss];
+
+    } failedBlock:^(__kindof IOPRequestManager *manager, IOPErrorModel *errorModel) {
+        [IOPProgressHUD showErrorWithStatus:errorModel.debugDescription];
+    }];
+}
+
+- (void)requestUpdateWithHandler:(void(^)(NSDictionary *))handler{
+//    [IOPProgressHUD showWithStatus:kAPILoading];
+    [self.updateAPI startRequestWithSuccessBlock:^(__kindof IOPRequestManager *manager, NSDictionary *jsonData) {
+        if (!jsonData) {
+            [IOPProgressHUD showErrorWithStatus:kAPIFail];
+            return ;
+        }
+        if (handler) {
+            handler(jsonData);
+        }
+        [IOPProgressHUD dismiss];
+
+    } failedBlock:^(__kindof IOPRequestManager *manager, IOPErrorModel *errorModel) {
+        [IOPProgressHUD showErrorWithStatus:errorModel.debugDescription];
+    }];
+}
         
 #pragma mark - lazy
 
@@ -233,6 +295,28 @@ NS_ASSUME_NONNULL_END
         _detailAPI = [[\(prefix)DetailAPI alloc]init];
     }
     return _detailAPI;
+}
+        
+- (\(prefix)AddAPI *)addAPI{
+    if (!_addAPI) {
+        _addAPI = [[\(prefix)AddAPI alloc]init];
+    }
+    return _addAPI;
+}
+
+
+- (\(prefix)DeleteAPI *)deleteAPI{
+    if (!_deleteAPI) {
+        _deleteAPI = [[\(prefix)DeleteAPI alloc]init];
+    }
+    return _deleteAPI;
+}
+
+- (\(prefix)UpdateAPI *)updateAPI{
+    if (!_updateAPI) {
+        _updateAPI = [[\(prefix)UpdateAPI alloc]init];
+    }
+    return _updateAPI;
 }
 
 @end
