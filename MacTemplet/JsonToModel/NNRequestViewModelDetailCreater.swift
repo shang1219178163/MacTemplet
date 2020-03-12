@@ -122,7 +122,7 @@ NS_ASSUME_NONNULL_END
         [IOPProgressHUD dismiss];
 
     } failedBlock:^(__kindof IOPRequestManager *manager, IOPErrorModel *errorModel) {
-        [IOPProgressHUD showErrorWithStatus:errorModel.debugDescription];
+        [IOPProgressHUD showErrorWithStatus:errorModel.message];
 //        if (self.parController && [self.parController respondsToSelector:@selector(requestDetailWithModel:isSuccess:)]) {
 //             [self.parController requestDetailWithModel:nil isSuccess:false];
 //         }
