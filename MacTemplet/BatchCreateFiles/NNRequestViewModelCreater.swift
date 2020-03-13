@@ -90,17 +90,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface \(prefix)ViewModel : NSObject
 
-@property (nonatomic, strong) \(prefix)ListAPI *listAPI;
+@property(nonatomic, strong) \(prefix)ListAPI *listAPI;
 
-@property (nonatomic, strong) \(prefix)DetailAPI *detailAPI;
+@property(nonatomic, strong) \(prefix)DetailAPI *detailAPI;
 /// 添加/创建
-@property (nonatomic, strong) \(prefix)AddAPI *addAPI;
+@property(nonatomic, strong) \(prefix)AddAPI *addAPI;
 /// 删除
-@property (nonatomic, strong) \(prefix)DeleteAPI *deleteAPI;
+@property(nonatomic, strong) \(prefix)DeleteAPI *deleteAPI;
 /// 修改
-@property (nonatomic, strong) \(prefix)UpdateAPI *updateAPI;
+@property(nonatomic, strong) \(prefix)UpdateAPI *updateAPI;
         
-@property (nonatomic, weak) id <\(prefix)ViewModelDelegate>delegate;
+@property(nonatomic, weak) id <\(prefix)ViewModelDelegate>delegate;
 
 - (void)requestRefresh;
 

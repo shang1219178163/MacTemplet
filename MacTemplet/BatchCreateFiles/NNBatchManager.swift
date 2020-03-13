@@ -21,32 +21,35 @@ class NNBatchManager: NSObject {
     /// 生成UIView文件
     static func createUIViewFiles(_ name: String,  type: String = "swift") {
         var result = ""
+        var resultM = ""
+
         if type.capitalized == "Swift" {
             result = NNViewCreater.getContent(with: name, type: type)
             FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
 
         } else if type.capitalized == "Objc" {
-//            result = NNViewCreater.getContentH(with: string)
-//            resultM = NNViewCreater.getContentM(with: string)
-//            FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
-//            FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
+            result = NNViewCreater.getContentH(with: name)
+            resultM = NNViewCreater.getContentM(with: name)
+            FileManager.createFile(content: result, name: name, type: "h", isCover: true, openDir: true)
+            FileManager.createFile(content: resultM, name: name, type: "m", isCover: true, openDir: true)
         }
     }
     
     /// 生成UIViewController文件
     static func createControllerFiles(_ name: String, type: String = "swift") {
         var result = ""
-        
+        var resultM = ""
+
         if name.contains("List") {
             if type.capitalized == "Swift" {
                 result = NNViewControllerListCreater.getContent(with: name, type: type)
                 FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
                 
             } else if type.capitalized == "Objc"  {
-//                result = NNViewControllerListCreater.getContentH(with: string)
-//                resultM = NNViewControllerListCreater.getContentM(with: string)
-//                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
-//                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
+                result = NNViewControllerCreater.getContentH(with: name)
+                resultM = NNViewControllerCreater.getContentM(with: name)
+                FileManager.createFile(content: result, name: name, type: "h", isCover: true, openDir: true)
+                FileManager.createFile(content: resultM, name: name, type: "m", isCover: true, openDir: true)
             }
             
         } else if name.contains("Detail") {
@@ -55,10 +58,10 @@ class NNBatchManager: NSObject {
                 FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
                 
             } else if type.capitalized == "Objc" {
-//                result = NNViewControllerDetailCreater.getContentH(with: string)
-//                resultM = NNViewControllerDetailCreater.getContentM(with: string)
-//                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
-//                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
+                result = NNViewControllerCreater.getContentH(with: name)
+                resultM = NNViewControllerCreater.getContentM(with: name)
+                FileManager.createFile(content: result, name: name, type: "h", isCover: true, openDir: true)
+                FileManager.createFile(content: resultM, name: name, type: "m", isCover: true, openDir: true)
             }
         } else if name.contains("Entry") {
             if type.capitalized == "Swift" {
@@ -66,10 +69,10 @@ class NNBatchManager: NSObject {
                 FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
                 
             } else if type.capitalized == "Objc" {
-//                result = NNViewControllerEntryCreater.getContentH(with: string)
-//                resultM = NNViewControllerEntryCreater.getContentM(with: string)
-//                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
-//                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
+                result = NNViewControllerCreater.getContentH(with: name)
+                resultM = NNViewControllerCreater.getContentM(with: name)
+                FileManager.createFile(content: result, name: name, type: "h", isCover: true, openDir: true)
+                FileManager.createFile(content: resultM, name: name, type: "m", isCover: true, openDir: true)
             }
         } else {
             if type.capitalized == "Swift" {
@@ -77,10 +80,10 @@ class NNBatchManager: NSObject {
                 FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
                 
             } else if type.capitalized == "Objc" {
-//                result = NNViewControllerEntryCreater.getContentH(with: string)
-//                resultM = NNViewControllerEntryCreater.getContentM(with: string)
-//                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
-//                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
+                result = NNViewControllerCreater.getContentH(with: name)
+                resultM = NNViewControllerCreater.getContentM(with: name)
+                FileManager.createFile(content: result, name: name, type: "h", isCover: true, openDir: true)
+                FileManager.createFile(content: resultM, name: name, type: "m", isCover: true, openDir: true)
             }
             
         }
@@ -106,17 +109,18 @@ class NNBatchManager: NSObject {
     /// 生成UIViewController文件
     static func createAPIFiles(_ name: String, type: String = "swift") {
         var result = ""
-        
+        var resultM = ""
+
         if name.contains("List") {
             if type.capitalized == "Swift" {
                 result = NNRequestAPIListCreater.getContent(with: name, type: type)
                 FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
                 
             } else if type.capitalized == "Objc"  {
-//                result = NNRequestAPIListCreater.getContentH(with: name)
-//                resultM = NNRequestAPIListCreater.getContentM(with: name)
-//                FileManager.createFile(content: result, name: name, type: "h", isCover: true, openDir: true)
-//                FileManager.createFile(content: resultM, name: name, type: "m", isCover: true, openDir: true)
+                result = NNRequestAPICreater.getContentH(with: name)
+                resultM = NNRequestAPICreater.getContentM(with: name)
+                FileManager.createFile(content: result, name: name, type: "h", isCover: true, openDir: true)
+                FileManager.createFile(content: resultM, name: name, type: "m", isCover: true, openDir: true)
             }
             
         } else if name.contains("Detail") {
@@ -125,10 +129,10 @@ class NNBatchManager: NSObject {
                 FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
                 
             } else if type.capitalized == "Objc"  {
-//                result = NNRequestAPIDetailCreater.getContentH(with: string)
-//                resultM = NNRequestAPIDetailCreater.getContentM(with: string)
-//                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
-//                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
+                result = NNRequestAPICreater.getContentH(with: name)
+                resultM = NNRequestAPICreater.getContentM(with: name)
+                FileManager.createFile(content: result, name: name, type: "h", isCover: true, openDir: true)
+                FileManager.createFile(content: resultM, name: name, type: "m", isCover: true, openDir: true)
             }
             
         } else if name.contains("Add") {
@@ -137,10 +141,10 @@ class NNBatchManager: NSObject {
                 FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
                 
             } else if type.capitalized == "Objc"  {
-//                result = NNRequestAPIUpdateCreater.getContentH(with: string)
-//                resultM = NNRequestAPIUpdateCreater.getContentM(with: string)
-//                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
-//                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
+                result = NNRequestAPICreater.getContentH(with: name)
+                resultM = NNRequestAPICreater.getContentM(with: name)
+                FileManager.createFile(content: result, name: name, type: "h", isCover: true, openDir: true)
+                FileManager.createFile(content: resultM, name: name, type: "m", isCover: true, openDir: true)
             }
         } else if name.contains("Update") {
             if type.capitalized == "Swift" {
@@ -148,10 +152,10 @@ class NNBatchManager: NSObject {
                 FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
                 
             } else if type.capitalized == "Objc"  {
-//                result = NNRequestAPIUpdateCreater.getContentH(with: string)
-//                resultM = NNRequestAPIUpdateCreater.getContentM(with: string)
-//                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
-//                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
+                result = NNRequestAPICreater.getContentH(with: name)
+                resultM = NNRequestAPICreater.getContentM(with: name)
+                FileManager.createFile(content: result, name: name, type: "h", isCover: true, openDir: true)
+                FileManager.createFile(content: resultM, name: name, type: "m", isCover: true, openDir: true)
             }
         } else if name.contains("Delete") {
             if type.capitalized == "Swift" {
@@ -159,12 +163,22 @@ class NNBatchManager: NSObject {
                 FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
                 
             } else if type.capitalized == "Objc"  {
-//                result = NNRequestAPIUpdateCreater.getContentH(with: string)
-//                resultM = NNRequestAPIUpdateCreater.getContentM(with: string)
-//                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
-//                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
+                result = NNRequestAPICreater.getContentH(with: name)
+                resultM = NNRequestAPICreater.getContentM(with: name)
+                FileManager.createFile(content: result, name: name, type: "h", isCover: true, openDir: true)
+                FileManager.createFile(content: resultM, name: name, type: "m", isCover: true, openDir: true)
+            }
+        } else {
+            if type.capitalized == "Swift" {
+                result = NNRequestAPICreater.getContent(with: name, type: type)
+                FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
+                
+            } else if type.capitalized == "Objc"  {
+                result = NNRequestAPICreater.getContentH(with: name)
+                resultM = NNRequestAPICreater.getContentM(with: name)
+                FileManager.createFile(content: result, name: name, type: "h", isCover: true, openDir: true)
+                FileManager.createFile(content: resultM, name: name, type: "m", isCover: true, openDir: true)
             }
         }
-    
     }
 }

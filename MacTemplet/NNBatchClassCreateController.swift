@@ -139,12 +139,7 @@ class NNBatchClassCreateController: NSViewController {
                     _ = NSAlert.show("错误", msg: "自定义视图必须包含 View 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
                     return
                 }
-                
-                if type == "swift" {
-                    result = NNViewCreater.getContent(with: name, type: type)
-                    FileManager.createFile(content: result, name: name, type: type, isCover: true, openDir: true)
-                    break
-                }
+                NNBatchManager.createUIViewFiles(name, type: type)
                 
             case 2: // 创建 API 类
                 if !name.lowercased().hasSuffix("api") {

@@ -60,4 +60,71 @@ import UIKit
 
 """
     }
+    
+    /// 获取.h类内容
+    static func getContentH(with name: String) -> String {
+        let copyRight = NSApplication.getCopyright(with: name, type: "h")
+        let prefix = name.getPrefix(with: ["ViewController", "Controller"])
+        return """
+\(copyRight)
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface \(prefix)Controller : UIViewController
+
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+"""
+    }
+    
+    /// 获取.h类内容
+    static func getContentM(with name: String) -> String {
+        let copyRight = NSApplication.getCopyright(with: name, type: "m")
+        let prefix = name.getPrefix(with: ["ViewController", "Controller"])
+        return """
+\(copyRight)
+#import "\(prefix)Controller.h"
+
+
+@interface \(prefix)Controller ()
+
+
+@end
+
+@implementation \(prefix)Controller
+
+#pragma mark --lifecycle
+        
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+        
+}
+        
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+        
+}
+        
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+        
+}
+        
+    
+#pragma mark -funtions
+        
+        
+#pragma mark -lazy
+    
+
+@end
+
+"""
+    }
+
 }

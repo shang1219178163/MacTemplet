@@ -99,4 +99,74 @@ class \(name): UIView {
 
 """
     }
+    /// 获取.h类内容
+    static func getContentH(with name: String) -> String {
+        let copyRight = NSApplication.getCopyright(with: name, type: "h")
+        let prefix = name.getPrefix(with: ["View",])
+        return """
+\(copyRight)
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface \(prefix)View : UIView
+
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+"""
+    }
+    
+    /// 获取.h类内容
+    static func getContentM(with name: String) -> String {
+        let copyRight = NSApplication.getCopyright(with: name, type: "m")
+        let prefix = name.getPrefix(with: ["View",])
+        return """
+\(copyRight)
+#import "\(prefix)View.h"
+
+
+@interface \(prefix)View ()
+
+
+@end
+
+@implementation \(prefix)View
+
+#pragma mark --Dealloc
+- (void)dealloc{
+
+}
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+
+        
+    }
+    return self;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+
+    if (self.bounds.size.height <= 0) {
+        return
+    }
+    
+}
+        
+#pragma mark -funtions
+        
+        
+#pragma mark -lazy
+    
+
+@end
+
+"""
+    }
+
 }
