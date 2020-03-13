@@ -1,29 +1,27 @@
 //
-//  NNRequestAPIUpdateCreater.swift
+//  NNRequestAPIDeleteCreater.swift
 //  MacTemplet
 //
-//  Created by Bin Shang on 2020/3/7.
+//  Created by Bin Shang on 2020/3/13.
 //  Copyright © 2020 Bin Shang. All rights reserved.
 //
 
 import Cocoa
 
-/// 修改
-class NNRequestAPIUpdateCreater: NSObject {
-
+/// 删除
+class NNRequestAPIDeleteCreater: NSObject {
+    
     static func getContent(with name: String, type: String) -> String {
         let copyRight = NSApplication.getCopyright(with: name, type: type)
         return """
 \(copyRight)
 import UIKit
 
-/// 修改
+/// 删除
 @objcMembers class \(name): IOPBaseAPIManager {
     
-    @objc var ID: String = ""
+    @objc var parkCode: String = ""
         
-    @objc var dataModel = NSObject()
-
     override func requestURI() -> String {
         return ""
     }
@@ -33,15 +31,16 @@ import UIKit
     }
     
     override func reformerParams() -> [AnyHashable : Any] {
-        let params: [AnyHashable : Any] = ["id": ID,
+        let params: [AnyHashable : Any] = ["parkCode" : parkCode,
+
 
         ]
         return params
     }
     
     override func validateParamsData() -> Bool {
-//        if ID.count < 4 {
-//            IOPProgressHUD.showText("ID不能为空")
+//        if parkCode.count < 4 {
+//            IOPProgressHUD.showText("不能为空")
 //            return false;
 //        }
         return true;
@@ -51,3 +50,4 @@ import UIKit
 """
     }
 }
+

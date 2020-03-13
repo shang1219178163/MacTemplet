@@ -8,6 +8,7 @@
 
 import Cocoa
 
+/// 自定义视图
 class NNViewCreater: NSObject {
 
     /// 获取类内容
@@ -39,18 +40,22 @@ class \(name): UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-    
+        
+        if bounds.height <= 0.0 {
+            return;
+        }
+        
         
     }
     
     // MARK: - funtions
-    func block(_ action:@escaping ViewClick) {
+    func block(_ action: @escaping ViewClick) {
         self.viewBlock = action;
     }
     
         
     //MARK: - lazy
-    lazy var btnCancell:UIButton = {
+    lazy var btnCancell: UIButton = {
         let view = UIButton(type: .custom);
         view.tag = 0;
         
@@ -67,7 +72,7 @@ class \(name): UIView {
         return view;
     }();
     
-    lazy var label:UILabel = {
+    lazy var label: UILabel = {
         let view = UILabel(frame: .zero);
         view.text = "请选择";
         view.textColor = UIColor.gray;
@@ -75,7 +80,7 @@ class \(name): UIView {
         return view;
     }();
     
-    lazy var btnSure:UIButton = {
+    lazy var btnSure: UIButton = {
         let view = UIButton(type: .custom);
         view.tag = 1;
         

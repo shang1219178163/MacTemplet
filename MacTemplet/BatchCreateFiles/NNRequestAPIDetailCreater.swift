@@ -8,6 +8,7 @@
 
 import Cocoa
 
+/// 详情
 class NNRequestAPIDetailCreater: NSObject {
     
     static func getContent(with name: String, type: String) -> String {
@@ -38,8 +39,8 @@ import UIKit
     }
     
     override func validateParamsData() -> Bool {
-//        if name.count < 4 {
-//            IOPProgressHUD.showText("用户名必须大于等于4位")
+//        if parkCode.count < 4 {
+//            IOPProgressHUD.showText("不能为空")
 //            return false;
 //        }
         return true;

@@ -8,7 +8,8 @@
 
 import Cocoa
 
-class NNViewControllerCreater: NSObject {
+/// 列表
+class NNViewControllerListCreater: NSObject {
 
     /// 获取类内容
     static func getContent(with name: String, type: String) -> String {

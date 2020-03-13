@@ -134,10 +134,10 @@ class BatchClassCreateController: NSViewController {
         
         DDLog(NSApplication.getCopyright(with: "IOPParkListController", type: "swift"))
         
-        let result = NNViewControllerCreater.getContent(with: "IOPParkListController", type: "swift")
+        let result = NNViewControllerListCreater.getContent(with: "IOPParkListController", type: "swift")
         FileManager.createFile(content: result, name: "IOPParkListController", type: "swift", isCover: true, openDir: true)
         
-        let resultAPI = NNRequestAPICreater.getContent(with: "IOPSaasRegisterApi", type: "swift")
+        let resultAPI = NNRequestAPIListCreater.getContent(with: "IOPSaasRegisterApi", type: "swift")
         FileManager.createFile(content: resultAPI, name: "IOPSaasRegisterApi", type: "swift", isCover: true, openDir: true)
         
         var name = "IOPParkListController"
@@ -245,12 +245,12 @@ class BatchClassCreateController: NSViewController {
             
         default:
             if type == "swift" {
-                result = NNRequestAPICreater.getContent(with: string, type: type)
+                result = NNRequestAPIListCreater.getContent(with: string, type: type)
                 FileManager.createFile(content: result, name: string, type: type, isCover: true, openDir: true)
                 
             } else if type == "objc"  {
-//                result = NNViewControllerCreater.getContentH(with: string)
-//                resultM = NNViewControllerCreater.getContentM(with: string)
+//                result = NNViewControllerListCreater.getContentH(with: string)
+//                resultM = NNViewControllerListCreater.getContentM(with: string)
 //                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
 //                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
             }
@@ -277,12 +277,12 @@ class BatchClassCreateController: NSViewController {
             
         default:
             if type == "swift" {
-                result = NNViewControllerCreater.getContent(with: string, type: type)
+                result = NNViewControllerListCreater.getContent(with: string, type: type)
                 FileManager.createFile(content: result, name: string, type: type, isCover: true, openDir: true)
                 
             } else if type == "objc"  {
-//                result = NNViewControllerCreater.getContentH(with: string)
-//                resultM = NNViewControllerCreater.getContentM(with: string)
+//                result = NNViewControllerListCreater.getContentH(with: string)
+//                resultM = NNViewControllerListCreater.getContentM(with: string)
 //                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
 //                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
             }
@@ -293,31 +293,16 @@ class BatchClassCreateController: NSViewController {
     func createViewModelFiles(_ string: String, btnPop: NSPopUpButton, type: String = "swift") {
         var result = ""
         var resultM = ""
-        
-        switch btnPop.titleOfSelectedItem {
-        case btnPop.itemTitles[1]:
-            if type == "swift" {
-                result = NNRequestViewModelDetailCreater.getContent(with: string, type: type)
-                FileManager.createFile(content: result, name: string, type: type, isCover: true, openDir: true)
-
-            } else if type == "objc"  {
-                result = NNRequestViewModelDetailCreater.getContentH(with: string)
-                resultM = NNRequestViewModelDetailCreater.getContentM(with: string)
-                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
-                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
-            }
+   
+        if type == "swift" {
+            result = NNRequestViewModelCreater.getContent(with: string, type: type)
+            FileManager.createFile(content: result, name: string, type: type, isCover: true, openDir: true)
             
-        default:
-            if type == "swift" {
-                result = NNRequestViewModelCreater.getContent(with: string, type: type)
-                FileManager.createFile(content: result, name: string, type: type, isCover: true, openDir: true)
-                
-            } else if type == "objc"  {
-                result = NNRequestViewModelCreater.getContentH(with: string)
-                resultM = NNRequestViewModelCreater.getContentM(with: string)
-                FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
-                FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
-            }
+        } else if type == "objc"  {
+            result = NNRequestViewModelCreater.getContentH(with: string)
+            resultM = NNRequestViewModelCreater.getContentM(with: string)
+            FileManager.createFile(content: result, name: string, type: "h", isCover: true, openDir: true)
+            FileManager.createFile(content: resultM, name: string, type: "m", isCover: true, openDir: true)
         }
     }
 }
