@@ -11,6 +11,9 @@ import CocoaExpand
 import SnapKit
 import SnapKitExtend
 
+
+let kBatchTips = "UIViewController分为List(列表), Detail(详情), Entry(数据录入), 其他;\n\nAPI文件分为List(列表), Detail(详情), Add(增), Update(改), Delete(删), 其他;\n\nUIView 自定义视图只有一种; \n\nViewModel 只有一种,其中包含API的增删改查;"
+
 class NNBatchClassCreateController: NSViewController {
     
     lazy var textView: NNTextView = {
@@ -57,6 +60,14 @@ class NNBatchClassCreateController: NSViewController {
         return view;
     }()
     
+    lazy var textViewOne: NNTextView = {
+        let view = NNTextView.create(.zero)
+        view.font = NSFont(name: "PingFangSC-Light", size: 13)
+        view.isEditable = false
+        view.backgroundColor = NSColor.background
+        view.string = kBatchTips
+        return view;
+    }()
     
     // MARK: - lifeCycle
     override func viewDidLoad() {
@@ -68,7 +79,8 @@ class NNBatchClassCreateController: NSViewController {
         view.addSubview(btnPop)
         view.addSubview(segmentCtl)
         view.addSubview(textView.enclosingScrollView!)
-        
+        view.addSubview(textViewOne.enclosingScrollView!)
+
 //        view.getViewLayer()
     }
     
@@ -101,6 +113,13 @@ class NNBatchClassCreateController: NSViewController {
             make.width.equalToSuperview().multipliedBy(0.5)
             make.bottom.equalTo(btn.snp.top).offset(-10)
         }
+        
+        textViewOne.enclosingScrollView!.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.left.equalTo(textView.enclosingScrollView!.snp.right).offset(10)
+            make.right.equalToSuperview().offset(-10)
+            make.bottom.equalTo(textView.enclosingScrollView!).offset(0)
+        }
     }
     
     override func viewWillAppear() {
@@ -124,7 +143,6 @@ class NNBatchClassCreateController: NSViewController {
         
         let separate = string.contains(";") ? ";" : "\n"
         let titles = string.components(separatedBy: separate)
-        var result = ""
 
         for e in titles.enumerated() {
             if e.element == "" {

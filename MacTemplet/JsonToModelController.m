@@ -244,7 +244,7 @@
     DDLog(@"%p_%d_%@",cell, columnIndex, columnID);
     cell.textLabel.backgroundColor = NSColor.background;
 
-    [cell getViewLayer];
+//    [cell getViewLayer];
     return cell;
 }
 

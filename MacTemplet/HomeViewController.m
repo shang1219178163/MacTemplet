@@ -69,12 +69,9 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 - (void)setupUI{
     NSArray *list = @[@[@"JsonToModelController", @"JSON转模型", ],
                       @[@"ProppertyLazyController", @"OC属性Lazy",],
-                      @[@"BatchClassCreateController", @"iOS类文件批量生成",],
+                      @[@"NNBatchClassCreateController", @"iOS类文件批量生成",],
                       @[@"AuthorInfoController", @"其他",],
-                      @[@"YYModelSwiftController", @"YYModelSwift",],
-//                      @[@"BatchClassCreateParController", @"类批量生成",],
-                      @[@"NNBatchClassCreateController", @"类批量生成(新)",],
-                      
+                      @[@"YYModelSwiftController", @"YYModelSwift",],                      
 //                      @[@"NSTestViewController", @"测试模块",],
 //                      @[@"TmpViewController", @"Swift模块",],
 //                      @[@"NSStackViewController", @"StackView",],

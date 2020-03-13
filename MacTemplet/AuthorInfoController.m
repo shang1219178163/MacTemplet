@@ -154,9 +154,9 @@
             NNTextField *view = [NNTextField create:CGRectZero placeholder:@"简单介绍"];
             
             view.cell.scrollable = true;
-            
-            view.font = [NSFont fontWithName:@"PingFangSC-Light" size:14];
             view.cell.wraps = true;
+
+            view.font = [NSFont fontWithName:@"PingFangSC-Light" size:14];
             
             view.editable = false;
             view.selectable = true;
