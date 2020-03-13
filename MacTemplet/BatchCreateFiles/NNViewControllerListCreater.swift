@@ -18,11 +18,11 @@ class NNViewControllerCreater: NSObject {
 \(copyRight)
 import UIKit
         
-///
+/// 列表
 @objcMembers class \(prefix)Controller: UIViewController{
     
     /// 数据请求返回
-    var dataModel: \(prefix)RootModel = \(prefix)RootModel()
+    var dataModel = NSObject()
     
     lazy var viewModel: \(prefix)ViewModel = {
         let viewModel = \(prefix)ViewModel()

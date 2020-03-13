@@ -8,6 +8,7 @@
 
 import Cocoa
 
+/// 列表
 class NNRequestAPICreater: NSObject {
 
     static func getContent(with name: String, type: String) -> String {
