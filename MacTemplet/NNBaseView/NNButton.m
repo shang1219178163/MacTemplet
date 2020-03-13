@@ -40,7 +40,7 @@
                                   NSParagraphStyleAttributeName: paraStyle,
                                   };
         
-        NSAttributedString * title = [[NSAttributedString alloc]initWithString:self.title attributes:attrDic];
+        NSAttributedString *title = [[NSAttributedString alloc]initWithString:self.title attributes:attrDic];
 //        [title drawInRect:NSMakeRect(0 , 4, self.frame.size.width, self.frame.size.height)];
         [title drawInRect:NSMakeRect(0 , (self.frame.size.height - 30)*0.5, self.frame.size.width, 30)];
 
@@ -85,7 +85,6 @@
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent {
-    
     self.hover = YES;
     if (!self.selected) {
         self.buttonState = NNButtonHoverState;
@@ -93,7 +92,6 @@
 }
 
 - (void)mouseExited:(NSEvent *)theEvent {
-    
     self.hover = NO;
     if (!self.selected) {
         [self setButtonState:NNButtonNormalState];
@@ -101,7 +99,6 @@
 }
 
 - (void)mouseDown:(NSEvent *)event {
-    
     self.mouseUp = NO;
     if (self.enabled && !self.selected) {
         self.buttonState = NNButtonHighlightState;
@@ -109,7 +106,6 @@
 }
 
 - (void)mouseUp:(NSEvent *)event {
-    
     self.mouseUp = YES;
     if (self.enabled) {
         if (self.canSelected && self.hover) {
@@ -134,7 +130,6 @@
 #pragma mark - Private Methods
 
 - (void)commonInitialize {
-    
     self.borderNormalWidth = (_borderNormalWidth == 0.f) ? 1.f : _borderNormalWidth;
     self.borderHoverWidth = (_borderHoverWidth == 0.f) ? 1.f : _borderHoverWidth;
     self.borderHighlightWidth = (_borderHighlightWidth == 0.f) ? 1.f : _borderHighlightWidth;
@@ -160,7 +155,6 @@
 }
 
 - (void)initializeUI {
-    
     self.wantsLayer = YES;
     [self setButtonType:NSButtonTypeMomentaryPushIn];
     self.bezelStyle = NSBezelStyleTexturedSquare;
@@ -256,19 +250,16 @@
 #pragma mark - Setter
 
 - (void)setCanSelected:(BOOL)canSelected {
-    
     _canSelected = canSelected;
     [self updateButtonApperaceWithState:self.buttonState];
 }
 
 - (void)setHasBorder:(BOOL)hasBorder {
-    
     _hasBorder = hasBorder;
     [self updateButtonApperaceWithState:self.buttonState];
 }
 
 - (void)setButtonState:(NNButtonState)state {
-    
     if (_buttonState == state) {
         return;
     }
@@ -278,7 +269,6 @@
 }
 
 - (void)setTitle:(NSString *)title {
-    
     [super setTitle:title];
     [self setFontColor:self.normalColor];
 }

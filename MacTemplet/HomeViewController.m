@@ -27,36 +27,14 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    [self.view addSubview:self.tabView];
     
+    [self setupUI];
 //    [self.view getViewLayer];
 }
 
 -(void)viewWillAppear{
     [super viewWillAppear];
     
-    NSArray *list = @[@[@"JsonToModelController", @"JSON转模型", ],
-                      @[@"ProppertyLazyController", @"OC属性Lazy",],
-                      @[@"BatchClassCreateController", @"iOS类文件批量生成",],
-                      @[@"AuthorInfoController", @"其他",],
-                      @[@"YYModelSwiftController", @"YYModelSwift",],
-
-//                      @[@"NSTestViewController", @"测试模块",],
-//                      @[@"TmpViewController", @"Swift模块",],
-//                      @[@"NSStackViewController", @"StackView",],
-//                      @[@"MapViewController", @"MapView",],
-//                      @[@"FileController", @"File处理",],
-//                      @[@"NNTableViewController", @"NNTable",],
-                      
-                      ];
-    [self.tabView addItems:list];
-
-    if ([NSUserDefaults.standardUserDefaults objectForKey:kDefaultTabIndex]) {
-        NSInteger idx = [[NSUserDefaults.standardUserDefaults objectForKey:kDefaultTabIndex]integerValue];
-        idx = idx < list.count ? idx : 0;
-        [self.tabView selectTabViewItemAtIndex:idx];
-    }
-
 }
 
 - (void)viewDidLayout{
@@ -85,6 +63,35 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
     }
     [NSUserDefaults.standardUserDefaults setObject:@(index) forKey:kDefaultTabIndex];
     [NSUserDefaults.standardUserDefaults synchronize];
+}
+
+#pragma mark -funtions
+- (void)setupUI{
+    NSArray *list = @[@[@"JsonToModelController", @"JSON转模型", ],
+                      @[@"ProppertyLazyController", @"OC属性Lazy",],
+                      @[@"BatchClassCreateController", @"iOS类文件批量生成",],
+                      @[@"AuthorInfoController", @"其他",],
+                      @[@"YYModelSwiftController", @"YYModelSwift",],
+//                      @[@"BatchClassCreateParController", @"类批量生成",],
+                      @[@"NNBatchClassCreateController", @"类批量生成(新)",],
+                      
+//                      @[@"NSTestViewController", @"测试模块",],
+//                      @[@"TmpViewController", @"Swift模块",],
+//                      @[@"NSStackViewController", @"StackView",],
+//                      @[@"MapViewController", @"MapView",],
+//                      @[@"FileController", @"File处理",],
+//                      @[@"NNTableViewController", @"NNTable",],
+                      
+                      ];
+    [self.tabView addItems:list];
+
+    if ([NSUserDefaults.standardUserDefaults objectForKey:kDefaultTabIndex]) {
+        NSInteger idx = [[NSUserDefaults.standardUserDefaults objectForKey:kDefaultTabIndex]integerValue];
+        idx = idx < list.count ? idx : 0;
+        [self.tabView selectTabViewItemAtIndex:idx];
+    }
+    [self.view addSubview:self.tabView];
+
 }
 
 #pragma mark -lazy
