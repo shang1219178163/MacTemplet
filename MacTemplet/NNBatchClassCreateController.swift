@@ -2,7 +2,7 @@
 //  NNBatchClassCreateController.swift
 //  MacTemplet
 //
-//  Created by Bin Shang on 2020/3/13.
+//  Created by Bin Shang on 2020/3/14.
 //  Copyright © 2020 Bin Shang. All rights reserved.
 //
 
@@ -11,8 +11,24 @@ import CocoaExpand
 import SnapKit
 import SnapKitExtend
 
+let kBatchTips = """
+\nUIViewController 分为List(列表), Detail(详情), Entry(数据录入), 其他;
+\nAPI 分为List(列表), Detail(详情), Add(增), Update(改), Delete(删), 其他;
+\nUIView 自定义视图只有一种;
+\nViewModel 只有一种, 包含API的增删改查;
+命名(模板, 复制粘贴到文本框查看效果)如下:
 
-let kBatchTips = "UIViewController分为List(列表), Detail(详情), Entry(数据录入), 其他;\n\nAPI文件分为List(列表), Detail(详情), Add(增), Update(改), Delete(删), 其他;\n\nUIView 自定义视图只有一种; \n\nViewModel 只有一种,其中包含API的增删改查;"
+IOPGoodsDetailController
+IOPGoodsEntryController
+IOPGoodsViewModel
+IOPOrderListAPI
+IOPOrderDetailAPI
+IOPOrderAddAPI
+IOPOrderUpdateAPI
+IOPOrderDeleteAPI
+IOPSearchView
+
+"""
 
 class NNBatchClassCreateController: NSViewController {
     
@@ -81,6 +97,7 @@ class NNBatchClassCreateController: NSViewController {
         view.addSubview(textView.enclosingScrollView!)
         view.addSubview(textViewOne.enclosingScrollView!)
 
+        segmentCtl.isHidden = true
 //        view.getViewLayer()
     }
     
@@ -129,20 +146,20 @@ class NNBatchClassCreateController: NSViewController {
     
     // MARK: -funcitons
     /// 批量创建文件
-    func batchCreateFile(_ string: String) {
-        if string.count <= 0 {
+    func batchCreateFile(_ text: String) {
+        if text.count <= 0 {
             return
         }
-        createFiles(string, idx: segmentCtl.selectedSegment, type: btnPop.titleOfSelectedItem!.lowercased())
+        createFiles(text, type: btnPop.titleOfSelectedItem!.lowercased())
     }
     /// 按照类型创建文件
-    func createFiles(_ string: String, idx: Int, type: String = "swift") {
-        if string.count <= 0 {
+    func createFiles(_ text: String, type: String = "swift") {
+        if text.count <= 0 {
             return
         }
         
-        let separate = string.contains(";") ? ";" : "\n"
-        let titles = string.components(separatedBy: separate)
+        let separate = text.contains(";") ? ";" : "\n"
+        let titles = text.components(separatedBy: separate)
 
         for e in titles.enumerated() {
             if e.element == "" {
@@ -151,38 +168,24 @@ class NNBatchClassCreateController: NSViewController {
             var name = e.element.trimmingCharacters(in: .whitespaces)
             name = name.trimmingCharacters(in: CharacterSet(charactersIn: "\n"))
             
-            switch idx {
-            case 1: // 创建自定义视图
-                if !name.hasSuffix("View") {
-                    _ = NSAlert.show("错误", msg: "自定义视图必须包含 View 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
-                    return
-                }
+            if name.hasSuffix("Controller") {
+                NNBatchManager.createControllerFiles(name, type: type)
+
+            } else if name.hasSuffix("View") {
                 NNBatchManager.createUIViewFiles(name, type: type)
-                
-            case 2: // 创建 API 类
-                if !name.lowercased().hasSuffix("api") {
-                    _ = NSAlert.show("错误", msg: "必须包含 API/Api 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
-                    return
-                }
+
+            } else if name.hasSuffix("ViewModel") {
+                NNBatchManager.createViewModelFiles(name, type: type)
+
+            } else if name.lowercased().hasSuffix("api") {
                 NNBatchManager.createAPIFiles(name, type: type)
 
-            case 3: //
-                if !name.hasSuffix("ViewModel") {
-                    _ = NSAlert.show("错误", msg: "RequestViewModel文件必须包含 ViewModel 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
-                    return
-                }
-                NNBatchManager.createViewModelFiles(name, type: type)
-                
-            default: // 创建 UIViewController 文件
-                if !name.hasSuffix("Controller") {
-                    _ = NSAlert.show("错误", msg: "页面必须包含 Controller 后缀", btnTitles: [kTitleSure], window: NSApp.keyWindow!)
-                    return
-                }
-                NNBatchManager.createControllerFiles(name, type: type)
+            } else {
+                let msg = "'\(name)'必须包含Controller/View/ViewModel/API/Api后缀中的一种,否则无法自动生成"
+                _ = NSAlert.show("错误", msg: msg, btnTitles: [kTitleSure], window: NSApp.keyWindow!)
             }
         }
     }
-    
 }
 
 extension NNBatchClassCreateController: NSTextViewDelegate {
