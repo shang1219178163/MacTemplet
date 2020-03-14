@@ -39,7 +39,6 @@
 		14A90F1E241B0FDC00BC50EC /* FlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A90F1D241B0FDC00BC50EC /* FlatButton.swift */; };
 		14A90F23241B5CE500BC50EC /* NNBatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A90F22241B5CE500BC50EC /* NNBatchManager.swift */; };
 		14A90F25241B69B100BC50EC /* NNViewControllerEntryCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A90F24241B69B100BC50EC /* NNViewControllerEntryCreater.swift */; };
-		14A90F27241B789200BC50EC /* NNBatchClassCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A90F26241B789200BC50EC /* NNBatchClassCreateController.swift */; };
 		14A90F29241B7E0300BC50EC /* NNRequestAPIDeleteCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A90F28241B7E0300BC50EC /* NNRequestAPIDeleteCreater.swift */; };
 		14A90F2B241B7E4E00BC50EC /* NNRequestAPIAddCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A90F2A241B7E4E00BC50EC /* NNRequestAPIAddCreater.swift */; };
 		14A90F2D241B819000BC50EC /* NNViewControllerCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A90F2C241B819000BC50EC /* NNViewControllerCreater.swift */; };
@@ -49,6 +48,7 @@
 		14ADE21723CC609400037B0B /* NNRequestViewModelCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE21623CC609400037B0B /* NNRequestViewModelCreater.swift */; };
 		14ADE22323CD673200037B0B /* NNViewControllerDetailCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE22223CD673200037B0B /* NNViewControllerDetailCreater.swift */; };
 		14ADE23523CDA13900037B0B /* NNRequestAPIDetailCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE23423CDA13900037B0B /* NNRequestAPIDetailCreater.swift */; };
+		14BD1952241C7A960047B889 /* NNBatchClassCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD1950241C7A960047B889 /* NNBatchClassCreateController.swift */; };
 		14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0625423878FC60016EC8A /* TmpViewController.swift */; };
 		14C38AA0241390C700816A8E /* NNRequestAPIUpdateCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C38A9F241390C700816A8E /* NNRequestAPIUpdateCreater.swift */; };
 		14D40A0622C3884900AF74B9 /* ProppertyLazyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */; };
@@ -155,7 +155,6 @@
 		14A90F1D241B0FDC00BC50EC /* FlatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatButton.swift; sourceTree = "<group>"; };
 		14A90F22241B5CE500BC50EC /* NNBatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NNBatchManager.swift; sourceTree = "<group>"; };
 		14A90F24241B69B100BC50EC /* NNViewControllerEntryCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNViewControllerEntryCreater.swift; sourceTree = "<group>"; };
-		14A90F26241B789200BC50EC /* NNBatchClassCreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNBatchClassCreateController.swift; sourceTree = "<group>"; };
 		14A90F28241B7E0300BC50EC /* NNRequestAPIDeleteCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestAPIDeleteCreater.swift; sourceTree = "<group>"; };
 		14A90F2A241B7E4E00BC50EC /* NNRequestAPIAddCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestAPIAddCreater.swift; sourceTree = "<group>"; };
 		14A90F2C241B819000BC50EC /* NNViewControllerCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNViewControllerCreater.swift; sourceTree = "<group>"; };
@@ -166,6 +165,7 @@
 		14ADE21623CC609400037B0B /* NNRequestViewModelCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestViewModelCreater.swift; sourceTree = "<group>"; };
 		14ADE22223CD673200037B0B /* NNViewControllerDetailCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNViewControllerDetailCreater.swift; sourceTree = "<group>"; };
 		14ADE23423CDA13900037B0B /* NNRequestAPIDetailCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestAPIDetailCreater.swift; sourceTree = "<group>"; };
+		14BD1950241C7A960047B889 /* NNBatchClassCreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNBatchClassCreateController.swift; sourceTree = "<group>"; };
 		14C0625423878FC60016EC8A /* TmpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpViewController.swift; sourceTree = "<group>"; };
 		14C38A9F241390C700816A8E /* NNRequestAPIUpdateCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestAPIUpdateCreater.swift; sourceTree = "<group>"; };
 		14D40A0422C3884900AF74B9 /* ProppertyLazyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProppertyLazyController.h; sourceTree = "<group>"; };
@@ -394,7 +394,7 @@
 				14132977238559CE00E7AFCA /* NSTestViewController.m */,
 				14C0625423878FC60016EC8A /* TmpViewController.swift */,
 				1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */,
-				14A90F26241B789200BC50EC /* NNBatchClassCreateController.swift */,
+				14BD1950241C7A960047B889 /* NNBatchClassCreateController.swift */,
 				14D4ED5023CA08F200B8BD16 /* NNRootModel.h */,
 				14D4ED5123CA08F300B8BD16 /* NNRootModel.m */,
 				14D4ED5323CA0D8E00B8BD16 /* NNHouseRootModel.swift */,
@@ -789,6 +789,7 @@
 				14F92C0A22BB1AC700A5C5E4 /* NNAttStringKey.m in Sources */,
 				14F2F5AC22B8FD18009D49CE /* CollectionViewController.m in Sources */,
 				14F2F5B122B8FEE5009D49CE /* NSCTViewItemOne.m in Sources */,
+				14BD1952241C7A960047B889 /* NNBatchClassCreateController.swift in Sources */,
 				14A90F25241B69B100BC50EC /* NNViewControllerEntryCreater.swift in Sources */,
 				1480B0E3238CC63900E24BDB /* MapViewController.swift in Sources */,
 				14F2F59D22B8DB3D009D49CE /* ThirdViewController.m in Sources */,
@@ -854,7 +855,6 @@
 				14F2F58D22B881C4009D49CE /* NSTextFieldCell+Hook.m in Sources */,
 				1445780F22BDF0520007C7B3 /* NNLanguageModel.m in Sources */,
 				14F0FDA622ADF20400057093 /* NSView+Hook.m in Sources */,
-				14A90F27241B789200BC50EC /* NNBatchClassCreateController.swift in Sources */,
 				14ADE21723CC609400037B0B /* NNRequestViewModelCreater.swift in Sources */,
 				14F2F59622B8D9A2009D49CE /* MainViewController.m in Sources */,
 				1482F71822AB8BD400A7C5E1 /* AppDelegate.m in Sources */,
