@@ -34,7 +34,7 @@
 - (void)viewDidLayout{
     [super viewDidLayout];
     
-    if (CGRectEqualToRect(CGRectZero, self.view.bounds)) {
+    if (self.view.bounds.size.height <= 0) {
         return;
     }
     
