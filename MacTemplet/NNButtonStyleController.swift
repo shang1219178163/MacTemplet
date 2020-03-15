@@ -29,9 +29,10 @@ class NNButtonStyleController: NSViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        collectionView.register(NNCollectionViewItem.classForCoder(), forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNCollectionViewItem"))
-        collectionView.register(NNHeaderFooterView.classForCoder(), forSupplementaryViewOfKind: NSCollectionView.elementKindSectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNHeaderFooterView"))
-
+//        collectionView.register(NNCollectionViewItem.classForCoder(), forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNCollectionViewItem"))
+//        collectionView.register(NNHeaderFooterView.classForCoder(), forSupplementaryViewOfKind: NSCollectionView.elementKindSectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNHeaderFooterView"))
+        collectionView.register(cellType: NNCollectionViewItem.self)
+        collectionView.register(supplementaryViewType: NNHeaderFooterView.self)
         self.view.wantsLayer = true
         collectionView.layer?.backgroundColor = NSColor.black.cgColor
         return collectionView
@@ -67,20 +68,19 @@ extension NNButtonStyleController : NSCollectionViewDataSource {
   
   func collectionView(_ itemForRepresentedObjectAtcollectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
     
-    let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNCollectionViewItem"), for: indexPath)
-    guard let ctViewItem = item as? NNCollectionViewItem else {
-        return item
+//    let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNCollectionViewItem"), for: indexPath)
+    guard let item = collectionView.dequeueReusableCell(for: NNCollectionViewItem.self, indexPath: indexPath) as NNCollectionViewItem? else {
+        return NSCollectionViewItem()
     }
-//
-//    let imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath)
-//    collectionViewItem.imageFile = imageFile
-    ctViewItem.textLabel.isHidden = true
-    ctViewItem.textLabelBottom.stringValue = "\(indexPath.section), \(indexPath.item)"
-    return ctViewItem
+
+    item.textLabel.isHidden = true
+    item.textLabelBottom.stringValue = "\(indexPath.section), \(indexPath.item)"
+    return item
   }
   
   func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> NSView {
-    let view = collectionView.makeSupplementaryView(ofKind: NSCollectionView.elementKindSectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNHeaderFooterView"), for: indexPath) as! NNHeaderFooterView
+//    let view = collectionView.makeSupplementaryView(ofKind: NSCollectionView.elementKindSectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNHeaderFooterView"), for: indexPath) as! NNHeaderFooterView
+    let view = collectionView.dequeueReusableSupplementaryView(for: NNHeaderFooterView.self, kind: NSCollectionView.elementKindSectionHeader, indexPath: indexPath)
     view.textField.stringValue = "Section \(indexPath.section)"
     view.textFieldDetail.stringValue = "\(indexPath.item) image files"
     return view
