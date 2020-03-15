@@ -32,15 +32,28 @@
     return self;
 }
 
-- (void)setupUI{
-    self.scrollView.documentView = self;
+- (void)layout{
+    [super layout];
+
+//    self.scrollView.frame = self.bounds;
+//    DDLog(@"%@%@", self.enclosingScrollView, self.scrollView);
+//    DDLog(@"%@_%@", @(self.scrollView.frame), @(self.scrollView.documentView.frame));
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
     
     // Drawing code here.
+//    DDLog(@"%@_%@", @(dirtyRect), @(self.scrollView.frame));
+
 }
+
+#pragma mark -funtions
+
+- (void)setupUI{
+    self.scrollView.documentView = self;
+}
+
 
 #pragma mark -lazy
 

@@ -8,6 +8,8 @@
 
 import Cocoa
 
+
+
 class NNButtonStyleController: NSViewController {
     
     lazy var flowLayout: NSCollectionViewFlowLayout = {
@@ -20,8 +22,8 @@ class NNButtonStyleController: NSViewController {
         return layout
     }()
     
-    lazy var collectionView: NSCollectionView = {
-        let collectionView = NSCollectionView(frame: self.view.bounds)
+    lazy var collectionView: NNCollectionView = {
+        let collectionView = NNCollectionView(frame: self.view.bounds)
         collectionView.collectionViewLayout = flowLayout
         collectionView.isSelectable = true
         collectionView.dataSource = self
@@ -41,14 +43,14 @@ class NNButtonStyleController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-        view.addSubview(collectionView)
+        view.addSubview(collectionView.enclosingScrollView!)
         collectionView.reloadData()
     }
     
     override func viewDidLayout() {
         super.viewDidLayout()
         
-        collectionView.frame = view.bounds
+        collectionView.enclosingScrollView!.frame = view.bounds
     }
     
 }

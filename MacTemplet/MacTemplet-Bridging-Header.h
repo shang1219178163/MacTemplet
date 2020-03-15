@@ -11,5 +11,8 @@
 
 #import "NSTableCellViewTen.h"
 
+#import "NNCollectionView.h"
+
+
 #import "YYModel.h"
 #import "NNRootModel.h"
