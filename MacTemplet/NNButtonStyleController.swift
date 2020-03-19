@@ -39,6 +39,28 @@ class NNButtonStyleController: NSViewController {
     }()
 
     var singleSectionMode = true
+    
+    let buttonTypes = [NSButton.ButtonType.momentaryLight, NSButton.ButtonType.pushOnPushOff,
+                       NSButton.ButtonType.toggle, NSButton.ButtonType.`switch`,
+                       NSButton.ButtonType.momentaryChange, NSButton.ButtonType.onOff,
+                       NSButton.ButtonType.momentaryPushIn, NSButton.ButtonType.accelerator,
+                       NSButton.ButtonType.multiLevelAccelerator]
+        
+    let bezelStyles = [NSButton.BezelStyle.rounded, NSButton.BezelStyle.regularSquare,
+                       NSButton.BezelStyle.disclosure, NSButton.BezelStyle.shadowlessSquare,
+                       NSButton.BezelStyle.circular, NSButton.BezelStyle.texturedSquare,
+                       NSButton.BezelStyle.helpButton, NSButton.BezelStyle.smallSquare,
+                       NSButton.BezelStyle.texturedRounded, NSButton.BezelStyle.roundRect,
+                       NSButton.BezelStyle.recessed, NSButton.BezelStyle.roundedDisclosure,
+                       NSButton.BezelStyle.inline]
+    
+    let bezelStyleList = [
+                       NSButton.BezelStyle.disclosure,
+                       NSButton.BezelStyle.circular,
+                       NSButton.BezelStyle.helpButton,
+                       NSButton.BezelStyle.roundedDisclosure,
+                       ]
+    
     // MARK: -life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +85,7 @@ extension NNButtonStyleController : NSCollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 16
+    return bezelStyles.count
   }
   
   func collectionView(_ itemForRepresentedObjectAtcollectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
@@ -75,6 +97,44 @@ extension NNButtonStyleController : NSCollectionViewDataSource {
 
     item.textLabel.isHidden = true
     item.textLabelBottom.stringValue = "\(indexPath.section), \(indexPath.item)"
+    
+    if buttonTypes.count > indexPath.item {
+        item.btn.setButtonType(buttonTypes[indexPath.item])
+    }
+    if bezelStyles.count > indexPath.item {
+        item.btn.bezelStyle = bezelStyles[indexPath.item]
+    }
+    
+    if #available(macOS 10.12.2, *) {
+        item.btn.bezelColor = NSColor.blue
+    }
+//    item.btn.isBordered = true
+    item.btn.wantsLayer = true
+//    item.btn.layer?.backgroundColor = NSColor.white.cgColor
+    item.btn.layer?.borderColor = NSColor.red.cgColor
+    item.btn.layer?.borderWidth = 1.5
+    item.btn.layer?.cornerRadius = 3
+    item.btn.layer?.masksToBounds = true    
+    item.btn.alternateTitle = "反选"
+    
+    item.btn.toolTip = "qedwqweqweqwe"
+    
+//    item.btn.layer?.backgroundColor = NSColor.red.cgColor
+//    let attDic = NSAttributedString.attrDict()
+//    item.btn.attributedTitle = NSAttributedString(string: "UIButton", attributes: attDic)
+    
+//    item.btn.normalColor = NSColor.black
+//    item.btn.hoverColor = NSColor.red
+//    item.btn.backgroundNormalColor = NSColor.black
+//    item.btn.backgroundHoverColor = NSColor.red
+
+    if bezelStyleList.contains(item.btn.bezelStyle) {
+        item.btn.title = ""
+        item.btn.alternateTitle = ""
+    }
+    
+//    view.layer?.backgroundColor = NSColor.random.cgColor
+//    view.getViewLayer()
     return item
   }
   

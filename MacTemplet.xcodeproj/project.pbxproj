@@ -51,6 +51,7 @@
 		14B4DE38241DE7D100901E8D /* NNButtonStyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE36241DE7D100901E8D /* NNButtonStyleController.swift */; };
 		14B4DE3E241DF0BA00901E8D /* NNHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE3D241DF0BA00901E8D /* NNHeaderFooterView.swift */; };
 		14B4DE40241DF5E900901E8D /* NNCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE3F241DF5E900901E8D /* NNCollectionViewItem.swift */; };
+		14B4DE42241E05A000901E8D /* NSCollectionView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE41241E05A000901E8D /* NSCollectionView+Helper.swift */; };
 		14BD1952241C7A960047B889 /* NNBatchClassCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD1950241C7A960047B889 /* NNBatchClassCreateController.swift */; };
 		14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0625423878FC60016EC8A /* TmpViewController.swift */; };
 		14C38AA0241390C700816A8E /* NNRequestAPIUpdateCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C38A9F241390C700816A8E /* NNRequestAPIUpdateCreater.swift */; };
@@ -171,6 +172,7 @@
 		14B4DE36241DE7D100901E8D /* NNButtonStyleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNButtonStyleController.swift; sourceTree = "<group>"; };
 		14B4DE3D241DF0BA00901E8D /* NNHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNHeaderFooterView.swift; sourceTree = "<group>"; };
 		14B4DE3F241DF5E900901E8D /* NNCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNCollectionViewItem.swift; sourceTree = "<group>"; };
+		14B4DE41241E05A000901E8D /* NSCollectionView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionView+Helper.swift"; sourceTree = "<group>"; };
 		14BD1950241C7A960047B889 /* NNBatchClassCreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNBatchClassCreateController.swift; sourceTree = "<group>"; };
 		14C0625423878FC60016EC8A /* TmpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpViewController.swift; sourceTree = "<group>"; };
 		14C38A9F241390C700816A8E /* NNRequestAPIUpdateCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestAPIUpdateCreater.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */,
 				14BD1950241C7A960047B889 /* NNBatchClassCreateController.swift */,
 				14B4DE36241DE7D100901E8D /* NNButtonStyleController.swift */,
+				14B4DE41241E05A000901E8D /* NSCollectionView+Helper.swift */,
 				14D4ED5023CA08F200B8BD16 /* NNRootModel.h */,
 				14D4ED5123CA08F300B8BD16 /* NNRootModel.m */,
 				14D4ED5323CA0D8E00B8BD16 /* NNHouseRootModel.swift */,
@@ -837,6 +840,7 @@
 				1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */,
 				14F0FDE322B082AD00057093 /* NNTableView.m in Sources */,
 				14ADE21523CC091000037B0B /* NNClassInfoModel.m in Sources */,
+				14B4DE42241E05A000901E8D /* NSCollectionView+Helper.swift in Sources */,
 				14132978238559CE00E7AFCA /* NSTestViewController.m in Sources */,
 				14A90F2F241B85B200BC50EC /* NNRequestAPICreater.swift in Sources */,
 				1480B0E9238CC94100E24BDB /* MKMapView+Helper.swift in Sources */,

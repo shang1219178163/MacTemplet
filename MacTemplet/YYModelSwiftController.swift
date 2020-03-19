@@ -60,6 +60,9 @@ class YYModelSwiftController: NSViewController {
         view.addSubview(segmentCtl)
         view.addSubview(textView.enclosingScrollView!)
         
+        comboBox.isHidden = true
+        segmentCtl.isHidden = true
+        
 //        view.getViewLayer()
     }
     

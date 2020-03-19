@@ -14,6 +14,49 @@ import CocoaExpand
 @available(OSX 10.15, *)
 class TmpViewController: NSViewController {
 
+    lazy var label: NSTextField = {
+        let view = NSTextField(frame: .zero)
+        view.isBordered = false;  ///是否显示边框
+        view.wantsLayer = true;
+        view.isEditable = false;
+        view.drawsBackground = true;
+        view.backgroundColor = NSColor.clear
+
+        view.stringValue = "标题显示"
+
+        return view;
+    }()
+    
+    lazy var switchCtl: NSSwitch = {
+        let view = NSSwitch(frame: .zero)
+        view.state = .on
+
+//        view.isBordered = false;  ///是否显示边框
+//        view.wantsLayer = true;
+        return view;
+    }()
+    
+    lazy var checkBox: NSButton = {
+        let view = NSButton(checkboxWithTitle: "checkBox", target: self, action: #selector(handleActionBtn(_:)))
+//        view.isBordered = false;  ///是否显示边框
+//        view.wantsLayer = true;
+
+        return view;
+    }()
+    
+    lazy var radioBox: NSButton = {
+        let view = NSButton(radioButtonWithTitle: "radio", target: self, action: #selector(handleActionBtn(_:)))
+//        view.isBordered = false;  ///是否显示边框
+//        view.wantsLayer = true;
+
+        return view;
+    }()
+    
+    @objc func handleActionBtn(_ sender: NSButton) {
+        DDLog(sender.title)
+    }
+    
+    // MARK: -life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -22,15 +65,11 @@ class TmpViewController: NSViewController {
 //        setupClickView()
 //        setupSearchField()
         
-        let switchCtl = NSSwitch(frame: CGRectMake(10, 110, 100, 100));
-        switchCtl.state = .on
-        view.addSubview(switchCtl);
         
-        label.frame = CGRectMake(10, switchCtl.maxY + 10, 100, 25)
-        label.stringValue = "标题显示"
         view.addSubview(label);
-        
-//        label.backgroundColor = NSColor.red
+//        view.addSubview(switchCtl);
+        view.addSubview(checkBox);
+        view.addSubview(radioBox);
 
         view.getViewLayer()
     }
@@ -38,7 +77,33 @@ class TmpViewController: NSViewController {
     override func viewDidLayout() {
         super.viewDidLayout()
         
+        label.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(20);
+            make.left.equalToSuperview().offset(20);
+            make.right.equalToSuperview().offset(-20);
+            make.height.equalTo(25);
+        }
 
+//        switchCtl.snp.makeConstraints { (make) in
+//            make.top.equalTo(label.snp.bottom).offset(10);
+//            make.left.equalToSuperview().offset(20);
+//            make.right.equalToSuperview().offset(-20);
+//            make.height.equalTo(35);
+//        }
+        
+        checkBox.snp.makeConstraints { (make) in
+            make.top.equalTo(label.snp.bottom).offset(10);
+            make.left.equalToSuperview().offset(20);
+            make.right.equalToSuperview().offset(-20);
+            make.height.equalTo(35);
+        }
+        
+        radioBox.snp.makeConstraints { (make) in
+            make.top.equalTo(checkBox.snp.bottom).offset(10);
+            make.left.equalToSuperview().offset(20);
+            make.right.equalToSuperview().offset(-20);
+            make.height.equalTo(35);
+        }
     }
     
     
@@ -79,17 +144,6 @@ class TmpViewController: NSViewController {
 //        (self.searchField.cell as? NSSearchFieldCell)?.placeholderString = sender.title
         
     }
-    
-    lazy var label: NSTextField = {
-        let view = NSTextField(frame: .zero)
-        view.isBordered = false;  ///是否显示边框
-        view.wantsLayer = true;
-        view.isEditable = false;
-        view.drawsBackground = true;
-        view.backgroundColor = NSColor.clear
-
-        return view;
-    }()
     
 
 }

@@ -4,15 +4,15 @@
 
 #import "NNLabel.h"
 
+#import "NNButton.h"
+#import "NNCollectionView.h"
+
 #import "NNTableView.h"
 #import "NNTableRowView.h"
 
 #import "NNTextField.h"
 
 #import "NSTableCellViewTen.h"
-
-#import "NNCollectionView.h"
-
 
 #import "YYModel.h"
 #import "NNRootModel.h"

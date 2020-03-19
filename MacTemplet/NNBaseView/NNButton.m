@@ -79,7 +79,7 @@
         self.trackingArea = nil;
     }
     NSTrackingAreaOptions options = NSTrackingInVisibleRect | NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways;
-    self.trackingArea = [[NSTrackingArea alloc] initWithRect:CGRectZero options:options owner:self userInfo:nil];
+    self.trackingArea = [[NSTrackingArea alloc] initWithRect:self.bounds options:options owner:self userInfo:nil];
     
     [self addTrackingArea:self.trackingArea];
 }
@@ -94,7 +94,7 @@
 - (void)mouseExited:(NSEvent *)theEvent {
     self.hover = NO;
     if (!self.selected) {
-        [self setButtonState:NNButtonNormalState];
+        self.buttonState = NNButtonNormalState;
     }
 }
 
@@ -169,7 +169,7 @@
         return;
     }
     NSDictionary *attributes = [colorTitle attributesAtIndex:0 effectiveRange:nil];
-    if ( [attributes[NSForegroundColorAttributeName] isEqual:color]) {
+    if ([attributes[NSForegroundColorAttributeName] isEqual:color]) {
         return;
     }
     NSRange titleRange = NSMakeRange(0, [colorTitle length]);

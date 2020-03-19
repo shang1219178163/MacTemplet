@@ -27,6 +27,14 @@ class NNCollectionViewItem: NSCollectionViewItem {
         return view
     }()
     
+    lazy var btn: NSButton = {
+        let view = NSButton(title: "按钮", target: nil, action: nil)
+        view.addActionHandler({ (control) in
+            print(control)
+        })
+        return view
+    }()
+    
     override var isSelected: Bool {
       didSet {
         view.layer?.borderWidth = isSelected ? 5.0 : 0.0
@@ -36,16 +44,14 @@ class NNCollectionViewItem: NSCollectionViewItem {
     override func viewDidLoad() {
       super.viewDidLoad()
         view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.lightGray.cgColor
+        view.layer?.backgroundColor = NSColor.white.cgColor
         view.layer?.borderColor = NSColor.white.cgColor
         view.layer?.borderWidth = 0.0
         
         view.addSubview(imgView)
         view.addSubview(textLabel)
         view.addSubview(textLabelBottom)
-
-        view.layer?.backgroundColor = NSColor.random.cgColor
-        view.getViewLayer()
+        view.addSubview(btn)
     }
     
     override func viewDidLayout() {
@@ -102,6 +108,11 @@ class NNCollectionViewItem: NSCollectionViewItem {
                 make.right.equalToSuperview().offset(0);
                 make.bottom.equalTo(textLabelBottom.snp.top).offset(0);
             }
+        }
+        
+        btn.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.width.height.equalToSuperview().multipliedBy(0.5)
         }
     }
 }
