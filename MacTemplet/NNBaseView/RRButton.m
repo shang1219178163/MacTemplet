@@ -14,6 +14,9 @@
     [super drawRect:dirtyRect];
     
     // Drawing code here.
+    NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:dirtyRect xRadius:self.xRadius yRadius:self.YRadius];
+    [self.backgroundColor setFill];
+    [path fill];
 }
 
 @end

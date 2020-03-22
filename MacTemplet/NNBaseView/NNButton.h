@@ -1,62 +1,49 @@
 //
-//  NNButton.h
+//  HHButton.h
 //  MacTemplet
 //
-//  Created by Bin Shang on 2019/6/27.
-//  Copyright © 2019 Bin Shang. All rights reserved.
+//  Created by Bin Shang on 2020/3/20.
+//  Copyright © 2020 Bin Shang. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 
+typedef NS_OPTIONS(NSInteger, NNControlState) {
+    NNControlStateNormal       = 1 << 0,
+    NNControlStateHighlighted  = 1 << 1,
+    NNControlStateDisabled     = 1 << 2,
+    NNControlStateSelected     = 1 << 3,
+    NNControlStateHover        = 1 << 4,
+};
 
-typedef NS_ENUM(NSUInteger, NNButtonState) {
-    NNButtonNormalState      = 0,
-    NNButtonHoverState       = 1,
-    NNButtonHighlightState   = 2,
-    NNButtonSelectedState    = 3
+typedef NS_ENUM(NSInteger, NNButtonType) {
+    NNButtonTypeCustom = 0,   // no button type
+    NNButtonType1,  // standard system button
+    NNButtonType2
 };
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NNButton : NSButton
 
-@property(nonatomic, strong) NSColor *backgroundColor;
+@property(nonatomic, assign) BOOL selected;
+
 @property(nonatomic, strong) NSColor *titleColor;
+@property(nonatomic, strong) NSColor *backgroundColor;
+@property(nonatomic, strong) NSImage *backgroundImage;
 
-@property (nonatomic, assign) BOOL canSelected; //default YES.
-@property (nonatomic, assign) BOOL hasBorder;
++ (instancetype)buttonWithType:(NNButtonType)buttonType;
 
-@property (nonatomic, assign) NNButtonState buttonState;
+- (void)setTitle:(nullable NSString *)title forState:(NNControlState)state;
+- (void)setTitleColor:(nullable NSColor *)color forState:(NNControlState)state;
 
-@property (nonatomic, assign) CGFloat cornerNormalRadius;
-@property (nonatomic, assign) CGFloat cornerHoverRadius;
-@property (nonatomic, assign) CGFloat cornerHighlightRadius;
-@property (nonatomic, assign) CGFloat cornerSelectedRadius;
+- (void)setBackgroundImage:(nullable NSImage *)image forState:(NNControlState)state;
+- (void)setAttributedTitle:(nullable NSAttributedString *)title forState:(NNControlState)state;
 
-@property (nonatomic, assign) CGFloat borderNormalWidth;
-@property (nonatomic, assign) CGFloat borderHoverWidth;
-@property (nonatomic, assign) CGFloat borderHighlightWidth;
-@property (nonatomic, assign) CGFloat borderSelectedWidth;
+- (nullable NSString *)titleForState:(NNControlState)state;
+- (nullable NSColor *)titleColorForState:(NNControlState)state;
+- (nullable NSImage *)backgroundImageForState:(NNControlState)state;
 
-@property (nonatomic, strong) NSColor *borderNormalColor;
-@property (nonatomic, strong) NSColor *borderHoverColor;
-@property (nonatomic, strong) NSColor *borderHighlightColor;
-@property (nonatomic, strong) NSColor *borderSelectedColor;
-
-@property (nonatomic, strong) NSColor *normalColor;
-@property (nonatomic, strong) NSColor *hoverColor;
-@property (nonatomic, strong) NSColor *highlightColor;
-@property (nonatomic, strong) NSColor *selectedColor;
-
-@property (nonatomic, strong) NSImage *normalImage;
-@property (nonatomic, strong) NSImage *hoverImage;
-@property (nonatomic, strong) NSImage *highlightImage;
-@property (nonatomic, strong) NSImage *selectedImage;
-
-@property (nonatomic, strong) NSColor *backgroundNormalColor;
-@property (nonatomic, strong) NSColor *backgroundHoverColor;
-@property (nonatomic, strong) NSColor *backgroundHighlightColor;
-@property (nonatomic, strong) NSColor *backgroundSelectedColor;
 
 @end
 

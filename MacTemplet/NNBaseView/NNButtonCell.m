@@ -10,4 +10,18 @@
 
 @implementation NNButtonCell
 
+-(void)drawBezelWithFrame:(NSRect)frame inView:(NSView *)controlView{
+    //// General Declarations
+    [NSGraphicsContext.currentContext saveGraphicsState];
+
+    //// Color Declarations
+    NSColor *fillColor = [NSColor colorWithCalibratedRed: 0 green: 0.59 blue: 0.886 alpha: 1];
+
+    //// Rectangle Drawing
+    NSBezierPath* rectanglePath = [NSBezierPath bezierPathWithRect: NSMakeRect(8.5, 7.5, 85, 25)];
+    [fillColor setFill];
+    [rectanglePath fill];
+    [NSGraphicsContext restoreGraphicsState];
+}
+
 @end

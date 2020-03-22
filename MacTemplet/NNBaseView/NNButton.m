@@ -1,78 +1,93 @@
-
 //
 //  NNButton.m
 //  MacTemplet
 //
-//  Created by Bin Shang on 2019/6/27.
-//  Copyright © 2019 Bin Shang. All rights reserved.
+//  Created by Bin Shang on 2020/3/20.
+//  Copyright © 2020 Bin Shang. All rights reserved.
 //
 
 #import "NNButton.h"
+#import "NSImage+Ext.h"
+
+NSString * const kTitle = @"title";
+NSString * const kTitleColor = @"titleColor";
+NSString * const kBackgroundImage = @"backgroundImage";
+NSString * const kAttributedTitle = @"AttributedTitle";
 
 @interface NNButton ()
 
-@property (nonatomic, assign) BOOL selected;
+//@property (nonatomic, assign) BOOL selected;
 @property (nonatomic, assign) BOOL hover;
-@property (nonatomic, assign) BOOL mouseUp;
+@property(nonatomic, assign) BOOL mouseUp;
 
-@property (nonatomic, strong) NSTrackingArea *trackingArea;
-@property (nonatomic, strong) NSImage *defaultImage;
+@property(nonatomic, strong) NSTrackingArea *trackingArea;
+
+@property(nonatomic, strong) NSMutableDictionary *mdic;
+@property(nonatomic, strong) NSMutableDictionary *mdicState;
+
+@property(nonatomic, strong) NSMutableDictionary *mdicNormal;
+@property(nonatomic, strong) NSMutableDictionary *mdicHighlighted;
+@property(nonatomic, strong) NSMutableDictionary *mdicDisabled;
+@property(nonatomic, strong) NSMutableDictionary *mdicSelected;
+@property(nonatomic, strong) NSMutableDictionary *mdicHover;
+
+@property(nonatomic, assign) NNControlState buttonState;
 
 @end
 
+
 @implementation NNButton
+
+- (void)dealloc{
+    [self removeObserver:self forKeyPath:@"enabled"];
+}
+
+- (instancetype)initWithFrame:(NSRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:nil];
+
+    }
+    return self;
+}
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
-    
-    // Drawing code here.
-    NSColor * backgroundColor = self.backgroundColor ? : NSColor.whiteColor;
-    [backgroundColor set];
-    NSRectFill(self.bounds);
-    
-    if (self.title) {
-        NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc]init];
-        paraStyle.alignment = NSTextAlignmentCenter;
-
-        NSDictionary *attrDic = @{
-                                  NSFontAttributeName: [NSFont fontWithName:@"PingFangSC-Light" size:14],
-                                  NSForegroundColorAttributeName: self.titleColor ? : NSColor.blackColor,
-                                  NSParagraphStyleAttributeName: paraStyle,
-                                  };
         
-        NSAttributedString *title = [[NSAttributedString alloc]initWithString:self.title attributes:attrDic];
-//        [title drawInRect:NSMakeRect(0 , 4, self.frame.size.width, self.frame.size.height)];
-        [title drawInRect:NSMakeRect(0 , (self.frame.size.height - 30)*0.5, self.frame.size.width, 30)];
-
+//    self.isHighlighted
+//    self.enabled
+    // Drawing code here.
+//    NSColor *backgroundColor = self.backgroundColor ? : NSColor.whiteColor;
+//    [backgroundColor set];
+//    NSRectFill(self.bounds);
+        
+    NSImage *image = self.backgroundImage ? : [NSImage imageWithColor:self.backgroundColor size:CGSizeMake(1, 1)];
+    if (image) {
+        [image drawInRect:self.bounds];
     }
-    
-}
-
-
-- (instancetype)initWithFrame:(NSRect)frameRect {
-    self = [super initWithFrame:frameRect];
-    if (self) {
-        [self commonInitialize];
+        
+    if (self.title) {
+        NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle defaultParagraphStyle]mutableCopy];
+        paraStyle.alignment = self.alignment ? self.alignment : NSTextAlignmentCenter;
+        
+        NSDictionary *attrDic = @{NSParagraphStyleAttributeName: paraStyle,
+                                  NSForegroundColorAttributeName: self.titleColor ? : NSColor.labelColor,
+                                  NSFontAttributeName: self.font,
+                                }.mutableCopy;
+        
+        NSAttributedString *attString = [[NSAttributedString alloc]initWithString:self.title attributes:attrDic];
+        CGFloat fontHeight = ceil(self.font.boundingRectForFont.size.height);
+        CGFloat gapY = CGRectGetMidY(self.bounds) - fontHeight/2;
+        [attString drawInRect:NSMakeRect(0, gapY, self.frame.size.width, fontHeight)];
     }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)coder {
-    
-    self = [super initWithCoder:coder];
-    if (self) {
-        [self commonInitialize];
-    }
-    return self;
 }
 
 - (void)viewWillMoveToSuperview:(NSView *)newSuperview {
     [super viewWillMoveToSuperview:newSuperview];
-    [self updateButtonApperaceWithState:self.buttonState];
+    [self updateUIWithState:self.buttonState];
 }
 
 - (void)updateTrackingAreas {
-    
     [super updateTrackingAreas];
     if(self.trackingArea) {
         [self removeTrackingArea:self.trackingArea];
@@ -80,198 +95,237 @@
     }
     NSTrackingAreaOptions options = NSTrackingInVisibleRect | NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways;
     self.trackingArea = [[NSTrackingArea alloc] initWithRect:self.bounds options:options owner:self userInfo:nil];
-    
+
     [self addTrackingArea:self.trackingArea];
+//    DDLog(@"%@", self.trackingAreas);
 }
 
+#pragma -NSEvent
 - (void)mouseEntered:(NSEvent *)theEvent {
-    self.hover = YES;
-    if (!self.selected) {
-        self.buttonState = NNButtonHoverState;
-    }
+    self.hover = true;
 }
 
 - (void)mouseExited:(NSEvent *)theEvent {
-    self.hover = NO;
-    if (!self.selected) {
-        self.buttonState = NNButtonNormalState;
-    }
+    self.hover = false;
 }
 
 - (void)mouseDown:(NSEvent *)event {
-    self.mouseUp = NO;
-    if (self.enabled && !self.selected) {
-        self.buttonState = NNButtonHighlightState;
-    }
+    self.mouseUp = false;
 }
 
 - (void)mouseUp:(NSEvent *)event {
-    self.mouseUp = YES;
-    if (self.enabled) {
-        if (self.canSelected && self.hover) {
-            self.selected = !self.selected;
-            self.buttonState = self.selected ? NNButtonSelectedState : NNButtonNormalState;
-        } else {
-            if (!self.selected) {
-                self.buttonState = NNButtonNormalState;
-            }
-        }
-        if (self.hover && self.enabled) {
-            NSString *selString = NSStringFromSelector(self.action);
-            if ([selString hasSuffix:@":"]) {
-                [self.target performSelector:self.action withObject:self afterDelay:0.f];
-            } else {
-                [self.target performSelector:self.action withObject:nil afterDelay:0.f];
-            }
-        }
+    self.mouseUp = true;
+}
+
+#pragma mark -observe
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    NSNumber *valueNew = change[NSKeyValueChangeNewKey];
+    if ([keyPath isEqualToString:@"enabled"]) {
+        self.buttonState = valueNew.boolValue == false ? NNControlStateDisabled : NNControlStateNormal;
     }
 }
 
-#pragma mark - Private Methods
+#pragma mark -funtions
 
-- (void)commonInitialize {
-    self.borderNormalWidth = (_borderNormalWidth == 0.f) ? 1.f : _borderNormalWidth;
-    self.borderHoverWidth = (_borderHoverWidth == 0.f) ? 1.f : _borderHoverWidth;
-    self.borderHighlightWidth = (_borderHighlightWidth == 0.f) ? 1.f : _borderHighlightWidth;
-    self.borderSelectedWidth = (_borderSelectedWidth == 0.f) ? 2.f : _borderSelectedWidth;
-    
-    self.borderNormalColor = (_borderNormalColor == nil) ? NSColor.clearColor : _borderNormalColor;
-    self.borderHoverColor = (_borderHoverColor == nil) ? NSColor.clearColor : _borderHoverColor;
-    self.borderHighlightColor = (_borderHighlightColor == nil) ? NSColor.clearColor : _borderHighlightColor;
-    self.borderSelectedColor = (_borderSelectedColor == nil) ? NSColor.clearColor : _borderSelectedColor;
-    
-    self.normalColor = (_normalColor == nil) ? NSColor.clearColor : _normalColor;
-    self.hoverColor = (_hoverColor == nil) ? NSColor.clearColor : _hoverColor;
-    self.highlightColor = (_highlightColor == nil) ? NSColor.clearColor : _highlightColor;
-    self.selectedColor = (_selectedColor == nil) ? NSColor.clearColor : _selectedColor;
-    
-    self.backgroundNormalColor = (_backgroundNormalColor == nil) ? NSColor.clearColor : _backgroundNormalColor;
-    self.backgroundHoverColor = (_backgroundHoverColor == nil) ? NSColor.clearColor : _backgroundHoverColor;
-    self.backgroundHighlightColor = (_backgroundHighlightColor == nil) ? NSColor.clearColor : _backgroundHighlightColor;
-    self.backgroundSelectedColor = (_backgroundSelectedColor == nil) ? NSColor.clearColor : _backgroundSelectedColor;
-    
-    self.canSelected = YES;
-    [self initializeUI];
-}
+//+ (instancetype)buttonWithType:(NNButtonType)buttonType{
+//    NNButton *btn = [[NNButton alloc]initWithFrame:CGRectZero];
+//    switch (buttonType) {
+//        case NNButtonType1:
+//            btn = [[NNButton alloc]initWithFrame:CGRectZero];
+//            btn.wantsLayer = true;
+//            btn.layer.borderColor = NSColor.labelColor.CGColor;
+//            btn.layer.borderWidth = 1.5;
+//
+//            break;
+//        case NNButtonType2:
+//            btn = [[NNButton alloc]initWithFrame:CGRectZero];
+//            btn.wantsLayer = true;
+//            btn.layer.borderColor = NSColor.labelColor.CGColor;
+//            btn.layer.borderWidth = 1.5;
+//
+//            break;
+//        default:
+//
+//            break;
+//    }
+//    return btn;
+//}
 
-- (void)initializeUI {
-    self.wantsLayer = YES;
-    [self setButtonType:NSButtonTypeMomentaryPushIn];
-    self.bezelStyle = NSBezelStyleTexturedSquare;
-    self.bordered = NO;
-    [self setFontColor:self.normalColor];
-}
-
-- (void)setFontColor:(NSColor *)color {
-    
-    NSMutableAttributedString *colorTitle = [[NSMutableAttributedString alloc] initWithAttributedString:[self attributedTitle]];
-    if (colorTitle.length == 0) {
+- (void)setTitle:(nullable NSString *)title forState:(NNControlState)state {
+    if (!title) {
         return;
     }
-    NSDictionary *attributes = [colorTitle attributesAtIndex:0 effectiveRange:nil];
-    if ([attributes[NSForegroundColorAttributeName] isEqual:color]) {
-        return;
-    }
-    NSRange titleRange = NSMakeRange(0, [colorTitle length]);
-    [colorTitle addAttribute:NSForegroundColorAttributeName value:color range:titleRange];
-    [self setAttributedTitle:colorTitle];
+//    self.title = title;
+    self.mdic[@(state)][kTitle] = title;
 }
 
-- (void)updateButtonApperaceWithState:(NNButtonState)state {
-    
-    CGFloat cornerRadius = 0.f;
-    CGFloat borderWidth = 0.f;
-    NSColor *borderColor = nil;
-    NSColor *themeColor = nil;
-    NSColor *backgroundColor = nil;
-    switch (state) {
-        case NNButtonNormalState: {
-            cornerRadius = self.cornerNormalRadius;
-            borderWidth = self.borderNormalWidth;
-            borderColor = self.borderNormalColor;
-            themeColor = self.normalColor;
-            backgroundColor = self.backgroundNormalColor;
-            if (self.normalImage != nil) {
-                self.defaultImage = self.normalImage;
-            }
-            break;
-        }
-        case NNButtonHoverState: {
-            cornerRadius = self.cornerHoverRadius;
-            borderWidth = self.borderHoverWidth;
-            borderColor = self.borderHoverColor;
-            themeColor = self.hoverColor;
-            backgroundColor = self.backgroundHoverColor;
-            if (self.hoverImage != nil) {
-                self.defaultImage = self.hoverImage;
-            }
-        }
-            break;
-        case NNButtonHighlightState: {
-            cornerRadius = self.cornerHighlightRadius;
-            borderWidth = self.borderHighlightWidth;
-            borderColor = self.borderHighlightColor;
-            themeColor = self.highlightColor;
-            backgroundColor = self.backgroundHighlightColor;
-            if (self.highlightImage != nil) {
-                self.defaultImage = self.highlightImage;
-            }
-        }
-            break;
-        case NNButtonSelectedState: {
-            cornerRadius = self.cornerSelectedRadius;
-            borderWidth = self.borderSelectedWidth;
-            borderColor = self.borderSelectedColor;
-            themeColor = self.selectedColor;
-            backgroundColor = self.backgroundSelectedColor;
-            if (self.selectedImage != nil) {
-                self.defaultImage = self.selectedImage;
-            }
-        }
-            break;
+- (void)setTitleColor:(nullable NSColor *)color forState:(NNControlState)state {
+    if (!color) {
+        return;
     }
-    if (self.defaultImage != nil) {
-        self.image = self.defaultImage;
+    self.mdic[@(state)][kTitleColor] = color;
+}
+
+- (void)setBackgroundImage:(nullable NSImage *)image forState:(NNControlState)state {
+    if (!image) {
+        return;
     }
-    [self setFontColor:themeColor];
+    self.mdic[@(state)][kBackgroundImage] = image;
+}
+
+- (void)setAttributedTitle:(nullable NSAttributedString *)title forState:(NNControlState)state {
+    if (!title) {
+        return;
+    }
+//    self.title = title.string;
+    self.mdic[@(state)][kAttributedTitle] = title;
+}
+
+- (nullable NSString *)titleForState:(NNControlState)state {
+    NSString *result = self.mdic[@(state)][kTitle] ? : self.mdic[@(NNControlStateNormal)][kTitle];
+    return result;
+}
+
+- (nullable NSColor *)titleColorForState:(NNControlState)state {
+    NSColor *result = self.mdic[@(state)][kTitleColor] ? : self.mdic[@(NNControlStateNormal)][kTitleColor];
+    return result;
+}
+
+- (nullable NSImage *)backgroundImageForState:(NNControlState)state {
+    NSImage *result = self.mdic[@(state)][kBackgroundImage] ? : self.mdic[@(NNControlStateNormal)][kBackgroundImage];
+    return result;
+}
+
+- (void)updateUIWithState:(NNControlState)state {
+    self.mdicState = self.mdic[@(state)] ? : self.mdic[@(NNControlStateNormal)];
+    self.title = self.mdicState[kTitle];
+    self.titleColor = self.mdicState[kTitleColor];
+    self.backgroundImage = self.mdicState[kBackgroundImage];
     
-    if (self.hasBorder) {
-        self.layer.cornerRadius = cornerRadius;
-        self.layer.borderWidth = borderWidth;
-        self.layer.borderColor = borderColor.CGColor;
+//    [self setNeedsDisplay];
+}
+
+#pragma mark -set
+
+- (void)setSelected:(BOOL)selected{
+    _selected = selected;
+    if (!self.enabled) {
+        return;
+    }
+    self.buttonState = selected ? NNControlStateSelected : NNControlStateNormal;
+}
+
+- (void)setHover:(BOOL)hover{
+    _hover = hover;
+    if (!self.enabled) {
+        return;
+    }
+    
+    if (hover) {
+        self.buttonState = NNControlStateHover;
     } else {
-        self.layer.cornerRadius = 0.f;
-        self.layer.borderWidth = 0.f;
-        self.layer.borderColor = NSColor.clearColor.CGColor;
+        self.buttonState = self.selected ? NNControlStateSelected : NNControlStateNormal;
     }
-    self.layer.backgroundColor = backgroundColor.CGColor;
 }
 
-#pragma mark - Setter
-
-- (void)setCanSelected:(BOOL)canSelected {
-    _canSelected = canSelected;
-    [self updateButtonApperaceWithState:self.buttonState];
-}
-
-- (void)setHasBorder:(BOOL)hasBorder {
-    _hasBorder = hasBorder;
-    [self updateButtonApperaceWithState:self.buttonState];
-}
-
-- (void)setButtonState:(NNButtonState)state {
-    if (_buttonState == state) {
+- (void)setMouseUp:(BOOL)mouseUp{
+    _mouseUp = mouseUp;
+    if (!self.enabled) {
         return;
     }
-    _buttonState = state;
-    self.selected = (state == NNButtonSelectedState);
-    [self updateButtonApperaceWithState:state];
+    
+    if (mouseUp) {
+        self.buttonState = self.selected ? NNControlStateSelected : NNControlStateNormal;
+
+    } else {
+        self.buttonState = NNControlStateHighlighted;
+    }
+    
+    if (self.hover && self.enabled && mouseUp) {
+        NSString *selString = NSStringFromSelector(self.action);
+        if ([selString hasSuffix:@":"]) {
+            [self.target performSelector:self.action withObject:self afterDelay:0.f];
+        } else {
+            [self.target performSelector:self.action withObject:nil afterDelay:0.f];
+        }
+    }
 }
 
-- (void)setTitle:(NSString *)title {
-    [super setTitle:title];
-    [self setFontColor:self.normalColor];
+- (void)setButtonState:(NNControlState)buttonState{
+    _buttonState = buttonState;
+
+    [self updateUIWithState:buttonState];
 }
+
+#pragma mark -lazy
+
+- (NSMutableDictionary *)mdic{
+    if (!_mdic) {
+        _mdic = @{@(NNControlStateNormal): self.mdicNormal,
+                  @(NNControlStateHighlighted): self.mdicHighlighted,
+                  @(NNControlStateDisabled): self.mdicDisabled,
+                  @(NNControlStateSelected): self.mdicSelected,
+                  @(NNControlStateHover): self.mdicHover,
+        }.mutableCopy;
+    }
+    return _mdic;
+}
+
+- (NSMutableDictionary *)mdicNormal{
+    if (!_mdicNormal) {
+        _mdicNormal = @{kTitle: self.title,
+                        kTitleColor: NSColor.labelColor,
+                        kBackgroundImage: [NSImage imageWithColor:self.backgroundColor size:CGSizeMake(1, 1)],
+        }.mutableCopy;
+    }
+    return _mdicNormal;
+}
+
+- (NSMutableDictionary *)mdicHighlighted{
+    if (!_mdicHighlighted) {
+        _mdicHighlighted = @{kTitle: self.title,
+                             kTitleColor: NSColor.labelColor,
+                             kBackgroundImage: [NSImage imageWithColor:NSColor.systemBlueColor size:CGSizeMake(1, 1)],
+
+        }.mutableCopy;
+    }
+    return _mdicHighlighted;
+}
+
+- (NSMutableDictionary *)mdicDisabled{
+    if (!_mdicDisabled) {
+        _mdicDisabled = @{kTitle: self.title,
+                          kTitleColor: NSColor.lightGrayColor,
+                          kBackgroundImage: [NSImage imageWithColor:NSColor.whiteColor size:CGSizeMake(1, 1)],
+
+        }.mutableCopy;
+    }
+    return _mdicDisabled;
+}
+
+- (NSMutableDictionary *)mdicSelected{
+    if (!_mdicSelected) {
+        _mdicSelected = @{kTitle: self.title,
+                          kTitleColor: NSColor.labelColor,
+                          kBackgroundImage: [NSImage imageWithColor:self.backgroundColor size:CGSizeMake(1, 1)],
+
+        }.mutableCopy;
+    }
+    return _mdicSelected;
+}
+
+- (NSMutableDictionary *)mdicHover{
+    if (!_mdicHover) {
+        _mdicHover = @{kTitle: self.title,
+                       kTitleColor: NSColor.labelColor,
+                       kBackgroundImage: [NSImage imageWithColor:self.backgroundColor size:CGSizeMake(1, 1)],
+
+        }.mutableCopy;
+    }
+    return _mdicHover;
+}
+
 
 
 @end
