@@ -40,6 +40,7 @@ class TmpViewController: NSViewController {
         let view = NSButton(checkboxWithTitle: "checkBox", target: self, action: #selector(handleActionBtn(_:)))
 //        view.isBordered = false;  ///是否显示边框
 //        view.wantsLayer = true;
+        view.isEnabled = false
 
         return view;
     }()
@@ -48,7 +49,7 @@ class TmpViewController: NSViewController {
         let view = NSButton(radioButtonWithTitle: "radio", target: self, action: #selector(handleActionBtn(_:)))
 //        view.isBordered = false;  ///是否显示边框
 //        view.wantsLayer = true;
-
+        view.setTitleColor(NSColor.darkGray)
         return view;
     }()
     
@@ -61,7 +62,7 @@ class TmpViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-        view.layer?.backgroundColor = NSColor.lightBlue.cgColor
+        view.layer?.backgroundColor = NSColor.white.cgColor
 //        setupClickView()
 //        setupSearchField()
         

@@ -37,7 +37,7 @@ class NNCollectionViewItem: NSCollectionViewItem {
     
     override var isSelected: Bool {
       didSet {
-        view.layer?.borderWidth = isSelected ? 5.0 : 0.0
+        view.layer?.borderWidth = isSelected ? 3.0 : 0.0
       }
     }
     // MARK: -life cycle
@@ -45,7 +45,7 @@ class NNCollectionViewItem: NSCollectionViewItem {
       super.viewDidLoad()
         view.wantsLayer = true
         view.layer?.backgroundColor = NSColor.white.cgColor
-        view.layer?.borderColor = NSColor.white.cgColor
+        view.layer?.borderColor = NSColor.red.cgColor
         view.layer?.borderWidth = 0.0
         
         view.addSubview(imgView)

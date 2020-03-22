@@ -5,6 +5,10 @@
 #import "NNLabel.h"
 
 #import "NNButton.h"
+#import "HHButton.h"
+#import "AAButton.h"
+#import "OOButton.h"
+
 #import "NNCollectionView.h"
 
 #import "NNTableView.h"
