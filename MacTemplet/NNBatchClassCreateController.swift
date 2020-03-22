@@ -36,6 +36,7 @@ class NNBatchClassCreateController: NSViewController {
         let view = NNTextView.create(.zero)
         view.font = NSFont.systemFont(ofSize: 12)
         view.string = ""
+        view.placeHolder = "请输入..."
         view.delegate = self
         return view;
     }()
