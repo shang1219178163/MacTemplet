@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSImage (Ext)
 
++(NSImage *)imageWithColor:(NSColor *)color size:(CGSize)size;
+
 @end
 
 NS_ASSUME_NONNULL_END

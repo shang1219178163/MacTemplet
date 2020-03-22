@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSView (Ext)
 
+/// 绘制边框曲线
+- (void)drawLineDashRect:(NSRect)rect;
+
 @end
 
 NS_ASSUME_NONNULL_END
