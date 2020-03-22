@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NNTextView : NSTextView
 
+@property (nonatomic, strong) NSString *placeHolder;
+
 @end
 
 NS_ASSUME_NONNULL_END

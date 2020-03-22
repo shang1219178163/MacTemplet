@@ -11,10 +11,22 @@
 @interface NNTextView ()
 
 @property (nonatomic, strong) NSScrollView *scrollView;
+//static NSAttributedString *placeHolderString;
 
 @end
 
 @implementation NNTextView
+
+//+ (void)initialize{
+//    if (self == [NNTextView class]) {
+//        static BOOL initialized = NO;
+//        if (!initialized) {
+//
+//            NSDictionary *attDic = @{NSForegroundColorAttributeName: NSColor.grayColor};
+//            placeHolderString = [[NSAttributedString alloc] initWithString:@"发送消息..." attributes:attDic];
+//        }
+//    }
+//}
 
 - (instancetype)init{
     self = [super init];
@@ -40,7 +52,18 @@
     [super drawRect:dirtyRect];
     
     // Drawing code here.
+    if ([self.string isEqualToString:@""] && self != self.window.firstResponder && self.placeHolder) {
+        NSDictionary *attDic = @{NSForegroundColorAttributeName: NSColor.grayColor};
+        NSAttributedString *attString = [[NSAttributedString alloc] initWithString:self.placeHolder attributes:attDic];
+        [attString drawAtPoint:NSMakePoint(4, 0)];
+    }
 }
+
+- (BOOL)resignFirstResponder{
+    [self setNeedsDisplay:YES];
+    return [super resignFirstResponder];
+}
+
 
 #pragma mark -lazy
 
