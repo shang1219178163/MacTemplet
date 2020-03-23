@@ -30,7 +30,7 @@ class NNButtonStyleController: NSViewController {
         collectionView.delegate = self
         
 //        collectionView.register(NNCollectionViewItem.classForCoder(), forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNCollectionViewItem"))
-//        collectionView.register(NNHeaderFooterView.classForCoder(), forSupplementaryViewOfKind: NSCollectionView.elementKindSectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNHeaderFooterView"))
+//        collectionView.register(NNHeaderFooterView.classForCoder(), forSupplementaryViewOfKind: NSCollectionView.elementKindSectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNHeaderFooterViewHeader"))
         collectionView.register(cellType: NNCollectionViewItem.self)
         collectionView.register(supplementaryViewType: NNHeaderFooterView.self)
         self.view.wantsLayer = true
@@ -38,8 +38,10 @@ class NNButtonStyleController: NSViewController {
         return collectionView
     }()
     
+    var listCustom: [NSButton] = []
+    
     lazy var btn: HHButton = {
-        let view = HHButton(title: "继承按钮", target: nil, action: nil)
+        let view = HHButton(title: "HHButton", target: nil, action: nil)
         view.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
         
         view.addActionHandler({ (control) in
@@ -49,9 +51,10 @@ class NNButtonStyleController: NSViewController {
     }()
 
     lazy var btnOne: NNButton = {
-        let view = NNButton(title: "自定义按钮", target: nil, action: nil)
+        let view = NNButton(title: "NNButton", target: nil, action: nil)
         view.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
         view.toolTip = "btnOne"
+        view.showHighlighted = true
 
         view.setTitle("normal", for: .normal)
         view.setTitle("disabled", for: .disabled)
@@ -78,12 +81,11 @@ class NNButtonStyleController: NSViewController {
 //            sender.isHighlighted = !sender.isHighlighted
             DDLog("\(control)_\(sender.selected)")
         })
-//        view.addTarget(self, action: #selector(handleActionBtn(_:)))
         return view
     }()
     
     lazy var btnTwo: NNButton = {
-        let view = NNButton(title: "自定义按钮", target: nil, action: nil)
+        let view = NNButton(title: "disabled", target: nil, action: nil)
         view.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
         view.setTitle("normal", for: .normal)
         view.setTitle("disabled", for: .disabled)
@@ -194,6 +196,8 @@ class NNButtonStyleController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
+        listCustom = [btn, btnOne, btnTwo, btnThree, btnFour]
+        
         view.addSubview(collectionView.enclosingScrollView!)
         collectionView.reloadData()
     }
@@ -207,20 +211,23 @@ class NNButtonStyleController: NSViewController {
     override func viewDidAppear() {
         super.viewDidAppear()
         
-        DDLog(btnTwo.value(forKey: "mdicHighlighted"))
+//        DDLog(btnTwo.value(forKey: "mdicHighlighted"))
     }
     
 }
 
 extension NNButtonStyleController : NSCollectionViewDataSource {
   
-  func numberOfSections(in collectionView: NSCollectionView) -> Int {
-    return 1
-  }
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        return 2
+    }
   
-  func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-    return bezelStyles.count + 5
-  }
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 1 {
+            return listCustom.count
+        }
+        return bezelStyles.count
+    }
   
   func collectionView(_ itemForRepresentedObjectAtcollectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
     
@@ -231,6 +238,7 @@ extension NNButtonStyleController : NSCollectionViewDataSource {
 
     item.textLabel.isHidden = true
     item.textLabelBottom.stringValue = "{\(indexPath.section),\(indexPath.item)}"
+    item.textLabelBottom.alignment = .center
     
     if buttonTypes.count > indexPath.item {
         item.btn.setButtonType(buttonTypes[indexPath.item])
@@ -285,107 +293,115 @@ extension NNButtonStyleController : NSCollectionViewDataSource {
         }
     }
 
-    if indexPath.item == 13 {
+    if indexPath.section == 1 {
         item.btn.isHidden = true
-        
-        item.view.addSubview(btn)
-        btn.center = CGPoint(x: 70, y: 70)
-        
-//        btn.bezelStyle = .texturedSquare
-        btn.wantsLayer = true
-        btn.toolTip = btn.title
-//        btn.alignment = .center
+        item.textLabelBottom.stringValue = "\(listCustom[indexPath.item].title)"
 
-        btn.hasBorder = true
-//        btn.layer?.backgroundColor = NSColor.green.cgColor
-        
-        btn.layer?.borderColor = NSColor.red.cgColor
-        btn.layer?.borderWidth = 1.5
-        btn.layer?.cornerRadius = 10
-//        btn.layer?.masksToBounds = true
-        
-//        btn.image = NSImage(named: "AppIcon")!
-        
-        btn.cornerNormalRadius = 1
-        btn.cornerHoverRadius = 4
-        btn.cornerHighlightRadius = 8
-        btn.cornerSelectedRadius = 12
-////
-        btn.borderNormalWidth = 1
-        btn.borderHoverWidth = 4
-        btn.borderHighlightWidth = 8
-        btn.borderSelectedWidth = 12
+        switch indexPath.item {
+        case 0:
+            item.view.addSubview(btn)
+            btn.center = CGPoint(x: 70, y: 70)
+            
+    //        btn.bezelStyle = .texturedSquare
+            btn.wantsLayer = true
+            btn.toolTip = btn.title
+    //        btn.alignment = .center
 
-        btn.borderNormalColor = NSColor.random
-        btn.borderHoverColor = NSColor.random
-        btn.borderHighlightColor = NSColor.random
-        btn.borderSelectedColor = NSColor.random
-        
-//        btn.normalColor = NSColor.blue
-//        btn.hoverColor = NSColor.yellow
-//        btn.highlightColor = NSColor.brown
-//        btn.selectedColor = NSColor.orange
+            btn.hasBorder = true
+    //        btn.layer?.backgroundColor = NSColor.green.cgColor
+            
+            btn.layer?.borderColor = NSColor.red.cgColor
+            btn.layer?.borderWidth = 1.5
+            btn.layer?.cornerRadius = 10
+    //        btn.layer?.masksToBounds = true
+            
+    //        btn.image = NSImage(named: "AppIcon")!
+            
+            btn.cornerNormalRadius = 1
+            btn.cornerHoverRadius = 4
+            btn.cornerHighlightRadius = 8
+            btn.cornerSelectedRadius = 12
+    ////
+            btn.borderNormalWidth = 1
+            btn.borderHoverWidth = 4
+            btn.borderHighlightWidth = 8
+            btn.borderSelectedWidth = 12
 
-        btn.image = NSImage(named: "AppIcon")
-        btn.image = NSImage(named: "AppIcon")
+            btn.borderNormalColor = NSColor.random
+            btn.borderHoverColor = NSColor.random
+            btn.borderHighlightColor = NSColor.random
+            btn.borderSelectedColor = NSColor.random
+            
+    //        btn.normalColor = NSColor.blue
+    //        btn.hoverColor = NSColor.yellow
+    //        btn.highlightColor = NSColor.brown
+    //        btn.selectedColor = NSColor.orange
 
-        btn.imageScaling = NSImageScaling.scaleNone
-        btn.normalImage = NSImage(named: "Item_center_H")!
-        btn.hoverImage = NSImage(named: "Item_first_H")!
-        btn.highlightImage = NSImage(named: "Item_fourth_H")!
-        btn.selectedImage = NSImage(named: "Item_second_H")!
+            btn.image = NSImage(named: "AppIcon")
+            btn.image = NSImage(named: "AppIcon")
 
-//        btn.backgroundNormalColor = NSColor.yellow
-//        btn.backgroundHoverColor = NSColor.lightGreen
-//        btn.backgroundHighlightColor = NSColor.lightOrange
-//        btn.backgroundSelectedColor = NSColor.theme
+            btn.imageScaling = NSImageScaling.scaleNone
+            btn.normalImage = NSImage(named: "Item_center_H")!
+            btn.hoverImage = NSImage(named: "Item_first_H")!
+            btn.highlightImage = NSImage(named: "Item_fourth_H")!
+            btn.selectedImage = NSImage(named: "Item_second_H")!
 
-//        btn.backgroundColor = NSColor.red
-//        btn.titleColor = NSColor.green
-        
-//        let attDic = NSAttributedString.attrDict(15, textColor: NSColor.red)
-//        btn.attributedTitle = NSAttributedString(string: "UIButton", attributes: attDic)
+    //        btn.backgroundNormalColor = NSColor.yellow
+    //        btn.backgroundHoverColor = NSColor.lightGreen
+    //        btn.backgroundHighlightColor = NSColor.lightOrange
+    //        btn.backgroundSelectedColor = NSColor.theme
 
-//        item.view.getViewLayer()
-    } else if indexPath.item == 14 {
-        item.btn.isHidden = true
-        
-        item.view.addSubview(btnOne)
-        btnOne.center = CGPoint(x: 70, y: 70)
-        
-    } else if indexPath.item == 15 {
-        item.btn.isHidden = true
-       
-        item.view.addSubview(btnTwo)
-        btnTwo.center = CGPoint(x: 70, y: 70)
-//        btnTwo.isEnabled = false;
-    } else if indexPath.item == 16 {
-         item.btn.isHidden = true
-        
-         item.view.addSubview(btnThree)
-         btnThree.center = CGPoint(x: 70, y: 70)
-        
-    } else if indexPath.item == 17 {
-        item.btn.isHidden = true
-       
-        DDLog(item.view.frame, item.view.bounds, item.view.center)
-        item.view.addSubview(btnFour)
-        btnFour.center = CGPoint(x: item.view.bounds.width*0.5, y: item.view.bounds.height*0.5)
-       
-   }
+    //        btn.backgroundColor = NSColor.red
+    //        btn.titleColor = NSColor.green
+            
+    //        let attDic = NSAttributedString.attrDict(15, textColor: NSColor.red)
+    //        btn.attributedTitle = NSAttributedString(string: "UIButton", attributes: attDic)
+
+    //        item.view.getViewLayer()
+        case 1:
+            item.btn.isHidden = true
+            
+            item.view.addSubview(btnOne)
+            btnOne.center = CGPoint(x: 70, y: 70)
+            
+        case 2:
+            item.btn.isHidden = true
+           
+            item.view.addSubview(btnTwo)
+            btnTwo.center = CGPoint(x: 70, y: 70)
+    //        btnTwo.isEnabled = false;
+            
+        case 3:
+             item.btn.isHidden = true
+            
+             item.view.addSubview(btnThree)
+             btnThree.center = CGPoint(x: 70, y: 70)
+            
+        default:
+            item.btn.isHidden = true
+            
+             item.view.addSubview(btnFour)
+             btnFour.center = CGPoint(x: item.view.bounds.width*0.5, y: item.view.bounds.height*0.5)
+        }
+
+    }
 //    view.layer?.backgroundColor = NSColor.random.cgColor
 //    view.getViewLayer()
-    return item
-  }
+        return item
+    }
   
-  func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> NSView {
-//    let view = collectionView.makeSupplementaryView(ofKind: NSCollectionView.elementKindSectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNHeaderFooterView"), for: indexPath) as! NNHeaderFooterView
-    let view = collectionView.dequeueReusableSupplementaryView(for: NNHeaderFooterView.self, kind: NSCollectionView.elementKindSectionHeader, indexPath: indexPath)
-    view.textField.stringValue = "Section \(indexPath.section)"
-    view.textFieldDetail.stringValue = "\(indexPath.item) image files"
-    return view
-  }
+    func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> NSView {
+    //    let view = collectionView.makeSupplementaryView(ofKind: NSCollectionView.elementKindSectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNHeaderFooterView"), for: indexPath) as! NNHeaderFooterView
+        let view = collectionView.dequeueReusableSupplementaryView(for: NNHeaderFooterView.self, kind: NSCollectionView.elementKindSectionHeader, indexPath: indexPath)
+        view.layer?.backgroundColor = NSColor.white.cgColor
+        view.textField.stringValue = "Section \(indexPath.section)"
+    //    view.textFieldDetail.stringValue = "\(indexPath.item) image files"
+            
+        view.textField.stringValue = indexPath.section == 0 ? "官方样式" : "自定义按钮"
+        return view
+    }
   
+
 }
 
 extension NNButtonStyleController : NSCollectionViewDelegate {
@@ -396,8 +412,12 @@ extension NNButtonStyleController : NSCollectionViewDelegate {
 }
 
 extension NNButtonStyleController : NSCollectionViewDelegateFlowLayout {
-  func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
-    return singleSectionMode ? NSZeroSize : NSSize(width: collectionView.frame.width, height: 40)
-  }
+//    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
+//        return singleSectionMode ? NSZeroSize : NSSize(width: collectionView.frame.width, height: 40)
+//    }
+    
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize{
+        return NSSize(width: collectionView.frame.width, height: 25)
+    }
 }
 

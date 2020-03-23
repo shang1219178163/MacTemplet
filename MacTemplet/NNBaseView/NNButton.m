@@ -8,11 +8,15 @@
 
 #import "NNButton.h"
 #import "NSImage+Ext.h"
+#import "NSColor+Ext.h"
 
 NSString * const kTitle = @"title";
 NSString * const kTitleColor = @"titleColor";
 NSString * const kBackgroundImage = @"backgroundImage";
 NSString * const kAttributedTitle = @"AttributedTitle";
+NSString * const kBorderColor = @"BorderColor";
+NSString * const kBorderWidth = @"BorderWidth";
+NSString * const kCornerRadius = @"CornerRadius";
 
 @interface NNButton ()
 
@@ -31,7 +35,7 @@ NSString * const kAttributedTitle = @"AttributedTitle";
 @property(nonatomic, strong) NSMutableDictionary *mdicSelected;
 @property(nonatomic, strong) NSMutableDictionary *mdicHover;
 
-@property(nonatomic, assign) NNControlState buttonState;
+@property(nonatomic, assign, readwrite) NNControlState buttonState;
 
 @end
 
@@ -46,7 +50,8 @@ NSString * const kAttributedTitle = @"AttributedTitle";
     self = [super initWithFrame:frame];
     if (self) {
         [self addObserver:self forKeyPath:@"enabled" options:NSKeyValueObservingOptionNew context:nil];
-
+        
+        self.wantsLayer = true;
     }
     return self;
 }
@@ -61,9 +66,13 @@ NSString * const kAttributedTitle = @"AttributedTitle";
 //    [backgroundColor set];
 //    NSRectFill(self.bounds);
         
-    NSImage *image = self.backgroundImage ? : [NSImage imageWithColor:self.backgroundColor size:CGSizeMake(1, 1)];
+    
+//    NSColor *backgroundColor = self.backgroundColor ? : NSColor.whiteColor;
+    NSImage *image = self.backgroundImage ? : [NSImage imageWithColor:NSColor.whiteColor];
     if (image) {
         [image drawInRect:self.bounds];
+//        CGRect rect = CGRectMake(self.layer.borderWidth, self.layer.borderWidth, CGRectGetWidth(self.bounds) - self.layer.borderWidth*2, CGRectGetHeight(self.bounds) - self.layer.borderWidth*2);
+//        [image drawInRect:rect];
     }
         
     if (self.title) {
@@ -128,35 +137,44 @@ NSString * const kAttributedTitle = @"AttributedTitle";
 
 #pragma mark -funtions
 
-//+ (instancetype)buttonWithType:(NNButtonType)buttonType{
-//    NNButton *btn = [[NNButton alloc]initWithFrame:CGRectZero];
-//    switch (buttonType) {
-//        case NNButtonType1:
-//            btn = [[NNButton alloc]initWithFrame:CGRectZero];
-//            btn.wantsLayer = true;
-//            btn.layer.borderColor = NSColor.labelColor.CGColor;
-//            btn.layer.borderWidth = 1.5;
-//
-//            break;
-//        case NNButtonType2:
-//            btn = [[NNButton alloc]initWithFrame:CGRectZero];
-//            btn.wantsLayer = true;
-//            btn.layer.borderColor = NSColor.labelColor.CGColor;
-//            btn.layer.borderWidth = 1.5;
-//
-//            break;
-//        default:
-//
-//            break;
-//    }
-//    return btn;
-//}
++ (instancetype)buttonWithType:(NNButtonType)buttonType{
+    NNButton *sender = [[NNButton alloc] initWithFrame:CGRectZero];
+    sender.buttonType = buttonType;
+
+    [sender setTitle:@"NNButton" forState:NNControlStateNormal];
+    [sender setTitleColor:NSColor.systemBlueColor forState:NNControlStateNormal];
+    switch (buttonType) {
+        case NNButtonType1:
+        {
+            [sender setTitleColor:NSColor.labelColor forState:NNControlStateNormal];
+//            [sender setBorderColor:NSColor.labelColor forState:NNControlStateNormal];
+        }
+            break;
+        case NNButtonType2:
+        {
+            [sender setTitleColor:NSColor.whiteColor forState:NNControlStateNormal];
+            
+            NSImage *image = [NSImage imageWithColor:[NSColor hexValue:0x29B5FE alpha:1]];
+            [sender setBackgroundImage:image forState:NNControlStateNormal];
+        }
+            break;
+        default:
+            break;
+    }
+    return sender;
+}
 
 - (void)setTitle:(nullable NSString *)title forState:(NNControlState)state {
     if (!title) {
         return;
     }
-//    self.title = title;
+    if (state == NNControlStateNormal) {
+        self.title = title;
+        self.mdic[@(NNControlStateHover)][kTitle] = title;
+        self.mdic[@(NNControlStateSelected)][kTitle] = title;
+        self.mdic[@(NNControlStateHighlighted)][kTitle] = title;
+        self.mdic[@(NNControlStateDisabled)][kTitle] = title;
+    }
     self.mdic[@(state)][kTitle] = title;
 }
 
@@ -164,22 +182,79 @@ NSString * const kAttributedTitle = @"AttributedTitle";
     if (!color) {
         return;
     }
-    self.mdic[@(state)][kTitleColor] = color;
-}
-
-- (void)setBackgroundImage:(nullable NSImage *)image forState:(NNControlState)state {
-    if (!image) {
-        return;
+    if (state == NNControlStateNormal) {
+        self.titleColor = color;
+        self.mdic[@(NNControlStateHover)][kTitleColor] = color;
+        self.mdic[@(NNControlStateHover)][kBorderColor] = color;
     }
-    self.mdic[@(state)][kBackgroundImage] = image;
+    self.mdic[@(state)][kTitleColor] = color;
+    self.mdic[@(state)][kBorderColor] = color;
 }
 
 - (void)setAttributedTitle:(nullable NSAttributedString *)title forState:(NNControlState)state {
     if (!title) {
         return;
     }
-//    self.title = title.string;
+    if (state == NNControlStateNormal) {
+        self.title = title.string;
+        self.mdic[@(NNControlStateHover)][kAttributedTitle] = title;
+        self.mdic[@(NNControlStateSelected)][kAttributedTitle] = title;
+        self.mdic[@(NNControlStateHighlighted)][kAttributedTitle] = title;
+        self.mdic[@(NNControlStateDisabled)][kAttributedTitle] = title;
+    }
     self.mdic[@(state)][kAttributedTitle] = title;
+}
+
+- (void)setBackgroundImage:(nullable NSImage *)image forState:(NNControlState)state {
+    if (!image) {
+        return;
+    }
+    if (state == NNControlStateNormal) {
+        self.mdic[@(NNControlStateHover)][kBackgroundImage] = image;
+        self.mdic[@(NNControlStateSelected)][kBackgroundImage] = image;
+        self.mdic[@(NNControlStateHighlighted)][kBackgroundImage] = image;
+        self.mdic[@(NNControlStateDisabled)][kBackgroundImage] = image;
+    }
+    self.mdic[@(state)][kBackgroundImage] = image;
+}
+
+- (void)setBorderColor:(nullable NSColor *)color forState:(NNControlState)state {
+    if (!color) {
+        return;
+    }
+    if (state == NNControlStateNormal) {
+        self.mdic[@(NNControlStateHover)][kBorderColor] = color;
+        self.mdic[@(NNControlStateSelected)][kBorderColor] = color;
+        self.mdic[@(NNControlStateHighlighted)][kBorderColor] = color;
+        self.mdic[@(NNControlStateDisabled)][kBorderColor] = color;
+    }
+    self.mdic[@(state)][kBorderColor] = color;
+}
+
+- (void)setBorderWidth:(nullable NSNumber *)number forState:(NNControlState)state {
+    if (!number) {
+        return;
+    }
+    if (state == NNControlStateNormal) {
+        self.mdic[@(NNControlStateHover)][kBorderWidth] = number;
+        self.mdic[@(NNControlStateSelected)][kBorderWidth] = number;
+        self.mdic[@(NNControlStateHighlighted)][kBorderWidth] = number;
+        self.mdic[@(NNControlStateDisabled)][kBorderWidth] = number;
+    }
+    self.mdic[@(state)][kBorderWidth] = number;
+}
+
+- (void)setCornerRadius:(nullable NSNumber *)number forState:(NNControlState)state {
+    if (!number) {
+        return;
+    }
+    if (state == NNControlStateNormal) {
+        self.mdic[@(NNControlStateHover)][kCornerRadius] = number;
+        self.mdic[@(NNControlStateSelected)][kCornerRadius] = number;
+        self.mdic[@(NNControlStateHighlighted)][kCornerRadius] = number;
+        self.mdic[@(NNControlStateDisabled)][kCornerRadius] = number;
+    }
+    self.mdic[@(state)][kCornerRadius] = number;
 }
 
 - (nullable NSString *)titleForState:(NNControlState)state {
@@ -192,18 +267,84 @@ NSString * const kAttributedTitle = @"AttributedTitle";
     return result;
 }
 
+- (nullable NSAttributedString *)attributedStringForState:(NNControlState)state {
+    NSAttributedString *result = self.mdic[@(state)][kAttributedTitle] ? : self.mdic[@(NNControlStateNormal)][kAttributedTitle];
+    return result;
+}
+
 - (nullable NSImage *)backgroundImageForState:(NNControlState)state {
     NSImage *result = self.mdic[@(state)][kBackgroundImage] ? : self.mdic[@(NNControlStateNormal)][kBackgroundImage];
     return result;
 }
 
+- (nullable NSColor *)borderColorForState:(NNControlState)state {
+    NSColor *result = self.mdic[@(state)][kBorderColor] ? : self.mdic[@(NNControlStateNormal)][kBorderColor];
+    return result;
+}
+
+- (nullable NSNumber *)borderWidthForState:(NNControlState)state {
+    NSNumber *result = self.mdic[@(state)][kBorderColor] ? : self.mdic[@(NNControlStateNormal)][kBorderColor];
+    return result;
+}
+
+- (nullable NSNumber *)cornerRadiusForState:(NNControlState)state {
+    NSNumber *result = self.mdic[@(state)][kCornerRadius] ? : self.mdic[@(NNControlStateNormal)][kCornerRadius];
+    return result;
+}
+
 - (void)updateUIWithState:(NNControlState)state {
+    if (state == NNControlStateHighlighted && self.showHighlighted == false) {
+        return;
+    }
+    
     self.mdicState = self.mdic[@(state)] ? : self.mdic[@(NNControlStateNormal)];
     self.title = self.mdicState[kTitle];
     self.titleColor = self.mdicState[kTitleColor];
     self.backgroundImage = self.mdicState[kBackgroundImage];
-    
-//    [self setNeedsDisplay];
+        
+//    self.layer.borderColor = [self.mdicState[kBorderColor] CGColor];
+//    self.layer.borderWidth = [self.mdicState[kBorderWidth] floatValue];
+//    self.layer.cornerRadius = [self.mdicState[kCornerRadius] floatValue];
+        
+    switch (self.buttonType) {
+        case NNButtonType1:
+        {
+            if (state == NNControlStateDisabled) {
+                self.layer.borderColor = NSColor.lightGrayColor.CGColor;
+                
+            } else {
+                NSColor *borderColor = self.mdicState[kBorderColor];
+                if (CGColorEqualToColor(NSColor.clearColor.CGColor, borderColor.CGColor) == false) {
+                    self.layer.borderColor = [borderColor CGColor];
+                }
+            }
+            NSNumber *borderWidth = self.mdicState[kBorderWidth];
+            if (borderWidth.floatValue > 0) {
+                self.layer.borderWidth = borderWidth.floatValue;
+            }
+            
+            NSNumber *cornerRadius = self.mdicState[kCornerRadius];
+            if (cornerRadius.floatValue > 0) {
+                self.layer.cornerRadius = cornerRadius.floatValue;
+            }
+        }
+            break;
+        case NNButtonType2:
+        {
+            if (state == NNControlStateDisabled) {
+                self.titleColor = NSColor.whiteColor;
+                self.backgroundImage = [NSImage imageWithColor:NSColor.lightGrayColor];
+            }
+        }
+            break;
+        default:
+            self.layer.borderColor = NSColor.clearColor.CGColor;
+            self.layer.borderWidth = 0;
+            self.layer.cornerRadius = 0;
+
+            break;
+    }
+    [self setNeedsDisplay];
 }
 
 #pragma mark -set
@@ -276,7 +417,10 @@ NSString * const kAttributedTitle = @"AttributedTitle";
     if (!_mdicNormal) {
         _mdicNormal = @{kTitle: self.title,
                         kTitleColor: NSColor.labelColor,
-                        kBackgroundImage: [NSImage imageWithColor:self.backgroundColor size:CGSizeMake(1, 1)],
+                        kBackgroundImage: [NSImage imageWithColor:NSColor.whiteColor],
+                        kCornerRadius: @(0.0),
+                        kBorderWidth: @(1.0),
+                        kBorderColor: NSColor.clearColor,
         }.mutableCopy;
     }
     return _mdicNormal;
@@ -286,7 +430,10 @@ NSString * const kAttributedTitle = @"AttributedTitle";
     if (!_mdicHighlighted) {
         _mdicHighlighted = @{kTitle: self.title,
                              kTitleColor: NSColor.labelColor,
-                             kBackgroundImage: [NSImage imageWithColor:NSColor.systemBlueColor size:CGSizeMake(1, 1)],
+                             kBackgroundImage: [NSImage imageWithColor:NSColor.systemBlueColor],
+                             kCornerRadius: @(0.0),
+                             kBorderWidth: @(1.0),
+                             kBorderColor: NSColor.clearColor,
 
         }.mutableCopy;
     }
@@ -297,7 +444,10 @@ NSString * const kAttributedTitle = @"AttributedTitle";
     if (!_mdicDisabled) {
         _mdicDisabled = @{kTitle: self.title,
                           kTitleColor: NSColor.lightGrayColor,
-                          kBackgroundImage: [NSImage imageWithColor:NSColor.whiteColor size:CGSizeMake(1, 1)],
+                          kBackgroundImage: [NSImage imageWithColor:NSColor.whiteColor],
+                          kCornerRadius: @(0.0),
+                          kBorderWidth: @(1.0),
+                          kBorderColor: NSColor.clearColor,
 
         }.mutableCopy;
     }
@@ -308,7 +458,10 @@ NSString * const kAttributedTitle = @"AttributedTitle";
     if (!_mdicSelected) {
         _mdicSelected = @{kTitle: self.title,
                           kTitleColor: NSColor.labelColor,
-                          kBackgroundImage: [NSImage imageWithColor:self.backgroundColor size:CGSizeMake(1, 1)],
+                          kBackgroundImage: [NSImage imageWithColor:NSColor.whiteColor],
+                          kCornerRadius: @(0.0),
+                          kBorderWidth: @(1.0),
+                          kBorderColor: NSColor.clearColor,
 
         }.mutableCopy;
     }
@@ -319,7 +472,10 @@ NSString * const kAttributedTitle = @"AttributedTitle";
     if (!_mdicHover) {
         _mdicHover = @{kTitle: self.title,
                        kTitleColor: NSColor.labelColor,
-                       kBackgroundImage: [NSImage imageWithColor:self.backgroundColor size:CGSizeMake(1, 1)],
+                       kBackgroundImage: [NSImage imageWithColor:NSColor.whiteColor],
+                       kCornerRadius: @(0.0),
+                       kBorderWidth: @(1.0),
+                       kBorderColor: NSColor.clearColor,
 
         }.mutableCopy;
     }

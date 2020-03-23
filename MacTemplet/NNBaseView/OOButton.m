@@ -31,7 +31,7 @@
     [path fill];
     
     
-    NSImage *image = self.image ? : [NSImage imageWithColor:self.fillColor size:CGSizeMake(1, 1)];
+    NSImage *image = self.image ? : [NSImage imageWithColor:self.fillColor];
     if (image) {
 //        [image drawInRect:self.bounds];
         [NSGraphicsContext saveGraphicsState];
