@@ -8,7 +8,7 @@
 
 import Cocoa
 
-extension NSCollectionView {
+public extension NSCollectionView {
 
     static let elementKindSectionItem: String = "UICollectionView.elementKindSectionItem";
     static let sectionKindBackgroud: String = "UICollectionView.sectiinKindBackgroud";
@@ -47,7 +47,7 @@ public extension NSCollectionView{
         let view = self.makeSupplementaryView(ofKind: kind, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: identifier), for: indexPath)
         
         view.wantsLayer = true
-        view.layer!.backgroundColor = kind == NSCollectionView.elementKindSectionHeader ? NSColor.green.cgColor : NSColor.yellow.cgColor;
+        view.layer?.backgroundColor = kind == NSCollectionView.elementKindSectionHeader ? NSColor.green.cgColor : NSColor.yellow.cgColor;
         return view as! T;
     }
 }

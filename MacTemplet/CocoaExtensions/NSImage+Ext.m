@@ -11,7 +11,8 @@
 
 @implementation NSImage (Ext)
 
-+(NSImage *)imageWithColor:(NSColor *)color size:(CGSize)size{
++(NSImage *)imageWithColor:(NSColor *)color{
+    CGSize size = CGSizeMake(1.0, 1.0);
     NSImage *image = [[NSImage alloc] initWithSize:size];
     [image lockFocus];
     [color drawSwatchInRect:NSMakeRect(0, 0, size.width, size.height)];
