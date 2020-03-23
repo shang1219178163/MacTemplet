@@ -15,43 +15,81 @@ class NNHeaderFooterView: NSView {
     
     lazy var textField: NSTextField = {
         let textField = NSTextField()
+        textField.wantsLayer = true
+        textField.backgroundColor = NSColor.clear
+        textField.isEditable = false;
+        textField.isBordered = false
         return textField
     }()
     
     lazy var textFieldDetail: NSTextField = {
         let textField = NSTextField()
         textField.alignment = .right
+        textField.wantsLayer = true
+        textField.backgroundColor = NSColor.clear
+        textField.isEditable = false;
+        textField.isBordered = false
+
         return textField
     }()
     
     
     // MARK: -life cycle
+    
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        
+        addSubview(textField)
+        addSubview(textFieldDetail)
+        
+        addSubview(lineTop)
+        addSubview(lineBottom)
+
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder);
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
         // Drawing code here.
-        addSubview(textField)
-        addSubview(textFieldDetail)
     }
     
     override func layout() {
         super.layout()
-        
+
         if bounds.height <= 0 {
             return
         }
         textField.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(0);
             make.left.equalToSuperview().offset(10);
+            make.width.equalToSuperview().multipliedBy(0.45)
             make.bottom.equalToSuperview().offset(0);
-            make.width.equalToSuperview().multipliedBy(0.4)
-            make.height.equalToSuperview();
+        }
+
+        textFieldDetail.snp.makeConstraints { (make) in
+            make.top.bottom.width.equalTo(textField).offset(0);
+            make.right.equalToSuperview().offset(0);
         }
         
-        textFieldDetail.snp.makeConstraints { (make) in
-            make.top.bottom.right.equalTo(textField).offset(0);
-            make.right.equalToSuperview().offset(-10);
+        lineTop.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(0);
+            make.left.equalToSuperview().offset(0);
+            make.right.equalToSuperview().offset(0);
+            make.height.equalTo(1);
         }
+        
+        lineBottom.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(0);
+            make.right.equalToSuperview().offset(0);
+            make.bottom.equalToSuperview().offset(0);
+            make.height.equalTo(1);
+        }
+        
     }
     
 }

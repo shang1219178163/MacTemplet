@@ -25,6 +25,9 @@
 		1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */; };
 		14492B6A24244D5100A9D3E1 /* HHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14492B6924244D5100A9D3E1 /* HHButton.m */; };
 		14492B702424CE1B00A9D3E1 /* NSImage+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 14492B6F2424CE1B00A9D3E1 /* NSImage+Ext.m */; };
+		147787802428844D00D438CC /* NNBurronStudyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1477877F2428844C00D438CC /* NNBurronStudyController.swift */; };
+		147787862428AA7800D438CC /* NSColor+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 147787852428AA7800D438CC /* NSColor+Ext.m */; };
+		147787892428BDED00D438CC /* NSObject+CrashProtector.m in Sources */ = {isa = PBXBuildFile; fileRef = 147787882428BDED00D438CC /* NSObject+CrashProtector.m */; };
 		1480B0D7238CB8F000E24BDB /* Skull.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1480B0D6238CB8F000E24BDB /* Skull.jpg */; };
 		1480B0D9238CBDC200E24BDB /* NSStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */; };
 		1480B0E3238CC63900E24BDB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0E2238CC63900E24BDB /* MapViewController.swift */; };
@@ -152,6 +155,11 @@
 		14492B6924244D5100A9D3E1 /* HHButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHButton.m; sourceTree = "<group>"; };
 		14492B6E2424CE1B00A9D3E1 /* NSImage+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+Ext.h"; sourceTree = "<group>"; };
 		14492B6F2424CE1B00A9D3E1 /* NSImage+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Ext.m"; sourceTree = "<group>"; };
+		1477877F2428844C00D438CC /* NNBurronStudyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NNBurronStudyController.swift; sourceTree = "<group>"; };
+		147787842428AA7800D438CC /* NSColor+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+Ext.h"; sourceTree = "<group>"; };
+		147787852428AA7800D438CC /* NSColor+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Ext.m"; sourceTree = "<group>"; };
+		147787872428BDED00D438CC /* NSObject+CrashProtector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CrashProtector.h"; sourceTree = "<group>"; };
+		147787882428BDED00D438CC /* NSObject+CrashProtector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CrashProtector.m"; sourceTree = "<group>"; };
 		1480B0D6238CB8F000E24BDB /* Skull.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Skull.jpg; sourceTree = "<group>"; };
 		1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSStackViewController.swift; sourceTree = "<group>"; };
 		1480B0E2238CC63900E24BDB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -362,6 +370,8 @@
 		1460510E23A367E600C10F34 /* CocoaExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				147787872428BDED00D438CC /* NSObject+CrashProtector.h */,
+				147787882428BDED00D438CC /* NSObject+CrashProtector.m */,
 				14F0FDBA22AE68F300057093 /* MacExpand.h */,
 				14F0FD9F22ADF12C00057093 /* NSObject+Hook.h */,
 				14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */,
@@ -375,10 +385,12 @@
 				14F0FDE822B084EC00057093 /* NSTableView+Hook.m */,
 				14F2F58B22B881C4009D49CE /* NSTextFieldCell+Hook.h */,
 				14F2F58C22B881C4009D49CE /* NSTextFieldCell+Hook.m */,
-				14492B6E2424CE1B00A9D3E1 /* NSImage+Ext.h */,
-				14492B6F2424CE1B00A9D3E1 /* NSImage+Ext.m */,
 				142857CB2425AA1800BC36F0 /* NSView+Ext.h */,
 				142857CC2425AA1800BC36F0 /* NSView+Ext.m */,
+				14492B6E2424CE1B00A9D3E1 /* NSImage+Ext.h */,
+				14492B6F2424CE1B00A9D3E1 /* NSImage+Ext.m */,
+				147787842428AA7800D438CC /* NSColor+Ext.h */,
+				147787852428AA7800D438CC /* NSColor+Ext.m */,
 			);
 			path = CocoaExtensions;
 			sourceTree = "<group>";
@@ -430,6 +442,7 @@
 				1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */,
 				14BD1950241C7A960047B889 /* NNBatchClassCreateController.swift */,
 				14B4DE36241DE7D100901E8D /* NNButtonStyleController.swift */,
+				1477877F2428844C00D438CC /* NNBurronStudyController.swift */,
 				14B4DE41241E05A000901E8D /* NSCollectionView+Helper.swift */,
 				14D4ED5023CA08F200B8BD16 /* NNRootModel.h */,
 				14D4ED5123CA08F300B8BD16 /* NNRootModel.m */,
@@ -834,6 +847,7 @@
 				1480B0F3238D172700E24BDB /* FileController.swift in Sources */,
 				14F92C4222BB8DE800A5C5E4 /* ESJsonFormat.m in Sources */,
 				14F92C0A22BB1AC700A5C5E4 /* NNAttStringKey.m in Sources */,
+				147787862428AA7800D438CC /* NSColor+Ext.m in Sources */,
 				14F2F5AC22B8FD18009D49CE /* CollectionViewController.m in Sources */,
 				14F2F5B122B8FEE5009D49CE /* NSCTViewItemOne.m in Sources */,
 				14BD1952241C7A960047B889 /* NNBatchClassCreateController.swift in Sources */,
@@ -886,6 +900,7 @@
 				142857CD2425AA1800BC36F0 /* NSView+Ext.m in Sources */,
 				14F92C1822BB611600A5C5E4 /* NNTextView.m in Sources */,
 				14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */,
+				147787892428BDED00D438CC /* NSObject+CrashProtector.m in Sources */,
 				14F2F5A522B8E147009D49CE /* NNTabViewController.m in Sources */,
 				14F92BF622BB13E900A5C5E4 /* NSObject+Helper.m in Sources */,
 				14A90F23241B5CE500BC50EC /* NNBatchManager.swift in Sources */,
@@ -902,6 +917,7 @@
 				14F92C0C22BB1AC700A5C5E4 /* NNGeneralConst.m in Sources */,
 				1445780022BCF50E0007C7B3 /* Const.m in Sources */,
 				14D40A0F22C4983D00AF74B9 /* NNButton.m in Sources */,
+				147787802428844D00D438CC /* NNBurronStudyController.swift in Sources */,
 				14F92C1522BB3ADC00A5C5E4 /* AppDelegate+Menu.m in Sources */,
 				14F08BCC2303BC1800B75842 /* JsonToModelController.m in Sources */,
 				142857C12425A5FB00BC36F0 /* RRButton.m in Sources */,
