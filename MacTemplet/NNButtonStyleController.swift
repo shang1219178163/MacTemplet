@@ -9,6 +9,7 @@
 import Cocoa
 
 import CocoaExpand
+import NNButton
 
 class NNButtonStyleController: NSViewController {
     

@@ -8,6 +8,7 @@
 
 import Cocoa
 import CocoaExpand
+import NNButton
 
 
 class NNBurronStudyController: NSViewController {
@@ -50,6 +51,10 @@ class NNBurronStudyController: NSViewController {
 //        view.layer?.borderColor = NSColor.green.cgColor
 //        view.layer?.borderWidth = 1
         view.layer?.cornerRadius = 10
+        
+        view.stateBlock { (sender, state) in
+            DDLog("\(sender)_\(state)")
+        }
         
         view.addActionHandler({ (control) in
             guard let sender = control as? NNButton else { return }
@@ -94,7 +99,7 @@ class NNBurronStudyController: NSViewController {
 //        view.setTitleColor(NSColor.orange, for: .hover)
 //        view.setTitleColor(NSColor.red, for: .normal)
 
-        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightBlue), for: .normal)
+        view.setBackgroundImage(NSImage(color: NSColor.lightBlue), for: .normal)
 //        view.setBackgroundImage(NSImage.imageWithColor(NSColor.white), for: .hover)
 
         view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightGreen), for: .selected)

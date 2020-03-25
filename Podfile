@@ -22,7 +22,8 @@ def common_pods
   pod 'YYModel'
   pod 'HandyJSON'
   pod 'CocoaExpand'
-  
+  pod 'NNButton'
+
 #  pod 'FlatButton'
 
 
