@@ -201,6 +201,8 @@ class NNButtonStyleController: NSViewController {
         
         view.addSubview(collectionView.enclosingScrollView!)
         collectionView.reloadData()
+        
+//        view.getViewLayer()
     }
     
     override func viewDidLayout() {
@@ -282,20 +284,16 @@ extension NNButtonStyleController : NSCollectionViewDataSource {
         item.btn.alternateTitle = ""
     }
     
-    if item.btn.bezelStyle == .shadowlessSquare {
-        ///取消高亮
-        (item.btn.cell as! NSButtonCell).highlightsBy = []
-    }
-    
     if item.btn.bezelStyle == .inline {
         if #available(macOS 10.14, *) {
             item.btn.isBordered = false
 //            item.btn.contentTintColor = NSColor.red
         }
     }
+    
+    item.btn.isHidden = (indexPath.section == 1)
 
     if indexPath.section == 1 {
-        item.btn.isHidden = true
         item.textLabelBottom.stringValue = "\(listCustom[indexPath.item].title)"
 
         switch indexPath.item {

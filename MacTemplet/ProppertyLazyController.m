@@ -114,6 +114,8 @@
     }
     [NSApp.mainWindow makeFirstResponder:nil];
     self.textViewOne.string = [self createResult:self.textView.string];
+    [NSPasteboard.generalPasteboard clearContents];
+    [NSPasteboard.generalPasteboard setString:self.textViewOne.string forType:NSPasteboardTypeString];
 }
 
 - (IBAction)showAlert:(id)sender {
@@ -196,7 +198,7 @@
                 NNButton *btn = [NNButton create:CGRectZero];
 //                btn.titleColor = NSColor.redColor;
 //                btn.backgroundColor = NSColor.greenColor;
-
+          
                 btn.title = self.btnItems[i];
                 btn.tag = i;
                 [btn addTarget:self action:@selector(p_handleActionSender:) on: NSEventMaskOtherMouseUp];
