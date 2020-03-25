@@ -48,6 +48,10 @@ import UIKit
 //        }
         return true;
     }
+            
+    override func printLog() -> Bool {
+        return true
+    }
 }
 
 """
