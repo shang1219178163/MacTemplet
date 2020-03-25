@@ -42,10 +42,10 @@ class NNBurronStudyController: NSViewController {
         view.setTitleColor(NSColor.white, for: .highlighted)
         view.setTitleColor(NSColor.orange, for: .hover)
 
-//        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightBlue), for: .normal)
-//        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightGreen), for: .selected)
-//        view.setBackgroundImage(NSImage.imageWithColor(NSColor.red), for: .highlighted)
-//        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightOrange), for: .hover)
+        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightBlue), for: .normal)
+        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightGreen), for: .selected)
+        view.setBackgroundImage(NSImage.imageWithColor(NSColor.red), for: .highlighted)
+        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightOrange), for: .hover)
 
 //        view.wantsLayer = true
 //        view.layer?.borderColor = NSColor.green.cgColor
