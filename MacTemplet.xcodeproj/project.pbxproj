@@ -24,9 +24,7 @@
 		1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */; };
 		1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */; };
 		14492B6A24244D5100A9D3E1 /* HHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14492B6924244D5100A9D3E1 /* HHButton.m */; };
-		14492B702424CE1B00A9D3E1 /* NSImage+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 14492B6F2424CE1B00A9D3E1 /* NSImage+Ext.m */; };
 		147787802428844D00D438CC /* NNBurronStudyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1477877F2428844C00D438CC /* NNBurronStudyController.swift */; };
-		147787862428AA7800D438CC /* NSColor+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 147787852428AA7800D438CC /* NSColor+Ext.m */; };
 		147787892428BDED00D438CC /* NSObject+CrashProtector.m in Sources */ = {isa = PBXBuildFile; fileRef = 147787882428BDED00D438CC /* NSObject+CrashProtector.m */; };
 		1480B0D7238CB8F000E24BDB /* Skull.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1480B0D6238CB8F000E24BDB /* Skull.jpg */; };
 		1480B0D9238CBDC200E24BDB /* NSStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */; };
@@ -61,14 +59,12 @@
 		14B4DE38241DE7D100901E8D /* NNButtonStyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE36241DE7D100901E8D /* NNButtonStyleController.swift */; };
 		14B4DE3E241DF0BA00901E8D /* NNHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE3D241DF0BA00901E8D /* NNHeaderFooterView.swift */; };
 		14B4DE40241DF5E900901E8D /* NNCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE3F241DF5E900901E8D /* NNCollectionViewItem.swift */; };
-		14B4DE42241E05A000901E8D /* NSCollectionView+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE41241E05A000901E8D /* NSCollectionView+Helper.swift */; };
 		14BD1952241C7A960047B889 /* NNBatchClassCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD1950241C7A960047B889 /* NNBatchClassCreateController.swift */; };
 		14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0625423878FC60016EC8A /* TmpViewController.swift */; };
 		14C38AA0241390C700816A8E /* NNRequestAPIUpdateCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C38A9F241390C700816A8E /* NNRequestAPIUpdateCreater.swift */; };
 		14D40A0622C3884900AF74B9 /* ProppertyLazyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */; };
 		14D40A0922C449B300AF74B9 /* NNPropertyInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0822C449B300AF74B9 /* NNPropertyInfoModel.m */; };
 		14D40A0C22C462E200AF74B9 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0B22C462E200AF74B9 /* HomeViewController.m */; };
-		14D40A0F22C4983D00AF74B9 /* NNButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A0E22C4983C00AF74B9 /* NNButton.m */; };
 		14D40A1222C4A6DA00AF74B9 /* AuthorInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */; };
 		14D4ED4723C8AB4D00B8BD16 /* NNRequestAPIListCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4ED4623C8AB4D00B8BD16 /* NNRequestAPIListCreater.swift */; };
 		14D4ED4B23C9F36900B8BD16 /* NNViewCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4ED4A23C9F36900B8BD16 /* NNViewCreater.swift */; };
@@ -153,11 +149,7 @@
 		1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTextViewContoller.m; sourceTree = "<group>"; };
 		14492B6824244D5100A9D3E1 /* HHButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHButton.h; sourceTree = "<group>"; };
 		14492B6924244D5100A9D3E1 /* HHButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHButton.m; sourceTree = "<group>"; };
-		14492B6E2424CE1B00A9D3E1 /* NSImage+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+Ext.h"; sourceTree = "<group>"; };
-		14492B6F2424CE1B00A9D3E1 /* NSImage+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Ext.m"; sourceTree = "<group>"; };
 		1477877F2428844C00D438CC /* NNBurronStudyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NNBurronStudyController.swift; sourceTree = "<group>"; };
-		147787842428AA7800D438CC /* NSColor+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+Ext.h"; sourceTree = "<group>"; };
-		147787852428AA7800D438CC /* NSColor+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+Ext.m"; sourceTree = "<group>"; };
 		147787872428BDED00D438CC /* NSObject+CrashProtector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CrashProtector.h"; sourceTree = "<group>"; };
 		147787882428BDED00D438CC /* NSObject+CrashProtector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CrashProtector.m"; sourceTree = "<group>"; };
 		1480B0D6238CB8F000E24BDB /* Skull.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Skull.jpg; sourceTree = "<group>"; };
@@ -201,7 +193,6 @@
 		14B4DE36241DE7D100901E8D /* NNButtonStyleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNButtonStyleController.swift; sourceTree = "<group>"; };
 		14B4DE3D241DF0BA00901E8D /* NNHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNHeaderFooterView.swift; sourceTree = "<group>"; };
 		14B4DE3F241DF5E900901E8D /* NNCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNCollectionViewItem.swift; sourceTree = "<group>"; };
-		14B4DE41241E05A000901E8D /* NSCollectionView+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionView+Helper.swift"; sourceTree = "<group>"; };
 		14BD1950241C7A960047B889 /* NNBatchClassCreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNBatchClassCreateController.swift; sourceTree = "<group>"; };
 		14C0625423878FC60016EC8A /* TmpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpViewController.swift; sourceTree = "<group>"; };
 		14C38A9F241390C700816A8E /* NNRequestAPIUpdateCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestAPIUpdateCreater.swift; sourceTree = "<group>"; };
@@ -211,8 +202,6 @@
 		14D40A0822C449B300AF74B9 /* NNPropertyInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNPropertyInfoModel.m; sourceTree = "<group>"; };
 		14D40A0A22C462E200AF74B9 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		14D40A0B22C462E200AF74B9 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		14D40A0D22C4983C00AF74B9 /* NNButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNButton.h; sourceTree = "<group>"; };
-		14D40A0E22C4983C00AF74B9 /* NNButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNButton.m; sourceTree = "<group>"; };
 		14D40A1022C4A6DA00AF74B9 /* AuthorInfoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthorInfoController.h; sourceTree = "<group>"; };
 		14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthorInfoController.m; sourceTree = "<group>"; };
 		14D4ED4623C8AB4D00B8BD16 /* NNRequestAPIListCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestAPIListCreater.swift; sourceTree = "<group>"; };
@@ -387,10 +376,6 @@
 				14F2F58C22B881C4009D49CE /* NSTextFieldCell+Hook.m */,
 				142857CB2425AA1800BC36F0 /* NSView+Ext.h */,
 				142857CC2425AA1800BC36F0 /* NSView+Ext.m */,
-				14492B6E2424CE1B00A9D3E1 /* NSImage+Ext.h */,
-				14492B6F2424CE1B00A9D3E1 /* NSImage+Ext.m */,
-				147787842428AA7800D438CC /* NSColor+Ext.h */,
-				147787852428AA7800D438CC /* NSColor+Ext.m */,
 			);
 			path = CocoaExtensions;
 			sourceTree = "<group>";
@@ -443,7 +428,6 @@
 				14BD1950241C7A960047B889 /* NNBatchClassCreateController.swift */,
 				14B4DE36241DE7D100901E8D /* NNButtonStyleController.swift */,
 				1477877F2428844C00D438CC /* NNBurronStudyController.swift */,
-				14B4DE41241E05A000901E8D /* NSCollectionView+Helper.swift */,
 				14D4ED5023CA08F200B8BD16 /* NNRootModel.h */,
 				14D4ED5123CA08F300B8BD16 /* NNRootModel.m */,
 				14D4ED5323CA0D8E00B8BD16 /* NNHouseRootModel.swift */,
@@ -514,8 +498,6 @@
 				1480B0ED238CED7200E24BDB /* NNSwitch.swift */,
 				1480B0EC238CED7200E24BDB /* NNSwitchThumbView.swift */,
 				1445782622C1CABA0007C7B3 /* NNHeaderView.h */,
-				14D40A0D22C4983C00AF74B9 /* NNButton.h */,
-				14D40A0E22C4983C00AF74B9 /* NNButton.m */,
 				14492B6824244D5100A9D3E1 /* HHButton.h */,
 				14492B6924244D5100A9D3E1 /* HHButton.m */,
 				142857B92425A05200BC36F0 /* AAButton.h */,
@@ -847,7 +829,6 @@
 				1480B0F3238D172700E24BDB /* FileController.swift in Sources */,
 				14F92C4222BB8DE800A5C5E4 /* ESJsonFormat.m in Sources */,
 				14F92C0A22BB1AC700A5C5E4 /* NNAttStringKey.m in Sources */,
-				147787862428AA7800D438CC /* NSColor+Ext.m in Sources */,
 				14F2F5AC22B8FD18009D49CE /* CollectionViewController.m in Sources */,
 				14F2F5B122B8FEE5009D49CE /* NSCTViewItemOne.m in Sources */,
 				14BD1952241C7A960047B889 /* NNBatchClassCreateController.swift in Sources */,
@@ -892,7 +873,6 @@
 				1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */,
 				14F0FDE322B082AD00057093 /* NNTableView.m in Sources */,
 				14ADE21523CC091000037B0B /* NNClassInfoModel.m in Sources */,
-				14B4DE42241E05A000901E8D /* NSCollectionView+Helper.swift in Sources */,
 				14132978238559CE00E7AFCA /* NSTestViewController.m in Sources */,
 				142857BE2425A34900BC36F0 /* OOButton.m in Sources */,
 				14A90F2F241B85B200BC50EC /* NNRequestAPICreater.swift in Sources */,
@@ -913,10 +893,8 @@
 				14D4ED4723C8AB4D00B8BD16 /* NNRequestAPIListCreater.swift in Sources */,
 				14F2F58422B8707C009D49CE /* NNTextFieldCell.m in Sources */,
 				14B4DE3E241DF0BA00901E8D /* NNHeaderFooterView.swift in Sources */,
-				14492B702424CE1B00A9D3E1 /* NSImage+Ext.m in Sources */,
 				14F92C0C22BB1AC700A5C5E4 /* NNGeneralConst.m in Sources */,
 				1445780022BCF50E0007C7B3 /* Const.m in Sources */,
-				14D40A0F22C4983D00AF74B9 /* NNButton.m in Sources */,
 				147787802428844D00D438CC /* NNBurronStudyController.swift in Sources */,
 				14F92C1522BB3ADC00A5C5E4 /* AppDelegate+Menu.m in Sources */,
 				14F08BCC2303BC1800B75842 /* JsonToModelController.m in Sources */,
