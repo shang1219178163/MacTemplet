@@ -23,6 +23,7 @@ def common_pods
   pod 'HandyJSON'
   pod 'CocoaExpand'
   pod 'NNButton'
+  pod 'NNLabel'
 
 #  pod 'FlatButton'
 

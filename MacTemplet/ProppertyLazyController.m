@@ -15,7 +15,7 @@
 
 @interface ProppertyLazyController ()<NSTextViewDelegate>
 
-@property (nonatomic, strong) NNLabel *textLabel;
+@property (nonatomic, strong) UULabel *textLabel;
 @property (nonatomic, strong) NNTextView *textView;
 @property (nonatomic, strong) NNTextView *textViewOne;
 @property (nonatomic, strong) NNView *bottomView;
@@ -114,8 +114,8 @@
     }
     [NSApp.mainWindow makeFirstResponder:nil];
     self.textViewOne.string = [self createResult:self.textView.string];
-    [NSPasteboard.generalPasteboard clearContents];
-    [NSPasteboard.generalPasteboard setString:self.textViewOne.string forType:NSPasteboardTypeString];
+//    [NSPasteboard.generalPasteboard clearContents];
+//    [NSPasteboard.generalPasteboard setString:self.textViewOne.string forType:NSPasteboardTypeString];
 }
 
 - (IBAction)showAlert:(id)sender {
@@ -165,10 +165,10 @@
     return _textViewOne;
 }
 
--(NNLabel *)textLabel{
+-(UULabel *)textLabel{
     if (!_textLabel) {
         _textLabel = ({
-            NNLabel * view = [[NNLabel alloc]initWithFrame:CGRectZero];
+            UULabel * view = [[UULabel alloc]initWithFrame:CGRectZero];
             view.bordered = false;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:13];
             view.font = [NSFont fontWithName:NSFont.kPingFangThin size:13];
@@ -180,7 +180,7 @@
             view.usesSingleLineMode = true;
             view.backgroundColor = NSColor.clearColor;
 //            view.stringValue = @""
-            view.mouseDownBlock = ^(NNLabel * _Nonnull sender) {
+            view.mouseDownBlock = ^(UULabel * _Nonnull sender) {
   
             };
             view;

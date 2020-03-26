@@ -41,9 +41,9 @@
 @property (nonatomic, strong) NNTextField *textField;
 @property (nonatomic, strong) NNTextField *textFieldTwo;
 @property (nonatomic, strong) NNTextField *textFieldThree;
-@property (nonatomic, strong) NNLabel *textLabel;
+@property (nonatomic, strong) UULabel *textLabel;
 
-@property (nonatomic, strong) NNLabel *valueTypeLab;
+@property (nonatomic, strong) UULabel *valueTypeLab;
 @property (nonatomic, strong) NSPopUpButton *popBtn;
 @property (nonatomic, strong) NSButton *btn;
 
@@ -607,10 +607,10 @@
     return _textFieldThree;
 }
 
--(NNLabel *)textLabel{
+-(UULabel *)textLabel{
     if (!_textLabel) {
         _textLabel = ({
-            NNLabel * view = [[NNLabel alloc]initWithFrame:CGRectZero];
+            UULabel * view = [[UULabel alloc]initWithFrame:CGRectZero];
             view.font = [NSFont systemFontOfSize:13];
             view.alignment = NSTextAlignmentCenter;
             
@@ -623,10 +623,10 @@
     return _textLabel;
 }
 
--(NNLabel *)valueTypeLab{
+-(UULabel *)valueTypeLab{
     if (!_valueTypeLab) {
         _valueTypeLab = ({
-            NNLabel * view = [[NNLabel alloc]initWithFrame:CGRectZero];
+            UULabel * view = [[UULabel alloc]initWithFrame:CGRectZero];
             view.font = [NSFont systemFontOfSize:13];
             view.textColor = NSColor.grayColor;
             view.alignment = NSTextAlignmentCenter;
@@ -634,7 +634,7 @@
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
             view.stringValue = self.typeList.firstObject;
-            view.mouseDownBlock = ^(NNLabel * _Nonnull sender) {
+            view.mouseDownBlock = ^(UULabel * _Nonnull sender) {
                 sender.selectable = !sender.selectable;
                 sender.stringValue = sender.selectable == false ? self.typeList.firstObject : self.typeList.lastObject;
                 sender.textColor = sender.selectable == false ? NSColor.grayColor : NSColor.redColor;

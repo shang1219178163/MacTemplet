@@ -11,7 +11,7 @@ import CocoaExpand
 import NNButton
 
 
-class NNBurronStudyController: NSViewController {
+class NNButtonStudyController: NSViewController {
     
     lazy var stackView: NSStackView = {
         //创建StackView
@@ -189,6 +189,16 @@ class NNBurronStudyController: NSViewController {
         return view
     }()
     
+    lazy var btnTen: NNButton = {
+        let view = NNButton(type: .type2)
+        view.setTitle("嗯，当不适合的文本自动以多行显示时，没有选择吗？我应该手动插入换行…", for: .normal)
+        view.font = NSFont.systemFont(ofSize: 13)
+
+        view.addTarget(self, action: #selector(handleActionBtn(_:)))
+
+        return view
+    }()
+    
     @objc func handleActionBtn(_ sender: NNButton) {
 //        sender.selected = !sender.selected
 //        DDLog("\(sender)_\(sender.selected)_\(sender.isHighlighted)")
@@ -235,7 +245,7 @@ class NNBurronStudyController: NSViewController {
         btnSeven.layer?.cornerRadius = 5
         btnEight.layer?.cornerRadius = 5
 
-        itemList = [btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine]
+        itemList = [btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnTen]
         let rowCount: Int = itemList.count%4 == 0 ? itemList.count/4 : itemList.count/4 + 1
         let rect = CGRectMake(0, 0, view.frame.width, CGFloat(rowCount*70))
         setupConstraint(rect)
