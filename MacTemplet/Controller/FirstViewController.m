@@ -7,13 +7,13 @@
 //
 
 #import "FirstViewController.h"
-#import "OneWindowController.h"
+#import "TableViewController.h"
 
 #import <CocoaExpand-Swift.h>
 
 @interface FirstViewController ()
 
-@property (nonatomic, strong) OneWindowController *windowCtrl;
+@property (nonatomic, strong) NSWindowController *windowCtrl;
 @property (nonatomic, strong) NSSegmentedControl *segmentCtl;
 @property (nonatomic, assign) NSModalSession modalSession;
 
@@ -94,12 +94,14 @@
 }
 
 #pragma mark -lazy
--(OneWindowController *)windowCtrl{
+-(NSWindowController *)windowCtrl{
     if (!_windowCtrl) {
-//        _windowCtrl = [[OneWindowController alloc]init];// 崩溃
-//        _windowCtrl = [[OneWindowController alloc]initWithWindow:[NSWindow createWithSize:CGSizeZero title:@"First"]];
         NSWindow *window = [NSWindow create:NSWindow.defaultRect title:@"First"];
-        _windowCtrl = [[OneWindowController alloc]initWithWindow:window];
+        
+        TableViewController *tableController = [[TableViewController alloc]init];
+        window.contentViewController = tableController;
+
+        _windowCtrl = [[NSWindowController alloc]initWithWindow:window];
 
     }
     return _windowCtrl;
