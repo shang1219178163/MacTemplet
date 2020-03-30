@@ -10,7 +10,6 @@
 #import "NNTabViewController.h"
 #import "NNTextField.h"
 
-#import "OneWindowController.h"
 #import "NNDialogWindowController.h"
 
 #import <CocoaExpand-Swift.h>
@@ -46,7 +45,7 @@
                       ];
     [self.tabView addItems:list];
         
-    OneWindowController *dialogWindow = [[OneWindowController alloc]init];
+    NSWindowController *dialogWindow = [[NSWindowController alloc]init];
     DDLog(@"dialogWindow.window:%@", dialogWindow.window);
     DDLog(@"dialogWindow:%@", dialogWindow);
 

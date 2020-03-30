@@ -24,6 +24,7 @@ class NSAlertStudyController: NSViewController {
         showAlert(sender)
     }
     
+    // MARK: -lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 

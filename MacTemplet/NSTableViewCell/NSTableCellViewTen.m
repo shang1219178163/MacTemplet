@@ -17,25 +17,36 @@
 
 @implementation NSTableCellViewTen
 
+//- (instancetype)init{
+//    self = [super init];
+//    if (self) {
+//        [self setupUI];
+//    }
+//    return self;
+//}
+
 - (instancetype)initWithFrame:(NSRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        [self addSubview:self.checkBox];
-        [self addSubview:self.textLabel];
-        [self addSubview:self.textView.enclosingScrollView];
-        [self addSubview:self.lineBottom];
+        [self setupUI];
+    }
+    return self;
+}
+
+- (void)setupUI {
+    [self addSubview:self.checkBox];
+    [self addSubview:self.textLabel];
+    [self addSubview:self.textView.enclosingScrollView];
+    [self addSubview:self.lineBottom];
 
 //        self.lineBottom.wantsLayer = true;
 //        self.lineBottom.layer.backgroundColor = NSColor.redColor.CGColor;
-//        [self getViewLayer];
-    }
-    return self;
 }
 
 - (void)layout{
     [super layout];
     
-    if (CGRectEqualToRect(CGRectZero, self.bounds)) {
+    if (self.bounds.size.height <= 0.0) {
         return;
     }
     
@@ -53,15 +64,15 @@
     CGSize textLabelSize = [self.textLabel sizeThatFits:CGSizeMake(180, 30)];
     [self.textLabel makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.checkBox);
-        make.right.equalTo(self).offset(-kPadding);
+        make.right.equalTo(self).offset(-15);
         make.width.equalTo(180);
         make.height.lessThanOrEqualTo(textLabelSize.height);
     }];
     
     [self.textView.enclosingScrollView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.checkBox.bottom).offset(kPadding);
-        make.left.equalTo(self.checkBox);
-        make.right.equalTo(self.textLabel).offset(0);
+        make.left.equalTo(self).offset(0);
+        make.right.equalTo(self).offset(0);
         make.bottom.equalTo(self);
     }];
     
