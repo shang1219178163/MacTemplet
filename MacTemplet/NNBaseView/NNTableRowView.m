@@ -11,6 +11,22 @@
 
 @implementation NNTableRowView
 
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(NSRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+    }
+    return self;
+}
+
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
     

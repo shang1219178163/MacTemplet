@@ -135,6 +135,43 @@
     return true;
 }
 
+//手势滑动（要用触摸板，用普通鼠标不能实现）
+- (NSArray<NSTableViewRowAction *> *)tableView:(NSTableView *)tableView rowActionsForRow:(NSInteger)row edge:(NSTableRowActionEdge)edge {
+    //向左边水滑动
+    if(edge == NSTableRowActionEdgeTrailing) {
+       NSTableViewRowAction* action =  [NSTableViewRowAction rowActionWithStyle:NSTableViewRowActionStyleDestructive title:@"DEMO" handler:
+                                        ^(NSTableViewRowAction *action, NSInteger row){
+            
+           printf("点击了DEMO");
+       }];
+        action.backgroundColor = NSColor.orangeColor;
+        
+        NSTableViewRowAction *action2 =  [NSTableViewRowAction rowActionWithStyle:NSTableViewRowActionStyleDestructive title:@"DEMO1" handler:^(NSTableViewRowAction *action, NSInteger row){
+
+            printf("点击了DEMO1");
+        }];
+        
+        action2.backgroundColor = NSColor.redColor;
+        return @[action , action2];
+    }
+    
+    if(edge == NSTableRowActionEdgeLeading) {
+        NSTableViewRowAction *action =  [NSTableViewRowAction rowActionWithStyle:NSTableViewRowActionStyleDestructive title:@"AAA" handler:
+                                         ^(NSTableViewRowAction *action, NSInteger row){
+                                             
+                                             printf("点击了AAA");
+                                         }];
+         action.backgroundColor = NSColor.orangeColor;
+        
+        NSTableViewRowAction* action2 =  [NSTableViewRowAction rowActionWithStyle:NSTableViewRowActionStyleDestructive title:@"BBB" handler:^(NSTableViewRowAction *action, NSInteger row){
+            printf("点击了BBB");
+        }];
+        action2.backgroundColor = NSColor.redColor;
+        return @[action , action2];
+    }
+    return @[];
+}
+
 #pragma mark -funtions
 
 -(void)setupTableView{
@@ -164,6 +201,15 @@
     if (!_list) {
         _list = @[
                     @[@"名称",@"总数",@"剩余",@"IP",@"状态",@"状态1",@"状态2",@"状态3",@"状态4"],
+                    @[@"ces1",@0,@0,@"3.4.5.6",@"027641081087",@"1",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces2",@0,@0,@"3.4.5.6",@"027641081087",@"2",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces3",@0,@0,@"3.4.5.6",@"027641081087",@"3",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces4",@0,@0,@"3.4.5.6",@"027641081087",@"4",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces5",@0,@0,@"3.4.5.6",@"027641081087",@"5",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces6",@"",@0,@"3.4.5.6",@"027641081087",@"6",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces7",@0,@0,@"3.4.5.6",@"027641081087",@"7",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces8",@0,@0,@"3.4.5.6",@"027641081087",@"8",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces9",@0,@0,@"3.4.5.6",@"027641081087",@"9",@0,@"3.4.5.6",@"027641081087"],\
                     @[@"ces1",@0,@0,@"3.4.5.6",@"027641081087",@"1",@0,@"3.4.5.6",@"027641081087"],
                     @[@"ces2",@0,@0,@"3.4.5.6",@"027641081087",@"2",@0,@"3.4.5.6",@"027641081087"],
                     @[@"ces3",@0,@0,@"3.4.5.6",@"027641081087",@"3",@0,@"3.4.5.6",@"027641081087"],

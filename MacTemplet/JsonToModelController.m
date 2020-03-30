@@ -64,8 +64,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.title = @"Home";
-    
     
     [NSUserDefaults.standardUserDefaults setObject:@"NN" forKey:kClassPrefix];
     [NSUserDefaults.standardUserDefaults setObject:@"RootModel" forKey:kRootClass];
@@ -118,7 +116,7 @@
     [self.textView.enclosingScrollView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);
         make.left.equalTo(self.view);
-        make.width.equalTo(400);
+        make.width.equalTo(self.view).multipliedBy(0.5);
         make.bottom.equalTo(self.view).offset(-45);
     }];
     
@@ -220,11 +218,20 @@
     tableColumn.width = CGRectGetWidth(tableView.bounds)/tableView.tableColumns.count;
     
     static NSString *identifier = @"NSTableCellViewTen";
-    NSTableCellViewTen *cell = [NSTableCellViewTen makeViewWithTableView:tableView identifier:identifier owner:self];
-//    NSTableCellViewTen *cell = [tableView makeViewWithIdentifier:identifier owner:self];
+//    NSTableCellViewTen *cell = [NSTableCellViewTen makeViewWithTableView:tableView identifier:identifier owner:self];
+    
+    NSTableCellViewTen *cell = [tableView makeViewWithIdentifier:identifier owner:nil];
+    cell.identifier = identifier;
+    if (!cell) {
+        cell = [[NSTableCellViewTen alloc]initWithFrame:cell.bounds];
+        DDLog(@"%p_%ld_%@",cell, (long)columnIndex, columnID);
+    }
+    
+//    if ([tableColumn.identifier isEqualToString:identifier]) {
+//        DDLog(@"%p", identifier);
+//    }
 
     cell.checkBox.hidden = true;
-    
     if (self.dataList.count == 0) {
         return cell;
     }
@@ -241,10 +248,10 @@
         
     }
     
-    DDLog(@"%p_%d_%@",cell, columnIndex, columnID);
+//    DDLog(@"%p_%ld_%@",cell, (long)columnIndex, columnID);
     cell.textLabel.backgroundColor = NSColor.background;
 
-//    [cell getViewLayer];
+    [cell getViewLayer];
     return cell;
 }
 
@@ -293,34 +300,41 @@
 
 #pragma mark - NSTextDelegate
 
-- (void)textDidBeginEditing:(NSNotification *)notification{
-    
-}
-
-- (void)textDidChange:(NSNotification *)notification{
-    NSTextView * view = notification.object;
-    //    DDLog(@"length:%@", @(view.string.length));
-    //    DDLog(@"containerSize:%@", @(view.textContainer.containerSize));
-    //    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
-    if (view.string.length > 0) {
-        [self hanldeJson];
-    }
-}
-
-- (void)textDidEndEditing:(NSNotification *)notification{
-    
-}
+//- (void)textDidBeginEditing:(NSNotification *)notification{
+//
+//}
+//
+//- (void)textDidChange:(NSNotification *)notification{
+//    NSTextView * view = notification.object;
+//    //    DDLog(@"length:%@", @(view.string.length));
+//    //    DDLog(@"containerSize:%@", @(view.textContainer.containerSize));
+//    //    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
+//    if (view.string.length > 0) {
+//        [self hanldeJson];
+//    }
+//}
+//
+//- (void)textDidEndEditing:(NSNotification *)notification{
+//
+//}
 
 #pragma mark -NSControlTextEditingDelegate
 
+
+- (void)controlTextDidBeginEditing:(NSNotification *)obj{
+//    print("开始编辑")
+}
+
 - (void)controlTextDidChange:(NSNotification *)obj {
-    // You can get the NSTextField, which is calling the method, through the userInfo dictionary.
+//    print("修改内容")
     NSTextField *textField = (NSTextField *)obj.object;
     DDLog(@"%@",textField.stringValue);
     
 }
 
 - (void)controlTextDidEndEditing:(NSNotification *)obj{
+//    print("结束编辑")
+
     NSTextField *textField = (NSTextField *)obj.object;
     //    DDLog(@"%@",textField.stringValue);
     
@@ -337,6 +351,45 @@
     [self hanldeJson];
     
 }
+
+- (BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector{
+    NSLog(@"Selector method is (%@)", NSStringFromSelector( commandSelector ) );
+    if (commandSelector == @selector(insertNewline:)) {
+        //Do something against ENTER key
+
+    } else if (commandSelector == @selector(deleteForward:)) {
+        //Do something against DELETE key
+
+    } else if (commandSelector == @selector(deleteBackward:)) {
+        //Do something against BACKSPACE key
+
+    } else if (commandSelector == @selector(insertTab:)) {
+        //Do something against TAB key
+
+    } else if (commandSelector == @selector(cancelOperation:)) {
+        //Do something against Escape key
+    }
+    return YES;
+}
+
+// 监听指定按键(与NSTextField相同)
+//func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+//   // insertNewline:  回车键
+//   // deleteBackward: 回退键
+//   // insertTab:      tab键
+//   // moveUp:          上方向键
+//   // moveDown:        下方向键
+//   // moveLeft:        左方向键
+//   // moveRight:       右方向键
+//
+//    print("\(commandSelector)")
+//    if commandSelector.description == "insertNewline:" {
+//       print("按了回车键")
+//        return true  // 表示代理以及处理键盘事件,不需要系统再进行处理
+//    }
+//    // 如果返回false ,则系统自动处理,如果返回true,则系统不做处理
+//    return false
+//}
 
 #pragma mark - funtions
 
@@ -426,7 +479,7 @@
             classModel.hContent = [classInfo classDescWithFirstFile:true];
             
             classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"import Cocoa" withString:self.langModel.staticImports];
-            NSString * tmp = [NSString stringWithFormat:@"NSObject, %@ {", self.langModel.defaultParentWithUtilityMethods];
+            NSString *tmp = [NSString stringWithFormat:@"NSObject, %@ {", self.langModel.defaultParentWithUtilityMethods];
             classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"NSObject {" withString:tmp];
             if (self.valueTypeLab.isSelectable == true) {
                 classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Int = 0" withString:@": String = \"0\""];

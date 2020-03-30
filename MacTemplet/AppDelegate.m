@@ -8,9 +8,6 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+Menu.h"
-
-#import "MainWindowController.h"
-
 #import <CocoaExpand-Swift.h>
 
 
@@ -18,7 +15,7 @@
 
 @property (nonatomic, strong) NSWindow *window;
 
-@property (nonatomic, strong) MainWindowController *windowCtrl;
+@property (nonatomic, strong) NSWindowController *windowCtrl;
 
 @property (nonatomic, strong) NSPopover *popover;
 
@@ -172,9 +169,9 @@
     return _window;
 }
 
-//-(MainWindowController *)windowCtrl{
+//-(NSWindowController *)windowCtrl{
 //    if (!_windowCtrl) {
-//        _windowCtrl = [[MainWindowController alloc]initWithWindow:[NSWindow createWithTitle:@"999"]];
+//        _windowCtrl = [[NSWindowController alloc]initWithWindow:[NSWindow createWithTitle:@"999"]];
 //    }
 //    return _windowCtrl;
 //}

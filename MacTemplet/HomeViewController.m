@@ -9,7 +9,6 @@
 #import "HomeViewController.h"
 #import "NNTextField.h"
 
-#import "OneWindowController.h"
 #import "NNDialogWindowController.h"
 
 #import <CocoaExpand-Swift.h>
@@ -73,18 +72,22 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"AuthorInfoController", @"其他",],
 //                      @[@"YYModelSwiftController", @"YYModelSwift",],
                       @[@"NNButtonStyleController", @"NSButon研究",],
-                      @[@"NNButtonStudyController", @"NNButton完成",],
-                      @[@"NNLabelStudyController", @"NNLabel完成",],
+                      @[@"NNButtonStudyController", @"NNButton封装",],
+                      @[@"NNLabelStudyController", @"NNLabel封装",],
                       
 //                    @[@"CollectionViewController", @"CollectionView模块",],
 //                      @[@"NSTestViewController", @"测试模块",],
                       @[@"TmpViewController", @"Tmp模块",],
+//                      @[@"NSAlertStudyController", @"NSAlertStudy",],
+//                      @[@"NSOpenPanelStudyController", @"NSOpenPanelStud",],
+                      
 //                      @[@"NSStackViewController", @"StackView",],
 //                      @[@"MapViewController", @"MapView",],
 //                      @[@"FileController", @"File处理",],
 //                      @[@"NNTableViewController", @"NNTable",],
                       
                       ];
+
     [self.tabView addItems:list];
 
     if ([NSUserDefaults.standardUserDefaults objectForKey:kDefaultTabIndex]) {
@@ -94,6 +97,8 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
     }
     [self.view addSubview:self.tabView];
 
+//    self.tabView.tabViewBorderType = NSNoTabsNoBorder;
+//    self.tabView.tabViewType = NSTabViewBorderTypeNone;
 }
 
 #pragma mark -lazy
@@ -102,6 +107,8 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
     if (!_tabView) {
         _tabView = ({
             NSTabView * view = [NSTabView create:CGRectZero];
+//            view.tabViewBorderType = NSNoTabsNoBorder;
+//            view.tabViewType = NSTabViewBorderTypeNone;
             view.delegate = self;
 
             view;
