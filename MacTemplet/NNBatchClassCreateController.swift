@@ -148,6 +148,13 @@ class NNBatchClassCreateController: NSViewController {
     // MARK: -funcitons
     /// 批量创建文件
     func batchCreateFile(_ text: String) {
+//        guard let window = self.view.window else { return }
+//        if window.isMember(of: NSPanel.classForCoder()) == true {
+////            view.window?.orderOut(self)
+//            NSApp.mainWindow?.endSheet(window, returnCode: NSApplication.ModalResponse.OK)
+//        }
+        NSPanel.end(with: self, response: NSApplication.ModalResponse.OK)
+
         if text.count <= 0 {
             return
         }
@@ -187,6 +194,7 @@ class NNBatchClassCreateController: NSViewController {
             }
         }
     }
+    
 }
 
 extension NNBatchClassCreateController: NSTextViewDelegate {

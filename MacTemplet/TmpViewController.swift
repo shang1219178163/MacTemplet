@@ -44,8 +44,19 @@ class TmpViewController: NSViewController {
     var list: [String] = ["action", "action", "action", "action", "action"]
     
     lazy var windowCtrl: NSWindowController = {
-        let controller = UUTabViewController()
-        let windowCtrl = NSWindowController(window: NSWindow.create(controller: controller))
+        let controller = NNBatchClassCreateController()
+//        let windowCtrl = NSWindowController(window: NSWindow.create(controller: controller))
+        let windowCtrl = NNTabViewController(window: NSWindow.create(controller: controller))
+
+        return windowCtrl
+    }()
+    
+    lazy var windowOneCtrl: NSWindowController = {
+        let controller = NNBatchClassCreateController()
+        let rect = CGRectMake(0, 0, kScreenWidth*0.25, kScreenHeight*0.25)
+        let windowCtrl = NSWindowController(window: NSPanel.create(rect, controller: controller))
+        controller.view.frame = windowCtrl.window!.frame;
+        controller.view.getViewLayer()
         return windowCtrl
     }()
         
@@ -79,8 +90,36 @@ class TmpViewController: NSViewController {
         case 0:
             windowCtrl.showWindow(sender)
 
+        case 1:
+            showSheetController()
+            
         default:
             break
+        }
+    }
+    
+    func showSheetController() {
+        let controller = NNBatchClassCreateController()
+        let rect = CGRectMake(0, 0, kScreenWidth*0.25, kScreenHeight*0.25)
+//        controller.preferredContentSize = rect.size
+
+//        let panel = NSPanel.create(rect, controller: controller)
+//        panel.level = .popUpMenu
+//        NSApplication.shared.keyWindow?.beginSheet(panel, completionHandler: { (response) in
+//            DDLog(response)
+//            switch response {
+//            case .alertFirstButtonReturn:
+//                print("点击了第一个按钮")
+//
+//            case .alertSecondButtonReturn:
+//                print("点击了第二个按钮")
+//
+//            default:
+//                break
+//            }
+//        })
+        NSPanel.show(with: controller, size: rect.size) { (response) in
+            DDLog(response)
         }
     }
     
