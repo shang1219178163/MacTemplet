@@ -12,7 +12,7 @@
 
 #import <CocoaExpand-Swift.h>
 
-@interface NNTextViewContoller ()<NSTextViewDelegate>
+@interface NNTextViewContoller ()<NSControlTextEditingDelegate>
 
 @property (nonatomic, strong) NSTextView *textView;
 
@@ -41,20 +41,43 @@
     
 }
 
-#pragma mark -lazy
+#pragma mark -NSControlTextEditingDelegate
 
-- (BOOL)textShouldBeginEditing:(NSText *)textObject{
-    return true;
+- (void)controlTextDidBeginEditing:(NSNotification *)obj{
+//    print("开始编辑")
 }
 
-- (void)textDidEndEditing:(NSNotification *)notification{
-    
+- (void)controlTextDidChange:(NSNotification *)obj {
+//    print("修改内容")
+    NSTextField *textField = (NSTextField *)obj.object;
+    DDLog(@"%@",textField.stringValue);
 }
 
-- (void)textDidChange:(NSNotification *)notification{
-    NSTextView * view = notification.object;
-    
+- (void)controlTextDidEndEditing:(NSNotification *)obj{
+    NSTextField *textField = (NSTextField *)obj.object;
+    //    DDLog(@"%@",textField.stringValue);
 }
+
+- (BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector{
+    NSLog(@"Selector method is (%@)", NSStringFromSelector(commandSelector));
+    if (commandSelector == @selector(insertNewline:)) {
+        //Do something against ENTER key
+
+    } else if (commandSelector == @selector(deleteForward:)) {
+        //Do something against DELETE key
+
+    } else if (commandSelector == @selector(deleteBackward:)) {
+        //Do something against BACKSPACE key
+
+    } else if (commandSelector == @selector(insertTab:)) {
+        //Do something against TAB key
+
+    } else if (commandSelector == @selector(cancelOperation:)) {
+        //Do something against Escape key
+    }
+    return YES;
+}
+
 
 #pragma mark -lazy
 

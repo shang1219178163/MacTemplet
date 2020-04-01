@@ -44,7 +44,7 @@ class TmpViewController: NSViewController {
     var list: [String] = ["action", "action", "action", "action", "action"]
     
     lazy var windowCtrl: NSWindowController = {
-        let controller = NNBatchClassCreateController()
+        let controller = MainViewController()
 //        let windowCtrl = NSWindowController(window: NSWindow.create(controller: controller))
         let windowCtrl = NNTabViewController(window: NSWindow.create(controller: controller))
 
@@ -105,18 +105,8 @@ class TmpViewController: NSViewController {
 
 //        let panel = NSPanel.create(rect, controller: controller)
 //        panel.level = .popUpMenu
-//        NSApplication.shared.keyWindow?.beginSheet(panel, completionHandler: { (response) in
+//        NSApp.mainWindow?.beginSheet(panel, completionHandler: { (response) in
 //            DDLog(response)
-//            switch response {
-//            case .alertFirstButtonReturn:
-//                print("点击了第一个按钮")
-//
-//            case .alertSecondButtonReturn:
-//                print("点击了第二个按钮")
-//
-//            default:
-//                break
-//            }
 //        })
         NSPanel.show(with: controller, size: rect.size) { (response) in
             DDLog(response)

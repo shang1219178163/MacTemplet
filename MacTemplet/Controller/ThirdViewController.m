@@ -8,8 +8,6 @@
 
 #import "ThirdViewController.h"
 
-#import "NNDialogWindowController.h"
-
 #import <CocoaExpand-Swift.h>
 
 @interface ThirdViewController ()
@@ -22,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.view.layer.backgroundColor = NSColor.greenColor.CGColor;
+    self.view.layer.backgroundColor = NSColor.lightGreen.CGColor;
 
 }
 
@@ -40,6 +38,7 @@
 //    NSWindow *window = [NSWindow createWithCtrlName: @"DialogViewController" size:size];
     
     NSViewController *controller = [[NSClassFromString(@"DialogViewController") alloc]init];
+    controller.preferredContentSize = size;
     NSWindow *window = [NSWindow create:rect controller:controller];
 
 //    window.contentViewController.currentWindow = window;
