@@ -1,21 +1,22 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
+  - AFNetworking (4.0.0):
+    - AFNetworking/NSURLSession (= 4.0.0)
+    - AFNetworking/Reachability (= 4.0.0)
+    - AFNetworking/Security (= 4.0.0)
+    - AFNetworking/Serialization (= 4.0.0)
+    - AFNetworking/UIKit (= 4.0.0)
+  - AFNetworking/NSURLSession (4.0.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - CocoaExpand (1.0.9.5)
+  - AFNetworking/Reachability (4.0.0)
+  - AFNetworking/Security (4.0.0)
+  - AFNetworking/Serialization (4.0.0)
+  - CocoaExpand (1.1.0)
   - HandyJSON (5.0.1)
   - Masonry (1.1.0)
-  - NNButton (1.1.3)
+  - NNButton (1.1.5.3)
+  - NNLabel (1.0.1)
   - SnapKit (5.0.1)
   - SnapKitExtend (1.0.7):
     - SnapKit
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - HandyJSON
   - Masonry
   - NNButton
+  - NNLabel
   - SnapKit
   - SnapKitExtend
   - YYModel
@@ -38,20 +40,22 @@ SPEC REPOS:
     - HandyJSON
     - Masonry
     - NNButton
+    - NNLabel
     - SnapKit
     - SnapKitExtend
     - YYModel
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  CocoaExpand: 90ac3f2c06ad42a6585567d72715a6f473b3d41e
+  AFNetworking: d9fdf484a3c723ec3c558a41cc5754c7e845ee77
+  CocoaExpand: 75b1878b90e61a6a2f71add01a1dc2e2f0978a11
   HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  NNButton: 4f44d007adbb5a89b6fbe2e689cd407ce980516c
+  NNButton: 5ff24013480dc6012be208bc5b13e2429002cae1
+  NNLabel: f7ff344f836f938b499a2df7bc32f50f2e339829
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SnapKitExtend: 00ee4db6d1f80bee01a1e75745f2a6ae695ba662
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 81866932defceaf35d0ed79e08ec0ac56587c573
+PODFILE CHECKSUM: 8260b79ba691f9018411ae465e226427185152b3
 
 COCOAPODS: 1.9.1

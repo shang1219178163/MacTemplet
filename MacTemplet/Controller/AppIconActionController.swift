@@ -7,13 +7,34 @@
 //
 
 import Cocoa
+import CocoaExpand
 
 class AppIconActionController: NSViewController {
 
+    var titleList: [String] = []
+
+    var itemList: [NSButton] = []
+
+    // MARK: -lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.layer?.backgroundColor = NSColor.lightBlue.cgColor
 
         // Do any additional setup after loading the view.
+        let str: String = String(String(repeating: "Button,", count: 15).dropLast())
+        let list: [String] = str.components(separatedBy: ",")
+        
+        itemList = NSButton.createGroupView(.zero, list: list, numberOfRow: 4, padding: 8, target: self, action: #selector(handleAction(_:)), inView: view);
+        
+        DDLog(view.frame, view.bounds)
+        view.getViewLayer()
+    }
+    
+    override func viewDidLayout() {
+        super.viewDidLayout()
+        
+        let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height*0.5)
+        NSButton.setupConstraint(frame, items: itemList)
     }
 
     override var representedObject: Any? {
@@ -23,6 +44,25 @@ class AppIconActionController: NSViewController {
     }
     
     // MARK: -funtions
+    @objc func handleAction(_ sender: NNButton) {
+        DDLog("\(sender.tag)")
+
+        switch sender.tag {
+        case 0:
+            closeApp(sender)
+        case 1:
+            showAppNumber(sender)
+        case 2:
+            jump(sender)
+        case 3:
+            hideDockIcon(sender)
+        case 4:
+            showDockIcon(sender)
+        default:
+            break
+        }
+    }
+    
 // 关闭应用
     @objc func closeApp(_ sender: Any) {
         /** NSApplictiaon的单利可以简写为NSApp*/
@@ -32,6 +72,9 @@ class AppIconActionController: NSViewController {
     /**显示App的数字提醒*/
     @objc func showAppNumber(_ sender: Any) {
         NSApp.dockTile.badgeLabel = "20"
+        
+        let showBadge = (NSApp.dockTile.badgeLabel != "0" && NSApp.dockTile.badgeLabel != "")
+        NSApp.dockTile.showsApplicationBadge = showBadge
     }
     
     /** 实现Dock 上的App 图标弹跳 */

@@ -7,7 +7,7 @@
 //
 
 #import "FirstViewController.h"
-#import "TableViewController.h"
+#import "ListViewController.h"
 
 #import <CocoaExpand-Swift.h>
 
@@ -66,7 +66,7 @@
         default:
             break;
     }
-    DDLog(@"%@", self.windowCtrl.contentViewController);
+//    DDLog(@"%@", self.windowCtrl.contentViewController);
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
@@ -98,7 +98,7 @@
     if (!_windowCtrl) {
         NSWindow *window = [NSWindow create:NSWindow.defaultRect title:@"First"];
         
-        TableViewController *tableController = [[TableViewController alloc]init];
+        ListViewController *tableController = [[ListViewController alloc]init];
         window.contentViewController = tableController;
 
         _windowCtrl = [[NSWindowController alloc]initWithWindow:window];

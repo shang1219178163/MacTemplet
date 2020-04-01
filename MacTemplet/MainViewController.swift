@@ -8,11 +8,21 @@
 
 import Cocoa
 
+///副主页面
 class MainViewController: NSViewController {
-
+    
+    override func loadView() {
+        // 设置 ViewController 大小同 mainWindow
+        guard let windowRect = NSApplication.shared.mainWindow?.frame else { return }
+        view = NSView(frame: windowRect)
+        view.wantsLayer = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        view.layer?.backgroundColor = NSColor.lightBlue.cgColor
+
     }
     
 }
