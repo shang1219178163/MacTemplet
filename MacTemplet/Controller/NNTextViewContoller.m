@@ -26,7 +26,7 @@
     [self.view addSubview:self.textView.enclosingScrollView];
 
     [NoodleLineNumberView setupLineNumberWithTextView:self.textView];
-    [self.view getViewLayer];
+//    [self.view getViewLayer];
 }
 
 - (void)viewDidLayout{
@@ -84,7 +84,7 @@
 -(NSTextView *)textView{
     if (!_textView) {
         _textView = ({
-            NSTextView * view = [NSTextView create:CGRectZero];
+            NSTextView *view = [NSTextView create:CGRectZero];
             view.delegate = self;
             view.string = @"";
             view.font = [NSFont systemFontOfSize:NSFont.smallSystemFontSize];
@@ -94,9 +94,9 @@
             scrollView.backgroundColor = NSColor.redColor;
             
             scrollView.drawsBackground = false;//不画背景（背景默认画成白色）
-            scrollView.hasHorizontalScroller = false;
-            scrollView.hasVerticalScroller = true;
-            scrollView.autohidesScrollers = true;//自动隐藏滚动条（滚动的时候出现）
+//            scrollView.hasHorizontalScroller = true;
+//            scrollView.hasVerticalScroller = true;
+//            scrollView.autohidesScrollers = true;//自动隐藏滚动条（滚动的时候出现）
             scrollView.documentView = view;
             
             view;

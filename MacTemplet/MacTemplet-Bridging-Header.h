@@ -21,5 +21,4 @@
 #import "YYModel.h"
 #import "NNRootModel.h"
 
-
 #import "ListViewController.h"

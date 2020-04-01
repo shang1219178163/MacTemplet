@@ -25,7 +25,6 @@
 
 #import "MacTemplet-Swift.h"
 
-
 //#ifdef DEBUG
 //#define DDLog(fmt, ...) DDLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 //
