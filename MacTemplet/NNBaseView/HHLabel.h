@@ -1,5 +1,5 @@
 //
-//  UULabel.h
+//  HHLabel.h
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/20.
@@ -13,9 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  类似 iOS中的UILabel
  */
-@interface UULabel : NNTextField
+@interface HHLabel : NNTextField
 
-@property(nonatomic, strong) void(^mouseDownBlock)(UULabel *sender);
+@property(nonatomic, strong) void(^mouseDownBlock)(HHLabel *sender);
 
 @end
 

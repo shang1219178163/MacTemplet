@@ -1,19 +1,19 @@
 //
-//  UULabel.m
+//  HHLabel.m
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/20.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
-#import "UULabel.h"
+#import "HHLabel.h"
 
-@interface UULabel ()
+@interface HHLabel ()
 
  
 @end
 
-@implementation UULabel
+@implementation HHLabel
 
 - (instancetype)init{
     self = [super init];
