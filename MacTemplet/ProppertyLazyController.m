@@ -15,7 +15,7 @@
 
 @interface ProppertyLazyController ()<NSTextViewDelegate>
 
-@property (nonatomic, strong) UULabel *textLabel;
+@property (nonatomic, strong) HHLabel *textLabel;
 @property (nonatomic, strong) NNTextView *textView;
 @property (nonatomic, strong) NNTextView *textViewOne;
 @property (nonatomic, strong) NNView *bottomView;
@@ -165,10 +165,10 @@
     return _textViewOne;
 }
 
--(UULabel *)textLabel{
+-(HHLabel *)textLabel{
     if (!_textLabel) {
         _textLabel = ({
-            UULabel * view = [[UULabel alloc]initWithFrame:CGRectZero];
+            HHLabel * view = [[HHLabel alloc]initWithFrame:CGRectZero];
             view.bordered = false;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:13];
             view.font = [NSFont fontWithName:NSFont.kPingFangThin size:13];
@@ -180,7 +180,7 @@
             view.usesSingleLineMode = true;
             view.backgroundColor = NSColor.clearColor;
 //            view.stringValue = @""
-            view.mouseDownBlock = ^(UULabel * _Nonnull sender) {
+            view.mouseDownBlock = ^(HHLabel * _Nonnull sender) {
   
             };
             view;

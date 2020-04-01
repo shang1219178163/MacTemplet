@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class HHLabel: NSTextField {
+class UULabel: NSTextField {
 
     // MARK: -lifecycle
     override init(frame frameRect: NSRect) {

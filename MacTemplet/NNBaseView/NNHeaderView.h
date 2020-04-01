@@ -12,7 +12,7 @@
 #import "NNButton.h"
 #import "NNView.h"
 
-#import "UULabel.h"
+#import "HHLabel.h"
 //#import "NNTextView.h"
 #import "NNTextField.h"
 #import "NNTextFieldCell.h"

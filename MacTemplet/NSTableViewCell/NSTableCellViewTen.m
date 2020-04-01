@@ -107,10 +107,10 @@
     return _checkBox;
 }
 
--(UULabel *)textLabel{
+-(HHLabel *)textLabel{
     if (!_textLabel) {
         _textLabel = ({
-            UULabel * view = [[UULabel alloc]initWithFrame:CGRectZero];
+            HHLabel * view = [[HHLabel alloc]initWithFrame:CGRectZero];
             view.font = [NSFont systemFontOfSize:13];
             view.alignment = NSTextAlignmentRight;
             view.bordered = false;

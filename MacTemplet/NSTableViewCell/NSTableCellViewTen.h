@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "UULabel.h"
+#import "HHLabel.h"
 
 @class NNTextView;
 
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSTableCellViewTen : NSTableCellView
 
 @property (nonatomic, strong) NSButton *checkBox;
-@property (nonatomic, strong) UULabel *textLabel;
+@property (nonatomic, strong) HHLabel *textLabel;
 @property (nonatomic, strong) NNTextView *textView;
 
 @end
