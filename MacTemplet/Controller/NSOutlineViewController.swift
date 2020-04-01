@@ -28,8 +28,6 @@ class NSOutlineViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         view.addSubview(outlineView.enclosingScrollView!)
-        
-//        outlineView.reloadItem(rootItem, reloadChildren: true)
     }
     
     override func viewWillAppear() {
