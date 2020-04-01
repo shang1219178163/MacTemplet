@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DialogViewController : NSViewController
 
-@property (nonatomic, weak) NSWindow * window;
+@property (nonatomic, weak) NSWindow *window;
 
 @end
 

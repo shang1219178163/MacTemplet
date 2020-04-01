@@ -9,8 +9,6 @@
 #import "HomeViewController.h"
 #import "NNTextField.h"
 
-#import "NNDialogWindowController.h"
-
 #import <CocoaExpand-Swift.h>
 
 static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
@@ -78,9 +76,9 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 //                    @[@"CollectionViewController", @"CollectionView模块",],
 //                      @[@"NSTestViewController", @"测试模块",],
                       @[@"TmpViewController", @"Tmp模块",],
+                      @[@"OthersViewController", @"Others",],                      
 //                      @[@"NSAlertStudyController", @"NSAlertStudy",],
 //                      @[@"NSOpenPanelStudyController", @"NSOpenPanelStud",],
-                      
 //                      @[@"NSStackViewController", @"StackView",],
 //                      @[@"MapViewController", @"MapView",],
 //                      @[@"FileController", @"File处理",],

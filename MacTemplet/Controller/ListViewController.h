@@ -1,8 +1,8 @@
 //
-//  NNCollectionView.h
+//  ListViewController.h
 //  MacTemplet
 //
-//  Created by Bin Shang on 2019/6/18.
+//  Created by Bin Shang on 2019/6/8.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NNCollectionView : NSCollectionView
+@interface ListViewController : NSViewController
 
 @end
 

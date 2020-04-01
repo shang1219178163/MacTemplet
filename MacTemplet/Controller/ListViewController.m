@@ -1,26 +1,26 @@
 //
-//  TableViewController.m
+//  ListViewController.m
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/8.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
-#import "TableViewController.h"
-#import "NNTableView.h"
+#import "ListViewController.h"
+
 #import "NNTableRowView.h"
 #import "NNTextField.h"
 
 #import <CocoaExpand-Swift.h>
 
-@interface TableViewController ()<NSTableViewDelegate, NSTableViewDataSource>
+@interface ListViewController ()<NSTableViewDelegate, NSTableViewDataSource>
 
 @property (nonatomic, strong) NNTableView *tableView;
 @property (nonatomic, strong) NSArray *list;
 
 @end
 
-@implementation TableViewController
+@implementation ListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,7 +28,6 @@
 //    self.view.layer.backgroundColor = NSColor.redColor.CGColor;
     
     [self setupTableView];
-    [self.view addSubview:self.tableView.enclosingScrollView];
 }
 
 - (void)viewDidLayout{
@@ -41,9 +40,7 @@
 
 - (void)viewWillAppear{
     [super viewWillAppear];
-    
-    DDLog(@"111");
- 
+
 }
 
 #pragma mark - NSTableViewDelegate,NSTableViewDataSource
@@ -73,9 +70,14 @@
 //    DDLog(@"columnID : %@ ,row : %ld",columnID,row);
     
     static NSString *identifier = @"one";
-    NSTableCellView *cell = [NSTableCellView makeViewWithTableView:tableView identifier:identifier owner:self];
-
-//    cell.layer.backgroundColor = NSColor.greenColor.CGColor;
+//    NSTableCellView *cell = [NSTableCellView makeViewWithTableView:tableView identifier:identifier owner:self];
+    NSTableCellView *cell = [tableView makeViewWithIdentifier:identifier owner:self];
+    if (!cell) {
+        cell = [[NSTableCellView alloc]init];
+        DDLog(@"row:%@_%@", @(row), @"创建");
+    } else {
+        DDLog(@"row:%@_%@", @(row), @"复用");
+    }
 
 //    cell.layer.backgroundColor = NSColor.yellowColor.CGColor;
 //    cell.imageView.image = [NSImage imageNamed:@"swift"];
@@ -181,7 +183,7 @@
         NSTableColumn *column = [NSTableColumn createWithIdentifier:obj title:obj];
         [self.tableView addTableColumn:column];
     }];
-
+    [self.view addSubview:self.tableView.enclosingScrollView];
 }
 
 #pragma mark -lazy
@@ -199,17 +201,7 @@
 
 - (NSArray *)list{
     if (!_list) {
-        _list = @[
-                    @[@"名称",@"总数",@"剩余",@"IP",@"状态",@"状态1",@"状态2",@"状态3",@"状态4"],
-                    @[@"ces1",@0,@0,@"3.4.5.6",@"027641081087",@"1",@0,@"3.4.5.6",@"027641081087"],
-                    @[@"ces2",@0,@0,@"3.4.5.6",@"027641081087",@"2",@0,@"3.4.5.6",@"027641081087"],
-                    @[@"ces3",@0,@0,@"3.4.5.6",@"027641081087",@"3",@0,@"3.4.5.6",@"027641081087"],
-                    @[@"ces4",@0,@0,@"3.4.5.6",@"027641081087",@"4",@0,@"3.4.5.6",@"027641081087"],
-                    @[@"ces5",@0,@0,@"3.4.5.6",@"027641081087",@"5",@0,@"3.4.5.6",@"027641081087"],
-                    @[@"ces6",@"",@0,@"3.4.5.6",@"027641081087",@"6",@0,@"3.4.5.6",@"027641081087"],
-                    @[@"ces7",@0,@0,@"3.4.5.6",@"027641081087",@"7",@0,@"3.4.5.6",@"027641081087"],
-                    @[@"ces8",@0,@0,@"3.4.5.6",@"027641081087",@"8",@0,@"3.4.5.6",@"027641081087"],
-                    @[@"ces9",@0,@0,@"3.4.5.6",@"027641081087",@"9",@0,@"3.4.5.6",@"027641081087"],\
+        _list = @[@[@"名称",@"总数",@"剩余",@"IP",@"状态",@"状态1",@"状态2",@"状态3",@"状态4"],
                     @[@"ces1",@0,@0,@"3.4.5.6",@"027641081087",@"1",@0,@"3.4.5.6",@"027641081087"],
                     @[@"ces2",@0,@0,@"3.4.5.6",@"027641081087",@"2",@0,@"3.4.5.6",@"027641081087"],
                     @[@"ces3",@0,@0,@"3.4.5.6",@"027641081087",@"3",@0,@"3.4.5.6",@"027641081087"],
@@ -219,6 +211,16 @@
                     @[@"ces7",@0,@0,@"3.4.5.6",@"027641081087",@"7",@0,@"3.4.5.6",@"027641081087"],
                     @[@"ces8",@0,@0,@"3.4.5.6",@"027641081087",@"8",@0,@"3.4.5.6",@"027641081087"],
                     @[@"ces9",@0,@0,@"3.4.5.6",@"027641081087",@"9",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces10",@0,@0,@"3.4.5.6",@"027641081087",@"1",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces11",@0,@0,@"3.4.5.6",@"027641081087",@"1",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces12",@0,@0,@"3.4.5.6",@"027641081087",@"2",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces13",@0,@0,@"3.4.5.6",@"027641081087",@"3",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces14",@0,@0,@"3.4.5.6",@"027641081087",@"4",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces15",@0,@0,@"3.4.5.6",@"027641081087",@"5",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces16",@"",@0,@"3.4.5.6",@"027641081087",@"6",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces17",@0,@0,@"3.4.5.6",@"027641081087",@"7",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces18",@0,@0,@"3.4.5.6",@"027641081087",@"8",@0,@"3.4.5.6",@"027641081087"],
+                    @[@"ces19",@0,@0,@"3.4.5.6",@"027641081087",@"9",@0,@"3.4.5.6",@"027641081087"],
                     ];
     }
     return _list;

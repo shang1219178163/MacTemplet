@@ -13,9 +13,9 @@
 
 @interface DialogViewController ()
 
-@property (nonatomic, strong) NSButton * btn;
-@property (nonatomic, strong) NSButton * btnCancell;
-@property (nonatomic, strong) NSDatePicker * datePicker;
+@property (nonatomic, strong) NSButton *btn;
+@property (nonatomic, strong) NSButton *btnCancell;
+@property (nonatomic, strong) NSDatePicker *datePicker;
 
 @end
 
@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.view.layer.backgroundColor = NSColor.randomColor.CGColor;
+    self.view.layer.backgroundColor = NSColor.lightGreen.CGColor;
     
     [self.view addSubview:self.datePicker];
     [self.view addSubview:self.btn];
@@ -62,16 +62,16 @@
     if (!_datePicker) {
         _datePicker = ({
             NSDatePicker *view = [[NSDatePicker alloc] init];
-
-            view.datePickerStyle = NSClockAndCalendarDatePickerStyle;
-            view.datePickerStyle = NSDatePickerStyleTextFieldAndStepper;
-            view.layer.backgroundColor = NSColor.cyanColor.CGColor;
+            view.datePickerStyle = NSDatePickerStyleClockAndCalendar;
+//            view.datePickerStyle = NSDatePickerStyleTextFieldAndStepper;
+            
+            view.layer.backgroundColor = NSColor.whiteColor.CGColor;
             
             // 设置日期选择控件的类型为“时钟和日历”。其他类型有如，NSTextField文本框
             view.dateValue = NSDate.date;
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSDatePicker *sender = (NSDatePicker *)control;
-                NSString * dateStr = [NSDateFormatter stringFromDate:sender.dateValue fmt:kFormatDate];
+                NSString *dateStr = [NSDateFormatter stringFromDate:sender.dateValue fmt:kFormatDate];
                 DDLog(@"%@", dateStr);
                 
             }];
@@ -91,10 +91,13 @@
             view.title = @"确定";
             view.bezelStyle = NSBezelStyleRounded;
             [view addActionHandler:^(NSControl * _Nonnull control) {
-                NSButton * sender = (NSButton *)control;
+                NSButton *sender = (NSButton *)control;
                 DDLog(@"%@", sender.title);
 
-                [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseOK];
+//                [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseOK];
+                [NSApp.mainWindow beginSheet:self.datePicker.window completionHandler:^(NSModalResponse returnCode) {
+                    DDLog(@"%@", @(returnCode));
+                }];
             }];
             view;
         });
@@ -109,7 +112,7 @@
             view.title = @"取消";
             view.bezelStyle = NSBezelStyleRounded;
             [view addActionHandler:^(NSControl * _Nonnull control) {
-                NSButton * sender = (NSButton *)control;
+                NSButton *sender = (NSButton *)control;
                 DDLog(@"%@", sender.title);
                 
                 [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseCancel];

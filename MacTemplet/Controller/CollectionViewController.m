@@ -7,7 +7,6 @@
 //
 
 #import "CollectionViewController.h"
-#import "NNCollectionView.h"
 #import "NSCTViewCellOne.h"
 #import "NSCTViewItemOne.h"
 

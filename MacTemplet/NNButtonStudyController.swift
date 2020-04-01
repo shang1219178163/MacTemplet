@@ -251,7 +251,6 @@ class NNButtonStudyController: NSViewController {
         setupConstraint(rect)
         
         view.getViewLayer()
-        print(view.subviews)
     }
 
     override func viewDidLayout() {

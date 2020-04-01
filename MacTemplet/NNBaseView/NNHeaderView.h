@@ -11,13 +11,12 @@
 
 #import "NNButton.h"
 #import "NNView.h"
-#import "NNTableView.h"
+
 #import "UULabel.h"
 #import "NNTextView.h"
 #import "NNTextField.h"
 #import "NNTextFieldCell.h"
 #import "NNTableRowView.h"
-#import "NNCollectionView.h"
 
 
 #endif /* NNHeaderView_h */
