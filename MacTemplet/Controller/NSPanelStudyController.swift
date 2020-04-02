@@ -14,7 +14,7 @@ import SnapKit
 class NSPanelStudyController: NSViewController {
 
     lazy var btn: NSButton = {
-        let view = NSButton(title: "选择目录", target: self, action: #selector(handleActionBtn(_:)))
+        let view = NSButton(title: "选择文件", target: self, action: #selector(handleActionBtn(_:)))
         view.bezelStyle = .regularSquare
         view.lineBreakMode = .byCharWrapping
         view.tag = 100
@@ -126,13 +126,14 @@ class NSPanelStudyController: NSViewController {
 }
 
 
-extension NSOpenPanelStudyController : NSOpenSavePanelDelegate{
+extension NSPanelStudyController : NSOpenSavePanelDelegate{
         
     // 当更改了默认打开目录时,调用此代理方法
     func panel(_ sender: Any, didChangeToDirectoryURL url: URL?) {
         print("更换了文件夹")
     }
-    NSPanelStudyController调用这个代理方法,询问是否支持打开该url(被多次调用)
+    
+    // 每次打开都会调用这个代理方法,询问是否支持打开该url(被多次调用)
     func panel(_ sender: Any, shouldEnable url: URL) -> Bool {
         print("是否支持打开本url\(url.absoluteString)")
         return true

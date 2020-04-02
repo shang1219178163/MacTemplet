@@ -11,8 +11,6 @@ import CocoaExpand
 
 class AppIconActionController: NSViewController {
 
-    var titleList: [String] = []
-
     var itemList: [NSButton] = []
 
     // MARK: -lifecycle
