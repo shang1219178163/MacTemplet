@@ -21,6 +21,8 @@ class NNTableView: NSTableView {
         return scrollView
     }()
     
+    var adjustsTableColumnsWidth = true
+    
     // MARK: -lifecycle    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -36,6 +38,16 @@ class NNTableView: NSTableView {
         super.draw(dirtyRect)
 
         // Drawing code here.
+    }
+    
+    override func layout() {
+        super.layout()
+        
+        if adjustsTableColumnsWidth == true {
+            for column in tableColumns {
+                column.width = scrollView.bounds.width/CGFloat(tableColumns.count);
+            }
+        }
     }
     
     // MARK: -funtions

@@ -13,14 +13,13 @@ class FileItem {
     var url: URL!
     var parent: FileItem?
     
-    static let fileManager = FileManager()
+    static var rootItem: FileItem? = FileItem(url: URL(fileURLWithPath:"/"), parent: nil)
     static let requiredAttributes: Set = [URLResourceKey.isDirectoryKey] // not using just for example
     static let options: FileManager.DirectoryEnumerationOptions = [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants]
-    
-    
+
     lazy var children: [FileItem]? = {
         // empty [URLResourceKey]() don't include any properties, pass nil to get the default properties
-        if let enumerator = FileItem.fileManager.enumerator(at: self.url, includingPropertiesForKeys:[URLResourceKey](), options: FileItem.options, errorHandler: nil) {
+        if let enumerator = FileManager.default.enumerator(at: self.url, includingPropertiesForKeys:[URLResourceKey](), options: FileItem.options, errorHandler: nil) {
             
             var files = [FileItem]()
             while let localURL = enumerator.nextObject() as? URL {
@@ -54,7 +53,8 @@ class FileItem {
         return (self.children?.count)!
     }
     
-    func childAtIndex(_ n: Int) -> FileItem? {
-        return self.children![n]
+    func childAtIndex(_ index: Int) -> FileItem? {
+        return self.children![index]
     }
+    
 }
