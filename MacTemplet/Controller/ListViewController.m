@@ -63,7 +63,7 @@
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     
     NSInteger item = [tableView.tableColumns indexOfObject:tableColumn];
-    NSArray * array = self.list[row];
+    NSArray *array = self.list[row];
     
     //获取表格列的标识符
     NSString *columnID = tableColumn.identifier;
@@ -73,23 +73,22 @@
 //    NSTableCellView *cell = [NSTableCellView makeViewWithTableView:tableView identifier:identifier owner:self];
     NSTableCellView *cell = [tableView makeViewWithIdentifier:identifier owner:self];
     if (!cell) {
+        NNTextField *textField = [NNTextField create:cell.bounds placeholder:@""];
+        textField.alignment = NSTextAlignmentCenter;
+        textField.isTextAlignmentVerticalCenter = true;
+        
         cell = [[NSTableCellView alloc]init];
-        DDLog(@"row:%@_%@", @(row), @"创建");
-    } else {
-        DDLog(@"row:%@_%@", @(row), @"复用");
+        cell.identifier = identifier;
+        cell.textField = textField;
+        [cell addSubview:textField];
     }
 
 //    cell.layer.backgroundColor = NSColor.yellowColor.CGColor;
 //    cell.imageView.image = [NSImage imageNamed:@"swift"];
     cell.textField.stringValue = [NSString stringWithFormat:@"cell %ld",(long)row];
     cell.textField.stringValue = [NSString stringWithFormat:@"%@",array[item]];
-    
-    NNTextField *textField = [NNTextField create:cell.bounds placeholder:@""];
-    textField.alignment = NSTextAlignmentCenter;
-    textField.isTextAlignmentVerticalCenter = true;
-    textField.stringValue = array[item];
+    cell.textField.stringValue = array[item];
 
-    [cell addSubview:textField];
     return cell;
 }
 

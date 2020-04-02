@@ -128,16 +128,16 @@ extension TmpViewController : NSCollectionViewDataSource {
     func collectionView(_ itemForRepresentedObjectAtcollectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
     
 //    let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "NNCollectionViewItem"), for: indexPath)
-    guard let item = collectionView.dequeueReusableCell(for: NNCollectionViewItem.self, indexPath: indexPath) as NNCollectionViewItem? else {
-        return NSCollectionViewItem()
-    }
+        guard let item = collectionView.dequeueReusableCell(for: NNCollectionViewItem.self, indexPath: indexPath) as NNCollectionViewItem? else {
+            return NSCollectionViewItem()
+        }
 
-    item.textLabel.isHidden = true
-    item.textLabelBottom.stringValue = "{\(indexPath.section),\(indexPath.item)}"
-    item.textLabelBottom.alignment = .center
-    item.btn.tag = indexPath.item;
-        
-    item.btn.addTarget(self, action: #selector(handleAction(_:)))
+        item.textLabel.isHidden = true
+        item.textLabelBottom.stringValue = "{\(indexPath.section),\(indexPath.item)}"
+        item.textLabelBottom.alignment = .center
+        item.btn.tag = indexPath.item;
+            
+        item.btn.addTarget(self, action: #selector(handleAction(_:)))
     
 //    view.layer?.backgroundColor = NSColor.random.cgColor
 //    view.getViewLayer()

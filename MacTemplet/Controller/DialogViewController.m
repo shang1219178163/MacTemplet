@@ -94,10 +94,7 @@
                 NSButton *sender = (NSButton *)control;
                 DDLog(@"%@", sender.title);
 
-//                [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseOK];
-                [NSApp.mainWindow beginSheet:self.datePicker.window completionHandler:^(NSModalResponse returnCode) {
-                    DDLog(@"%@", @(returnCode));
-                }];
+                [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseOK];
             }];
             view;
         });

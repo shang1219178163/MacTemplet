@@ -53,7 +53,6 @@ class NNOutlineView: NSOutlineView {
     // MARK: -funtions
     func setupUI() {
         scrollView.documentView = self
-        
     }
     
 }

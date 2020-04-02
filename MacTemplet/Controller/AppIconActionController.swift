@@ -26,8 +26,8 @@ class AppIconActionController: NSViewController {
         
         itemList = NSButton.createGroupView(.zero, list: list, numberOfRow: 4, padding: 8, target: self, action: #selector(handleAction(_:)), inView: view);
         
-        DDLog(view.frame, view.bounds)
-        view.getViewLayer()
+//        DDLog(view.frame, view.bounds)
+//        view.getViewLayer()
     }
     
     override func viewDidLayout() {

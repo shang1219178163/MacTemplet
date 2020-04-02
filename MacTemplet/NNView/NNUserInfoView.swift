@@ -80,7 +80,6 @@ class NNUserInfoView: NSView {
     override func mouseDown(with event: NSEvent) {
 //        print("\(#function):\(event)")
         delegate?.userInfoView(self, state: NSResponder.MouseState.down, event: event)
-
     }
     
     override func mouseUp(with event: NSEvent) {
