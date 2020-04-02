@@ -9,7 +9,7 @@
 import Cocoa
 
 
-class NNTextView: NSTextView {
+class UUTextView: NSTextView {
 
     lazy var scrollView: NSScrollView = {
         let scrollView = NSScrollView()
