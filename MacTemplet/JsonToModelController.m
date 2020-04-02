@@ -97,9 +97,6 @@
     NSString * titleOfSelectedItem = [NSUserDefaults.standardUserDefaults objectForKey:kDisplayName];
 //    DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
     [self.popBtn selectItemWithTitle:titleOfSelectedItem];
-    
-    //    [self.tableView reloadData];
-    
 }
 
 -(void)viewDidAppear{
@@ -211,21 +208,20 @@
 //// 使用自定义cell显示数据
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
 //    tableColumn.resizingMask = NSTableColumnAutoresizingMask;
-    NSInteger columnIndex = [tableView.tableColumns indexOfObject:tableColumn];
-    //获取表格列的标识符
-    NSString *columnID = tableColumn.identifier;
-    //    DDLog(@"columnID : %@ ,row : %@, item: %@",columnID, @(row), @(item));
-    tableColumn.width = CGRectGetWidth(tableView.bounds)/tableView.tableColumns.count;
+//    NSInteger columnIndex = [tableView.tableColumns indexOfObject:tableColumn];
+//    //获取表格列的标识符
+//    NSString *columnID = tableColumn.identifier;
+//    DDLog(@"columnID : %@ ,row : %@, item: %@",columnID, @(row), @(item));
+//    tableColumn.width = CGRectGetWidth(tableView.bounds)/tableView.tableColumns.count;
     
     static NSString *identifier = @"NSTableCellViewTen";
-//    NSTableCellViewTen *cell = [NSTableCellViewTen makeViewWithTableView:tableView identifier:identifier owner:self];
+    NSTableCellViewTen *cell = [NSTableCellViewTen makeViewWithTableView:tableView identifier:identifier owner:self];
     
-    NSTableCellViewTen *cell = [tableView makeViewWithIdentifier:identifier owner:nil];
-    cell.identifier = identifier;
-    if (!cell) {
-        cell = [[NSTableCellViewTen alloc]initWithFrame:cell.bounds];
-        DDLog(@"%p_%ld_%@",cell, (long)columnIndex, columnID);
-    }
+//    NSTableCellViewTen *cell = [tableView makeViewWithIdentifier:identifier owner:nil];
+//    if (!cell) {
+//        cell = [[NSTableCellViewTen alloc]initWithFrame:cell.bounds];
+//        cell.identifier = identifier;
+//    }
     
 //    if ([tableColumn.identifier isEqualToString:identifier]) {
 //        DDLog(@"%p", identifier);
@@ -248,10 +244,8 @@
         
     }
     
-//    DDLog(@"%p_%ld_%@",cell, (long)columnIndex, columnID);
     cell.textLabel.backgroundColor = NSColor.background;
-
-    [cell getViewLayer];
+//    [cell getViewLayer];
     return cell;
 }
 
@@ -298,17 +292,16 @@
     return YES;
 }
 
-#pragma mark - NSTextDelegate
-
+//#pragma mark - NSTextDelegate
 //- (void)textDidBeginEditing:(NSNotification *)notification{
 //
 //}
 //
 //- (void)textDidChange:(NSNotification *)notification{
 //    NSTextView * view = notification.object;
-//    //    DDLog(@"length:%@", @(view.string.length));
-//    //    DDLog(@"containerSize:%@", @(view.textContainer.containerSize));
-//    //    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
+//    DDLog(@"length:%@", @(view.string.length));
+//    DDLog(@"containerSize:%@", @(view.textContainer.containerSize));
+//    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
 //    if (view.string.length > 0) {
 //        [self hanldeJson];
 //    }
@@ -319,8 +312,6 @@
 //}
 
 #pragma mark -NSControlTextEditingDelegate
-
-
 - (void)controlTextDidBeginEditing:(NSNotification *)obj{
 //    print("开始编辑")
 }
@@ -338,12 +329,9 @@
     NSTextField *textField = (NSTextField *)obj.object;
     //    DDLog(@"%@",textField.stringValue);
     
-    NSDictionary *dic = @{
-                          @(100): kClassPrefix,
+    NSDictionary *dic = @{@(100): kClassPrefix,
                           @(101): kRootClass,
-                          @(102): kSuperClass,
-                          
-                          };
+                          @(102): kSuperClass,                          };
     NSString * defaultsKey = dic[@(textField.tag)];
     [NSUserDefaults.standardUserDefaults setObject:textField.stringValue forKey:defaultsKey];
     [NSUserDefaults.standardUserDefaults synchronize];
@@ -353,7 +341,7 @@
 }
 
 - (BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector{
-    NSLog(@"Selector method is (%@)", NSStringFromSelector( commandSelector ) );
+    NSLog(@"Selector method is (%@)", NSStringFromSelector(commandSelector));
     if (commandSelector == @selector(insertNewline:)) {
         //Do something against ENTER key
 

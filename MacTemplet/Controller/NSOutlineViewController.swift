@@ -7,21 +7,24 @@
 //
 
 import Cocoa
+import SnapKit
 
 class NSOutlineViewController: NSViewController {
     
     lazy var outlineView: NNOutlineView = {
         let view = NNOutlineView(frame: .zero)
         view.floatsGroupRows = false
+        view.allowsColumnResizing = true;
         view.dataSource = self
         view.delegate = self
         
-        let column = NSTableColumn.create(identifier: "TextCell", title: "1213")
+        let column = NSTableColumn.create(identifier: "TextCell", title: "目录")
         view.addTableColumn(column)
+
         return view
     }()
 
-    fileprivate var rootItem: FileItem? = FileItem(url: URL(fileURLWithPath:"/"), parent: nil)
+    fileprivate var rootItem: FileItem? = FileItem.rootItem
 
     // MARK: -lifecycle
     override func viewDidLoad() {
@@ -40,16 +43,24 @@ class NSOutlineViewController: NSViewController {
         super.viewDidLayout()
         
         outlineView.enclosingScrollView!.frame = view.bounds
+        
+//        for column in outlineView.tableColumns {
+//            column.width = view.bounds.width/CGFloat(outlineView.tableColumns.count);
+//        }
+
     }
     
 }
 
 //MARK: - NSOutlineViewDelegate
 extension NSOutlineViewController: NSOutlineViewDelegate {
+    
+    
   func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
       // If errors try with
+        let identifier = NSUserInterfaceItemIdentifier(rawValue: "TextCell")
       // let view = outlineView.make(withIdentifier: "TextCell", owner: self) as? NSTableCellView
-        var view = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "TextCell"), owner: self) as? NSTableCellView
+        var view = outlineView.makeView(withIdentifier: identifier, owner: self) as? NSTableCellView
         if view == nil {
             view = {
                 // Create a text field for the cell
@@ -60,47 +71,60 @@ extension NSOutlineViewController: NSOutlineViewDelegate {
                 textField.controlSize = .small
                 
                 let newCell = NSTableCellView()
-                newCell.identifier = NSUserInterfaceItemIdentifier(rawValue: "TextCell")
+                newCell.identifier = identifier
                 newCell.addSubview(textField)
                 newCell.textField = textField
-
+                
+                textField.frame = newCell.bounds
+ 
                 return newCell
             }()
         }
         if let it = item as? FileItem {
             if let textField = view?.textField {
+                textField.isEditable = false
                 textField.stringValue = it.displayName
             }
         }
-        print("\(#function):\(view?.textField?.stringValue)")
+
+//        view?.getViewLayer()
         return view
+    }
+        
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        guard let outlineView = notification.object as? NSOutlineView else { return }
+        let row = outlineView.selectedRow
+        if let item = outlineView.item(atRow: row) as? FileItem {
+            print("\(#function):\(item.displayName)")
+        }
     }
 }
 
 //MARK: - NSOutlineViewDataSource
 extension NSOutlineViewController: NSOutlineViewDataSource {
-   func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        if let it = item as? FileItem {
-            print("\(#function):\(it.count)")
-            return it.count
-        }
-        return 1
-    }
     
-    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        if let it = item as? FileItem {
-            if it.count > 0 {
-                print("\(#function):\(it.count)")
-                return true
-            }
-        }
-        return false
+   func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+        guard let it = item as? FileItem else { return 1 }
+//        print("\(#function):\(it.count)")
+        return it.count
     }
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        if let it = item as? FileItem {
-            return it.childAtIndex(index)!
-        }
-        return rootItem!
+        guard let it = item as? FileItem else { return rootItem as Any }
+        return it.childAtIndex(index)!
     }
+    
+    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
+        guard let it = item as? FileItem else { return false }
+        return it.count > 0
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
+        guard let it = item as? FileItem else { return false }
+        return it.count > 0
+    }
+
+
 }
+
+

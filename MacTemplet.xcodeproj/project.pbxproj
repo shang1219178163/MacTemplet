@@ -51,13 +51,14 @@
 		1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482F85F22ABA55F00A7C5E1 /* NNView.m */; };
 		1487187C24348A10007F618E /* NNCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487187B24348A10007F618E /* NNCollectionView.swift */; };
 		1487187E24348AB8007F618E /* NNTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487187D24348AB8007F618E /* NNTableView.swift */; };
-		1487188724349254007F618E /* NNTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487188624349254007F618E /* NNTextView.swift */; };
+		1487188724349254007F618E /* UUTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487188624349254007F618E /* UUTextView.swift */; };
 		1487188E243499E8007F618E /* HHLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1487188D243499E8007F618E /* HHLabel.m */; };
 		1487189324349BBB007F618E /* NNTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 1487189024349BBA007F618E /* NNTextField.m */; };
 		1487189424349BBB007F618E /* NNTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1487189124349BBA007F618E /* NNTextFieldCell.m */; };
 		1487189824349D5F007F618E /* UUTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487189724349D5F007F618E /* UUTextFieldCell.swift */; };
 		1487189A24349D6F007F618E /* UUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487189924349D6F007F618E /* UUTextField.swift */; };
 		1487189C24349DA7007F618E /* UULabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487189B24349DA7007F618E /* UULabel.swift */; };
+		1487189F243589CD007F618E /* NNTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1487189E243589CD007F618E /* NNTextView.m */; };
 		14A63DB923AB83D90015725A /* NNTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DB823AB83D90015725A /* NNTableViewController.swift */; };
 		14A63DBC23AC63910015725A /* NSTableCellViewOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */; };
 		14A90F1E241B0FDC00BC50EC /* FlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A90F1D241B0FDC00BC50EC /* FlatButton.swift */; };
@@ -196,7 +197,7 @@
 		1482F85F22ABA55F00A7C5E1 /* NNView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNView.m; sourceTree = "<group>"; };
 		1487187B24348A10007F618E /* NNCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNCollectionView.swift; sourceTree = "<group>"; };
 		1487187D24348AB8007F618E /* NNTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNTableView.swift; sourceTree = "<group>"; };
-		1487188624349254007F618E /* NNTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NNTextView.swift; sourceTree = "<group>"; };
+		1487188624349254007F618E /* UUTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUTextView.swift; sourceTree = "<group>"; };
 		1487188C243499E8007F618E /* HHLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHLabel.h; sourceTree = "<group>"; };
 		1487188D243499E8007F618E /* HHLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHLabel.m; sourceTree = "<group>"; };
 		1487188F24349BBA007F618E /* NNTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNTextField.h; sourceTree = "<group>"; };
@@ -206,6 +207,8 @@
 		1487189724349D5F007F618E /* UUTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUTextFieldCell.swift; sourceTree = "<group>"; };
 		1487189924349D6F007F618E /* UUTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUTextField.swift; sourceTree = "<group>"; };
 		1487189B24349DA7007F618E /* UULabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UULabel.swift; sourceTree = "<group>"; };
+		1487189D243589CC007F618E /* NNTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNTextView.h; sourceTree = "<group>"; };
+		1487189E243589CD007F618E /* NNTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNTextView.m; sourceTree = "<group>"; };
 		14A63DB823AB83D90015725A /* NNTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNTableViewController.swift; sourceTree = "<group>"; };
 		14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTableCellViewOne.swift; sourceTree = "<group>"; };
 		14A90F1D241B0FDC00BC50EC /* FlatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatButton.swift; sourceTree = "<group>"; };
@@ -465,6 +468,17 @@
 			path = MacTemplet;
 			sourceTree = "<group>";
 		};
+		148718A024358A6F007F618E /* update */ = {
+			isa = PBXGroup;
+			children = (
+				1487189724349D5F007F618E /* UUTextFieldCell.swift */,
+				1487189924349D6F007F618E /* UUTextField.swift */,
+				1487189B24349DA7007F618E /* UULabel.swift */,
+				1487188624349254007F618E /* UUTextView.swift */,
+			);
+			path = update;
+			sourceTree = "<group>";
+		};
 		14A90F1C241B0FAA00BC50EC /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,6 +527,7 @@
 		14F0FDAA22AE097A00057093 /* NNBaseView */ = {
 			isa = PBXGroup;
 			children = (
+				148718A024358A6F007F618E /* update */,
 				1480B0ED238CED7200E24BDB /* NNSwitch.swift */,
 				1480B0EC238CED7200E24BDB /* NNSwitchThumbView.swift */,
 				1445782622C1CABA0007C7B3 /* NNHeaderView.h */,
@@ -534,10 +549,8 @@
 				1487189024349BBA007F618E /* NNTextField.m */,
 				1487189224349BBB007F618E /* NNTextFieldCell.h */,
 				1487189124349BBA007F618E /* NNTextFieldCell.m */,
-				1487189724349D5F007F618E /* UUTextFieldCell.swift */,
-				1487189924349D6F007F618E /* UUTextField.swift */,
-				1487189B24349DA7007F618E /* UULabel.swift */,
-				1487188624349254007F618E /* NNTextView.swift */,
+				1487189D243589CC007F618E /* NNTextView.h */,
+				1487189E243589CD007F618E /* NNTextView.m */,
 				1487187D24348AB8007F618E /* NNTableView.swift */,
 				1487187B24348A10007F618E /* NNCollectionView.swift */,
 				147203CB24346CCF00775526 /* NNOutlineView.swift */,
@@ -859,6 +872,7 @@
 				14F92C0A22BB1AC700A5C5E4 /* NNAttStringKey.m in Sources */,
 				14F2F5AC22B8FD18009D49CE /* CollectionViewController.m in Sources */,
 				14F2F5B122B8FEE5009D49CE /* NSCTViewItemOne.m in Sources */,
+				1487189F243589CD007F618E /* NNTextView.m in Sources */,
 				14BD1952241C7A960047B889 /* NNBatchClassCreateController.swift in Sources */,
 				1476854C243418FA00C2C78A /* MainViewController.swift in Sources */,
 				1487189824349D5F007F618E /* UUTextFieldCell.swift in Sources */,
@@ -904,7 +918,7 @@
 				1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */,
 				14ADE21523CC091000037B0B /* NNClassInfoModel.m in Sources */,
 				14132978238559CE00E7AFCA /* NSTestViewController.m in Sources */,
-				1487188724349254007F618E /* NNTextView.swift in Sources */,
+				1487188724349254007F618E /* UUTextView.swift in Sources */,
 				142857BE2425A34900BC36F0 /* OOButton.m in Sources */,
 				14A90F2F241B85B200BC50EC /* NNRequestAPICreater.swift in Sources */,
 				1487189C24349DA7007F618E /* UULabel.swift in Sources */,

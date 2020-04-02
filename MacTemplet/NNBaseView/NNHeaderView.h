@@ -13,7 +13,7 @@
 #import "NNView.h"
 
 #import "HHLabel.h"
-//#import "NNTextView.h"
+#import "NNTextView.h"
 #import "NNTextField.h"
 #import "NNTextFieldCell.h"
 #import "NNTableRowView.h"

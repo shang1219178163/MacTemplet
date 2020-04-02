@@ -8,8 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "HHLabel.h"
-
-@class NNTextView;
+#import "NNTextView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

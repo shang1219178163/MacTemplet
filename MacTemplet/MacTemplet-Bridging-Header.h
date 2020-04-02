@@ -15,6 +15,7 @@
 #import "NNTableRowView.h"
 
 #import "NNTextField.h"
+#import "NNTextView.h"
 
 #import "NSTableCellViewTen.h"
 
