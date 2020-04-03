@@ -1,17 +1,17 @@
 //
-//  DialogViewController.m
+//  NNDatePickerController.m
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/19.
 //  Copyright © 2019 Bin Shang. All rights reserved.
 //
 
-#import "DialogViewController.h"
+#import "NNDatePickerController.h"
 
 #import <CocoaExpand-Swift.h>
 
 
-@interface DialogViewController ()
+@interface NNDatePickerController ()
 
 @property (nonatomic, strong) NSButton *btn;
 @property (nonatomic, strong) NSButton *btnCancell;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation DialogViewController
+@implementation NNDatePickerController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

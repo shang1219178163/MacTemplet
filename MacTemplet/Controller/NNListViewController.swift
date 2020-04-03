@@ -1,5 +1,5 @@
 //
-//  NNTableViewController.swift
+//  NNListViewController.swift
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/12/19.
@@ -11,7 +11,7 @@ import SnapKit
 import CocoaExpand
 
 
-class NNTableViewController: NSViewController {
+class NNListViewController: NSViewController {
 
     let list: [[String]] = [
                             ["名称","IP","状态","状态1","状态2",],
@@ -83,7 +83,7 @@ class NNTableViewController: NSViewController {
 }
 
 
-extension NNTableViewController: NSTableViewDataSource, NSTableViewDelegate {
+extension NNListViewController: NSTableViewDataSource, NSTableViewDelegate {
 
  
     func numberOfRows(in tableView: NSTableView) -> Int {

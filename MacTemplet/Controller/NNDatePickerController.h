@@ -1,5 +1,5 @@
 //
-//  DialogViewController.h
+//  NNDatePickerController.h
 //  MacTemplet
 //
 //  Created by Bin Shang on 2019/6/19.
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DialogViewController : NSViewController
-
-@property (nonatomic, weak) NSWindow *window;
+@interface NNDatePickerController : NSViewController
 
 @end
 
