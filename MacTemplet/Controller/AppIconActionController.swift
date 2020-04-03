@@ -19,10 +19,8 @@ class AppIconActionController: NSViewController {
         view.layer?.backgroundColor = NSColor.lightBlue.cgColor
 
         // Do any additional setup after loading the view.
-        let str: String = String(String(repeating: "Button,", count: 15).dropLast())
-        let list: [String] = str.components(separatedBy: ",")
-        
-        itemList = NSButton.createGroupView(.zero, list: list, numberOfRow: 4, padding: 8, target: self, action: #selector(handleAction(_:)), inView: view);
+        let list: [String] = ["退出应用", "显示未读信息数量", "跳转", "隐藏dock栏Icon", "显示dock栏Icon", "Button", ]
+        itemList = NSButton.createGroupView(.zero, list: list, numberOfRow: 6, padding: 8, target: self, action: #selector(handleAction(_:)), inView: view);
         
 //        DDLog(view.frame, view.bounds)
 //        view.getViewLayer()
@@ -31,8 +29,8 @@ class AppIconActionController: NSViewController {
     override func viewDidLayout() {
         super.viewDidLayout()
         
-        let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height*0.5)
-        NSButton.setupConstraint(frame, items: itemList)
+        let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height*0.1)
+        NSButton.setupConstraint(frame, items: itemList, numberOfRow: 6, padding: 8)
     }
 
     override var representedObject: Any? {

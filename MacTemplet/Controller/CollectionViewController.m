@@ -62,8 +62,7 @@
                        NSImageNamePreferencesGeneral, NSImageNameAdvanced, NSImageNameInfo,
                        NSImageNameFontPanel, NSImageNameColorPanel, NSImageNameUser,
                        NSImageNameUserGroup, NSImageNameEveryone, NSImageNameUserGuest,
-                       NSImageNameMenuOnStateTemplate, NSImageNameMenuMixedStateTemplate,
-                        NSImageNameApplicationIcon];
+                       NSImageNameMenuOnStateTemplate, NSImageNameMenuMixedStateTemplate,];
     
     NSArray *array7 = @[NSImageNameTrashEmpty, NSImageNameTrashFull, NSImageNameHomeTemplate,
                        NSImageNameBookmarksTemplate, NSImageNameCaution, NSImageNameStatusAvailable, NSImageNameStatusPartiallyAvailable, NSImageNameStatusUnavailable, NSImageNameStatusNone, NSImageNameShareTemplate];

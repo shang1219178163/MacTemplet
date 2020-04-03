@@ -153,7 +153,7 @@ class NNBatchClassCreateController: NSViewController {
 ////            view.window?.orderOut(self)
 //            NSApp.mainWindow?.endSheet(window, returnCode: NSApplication.ModalResponse.OK)
 //        }
-        NSPanel.end(with: self, response: NSApplication.ModalResponse.OK)
+        NSWindow.endSheet(with: self, response: NSApplication.ModalResponse.OK)
 
         if text.count <= 0 {
             return

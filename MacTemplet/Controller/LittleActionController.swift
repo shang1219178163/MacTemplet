@@ -22,10 +22,10 @@ class LittleActionController: NSViewController {
         view.layer?.backgroundColor = NSColor.lightBlue.cgColor
 
         // Do any additional setup after loading the view.
-        let str: String = String(String(repeating: "Button,", count: 15).dropLast())
-        let list: [String] = str.components(separatedBy: ",")
-        
-        itemList = NSButton.createGroupView(.zero, list: list, numberOfRow: 4, padding: 8, target: self, action: #selector(handleAction(_:)), inView: view);
+//        let str: String = String(String(repeating: "Button,", count: 15).dropLast())
+//        let list: [String] = str.components(separatedBy: ",")
+        let list: [String] = ["sheet弹窗", "字体选择", "颜色选择", "Button", "Button", "Button", ]
+        itemList = NSButton.createGroupView(.zero, list: list, numberOfRow: 6, padding: 8, target: self, action: #selector(handleAction(_:)), inView: view);
         
 //        DDLog(view.frame, view.bounds)
 //        view.getViewLayer()
@@ -34,8 +34,8 @@ class LittleActionController: NSViewController {
     override func viewDidLayout() {
         super.viewDidLayout()
         
-        let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height*0.5)
-        NSButton.setupConstraint(frame, items: itemList)
+        let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height*0.1)
+        NSButton.setupConstraint(frame, items: itemList, numberOfRow: 6, padding: 8)
     }
     
     // MARK: -funtions
@@ -43,12 +43,13 @@ class LittleActionController: NSViewController {
         DDLog("\(sender.tag)")
 
         switch sender.tag {
-        case 0:
-            fontPick()
         case 1:
+            fontPick()
+        case 2:
             colorPick()
-
+            
         default:
+            showSheetController()
             break
         }
     }
@@ -61,6 +62,12 @@ class LittleActionController: NSViewController {
         manager.orderFrontFontPanel(self)
     }
     
+    @objc func handleActionFont(_ sender: NSFontManager) {
+        font = sender.convert(self.font)
+        DDLog("pointSize：\(font.pointSize) ，fontName : \(font.fontName) , familyName : \(font.familyName)");
+
+    }
+    
     func colorPick() {
         let panel = NSColorPanel.shared
         panel.mode = .crayon
@@ -69,17 +76,25 @@ class LittleActionController: NSViewController {
         
         panel.makeKeyAndOrderFront(self)
     }
-    
-    @objc func handleActionFont(_ sender: NSFontManager) {
-        font = sender.convert(self.font)
-        DDLog("pointSize：\(font.pointSize) ，fontName : \(font.fontName) , familyName : \(font.familyName)");
-
-    }
-    
+        
     @objc func handleActionColor(_ sender: NSColorPanel) {
         view.layer?.backgroundColor = sender.color.cgColor
 
     }
     
+    func showSheetController() {
+        let controller = NSCtrFromString("NNDatePickerController")
+        let rect = CGRectMake(0, 0, kScreenWidth*0.25, kScreenHeight*0.25)
+//        controller.preferredContentSize = rect.size
+//
+//        let window = NSWindow.create(rect, controller: controller)
+//        window.level = .statusBar
+//        NSApp.mainWindow?.beginSheet(window, completionHandler: { (response) in
+//            DDLog(response)
+//        })
+        NSWindow.showSheet(with: controller, size: rect.size) { (response) in
+            DDLog(response)
+        }
+    }
 
 }

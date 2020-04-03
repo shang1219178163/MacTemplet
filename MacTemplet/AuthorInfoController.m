@@ -140,8 +140,17 @@
     if (!_imgView) {
         _imgView = ({
             NSImageView *view = [NSImageView create:CGRectZero];
+            view.wantsLayer = true;
+            view.imageAlignment = NSImageAlignCenter; //圖片內容對於控件的位置
+            view.imageFrameStyle = NSImageFrameNone; //圖片邊框的樣式
+            view.editable = true;
+            view.allowsCutCopyPaste = true;
+
+            view.imageScaling = NSImageScaleAxesIndependently;
+            view.animates = true;
+            view.canDrawSubviewsIntoLayer = true;
             view.image = NSApplication.appIcon;
-            view.editable = false;
+            view.image = [NSImage imageNamed:@"timg.gif"];
             view;
         });
     }

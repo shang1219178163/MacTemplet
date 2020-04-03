@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSButton *btnCancell;
 @property (nonatomic, strong) NSDatePicker *datePicker;
 
+@property (nonatomic, strong) NSImageView *imageView;
+
 @end
 
 @implementation NNDatePickerController
@@ -27,34 +29,45 @@
     self.view.layer.backgroundColor = NSColor.lightGreen.CGColor;
     
     [self.view addSubview:self.datePicker];
+    [self.view addSubview:self.imageView];
+
     [self.view addSubview:self.btn];
     [self.view addSubview:self.btnCancell];
+    
 }
 
 - (void)viewDidLayout{
     [super viewDidLayout];
 
     [self.datePicker mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(30);
-        make.left.equalTo(self.view).offset(30);
+        make.top.equalTo(self.view).offset(20);
+        make.left.equalTo(self.view).offset(20);
+    }];
+    
+    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.datePicker.right).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.top.bottom.equalTo(self.datePicker).offset(0);
     }];
     
     [self.btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(30);
-        make.bottom.equalTo(self.view).offset(-30);
-        make.size.equalTo(CGSizeMake(80, 50));
+        make.left.equalTo(self.view).offset(20);
+        make.bottom.equalTo(self.view).offset(-20);
+        make.size.equalTo(CGSizeMake(80, 35));
     }];
     
     [self.btnCancell mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.view).offset(-30);
-        make.bottom.equalTo(self.view).offset(-30);
-        make.size.equalTo(CGSizeMake(80, 50));
+        make.right.equalTo(self.view).offset(-20);
+        make.bottom.equalTo(self.view).offset(-20);
+        make.size.equalTo(CGSizeMake(80, 35));
     }];
 }
 
 #pragma mark -funtions
 
-
+- (void)handleActionImgView:(NSImageView *)sender {
+    DDLog(@"%@_%@", sender.image, @(sender.image.size));
+}
 
 #pragma mark -lazy
 
@@ -82,14 +95,40 @@
     return _datePicker;
 }
 
-#pragma mark -lazy
+- (NSImageView *)imageView{
+    if (!_imageView) {
+        _imageView = ({
+            NSImageView *view = [[NSImageView alloc]initWithFrame:CGRectZero];
+            view.wantsLayer = true;
+            view.imageAlignment = NSImageAlignCenter; //圖片內容對於控件的位置
+            view.imageFrameStyle = NSImageFrameNone; //圖片邊框的樣式
+            view.editable = true;
+            view.allowsCutCopyPaste = true;
+
+            view.imageScaling = NSImageScaleAxesIndependently;
+            view.animates = true;
+            view.canDrawSubviewsIntoLayer = true;
+            view.image = [NSImage imageNamed:@"timg.gif"];
+            
+            ///屏蔽拖动
+//            [view unregisterDraggedTypes];
+
+            view.target = self;
+            view.action = @selector(handleActionImgView:);
+
+            view;
+        });
+    }
+    return _imageView;
+}
+
 
 - (NSButton *)btn{
     if (!_btn) {
         _btn = ({
             NSButton * view = [[NSButton alloc]init];
             view.title = @"确定";
-            view.bezelStyle = NSBezelStyleRounded;
+            view.bezelStyle = NSBezelStyleRegularSquare;
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSButton *sender = (NSButton *)control;
                 DDLog(@"%@", sender.title);
@@ -107,7 +146,7 @@
         _btnCancell = ({
             NSButton * view = [[NSButton alloc]init];
             view.title = @"取消";
-            view.bezelStyle = NSBezelStyleRounded;
+            view.bezelStyle = NSBezelStyleRegularSquare;
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSButton *sender = (NSButton *)control;
                 DDLog(@"%@", sender.title);
@@ -119,5 +158,6 @@
     }
     return _btnCancell;
 }
+
 
 @end

@@ -50,14 +50,14 @@ class NSPanelStudyController: NSViewController {
         btn.snp.makeConstraints { (make) in
             make.top.left.equalToSuperview().offset(20)
             make.width.equalTo(80)
-            make.height.equalTo(50)
+            make.height.equalTo(40)
         }
         
         btnOne.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(20)
             make.left.equalTo(btn.snp.right).offset(20)
             make.width.equalTo(80)
-            make.height.equalTo(50)
+            make.height.equalTo(40)
         }
     }
 
