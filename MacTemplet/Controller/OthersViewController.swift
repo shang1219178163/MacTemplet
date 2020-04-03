@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Speech
 
 /// 其他例子集合
 class OthersViewController: NSViewController {
@@ -20,15 +21,13 @@ class OthersViewController: NSViewController {
     lazy var list: [[String]] = {
         let list = [["NSOutlineViewController", "NSOutlineView",],
                     ["CollectionViewController", "Collection", ],
-                      ["FirstViewController", "First",],
-                      ["ListViewController", "ListVC",],                      
-                      ["NNTableViewController", "NNTable",],
-                      ["ThirdViewController", "Third",],
+//                      ["FirstViewController", "First",],
+//                      ["ListViewController", "ListVC",],
+//                      ["NNListViewController", "NNListVC",],
                       ["NNTextViewContoller", "NNTextView",],
-                      ["NSPanelStudyController", "files pickAndSave",],
+                      ["NSPanelStudyController", "Files pickAndSave",],
                       ["AppIconActionController", "AppIcon",],
                       ["NSAlertStudyController", "NSAlertStudy",],
-                      ["DialogViewController", "Dialog",],
                       ["LittleActionController", "小功能",],
                       
 //                      ["NSTestViewController", "测试模块",],
@@ -65,6 +64,13 @@ class OthersViewController: NSViewController {
             make.right.equalToSuperview().offset(-10);
             make.bottom.equalToSuperview().offset(-10);
         }
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        
+//        let synthetizer = NSSpeechSynthesizer(voice: nil)
+//        synthetizer?.startSpeaking("Welcome to app'codeHelper")
     }
     
     // MARK: -funtions
