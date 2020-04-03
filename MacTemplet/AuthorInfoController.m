@@ -31,7 +31,6 @@
     [self.view addSubview:self.textFieldOne];
     [self.view addSubview:self.textView];
    
-
     self.textFieldOne.hidden = true;
     self.textView.hidden = true;
 
@@ -143,10 +142,10 @@
             view.wantsLayer = true;
             view.imageAlignment = NSImageAlignCenter; //圖片內容對於控件的位置
             view.imageFrameStyle = NSImageFrameNone; //圖片邊框的樣式
+            view.imageScaling = NSImageScaleAxesIndependently;
             view.editable = true;
             view.allowsCutCopyPaste = true;
 
-            view.imageScaling = NSImageScaleAxesIndependently;
             view.animates = true;
             view.canDrawSubviewsIntoLayer = true;
             view.image = NSApplication.appIcon;

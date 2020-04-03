@@ -74,7 +74,6 @@ class NNUserInfoView: NSView {
     override func mouseExited(with event: NSEvent) {
 //        print("\(#function):\(event)")
         delegate?.userInfoView(self, state: NSResponder.MouseState.exited, event: event)
-
     }
     
     override func mouseDown(with event: NSEvent) {

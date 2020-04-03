@@ -42,6 +42,8 @@ class NSPanelStudyController: NSViewController {
         // Do any additional setup after loading the view.
         view.addSubview(btn)
         view.addSubview(btnOne)
+        
+        DDLog(NSApplication.userName)
     }
     
     override func viewDidLayout() {
@@ -88,7 +90,7 @@ class NSPanelStudyController: NSViewController {
 //        panel.canCreateDirectories = true
 
         // 设置默认打开的文件路径
-        let pathUrl = URL(string:"/Users/shang/Downloads")
+        let pathUrl = URL(string: "\(NSHomeDirectory())/Downloads")
         panel.directoryURL = pathUrl
 //        openpanel.allowsMultipleSelection = false
         panel.delegate = self
