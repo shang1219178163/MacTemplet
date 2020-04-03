@@ -15,6 +15,8 @@
 @interface NNTextViewContoller ()<NSControlTextEditingDelegate>
 
 @property (nonatomic, strong) NSTextView *textView;
+@property (nonatomic, strong) NSSlider *slider;
+@property (nonatomic, strong) NSSlider *sliderOne;
 
 @end
 
@@ -24,9 +26,12 @@
     [super viewDidLoad];
     // Do view setup here.
     [self.view addSubview:self.textView.enclosingScrollView];
-
     [NoodleLineNumberView setupLineNumberWithTextView:self.textView];
-//    [self.view getViewLayer];
+    
+    [self.view addSubview:self.slider];
+    [self.view addSubview:self.sliderOne];
+
+    [self.view getViewLayer];
 }
 
 - (void)viewDidLayout{
@@ -37,6 +42,20 @@
         make.left.equalTo(self.view).offset(kX_GAP);
         make.width.equalTo(400);
         make.bottom.equalTo(self.view).offset(-kX_GAP);
+    }];
+    
+    [self.slider makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(kX_GAP);
+        make.left.equalTo(self.textView.enclosingScrollView.right).offset(20);
+        make.width.equalTo(200);
+        make.height.equalTo(50);
+    }];
+    
+    [self.sliderOne makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(kX_GAP);
+        make.left.equalTo(self.slider.right).offset(20);
+        make.width.equalTo(100);
+        make.height.equalTo(50);
     }];
     
 }
@@ -78,6 +97,13 @@
     return YES;
 }
 
+#pragma mark -funtions
+
+- (void)handleActionSlider:(NSSlider *)sender {
+    CGFloat value = sender.floatValue;
+    NSLog(@"sliderAction value： %f", value);
+}
+
 
 #pragma mark -lazy
 
@@ -104,5 +130,49 @@
     }
     return _textView;
 }
+
+- (NSSlider *)slider{
+    if (!_slider) {
+        _slider = ({
+            NSSlider *slider = [[NSSlider alloc]init];
+            slider.wantsLayer = YES;
+            slider.layer.backgroundColor = NSColor.lightGreen.CGColor;
+            slider.sliderType = NSSliderTypeLinear;
+            slider.tickMarkPosition = NSTickMarkPositionAbove;
+
+            slider.numberOfTickMarks = 10;
+            slider.allowsTickMarkValuesOnly = YES;
+//            slider.vertical = true;
+            slider.target = self;
+            slider.action = @selector(handleActionSlider:);
+            
+            slider;
+        });
+        
+    }
+    return _slider;
+}
+
+- (NSSlider *)sliderOne{
+    if (!_sliderOne) {
+        _sliderOne = ({
+            NSSlider *slider = [[NSSlider alloc]init];
+            slider.wantsLayer = YES;
+            slider.layer.backgroundColor = NSColor.lightGreen.CGColor;
+            slider.sliderType = NSSliderTypeCircular;
+            slider.tickMarkPosition = NSTickMarkPositionAbove;
+
+            slider.numberOfTickMarks = 10;
+            slider.allowsTickMarkValuesOnly = YES;
+            slider.target = self;
+            slider.action = @selector(handleActionSlider:);
+            
+            slider;
+        });
+    }
+    return _sliderOne;
+}
+
+
 
 @end
