@@ -34,7 +34,7 @@
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"LAYOUT_CONSTRAINTS_NOT_SATISFIABLE"];
     [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
 
-    NSString * controllerName = @"HomeViewController";
+    NSString *controllerName = @"HomeViewController";
 //    controllerName = @"FirstViewController";
 //    controllerName = @"MainViewController";
 //    controllerName = @"NNTabViewController";
@@ -43,6 +43,7 @@
 //    controllerName = @"NNTextViewContoller";
 //    controllerName = @"ProppertyLazyController";
 //    controllerName = @"MacTemplet.MapViewController";
+    controllerName = @"MacTemplet.ShowViewController";
     
     NSViewController *controller = [[NSClassFromString(controllerName) alloc] init];
     self.window.contentViewController = controller;

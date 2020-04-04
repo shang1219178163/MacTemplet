@@ -64,6 +64,10 @@
 		148BB4142437114A00ECEF3B /* DragDropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148BB4132437114A00ECEF3B /* DragDropImageView.m */; };
 		148BB41624372F6400ECEF3B /* NNImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BB41524372F6400ECEF3B /* NNImageView.swift */; };
 		148BB4182437323C00ECEF3B /* 02@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 148BB4172437323C00ECEF3B /* 02@3x.png */; };
+		148BB41A24383CB600ECEF3B /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BB41924383CB600ECEF3B /* ShowViewController.swift */; };
+		148BB41C2438494500ECEF3B /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BB41B2438494500ECEF3B /* BlueViewController.swift */; };
+		148BB41E2438495400ECEF3B /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BB41D2438495400ECEF3B /* GreenViewController.swift */; };
+		148BB4202438586F00ECEF3B /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BB41F2438586F00ECEF3B /* OrangeViewController.swift */; };
 		14A63DB923AB83D90015725A /* NNListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DB823AB83D90015725A /* NNListViewController.swift */; };
 		14A63DBC23AC63910015725A /* NSTableCellViewOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */; };
 		14A90F1E241B0FDC00BC50EC /* FlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A90F1D241B0FDC00BC50EC /* FlatButton.swift */; };
@@ -219,6 +223,10 @@
 		148BB4132437114A00ECEF3B /* DragDropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropImageView.m; sourceTree = "<group>"; };
 		148BB41524372F6400ECEF3B /* NNImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNImageView.swift; sourceTree = "<group>"; };
 		148BB4172437323C00ECEF3B /* 02@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02@3x.png"; sourceTree = "<group>"; };
+		148BB41924383CB600ECEF3B /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
+		148BB41B2438494500ECEF3B /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
+		148BB41D2438495400ECEF3B /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
+		148BB41F2438586F00ECEF3B /* OrangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
 		14A63DB823AB83D90015725A /* NNListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNListViewController.swift; sourceTree = "<group>"; };
 		14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTableCellViewOne.swift; sourceTree = "<group>"; };
 		14A90F1D241B0FDC00BC50EC /* FlatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatButton.swift; sourceTree = "<group>"; };
@@ -651,6 +659,10 @@
 			children = (
 				1476854D243425CD00C2C78A /* OthersViewController.swift */,
 				148BB40C2435F59300ECEF3B /* LittleActionController.swift */,
+				148BB41924383CB600ECEF3B /* ShowViewController.swift */,
+				148BB41B2438494500ECEF3B /* BlueViewController.swift */,
+				148BB41D2438495400ECEF3B /* GreenViewController.swift */,
+				148BB41F2438586F00ECEF3B /* OrangeViewController.swift */,
 				1482F85622AB9C2E00A7C5E1 /* ListViewController.h */,
 				1482F85722AB9C2E00A7C5E1 /* ListViewController.m */,
 				14A63DB823AB83D90015725A /* NNListViewController.swift */,
@@ -903,12 +915,14 @@
 				1482F85922AB9C2E00A7C5E1 /* ListViewController.m in Sources */,
 				14F92C5922BB951700A5C5E4 /* NNFileManager.m in Sources */,
 				14F0FDE922B084EC00057093 /* NSTableView+Hook.m in Sources */,
+				148BB41E2438495400ECEF3B /* GreenViewController.swift in Sources */,
 				14D4ED5223CA08F300B8BD16 /* NNRootModel.m in Sources */,
 				14D40A1222C4A6DA00AF74B9 /* AuthorInfoController.m in Sources */,
 				14ADE23523CDA13900037B0B /* NNRequestAPIDetailCreater.swift in Sources */,
 				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
 				1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */,
 				14492B6A24244D5100A9D3E1 /* HHButton.m in Sources */,
+				148BB41A24383CB600ECEF3B /* ShowViewController.swift in Sources */,
 				1476854E243425CD00C2C78A /* OthersViewController.swift in Sources */,
 				14A63DBC23AC63910015725A /* NSTableCellViewOne.swift in Sources */,
 				1480B0EE238CED7200E24BDB /* NNSwitchThumbView.swift in Sources */,
@@ -967,9 +981,11 @@
 				14F0FDCC22AFA48E00057093 /* FirstViewController.m in Sources */,
 				14B4DE40241DF5E900901E8D /* NNCollectionViewItem.swift in Sources */,
 				14F92CF622BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m in Sources */,
+				148BB4202438586F00ECEF3B /* OrangeViewController.swift in Sources */,
 				147203C524346A4E00775526 /* FileItem.swift in Sources */,
 				14ADE22323CD673200037B0B /* NNViewControllerDetailCreater.swift in Sources */,
 				14C009562432FF3D00F490D6 /* NNTabViewController.swift in Sources */,
+				148BB41C2438494500ECEF3B /* BlueViewController.swift in Sources */,
 				14C38AA0241390C700816A8E /* NNRequestAPIUpdateCreater.swift in Sources */,
 				14C009402431C3B700F490D6 /* NSPanelStudyController.swift in Sources */,
 				14F2F58D22B881C4009D49CE /* NSTextFieldCell+Hook.m in Sources */,
