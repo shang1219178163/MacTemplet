@@ -29,7 +29,8 @@ class OthersViewController: NSViewController {
                       ["AppIconActionController", "AppIcon",],
                       ["NSAlertStudyController", "NSAlertStudy",],
                       ["LittleActionController", "小功能",],
-                      
+                      ["ShowViewController", "控制器呈现",],
+
 //                      ["NSTestViewController", "测试模块",],
 //                      ["TmpViewController", "Tmp模块",],
 //                      ["NSPanelStudyController", "NSOpenPanelStud",],

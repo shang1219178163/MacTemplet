@@ -43,7 +43,7 @@
 //    controllerName = @"NNTextViewContoller";
 //    controllerName = @"ProppertyLazyController";
 //    controllerName = @"MacTemplet.MapViewController";
-    controllerName = @"MacTemplet.ShowViewController";
+//    controllerName = @"MacTemplet.ShowViewController";
     
     NSViewController *controller = [[NSClassFromString(controllerName) alloc] init];
     self.window.contentViewController = controller;
