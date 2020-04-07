@@ -82,7 +82,7 @@ class ShowViewController: NSViewController {
                 dismiss(vcThree)
                 return
             }
-            
+            vcThree.preferredContentSize = CGSize(width: 300, height: 300)
             present(vcThree, asPopoverRelativeTo: view.frame, of: sender, preferredEdge: .maxY, behavior: .semitransient)
         default:
             break;

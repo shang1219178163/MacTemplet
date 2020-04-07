@@ -18,10 +18,7 @@ class OrangeViewController: NSViewController {
     }
     
     override func mouseDown(with event: NSEvent) {
-        if presentedViewControllers?.last?.isEqual(self) == true {
-            return
-        }
-        dismiss(self)
+
     }
 }
 
