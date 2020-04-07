@@ -77,8 +77,7 @@ class ShowViewController: NSViewController {
             
         case 4:
             DDLog("\(presentingViewController)\(presentedViewControllers)")
-
-            if presentedViewControllers?.count != 0 {
+            if vcThree.presentingViewController != nil{
                 dismiss(vcThree)
                 return
             }

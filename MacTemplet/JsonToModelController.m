@@ -241,7 +241,6 @@
     } else {
         cell.textLabel.stringValue = [classModel.className stringByAppendingString:@".swift"];
         cell.textView.string = classModel.hContent;
-        
     }
     
     cell.textLabel.backgroundColor = NSColor.background;
