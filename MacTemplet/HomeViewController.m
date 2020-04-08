@@ -73,7 +73,9 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"NNLabelStudyController", @"NNLabel封装",],
                       @[@"TmpViewController", @"Tmp模块",],
                       @[@"OthersViewController", @"Others",],
+                      @[@"NNSplitViewController", @"SplitView",],
                       
+                                            
 //                      @[@"YYModelSwiftController", @"YYModelSwift",],
 //                    @[@"CollectionViewController", @"CollectionView模块",],
 //                      @[@"NSTestViewController", @"测试模块",],
