@@ -14,8 +14,13 @@ import SnapKitExtend
 
 import CocoaExpand
 
-@available(OSX 10.14, *)
 class MapViewController: NSViewController {
+    
+//    lazy var annotion: NNPinAnnotation = {
+//        let coordinate = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+//        let anno = NNPinAnnotation(coordinate: coordinate, title: "title", subtitle: "subtitle")
+//        return anno
+//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +30,6 @@ class MapViewController: NSViewController {
         view.addSubview(mapView)
         mapView.zoomLevel = 12
 
-        
 //        view.getViewLayer()
     }
     
@@ -222,13 +226,17 @@ class MapViewController: NSViewController {
     
 }
 
-@available(OSX 10.14, *)
+
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         print(userLocation.coordinate)
         mapView.centerCoordinate = userLocation.coordinate
 
+//        if annotion.coordinate.latitude == 0.0 {
+//            annotion.coordinate = userLocation.coordinate
+//            mapView.addAnnotation(annotion)
+//        }
     }
     
     func mapView(_ mapView: MKMapView, didFailToLocateUserWithError error: Error) {
@@ -236,4 +244,27 @@ extension MapViewController: MKMapViewDelegate {
 
     }
     
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        let annotationView: MKAnnotationView = MKPinAnnotationView.createAnnotationView(mapView, annotation: annotation)
+//
+//        let button = NSButton(frame: NSMakeRect(0, 0, 100, 40))
+//        button.title = "More Info"
+//        button.target = self
+//        button.action = Selector(("showMoreInfo:"))
+//        button.bezelStyle = .regularSquare
+//        annotationView.rightCalloutAccessoryView = button
+//        return annotationView
+//    }
+//
+//    @objc func showMoreInfo(_ sender: NSButton){
+//        print("show popover to show more info")
+//        let alert = NSAlert()
+//        alert.messageText = "show details"
+//        alert.addButton(withTitle: "OK")
+//        alert.informativeText = "Informative text goes here"
+//        alert.beginSheetModal(for: view.window!, completionHandler: nil)
+//    }
+    
 }
+
+

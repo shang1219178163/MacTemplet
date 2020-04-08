@@ -39,10 +39,25 @@ import MapKit
         let search = MKLocalSearch(request: request)
         search.start(completionHandler: completionHandler)
     }
+    
     /// 根据经纬度调整地图显示区域
     public func updateRegion(center: CLLocationCoordinate2D, latDelta: CLLocationDegrees = 0.1, lonDelta: CLLocationDegrees = 0.1) {
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)//以某个点为中心的显示范围
         let region = MKCoordinateRegion(center: center, span: span)
         setRegion(region, animated: true)
+    }
+}
+
+/// 大头针
+extension MKPinAnnotationView{
+    class func createAnnotationView(_ mapView: MKMapView, annotation: MKAnnotation, identifier: String = String(describing: self)) -> MKAnnotationView{
+        if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier){
+            return annotationView
+        }
+        let annoView = self.init(annotation: annotation, reuseIdentifier: identifier)
+        annoView.pinTintColor = NSColor.red
+        annoView.animatesDrop = true
+        annoView.canShowCallout = true
+        return annoView
     }
 }
