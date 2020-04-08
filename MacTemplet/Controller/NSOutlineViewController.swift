@@ -124,6 +124,9 @@ extension NSOutlineViewController: NSOutlineViewDataSource {
         return it.count > 0
     }
 
+//    func outlineView(_ outlineView: NSOutlineView, shouldShowOutlineCellForItem item: Any) -> Bool {
+//        return true
+//    }
 
 }
 

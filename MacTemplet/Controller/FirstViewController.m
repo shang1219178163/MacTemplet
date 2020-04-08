@@ -111,7 +111,7 @@
     if (!_segmentCtl) {
         _segmentCtl = ({
             NSArray *items = @[@"事件_0", @"事件_1", @"事件_2",];
-            NSSegmentedControl * view = [[NSSegmentedControl alloc] init];
+            NSSegmentedControl *view = [[NSSegmentedControl alloc] init];
             view.items = items;
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSSegmentedControl * sender = (NSSegmentedControl *)control;
