@@ -12,7 +12,7 @@ PODS:
   - AFNetworking/Reachability (4.0.0)
   - AFNetworking/Security (4.0.0)
   - AFNetworking/Serialization (4.0.0)
-  - CocoaExpand (1.1.1)
+  - CocoaExpand (1.2.1)
   - HandyJSON (5.0.1)
   - Masonry (1.1.0)
   - NNButton (1.1.5.3)
@@ -47,7 +47,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: d9fdf484a3c723ec3c558a41cc5754c7e845ee77
-  CocoaExpand: dd49ba4aed5c93fdc3779258afa081e5633e7ac6
+  CocoaExpand: b405b1ba54119935bedcf24ee88419d0e68dc54a
   HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   NNButton: 5ff24013480dc6012be208bc5b13e2429002cae1

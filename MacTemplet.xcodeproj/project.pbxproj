@@ -30,6 +30,7 @@
 		14705CD8243DA3FC009600C9 /* BookListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14705CD7243DA3FC009600C9 /* BookListController.swift */; };
 		14705CDA243DAD70009600C9 /* NNSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14705CD9243DAD70009600C9 /* NNSplitViewController.swift */; };
 		14705CDC243DBA44009600C9 /* NNTreeNodelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14705CDB243DBA44009600C9 /* NNTreeNodelModel.swift */; };
+		14705CE2243EC184009600C9 /* NSTableCellViewOutlineHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14705CE1243EC184009600C9 /* NSTableCellViewOutlineHeader.swift */; };
 		147203C3243469D900775526 /* NSOutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147203C2243469D900775526 /* NSOutlineViewController.swift */; };
 		147203C524346A4E00775526 /* FileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147203C424346A4E00775526 /* FileItem.swift */; };
 		147203CC24346CCF00775526 /* NNOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147203CB24346CCF00775526 /* NNOutlineView.swift */; };
@@ -181,6 +182,7 @@
 		14705CD7243DA3FC009600C9 /* BookListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListController.swift; sourceTree = "<group>"; };
 		14705CD9243DAD70009600C9 /* NNSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNSplitViewController.swift; sourceTree = "<group>"; };
 		14705CDB243DBA44009600C9 /* NNTreeNodelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNTreeNodelModel.swift; sourceTree = "<group>"; };
+		14705CE1243EC184009600C9 /* NSTableCellViewOutlineHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTableCellViewOutlineHeader.swift; sourceTree = "<group>"; };
 		147203C2243469D900775526 /* NSOutlineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOutlineViewController.swift; sourceTree = "<group>"; };
 		147203C424346A4E00775526 /* FileItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileItem.swift; sourceTree = "<group>"; };
 		147203CB24346CCF00775526 /* NNOutlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NNOutlineView.swift; sourceTree = "<group>"; };
@@ -617,6 +619,7 @@
 				1445782822C1CDC90007C7B3 /* NSTableCellViewTen.h */,
 				1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */,
 				14A63DBB23AC63910015725A /* NSTableCellViewOne.swift */,
+				14705CE1243EC184009600C9 /* NSTableCellViewOutlineHeader.swift */,
 			);
 			path = NSTableViewCell;
 			sourceTree = "<group>";
@@ -974,6 +977,7 @@
 				14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */,
 				14C009582433001800F490D6 /* DepartmentViewController.swift in Sources */,
 				147787892428BDED00D438CC /* NSObject+CrashProtector.m in Sources */,
+				14705CE2243EC184009600C9 /* NSTableCellViewOutlineHeader.swift in Sources */,
 				14F92BF622BB13E900A5C5E4 /* NSObject+Helper.m in Sources */,
 				14A90F23241B5CE500BC50EC /* NNBatchManager.swift in Sources */,
 				14705CDC243DBA44009600C9 /* NNTreeNodelModel.swift in Sources */,

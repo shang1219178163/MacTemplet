@@ -25,7 +25,7 @@
     // Do view setup here.
     self.view.layer.backgroundColor = NSColor.lightGreen.CGColor;
     
-    NSClickGestureRecognizer * click = [[NSClickGestureRecognizer alloc]init];
+    NSClickGestureRecognizer *click = [[NSClickGestureRecognizer alloc]init];
     [self.view addGestureRecognizer:click];
     
     [click addAction:^(NSGestureRecognizer * reco) {
