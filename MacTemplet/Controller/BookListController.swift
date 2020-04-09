@@ -12,8 +12,8 @@ import CocoaExpand
 class BookListController: NSViewController {
     
     
-    let kTitleHide = "hide"
-    let kTitleShow = "show"
+//    let kTitleHide = "hide"
+//    let kTitleShow = "show"
 
     lazy var outlineView: NNOutlineView = {
         let view = NNOutlineView(frame: .zero)
@@ -73,13 +73,17 @@ class BookListController: NSViewController {
         super.viewDidLayout()
         
 //        outlineView.enclosingScrollView!.frame = view.bounds
-        outlineView.enclosingScrollView!.frame = CGRectMake(0, 0, NSWidth(view.bounds)*0.4, NSHeight(view.bounds))
+        outlineView.enclosingScrollView!.frame = CGRect(x: 0, y: 0, width: NSWidth(view.bounds)*0.4, height: NSHeight(view.bounds))
     }
     
     @objc func handleAction(_ sender: NSButton) {
-        DDLog(sender.title)
+//        DDLog(sender.title)
     }
     
+    @objc func handleActionGesture(_ sender: NSClickGestureRecognizer) {
+//        DDLog(sender)
+        
+    }
 }
 
 //MARK: - NSOutlineViewDelegate
@@ -95,43 +99,19 @@ extension BookListController: NSOutlineViewDelegate {
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         guard let it = item as? NNTreeNodelModel else { return nil }
         if it.parent == nil {
-//            let identifier = NSUserInterfaceItemIdentifier(rawValue: "NSTextField")
-//            var view = outlineView.makeView(withIdentifier: identifier, owner: self) as? NSTextField
-//            if view == nil {
-//                view = {
-//                   // Create a text field for the cell
-//                    let textField = NSTextField()
-//                    textField.backgroundColor = NSColor.clear
-////                    textField.translatesAutoresizingMaskIntoConstraints = false
-//                    textField.isBordered = false
-////                    textField.controlSize = .small
-//                    textField.usesSingleLineMode = true
-//                    textField.isEditable = false
-//
-//                    return textField
-//                }()
-//            }
-//            view?.stringValue = it.name
-//            return view
-            
-            let view = outlineView.makeView(for: NSTableCellViewOne.self, identifier: "NSTableCellViewOneHeader")
+            let view = outlineView.makeView(for: NSTableCellViewOutlineHeader.self)
             view.imgView.isHidden = true
-            view.button.isHidden = it.childs.count == 0
-            view.button.title = outlineView.isItemExpanded(it) == true ? kTitleHide : kTitleShow
-            view.button.addActionHandler { (controll) in
-                guard let sender = controll as? NSButton else { return }
+            view.detailButton.isHidden = (it.childs.count == 0)
+            view.detailButton.title = "\(it.childs.count)"
+ 
+            view.button.title = it.name
+            view.button.addActionHandler { (sender) in
+                guard sender is NSButton else { return }
 //                DDLog(sender.title)
-                if sender.title == self.kTitleHide {
-                    outlineView.collapseItem(item, collapseChildren: true)
-                    sender.title = self.kTitleShow
-
-                } else {
-                    outlineView.expandItem(item, expandChildren: true)
-                    sender.title = self.kTitleHide
-                }
+                outlineView.expandOrCollapseItem(item: item)
             }
-
-            view.label.stringValue = it.name
+            
+//            view.getViewLayer()
             return view
         }
     
@@ -141,54 +121,52 @@ extension BookListController: NSOutlineViewDelegate {
         
         view.button.title = "42"
         view.button.addTarget(self, action: #selector(handleAction(_:)))
-//        view.button.isHidden =
-        view.getViewLayer()
+//        view.getViewLayer()
         return view
     }
         
-    func outlineViewSelectionDidChange(_ notification: Notification) {
-        guard let outlineView = notification.object as? NSOutlineView else { return }
-        let row = outlineView.selectedRow
-
-        if let item = outlineView.item(atRow: row) as? NNTreeNodelModel {
-            let isItemExpanded = outlineView.isItemExpanded(item)
-//            DDLog(row, isItemExpanded)
-
-            if item.parent == nil {
-                print("\(#function):\(item.name)_\(item.childs.count)")
-                
-                if isItemExpanded == true {
-                    outlineView.collapseItem(item, collapseChildren: true)
-                } else {
-                    outlineView.expandItem(item, expandChildren: true)
-                }
-
-            } else {
-                print("\(#function):\(item.name)")
-            }
-        }
-    }
-    
-    func outlineViewItemDidExpand(_ notification: Notification) {
-        guard let outlineView = notification.object as? NSOutlineView, let item = notification.userInfo?.values.first as? NNTreeNodelModel else { return }
-        let isItemExpanded = outlineView.isItemExpanded(item)
-        DDLog(item.name, isItemExpanded)
-        
-        let row = outlineView.row(forItem: item)
-        let cell = outlineView.view(atColumn: 0, row: row, makeIfNecessary: false) as! NSTableCellViewOne
-        cell.button.title = kTitleHide
-    }
-
-    func outlineViewItemDidCollapse(_ notification: Notification) {
-        guard let outlineView = notification.object as? NSOutlineView, let item = notification.userInfo?.values.first as? NNTreeNodelModel else { return }
-        let isItemExpanded = outlineView.isItemExpanded(item)
-        DDLog(item.name, isItemExpanded)
-        
-        let row = outlineView.row(forItem: item)
-        let cell = outlineView.view(atColumn: 0, row: row, makeIfNecessary: false) as! NSTableCellViewOne
-        cell.button.title = kTitleShow
-    }
-
+//    func outlineViewSelectionDidChange(_ notification: Notification) {
+//        guard let outlineView = notification.object as? NSOutlineView else { return }
+//        let row = outlineView.selectedRow
+//
+//        if let item = outlineView.item(atRow: row) as? NNTreeNodelModel {
+//            let isItemExpanded = outlineView.isItemExpanded(item)
+////            DDLog(row, isItemExpanded)
+//
+//            if item.parent == nil {
+//                print("\(#function):\(item.name)_\(item.childs.count)")
+//                
+//                if isItemExpanded == true {
+//                    outlineView.collapseItem(item, collapseChildren: true)
+//                } else {
+//                    outlineView.expandItem(item, expandChildren: true)
+//                }
+//
+//            } else {
+//                print("\(#function):\(item.name)")
+//            }
+//        }
+//    }
+//    
+//    func outlineViewItemDidExpand(_ notification: Notification) {
+//        guard let outlineView = notification.object as? NSOutlineView, let item = notification.userInfo?.values.first as? NNTreeNodelModel else { return }
+//        let isItemExpanded = outlineView.isItemExpanded(item)
+////        DDLog(item.name, isItemExpanded)
+//
+//        let row = outlineView.row(forItem: item)
+//        guard let cell = outlineView.view(atColumn: 0, row: row, makeIfNecessary: false) as? NSTableCellViewOne else { return }
+//        cell.button.title = kTitleHide
+//    }
+//
+//    func outlineViewItemDidCollapse(_ notification: Notification) {
+//        guard let outlineView = notification.object as? NSOutlineView, let item = notification.userInfo?.values.first as? NNTreeNodelModel else { return }
+//        let isItemExpanded = outlineView.isItemExpanded(item)
+////        DDLog(item.name, isItemExpanded)
+//
+//        let row = outlineView.row(forItem: item)
+//        guard let cell = outlineView.view(atColumn: 0, row: row, makeIfNecessary: false) as? NSTableCellViewOne else { return }
+//        cell.button.title = kTitleShow
+//    }
     
 }
 
@@ -218,5 +196,3 @@ extension BookListController: NSOutlineViewDataSource {
     }
 
 }
-
-
