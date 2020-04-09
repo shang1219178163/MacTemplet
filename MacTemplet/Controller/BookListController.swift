@@ -11,6 +11,10 @@ import CocoaExpand
 
 class BookListController: NSViewController {
     
+    
+    let kTitleHide = "hide"
+    let kTitleShow = "show"
+
     lazy var outlineView: NNOutlineView = {
         let view = NNOutlineView(frame: .zero)
         view.floatsGroupRows = false
@@ -34,14 +38,13 @@ class BookListController: NSViewController {
     
     var topLevelItems = ["Favorites", "Content Views", "Mailboxes", "A Fourth Group",]
 
-//    var dic: [String: Any] = [:]
     var list: [NNTreeNodelModel] = []
 
     // MARK: -lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
+    
         for e in topLevelItems.enumerated() {
             let model = NNTreeNodelModel()
             model.name = e.element
@@ -114,17 +117,17 @@ extension BookListController: NSOutlineViewDelegate {
             let view = outlineView.makeView(for: NSTableCellViewOne.self, identifier: "NSTableCellViewOneHeader")
             view.imgView.isHidden = true
             view.button.isHidden = it.childs.count == 0
-            view.button.title = outlineView.isItemExpanded(it) == true ? "hide" : "show"
+            view.button.title = outlineView.isItemExpanded(it) == true ? kTitleHide : kTitleShow
             view.button.addActionHandler { (controll) in
                 guard let sender = controll as? NSButton else { return }
 //                DDLog(sender.title)
-                if sender.title == "hide" {
+                if sender.title == self.kTitleHide {
                     outlineView.collapseItem(item, collapseChildren: true)
-                    sender.title = "show"
+                    sender.title = self.kTitleShow
 
                 } else {
                     outlineView.expandItem(item, expandChildren: true)
-                    sender.title = "hide"
+                    sender.title = self.kTitleHide
                 }
             }
 
@@ -156,7 +159,7 @@ extension BookListController: NSOutlineViewDelegate {
                 
                 if isItemExpanded == true {
                     outlineView.collapseItem(item, collapseChildren: true)
-                }  else {
+                } else {
                     outlineView.expandItem(item, expandChildren: true)
                 }
 
@@ -173,7 +176,7 @@ extension BookListController: NSOutlineViewDelegate {
         
         let row = outlineView.row(forItem: item)
         let cell = outlineView.view(atColumn: 0, row: row, makeIfNecessary: false) as! NSTableCellViewOne
-        cell.button.title = "hide"
+        cell.button.title = kTitleHide
     }
 
     func outlineViewItemDidCollapse(_ notification: Notification) {
@@ -183,7 +186,7 @@ extension BookListController: NSOutlineViewDelegate {
         
         let row = outlineView.row(forItem: item)
         let cell = outlineView.view(atColumn: 0, row: row, makeIfNecessary: false) as! NSTableCellViewOne
-        cell.button.title = "show"
+        cell.button.title = kTitleShow
     }
 
     

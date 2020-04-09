@@ -13,6 +13,7 @@ class NNTreeNodelModel: NSObject {
     var parent: NNTreeNodelModel?
     var childs: [NNTreeNodelModel] = []
     var name: String = ""
+    var controller: NSViewController = NSViewController()
 
     func childAtIndex(_ index: Int) -> NNTreeNodelModel? {
         if childs.count == 0 {
