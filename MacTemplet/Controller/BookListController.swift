@@ -9,6 +9,7 @@
 import Cocoa
 import CocoaExpand
 
+/// 可折叠分段列表
 class BookListController: NSViewController {
     
     
@@ -147,7 +148,7 @@ extension BookListController: NSOutlineViewDelegate {
 //            }
 //        }
 //    }
-//    
+//
 //    func outlineViewItemDidExpand(_ notification: Notification) {
 //        guard let outlineView = notification.object as? NSOutlineView, let item = notification.userInfo?.values.first as? NNTreeNodelModel else { return }
 //        let isItemExpanded = outlineView.isItemExpanded(item)
