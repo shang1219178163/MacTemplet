@@ -34,7 +34,7 @@ class BookListController: NSViewController {
     
     var topLevelItems = ["Favorites", "Content Views", "Mailboxes", "A Fourth Group",]
 
-    var dic: [String: Any] = [:]
+//    var dic: [String: Any] = [:]
     var list: [NNTreeNodelModel] = []
 
     // MARK: -lifecycle
@@ -146,11 +146,15 @@ extension BookListController: NSOutlineViewDelegate {
     func outlineViewSelectionDidChange(_ notification: Notification) {
         guard let outlineView = notification.object as? NSOutlineView else { return }
         let row = outlineView.selectedRow
+
         if let item = outlineView.item(atRow: row) as? NNTreeNodelModel {
+            let isItemExpanded = outlineView.isItemExpanded(item)
+//            DDLog(row, isItemExpanded)
+
             if item.parent == nil {
                 print("\(#function):\(item.name)_\(item.childs.count)")
                 
-                if outlineView.isItemExpanded(item) {
+                if isItemExpanded == true {
                     outlineView.collapseItem(item, collapseChildren: true)
                 }  else {
                     outlineView.expandItem(item, expandChildren: true)
@@ -161,7 +165,28 @@ extension BookListController: NSOutlineViewDelegate {
             }
         }
     }
+    
+    func outlineViewItemDidExpand(_ notification: Notification) {
+        guard let outlineView = notification.object as? NSOutlineView, let item = notification.userInfo?.values.first as? NNTreeNodelModel else { return }
+        let isItemExpanded = outlineView.isItemExpanded(item)
+        DDLog(item.name, isItemExpanded)
+        
+        let row = outlineView.row(forItem: item)
+        let cell = outlineView.view(atColumn: 0, row: row, makeIfNecessary: false) as! NSTableCellViewOne
+        cell.button.title = "hide"
+    }
 
+    func outlineViewItemDidCollapse(_ notification: Notification) {
+        guard let outlineView = notification.object as? NSOutlineView, let item = notification.userInfo?.values.first as? NNTreeNodelModel else { return }
+        let isItemExpanded = outlineView.isItemExpanded(item)
+        DDLog(item.name, isItemExpanded)
+        
+        let row = outlineView.row(forItem: item)
+        let cell = outlineView.view(atColumn: 0, row: row, makeIfNecessary: false) as! NSTableCellViewOne
+        cell.button.title = "show"
+    }
+
+    
 }
 
 //MARK: - NSOutlineViewDataSource
@@ -169,13 +194,13 @@ extension BookListController: NSOutlineViewDataSource {
     
    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         guard let it = item as? NNTreeNodelModel else { return list.count }
-        print("\(#function):\(it.childs.count)")
+//        print("\(#function):\(it.childs.count)")
         return it.childs.count
     }
     
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
         guard let it = item as? NNTreeNodelModel else { return list[index] }
-        print("\(#function):\(it.childAtIndex(index)?.name)")
+//        print("\(#function):\(it.childAtIndex(index)?.name)")
         return it.childAtIndex(index)!
     }
     
