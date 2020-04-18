@@ -15,9 +15,9 @@
 //    if (self == self.class) {
 //        static dispatch_once_t onceToken;
 //        dispatch_once(&onceToken, ^{
-//            [self swizzleMethodInstance:self.class origSel:@selector(editWithFrame:editor:delegate:event:) replSel:@selector(hook_editWithFrame:inView:editor:delegate:event:)];
-//            [self swizzleMethodInstance:self.class origSel:@selector(selectWithFrame:inView:editor:delegate:start:length:) replSel:@selector(hook_selectWithFrame:inView:editor:delegate:start:length:)];
-//            [self swizzleMethodInstance:self.class origSel:@selector(drawInteriorWithFrame:inView:) replSel:@selector(hook_drawInteriorWithFrame:inView:)];
+//            SwizzleMethodInstance(self.class, @selector(editWithFrame:editor:delegate:event:), @selector(hook_editWithFrame:inView:editor:delegate:event:));
+//            SwizzleMethodInstance(self.class, @selector(selectWithFrame:inView:editor:delegate:start:length:), @selector(hook_selectWithFrame:inView:editor:delegate:start:length:));
+//            SwizzleMethodInstance(self.class, @selector(drawInteriorWithFrame:inView:), @selector(hook_drawInteriorWithFrame:inView:));
 //            
 //        });
 //    }

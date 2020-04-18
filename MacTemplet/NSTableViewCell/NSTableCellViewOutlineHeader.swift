@@ -61,11 +61,11 @@ class NSTableCellViewOutlineHeader: NSTableCellView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layout() {
-        super.layout()
-        
-
-    }
+//    override func layout() {
+//        super.layout()
+//        
+//
+//    }
         
     override func viewWillDraw() {
         super.viewWillDraw()
