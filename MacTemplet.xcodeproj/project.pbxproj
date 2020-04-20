@@ -25,6 +25,8 @@
 		1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */; };
 		1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */; };
 		14492B6A24244D5100A9D3E1 /* HHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14492B6924244D5100A9D3E1 /* HHButton.m */; };
+		146D28BF244D9FA2004655B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146D28BE244D9FA1004655B1 /* Main.storyboard */; };
+		146D28C2244DA169004655B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 146D28C4244DA169004655B1 /* InfoPlist.strings */; };
 		14705CD4243C794B009600C9 /* NNPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14705CD3243C794B009600C9 /* NNPinAnnotation.swift */; };
 		14705CD6243C8246009600C9 /* URLSession+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14705CD5243C8246009600C9 /* URLSession+Helper.swift */; };
 		14705CD8243DA3FC009600C9 /* BookListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14705CD7243DA3FC009600C9 /* BookListController.swift */; };
@@ -177,6 +179,9 @@
 		1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTextViewContoller.m; sourceTree = "<group>"; };
 		14492B6824244D5100A9D3E1 /* HHButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHButton.h; sourceTree = "<group>"; };
 		14492B6924244D5100A9D3E1 /* HHButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHButton.m; sourceTree = "<group>"; };
+		146D28BE244D9FA1004655B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		146D28C3244DA169004655B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		146D28C6244DA16D004655B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		14705CD3243C794B009600C9 /* NNPinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNPinAnnotation.swift; sourceTree = "<group>"; };
 		14705CD5243C8246009600C9 /* URLSession+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Helper.swift"; sourceTree = "<group>"; };
 		14705CD7243DA3FC009600C9 /* BookListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListController.swift; sourceTree = "<group>"; };
@@ -651,6 +656,7 @@
 			isa = PBXGroup;
 			children = (
 				148BB4172437323C00ECEF3B /* 02@3x.png */,
+				146D28C4244DA169004655B1 /* InfoPlist.strings */,
 				148BB40E2436DD3600ECEF3B /* timg.gif */,
 				14F54987243065BF003BC739 /* alert.png */,
 				1480B0F4238D2D7000E24BDB /* THML5常用控件总结.txt */,
@@ -659,6 +665,7 @@
 				14F92C1D22BB768400A5C5E4 /* appinfo.txt */,
 				1482F71F22AB8BD500A7C5E1 /* main.m */,
 				1482F72722AB8EC600A7C5E1 /* PrefixHeader.pch */,
+				146D28BE244D9FA1004655B1 /* Main.storyboard */,
 				1482F72122AB8BD500A7C5E1 /* MacTemplet.entitlements */,
 				1482F71922AB8BD500A7C5E1 /* Assets.xcassets */,
 				1482F71E22AB8BD500A7C5E1 /* Info.plist */,
@@ -803,6 +810,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"en-AU",
 			);
 			mainGroup = 1482F70A22AB8BD400A7C5E1;
 			productRefGroup = 1482F71422AB8BD400A7C5E1 /* Products */;
@@ -820,6 +829,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14D4ED5823CA1D3500B8BD16 /* Swift-YYModel.json in Resources */,
+				146D28C2244DA169004655B1 /* InfoPlist.strings in Resources */,
 				1480B0D7238CB8F000E24BDB /* Skull.jpg in Resources */,
 				1445780322BDDAF90007C7B3 /* Swift-HandyJSON.json in Resources */,
 				1480B0F5238D2D7000E24BDB /* THML5常用控件总结.txt in Resources */,
@@ -830,6 +840,7 @@
 				148BB40F2436DD3700ECEF3B /* timg.gif in Resources */,
 				14F54988243065BF003BC739 /* alert.png in Resources */,
 				14D4ED5623CA159900B8BD16 /* blocks.geojson in Resources */,
+				146D28BF244D9FA2004655B1 /* Main.storyboard in Resources */,
 				14F92C5622BB93EB00A5C5E4 /* DataModelsTemplate.txt in Resources */,
 				1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */,
 				148BB4182437323C00ECEF3B /* 02@3x.png in Resources */,
@@ -1026,11 +1037,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		146D28C4244DA169004655B1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				146D28C3244DA169004655B1 /* en */,
+				146D28C6244DA16D004655B1 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		1482F72222AB8BD500A7C5E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1090,6 +1114,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -30,7 +30,7 @@ class OthersViewController: NSViewController {
                       ["NSAlertStudyController", "NSAlertStudy",],
                       ["LittleActionController", "小功能",],
                       ["ShowViewController", "控制器呈现",],
-                      ["BookListController", "Books",],
+                      ["BookListController", "折叠分段列表",],
 
 //                      ["NSTestViewController", "测试模块",],
 //                      ["TmpViewController", "Tmp模块",],

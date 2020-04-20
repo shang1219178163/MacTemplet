@@ -51,9 +51,9 @@
 
 //    self.window.opaque = false;
 //    self.window.backgroundColor = [NSColor.whiteColor colorWithAlphaComponent:0.9];
-    //    self.windowCtrl.window.contentViewController = controller;
-    //    self.windowCtrl.window.title = NSApplication.appName;
-    
+//    self.windowCtrl.window.contentViewController = controller;
+//    self.windowCtrl.window.title = NSApplication.appName;
+
 //    DDLog(@"NSApplication.sharedApplication.mainWindow_%@", NSApplication.sharedApplication.mainWindow);
 //    DDLog(@"NSApp.mainWindow_%@", NSApp.mainWindow);
 //    DDLog(@"NSApp.keyWindow_%@", NSApp.keyWindow);
@@ -84,9 +84,9 @@
 //    NSDictionary *infoDict = NSBundle.mainBundle.infoDictionary;
 //    DDLog(@"infoDict_%@", infoDict);
     
-    NSString *one = nil;
-    NSString *two = @"";
-    DDLog(@"%@_%@", @(one.length), @(two.length));
+//    NSString *one = nil;
+//    NSString *two = @"";
+//    DDLog(@"%@_%@", @(one.length), @(two.length));
 
 }
 
@@ -166,6 +166,7 @@
     if (!_window) {
         _window = NSApplication.windowDefault;
         _window.contentMinSize = CGSizeMake(kScreenWidth*0.55, kScreenHeight*0.5);
+        _window.title = @"App代码助手";
     }
     return _window;
 }
