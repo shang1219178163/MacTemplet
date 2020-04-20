@@ -292,24 +292,34 @@
 }
 
 //#pragma mark - NSTextDelegate
-//- (void)textDidBeginEditing:(NSNotification *)notification{
-//
-//}
-//
-//- (void)textDidChange:(NSNotification *)notification{
-//    NSTextView * view = notification.object;
-//    DDLog(@"length:%@", @(view.string.length));
-//    DDLog(@"containerSize:%@", @(view.textContainer.containerSize));
-//    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
-//    if (view.string.length > 0) {
-//        [self hanldeJson];
-//    }
-//}
-//
-//- (void)textDidEndEditing:(NSNotification *)notification{
-//
-//}
+- (void)textDidBeginEditing:(NSNotification *)notification{
 
+}
+
+- (void)textDidChange:(NSNotification *)notification{
+    NSTextView * view = notification.object;
+    DDLog(@"length:%@", @(view.string.length));
+    DDLog(@"containerSize:%@", @(view.textContainer.containerSize));
+    [view scrollRangeToVisible: NSMakeRange(FLT_MAX, FLT_MAX)];
+    if (view.string.length > 0) {
+        [self hanldeJson];
+    }
+}
+
+- (void)textDidEndEditing:(NSNotification *)notification{
+//    NSTextField *textField = (NSTextField *)notification.object;
+//    //    DDLog(@"%@",textField.stringValue);
+//
+//    NSDictionary *dic = @{@(100): kClassPrefix,
+//                          @(101): kRootClass,
+//                          @(102): kSuperClass,                          };
+//    NSString * defaultsKey = dic[@(textField.tag)];
+//    [NSUserDefaults.standardUserDefaults setObject:textField.stringValue forKey:defaultsKey];
+//    [NSUserDefaults.standardUserDefaults synchronize];
+//    //    DDLog(@"%@_%@_%@_%@",@(textField.tag), defaultsKey, textField.stringValue, [NSUserDefaults.standardUserDefaults objectForKey:defaultsKey]);
+//    [self hanldeJson];
+}
+/*
 #pragma mark -NSControlTextEditingDelegate
 - (void)controlTextDidBeginEditing:(NSNotification *)obj{
 //    print("开始编辑")
@@ -359,25 +369,25 @@
     return YES;
 }
 
-// 监听指定按键(与NSTextField相同)
-//func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
-//   // insertNewline:  回车键
-//   // deleteBackward: 回退键
-//   // insertTab:      tab键
-//   // moveUp:          上方向键
-//   // moveDown:        下方向键
-//   // moveLeft:        左方向键
-//   // moveRight:       右方向键
-//
-//    print("\(commandSelector)")
-//    if commandSelector.description == "insertNewline:" {
-//       print("按了回车键")
-//        return true  // 表示代理以及处理键盘事件,不需要系统再进行处理
-//    }
-//    // 如果返回false ,则系统自动处理,如果返回true,则系统不做处理
-//    return false
-//}
+//监听指定按键(与NSTextField相同)
+func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+   // insertNewline:  回车键
+   // deleteBackward: 回退键
+   // insertTab:      tab键
+   // moveUp:          上方向键
+   // moveDown:        下方向键
+   // moveLeft:        左方向键
+   // moveRight:       右方向键
 
+    print("\(commandSelector)")
+    if commandSelector.description == "insertNewline:" {
+       print("按了回车键")
+        return true  // 表示代理以及处理键盘事件,不需要系统再进行处理
+    }
+    // 如果返回false ,则系统自动处理,如果返回true,则系统不做处理
+    return false
+}
+*/
 #pragma mark - funtions
 
 - (void)readFile{
