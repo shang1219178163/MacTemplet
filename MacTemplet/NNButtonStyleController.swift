@@ -35,7 +35,7 @@ class NNButtonStyleController: NSViewController {
         collectionView.register(cellType: NNCollectionViewItem.self)
         collectionView.register(supplementaryViewType: NNHeaderFooterView.self)
         self.view.wantsLayer = true
-        collectionView.layer?.backgroundColor = NSColor.black.cgColor
+//        collectionView.layer?.backgroundColor = NSColor.black.cgColor
         return collectionView
     }()
     

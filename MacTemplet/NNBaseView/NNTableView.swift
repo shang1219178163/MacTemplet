@@ -12,7 +12,7 @@ class NNTableView: NSTableView {
     
     lazy var scrollView: NSScrollView = {
         let scrollView = NSScrollView()
-        scrollView.backgroundColor = NSColor.red
+        scrollView.backgroundColor = NSColor.white
         scrollView.drawsBackground = false
         scrollView.hasHorizontalScroller = true
         scrollView.hasVerticalScroller = true

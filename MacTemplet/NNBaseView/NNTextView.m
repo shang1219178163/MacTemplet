@@ -71,7 +71,7 @@
     if (!_scrollView) {
         _scrollView = ({
             NSScrollView *view = [[NSScrollView alloc] init];
-            view.backgroundColor = NSColor.redColor;
+            view.backgroundColor = NSColor.whiteColor;
             
             view.drawsBackground = false;//不画背景（背景默认画成白色）
             view.hasHorizontalScroller = false;
