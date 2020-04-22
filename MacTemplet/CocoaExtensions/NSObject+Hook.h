@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param clz     Class或者NSString类型
  @return        YES成功,NO失败
  */
-FOUNDATION_EXPORT BOOL SwizzleMethodInstance(Class clz, SEL origSelector, SEL replSelector);
+FOUNDATION_EXPORT BOOL SwizzleInstanceMethod(Class clz, SEL origSelector, SEL replSelector);
 
 /**
  (源方法)类方法交换
@@ -25,19 +25,19 @@ FOUNDATION_EXPORT BOOL SwizzleMethodInstance(Class clz, SEL origSelector, SEL re
  @param clz     Class或者NSString类型
  @return        YES成功,NO失败
  */
-FOUNDATION_EXPORT BOOL SwizzleMethodClass(Class clz, SEL origSelector, SEL replSelector);
+FOUNDATION_EXPORT BOOL SwizzleClassMethod(Class clz, SEL origSelector, SEL replSelector);
 
 /**
  实例方法交换
  @return        YES成功,NO失败
  */
-+ (BOOL)swizzleMethodInstanceOrigSel:(SEL)origSelector replSel:(SEL)replSelector;
++ (BOOL)swizzleInstanceMethodOrigSel:(SEL)origSelector replSel:(SEL)replSelector;
 
 /**
  类方法交换
  @return        YES成功,NO失败
  */
-+ (BOOL)swizzleMethodClassOrigSel:(SEL)origSelector replSel:(SEL)replSelector;
++ (BOOL)swizzleClassMethodOrigSel:(SEL)origSelector replSel:(SEL)replSelector;
 
 /**
  判断方法是否在子类里override了

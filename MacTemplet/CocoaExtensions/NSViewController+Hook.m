@@ -16,7 +16,7 @@
     if (self == self.class) {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            SwizzleMethodInstance(self.class, @selector(loadView), @selector(hook_loadView));
+            SwizzleInstanceMethod(self.class, @selector(loadView), @selector(hook_loadView));
         });
     }
 }

@@ -14,9 +14,9 @@
 + (void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        SwizzleMethodInstance(self.class, @selector(init), @selector(init_hook));
-        SwizzleMethodInstance(self.class, @selector(initWithFrame:), @selector(initWithFrame_hook:));
-        SwizzleMethodInstance(self.class, @selector(initWithCoder:), @selector(initWithCoder_hook:));
+        SwizzleInstanceMethod(self.class, @selector(init), @selector(init_hook));
+        SwizzleInstanceMethod(self.class, @selector(initWithFrame:), @selector(initWithFrame_hook:));
+        SwizzleInstanceMethod(self.class, @selector(initWithCoder:), @selector(initWithCoder_hook:));
         
     });
 }

@@ -55,9 +55,9 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 - (void)tabView:(NSTabView *)tabView didSelectTabViewItem:(nullable NSTabViewItem *)tabViewItem{
     NSInteger index = [tabView.tabViewItems indexOfObject:tabViewItem];
 //    DDLog(@"index_%@_%@",@(index), tabViewItem.view);
-    if (index == 0) {
-        return;
-    }
+//    if (index == 0) {
+//        return;
+//    }
     [NSUserDefaults.standardUserDefaults setObject:@(index) forKey:kDefaultTabIndex];
     [NSUserDefaults.standardUserDefaults synchronize];
 }
@@ -96,9 +96,6 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
         [self.tabView selectTabViewItemAtIndex:idx];
     }
     [self.view addSubview:self.tabView];
-
-//    self.tabView.tabViewBorderType = NSNoTabsNoBorder;
-//    self.tabView.tabViewType = NSTabViewBorderTypeNone;
 }
 
 #pragma mark -lazy
