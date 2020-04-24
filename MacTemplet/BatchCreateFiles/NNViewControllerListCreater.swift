@@ -36,7 +36,6 @@ import UIKit
         let view: UITableView = UITableView.create(self.view.bounds, style: .plain, rowHeight: 60)
         view.dataSource = self
         view.delegate = self
-        self.view.addSubview(view)
 
         view.mj_header = MJRefreshNormalHeader(refreshingBlock: {
             self.viewModel.requestRefresh()

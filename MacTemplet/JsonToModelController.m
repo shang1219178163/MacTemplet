@@ -421,7 +421,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     
     id result = [NSJSONSerialization jsonObjectFromString:self.textView.string options:kNilOptions];
     self.textLabel.stringValue = result ? @"Valid JSON Structure" : @"JSON isn't valid";
-    self.textLabel.textColor = result ? NSColor.lightGreen : NSColor.redColor;
+    self.textLabel.textColor = result ? NSColor.systemGreenColor : NSColor.redColor;
     
     if (!result) {
         NSAlert *alert = [NSAlert create:@"警告" msg:@"Error：Json is invalid" btnTitles:@[kTitleKnow]];

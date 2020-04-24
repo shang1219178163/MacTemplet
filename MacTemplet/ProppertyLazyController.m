@@ -172,8 +172,7 @@
             HHLabel * view = [[HHLabel alloc]initWithFrame:CGRectZero];
             view.bordered = false;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:13];
-            view.font = [NSFont fontWithName:NSFont.kPingFangThin size:13];
-            view.textColor = NSColor.grayColor;
+            view.textColor = NSColor.systemGreenColor;
 //            view.textColor = NSColor.lightBlue;
             view.alignment = NSTextAlignmentCenter;
 
