@@ -141,7 +141,7 @@
 -(NNTextView *)textView{
     if (!_textView) {
         _textView = ({
-            NNTextView * view = [NNTextView create:CGRectZero];
+            NNTextView *view = [NNTextView create:CGRectZero];
             view.delegate = self;
             view.string = @"";
             view.font = [NSFont systemFontOfSize:12];
@@ -155,7 +155,7 @@
 -(NNTextView *)textViewOne{
     if (!_textViewOne) {
         _textViewOne = ({
-            NNTextView * view = [NNTextView create:CGRectZero];
+            NNTextView *view = [NNTextView create:CGRectZero];
 //            view.delegate = self;
             view.string = @"";
             view.font = [NSFont systemFontOfSize:12];
@@ -169,7 +169,7 @@
 -(HHLabel *)textLabel{
     if (!_textLabel) {
         _textLabel = ({
-            HHLabel * view = [[HHLabel alloc]initWithFrame:CGRectZero];
+            HHLabel *view = [[HHLabel alloc]initWithFrame:CGRectZero];
             view.bordered = false;  ///是否显示边框
             view.font = [NSFont systemFontOfSize:13];
             view.textColor = NSColor.systemGreenColor;
@@ -192,7 +192,7 @@
 - (NNView *)bottomView{
     if (!_bottomView) {
         _bottomView = ({
-            NNView * view = [[NNView alloc]init];
+            NNView *view = [[NNView alloc]init];
             
             for (NSInteger i = 0; i < self.btnItems.count; i++) {
                 NNButton *btn = [NNButton create:CGRectZero];
