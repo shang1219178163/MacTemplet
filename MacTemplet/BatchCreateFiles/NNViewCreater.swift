@@ -21,13 +21,20 @@ import UIKit
 import SnapKit
 import SwiftExpand
         
+@objc protocol \(name)Delegate{
+    
+        @objc func \(name.lowercased())(_ rangeView: \(name))
+}
+        
 ///
 class \(name): UIView {
 
-    
+    weak var delegate: \(name)Delegate?
+
     typealias ViewClick = (\(name), Int) -> Void;
     var viewBlock: ViewClick?;
     
+    // MARK: -lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -61,7 +68,7 @@ class \(name): UIView {
         
         view.titleLabel?.font = UIFont.systemFont(ofSize: 16);
         view.setTitle(kTitleCancell, for: .normal);
-        view.setTitleColor(UIColor.red, for: .normal);
+        view.setTitleColor(.lightGray, for: .normal);
         view.addActionHandler({ (control) in
             if let sender = control as? UIButton {
                 self.viewBlock!(self,sender.tag);
@@ -75,7 +82,7 @@ class \(name): UIView {
     lazy var label: UILabel = {
         let view = UILabel(frame: .zero);
         view.text = "请选择";
-        view.textColor = UIColor.gray;
+        view.textColor = .lightGray;
         view.textAlignment = .center;
         return view;
     }();
@@ -86,7 +93,7 @@ class \(name): UIView {
         
         view.titleLabel?.font = UIFont.systemFont(ofSize: 16);
         view.setTitle(kTitleSure, for: .normal);
-        view.setTitleColor(UIColor.theme, for: .normal);
+        view.setTitleColor(.systemBlue, for: .normal);
         view.addActionHandler({ (control) in
             if let sender = control as? UIButton {
                 self.viewBlock!(self,sender.tag);
