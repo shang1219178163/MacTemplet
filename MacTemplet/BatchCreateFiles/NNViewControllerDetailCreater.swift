@@ -119,7 +119,7 @@ import UIKit
 //        tableView.tableFooterView = footerView;
         view.addSubview(tableView)
         
-        handleRequestInaprtDetail()
+        handleRequestDetail()
     }
     
     override func viewDidLayoutSubviews() {
@@ -143,10 +143,10 @@ import UIKit
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        handleRequestInaprtDetail()
+//        handleRequestDetail()
     }
     
-    func handleRequestInaprtDetail() {
+    func handleRequestDetail() {
         if recordID == "" {
 //            DDLog(self.model.creat_time, self.model.update_time)
             dataModel = model
@@ -159,13 +159,13 @@ import UIKit
                 }
             }
             tableView.reloadData()
-            requestInaprtDetail(model.topic_id)
+            requestDetail(model.topic_id)
         } else {
-            requestInaprtDetail(recordID)
+            requestDetail(recordID)
         }
     }
 
-    func requestInaprtDetail(_ ID: String?) {
+    func requestDetail(_ ID: String?) {
         viewModel.detailAPI.order_id = ID ?? ""
         viewModel.requestDetail { (model) in
 //            DDLog(model.title)

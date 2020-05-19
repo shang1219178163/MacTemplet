@@ -188,7 +188,7 @@ NS_ASSUME_NONNULL_END
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             \(prefix)RootModel *model = [\(prefix)RootModel yy_modelWithJSON:jsonData];
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (!model) {
+                if (!model || !model.list) {
                     [IOPProgressHUD showErrorWithStatus:@"数据错误,请稍后重试"];
                     return ;
                 }
@@ -196,7 +196,7 @@ NS_ASSUME_NONNULL_END
             BOOL isRefresh = self.listAPI.pageModel.currPage == self.listAPI.pageModel.firstPage;
             BOOL hasMore = model.list.count == self.listAPI.pageModel.perPageCounts;
             if (success) {
-                success(model, isRefresh, hasMore);
+                success(model.list, isRefresh, hasMore);
             }
         });
 

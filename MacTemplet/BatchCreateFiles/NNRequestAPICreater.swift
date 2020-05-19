@@ -18,7 +18,7 @@ class NNRequestAPICreater: NSObject {
 \(copyRight)
 import UIKit
 
-/// 列表
+/// 
 @objcMembers class \(name): IOPBaseAPIManager {
     
     @objc var name: String = ""

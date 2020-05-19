@@ -75,11 +75,11 @@ import UIKit
     
     lazy var footerView: NNTableFooterView = {
         let view = NNTableFooterView.create("提交", topPadding: 30);
-        view.btn.addTarget(self, action: #selector(handleActionSend(_:)), for: .touchUpInside)
+        view.btn.addTarget(self, action: #selector(handleAction(_:)), for: .touchUpInside)
         return view
     }()
     
-    @objc func handleActionSend(_ sender: UIButton) {
+    @objc func handleAction(_ sender: UIButton) {
         view.endEditing(true)
 //        DDLog(sender.currentTitle)
 //        if isValidateParams == false {
