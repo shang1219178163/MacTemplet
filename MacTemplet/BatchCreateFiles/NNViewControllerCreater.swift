@@ -22,6 +22,8 @@ import UIKit
 ///
 @objcMembers class \(prefix)Controller: UIViewController{
         
+    var dataList = NSMutableArray()
+
     lazy var rightBtn: UIButton = {
         let button = UIButton.create(.zero, title: "进件须知", imgName: nil, type: 6)
         button.sizeToFit()

@@ -85,7 +85,7 @@ import UIKit
 //        if isValidateParams == false {
 //            return
 //        }
-        requestETCFilesAdd()
+        requestAdd()
     }
     
 //    lazy var uploadImageVC: IOPUploadImageController = {
@@ -119,73 +119,62 @@ import UIKit
         tableView.reloadData()
     }
     // MARK: -funtions
-    func jumpFileAction(_ itemList: [String]) {
+//    func jumpFileAction(_ itemList: [String]) {
 //        DDLog(itemList)
-
-        let urlString = dataModel.valueText(forKeyPath: itemList[4], defalut: "")
-        
-        let controller = IOPFileUploadController()
-        controller.delegate = self
-        controller.title = itemList[0].replacingOccurrences(of: "*", with: "")
-        controller.key = itemList[4]
-        
-        controller.isUpload = urlString == ""
-        controller.fileUrl = urlString == "" ? nil : NSURL(string: urlString)
+//
+//        let urlString = dataModel.valueText(forKeyPath: itemList[4], defalut: "")
+//
+//        let controller = IOPFileUploadController()
+//        controller.delegate = self
+//        controller.title = itemList[0].replacingOccurrences(of: "*", with: "")
+//        controller.key = itemList[4]
+//
+//        controller.isUpload = urlString == ""
+//        controller.fileUrl = urlString == "" ? nil : NSURL(string: urlString)
 //        DDLog("isUpload:%@_fileUrl:%@", controller.isUpload, controller.fileUrl)
-        navigationController?.pushViewController(controller, animated: true);
-    }
-        
-    func jumpXiangce(_ itemList:[String]) {
-        let controller = UIStoryboard.storyboard(with: "ParkRecord", identifier: "IOPParkRecordImageViewController") as! IOPParkRecordImageViewController
-        controller.title = itemList[0].replacingOccurrences(of: "*", with: "")
-        if let url = URL(string: dataModel.value(forKeyPath: itemList[4]) as! String) {
-            controller.inImageUrlArray = [url]
-        }
-        navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    func jumpUploadPicture(_ itemList: [String]) {
+//        navigationController?.pushViewController(controller, animated: true);
+//    }
+//
+//    func jumpXiangce(_ itemList:[String]) {
+//        let controller = UIStoryboard.storyboard(with: "ParkRecord", identifier: "IOPParkRecordImageViewController") as! IOPParkRecordImageViewController
+//        controller.title = itemList[0].replacingOccurrences(of: "*", with: "")
+//        if let url = URL(string: dataModel.value(forKeyPath: itemList[4]) as! String) {
+//            controller.inImageUrlArray = [url]
+//        }
+//        navigationController?.pushViewController(controller, animated: true)
+//    }
+//
+//    func jumpUploadPicture(_ itemList: [String]) {
 //        DDLog(itemList)
-        
-        let controller = IOPUploadImageController()
-        controller.delegate = self
-        controller.title = itemList[0].replacingOccurrences(of: "*", with: "")
-        controller.key = itemList[4]
-        
-        let imgUrl = dataModel.valueText(forKeyPath: itemList[4], defalut: "")
-        controller.imgUrl = imgUrl
-        controller.isFromPickerVC = false
-        controller.showImageDefault = true
-        navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    func popToListController() {
-        let controller = self.navigationController?.viewControllers[1]
-        if controller != nil && controller is IOPGoodsInPartListController {
-            self.navigationController?.popToViewController(controller!, animated: true)
-            
-        } else {
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
-    
-    func requestETCFilesAdd() {
-        viewModel.etcFilesAPI.dataModel = dataModel
-        viewModel.requestETCFilesAdd { (dic) in
-            DDLog(dic)
-            if let code = dic["code"] as? String {
-                if code == "1" {
-                    IOPProgressHUD.showSuccess(withStatus: kAPISuccess)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//                        self.navigationController?.popViewController(animated: true)
-                        self.popToListController()
-                    }
-                }
-            } else {
-                IOPProgressHUD.showError(withStatus: dic["message"] as? String)
-            }
-        }
-    }
+//
+//        let controller = IOPUploadImageController()
+//        controller.delegate = self
+//        controller.title = itemList[0].replacingOccurrences(of: "*", with: "")
+//        controller.key = itemList[4]
+//
+//        let imgUrl = dataModel.valueText(forKeyPath: itemList[4], defalut: "")
+//        controller.imgUrl = imgUrl
+//        controller.isFromPickerVC = false
+//        controller.showImageDefault = true
+//        navigationController?.pushViewController(controller, animated: true)
+//    }
+
+    func requestAdd() {
+//        viewModel.etcFilesAPI.dataModel = dataModel
+//        viewModel.requestETCFilesAdd { (dic) in
+//            DDLog(dic)
+//            if let code = dic["code"] as? String {
+//                if code == "1" {
+//                    IOPProgressHUD.showSuccess(withStatus: kAPISuccess)
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//                        self.popToListController()
+//                    }
+//                }
+//            } else {
+//                IOPProgressHUD.showError(withStatus: dic["message"] as? String)
+//            }
+//        }
+//    }
 }
 
 extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
@@ -200,7 +189,9 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.rowHeight
+        let sections = list[indexPath.section]
+        let itemList = sections[indexPath.row]
+        return itemList[2].cgFloatValue
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

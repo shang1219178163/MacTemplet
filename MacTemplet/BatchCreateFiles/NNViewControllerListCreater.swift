@@ -31,6 +31,8 @@ import UIKit
         return viewModel
     }()
         
+    var dataList = NSMutableArray()
+
     // MARK: - lazy
     lazy var tableView: UITableView = {
         let view: UITableView = UITableView.create(self.view.bounds, style: .plain, rowHeight: 60)
@@ -130,7 +132,8 @@ import UIKit
         view.addSubview(searchBar);
         view.addSubview(tipLab);
         view.addSubview(tableView);
-
+        
+        searchBar.isHidden = true
     }
 
     func requestForSearch(_ searchbar: UISearchBar) {
@@ -152,12 +155,14 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.rowHeight
+        let sections = list[indexPath.section]
+        let itemList = sections[indexPath.row]
+        return itemList[2].cgFloatValue
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell.cellWithTableView(tableView, identifier: "UITableViewCellSubtitle", style: .subtitle)
+        let cell = UITableViewCell.dequeueReusableCell(tableView, identifier: "UITableViewCellSubtitle", style: .subtitle)
         cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
         cell.textLabel?.text = "--"
         cell.textLabel?.textColor = UIColor.textColor3;

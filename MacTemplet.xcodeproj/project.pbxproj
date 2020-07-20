@@ -42,6 +42,7 @@
 		1476854E243425CD00C2C78A /* OthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1476854D243425CD00C2C78A /* OthersViewController.swift */; };
 		147787802428844D00D438CC /* NNButtonStudyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1477877F2428844C00D438CC /* NNButtonStudyController.swift */; };
 		147787892428BDED00D438CC /* NSObject+CrashProtector.m in Sources */ = {isa = PBXBuildFile; fileRef = 147787882428BDED00D438CC /* NSObject+CrashProtector.m */; };
+		147E3066246E1E020076C704 /* NSWorkspace+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E3065246E1E020076C704 /* NSWorkspace+Helper.swift */; };
 		1480B0D7238CB8F000E24BDB /* Skull.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1480B0D6238CB8F000E24BDB /* Skull.jpg */; };
 		1480B0D9238CBDC200E24BDB /* NSStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */; };
 		1480B0E3238CC63900E24BDB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480B0E2238CC63900E24BDB /* MapViewController.swift */; };
@@ -199,6 +200,7 @@
 		1477877F2428844C00D438CC /* NNButtonStudyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NNButtonStudyController.swift; sourceTree = "<group>"; };
 		147787872428BDED00D438CC /* NSObject+CrashProtector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CrashProtector.h"; sourceTree = "<group>"; };
 		147787882428BDED00D438CC /* NSObject+CrashProtector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CrashProtector.m"; sourceTree = "<group>"; };
+		147E3065246E1E020076C704 /* NSWorkspace+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWorkspace+Helper.swift"; sourceTree = "<group>"; };
 		1480B0D6238CB8F000E24BDB /* Skull.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Skull.jpg; sourceTree = "<group>"; };
 		1480B0D8238CBDC200E24BDB /* NSStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSStackViewController.swift; sourceTree = "<group>"; };
 		1480B0E2238CC63900E24BDB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -707,6 +709,7 @@
 				14F5497E24305BEF003BC739 /* AppIconActionController.swift */,
 				14F5498324306395003BC739 /* NSAlertStudyController.swift */,
 				14C0093F2431C3B700F490D6 /* NSPanelStudyController.swift */,
+				147E3065246E1E020076C704 /* NSWorkspace+Helper.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1027,6 +1030,7 @@
 				14C009402431C3B700F490D6 /* NSPanelStudyController.swift in Sources */,
 				14F2F58D22B881C4009D49CE /* NSTextFieldCell+Hook.m in Sources */,
 				1445780F22BDF0520007C7B3 /* NNLanguageModel.m in Sources */,
+				147E3066246E1E020076C704 /* NSWorkspace+Helper.swift in Sources */,
 				14F0FDA622ADF20400057093 /* NSView+Hook.m in Sources */,
 				14705CDA243DAD70009600C9 /* NNSplitViewController.swift in Sources */,
 				148BB4142437114A00ECEF3B /* DragDropImageView.m in Sources */,
@@ -1174,9 +1178,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MacTemplet/MacTemplet.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.4.0;
+				DEVELOPMENT_TEAM = UB99NJ7K8G;
 				GCC_PREFIX_HEADER = MacTemplet/PrefixHeader.pch;
 				INFOPLIST_FILE = MacTemplet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1201,9 +1207,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MacTemplet/MacTemplet.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.4.0;
+				DEVELOPMENT_TEAM = UB99NJ7K8G;
 				GCC_PREFIX_HEADER = MacTemplet/PrefixHeader.pch;
 				INFOPLIST_FILE = MacTemplet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

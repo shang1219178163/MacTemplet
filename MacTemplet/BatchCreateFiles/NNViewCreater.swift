@@ -17,17 +17,16 @@ class NNViewCreater: NSObject {
         return """
 \(copyRight)
 import UIKit
-
 import SnapKit
 import SwiftExpand
         
 @objc protocol \(name)Delegate{
+    @objc func \(name.lowercased())(_ rangeView: \(name))
     
-        @objc func \(name.lowercased())(_ rangeView: \(name))
 }
         
 ///
-class \(name): UIView {
+@objcMembers class \(name): UIView {
 
     weak var delegate: \(name)Delegate?
 
@@ -61,23 +60,14 @@ class \(name): UIView {
     }
     
         
-    //MARK: - lazy
-    lazy var btnCancell: UIButton = {
-        let view = UIButton(type: .custom);
-        view.tag = 0;
+    //MARK: -lazy
+    lazy var imgView: UIImageView = {
+        var view = UIImageView(frame: .zero);
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.image = UIImage(named: "icon_avatar")
         
-        view.titleLabel?.font = UIFont.systemFont(ofSize: 16);
-        view.setTitle(kTitleCancell, for: .normal);
-        view.setTitleColor(.lightGray, for: .normal);
-        view.addActionHandler({ (control) in
-            if let sender = control as? UIButton {
-                self.viewBlock!(self,sender.tag);
-                self.dismiss();
-            }
-
-        }, for: .touchUpInside)
         return view;
-    }();
+    }()
     
     lazy var label: UILabel = {
         let view = UILabel(frame: .zero);
