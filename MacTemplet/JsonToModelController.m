@@ -94,7 +94,7 @@
 - (void)viewWillAppear{
     [super viewWillAppear];
     
-    NSString * titleOfSelectedItem = [NSUserDefaults.standardUserDefaults objectForKey:kDisplayName];
+    NSString *titleOfSelectedItem = [NSUserDefaults.standardUserDefaults objectForKey:kDisplayName];
 //    DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
     [self.popBtn selectItemWithTitle:titleOfSelectedItem];
 }
@@ -107,7 +107,7 @@
     
 }
 
-- (void)viewDidLayout{
+-(void)viewDidLayout{
     [super viewDidLayout];
     
     [self.textView.enclosingScrollView makeConstraints:^(MASConstraintMaker *make) {
@@ -410,19 +410,24 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
 - (void)hanldeJson{
     //    DDLog(@"titleOfSelectedItem_%@", self.popBtn.titleOfSelectedItem);
     
-    [self setupDefaultWithSender:self.popBtn];
-    if (self.textFieldThree.stringValue.length > 0) {
-        [NSUserDefaults.standardUserDefaults setObject:self.textFieldThree.stringValue forKey:kSuperClass];
-        [NSUserDefaults.standardUserDefaults synchronize];
+    if (self.textField.stringValue.length <= 0 || self.textFieldTwo.stringValue.length <= 0 || self.textFieldThree.stringValue.length <= 0) {
+        NSWindow *window = NSApplication.sharedApplication.mainWindow;
+        [NSAlert show:@"提示" msg:@"前缀,类名,父类均不能为空" btnTitles:@[kTitleKnow] window:window];
+        return;
     }
     
+    [self setupDefaultWithSender:self.popBtn];
+    
+    [NSUserDefaults.standardUserDefaults setObject:self.textField.stringValue forKey:kClassPrefix];
+    [NSUserDefaults.standardUserDefaults setObject:self.textFieldTwo.stringValue forKey:kRootClass];
+    [NSUserDefaults.standardUserDefaults setObject:self.textFieldThree.stringValue forKey:kSuperClass];
+    [NSUserDefaults.standardUserDefaults synchronize];
+
     //    self.hTextView.string = @"";
     //    self.mTextView.string = @"";
-    
     id result = [NSJSONSerialization jsonObjectFromString:self.textView.string options:kNilOptions];
     self.textLabel.stringValue = result ? @"Valid JSON Structure" : @"JSON isn't valid";
     self.textLabel.textColor = result ? NSColor.systemGreenColor : NSColor.redColor;
-    
     if (!result) {
         NSAlert *alert = [NSAlert create:@"警告" msg:@"Error：Json is invalid" btnTitles:@[kTitleKnow]];
         [alert beginSheetModalForWindow:NSApplication.windowDefault completionHandler:^(NSModalResponse returnCode) {
@@ -533,7 +538,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     
     [NSUserDefaults setArcObject:self.langModel forkey:@"langModel"];
     [NSUserDefaults synchronize];
-    id langModel = [NSUserDefaults arcObjectForKey:@"langModel"];
+//    id langModel = [NSUserDefaults arcObjectForKey:@"langModel"];
 }
 
 #pragma mark - lazy
@@ -738,7 +743,6 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 DDLog(@"%@", control);
                 [NSApp.mainWindow makeFirstResponder:nil];
-                
                 [self creatFile];
                 
             }];

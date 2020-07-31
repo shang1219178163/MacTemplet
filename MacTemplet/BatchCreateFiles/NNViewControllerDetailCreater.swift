@@ -100,9 +100,9 @@ import UIKit
     
     lazy var noticeLabel: UILabel = {
         let rect = CGRectMake(0, 0, kScreenWidth, 30)
-        let view = UILabel.create(rect, textColor: UIColorHexValue(0xE9852C), type: 2)
+        let view = UILabel.create(rect, textColor: UIColor.hexValue(0xE9852C), type: 2)
         view.font = UIFont.systemFont(ofSize: 12);
-        view.backgroundColor = UIColorHexValue(0xFFEBBB)
+        view.backgroundColor = UIColor.hexValue(0xFFEBBB)
         view.text = "   未通过的进件，可通过“创建进件”再次申请"
         return view
     }()

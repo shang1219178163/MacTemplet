@@ -5,5 +5,5 @@
   Created by Bin Shang on 2020/4/20.
   Copyright © 2020 Bin Shang. All rights reserved.
 */
-"CFBundleName" = "App代码助手";
-"CFBundleDisplayName" = "App代码助手";
+"CFBundleName" = "CodeHelper";
+"CFBundleDisplayName" = "CodeHelper";

@@ -21,7 +21,7 @@ import SnapKit
 import SwiftExpand
         
 @objc protocol \(name)Delegate{
-    @objc func \(name.lowercased())(_ rangeView: \(name))
+    @objc func \(name.lowercased())(_ view: \(name))
     
 }
         
