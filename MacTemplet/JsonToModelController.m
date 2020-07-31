@@ -308,67 +308,51 @@
 
 - (void)textDidEndEditing:(NSNotification *)notification{
 //    NSTextField *textField = (NSTextField *)notification.object;
-//    //    DDLog(@"%@",textField.stringValue);
-//
-//    NSDictionary *dic = @{@(100): kClassPrefix,
-//                          @(101): kRootClass,
-//                          @(102): kSuperClass,                          };
-//    NSString * defaultsKey = dic[@(textField.tag)];
-//    [NSUserDefaults.standardUserDefaults setObject:textField.stringValue forKey:defaultsKey];
-//    [NSUserDefaults.standardUserDefaults synchronize];
-//    //    DDLog(@"%@_%@_%@_%@",@(textField.tag), defaultsKey, textField.stringValue, [NSUserDefaults.standardUserDefaults objectForKey:defaultsKey]);
-//    [self hanldeJson];
+//    DDLog(@"%@",textField.stringValue);
 }
-/*
+
 #pragma mark -NSControlTextEditingDelegate
 - (void)controlTextDidBeginEditing:(NSNotification *)obj{
 //    print("开始编辑")
 }
 
 - (void)controlTextDidChange:(NSNotification *)obj {
-//    print("修改内容")
-    NSTextField *textField = (NSTextField *)obj.object;
-    DDLog(@"%@",textField.stringValue);
-    
+//    NSTextField *textField = (NSTextField *)obj.object;
+//    DDLog(@"%@",textField.stringValue);
 }
 
 - (void)controlTextDidEndEditing:(NSNotification *)obj{
 //    print("结束编辑")
-
-    NSTextField *textField = (NSTextField *)obj.object;
-    //    DDLog(@"%@",textField.stringValue);
+//    NSTextField *textField = (NSTextField *)obj.object;
+//    DDLog(@"%@",textField.stringValue);
     
-    NSDictionary *dic = @{@(100): kClassPrefix,
-                          @(101): kRootClass,
-                          @(102): kSuperClass,                          };
-    NSString * defaultsKey = dic[@(textField.tag)];
-    [NSUserDefaults.standardUserDefaults setObject:textField.stringValue forKey:defaultsKey];
+    [NSUserDefaults.standardUserDefaults setObject:self.textField.stringValue forKey:kClassPrefix];
+    [NSUserDefaults.standardUserDefaults setObject:self.textFieldTwo.stringValue forKey:kRootClass];
+    [NSUserDefaults.standardUserDefaults setObject:self.textFieldThree.stringValue forKey:kSuperClass];
     [NSUserDefaults.standardUserDefaults synchronize];
-    //    DDLog(@"%@_%@_%@_%@",@(textField.tag), defaultsKey, textField.stringValue, [NSUserDefaults.standardUserDefaults objectForKey:defaultsKey]);
     [self hanldeJson];
-    
 }
 
-- (BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector{
-    NSLog(@"Selector method is (%@)", NSStringFromSelector(commandSelector));
-    if (commandSelector == @selector(insertNewline:)) {
-        //Do something against ENTER key
-
-    } else if (commandSelector == @selector(deleteForward:)) {
-        //Do something against DELETE key
-
-    } else if (commandSelector == @selector(deleteBackward:)) {
-        //Do something against BACKSPACE key
-
-    } else if (commandSelector == @selector(insertTab:)) {
-        //Do something against TAB key
-
-    } else if (commandSelector == @selector(cancelOperation:)) {
-        //Do something against Escape key
-    }
-    return YES;
-}
-
+//- (BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector{
+//    NSLog(@"Selector method is (%@)", NSStringFromSelector(commandSelector));
+//    if (commandSelector == @selector(insertNewline:)) {
+//        //Do something against ENTER key
+//
+//    } else if (commandSelector == @selector(deleteForward:)) {
+//        //Do something against DELETE key
+//
+//    } else if (commandSelector == @selector(deleteBackward:)) {
+//        //Do something against BACKSPACE key
+//
+//    } else if (commandSelector == @selector(insertTab:)) {
+//        //Do something against TAB key
+//
+//    } else if (commandSelector == @selector(cancelOperation:)) {
+//        //Do something against Escape key
+//    }
+//    return YES;
+//}
+/*
 //监听指定按键(与NSTextField相同)
 func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
    // insertNewline:  回车键
@@ -404,12 +388,9 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     NSAlert *alert = [[NSAlert alloc] init];
     alert.messageText = @"\nClear Success.";
     [alert runModal];
-    
 }
 
 - (void)hanldeJson{
-    //    DDLog(@"titleOfSelectedItem_%@", self.popBtn.titleOfSelectedItem);
-    
     if (self.textField.stringValue.length <= 0 || self.textFieldTwo.stringValue.length <= 0 || self.textFieldThree.stringValue.length <= 0) {
         NSWindow *window = NSApplication.sharedApplication.mainWindow;
         [NSAlert show:@"提示" msg:@"前缀,类名,父类均不能为空" btnTitles:@[kTitleKnow] window:window];
@@ -418,13 +399,8 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     
     [self setupDefaultWithSender:self.popBtn];
     
-    [NSUserDefaults.standardUserDefaults setObject:self.textField.stringValue forKey:kClassPrefix];
-    [NSUserDefaults.standardUserDefaults setObject:self.textFieldTwo.stringValue forKey:kRootClass];
-    [NSUserDefaults.standardUserDefaults setObject:self.textFieldThree.stringValue forKey:kSuperClass];
-    [NSUserDefaults.standardUserDefaults synchronize];
-
-    //    self.hTextView.string = @"";
-    //    self.mTextView.string = @"";
+//    self.hTextView.string = @"";
+//    self.mTextView.string = @"";
     id result = [NSJSONSerialization jsonObjectFromString:self.textView.string options:kNilOptions];
     self.textLabel.stringValue = result ? @"Valid JSON Structure" : @"JSON isn't valid";
     self.textLabel.textColor = result ? NSColor.systemGreenColor : NSColor.redColor;
@@ -446,14 +422,12 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
 }
 
 #pragma mark - Change ESJsonFormat
--(void)outputResult:(ESClassInfo*)classInfo{
-    
+- (void)outputResult:(ESClassInfo *)classInfo{
     if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
         //选择保存路径
 //        NSOpenPanel *panel = [NSOpenPanel openPanelChooseDirs:false];
         NSOpenPanel *panel = [NSOpenPanel createWithFileTypes:nil allowsMultipleSelection:false];
-
-        if ([panel runModal] == NSModalResponseOK) {
+        if (panel.runModal == NSModalResponseOK) {
             NSString *folderPath = [panel.URLs.firstObject relativePath];
             [classInfo createFileWithFolderPath:folderPath];
             [NSWorkspace.sharedWorkspace openFile:folderPath];
@@ -526,7 +500,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
 }
 
 - (void)setupDefaultWithSender:(NSPopUpButton *)sender{
-    NSString * titleOfSelectedItem = sender.titleOfSelectedItem;
+    NSString *titleOfSelectedItem = sender.titleOfSelectedItem;
     self.langModel = self.langsDic[titleOfSelectedItem];
     //    DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
     
@@ -546,10 +520,10 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
 -(NNTextView *)textView{
     if (!_textView) {
         _textView = ({
-            NNTextView * view = [NNTextView create:CGRectZero];
+            NNTextView *view = [NNTextView create:CGRectZero];
+            view.font = [NSFont systemFontOfSize:12];
             view.delegate = self;
             view.string = @"NSScrollView上无法滚动的NSTextView";
-            view.font = [NSFont systemFontOfSize:12];
             
             view;
         });
@@ -693,8 +667,8 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
                 sender.selectable = !sender.selectable;
                 sender.stringValue = sender.selectable == false ? self.typeList.firstObject : self.typeList.lastObject;
                 sender.textColor = sender.selectable == false ? NSColor.grayColor : NSColor.redColor;
-                
                 [self hanldeJson];
+                
             };
             view;
         });
@@ -719,10 +693,6 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
             [view addItemsWithTitles:list];
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 [NSApp.mainWindow makeFirstResponder:nil];
-                
-                NSPopUpButton *sender = (NSPopUpButton *)control;
-                DDLog(@"%@", sender.titleOfSelectedItem);
-                
                 [self hanldeJson];
                 
             }];
@@ -741,7 +711,6 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
             
             view.title = @"保存";
             [view addActionHandler:^(NSControl * _Nonnull control) {
-                DDLog(@"%@", control);
                 [NSApp.mainWindow makeFirstResponder:nil];
                 [self creatFile];
                 
