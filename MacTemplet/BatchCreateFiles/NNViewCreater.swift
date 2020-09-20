@@ -21,7 +21,7 @@ import SnapKit
 import SwiftExpand
         
 @objc protocol \(name)Delegate{
-    @objc func \(name.lowercased())(_ view: \(name))
+    @objc func \(name)(_ view: \(name))
     
 }
         
@@ -30,9 +30,10 @@ import SwiftExpand
 
     weak var delegate: \(name)Delegate?
 
-    typealias ViewClick = (\(name), Int) -> Void;
-    var viewBlock: ViewClick?;
+    var block: ((\(name), Int) -> Void)?
     
+    var inset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+
     // MARK: -lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,7 +48,7 @@ import SwiftExpand
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        if bounds.height <= 0.0 {
+        if bounds.height <= 10.0 {
             return;
         }
         
@@ -55,10 +56,30 @@ import SwiftExpand
     }
     
     // MARK: - funtions
-    func block(_ action: @escaping ViewClick) {
-        self.viewBlock = action;
+    func show(_ animated: Bool = true) {
+        guard let keyWindow = UIApplication.shared.keyWindow else { return }
+        
+        keyWindow.endEditing(true)
+        keyWindow.addSubview(self);
+//        self.transform = self.transform.scaledBy(x: 1.5, y: 1.5)
+        let duration = animated ? 0.15 : 0
+        UIView.animate(withDuration: duration, animations: {
+            self.backgroundColor = UIColor.black.withAlphaComponent(0.7);
+            self.transform = CGAffineTransform.identity
+            
+        }, completion: nil);
     }
-    
+
+    func dismiss(_ animated: Bool = true) {
+        let duration = animated ? 0.15 : 0
+        UIView.animate(withDuration: duration, animations: {
+            self.backgroundColor = UIColor.black.withAlphaComponent(0);
+//            self.transform = self.transform.scaledBy(x: 0.5, y: 0.5)
+
+        }) { (isFinished) in
+            self.removeFromSuperview();
+        }
+    }
         
     //MARK: -lazy
     lazy var imgView: UIImageView = {
@@ -75,23 +96,24 @@ import SwiftExpand
         view.textColor = .lightGray;
         view.textAlignment = .center;
         return view;
-    }();
+    }()
     
     lazy var btnSure: UIButton = {
         let view = UIButton(type: .custom);
-        view.tag = 1;
-        
-        view.titleLabel?.font = UIFont.systemFont(ofSize: 16);
         view.setTitle(kTitleSure, for: .normal);
         view.setTitleColor(.systemBlue, for: .normal);
+        view.titleLabel?.font = UIFont.systemFont(ofSize: 16);
+        view.adjustsImageWhenHighlighted = false;
+        view.tag = 1;
+
         view.addActionHandler({ (control) in
             if let sender = control as? UIButton {
-                self.viewBlock!(self,sender.tag);
+                self.viewBlock?(self,sender.tag);
             }
 
         }, for: .touchUpInside)
         return view;
-    }();
+    }()
 }
 
 """
@@ -149,7 +171,7 @@ NS_ASSUME_NONNULL_END
 -(void)layoutSubviews{
     [super layoutSubviews];
 
-    if (self.bounds.size.height <= 0) {
+    if (self.bounds.size.height <= 10) {
         return
     }
     

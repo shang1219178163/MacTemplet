@@ -54,15 +54,13 @@ import UIKit
     }()
     
     lazy var rightBtn: UIButton = {
-        let button = UIButton.create(.zero, title: "进件须知", imgName: nil, type: 6)
-        button.sizeToFit()
-        button.addActionHandler({ (control) in
-//            let controller = IOPInPartAgreementController()
-//            controller.type = "1"
+        let view = UIButton.create(title: "Next", textColor: .white, backgroundColor: .theme)
+        view.addActionHandler({ (control) in
+//            let controller = UIViewController()
 //            self.navigationController?.pushViewController(controller, animated: true)
             
         }, for: .touchUpInside)
-        return button
+        return view
     }()
     
     lazy var tableView: UITableView = {

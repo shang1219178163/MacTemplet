@@ -50,13 +50,13 @@ import UIKit
     }()
         
     lazy var rightBtn: UIButton = {
-        let button = UIButton.create(.zero, title: "保存", imgName: nil, type: 6)
-        button.isHidden = true;
-        button.sizeToFit()
-        button.addActionHandler({ (control) in
+        let view = UIButton.create(title: "Next", textColor: .white, backgroundColor: .theme)
+        view.addActionHandler({ (control) in
+//            let controller = UIViewController()
+//            self.navigationController?.pushViewController(controller, animated: true)
             
         }, for: .touchUpInside)
-        return button
+        return view
     }()
     
     @objc func handleAction(_ sender: UIButton) {
@@ -241,27 +241,27 @@ extension \(prefix)Controller: UISearchBarDelegate{
 }
 
 
-extension \(prefix)Controller: \(prefix)ViewModelDelegate{
-
-    func request(with model: \(prefix)RootModel, isRefresh: Bool, hasNextPage: Bool) {
-        
-        DispatchQueue.global().async {
-            self.dataModel = model;
-            if isRefresh == true {
-                self.dataList.removeAllObjects()
-            }
-//            self.dataList.addObjects(from: self.dataModel.records)
-            DispatchQueue.main.async {
-                IOPProgressHUD.dismiss()
-                self.tableView.mj_header.endRefreshing();
-                self.tableView.mj_footer.endRefreshing();
-                self.tableView.mj_footer.isHidden = !hasNextPage;
-                self.tableView.isHidden = (self.dataList.count <= 0);
-                self.tableView.reloadData();
-            }
-        }
-    }
-}
+//extension \(prefix)Controller: \(prefix)ViewModelDelegate{
+//
+//    func request(with model: \(prefix)RootModel, isRefresh: Bool, hasNextPage: Bool) {
+//
+//        DispatchQueue.global().async {
+//            self.dataModel = model;
+//            if isRefresh == true {
+//                self.dataList.removeAllObjects()
+//            }
+////            self.dataList.addObjects(from: self.dataModel.records)
+//            DispatchQueue.main.async {
+//                IOPProgressHUD.dismiss()
+//                self.tableView.mj_header.endRefreshing();
+//                self.tableView.mj_footer.endRefreshing();
+//                self.tableView.mj_footer.isHidden = !hasNextPage;
+//                self.tableView.isHidden = (self.dataList.count <= 0);
+//                self.tableView.reloadData();
+//            }
+//        }
+//    }
+//}
 
 """
     }
