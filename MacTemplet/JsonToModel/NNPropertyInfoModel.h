@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *generic;
+@property (nonatomic, copy) NSArray *attributes;
+
 @property (nonatomic, copy) NSString *language;
 
 - (BOOL)valid;

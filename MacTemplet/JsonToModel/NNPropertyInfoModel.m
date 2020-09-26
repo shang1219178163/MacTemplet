@@ -10,6 +10,14 @@
 
 @implementation NNPropertyInfoModel
 
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        _generic = @"";
+    }
+    return self;
+}
+
 - (BOOL)valid{
     BOOL isValid = ![self.type isEqualToString:@""] && ![self.name isEqualToString:@""] && self.type != nil && self.name != nil;
     return isValid;
@@ -61,14 +69,17 @@
 - (NSString *)lazyDes{
     assert(self.valid);
 
-    NSMutableString *mStr = [NSMutableString string];
-    [mStr appendFormat:@"- (%@ *)%@{\n", self.type, self.name];
-    [mStr appendFormat:@"\tif (!_%@) {\n", self.name];
-    [mStr appendString:self.lazyAllocDes];
-    [mStr appendString:@"\t}\n"];
-    [mStr appendFormat:@"\treturn _%@;\n", self.name];
-    [mStr appendString:@"}\n"];
-    return mStr;
+    NSMutableString *mstr = [NSMutableString string];
+    if ([self.attributes containsObject:@"class"]) {
+        [mstr appendFormat:@"static %@%@ * _%@ = nil;\n", self.type, self.generic, self.name];
+    }
+    [mstr appendFormat:@"- (%@%@ *)%@{\n", self.type, self.generic, self.name];
+    [mstr appendFormat:@"\tif (!_%@) {\n", self.name];
+    [mstr appendString:self.lazyAllocDes];
+    [mstr appendString:@"\t}\n"];
+    [mstr appendFormat:@"\treturn _%@;\n", self.name];
+    [mstr appendString:@"}\n"];
+    return mstr;
 }
 
 + (NSArray<NNPropertyInfoModel *> *)modelsWithString:(NSString *)string{
@@ -83,19 +94,56 @@
     
     NSArray *propertys = [string componentsSeparatedByString:@";"];
     [propertys enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NNPropertyInfoModel * propertyModel = [[NNPropertyInfoModel alloc]init];
-        if ([obj rangeOfString:@")"].location != NSNotFound) {
-            NSRange range = [obj rangeOfString:@")"];
-            NSString * content = [obj substringFromIndex:(range.location + 1)];
-            content = [content stringByTrimmingCharactersInSet: NSCharacterSet.whitespaceCharacterSet];
-            //            DDLog(@"%@_%@", obj, content);
-            
-            NSArray *contents = [content componentsSeparatedByString:@"*"];
-            propertyModel.type = [contents[0] stringByTrimmingCharactersInSet: NSCharacterSet.whitespaceCharacterSet];
-            propertyModel.name = [contents[1] stringByTrimmingCharactersInSet: NSCharacterSet.whitespaceCharacterSet];
-            
-            [marr addObject:propertyModel];
+        NNPropertyInfoModel *propertyModel = [[NNPropertyInfoModel alloc]init];
+        if (![obj containsString:@"*"]) {
+            return;
         }
+        
+        if ((![obj containsString:@"("] && [obj containsString:@")"]) || ([obj containsString:@"("] && ![obj containsString:@")"])) {
+            return;
+        }
+
+        if ([obj containsString:@"<"] && [obj containsString:@">"] ) {
+            NSInteger beginIdx = [obj rangeOfString:@"<"].location;
+            NSInteger endIdx = [obj rangeOfString:@">"].location;
+            NSString *generic = [obj substringWithRange:NSMakeRange(beginIdx, endIdx - beginIdx + 1)];
+            propertyModel.generic = generic;
+            obj = [obj stringByReplacingOccurrencesOfString:generic withString:@""];
+        }
+        
+        NSString *seperator = @"*";
+        if ([obj containsString:@"("] && [obj containsString:@")"]) {
+            seperator = @")";
+            
+            NSInteger beginIdx = [obj rangeOfString:@"("].location;
+            NSInteger endIdx = [obj rangeOfString:@")"].location;
+            NSString *attribute = [obj substringWithRange:NSMakeRange(beginIdx, endIdx - beginIdx + 1)];
+            
+            attribute = [attribute stringByReplacingOccurrencesOfString:@" " withString:@""];
+            attribute = [attribute stringByReplacingOccurrencesOfString:@"(" withString:@""];
+            attribute = [attribute stringByReplacingOccurrencesOfString:@")" withString:@""];
+            propertyModel.attributes = [attribute componentsSeparatedByString:@","];
+        }
+                
+        if ([seperator isEqualToString:@")"]) {
+            NSRange range = [obj rangeOfString:seperator];
+            NSString * content = [obj substringFromIndex:(range.location + 1)];
+            content = [content stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //        DDLog(@"%@_%@", obj, content);
+    
+            NSArray *contents = [content componentsSeparatedByString:@"*"];
+            propertyModel.type = contents[0];
+            propertyModel.name = contents[1];
+        } else {
+            obj = [obj stringByReplacingOccurrencesOfString:@"@property" withString:@""];
+            obj = [obj stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+            NSArray *contents = [obj componentsSeparatedByString:seperator];
+            propertyModel.type = contents[0];
+            propertyModel.name = contents[1];
+        }
+        
+        [marr addObject:propertyModel];
     }];
     return marr.copy;
 }
