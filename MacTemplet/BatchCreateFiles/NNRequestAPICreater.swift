@@ -21,7 +21,7 @@ import UIKit
 /// 
 @objcMembers class \(name): IOPBaseAPIManager {
     
-    @objc var name: String = ""
+    var name: String = ""
     
     override func requestURI() -> String {
         return ""
@@ -44,6 +44,10 @@ import UIKit
 //            return false;
 //        }
         return true;
+    }
+        
+    override func isOriginDic() -> Bool {
+        return true
     }
         
     override func printLog() -> Bool {

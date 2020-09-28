@@ -20,9 +20,9 @@ import UIKit
 /// 修改
 @objcMembers class \(name): IOPBaseAPIManager {
     
-    @objc var ID: String = ""
+    var recordID: String = ""
         
-    @objc var dataModel = NSObject()
+    var dataModel = NSObject()
 
     override func requestURI() -> String {
         return ""
@@ -33,20 +33,24 @@ import UIKit
     }
     
     override func reformerParams() -> [AnyHashable : Any] {
-        let params: [AnyHashable : Any] = ["id": ID,
+        let params: [AnyHashable : Any] = ["id": recordID,
 
         ]
         return params
     }
     
     override func validateParamsData() -> Bool {
-//        if ID.count < 4 {
+//        if recordID.count < 4 {
 //            IOPProgressHUD.showText("ID不能为空")
 //            return false;
 //        }
         return true;
     }
-        
+            
+    override func isOriginDic() -> Bool {
+        return true
+    }
+            
     override func printLog() -> Bool {
         return true
     }

@@ -20,9 +20,9 @@ import UIKit
 /// 列表
 @objcMembers class \(name): IOPBaseAPIManager {
     
-    @objc var name: String = ""
+    var name: String = ""
     
-    @objc var pageModel: IOPPageModel = IOPPageModel(perPageCounts: UInt(IOPDataConstansPageSize))
+    var pageModel = IOPPageModel(perPageCounts: UInt(IOPPageSize))!
 
     override func requestURI() -> String {
         return ""
@@ -48,7 +48,11 @@ import UIKit
 //        }
         return true;
     }
-            
+        
+    override func isOriginDic() -> Bool {
+        return true
+    }
+              
     override func printLog() -> Bool {
         return true
     }

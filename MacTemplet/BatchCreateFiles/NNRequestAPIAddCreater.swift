@@ -21,7 +21,7 @@ import UIKit
 /// 新增
 @objcMembers class \(name): IOPBaseAPIManager {
             
-    @objc var dataModel = NSObject()
+    var dataModel = NSObject()
 
     override func requestURI() -> String {
         return ""
@@ -42,6 +42,10 @@ import UIKit
 //            return false;
 //        }
         return true;
+    }
+            
+    override func isOriginDic() -> Bool {
+        return true
     }
             
     override func printLog() -> Bool {

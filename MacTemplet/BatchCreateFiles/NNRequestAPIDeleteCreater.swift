@@ -20,7 +20,7 @@ import UIKit
 /// 删除
 @objcMembers class \(name): IOPBaseAPIManager {
     
-    @objc var parkCode: String = ""
+    var parkCode: String = ""
         
     override func requestURI() -> String {
         return ""
@@ -44,6 +44,10 @@ import UIKit
 //            return false;
 //        }
         return true;
+    }
+            
+    override func isOriginDic() -> Bool {
+        return true
     }
             
     override func printLog() -> Bool {
