@@ -72,8 +72,10 @@
     NSMutableString *mstr = [NSMutableString string];
     if ([self.attributes containsObject:@"class"]) {
         [mstr appendFormat:@"static %@%@ * _%@ = nil;\n", self.type, self.generic, self.name];
+        [mstr appendFormat:@"+ (%@%@ *)%@{\n", self.type, self.generic, self.name];
+    } else {
+        [mstr appendFormat:@"- (%@%@ *)%@{\n", self.type, self.generic, self.name];
     }
-    [mstr appendFormat:@"- (%@%@ *)%@{\n", self.type, self.generic, self.name];
     [mstr appendFormat:@"\tif (!_%@) {\n", self.name];
     [mstr appendString:self.lazyAllocDes];
     [mstr appendString:@"\t}\n"];
