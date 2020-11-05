@@ -25,6 +25,7 @@
         "float",
         "for",
         "goto",
+        "id",
         "if",
         "implements",
         "import",
@@ -62,8 +63,8 @@
     "briefDescription": "Defines how your JSON objects can be mapped to Swift classes using the built-in NSJSONSerialization class",
     "utilityMethods": [
         {
-            "propertyMapPropertyMethod": "static func modelCustomPropertyMapper() -> [String : Any]? {\n\t\treturn [:]\n\t}",
-            "propertyMapModelMethod": "static func modelContainerPropertyGenericClass() -> [String : Any]? {\n\t\treturn [:]\n\t}",
+            "propertyMapModelMethod": "static func modelContainerPropertyGenericClass() -> [String : Any]? {\n\t\treturn [%@]\n\t}",
+            "propertyMapPropertyMethod": "static func modelCustomPropertyMapper() -> [String : Any]? {\n\t\treturn [%@]\n\t}",
         }
     ],
     "dataTypes": {
@@ -79,7 +80,7 @@
         "[",
         "]"
     ],
-    "defaultParentWithUtilityMethods": "HandyJSON",
+    "defaultParentWithUtilityMethods": "NSObject",
     "constructors": [
         "required override init() {}"
     ],
@@ -96,6 +97,7 @@
     "instanceVarDefinition": "\tvar <!VarName!> : <!VarType!>?\n",
     "supportsFirstLineStatement": "false",
     "modelEnd": "\n}",
-    "staticImports": "import Cocoa\n",
-    "langName": "Swift"
+    "staticImports": "import Foundation\nimport YYModel",
+    "langName": "Swift",
+    "podName": "YYModel"
 }

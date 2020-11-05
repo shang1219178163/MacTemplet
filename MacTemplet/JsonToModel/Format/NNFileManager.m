@@ -28,7 +28,7 @@
                        mFileName:(NSString *)mFileName
                        hContent :(NSString *)hContent
                        mContent :(NSString *)mContent{
-    if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
+    if (!NSApplication.isSwift) {
         //创建.h文件
         [NSFileManager createFileAtPath:folderPath name:hFileName content:hContent attributes:nil isCover:true];
         //创建.m文件

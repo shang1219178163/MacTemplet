@@ -23,6 +23,8 @@
 #define MAS_SHORTHAND
 #import "Masonry.h"
 
+#import "NSApplication+Ext.h"
+
 #import "MacTemplet-Swift.h"
 
 //#ifdef DEBUG

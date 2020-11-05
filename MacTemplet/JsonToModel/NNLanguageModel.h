@@ -37,6 +37,8 @@
 
 @property (nonatomic, copy) NSString *langName;
 
+@property (nonatomic, copy) NSString *podName;
+
 @property (nonatomic, copy) NSString *modelDefinition;
 
 @property (nonatomic, copy) NSString *modelDefinitionWithParent;

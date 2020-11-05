@@ -94,7 +94,7 @@
         
     }else{
         if (!self.currentTextView) return;
-        if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
+        if (!NSApplication.isSwift) {
             //先添加主类的属性
             [self.currentTextView insertText:classInfo.propertyContent];
             

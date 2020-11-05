@@ -25,6 +25,7 @@
         "float",
         "for",
         "goto",
+        "id",
         "if",
         "implements",
         "import",
@@ -95,6 +96,7 @@
     "instanceVarDefinition": "\tvar <!VarName!> : <!VarType!>?\n",
     "supportsFirstLineStatement": "false",
     "modelEnd": "\n}",
-    "staticImports": "import Foundation \nimport HandyJSON",
-    "langName": "Swift"
+    "staticImports": "import Foundation\nimport HandyJSON",
+    "langName": "Swift",
+    "podName": "HandyJSON"
 }

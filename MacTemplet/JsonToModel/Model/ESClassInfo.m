@@ -161,7 +161,7 @@
             NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
             
-            BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
+            BOOL isSwift = NSApplication.isSwift;
             NSString *hName = [className stringByAppendingString: (isSwift ? @".swift" : @".h")];
             NSString *mName = [className stringByAppendingString: (isSwift ? @"" : @".m")];
             if (handler) {
@@ -252,29 +252,24 @@
     
     NSMutableString *hImportStr = nil;
     NSString *mImportStr = nil;
-    if (![NSUserDefaults.standardUserDefaults boolForKey:kIsSwift]) {
-        
-        NSString *hContent = [NSString stringWithFormat:@"%@\n%@\n%@",classInfo.atClassContent, classInfo.classContentForH, classInfo.classInsertTextViewContentForH];
-        NSString *mContent = [NSString stringWithFormat:@"%@\n%@",classInfo.classContentForM,classInfo.classInsertTextViewContentForM];
+    if (!NSApplication.isSwift) {
+        NSString *hContent = [NSString stringWithFormat:@"%@\n%@\n%@", classInfo.atClassContent, classInfo.classContentForH, classInfo.classInsertTextViewContentForH];
+        NSString *mContent = [NSString stringWithFormat:@"%@\n%@", classInfo.classContentForM, classInfo.classInsertTextViewContentForM];
         
         hImportStr = [NSMutableString stringWithString:@"#import <Foundation/Foundation.h>\n\n"];
         NSString *superClassString = [NSUserDefaults.standardUserDefaults objectForKey:kSuperClass];
         if (superClassString.length > 0 && ![superClassString isEqualToString:@"NSObject"]) {
-            [hImportStr appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n\n",superClassString]];
+            [hImportStr appendString:[NSString stringWithFormat:@"#import \"%@.h\" \n\n", superClassString]];
         }
         
-        mImportStr = [NSString stringWithFormat:@"#import \"%@.h\"\n",classInfo.className];
-        hContent = [NSString stringWithFormat:@"%@%@%@",modelStr, hImportStr, hContent];
-        mContent = [NSString stringWithFormat:@"%@%@%@",modelStr, mImportStr, mContent];
+        mImportStr = [NSString stringWithFormat:@"#import \"%@.h\"\n", classInfo.className];
+        hContent = [NSString stringWithFormat:@"%@%@%@", modelStr, hImportStr, hContent];
+        mContent = [NSString stringWithFormat:@"%@%@%@", modelStr, mImportStr, mContent];
         return (isFirstFile ? hContent : mContent);
     } else {
-        NSString *hContent = [NSString stringWithFormat:@"%@\n\n%@",classInfo.classContentForH, classInfo.classInsertTextViewContentForH];
+        NSString *hContent = [NSString stringWithFormat:@"%@\n\n%@", classInfo.classContentForH, classInfo.classInsertTextViewContentForH];
         
-        hImportStr = [NSMutableString stringWithString:@"import Cocoa\n\n"];
-        NSString *superClassString = [NSUserDefaults.standardUserDefaults objectForKey:kSuperClass];
-        if (superClassString.length > 0 && ![superClassString isEqualToString:@"NSObject"]) {
-            [hImportStr appendString:[NSString stringWithFormat:@"import %@ \n\n",superClassString]];
-        }
+        hImportStr = [NSMutableString stringWithString:@"import Foundation\n\n"];
         hContent = [NSString stringWithFormat:@"%@%@%@", modelStr, hImportStr, hContent];
         return hContent;
     }

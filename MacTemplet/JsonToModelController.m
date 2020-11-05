@@ -434,12 +434,13 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
         }
         
     } else {
-        bool isSwift = NSApplication.isSwift;
-        if (!isSwift) {
+        if (!NSApplication.isSwift) {
             NNClassInfoModel *classModel = self.dataList.firstObject;
             classModel.className = classInfo.className;
             classModel.hContent = [classInfo classDescWithFirstFile:true];
             
+            classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"#import <Foundation/Foundation.h>" withString:self.langModel.staticImports];
+
             NNClassInfoModel *classModelOne = self.dataList.lastObject;
             classModelOne.className = classInfo.className;
             classModelOne.mContent = [classInfo classDescWithFirstFile:false];
@@ -454,9 +455,12 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
             classModel.className = classInfo.className;
             classModel.hContent = [classInfo classDescWithFirstFile:true];
             
-            classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"import Cocoa" withString:self.langModel.staticImports];
-            NSString *tmp = [NSString stringWithFormat:@"NSObject, %@ {", self.langModel.defaultParentWithUtilityMethods];
-            classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"NSObject {" withString:tmp];
+            classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"import Foundation" withString:self.langModel.staticImports];
+
+            if (![classModel.hContent containsString:@"NSObject {"]) {
+                NSString *tmp = [NSString stringWithFormat:@"NSObject, %@ {", self.langModel.defaultParentWithUtilityMethods];
+                classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@"NSObject {" withString:tmp];
+            }
             if (self.valueTypeLab.isSelectable == true) {
                 classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Int = 0" withString:@": String = \"0\""];
                 classModel.hContent = [classModel.hContent stringByReplacingOccurrencesOfString:@": Double = 0" withString:@": String = \"0\""];
@@ -493,10 +497,9 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
 }
 
 - (void)updateLanguages{
-    NSArray * items = [self.langsDic.allKeys sortedArrayUsingSelector:@selector(compare:)];
+    NSArray *items = [self.langsDic.allKeys sortedArrayUsingSelector:@selector(compare:)];
     [self.popBtn removeAllItems];
     [self.popBtn addItemsWithTitles:items];
-    
 }
 
 - (void)setupDefaultWithSender:(NSPopUpButton *)sender{
@@ -507,9 +510,8 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     [NSUserDefaults.standardUserDefaults setObject:titleOfSelectedItem forKey:kDisplayName];
     bool isSwift = [titleOfSelectedItem containsString:@"Swift"] || [titleOfSelectedItem containsString:@"swift"];
     [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kIsSwift];
-    [NSUserDefaults.standardUserDefaults setObject:self.langModel.defaultParentWithUtilityMethods forKey:kSuperClass];
     [NSUserDefaults.standardUserDefaults synchronize];
-    
+        
     [NSUserDefaults setArcObject:self.langModel forkey:@"langModel"];
     [NSUserDefaults synchronize];
 //    id langModel = [NSUserDefaults arcObjectForKey:@"langModel"];
