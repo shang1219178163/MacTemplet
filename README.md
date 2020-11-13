@@ -9,7 +9,5 @@ App代码助手
 
 ![iOS类批量生成](https://github.com/shang1219178163/MacTemplet/blob/master/ScreenShots/batchClassCreate.png?raw=true)
 
-![mac 地图定位](https://github.com/shang1219178163/MacTemplet/blob/master/ScreenShots/ScreenShots3.png?raw=true)
-
 附：
 Mac OS 10.14之后，需要获取完全磁盘访问权限，才能访问Mail,Messages,Safari,Home，Time Machine backups等等为所有用户准备的工具区域。
