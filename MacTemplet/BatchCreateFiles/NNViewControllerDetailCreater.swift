@@ -74,7 +74,7 @@ import UIKit
     }()
     
     lazy var tableView: UITableView = {
-        let view: UITableView = UITableView.create(self.view.bounds, style: .plain, rowHeight: 40)
+        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 40)
         view.dataSource = self
         view.delegate = self
 
@@ -207,10 +207,10 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
         case "UITableViewCell":
             let cell = UITableViewCell.dequeueReusableCell(tableView, identifier: "UITableViewCellValue1", style: .value1)
             cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
-            cell.textLabel?.textColor = UIColor.textColor6;
+            cell.textLabel?.textColor = .textColor6;
 
             cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15)
-            cell.detailTextLabel?.textColor = UIColor.theme
+            cell.detailTextLabel?.textColor = .theme
             
             cell.textLabel?.text = value0
             cell.detailTextLabel?.text = "上传"
@@ -223,12 +223,12 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
 
             } else {
                 cell.detailTextLabel?.text = result
-                cell.detailTextLabel?.textColor = UIColor.textColor3
+                cell.detailTextLabel?.textColor = .textColor3
                 cell.accessoryType = .none;
             }
             
             if indexPath.row == 0 {
-                cell.textLabel?.textColor = UIColor.textColor3;
+                cell.textLabel?.textColor = .textColor3;
                 cell.detailTextLabel?.text = result
                 cell.detailTextLabel?.textColor = dataModel.statusDesColor
             } else {
@@ -243,7 +243,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
         case "UITableViewCellTitle":
             let cell = UITableViewCellTitle.cellWithTableView(tableView)
             cell.labelLeft.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-            cell.labelLeft.textColor = UIColor.textColor3
+            cell.labelLeft.textColor = .textColor3
             cell.isHidden = value2.cgFloatValue <= 0.0
             
             cell.btn.isHidden = true

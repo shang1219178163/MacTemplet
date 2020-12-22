@@ -35,7 +35,7 @@ import UIKit
     }()
     
     lazy var tableView: UITableView = {
-        let view: UITableView = UITableView.create(self.view.bounds, style: .plain, rowHeight: 50)
+        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 50)
         view.dataSource = self
         view.delegate = self
 
@@ -50,7 +50,6 @@ import UIKit
         title = ""
         setupUI()
         
-        tableView.mj_header.beginRefreshing()
     }
     
     override func viewDidLayoutSubviews() {
@@ -96,11 +95,11 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
         let cell = UITableViewCell.dequeueReusableCell(tableView, identifier: "UITableViewCellSubtitle", style: .subtitle)
         cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
         cell.textLabel?.text = "--"
-        cell.textLabel?.textColor = UIColor.textColor3;
+        cell.textLabel?.textColor = .textColor3;
 
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 13)
         cell.detailTextLabel?.text = "--"
-        cell.detailTextLabel?.textColor = UIColor.textColor6;
+        cell.detailTextLabel?.textColor = .textColor6;
         cell.accessoryType = .disclosureIndicator;
         
         return cell

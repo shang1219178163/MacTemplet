@@ -64,7 +64,7 @@ import UIKit
     }()
     
     lazy var tableView: UITableView = {
-        let view: UITableView = UITableView.create(self.view.bounds, style: .plain, rowHeight: 50)
+        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 50)
         view.dataSource = self
         view.delegate = self
 
@@ -204,7 +204,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
         case "UITableViewCellTitle":
             let cell = UITableViewCellTitle.cellWithTableView(tableView)
             cell.labelLeft.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-            cell.labelLeft.textColor = UIColor.textColor3
+            cell.labelLeft.textColor = .textColor3
             cell.isHidden = value2.cgFloatValue <= 0.0
             cell.btn.isHidden = value3 == ""
             
@@ -219,7 +219,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
         case "UITableViewCellTextField":
             let cell = UITableViewCellTextField.cellWithTableView(tableView)
             cell.labelLeft.font = UIFont.systemFont(ofSize: 14)
-            cell.labelLeft.textColor = UIColor.textColor3
+            cell.labelLeft.textColor = .textColor3
             cell.isHidden = value2.cgFloatValue <= 0.0
             cell.hasAsterisk = value0.contains("*")
             
@@ -239,10 +239,10 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
         case "UITableViewCell":
             let cell = UITableViewCell.dequeueReusableCell(tableView, identifier: "UITableViewCellValue1", style: .value1)
             cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
-            cell.textLabel?.textColor = UIColor.textColor3;
+            cell.textLabel?.textColor = .textColor3;
 
             cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15)
-            cell.detailTextLabel?.textColor = UIColor.theme
+            cell.detailTextLabel?.textColor = .theme
             cell.accessoryType = .disclosureIndicator;
             
             cell.textLabel?.text = value0
@@ -269,7 +269,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
         case "UITableViewCellSegment":
             let cell = UITableViewCellSegment.dequeueReusableCell(tableView)
             cell.labelLeft.font = UIFont.systemFont(ofSize: 14)
-            cell.labelLeft.textColor = UIColor.textColor3
+            cell.labelLeft.textColor = .textColor3
             cell.isHidden = itemList[2].cgFloatValue <= 0.0
             cell.hasAsterisk = value0.contains("*")
 

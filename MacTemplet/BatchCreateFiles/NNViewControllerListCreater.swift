@@ -35,7 +35,7 @@ import UIKit
 
     // MARK: - lazy
     lazy var tableView: UITableView = {
-        let view: UITableView = UITableView.create(self.view.bounds, style: .plain, rowHeight: 60)
+        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 60)
         view.dataSource = self
         view.delegate = self
 
@@ -84,8 +84,6 @@ import UIKit
         setupExtendedLayout()
         title = ""
         setupUI()
-        
-        tableView.mj_header.beginRefreshing()
     }
     
     override func viewDidLayoutSubviews() {
@@ -165,11 +163,11 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
         let cell = UITableViewCell.dequeueReusableCell(tableView, identifier: "UITableViewCellSubtitle", style: .subtitle)
         cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
         cell.textLabel?.text = "--"
-        cell.textLabel?.textColor = UIColor.textColor3;
+        cell.textLabel?.textColor = .textColor3;
 
         cell.detailtextLabel?.font = UIFont.systemFont(ofSize: 13)
         cell.detailTextLabel?.text = "--"
-        cell.detailTextLabel?.textColor = UIColor.textColor6;
+        cell.detailTextLabel?.textColor = .textColor6;
         cell.accessoryType = .disclosureIndicator;
         
 //        guard let model = dataList[indexPath.row] as? IOPParkModel else { return cell; }
