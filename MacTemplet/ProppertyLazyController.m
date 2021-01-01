@@ -10,7 +10,6 @@
 #import "NNHeaderView.h"
 
 #import "NoodleLineNumberView.h"
-#import "NNPropertyInfoModel.h"
 
 #import <CocoaExpand-Swift.h>
 
@@ -41,7 +40,17 @@
 
     [NoodleLineNumberView setupLineNumberWithTextView:self.textView];
     
-    self.textView.string = @"@property (nonatomic, strong) NNTextView *textView;\n@property (nonatomic, strong) NNView *bottomView;\n@property (nonatomic, strong) NSMutableArray *list;\n@property (nonatomic, strong) NSMutableDictionary *dic;\n@property (nonatomic, strong) NSMutableString *mstr;\n@property (nonatomic, strong) UIImageView *imgView;\n@property (nonatomic, strong) UIButton *btn;";
+    self.textView.string = @"\n\
+@property (nonatomic, strong) UITextView *textView;\n\
+@property (nonatomic, strong) UIView *bottomView;\n\
+@property (nonatomic, strong) NSMutableArray *list;\n\
+@property (nonatomic, strong) NSMutableDictionary *dic;\n\
+@property (nonatomic, strong) NSMutableString *mstr;\n\
+@property (nonatomic, strong) UIImageView *imgView;\n\
+@property (nonatomic, strong) UIButton *btn;\n\
+@property (class, nonatomic, copy, readonly) NSDictionary<NSString *, NSString *> *subject_typeDic;"
+    ;
+//    self.textView.string = @"@property (nonatomic, strong) UITextView *textView;\n@property (nonatomic, strong) UIView *bottomView;\n@property (nonatomic, strong) NSMutableArray *list;\n@property (nonatomic, strong) NSMutableDictionary *dic;\n@property (nonatomic, strong) NSMutableString *mstr;\n@property (nonatomic, strong) UIImageView *imgView;\n@property (nonatomic, strong) UIButton *btn;\n@property (class, nonatomic, copy, readonly, nonnull) NSDictionary<NSString *, NSString *> *subject_typeDic;";
     
     [self.textView resignFirstResponder];
 
@@ -97,12 +106,11 @@
 #pragma mark -funtions
 
 - (NSString *)createResult:(NSString *)string{
-    NSArray *list = [NNPropertyInfoModel modelsWithString:string];
+    NSArray *list = [NNPropertyModel modelsWith:string];
     NSMutableString *mStr = [NSMutableString string];
-    [list enumerateObjectsUsingBlock:^(NNPropertyInfoModel * model, NSUInteger idx, BOOL * _Nonnull stop) {
+    [list enumerateObjectsUsingBlock:^(NNPropertyModel * model, NSUInteger idx, BOOL * _Nonnull stop) {
         NSString *desc = model.lazyDes;
         [mStr appendFormat:@"%@\n", desc];
-        
     }];
     return mStr;
 }
@@ -110,7 +118,7 @@
 - (void)showConvertResult {
     if (![self.textView.string containsString:@"*"]) {
         NSWindow *window = NSApplication.sharedApplication.mainWindow;
-        [NSAlert show:@"提示" msg:@"❌lazy属性必须包含*" btnTitles:nil window:window];
+        [NSAlert show:@"提示" message:@"❌lazy属性必须包含*" btnTitles:nil window:window];
         return;
     }
     [NSApp.mainWindow makeFirstResponder:nil];
