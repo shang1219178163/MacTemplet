@@ -13,7 +13,7 @@ import Cocoa
 class NNRequestAPICreater: NSObject {
 
     static func getContent(with name: String, type: String) -> String {
-        let copyRight = NSApplication.getCopyright(with: name, type: type)
+        let copyRight = NSApplication.copyright(with: name, type: type)
         return """
 \(copyRight)
 import UIKit
@@ -63,7 +63,7 @@ import UIKit
     }
     /// 获取.h类内容
     static func getContentH(with name: String) -> String {
-        let copyRight = NSApplication.getCopyright(with: name, type: "h")
+        let copyRight = NSApplication.copyright(with: name, type: "h")
         return """
 \(copyRight)
 #import "IOPBaseAPIManager.h"
@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_END
     
     /// 获取.h类内容
     static func getContentM(with name: String) -> String {
-        let copyRight = NSApplication.getCopyright(with: name, type: "m")
+        let copyRight = NSApplication.copyright(with: name, type: "m")
         return """
 \(copyRight)
 #import "\(name).h"

@@ -393,7 +393,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
 - (void)hanldeJson{
     if (self.textField.stringValue.length <= 0 || self.textFieldTwo.stringValue.length <= 0 || self.textFieldThree.stringValue.length <= 0) {
         NSWindow *window = NSApplication.sharedApplication.mainWindow;
-        [NSAlert show:@"提示" msg:@"前缀,类名,父类均不能为空" btnTitles:@[kTitleKnow] window:window];
+        [NSAlert show:@"提示" message:@"前缀,类名,父类均不能为空" btnTitles:@[kTitleKnow] window:window];
         return;
     }
     
@@ -405,7 +405,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     self.textLabel.stringValue = result ? @"Valid JSON Structure" : @"JSON isn't valid";
     self.textLabel.textColor = result ? NSColor.systemGreenColor : NSColor.redColor;
     if (!result) {
-        NSAlert *alert = [NSAlert create:@"警告" msg:@"Error：Json is invalid" btnTitles:@[kTitleKnow]];
+        NSAlert *alert = [NSAlert create:@"警告" message:@"Error：Json is invalid" btnTitles:@[kTitleKnow]];
         [alert beginSheetModalForWindow:NSApplication.windowDefault completionHandler:^(NSModalResponse returnCode) {
             DDLog(@"%@", @(returnCode));
         }];

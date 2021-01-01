@@ -13,7 +13,7 @@ class NNViewControllerDetailCreater: NSObject {
 
     /// 获取类内容
     static func getContent(with name: String, type: String) -> String {
-        let copyRight = NSApplication.getCopyright(with: name, type: type)
+        let copyRight = NSApplication.copyright(with: name, type: type)
         let prefix = name.getPrefix(with: ["ViewController", "Controller"])
         return """
 \(copyRight)

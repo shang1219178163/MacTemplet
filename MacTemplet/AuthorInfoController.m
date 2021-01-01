@@ -115,7 +115,7 @@
     NSString *title = @"This is messageText";
     NSString *msg = @"NSWarningAlertStyle \rDo you want to continue with delete of selected records";
     NSArray * list = @[@"continue", @"cancle",];
-    NSAlert * alert = [NSAlert create:title msg:msg btnTitles:list];
+    NSAlert * alert = [NSAlert create:title message:msg btnTitles:list];
     [alert beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow completionHandler:^(NSModalResponse returnCode) {
         if (returnCode == NSModalResponseOK){
             DDLog(@"(returnCode == NSOKButton)");

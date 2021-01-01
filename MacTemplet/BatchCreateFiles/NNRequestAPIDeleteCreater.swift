@@ -12,7 +12,7 @@ import Cocoa
 class NNRequestAPIDeleteCreater: NSObject {
     
     static func getContent(with name: String, type: String) -> String {
-        let copyRight = NSApplication.getCopyright(with: name, type: type)
+        let copyRight = NSApplication.copyright(with: name, type: type)
         return """
 \(copyRight)
 import UIKit

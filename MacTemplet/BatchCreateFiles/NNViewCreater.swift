@@ -13,7 +13,7 @@ class NNViewCreater: NSObject {
 
     /// 获取类内容
     static func getContent(with name: String, type: String) -> String {
-        let copyRight = NSApplication.getCopyright(with: name, type: type)
+        let copyRight = NSApplication.copyright(with: name, type: type)
         return """
 \(copyRight)
 import UIKit
@@ -120,7 +120,7 @@ import SwiftExpand
     }
     /// 获取.h类内容
     static func getContentH(with name: String) -> String {
-        let copyRight = NSApplication.getCopyright(with: name, type: "h")
+        let copyRight = NSApplication.copyright(with: name, type: "h")
         let prefix = name.getPrefix(with: ["View",])
         return """
 \(copyRight)
@@ -140,7 +140,7 @@ NS_ASSUME_NONNULL_END
     
     /// 获取.h类内容
     static func getContentM(with name: String) -> String {
-        let copyRight = NSApplication.getCopyright(with: name, type: "m")
+        let copyRight = NSApplication.copyright(with: name, type: "m")
         let prefix = name.getPrefix(with: ["View",])
         return """
 \(copyRight)
