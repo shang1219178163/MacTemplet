@@ -227,7 +227,7 @@ import CocoaExpand
     
     ///创建文本内容
     func fileContent(_ classType: String, chainContentH: String) -> String {
-        let copyRight = NSApplication.copyright(with: "\(classType)+Chain", type: ".h")
+        let copyRight = NSApplication.copyright(with: "\(classType)+Chain", type: "h")
         
         let result =
 """
@@ -252,7 +252,7 @@ NS_ASSUME_NONNULL_END
     
     ///创建文本内容
     func fileContent(_ classType: String, chainContentM: String) -> String {
-        let copyRight = NSApplication.copyright(with: "\(classType)+Chain", type: ".m")
+        let copyRight = NSApplication.copyright(with: "\(classType)+Chain", type: "m")
 
         let result =
 """
