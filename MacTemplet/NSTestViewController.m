@@ -9,7 +9,6 @@
 #import "NSTestViewController.h"
 #import "NNHeaderView.h"
 #import "NoodleLineNumberView.h"
-#import "NNPropertyInfoModel.h"
 
 #import <CocoaExpand-Swift.h>
 

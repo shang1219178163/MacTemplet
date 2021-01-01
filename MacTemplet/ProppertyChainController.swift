@@ -175,20 +175,7 @@ import CocoaExpand
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        
-        let parts = [
-        "@property,",
-        "nonatomic, copy, readonly,",
-        "UICollectionViewFlowLayout *,",
-        "^items,",
-        ",",
-        "NSArray<NSString *> *,",
-        ";",
-        ];
-        
-        let lastItems = Array(parts[2...parts.count - 2])
-        
-        DDLog(lastItems)        
+    
     }
     // MARK: -funtions
     func convertContent() {
