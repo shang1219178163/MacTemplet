@@ -50,8 +50,7 @@
 @property (nonatomic, strong) UIButton *btn;\n\
 @property (class, nonatomic, copy, readonly) NSDictionary<NSString *, NSString *> *subject_typeDic;"
     ;
-//    self.textView.string = @"@property (nonatomic, strong) UITextView *textView;\n@property (nonatomic, strong) UIView *bottomView;\n@property (nonatomic, strong) NSMutableArray *list;\n@property (nonatomic, strong) NSMutableDictionary *dic;\n@property (nonatomic, strong) NSMutableString *mstr;\n@property (nonatomic, strong) UIImageView *imgView;\n@property (nonatomic, strong) UIButton *btn;\n@property (class, nonatomic, copy, readonly, nonnull) NSDictionary<NSString *, NSString *> *subject_typeDic;";
-    
+
     [self.textView resignFirstResponder];
 
 //    [self.view getViewLayer];
@@ -61,7 +60,7 @@
     [super viewDidLayout];
     
     NSArray *list = @[self.textView.enclosingScrollView, self.textViewOne.enclosingScrollView];
-    [list mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:15 leadSpacing:10 tailSpacing:10];
+    [list mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:15 leadSpacing:0 tailSpacing:0];
 //    [list mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedItemLength:150 leadSpacing:10 tailSpacing:10];
     [list makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);
