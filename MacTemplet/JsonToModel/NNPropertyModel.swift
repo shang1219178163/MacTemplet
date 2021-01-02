@@ -147,8 +147,7 @@ static \(type) _\(name) = nil;
     ///懒加载创建
     var lazyAllocDes: String{
         var result = ""
-        
-        DDLog(name, type, generic)
+//        DDLog(name, type, generic)
         
         var type = self.type
         if generic.count > 0 {
@@ -162,14 +161,14 @@ static \(type) _\(name) = nil;
                 result = """
 _\(name) = @[
             
-\t\t].mutableCopy;
+        ].mutableCopy;
 """
             }
             else if type.hasSuffix("Dictionary") {
                 result = """
 _\(name) = @{
             
-\t\t}.mutableCopy;
+        }.mutableCopy;
 """
             }
             else {
@@ -181,44 +180,44 @@ _\(name) = [\(type) \(supperClass.lowercased())];
         case _ where type.hasSuffix("ImageView"):
             result = """
 _\(name) = ({
-\t\t\t\(type) *view = [[\(type) alloc]initWithFrame:CGRectZero];
-\t\t\tview.contentMode = UIViewContentModeScaleAspectFit;
-\t\t\tview.backgroundColor = UIColor.blackColor;
-\t\t\tview.userInteractionEnabled = YES;
-\t\t\tview;
-\t\t});
+            \(type) *view = [[\(type) alloc]initWithFrame:CGRectZero];
+            view.contentMode = UIViewContentModeScaleAspectFit;
+            view.backgroundColor = UIColor.blackColor;
+            view.userInteractionEnabled = YES;
+            view;
+        });
 
 """
         case _ where type.hasSuffix("View"):
             result = """
 _\(name) = ({
-\t\t\t\(type) *view = [[\(type) alloc]initWithFrame:CGRectZero];
-\t\t\tview;
-\t\t});
+            \(type) *view = [[\(type) alloc]initWithFrame:CGRectZero];
+            view;
+        });
 """
         case _ where type.hasSuffix("Button"):
             result = """
 _\(name) = ({
-\t\t\t\(type) *sender = [\(type) buttonWithType:UIButtonTypeCustom];
-\t\t\t[sender setTitle:@\"Button\" forState:UIControlStateNormal];
-\t\t\tsender.titleLabel.adjustsFontSizeToFitWidth = YES;
-\t\t\tsender.imageView.contentMode = UIViewContentModeScaleAspectFit;
-\t\t\tsender;
-\t\t});
+            \(type) *sender = [\(type) buttonWithType:UIButtonTypeCustom];
+            [sender setTitle:@\"Button\" forState:UIControlStateNormal];
+            sender.titleLabel.adjustsFontSizeToFitWidth = YES;
+            sender.imageView.contentMode = UIViewContentModeScaleAspectFit;
+            sender;
+        });
 """
         default:
             if type.hasSuffix("Array") {
                 result = """
 _\(name) = @[
             
-\t\t];
+        ];
 """
             }
             else if type.hasSuffix("Dictionary") {
                 result = """
 _\(name) = @{
 
-\t\t};
+        };
 """
             }
             else {
@@ -279,6 +278,7 @@ _\(name) = [[\(type) alloc]init];
     }
     
     // MARK: -funtions
+    ///文字转属性列表
     static func models(with string: String) -> [NNPropertyModel] {
         if string.contains(";") == false && string.contains("\n") == false{
             let alert = NSAlert()
@@ -292,8 +292,28 @@ _\(name) = [[\(type) alloc]init];
             .map({ str -> NNPropertyModel in
                 let model = NNPropertyModel()
                 model.content = str
+                model.clearPropertyContent(str)
+
                 return model
             })
         return propertys
+    }
+    ///content 数据清洗
+    func clearPropertyContent(_ text: String) {
+        if (content as NSString).range(of: "API_").location != NSNotFound {
+            let range = (content as NSString).range(of: "API_")
+//            DDLog(str, range)
+            content = content.substringTo(range.location - 2)
+//            DDLog(content, parts, name)
+        }
+        
+        if content.contains("//") {
+            content = content.components(separatedBy: "//").first!
+            DDLog(content, parts)
+        }
+        
+//        if !content.trimmed.hasSuffix(";") {
+//            content += ";"
+//        }
     }
 }

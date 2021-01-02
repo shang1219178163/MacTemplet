@@ -130,6 +130,7 @@ import CocoaExpand
 @end
 
 """
+//        setupDefaultContent()
         convertContent()
     }
     
@@ -182,11 +183,11 @@ import CocoaExpand
         propertyPrefix = textField.stringValue
 
         let text = textView.string
-        if text.hasPrefix("@interface") {
-            let list = text.components(separatedBy: " : ")
-            propertyClass = list[0].replacingOccurrences(of: "@interface", with: "").trimmed
+        if (text as NSString).range(of: "interface").location != NSNotFound {
+            let range = (text as NSString).range(of: "interface")
+            propertyClass = text.substringFrom(range.location + range.length).components(separatedBy: " : ").first!.trimmed
         }
-        
+                
         var hPropertys = ""
         var mPropertys = ""
         let propertys = NNPropertyModel.models(with: text)
@@ -289,3 +290,33 @@ extension ProppertyChainController: NSTextViewDelegate{
     
 }
 
+extension ProppertyChainController{
+    
+    func setupDefaultContent() {
+        textView.string = """
+UIKIT_EXTERN API_AVAILABLE(ios(6.0)) @interface UICollectionViewFlowLayout : UICollectionViewLayout
+
+@property (nonatomic) CGFloat minimumLineSpacing;
+@property (nonatomic) CGFloat minimumInteritemSpacing;
+@property (nonatomic) CGSize itemSize;
+@property (nonatomic) CGSize estimatedItemSize API_AVAILABLE(ios(8.0)); // defaults to CGSizeZero - setting a non-zero size enables cells that self-size via -preferredLayoutAttributesFittingAttributes:
+@property (nonatomic) UICollectionViewScrollDirection scrollDirection; // default is UICollectionViewScrollDirectionVertical
+@property (nonatomic) CGSize headerReferenceSize;
+@property (nonatomic) CGSize footerReferenceSize;
+@property (nonatomic) UIEdgeInsets sectionInset;
+
+/// The reference boundary that the section insets will be defined as relative to. Defaults to `.fromContentInset`.
+/// NOTE: Content inset will always be respected at a minimum. For example, if the sectionInsetReference equals `.fromSafeArea`, but the adjusted content inset is greater that the combination of the safe area and section insets, then section content will be aligned with the content inset instead.
+@property (nonatomic) UICollectionViewFlowLayoutSectionInsetReference sectionInsetReference API_AVAILABLE(ios(11.0), tvos(11.0)) API_UNAVAILABLE(watchos);
+
+// Set these properties to YES to get headers that pin to the top of the screen and footers that pin to the bottom while scrolling (similar to UITableView).
+@property (nonatomic) BOOL sectionHeadersPinToVisibleBounds API_AVAILABLE(ios(9.0));
+@property (nonatomic) BOOL sectionFootersPinToVisibleBounds API_AVAILABLE(ios(9.0));
+
+@end
+
+
+
+"""
+    }
+}
