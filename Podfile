@@ -19,6 +19,10 @@ def common_pods
   pod 'SnapKit'
   pod 'SnapKitExtend'
   
+  pod 'RxBlocking'
+  pod 'RxCocoa'
+  pod 'RxSwift'
+      
   pod 'YYModel'
   pod 'HandyJSON'
   pod 'CocoaExpand'

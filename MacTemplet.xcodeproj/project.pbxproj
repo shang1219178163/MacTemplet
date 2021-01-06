@@ -94,6 +94,8 @@
 		14ADE23523CDA13900037B0B /* NNRequestAPIDetailCreater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADE23423CDA13900037B0B /* NNRequestAPIDetailCreater.swift */; };
 		14ADEAA5259DF5A6006D9629 /* ProppertyChainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEAA4259DF5A6006D9629 /* ProppertyChainController.swift */; };
 		14ADEB8A259F0E8F006D9629 /* NNPropertyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEB89259F0E8F006D9629 /* NNPropertyModel.swift */; };
+		14ADEC5F25A2AA7F006D9629 /* RxCocoaExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEC5E25A2AA7F006D9629 /* RxCocoaExt.swift */; };
+		14ADEC9225A2BC5F006D9629 /* NSGestureRecognizer+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEC9125A2BC5F006D9629 /* NSGestureRecognizer+Rx.swift */; };
 		14B4DE38241DE7D100901E8D /* NNButtonStyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE36241DE7D100901E8D /* NNButtonStyleController.swift */; };
 		14B4DE3E241DF0BA00901E8D /* NNHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE3D241DF0BA00901E8D /* NNHeaderFooterView.swift */; };
 		14B4DE40241DF5E900901E8D /* NNCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE3F241DF5E900901E8D /* NNCollectionViewItem.swift */; };
@@ -266,6 +268,8 @@
 		14ADE23423CDA13900037B0B /* NNRequestAPIDetailCreater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNRequestAPIDetailCreater.swift; sourceTree = "<group>"; };
 		14ADEAA4259DF5A6006D9629 /* ProppertyChainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProppertyChainController.swift; sourceTree = "<group>"; };
 		14ADEB89259F0E8F006D9629 /* NNPropertyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNPropertyModel.swift; sourceTree = "<group>"; };
+		14ADEC5E25A2AA7F006D9629 /* RxCocoaExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCocoaExt.swift; sourceTree = "<group>"; };
+		14ADEC9125A2BC5F006D9629 /* NSGestureRecognizer+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSGestureRecognizer+Rx.swift"; sourceTree = "<group>"; };
 		14B4DE36241DE7D100901E8D /* NNButtonStyleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNButtonStyleController.swift; sourceTree = "<group>"; };
 		14B4DE3D241DF0BA00901E8D /* NNHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNHeaderFooterView.swift; sourceTree = "<group>"; };
 		14B4DE3F241DF5E900901E8D /* NNCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNCollectionViewItem.swift; sourceTree = "<group>"; };
@@ -468,6 +472,8 @@
 				14F92C1422BB3ADC00A5C5E4 /* AppDelegate+Menu.m */,
 				1430562923E844D1001F051D /* NSApplication+Ext.h */,
 				1430562A23E844D1001F051D /* NSApplication+Ext.m */,
+				14ADEC5E25A2AA7F006D9629 /* RxCocoaExt.swift */,
+				14ADEC9125A2BC5F006D9629 /* NSGestureRecognizer+Rx.swift */,
 				14D40A0A22C462E200AF74B9 /* HomeViewController.h */,
 				14D40A0B22C462E200AF74B9 /* HomeViewController.m */,
 				14F08BCA2303BC1800B75842 /* JsonToModelController.h */,
@@ -1016,6 +1022,7 @@
 				14F92C1522BB3ADC00A5C5E4 /* AppDelegate+Menu.m in Sources */,
 				14F08BCC2303BC1800B75842 /* JsonToModelController.m in Sources */,
 				142857C12425A5FB00BC36F0 /* RRButton.m in Sources */,
+				14ADEC5F25A2AA7F006D9629 /* RxCocoaExt.swift in Sources */,
 				1487187E24348AB8007F618E /* NNTableView.swift in Sources */,
 				1487189324349BBB007F618E /* NNTextField.m in Sources */,
 				147203CC24346CCF00775526 /* NNOutlineView.swift in Sources */,
@@ -1034,6 +1041,7 @@
 				1445780F22BDF0520007C7B3 /* NNLanguageModel.m in Sources */,
 				147E3066246E1E020076C704 /* NSWorkspace+Helper.swift in Sources */,
 				14F0FDA622ADF20400057093 /* NSView+Hook.m in Sources */,
+				14ADEC9225A2BC5F006D9629 /* NSGestureRecognizer+Rx.swift in Sources */,
 				14705CDA243DAD70009600C9 /* NNSplitViewController.swift in Sources */,
 				148BB4142437114A00ECEF3B /* DragDropImageView.m in Sources */,
 				146D28C8244DAA51004655B1 /* NNPressGestureRecognizer.swift in Sources */,
