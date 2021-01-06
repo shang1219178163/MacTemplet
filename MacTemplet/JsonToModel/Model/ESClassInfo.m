@@ -158,7 +158,7 @@
     if ([result isKindOfClass: NSDictionary.class]) {
         //如果是生成到文件，提示输入Root class name
         if (!ESJsonFormatSetting.defaultSetting.outputToFiles) {
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
+            NSString *className = [[NSUserDefaults.defaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
             
             BOOL isSwift = NSApplication.isSwift;
@@ -171,7 +171,7 @@
             
         } else {
             //不生成到文件，Root class 里面用户自己创建
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
+            NSString *className = [[NSUserDefaults.defaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
             [ESClassInfo dealPropertyNameWithClassInfo:classInfo];
             
@@ -179,7 +179,7 @@
     } else if ([result isKindOfClass: NSArray.class]){
         if (ESJsonFormatSetting.defaultSetting.outputToFiles) {
             //当前是JSON代表数组，生成到文件需要提示用户输入Root Class name，
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
+            NSString *className = [[NSUserDefaults.defaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
             //输入完毕之后，将这个class设置
             NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
@@ -187,7 +187,7 @@
             [ESClassInfo dealPropertyNameWithClassInfo:classInfo];
         } else {
             //Root class 已存在，只需要输入JSON对应的key的名字
-            NSString *className = [[NSUserDefaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
+            NSString *className = [[NSUserDefaults.defaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
             NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
             classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
             [ESClassInfo dealPropertyNameWithClassInfo:classInfo];

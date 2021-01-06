@@ -18,6 +18,7 @@ let kBatchTips = """
 \nViewModel 只有一种, 包含API的增删改查;
 命名(模板, 复制粘贴到文本框查看效果)如下:
 
+IOPGoodsListController
 IOPGoodsDetailController
 IOPGoodsEntryController
 IOPGoodsViewModel
@@ -190,7 +191,7 @@ class NNBatchClassCreateController: NSViewController {
 
             } else {
                 let msg = "'\(name)'必须包含Controller/View/ViewModel/API/Api后缀中的一种,否则无法自动生成"
-                _ = NSAlert.show("错误", message: msg, btnTitles: [kTitleSure], window: NSApp.keyWindow!)
+                NSAlert.show("错误", message: msg, btnTitles: [kTitleSure], window: NSApp.keyWindow!)
             }
         }
     }

@@ -72,7 +72,7 @@ class NSTableCellViewOutlineHeader: NSTableCellView {
 
         if imgView.isHidden == true {
             if detailButton.isHidden == true {
-                button.snp.makeConstraints { (make) in
+                button.snp.remakeConstraints { (make) in
                     make.centerY.equalToSuperview().offset(0);
                     make.left.equalToSuperview().offset(10);
                     make.right.equalToSuperview().offset(-10);
@@ -82,12 +82,12 @@ class NSTableCellViewOutlineHeader: NSTableCellView {
             }
             
             detailButton.sizeToFit()
-            detailButton.snp.makeConstraints { (make) in
+            detailButton.snp.remakeConstraints { (make) in
                 make.centerY.equalToSuperview().offset(0);
                 make.right.equalToSuperview().offset(-10);
             }
 
-            button.snp.makeConstraints { (make) in
+            button.snp.remakeConstraints { (make) in
                 make.centerY.equalToSuperview().offset(0);
                 make.left.equalToSuperview().offset(10);
                 make.right.equalTo(detailButton.snp.left).offset(-5);
@@ -97,18 +97,18 @@ class NSTableCellViewOutlineHeader: NSTableCellView {
         }
         
         detailButton.sizeToFit()
-        detailButton.snp.makeConstraints { (make) in
+        detailButton.snp.remakeConstraints { (make) in
             make.centerY.equalToSuperview().offset(0);
             make.right.equalToSuperview().offset(-10);
         }
         
-        imgView.snp.makeConstraints { (make) in
+        imgView.snp.remakeConstraints { (make) in
             make.centerY.equalToSuperview().offset(0)
             make.left.equalToSuperview().offset(10)
             make.width.height.equalTo(NSHeight(bounds) - 10)
         }
         
-        button.snp.makeConstraints { (make) in
+        button.snp.remakeConstraints { (make) in
             make.centerY.equalToSuperview().offset(0)
             make.left.equalTo(imgView.snp.right).offset(5)
             make.right.equalTo(detailButton.snp.left).offset(-5)
