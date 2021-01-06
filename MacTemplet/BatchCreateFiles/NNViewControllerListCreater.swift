@@ -25,11 +25,7 @@ import UIKit
     /// 数据请求返回
     var dataModel = NSObject()
     
-    lazy var viewModel: \(prefix)ViewModel = {
-        let viewModel = \(prefix)ViewModel()
-        viewModel.delegate = self
-        return viewModel
-    }()
+    lazy var viewModel = \(prefix)ViewModel()
         
     var dataList = NSMutableArray()
 
@@ -39,19 +35,19 @@ import UIKit
         view.dataSource = self
         view.delegate = self
 
-        view.mj_header = MJRefreshNormalHeader(refreshingBlock: {
-            self.viewModel.requestRefresh()
-        });
-        
-        view.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
-            self.viewModel.requestRefresh()
-        });
+//        view.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+//            self.viewModel.requestRefresh()
+//        });
+//
+//        view.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+//            self.viewModel.requestRefresh()
+//        });
         return view
     }()
         
     lazy var rightBtn: UIButton = {
         let view = UIButton.create(title: "Next", textColor: .white, backgroundColor: .theme)
-        view.addActionHandler({ (control) in
+        view.addActionHandler({ (sender) in
 //            let controller = UIViewController()
 //            self.navigationController?.pushViewController(controller, animated: true)
             
@@ -59,21 +55,11 @@ import UIKit
         return view
     }()
     
-    @objc func handleAction(_ sender: UIButton) {
-        
-    }
-    
     lazy var searchBar: UISearchBar = {
-        let view = UISearchBar.create(CGRectMake(0, 0, kScreenWidth - 70, 50))
-        view.layer.cornerRadius = 0;
-        view.showsCancelButton = false;
-        view.backgroundColor = .white
+        let view = UISearchBar(frame: CGRectMake(0, 0, kScreenWidth - 70, 50))
         view.textField?.placeholder = "请输入名称搜索";
-        view.textField?.backgroundColor = UIColor.background
-        view.textField?.layer.cornerRadius = 5;
-        view.textField?.layer.masksToBounds = true;
 
-        view.delegate = self;
+//        view.delegate = self
         return view
     }()
     
@@ -84,31 +70,6 @@ import UIKit
         setupExtendedLayout()
         title = ""
         setupUI()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        if searchBar.isHidden {
-            return;
-        }
-        
-        searchBar.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(0);
-            make.left.equalToSuperview().offset(0);
-            make.right.equalToSuperview().offset(0);
-            make.height.equalTo(50);
-        }
-                
-        tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(searchBar.snp.bottom).offset(0);
-            make.left.equalToSuperview().offset(0);
-            make.right.equalToSuperview().offset(0);
-            make.bottom.equalToSuperview().offset(0);
-        }
-        
-        searchBar.lineBottom.sizeWidth = kScreenWidth
-        searchBar.addSubview(searchBar.lineBottom)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,16 +87,15 @@ import UIKit
         view.backgroundColor = UIColor.white
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
-        
-        view.addSubview(searchBar);
-        view.addSubview(tipLab);
+
         view.addSubview(tableView);
-        
-        searchBar.isHidden = true
+        tableView.tableHeaderView = searchBar
+
+//        searchBar.isHidden = true
     }
 
     func requestForSearch(_ searchbar: UISearchBar) {
-        viewModel.listAPI.name = searchBar.text!;
+//        viewModel.listAPI.name = searchBar.text!;
         tableView.mj_header.beginRefreshing();
     }
 
@@ -145,17 +105,15 @@ import UIKit
 extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     //    MARK: - tableView
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1;
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataList.count;
+        return dataList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let sections = list[indexPath.section]
-        let itemList = sections[indexPath.row]
-        return itemList[2].cgFloatValue
+        return tableView.rowHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -195,46 +153,14 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == tableView.numberOfSections - 1 {
+            return 10.01;
+        }
         return 0.01;
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UILabel();
-    }
-}
-
-extension \(prefix)Controller: UISearchBarDelegate{
-    // MARK: -UISearchBar
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool{
-        return true;
-    }
-    
-    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        return true;
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.count < 3 {
-            return;
-        }
-        requestForSearch(searchBar)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        searchBar.showsCancelButton = !(searchBar.text!.count == 1 && text == "")
-        return true;
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        requestForSearch(searchBar)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
     }
 }
 
