@@ -9,24 +9,26 @@
 import Cocoa
 import CocoaExpand
 
+import RxSwift
+import RxCocoa
 
 @objcMembers class ProppertyChainController: NSViewController {
+    
+    let disposeBag = DisposeBag()
     
     lazy var textView: NNTextView = {
         let view = NNTextView.create(.zero)
         view.font = NSFont.systemFont(ofSize: 12)
         view.string = "";
         
-        view.delegate = self;
         return view
     }()
 
     lazy var textViewOne: NNTextView = {
         let view = NNTextView.create(.zero)
         view.font = NSFont.systemFont(ofSize: 12)
-        view.string = "";
+        view.string = ""
         
-        view.delegate = self;
         return view
     }()
     
@@ -40,7 +42,6 @@ import CocoaExpand
         view.maximumNumberOfLines = 1
         view.usesSingleLineMode = true
         view.tag = 100
-//        view.delegate = self
 
         return view
     }()
@@ -55,7 +56,6 @@ import CocoaExpand
         view.maximumNumberOfLines = 1
         view.usesSingleLineMode = true
         view.tag = 100
-//        view.delegate = self
 
         return view
     }()
@@ -107,7 +107,22 @@ import CocoaExpand
 
         NoodleLineNumberView.setupLineNumber(with: textView)
         
+        textView.rxDrive { (value) in
+            self.convertContent()
+        }.disposed(by: disposeBag)
+        
+        textField.rxDrive { (value) in
+            self.convertContent()
+        }.disposed(by: disposeBag)
+        
+        textFieldOne.rxDrive { (value) in
+            self.convertContent()
+        }.disposed(by: disposeBag)
+        
+        
         textField.stringValue = propertyPrefix
+        textFieldOne.stringValue = propertyClass
+        
         textView.string =
 """
 @interface UICollectionViewFlowLayout : UICollectionViewLayout
@@ -131,7 +146,8 @@ import CocoaExpand
 
 """
 //        setupDefaultContent()
-        convertContent()
+//        convertContent()
+        
     }
     
     override func viewDidLayout() {
@@ -161,7 +177,7 @@ import CocoaExpand
         textField.snp.remakeConstraints { (make) in
 //            make.top.equalTo(textView.snp.bottom).offset(kPadding)
             make.left.equalToSuperview().offset(0)
-            make.bottom.equalToSuperview().offset(-kPadding);
+            make.bottom.equalToSuperview().offset(-10);
             make.width.equalTo(200)
             make.height.equalTo(25)
         }
@@ -186,20 +202,17 @@ import CocoaExpand
         if (text as NSString).range(of: "interface").location != NSNotFound {
             let range = (text as NSString).range(of: "interface")
             propertyClass = text.substringFrom(range.location + range.length).components(separatedBy: " : ").first!.trimmed
+//            DDLog(propertyClass)
         }
                 
         var hPropertys = ""
         var mPropertys = ""
         let propertys = NNPropertyModel.models(with: text)
         propertys.forEach { (model) in
-            model.classType = propertyClass
             model.namePrefix = propertyPrefix
+            model.classType = propertyClass
             hPropertys += model.chainContentH + "\n"
             mPropertys += model.chainContentM + "\n"
-        }
-        
-        if let first = propertys.first {
-            propertyClass = first.classType
         }
         
         hContent = fileContent(propertyClass, chainContentH: hPropertys)
@@ -214,7 +227,6 @@ import CocoaExpand
 \(mContent)
 """
 
-        textField.stringValue = propertyPrefix
         textFieldOne.stringValue = propertyClass
     }
     
@@ -274,21 +286,21 @@ NS_ASSUME_NONNULL_END
 }
 
 
-extension ProppertyChainController: NSTextViewDelegate{
-    
-    func textDidBeginEditing(_ notification: Notification) {
-        
-    }
-    
-    func textDidChange(_ notification: Notification) {
-        convertContent()
-    }
-    
-    func textDidEndEditing(_ notification: Notification) {
-        convertContent()
-    }
-    
-}
+//extension ProppertyChainController: NSTextViewDelegate{
+//
+//    func textDidBeginEditing(_ notification: Notification) {
+//
+//    }
+//
+//    func textDidChange(_ notification: Notification) {
+//        convertContent()
+//    }
+//
+//    func textDidEndEditing(_ notification: Notification) {
+//        convertContent()
+//    }
+//
+//}
 
 extension ProppertyChainController{
     
@@ -315,8 +327,7 @@ UIKIT_EXTERN API_AVAILABLE(ios(6.0)) @interface UICollectionViewFlowLayout : UIC
 
 @end
 
-
-
 """
     }
+    
 }
