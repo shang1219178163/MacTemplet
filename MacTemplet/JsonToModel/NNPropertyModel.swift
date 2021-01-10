@@ -331,12 +331,12 @@ _\(name) = [[\(type) alloc]init];
 //            DDLog(content, parts, name)
         }
         
-        if text.contains("estimatedItemSize") {
-            DDLog(availableDes)
-            DDLog(commentDes)
-        }
 //        if !content.trimmed.hasSuffix(";") {
 //            content += ";"
+//        }
+//        if text.contains("estimatedItemSize") {
+//            DDLog(availableDes)
+//            DDLog(commentDes)
 //        }
     }
 }
