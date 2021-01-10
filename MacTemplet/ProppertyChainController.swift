@@ -140,7 +140,7 @@ import RxCocoa
 
 @property (nonatomic, copy) NSArray<NSString *> *attributes;
 
-@property(nonatomic, copy, readonly) UICollectionViewFlowLayout *(^items)(NSArray<NSString *> *);
+@property(nonatomic, copy, readonly) UICollectionViewFlowLayout *(^items)(NSArray<NSString *> *) API_AVAILABLE(ios(8.0)); // note
 
 @end
 
@@ -284,23 +284,6 @@ NS_ASSUME_NONNULL_END
     }
     
 }
-
-
-//extension ProppertyChainController: NSTextViewDelegate{
-//
-//    func textDidBeginEditing(_ notification: Notification) {
-//
-//    }
-//
-//    func textDidChange(_ notification: Notification) {
-//        convertContent()
-//    }
-//
-//    func textDidEndEditing(_ notification: Notification) {
-//        convertContent()
-//    }
-//
-//}
 
 extension ProppertyChainController{
     

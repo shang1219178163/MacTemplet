@@ -114,6 +114,12 @@ import CocoaExpand
     ///属性所在的类
     var classType: String = "NSObject"
 
+    ///API_AVAILABLE(ios(11.0), tvos(11.0)) API_UNAVAILABLE(watchos);
+    var availableDes: String = ""
+
+    ///Code comment
+    var commentDes: String = ""
+
 //    var language: String = ""
     ///是否是代码块属性
     var isBlock: Bool{
@@ -234,17 +240,29 @@ _\(name) = [[\(type) alloc]init];
         let propertyName = name.hasPrefix(namePrefix) ? name : namePrefix + name
         
         if isBlock {
-            let hContent = """
+            var hContent = """
 @property(nonatomic, copy, readonly) \(classType) *(^\(propertyName))(\(blockParams));
 
 """
+            if !availableDes.isEmpty{
+                hContent = hContent.trimmedBy("\n").trimmedBy(";") + " \(availableDes);"
+            }
+            if !commentDes.isEmpty{
+                hContent = hContent + " \(commentDes)"
+            }
             return hContent
         }
         
-        let hContent = """
+        var hContent = """
 @property(nonatomic, copy, readonly) \(classType) *(^\(propertyName))(\(type));
 
 """
+        if !availableDes.isEmpty{
+            hContent = hContent.trimmedBy("\n").trimmedBy(";") + " \(availableDes);"
+        }
+        if !commentDes.isEmpty{
+            hContent = hContent + " \(commentDes)"
+        }
         return hContent
     }
     ///m 文件内容
@@ -300,18 +318,23 @@ _\(name) = [[\(type) alloc]init];
     }
     ///content 数据清洗
     func clearPropertyContent(_ text: String) {
+        if text.contains("//") {
+            commentDes = "//" + text.components(separatedBy: "//").last!
+            content = text.components(separatedBy: "//").first!
+//            DDLog(content, parts)
+        }
+        
         if (content as NSString).range(of: "API_").location != NSNotFound {
-            let range = (content as NSString).range(of: "API_")
-//            DDLog(str, range)
-            content = content.substringTo(range.location - 2)
+            let range = (text as NSString).range(of: "API_")
+            availableDes = (content as NSString).substring(from: range.location).trimmedBy(";").trimmed
+            content = text.substringTo(range.location - 2)
 //            DDLog(content, parts, name)
         }
         
-        if content.contains("//") {
-            content = content.components(separatedBy: "//").first!
-            DDLog(content, parts)
+        if text.contains("estimatedItemSize") {
+            DDLog(availableDes)
+            DDLog(commentDes)
         }
-        
 //        if !content.trimmed.hasSuffix(";") {
 //            content += ";"
 //        }
