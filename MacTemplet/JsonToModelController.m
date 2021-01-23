@@ -392,8 +392,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
 
 - (void)hanldeJson{
     if (self.textField.stringValue.length <= 0 || self.textFieldTwo.stringValue.length <= 0 || self.textFieldThree.stringValue.length <= 0) {
-        NSWindow *window = NSApplication.sharedApplication.mainWindow;
-        [NSAlert show:@"提示" message:@"前缀,类名,父类均不能为空" btnTitles:@[kTitleKnow] window:window];
+        [NSAlert show:@"提示" message:@"前缀,类名,父类均不能为空" btnTitles:@[kTitleKnow]];
         return;
     }
     

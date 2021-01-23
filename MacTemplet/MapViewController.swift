@@ -199,8 +199,7 @@ class MapViewController: NSViewController {
     lazy var segmentCtl: NSSegmentedControl = {
         let view = NSSegmentedControl(frame: .zero)
         view.items = ["标准视图", "卫星视图"];
-        view.addActionHandler({ (control) in
-            guard let sender = control as? NSSegmentedControl else { return }
+        view.addActionHandler({ (sender) in
 //            DDLog(sender.selectedSegment);
             self.mapView.mapType = sender.selectedSegment == 0 ? .standard : .hybrid;
 

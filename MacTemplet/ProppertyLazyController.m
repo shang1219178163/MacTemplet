@@ -116,8 +116,7 @@
 
 - (void)showConvertResult {
     if (![self.textView.string containsString:@"*"]) {
-        NSWindow *window = NSApplication.sharedApplication.mainWindow;
-        [NSAlert show:@"提示" message:@"❌lazy属性必须包含*" btnTitles:nil window:window];
+        [NSAlert show:@"提示" message:@"❌lazy属性必须包含*" btnTitles:nil];
         return;
     }
     [NSApp.mainWindow makeFirstResponder:nil];
