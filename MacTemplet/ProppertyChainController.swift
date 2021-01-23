@@ -112,10 +112,12 @@ import RxCocoa
         }.disposed(by: disposeBag)
         
         textField.rxDrive { (value) in
+            self.propertyPrefix = value
             self.convertContent()
         }.disposed(by: disposeBag)
         
         textFieldOne.rxDrive { (value) in
+            self.propertyClass = value
             self.convertContent()
         }.disposed(by: disposeBag)
         
