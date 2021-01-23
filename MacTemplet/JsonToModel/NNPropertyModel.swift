@@ -129,8 +129,9 @@ import CocoaExpand
 
     ///懒加载描述
     var lazyDes: String{
+//        DDLog(type, generic, name)
         var top = """
-- (\(type)\(generic))\(name){\n
+- (\(type))\(name){\n
 """
         
         if attributes.contains("class") {
@@ -150,6 +151,7 @@ static \(type) _\(name) = nil;
 """
         return top + result
     }
+    
     ///懒加载创建
     var lazyAllocDes: String{
         var result = ""
@@ -306,7 +308,7 @@ _\(name) = [[\(type) alloc]init];
         }
         
         let propertys = string.components(separatedBy: "\n")
-            .filter { $0.contains("@property") }
+            .filter { $0.hasPrefix("@property") }
             .map({ str -> NNPropertyModel in
                 let model = NNPropertyModel()
                 model.content = str
