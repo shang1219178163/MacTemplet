@@ -50,10 +50,10 @@
 @property (nonatomic, strong) NSString *hFilename;
 @property (nonatomic, strong) NSString *mFilename;
 
-@property (nonatomic, strong) NSDictionary * langsDic;
-@property (nonatomic, strong) NNLanguageModel * langModel;
-@property (nonatomic, strong) NNClassInfoModel * classFileModel;
-@property (nonatomic, strong) NSMutableArray * dataList;
+@property (nonatomic, strong) NSDictionary *langsDic;
+@property (nonatomic, strong) NNLanguageModel *langModel;
+@property (nonatomic, strong) NNClassInfoModel *classFileModel;
+@property (nonatomic, strong) NSMutableArray *dataList;
 
 @property (nonatomic, strong) NSArray *typeList;
 
