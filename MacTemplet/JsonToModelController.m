@@ -272,7 +272,7 @@
 }
 
 //选中的响应
--(void)tableViewSelectionDidChange:(nonnull NSNotification *)notification{
+- (void)tableViewSelectionDidChange:(nonnull NSNotification *)notification{
 //    NSTableView *tableView = notification.object;
 //    DDLog(@"didSelect：%@",notification);
 }
@@ -392,7 +392,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
 
 - (void)hanldeJson{
     if (self.textField.stringValue.length <= 0 || self.textFieldTwo.stringValue.length <= 0 || self.textFieldThree.stringValue.length <= 0) {
-        [NSAlert show:@"提示" message:@"前缀,类名,父类均不能为空" btnTitles:@[kTitleKnow]];
+        [NSAlert show:@"提示" message:@"前缀,类名,父类均不能为空" btnTitles:@[kTitleKnow] handler:nil];
         return;
     }
     
@@ -728,12 +728,12 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
             __block NSMutableDictionary * mdic = [NSMutableDictionary dictionary];
             NSArray * list = [NSBundle.mainBundle URLsForResourcesWithExtension:@"json" subdirectory:nil];
             [list enumerateObjectsUsingBlock:^(NSURL * _Nonnull url, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSData * data = [NSData dataWithContentsOfURL:url];
+                NSData *data = [NSData dataWithContentsOfURL:url];
                 
-                NSError * error = nil;
+                NSError *error = nil;
                 NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
                 if (error) {
-                    [NSAlert showWithError:error];
+                    [[NSAlert alertWithError:error] runModal];
                     return ;
                 }
                 NNLanguageModel *langModel = [NNLanguageModel yy_modelWithJSON:dic];
