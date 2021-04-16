@@ -23,5 +23,14 @@ class SourceEditorExtension: NSObject, XCSourceEditorExtension {
         return []
     }
     */
+//    var commandDefinitions: [[XCSourceEditorCommandDefinitionKey : Any]] {
+//      return MenuManager.navigators.map { navigator in
+//        return [
+//          XCSourceEditorCommandDefinitionKey.nameKey: navigator.title,
+//          XCSourceEditorCommandDefinitionKey.classNameKey: SourceEditorCommand.className(),
+//          XCSourceEditorCommandDefinitionKey.identifierKey: Helper.namespacedIdentifier(identifier: navigator.title)
+//        ]
+//      }
+//    }
     
 }
