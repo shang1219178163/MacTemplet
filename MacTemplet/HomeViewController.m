@@ -68,7 +68,8 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"ProppertyLazyController", @"属性Lazy",],
                       @[@"NNBatchClassCreateController", @"类文件批量创建",],
                       @[@"ProppertyChainController", @"属性转链式",],
-//                      @[@"AuthorInfoController", @"Author",],
+                      @[@"DragFileController", @"文件拖拽",],                      
+                      @[@"AuthorInfoController", @"Author",],
 //                      @[@"NNButtonStyleController", @"NSButon研究",],
 //                      @[@"NNButtonStudyController", @"NNButton封装",],
 //                      @[@"NNLabelStudyController", @"NNLabel封装",],
@@ -83,7 +84,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 //                      @[@"NSAlertStudyController", @"NSAlertStudy",],
 //                      @[@"NSOpenPanelStudyController", @"NSOpenPanelStud",],
 //                      @[@"NSStackViewController", @"StackView",],
-//                      @[@"MapViewController", @"MapView",],
+                      @[@"MapViewController", @"MapView",],
 //                      @[@"FileController", @"File处理",],
 //                      @[@"NNTableViewController", @"NNTable",],
                       

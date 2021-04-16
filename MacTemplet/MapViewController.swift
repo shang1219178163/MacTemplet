@@ -229,7 +229,7 @@ class MapViewController: NSViewController {
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        print(userLocation.coordinate)
+//        print(userLocation.coordinate)
         mapView.centerCoordinate = userLocation.coordinate
 
 //        if annotion.coordinate.latitude == 0.0 {
