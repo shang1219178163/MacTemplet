@@ -88,7 +88,12 @@
 //    NSString *one = nil;
 //    NSString *two = @"";
 //    DDLog(@"%@_%@", @(one.length), @(two.length));
+    
+    NSUserDefaults.defaults[@"aaa"] = @"啊啊啊";
+    [NSUserDefaults synchronize];
 
+    id obj = NSUserDefaults.defaults[@"aaa"];
+    DDLog(@"_%@_", obj);
 }
 
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *) sender{
