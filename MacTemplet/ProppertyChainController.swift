@@ -158,7 +158,7 @@ import RxCocoa
         let items = [textView.enclosingScrollView!, textViewOne.enclosingScrollView!]
         items.snp.distributeViewsAlong(axisType: .horizontal, fixedSpacing: 15, leadSpacing: 0, tailSpacing: 0)
         items.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10);
+            make.top.equalToSuperview().offset(0);
             make.bottom.equalToSuperview().offset(-45);
         }
         
