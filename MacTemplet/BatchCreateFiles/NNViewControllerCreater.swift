@@ -119,7 +119,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.01;
+        return section == tableView.numberOfSections - 1 ? 10.01 : 0.01;
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

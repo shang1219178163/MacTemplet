@@ -99,7 +99,25 @@ import UIKit
         tableView.mj_header.beginRefreshing();
     }
 
-
+    @objc func request(_ isRefresh: Bool) {
+//        api.startRequest { (manager, jsonData) in
+//            self.tableView.mj_header.endRefreshing()
+//            guard let jsonData = jsonData else { return }
+//            guard let model = try? PHHQrcodeOverageTotalModel(dictionary: jsonData) else { return }
+//            if PHHCommonStorage.giveCouponType() == .safetyGiveCouponType {
+//                self.dataList.append(contentsOf: model.listModels.safeListModels)
+//                if isRefresh {
+//                    self.dataList.removeAll()
+//                }
+//                self.tableView.reloadData()
+//            }
+//
+//        } failedBlock: { (manager, error) in
+//            self.tableView.mj_header.endRefreshing()
+//            guard let error = error else { return }
+//            PHHHttpErrorHandler.handError(error: error)
+//        }
+    }
 }
 
 extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
@@ -153,10 +171,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == tableView.numberOfSections - 1 {
-            return 10.01;
-        }
-        return 0.01;
+        return section == tableView.numberOfSections - 1 ? 10.01 : 0.01;
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
