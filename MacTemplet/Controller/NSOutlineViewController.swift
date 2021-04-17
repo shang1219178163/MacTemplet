@@ -96,6 +96,9 @@ extension NSOutlineViewController: NSOutlineViewDelegate {
         let row = outlineView.selectedRow
         if let item = outlineView.item(atRow: row) as? FileItem {
             print("\(#function):\(item.displayName)")
+            if let url = item.url {
+                NSWorkspace.shared.open(url)
+            }
         }
     }
 }
