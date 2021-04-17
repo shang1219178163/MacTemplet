@@ -38,10 +38,6 @@ class DragFileController: NSViewController {
         return view;
     }()
     
-    
-    var showAlertAgain = true
-    
-
     // MARK: -lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +52,6 @@ class DragFileController: NSViewController {
 //        destinationView.layer?.backgroundColor = NSColor.systemGreen.cgColor
 //        destinationImageView.layer?.wantsLayer = true
 //        destinationView.layer?.wantsLayer = true
-        
-        view.addGestureClick { (gesture) in
-            self.showAlert()
-        }
     }
     
     override func viewDidLayout() {
@@ -82,36 +74,6 @@ class DragFileController: NSViewController {
             make.width.equalTo(500)
             make.height.equalTo(500)
         }
-                
-//        destinationImageView.snp.makeConstraints { (make) in
-//            make.top.equalTo(textView.enclosingScrollView!.snp.bottom).offset(10)
-//            make.centerX.equalToSuperview().offset(10)
-//            make.width.equalToSuperview().multipliedBy(0.7)
-//            make.bottom.equalToSuperview().offset(-10)
-//        }
-        
-    }
-    
-    func showAlert() {
-        if showAlertAgain == false {
-            return
-        }
-            
-        NSAlert()
-            .messageText("提示")
-            .informativeText("非图片文件")
-            .alertStyle(.warning)
-//             .addButtons(["确定", "取消",])
-            .addButtons(["确定",])
-//            .showsHelp(true)
-//            .showsSuppressionButton(true)
-//            .suppressionButtonAction({ (sender) in
-//                DDLog(sender.state.rawValue)
-//                self.showAlertAgain = sender.state.rawValue == 0;
-//            })
-            .beginSheet { (respone) in
-                print("\(#function)\(respone)")
-            }
     }
     
 }
@@ -136,8 +98,6 @@ extension DragFileController: DragDestinationViewDelegate {
             print(#function, #line, "String", value)
             textView.string = value
             
-            showAlert()
-
         case let value as NSColor:
             print(#function, #line, "NSColor", value)
             destinationImageView.layer?.backgroundColor = value.cgColor
@@ -146,8 +106,6 @@ extension DragFileController: DragDestinationViewDelegate {
         case let value as URL:
             print(#function, #line, "URL", value.absoluteString.removingPercentEncoding ?? "")
             textView.string = value.lastPathComponent.removingPercentEncoding ?? ""
-
-            showAlert()
 
         default:
             print(#function, #line, obj)

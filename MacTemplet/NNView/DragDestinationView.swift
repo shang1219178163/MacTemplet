@@ -26,7 +26,7 @@ class DragDestinationView: NSView {
             self.registerForDraggedTypes(newValue)
         }
     }
-    ///仅支持传入的类型
+    ///支持拖入的子类型
     var acceptableUTITypes: [NSPasteboard.ReadingOptionKey : Any] {
         let types = [NSImage.imageTypes,
                      NSString.readableTypeIdentifiersForItemProvider,
