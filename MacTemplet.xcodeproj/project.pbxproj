@@ -1365,7 +1365,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.5.1;
+				MARKETING_VERSION = 2.6.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet.codeHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1395,7 +1395,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.5.1;
+				MARKETING_VERSION = 2.6.0;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet.codeHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";

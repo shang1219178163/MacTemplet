@@ -68,26 +68,27 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"ProppertyLazyController", @"属性Lazy",],
                       @[@"NNBatchClassCreateController", @"类文件批量创建",],
                       @[@"ProppertyChainController", @"属性转链式",],
-                      @[@"DragFileController", @"文件拖拽",],                      
-//                      @[@"AuthorInfoController", @"Author",],
-//                      @[@"NNButtonStyleController", @"NSButon研究",],
-//                      @[@"NNButtonStudyController", @"NNButton封装",],
-//                      @[@"NNLabelStudyController", @"NNLabel封装",],
-                      @[@"TmpViewController", @"Tmp模块",],
-                      @[@"OthersViewController", @"Others",],
-                      @[@"NNSplitViewController", @"SplitView",],
-                                            
-//                      @[@"YYModelSwiftController", @"YYModelSwift",],
-//                    @[@"CollectionViewController", @"CollectionView模块",],
-//                      @[@"NSTestViewController", @"测试模块",],
+                      @[@"DragFileController", @"文件拖拽",],
 
-                      @[@"NSAlertStudyController", @"NSAlertStudy",],
-//                      @[@"NSOpenPanelStudyController", @"NSOpenPanelStud",],
-//                      @[@"NSStackViewController", @"StackView",],
-                      @[@"MapViewController", @"MapView",],
-//                      @[@"FileController", @"File处理",],
-//                      @[@"NNTableViewController", @"NNTable",],
-                      
+////                      @[@"AuthorInfoController", @"Author",],
+////                      @[@"NNButtonStyleController", @"NSButon研究",],
+////                      @[@"NNButtonStudyController", @"NNButton封装",],
+////                      @[@"NNLabelStudyController", @"NNLabel封装",],
+//                      @[@"TmpViewController", @"Tmp模块",],
+//                      @[@"OthersViewController", @"Others",],
+//                      @[@"NNSplitViewController", @"SplitView",],
+//                                            
+////                      @[@"YYModelSwiftController", @"YYModelSwift",],
+////                    @[@"CollectionViewController", @"CollectionView模块",],
+////                      @[@"NSTestViewController", @"测试模块",],
+//
+//                      @[@"NSAlertStudyController", @"NSAlertStudy",],
+////                      @[@"NSOpenPanelStudyController", @"NSOpenPanelStud",],
+////                      @[@"NSStackViewController", @"StackView",],
+//                      @[@"MapViewController", @"MapView",],
+////                      @[@"FileController", @"File处理",],
+////                      @[@"NNTableViewController", @"NNTable",],
+
                       ];
 
     [self.tabView addItems:list];
