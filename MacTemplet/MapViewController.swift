@@ -243,26 +243,29 @@ extension MapViewController: MKMapViewDelegate {
 
     }
     
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        let annotationView: MKAnnotationView = MKPinAnnotationView.createAnnotationView(mapView, annotation: annotation)
-//
-//        let button = NSButton(frame: NSMakeRect(0, 0, 100, 40))
-//        button.title = "More Info"
-//        button.target = self
-//        button.action = Selector(("showMoreInfo:"))
-//        button.bezelStyle = .regularSquare
-//        annotationView.rightCalloutAccessoryView = button
-//        return annotationView
-//    }
-//
-//    @objc func showMoreInfo(_ sender: NSButton){
-//        print("show popover to show more info")
-//        let alert = NSAlert()
-//        alert.messageText = "show details"
-//        alert.addButton(withTitle: "OK")
-//        alert.informativeText = "Informative text goes here"
-//        alert.beginSheetModal(for: view.window!, completionHandler: nil)
-//    }
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        let annoView = MKPinAnnotationView.dequeueReusableAnnoView(mapView, annotation: annotation, identifier: "MKPinAnnotationView")
+        let annoView = mapView.dequeueReusableAnnoView(for: MKPinAnnotationView.self, annotation: annotation, identifier: "MKPinAnnotationView")        
+        annoView.canShowCallout = true
+        annoView.rightCalloutAccessoryView = { () -> NSView in
+            let btn = NSButton(frame: NSMakeRect(0, 0, 100, 40))
+            btn.title = "More Info"
+            btn.target = self
+            btn.action = #selector(showMoreInfo(_:))
+            btn.bezelStyle = .regularSquare
+            return btn
+        }()
+        return annoView
+    }
+
+    @objc func showMoreInfo(_ sender: NSButton){
+        print("show popover to show more info")
+        let alert = NSAlert()
+        alert.messageText = "show details"
+        alert.addButton(withTitle: "OK")
+        alert.informativeText = "Informative text goes here"
+        alert.beginSheetModal(for: view.window!, completionHandler: nil)
+    }
     
 }
 

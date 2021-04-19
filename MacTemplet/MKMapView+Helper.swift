@@ -48,15 +48,25 @@ import MapKit
     }
 }
 
+public extension MKMapView {
+
+    /// 泛型复用cell - cellType: "类名.self" (默认identifier: 类名字符串)
+    final func dequeueReusableAnnoView<T: MKAnnotationView>(for type: T.Type, annotation: MKAnnotation?, identifier: String) -> T{
+        if let view = self.dequeueReusableAnnotationView(withIdentifier: identifier) as? T{
+            return view
+        }
+        let view = T.init(annotation: annotation, reuseIdentifier: identifier)
+        return view;
+    }
+}
+
 /// 大头针
-extension MKPinAnnotationView{
-    class func createAnnotationView(_ mapView: MKMapView, annotation: MKAnnotation, identifier: String = String(describing: self)) -> MKAnnotationView{
-        if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier){
-            return annotationView
+public extension MKAnnotationView{
+    static func dequeueReusableAnnoView(_ mapView: MKMapView, annotation: MKAnnotation?, identifier: String) -> MKAnnotationView{
+        if let annoView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier){
+            return annoView
         }
         let annoView = self.init(annotation: annotation, reuseIdentifier: identifier)
-        annoView.pinTintColor = NSColor.red
-        annoView.animatesDrop = true
         annoView.canShowCallout = true
         return annoView
     }
