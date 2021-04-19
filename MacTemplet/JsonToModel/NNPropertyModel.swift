@@ -259,6 +259,9 @@ _\(name) = [[\(type) alloc]init];
 @property(nonatomic, copy, readonly) \(classType) *(^\(propertyName))(\(type));
 
 """
+        if attributes.contains("class") {
+            hContent = hContent.replacingOccurrences(of: "readonly)", with: "readonly, class)")
+        }
         if !availableDes.isEmpty{
             hContent = hContent.trimmedBy("\n").trimmedBy(";") + " \(availableDes);"
         }
@@ -285,7 +288,7 @@ _\(name) = [[\(type) alloc]init];
             return mContent
         }
                 
-        let mContent = """
+        var mContent = """
 - (\(classType) * _Nonnull (^)(\(type)\(nullDes)))\(propertyName){
     return ^(\(type) value) {
         self.\(name) = value;
@@ -294,6 +297,9 @@ _\(name) = [[\(type) alloc]init];
 }
 
 """
+        if attributes.contains("class") {
+            mContent = mContent.replacingOccurrences(of: "- (", with: "+ (")
+        }
         return mContent
     }
     
@@ -309,11 +315,11 @@ _\(name) = [[\(type) alloc]init];
         
         let propertys = string.components(separatedBy: "\n")
             .filter { $0.hasPrefix("@property") }
-            .map({ str -> NNPropertyModel in
+            .map({ content -> NNPropertyModel in
                 let model = NNPropertyModel()
-                model.content = str
-                model.clearPropertyContent(str)
-
+                model.content = content.contains("(") ? content : content.replacingOccurrences(of: "@property ", with: "@property (atomic)")
+//                model.content = content
+                model.clearPropertyContent(content)
                 return model
             })
         return propertys
