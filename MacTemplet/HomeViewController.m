@@ -84,7 +84,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"NSAlertStudyController", @"NSAlertStudy",],
 //                      @[@"NSOpenPanelStudyController", @"NSOpenPanelStud",],
 //                      @[@"NSStackViewController", @"StackView",],
-//                      @[@"MapViewController", @"MapView",],
+                      @[@"MapViewController", @"MapView",],
 //                      @[@"FileController", @"File处理",],
 //                      @[@"NNTableViewController", @"NNTable",],
                       
@@ -105,9 +105,9 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 -(NSTabView *)tabView{
     if (!_tabView) {
         _tabView = ({
-            NSTabView * view = [NSTabView create:CGRectZero];
-//            view.tabViewBorderType = NSNoTabsNoBorder;
-//            view.tabViewType = NSTabViewBorderTypeNone;
+            NSTabView * view = [NSTabView new];
+            view.tabViewBorderType = NSNoTabsNoBorder;
+            view.tabViewType = NSTabViewBorderTypeNone;
             view.delegate = self;
 
             view;

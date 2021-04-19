@@ -214,9 +214,10 @@
 //    DDLog(@"columnID : %@ ,row : %@, item: %@",columnID, @(row), @(item));
 //    tableColumn.width = CGRectGetWidth(tableView.bounds)/tableView.tableColumns.count;
     
-    static NSString *identifier = @"NSTableCellViewTen";
-    NSTableCellViewTen *cell = [NSTableCellViewTen makeViewWithTableView:tableView identifier:identifier owner:self];
-    
+//    static NSString *identifier = @"NSTableCellViewTen";
+//    NSTableCellViewTen *cell = [NSTableCellViewTen makeViewWithTableView:tableView identifier:identifier owner:self];
+    NSTableCellViewTen *cell = [NSTableCellViewTen makeViewWithTableView:tableView owner:self];
+
 //    NSTableCellViewTen *cell = [tableView makeViewWithIdentifier:identifier owner:nil];
 //    if (!cell) {
 //        cell = [[NSTableCellViewTen alloc]initWithFrame:cell.bounds];

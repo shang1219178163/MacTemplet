@@ -13,7 +13,9 @@ import Speech
 class OthersViewController: NSViewController {
     
     lazy var tabView: NSTabView = {
-        let view = NSTabView.create(.zero)
+        let view = NSTabView()
+        view.tabPosition = .top
+        view.tabViewBorderType = .line
         view.delegate = self
         return view
     }()

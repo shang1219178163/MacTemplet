@@ -50,7 +50,7 @@ class TmpViewController: NSViewController {
         super.viewDidLayout()
         
         let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height*0.1)
-        NSButton.setupConstraint(frame, items: itemList, numberOfRow: 6, padding: 8)
+        NSButton.updateGroupItemConstraint(frame, items: itemList, numberOfRow: 6, padding: 8)
     }
     
     override func viewDidAppear() {

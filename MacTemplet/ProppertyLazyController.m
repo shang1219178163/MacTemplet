@@ -201,17 +201,12 @@
             NNView *view = [[NNView alloc]init];
             
             for (NSInteger i = 0; i < self.btnItems.count; i++) {
-                NNButton *btn = [NNButton create:CGRectZero];
-//                btn.titleColor = NSColor.redColor;
-//                btn.backgroundColor = NSColor.greenColor;
+                NSButton *btn = [NSButton new];
+                btn.bezelStyle = NSBezelStyleRegularSquare;
           
                 btn.title = self.btnItems[i];
                 btn.tag = i;
-                [btn addTarget:self action:@selector(p_handleActionSender:) on: NSEventMaskOtherMouseUp];
-//                [btn addActionHandler:^(NSControl * _Nonnull control) {
-//                    [self showConvertResult];
-//
-//                }];
+                [btn addTarget:self action:@selector(p_handleAction:) on: NSEventMaskOtherMouseUp];
                 [view addSubview:btn];
             }
             view;
@@ -220,7 +215,7 @@
     return _bottomView;
 }
 
-- (void)p_handleActionSender:(NNButton *)sender {
+- (void)p_handleAction:(NNButton *)sender {
     switch (sender.tag) {
         case 0:
             [self showConvertResult];
