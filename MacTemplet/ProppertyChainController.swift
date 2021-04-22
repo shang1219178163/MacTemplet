@@ -46,8 +46,23 @@ import RxCocoa
         return view
     }()
     
+    
     lazy var textFieldOne: NNTextField = {
         let view = NNTextField.create(.zero, placeholder: "class")
+        view.isBordered = true
+        ///是否显示边框
+        view.font = NSFont.systemFont(ofSize: 13)
+        view.alignment = .center
+        view.isTextAlignmentVerticalCenter = true
+        view.maximumNumberOfLines = 1
+        view.usesSingleLineMode = true
+        view.tag = 100
+
+        return view
+    }()
+    
+    lazy var textFieldTwo: NNTextField = {
+        let view = NNTextField.create(.zero, placeholder: "var Suffix")
         view.isBordered = true
         ///是否显示边框
         view.font = NSFont.systemFont(ofSize: 13)
@@ -88,6 +103,8 @@ import RxCocoa
     
     
     var propertyPrefix = "nn_"
+    var propertySuffix = "Chain"
+
     var propertyClass = "NSObject"
 
     var hContent = ""
@@ -97,11 +114,11 @@ import RxCocoa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
         view.addSubview(textView.enclosingScrollView!)
         view.addSubview(textViewOne.enclosingScrollView!)
         view.addSubview(textField)
         view.addSubview(textFieldOne)
+        view.addSubview(textFieldTwo)
         view.addSubview(btn)
         view.addSubview(btnRefresh)
 
@@ -124,7 +141,8 @@ import RxCocoa
         
         textField.stringValue = propertyPrefix
         textFieldOne.stringValue = propertyClass
-        
+        textFieldTwo.stringValue = propertySuffix
+
         textView.string =
 """
 @interface UICollectionViewFlowLayout : UICollectionViewLayout
@@ -190,6 +208,11 @@ import RxCocoa
             make.bottom.width.height.equalTo(textField)
         }
 
+        textFieldTwo.snp.remakeConstraints { (make) in
+//            make.top.equalTo(textView.snp.bottom).offset(kPadding)
+            make.left.equalTo(textFieldOne.snp.right).offset(10)
+            make.bottom.width.height.equalTo(textField)
+        }
     }
     
     override func viewWillAppear() {
@@ -199,6 +222,7 @@ import RxCocoa
     // MARK: -funtions
     func convertContent() {
         propertyPrefix = textField.stringValue
+        propertySuffix = textFieldTwo.stringValue
 
         let text = textView.string
         if (text as NSString).range(of: "interface").location != NSNotFound {
@@ -212,6 +236,7 @@ import RxCocoa
         let propertys = NNPropertyModel.models(with: text)
         propertys.forEach { (model) in
             model.namePrefix = propertyPrefix
+            model.nameSuffix = propertySuffix
             model.classType = propertyClass
             hPropertys += model.chainContentH + "\n"
             mPropertys += model.chainContentM + "\n"

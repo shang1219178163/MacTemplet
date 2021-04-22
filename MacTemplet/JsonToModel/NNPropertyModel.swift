@@ -86,6 +86,8 @@ import CocoaExpand
     
     ///变量名称前缀
     var namePrefix: String = ""
+    ///变量名称后缀
+    var nameSuffix: String = ""
     ///变量名称
     var name: String{
         if self.parts.count == 0 {
@@ -239,8 +241,11 @@ _\(name) = [[\(type) alloc]init];
     
     ///h 文件内容
     var chainContentH: String{
-        let propertyName = name.hasPrefix(namePrefix) ? name : namePrefix + name
-        
+//        let propertyName = name.hasPrefix(namePrefix) ? name : namePrefix + name
+        var propertyName = name
+        propertyName = propertyName.hasPrefix(namePrefix) ? propertyName : namePrefix + propertyName
+        propertyName = propertyName.hasSuffix(nameSuffix) ? propertyName : propertyName + nameSuffix
+
         if isBlock {
             var hContent = """
 @property(nonatomic, copy, readonly) \(classType) *(^\(propertyName))(\(blockParams));
@@ -273,11 +278,14 @@ _\(name) = [[\(type) alloc]init];
     ///m 文件内容
     var chainContentM: String{
         let nullDes = attributes.contains("strong") || attributes.contains("copy") == true ? " _Nonnull" : ""
-        let propertyName = name.hasPrefix(namePrefix) ? name : namePrefix + name
-
+//        let propertyName = name.hasPrefix(namePrefix) ? name : namePrefix + name
+        var propertyName = name
+        propertyName = propertyName.hasPrefix(namePrefix) ? propertyName : namePrefix + propertyName
+        propertyName = propertyName.hasSuffix(nameSuffix) ? propertyName : propertyName + nameSuffix
+        
         if isBlock {
             let mContent = """
-- (\(classType) * _Nonnull (^)(\(blockParams)\(nullDes)))\(propertyName){
+- (\(classType) * (^)(\(blockParams)\(nullDes)))\(propertyName){
     return ^(\(blockParams) value) {
         self.\(name) = value;
         return self;
@@ -289,7 +297,7 @@ _\(name) = [[\(type) alloc]init];
         }
                 
         var mContent = """
-- (\(classType) * _Nonnull (^)(\(type)\(nullDes)))\(propertyName){
+- (\(classType) * (^)(\(type)\(nullDes)))\(propertyName){
     return ^(\(type) value) {
         self.\(name) = value;
         return self;
@@ -319,7 +327,7 @@ _\(name) = [[\(type) alloc]init];
                 let model = NNPropertyModel()
                 model.content = content.contains("(") ? content : content.replacingOccurrences(of: "@property ", with: "@property (atomic)")
 //                model.content = content
-                model.clearPropertyContent(content)
+                model.clearPropertyContent(model.content)
                 return model
             })
         return propertys
