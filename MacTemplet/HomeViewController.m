@@ -68,6 +68,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"ProppertyLazyController", @"属性Lazy",],
                       @[@"NNBatchClassCreateController", @"类文件批量创建",],
                       @[@"ProppertyChainController", @"属性转链式",],
+                      @[@"ProppertyChainSwiftController", @"Swift属性转链式",],
                       @[@"DragFileController", @"文件拖拽",],
 
 ////                      @[@"AuthorInfoController", @"Author",],
@@ -99,6 +100,9 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
         [self.tabView selectTabViewItemAtIndex:idx];
     }
     [self.view addSubview:self.tabView];
+    
+    
+//    NSNumberFormatter *fmt =
 }
 
 #pragma mark -lazy
