@@ -69,6 +69,8 @@
 		1487189A24349D6F007F618E /* UUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487189924349D6F007F618E /* UUTextField.swift */; };
 		1487189C24349DA7007F618E /* UULabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487189B24349DA7007F618E /* UULabel.swift */; };
 		1487189F243589CD007F618E /* NNTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1487189E243589CD007F618E /* NNTextView.m */; };
+		14886B4026315DC700788F64 /* ProppertyChainSwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14886B3F26315DC700788F64 /* ProppertyChainSwiftController.swift */; };
+		14886B712631815100788F64 /* NNPropertySwiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14886B702631815100788F64 /* NNPropertySwiftModel.swift */; };
 		148BB40D2435F59300ECEF3B /* LittleActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BB40C2435F59300ECEF3B /* LittleActionController.swift */; };
 		148BB40F2436DD3700ECEF3B /* timg.gif in Resources */ = {isa = PBXBuildFile; fileRef = 148BB40E2436DD3600ECEF3B /* timg.gif */; };
 		148BB4142437114A00ECEF3B /* DragDropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 148BB4132437114A00ECEF3B /* DragDropImageView.m */; };
@@ -278,6 +280,8 @@
 		1487189B24349DA7007F618E /* UULabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UULabel.swift; sourceTree = "<group>"; };
 		1487189D243589CC007F618E /* NNTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNTextView.h; sourceTree = "<group>"; };
 		1487189E243589CD007F618E /* NNTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNTextView.m; sourceTree = "<group>"; };
+		14886B3F26315DC700788F64 /* ProppertyChainSwiftController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProppertyChainSwiftController.swift; sourceTree = "<group>"; };
+		14886B702631815100788F64 /* NNPropertySwiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNPropertySwiftModel.swift; sourceTree = "<group>"; };
 		148BB40C2435F59300ECEF3B /* LittleActionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleActionController.swift; sourceTree = "<group>"; };
 		148BB40E2436DD3600ECEF3B /* timg.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = timg.gif; sourceTree = "<group>"; };
 		148BB4122437114A00ECEF3B /* DragDropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDropImageView.h; sourceTree = "<group>"; };
@@ -547,6 +551,7 @@
 				14D40A0422C3884900AF74B9 /* ProppertyLazyController.h */,
 				14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */,
 				14ADEAA4259DF5A6006D9629 /* ProppertyChainController.swift */,
+				14886B3F26315DC700788F64 /* ProppertyChainSwiftController.swift */,
 				14D40A1022C4A6DA00AF74B9 /* AuthorInfoController.h */,
 				14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */,
 				14132976238559CE00E7AFCA /* NSTestViewController.h */,
@@ -675,6 +680,7 @@
 				14ADE21323CC090F00037B0B /* NNClassInfoModel.h */,
 				14ADE21423CC091000037B0B /* NNClassInfoModel.m */,
 				14ADEB89259F0E8F006D9629 /* NNPropertyModel.swift */,
+				14886B702631815100788F64 /* NNPropertySwiftModel.swift */,
 				14F92C3522BB8DE800A5C5E4 /* Format */,
 				14F92C2622BB8DE500A5C5E4 /* Model */,
 			);
@@ -1072,6 +1078,7 @@
 				14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */,
 				148BB40D2435F59300ECEF3B /* LittleActionController.swift in Sources */,
 				14D4ED4B23C9F36900B8BD16 /* NNViewCreater.swift in Sources */,
+				14886B712631815100788F64 /* NNPropertySwiftModel.swift in Sources */,
 				14D40A0622C3884900AF74B9 /* ProppertyLazyController.m in Sources */,
 				1487188E243499E8007F618E /* HHLabel.m in Sources */,
 				14D40A0C22C462E200AF74B9 /* HomeViewController.m in Sources */,
@@ -1128,6 +1135,7 @@
 				14F92C5122BB8E0900A5C5E4 /* ESClassInfo.m in Sources */,
 				14F92C5422BB925F00A5C5E4 /* ESJsonFormatSetting.m in Sources */,
 				1480B0EF238CED7200E24BDB /* NNSwitch.swift in Sources */,
+				14886B4026315DC700788F64 /* ProppertyChainSwiftController.swift in Sources */,
 				14A90F1E241B0FDC00BC50EC /* FlatButton.swift in Sources */,
 				1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */,
 				14ADE21523CC091000037B0B /* NNClassInfoModel.m in Sources */,
@@ -1365,7 +1373,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.6.0;
+				MARKETING_VERSION = 2.7.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet.codeHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1395,7 +1403,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.6.0;
+				MARKETING_VERSION = 2.7.0;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet.codeHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
