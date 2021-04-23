@@ -212,13 +212,21 @@ return view
 """
         }
         
-        let hContent = """
+        var hContent = """
 \(helpContent)
     func \(namePrefix)\(name)\(nameSuffix)(_ \(name): \(type)) -> Self {
         self.\(name) = \(name)
         return self
     }
 """
+        if helpContent == "" {
+            hContent = """
+    func \(namePrefix)\(name)\(nameSuffix)(_ \(name): \(type)) -> Self {
+        self.\(name) = \(name)
+        return self
+    }
+"""
+        }
         return hContent
     }
     

@@ -385,29 +385,7 @@ open class UIButton : UIControl, NSCoding {
 public extension \(classType) {
 
 \(chainContentH)
-
 }
-"""
-        return result
-    }
-    
-    
-    ///创建文本内容
-    func fileContent(_ classType: String, chainContentM: String) -> String {
-        let copyRight = NSApplication.copyright(with: "\(classType)+Chain", type: "m")
-
-        let result =
-"""
-\(copyRight)
-
-#import "\(classType)+Chain.h"
-
-@implementation \(classType) (Chain)
-
-\(chainContentM)
-
-@end
-
 """
         return result
     }
