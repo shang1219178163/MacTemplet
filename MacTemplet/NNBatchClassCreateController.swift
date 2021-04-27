@@ -192,9 +192,9 @@ class NNBatchClassCreateController: NSViewController {
             } else {
                 let message = "'\(name)'必须包含Controller/View/ViewModel/API/Api后缀中的一种,否则无法自动生成"
                 NSAlert()
-                    .messageText("错误")
-                    .informativeText(message)
-                    .addButtons([kTitleSure])
+                    .messageTextChain("错误")
+                    .informativeTextChain(message)
+                    .addButtonsChain([kTitleSure])
                     .runModal()
             }
         }

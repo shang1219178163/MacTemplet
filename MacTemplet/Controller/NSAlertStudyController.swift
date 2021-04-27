@@ -236,18 +236,18 @@ class NSAlertStudyController: NSViewController {
         stackView.changeViews([nameField, pwdField, button], orientation: .vertical)
         
         let alert = NSAlert()
-            .messageText("提示")
-            .informativeText("非图片文件")
-            .alertStyle(.warning)
-            .addButtons(["确定", "取消",])
-            .showsHelp(true)
-            .showsSuppressionButton(true)
-            .suppressionButtonAction({ (sender) in
+            .messageTextChain("提示")
+            .informativeTextChain("非图片文件")
+            .alertStyleChain(.warning)
+            .addButtonsChain(["确定", "取消",])
+            .showsHelpChain(true)
+            .showsSuppressionButtonChain(true)
+            .suppressionButtonActionChain({ (sender) in
                 DDLog(sender.state.rawValue)
             })
-            .delegate(self)
-            .accessoryView(stackView)
-            .beginSheet { (respone) in
+            .delegateChain(self)
+            .accessoryViewChain(stackView)
+            .beginSheetChain { (respone) in
                 print("\(#function)\(respone)")
             }
         alert.window.initialFirstResponder = nameField
