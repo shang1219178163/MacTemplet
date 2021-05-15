@@ -10,6 +10,9 @@
 		070967CF6BBBA408F67F8E13 /* Pods_MacTemplet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */; };
 		140D292E2317E8C200867785 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D292D2317E8C200867785 /* QuartzCore.framework */; };
 		140D294F23189D9600867785 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D294E23189D9600867785 /* Photos.framework */; };
+		1412334B264B96BB0098C8FB /* FlutterIconDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1412334A264B96BB0098C8FB /* FlutterIconDataController.swift */; };
+		1412334F264B97000098C8FB /* IconData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1412334E264B97000098C8FB /* IconData.txt */; };
+		14123353264B9A670098C8FB /* NNPropertyFlutterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14123352264B9A670098C8FB /* NNPropertyFlutterModel.swift */; };
 		14132978238559CE00E7AFCA /* NSTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14132977238559CE00E7AFCA /* NSTestViewController.m */; };
 		141495D1242CBFEF00141A9F /* NNLabelStudyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141495CF242CBFEF00141A9F /* NNLabelStudyController.swift */; };
 		142857BB2425A05200BC36F0 /* AAButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 142857BA2425A05200BC36F0 /* AAButton.m */; };
@@ -80,6 +83,7 @@
 		148BB41C2438494500ECEF3B /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BB41B2438494500ECEF3B /* BlueViewController.swift */; };
 		148BB41E2438495400ECEF3B /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BB41D2438495400ECEF3B /* GreenViewController.swift */; };
 		148BB4202438586F00ECEF3B /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BB41F2438586F00ECEF3B /* OrangeViewController.swift */; };
+		1496182A264F6F5300DF56FE /* FlutterWidgetToExtController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14961829264F6F5300DF56FE /* FlutterWidgetToExtController.swift */; };
 		149EFE182615C361008462BC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149EFE172615C361008462BC /* Cocoa.framework */; };
 		149EFE1A2615C361008462BC /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149EFE192615C361008462BC /* XcodeKit.framework */; };
 		149EFE1D2615C361008462BC /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149EFE1C2615C361008462BC /* SourceEditorExtension.swift */; };
@@ -195,6 +199,9 @@
 /* Begin PBXFileReference section */
 		140D292D2317E8C200867785 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		140D294E23189D9600867785 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		1412334A264B96BB0098C8FB /* FlutterIconDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterIconDataController.swift; sourceTree = "<group>"; };
+		1412334E264B97000098C8FB /* IconData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IconData.txt; sourceTree = "<group>"; };
+		14123352264B9A670098C8FB /* NNPropertyFlutterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNPropertyFlutterModel.swift; sourceTree = "<group>"; };
 		14132976238559CE00E7AFCA /* NSTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTestViewController.h; sourceTree = "<group>"; };
 		14132977238559CE00E7AFCA /* NSTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTestViewController.m; sourceTree = "<group>"; };
 		141495CF242CBFEF00141A9F /* NNLabelStudyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNLabelStudyController.swift; sourceTree = "<group>"; };
@@ -292,6 +299,7 @@
 		148BB41B2438494500ECEF3B /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
 		148BB41D2438495400ECEF3B /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
 		148BB41F2438586F00ECEF3B /* OrangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
+		14961829264F6F5300DF56FE /* FlutterWidgetToExtController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterWidgetToExtController.swift; sourceTree = "<group>"; };
 		149EFE162615C360008462BC /* XExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = XExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		149EFE172615C361008462BC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		149EFE192615C361008462BC /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -552,6 +560,8 @@
 				14D40A0522C3884900AF74B9 /* ProppertyLazyController.m */,
 				14ADEAA4259DF5A6006D9629 /* ProppertyChainController.swift */,
 				14886B3F26315DC700788F64 /* ProppertyChainSwiftController.swift */,
+				1412334A264B96BB0098C8FB /* FlutterIconDataController.swift */,
+				14961829264F6F5300DF56FE /* FlutterWidgetToExtController.swift */,
 				14D40A1022C4A6DA00AF74B9 /* AuthorInfoController.h */,
 				14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */,
 				14132976238559CE00E7AFCA /* NSTestViewController.h */,
@@ -681,6 +691,7 @@
 				14ADE21423CC091000037B0B /* NNClassInfoModel.m */,
 				14ADEB89259F0E8F006D9629 /* NNPropertyModel.swift */,
 				14886B702631815100788F64 /* NNPropertySwiftModel.swift */,
+				14123352264B9A670098C8FB /* NNPropertyFlutterModel.swift */,
 				14F92C3522BB8DE800A5C5E4 /* Format */,
 				14F92C2622BB8DE500A5C5E4 /* Model */,
 			);
@@ -781,6 +792,7 @@
 		14F92C1C22BB766A00A5C5E4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1412334E264B97000098C8FB /* IconData.txt */,
 				148BB4172437323C00ECEF3B /* 02@3x.png */,
 				146D28C4244DA169004655B1 /* InfoPlist.strings */,
 				148BB40E2436DD3600ECEF3B /* timg.gif */,
@@ -993,6 +1005,7 @@
 				14D4ED5623CA159900B8BD16 /* blocks.geojson in Resources */,
 				146D28BF244D9FA2004655B1 /* Main.storyboard in Resources */,
 				14F92C5622BB93EB00A5C5E4 /* DataModelsTemplate.txt in Resources */,
+				1412334F264B97000098C8FB /* IconData.txt in Resources */,
 				1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */,
 				148BB4182437323C00ECEF3B /* 02@3x.png in Resources */,
 			);
@@ -1080,6 +1093,7 @@
 				14D4ED4B23C9F36900B8BD16 /* NNViewCreater.swift in Sources */,
 				14886B712631815100788F64 /* NNPropertySwiftModel.swift in Sources */,
 				14D40A0622C3884900AF74B9 /* ProppertyLazyController.m in Sources */,
+				1412334B264B96BB0098C8FB /* FlutterIconDataController.swift in Sources */,
 				1487188E243499E8007F618E /* HHLabel.m in Sources */,
 				14D40A0C22C462E200AF74B9 /* HomeViewController.m in Sources */,
 				1480B0D9238CBDC200E24BDB /* NSStackViewController.swift in Sources */,
@@ -1132,6 +1146,7 @@
 				1482F72022AB8BD500A7C5E1 /* main.m in Sources */,
 				14D4ED5423CA0D8E00B8BD16 /* NNHouseRootModel.swift in Sources */,
 				14F92C5022BB8E0900A5C5E4 /* ESPair.m in Sources */,
+				14123353264B9A670098C8FB /* NNPropertyFlutterModel.swift in Sources */,
 				14F92C5122BB8E0900A5C5E4 /* ESClassInfo.m in Sources */,
 				14F92C5422BB925F00A5C5E4 /* ESJsonFormatSetting.m in Sources */,
 				1480B0EF238CED7200E24BDB /* NNSwitch.swift in Sources */,
@@ -1144,6 +1159,7 @@
 				1487188724349254007F618E /* UUTextView.swift in Sources */,
 				142857BE2425A34900BC36F0 /* OOButton.m in Sources */,
 				14A90F2F241B85B200BC50EC /* NNRequestAPICreater.swift in Sources */,
+				1496182A264F6F5300DF56FE /* FlutterWidgetToExtController.swift in Sources */,
 				1487189C24349DA7007F618E /* UULabel.swift in Sources */,
 				1480B0E9238CC94100E24BDB /* MKMapView+Helper.swift in Sources */,
 				142857CD2425AA1800BC36F0 /* NSView+Ext.m in Sources */,
