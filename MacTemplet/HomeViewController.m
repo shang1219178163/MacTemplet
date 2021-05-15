@@ -69,6 +69,9 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"NNBatchClassCreateController", @"类文件批量创建",],
                       @[@"ProppertyChainController", @"属性转链式",],
                       @[@"ProppertyChainSwiftController", @"Swift属性转链式",],
+                      @[@"FlutterIconDataController", @"FlutterIconData",],
+                      @[@"FlutterWidgetToExtController", @"Widget转扩展",],
+            
                       @[@"DragFileController", @"文件拖拽",],
 
 ////                      @[@"AuthorInfoController", @"Author",],
