@@ -83,7 +83,7 @@ import Cocoa
             return ""
         }
 
-        let result = parts.filter { !attributes.contains($0)  && $0 != "var" }.first!
+        let result = parts.filter { !attributes.contains($0) && $0 != "var" }.first!
         return result
     }
     ///block传参...
@@ -187,10 +187,12 @@ return view
         return result
     }
     ///h 文件内容
-    var chainContentH: String{
+    var chainContent: String{
         if content.contains("{ get }") {
             return ""
         }
+        
+        let structKeyword = isStruct ? "mutating " : ""
         
         var propertyName = name
         propertyName = propertyName.hasPrefix(namePrefix) ? propertyName : namePrefix + propertyName
@@ -212,28 +214,36 @@ return view
 """
         }
         
-        var hContent = """
-\(helpContent)
-    func \(namePrefix)\(name)\(nameSuffix)(_ \(name): \(type)) -> Self {
+        var content = """
+    \(helpContent)
+    \(structKeyword)func \(namePrefix)\(name)\(nameSuffix)(_ \(name): \(type)) -> Self {
         self.\(name) = \(name)
         return self
     }
 """
         if helpContent == "" {
-            hContent = """
-    func \(namePrefix)\(name)\(nameSuffix)(_ \(name): \(type)) -> Self {
+            content = """
+    \(structKeyword)func \(namePrefix)\(name)\(nameSuffix)(_ \(name): \(type)) -> Self {
         self.\(name) = \(name)
         return self
     }
 """
         }
-        return hContent
+        return content
     }
+    
+    var isStruct = false
+    
     
     // MARK: -funtions
     ///文字转属性列表
     static func models(with string: String) -> [NNPropertySwiftModel] {
-        let lines = string.components(separatedBy: "\n")
+        let lines = string.components(separatedBy: "\n").filter { $0 != ""}
+        
+        var isStruct = false
+        if let line = lines.filter({ $0.contains(" : ") }).first {
+            isStruct = line.contains("struct")
+        }
 
         var dic = [String: String]()
         for (idx, line) in lines.enumerated() {
@@ -244,11 +254,11 @@ return view
         }
         
         let propertys = lines
-            .filter { $0.contains("open var") && !$0.contains("{ get }")}
+            .filter { $0.contains(" var ") && !$0.contains("{ get }")}
             .map({ content -> NNPropertySwiftModel in
                 let model = NNPropertySwiftModel()
                 model.content = content
-                
+                model.isStruct = isStruct
                 if dic.keys.contains(content) {
                     model.availableDes = dic[content] ?? ""
                 }
