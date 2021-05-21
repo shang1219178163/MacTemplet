@@ -12,10 +12,12 @@ import SnapKit
 import SnapKitExtend
 
 let kBatchTips = """
-\nUIViewController 分为List(列表), Detail(详情), Entry(数据录入), 其他;
-\nAPI 分为List(列表), Detail(详情), Add(增), Update(改), Delete(删), 其他;
-\nUIView 自定义视图只有一种;
-\nViewModel 只有一种, 包含API的增删改查;
+UIViewController 分为List(列表), Detail(详情), Entry(数据录入), 其他;
+API 分为List(列表), Detail(详情), Add(增), Update(改), Delete(删), 其他;
+UIView 自定义视图只有一种;
+ViewModel 只有一种, 包含API的增删改查;
+(必须包含Controller/View/ViewModel/API/Api后缀中的一种,否则无法自动生成模板代码)
+
 命名(模板, 复制粘贴到文本框查看效果)如下:
 
 IOPGoodsListController
@@ -190,12 +192,13 @@ class NNBatchClassCreateController: NSViewController {
                 NNBatchManager.createAPIFiles(name, type: type)
 
             } else {
-                let message = "'\(name)'必须包含Controller/View/ViewModel/API/Api后缀中的一种,否则无法自动生成"
-                NSAlert()
-                    .messageTextChain("错误")
-                    .informativeTextChain(message)
-                    .addButtonsChain([kTitleSure])
-                    .runModal()
+//                let message = "'\(name)'必须包含Controller/View/ViewModel/API/Api后缀中的一种,否则无法自动生成"
+//                NSAlert()
+//                    .messageTextChain("错误")
+//                    .informativeTextChain(message)
+//                    .addButtonsChain([kTitleSure])
+//                    .runModal()
+                NNBatchManager.createFiles(name, type: type)
             }
         }
     }

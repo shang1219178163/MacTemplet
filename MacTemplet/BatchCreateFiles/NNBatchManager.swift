@@ -18,6 +18,21 @@ let kTitleDelete = "Delete"
 /// 批量创建文件管理类
 class NNBatchManager: NSObject {
 
+    /// 生成空文件
+    static func createFiles(_ name: String, type: String = "swift") {
+        if type.capitalized == "Swift" {
+            let copyRight = NSApplication.copyright(with: name, type: type.capitalized)
+            FileManager.createFile(content: copyRight, name: name, type: type.capitalized, isCover: true, openDir: true)
+            
+        } else if type.capitalized == "Objc"  {
+            let copyRight = NSApplication.copyright(with: name, type: "h")
+            let copyRightM = NSApplication.copyright(with: name, type: "m")
+
+            FileManager.createFile(content: copyRight, name: name, type: "h", isCover: true, openDir: true)
+            FileManager.createFile(content: copyRightM, name: name, type: "m", isCover: true, openDir: true)
+        }
+    }
+    
     /// 生成UIView文件
     static func createUIViewFiles(_ name: String,  type: String = "swift") {
         var result = ""
