@@ -82,7 +82,7 @@ import RxCocoa
         view.title = "Done"
 
         view.addActionHandler { (sender) in
-            NSApp.mainWindow!.makeFirstResponder(nil)
+            NSApp.mainWindow?.makeFirstResponder(nil)
             self.createFiles()
         }
         return view
@@ -144,9 +144,9 @@ import RxCocoa
         textFieldOne.stringValue = propertyClass
         textFieldTwo.stringValue = propertySuffix
 
-        textView.string = kContentFlowLayout
-        
-        textView.string = kContentURLComponents
+//        textView.string = kContentFlowLayout
+//        textView.string = kContentURLComponents
+        textView.string = kContentTextInputTraits
     }
     
     override func viewDidLayout() {
@@ -204,16 +204,20 @@ import RxCocoa
         propertySuffix = textFieldTwo.stringValue
 
         let text = textView.string
-        if (text as NSString).range(of: "class").location != NSNotFound
-            && (text as NSString).range(of: " : ").location != NSNotFound {
-            let range = (text as NSString).range(of: "class")
-            propertyClass = text.substringFrom(range.location + range.length).components(separatedBy: " : ").first!.trimmed
-//            DDLog(propertyClass)
-        } else if (text as NSString).range(of: "struct").location != NSNotFound
-            && (text as NSString).range(of: " : ").location != NSNotFound {
-            let range = (text as NSString).range(of: "struct")
-            propertyClass = text.substringFrom(range.location + range.length).components(separatedBy: " : ").first!.trimmed
-//            DDLog(propertyClass)
+//        if (text as NSString).range(of: "class").location != NSNotFound
+//            && (text as NSString).range(of: " : ").location != NSNotFound {
+//            let range = (text as NSString).range(of: "class")
+//            propertyClass = text.substringFrom(range.location + range.length).components(separatedBy: " : ").first!.trimmed
+////            DDLog(propertyClass)
+//        } else if (text as NSString).range(of: "struct").location != NSNotFound
+//            && (text as NSString).range(of: " : ").location != NSNotFound {
+//            let range = (text as NSString).range(of: "struct")
+//            propertyClass = text.substringFrom(range.location + range.length).components(separatedBy: " : ").first!.trimmed
+////            DDLog(propertyClass)
+//        }
+        
+        if text.contains(" : ") {
+            propertyClass = text.components(separatedBy: " : ").first!.components(separatedBy: " ").last!.trimmed
         }
         
         if text.trimmed.hasPrefix("@available(") && text.trimmed.contains(")") {
@@ -432,5 +436,51 @@ public struct URLComponents : ReferenceConvertible, Hashable, Equatable {
     public var percentEncodedQuery: String?
 
     public var percentEncodedFragment: String?
+}
+"""
+
+let kContentTextInputTraits = """
+public protocol UITextInputTraits : NSObjectProtocol {
+
+    
+    optional var autocapitalizationType: UITextAutocapitalizationType { get set } // default is UITextAutocapitalizationTypeSentences
+
+    optional var autocorrectionType: UITextAutocorrectionType { get set } // default is UITextAutocorrectionTypeDefault
+
+    @available(iOS 5.0, *)
+    optional var spellCheckingType: UITextSpellCheckingType { get set } // default is UITextSpellCheckingTypeDefault;
+
+    @available(iOS 11.0, *)
+    optional var smartQuotesType: UITextSmartQuotesType { get set } // default is UITextSmartQuotesTypeDefault;
+
+    @available(iOS 11.0, *)
+    optional var smartDashesType: UITextSmartDashesType { get set } // default is UITextSmartDashesTypeDefault;
+
+    @available(iOS 11.0, *)
+    optional var smartInsertDeleteType: UITextSmartInsertDeleteType { get set } // default is UITextSmartInsertDeleteTypeDefault;
+
+    optional var keyboardType: UIKeyboardType { get set } // default is UIKeyboardTypeDefault
+
+    optional var keyboardAppearance: UIKeyboardAppearance { get set } // default is UIKeyboardAppearanceDefault
+
+    optional var returnKeyType: UIReturnKeyType { get set } // default is UIReturnKeyDefault (See note under UIReturnKeyType enum)
+
+    optional var enablesReturnKeyAutomatically: Bool { get set } // default is NO (when YES, will automatically disable return key when text widget has zero-length contents, and will automatically enable when text widget has non-zero-length contents)
+
+    optional var isSecureTextEntry: Bool { get set } // default is NO
+
+    
+    // The textContentType property is to provide the keyboard with extra information about the semantic intent of the text document.
+    @available(iOS 10.0, *)
+    optional var textContentType: UITextContentType! { get set } // default is nil
+
+    
+    // The passwordRules property is used to communicate requirements for passwords for your service
+    // to ensure iOS can generate compatible passwords for users. It only works when secureTextEntry
+    // is YES. You do not need to use this property if the passwords that iOS generates are already
+    // compatible with your service. You can learn more about the purpose of and syntax for these rules
+    // on the Password Rules documentation guide.
+    @available(iOS 12.0, *)
+    @NSCopying optional var passwordRules: UITextInputPasswordRules? { get set } // default is nil
 }
 """
