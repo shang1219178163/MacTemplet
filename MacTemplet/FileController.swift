@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import CocoaExpand
+import SwiftExpand
 
 class FileController: NSViewController {
      
@@ -27,7 +27,7 @@ class FileController: NSViewController {
         DDLog(path, FileManager.downloadsDir)
         
         
-        let result = Bundle.readPath(forResource: "THML5常用控件总结", ofType: "txt")
+        let result = Bundle.string(forResource: "THML5常用控件总结", ofType: "txt")
         DDLog(result)
 //        if let path = Bundle.main.path(forResource: "THML5常用控件总结", ofType: "txt") {
 //            do {

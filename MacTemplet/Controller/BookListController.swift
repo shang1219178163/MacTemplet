@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import CocoaExpand
+import SwiftExpand
 
 /// 可折叠分段列表
 class BookListController: NSViewController {

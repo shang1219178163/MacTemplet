@@ -8,7 +8,7 @@
 
 #import "AppDelegate+Menu.h"
 
-#import <CocoaExpand-Swift.h>
+#import <SwiftExpand-Swift.h>
 
 
 @implementation AppDelegate (Menu)

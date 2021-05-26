@@ -9,7 +9,7 @@
 #import "AuthorInfoController.h"
 #import "NNHeaderView.h"
 
-#import <CocoaExpand-Swift.h>
+#import <SwiftExpand-Swift.h>
 
 
 @interface AuthorInfoController ()

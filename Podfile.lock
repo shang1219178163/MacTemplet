@@ -12,7 +12,6 @@ PODS:
   - AFNetworking/Reachability (4.0.1)
   - AFNetworking/Security (4.0.1)
   - AFNetworking/Serialization (4.0.1)
-  - CocoaExpand (2.2.0)
   - HandyJSON (5.0.2)
   - Masonry (1.1.0)
   - NNButton (1.1.5.3)
@@ -28,11 +27,13 @@ PODS:
   - SnapKit (5.0.1)
   - SnapKitExtend (1.0.7):
     - SnapKit
+  - SwiftChain (1.0.0.7)
+  - SwiftExpand (7.2.0.3):
+    - SwiftChain
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
-  - CocoaExpand
   - HandyJSON
   - Masonry
   - NNButton
@@ -42,12 +43,13 @@ DEPENDENCIES:
   - RxSwift
   - SnapKit
   - SnapKitExtend
+  - SwiftChain
+  - SwiftExpand
   - YYModel
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
-    - CocoaExpand
     - HandyJSON
     - Masonry
     - NNButton
@@ -58,11 +60,12 @@ SPEC REPOS:
     - RxSwift
     - SnapKit
     - SnapKitExtend
+    - SwiftChain
+    - SwiftExpand
     - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  CocoaExpand: f106086c165962ac62044d7871975c6ace63ed08
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   NNButton: 5ff24013480dc6012be208bc5b13e2429002cae1
@@ -73,8 +76,10 @@ SPEC CHECKSUMS:
   RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SnapKitExtend: 00ee4db6d1f80bee01a1e75745f2a6ae695ba662
+  SwiftChain: 962dfe86bb7e30222caceeb52f95c8a46e70a7ec
+  SwiftExpand: 0942cb37f34f1df22f5e1b190a812d805e4c67a4
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 9003d7730bed4b813aafecd29d9e84bf4f06f52e
+PODFILE CHECKSUM: 3f12cc44fd172b32db15c975c88c65543b5a99f7
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

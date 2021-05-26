@@ -8,7 +8,7 @@
 
 import Cocoa
 import SnapKit
-import CocoaExpand
+import SwiftExpand
 
 @available(macOS 10.13, *)
 class DragFileController: NSViewController {

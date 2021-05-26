@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import CocoaExpand
+import SwiftExpand
 
 /// 小功能集合
 class LittleActionController: NSViewController {

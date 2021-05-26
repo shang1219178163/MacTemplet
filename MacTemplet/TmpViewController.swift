@@ -8,7 +8,7 @@
 
 import Cocoa
 import CoreFoundation
-import CocoaExpand
+import SwiftExpand
 import NNButton
 
 import Quartz

@@ -20,16 +20,19 @@ class NNBatchManager: NSObject {
 
     /// 生成空文件
     static func createFiles(_ name: String, type: String = "swift") {
-        if type.capitalized == "Swift" {
-            let copyRight = NSApplication.copyright(with: name, type: type.capitalized)
-            FileManager.createFile(content: copyRight, name: name, type: type.capitalized, isCover: true, openDir: true)
+        if type.lowercased() == "swift" {
+            let copyRight = NSApplication.copyright(with: name, type: type.lowercased())
+            FileManager.createFile(content: copyRight, name: name, type: type.lowercased(), isCover: true, openDir: true)
             
-        } else if type.capitalized == "Objc"  {
+        } else if type.lowercased() == "objc"  {
             let copyRight = NSApplication.copyright(with: name, type: "h")
             let copyRightM = NSApplication.copyright(with: name, type: "m")
 
             FileManager.createFile(content: copyRight, name: name, type: "h", isCover: true, openDir: true)
             FileManager.createFile(content: copyRightM, name: name, type: "m", isCover: true, openDir: true)
+        } else {
+            let copyRight = NSApplication.copyright(with: name, type: type.lowercased())
+            FileManager.createFile(content: copyRight, name: name, type: type.lowercased(), isCover: true, openDir: true)
         }
     }
     

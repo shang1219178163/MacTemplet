@@ -8,7 +8,7 @@
 
 import Cocoa
 
-import CocoaExpand
+import SwiftExpand
 
 @objc protocol NNUserInfoViewDelegate: NSObjectProtocol {
     @objc func userInfoView(_ userView: NNUserInfoView, state: NSResponder.MouseState, event: NSEvent);

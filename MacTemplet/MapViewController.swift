@@ -12,7 +12,7 @@ import CoreLocation
 import SnapKit
 import SnapKitExtend
 
-import CocoaExpand
+import SwiftExpand
 
 class MapViewController: NSViewController {
     

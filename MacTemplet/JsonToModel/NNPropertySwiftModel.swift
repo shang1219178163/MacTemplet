@@ -192,7 +192,7 @@ return view
             return ""
         }
         
-        let structKeyword = isStruct ? "mutating " : ""
+        let funcKeyword = isClass ? "" : "mutating "
         
         var propertyName = name
         propertyName = propertyName.hasPrefix(namePrefix) ? propertyName : namePrefix + propertyName
@@ -215,15 +215,15 @@ return view
         }
         
         var content = """
-    \(helpContent)
-    \(structKeyword)func \(namePrefix)\(name)\(nameSuffix)(_ \(name): \(type)) -> Self {
+\(helpContent)
+    \(funcKeyword)func \(namePrefix)\(name)\(nameSuffix)(_ \(name): \(type)) -> Self {
         self.\(name) = \(name)
         return self
     }
 """
         if helpContent == "" {
             content = """
-    \(structKeyword)func \(namePrefix)\(name)\(nameSuffix)(_ \(name): \(type)) -> Self {
+    \(funcKeyword)func \(namePrefix)\(name)\(nameSuffix)(_ \(name): \(type)) -> Self {
         self.\(name) = \(name)
         return self
     }
@@ -232,7 +232,7 @@ return view
         return content
     }
     
-    var isStruct = false
+    var isClass = true
     
     
     // MARK: -funtions
@@ -240,16 +240,16 @@ return view
     static func models(with string: String) -> [NNPropertySwiftModel] {
         let lines = string.components(separatedBy: "\n").filter { $0 != ""}
         
-        var isStruct = false
+        var isClass = false
         if let line = lines.filter({ $0.contains(" : ") }).first {
-            isStruct = line.contains("struct")
+            isClass = line.contains("class")
         }
 
         var dic = [String: String]()
         for (idx, line) in lines.enumerated() {
             if line.trimmed.hasPrefix("@available") && lines[idx+1].contains("var") {
 //                DDLog(line, lines[idx+1])
-                dic[lines[idx+1]] = line.trimmed
+                dic[lines[idx+1]] = line.trimmedBy("{ get set }").trimmed
             }
         }
         
@@ -257,8 +257,8 @@ return view
             .filter { $0.contains(" var ") && !$0.contains("{ get }")}
             .map({ content -> NNPropertySwiftModel in
                 let model = NNPropertySwiftModel()
-                model.content = content
-                model.isStruct = isStruct
+                model.content = content.replacingOccurrences(of: "{ get set }", with: "")
+                model.isClass = isClass
                 if dic.keys.contains(content) {
                     model.availableDes = dic[content] ?? ""
                 }

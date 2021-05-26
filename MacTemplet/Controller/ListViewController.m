@@ -11,7 +11,7 @@
 #import "NNTableRowView.h"
 #import "NNTextField.h"
 
-#import <CocoaExpand-Swift.h>
+#import <SwiftExpand-Swift.h>
 
 @interface ListViewController ()<NSTableViewDelegate, NSTableViewDataSource>
 

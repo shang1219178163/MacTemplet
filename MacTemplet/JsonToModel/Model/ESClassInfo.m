@@ -10,7 +10,7 @@
 #import "ESJsonFormatManager.h"
 #import "ESJsonFormatSetting.h"
 
-#import <CocoaExpand-Swift.h>
+#import <SwiftExpand-Swift.h>
 
 
 @implementation ESClassInfo
