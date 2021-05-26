@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 #import "NNTextField.h"
 
-#import <CocoaExpand-Swift.h>
+#import <SwiftExpand-Swift.h>
 
 static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 
@@ -82,7 +82,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 //                      @[@"OthersViewController", @"Others",],
 //                      @[@"NNSplitViewController", @"SplitView",],
 //                                            
-////                      @[@"YYModelSwiftController", @"YYModelSwift",],
+//                      @[@"YYModelSwiftController", @"YYModelSwift",],
 ////                    @[@"CollectionViewController", @"CollectionView模块",],
 ////                      @[@"NSTestViewController", @"测试模块",],
 //

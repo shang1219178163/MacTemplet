@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import CocoaExpand
+import SwiftExpand
 
 class ShowViewController: NSViewController {
 

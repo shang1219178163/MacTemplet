@@ -8,7 +8,7 @@
 
 import Cocoa
 import SnapKit
-import CocoaExpand
+import SwiftExpand
 
 
 class NNListViewController: NSViewController {

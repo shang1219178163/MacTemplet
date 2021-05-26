@@ -28,7 +28,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "NSApplication+Ext.h"
 
-#import <CocoaExpand-Swift.h>
+#import <SwiftExpand-Swift.h>
 
 
 @interface JsonToModelController ()<NSTableViewDataSource, NSTableViewDelegate, NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>

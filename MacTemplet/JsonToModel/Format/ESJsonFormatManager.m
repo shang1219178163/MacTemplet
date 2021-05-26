@@ -16,7 +16,7 @@
 #import "ESPbxprojInfo.h"
 #import "ESClassInfo.h"
 
-#import <CocoaExpand-Swift.h>
+#import <SwiftExpand-Swift.h>
 
 @interface ESJsonFormatManager()
 

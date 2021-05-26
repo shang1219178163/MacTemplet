@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import CocoaExpand
+import SwiftExpand
 import SnapKit
 import SnapKitExtend
 
@@ -97,11 +97,12 @@ class YYModelSwiftController: NSViewController {
         let content = try? String(contentsOfFile: path!, encoding: .utf8)
         self.textView.string = content!
         
-        guard let dic: [String: Any] = JSONSerialization.ObjFromGeojson("Json1.geojson") as? [String : Any] else { return }
+        guard let dic = JSONSerialization.jsonObject(forResource: "Json1", ofType: "geojson") as? [String : Any] else { return }
 //        let model = NNRootModel.yy_model(with: dic)
         let model = NNHouseRootModel.yy_model(with: dic)
         
-        guard let list: [Any] = JSONSerialization.ObjFromGeojson("blocks.geojson") as? [Any] else { return }
+        guard let list: [Any] = JSONSerialization.jsonObject(forResource: "blocks", ofType: "geojson") as? [Any] else { return }
+
         let modelArray = NSArray.yy_modelArray(with: NNBlocksModel.self, json: list)
 
         let dataModel: NNBlocksModel = modelArray?.first as! NNBlocksModel

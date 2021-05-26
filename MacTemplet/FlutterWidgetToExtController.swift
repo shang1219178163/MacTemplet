@@ -7,10 +7,14 @@
 //
 
 import Cocoa
-import CocoaExpand
+import SwiftExpand
+import WebKit
 
 import RxSwift
 import RxCocoa
+
+
+import SwiftChain
 
 @objcMembers class FlutterWidgetToExtController: NSViewController {
     
@@ -20,7 +24,7 @@ import RxCocoa
         let view = NNTextView.create(.zero)
         view.font = NSFont.systemFont(ofSize: 12)
         view.string = "";
-        
+                
         return view
     }()
 
@@ -144,6 +148,19 @@ import RxCocoa
         textFieldTwo.stringValue = propertySuffix
 
         textView.string = kContainerContent
+        
+        
+        let list = NSArray.generate(count: 9) { (index) -> NSArray.Element in
+            return "item\(index)"
+        }
+        DDLog(list)
+        let style = NSMutableParagraphStyle()
+            .lineSpacingChain(2)
+            .paragraphSpacingChain(2)
+            .paragraphSpacingBeforeChain(10)
+        
+    
+        
     }
     
     override func viewDidLayout() {

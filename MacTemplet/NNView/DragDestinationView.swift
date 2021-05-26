@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import CocoaExpand
+import SwiftExpand
 
 @objc protocol DragDestinationViewDelegate: NSObjectProtocol {
     @objc optional func processImage(_ image: NSImage, pasteBoard: NSPasteboard)

@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import CocoaExpand
+import SwiftExpand
 import SnapKit
 
 class NSTableCellViewOutlineHeader: NSTableCellView {

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CocoaExpand
+import SwiftExpand
 
 
 @objcMembers class NNPropertyModel: NSObject {
