@@ -12,9 +12,7 @@ import WebKit
 
 import RxSwift
 import RxCocoa
-
-
-import SwiftChain
+import Then
 
 @objcMembers class FlutterWidgetToExtController: NSViewController {
     

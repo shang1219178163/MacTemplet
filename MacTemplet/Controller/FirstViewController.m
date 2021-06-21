@@ -96,10 +96,10 @@
 #pragma mark -lazy
 -(NSWindowController *)windowCtrl{
     if (!_windowCtrl) {
-        NSWindow *window = [NSWindow create:NSWindow.defaultRect title:@"First"];
-        
-        ListViewController *tableController = [[ListViewController alloc]init];
-        window.contentViewController = tableController;
+        NSWindow *window = [[NSWindow alloc] initWithVc:nil rect:NSWindow.defaultRect];
+        window.title = @"First";
+        ListViewController *contentVC = [[ListViewController alloc]init];
+        window.contentViewController = contentVC;
 
         _windowCtrl = [[NSWindowController alloc]initWithWindow:window];
 
@@ -114,7 +114,7 @@
             NSSegmentedControl *view = [[NSSegmentedControl alloc] init];
             view.items = items;
             [view addActionHandler:^(NSControl * _Nonnull control) {
-                NSSegmentedControl * sender = (NSSegmentedControl *)control;
+                NSSegmentedControl *sender = (NSSegmentedControl *)control;
                 DDLog(@"%@", @(sender.selectedSegment));
                 [self handleActionSender:sender];
                 

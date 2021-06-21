@@ -20,8 +20,17 @@ class AppIconActionController: NSViewController {
 
         // Do any additional setup after loading the view.
         let list: [String] = ["退出应用", "显示未读信息数量", "跳转", "隐藏dock栏Icon", "显示dock栏Icon", "Button", ]
-        itemList = NSButton.createGroupView(.zero, list: list, numberOfRow: 6, padding: 8, target: self, action: #selector(handleAction(_:)), inView: view);
+        itemList = list.enumerated().map({ (e) -> NSButton in
+            let sender = NSButton(title: e.element, target: self, action: #selector(handleAction(_:)))
+            sender.bezelStyle = .regularSquare
+            sender.lineBreakMode = .byCharWrapping
+            sender.tag = e.offset
+            return sender
+        })
         
+        itemList.forEach { (e) in
+            view.addSubview(e)
+        }
 //        DDLog(view.frame, view.bounds)
 //        view.getViewLayer()
     }
@@ -30,7 +39,7 @@ class AppIconActionController: NSViewController {
         super.viewDidLayout()
         
         let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height*0.1)
-        NSButton.updateGroupItemConstraint(frame, items: itemList, numberOfRow: 6, padding: 8)
+        itemList.updateItemsConstraint(frame, numberOfRow: 6, padding: 8)
     }
 
     override var representedObject: Any? {

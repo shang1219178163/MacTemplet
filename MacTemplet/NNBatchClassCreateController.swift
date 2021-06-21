@@ -161,7 +161,9 @@ class NNBatchClassCreateController: NSViewController {
         if text.count <= 0 {
             return
         }
-        createFiles(text, type: btnPop.titleOfSelectedItem!.lowercased())
+        
+        let type = text.contains(".") ? "" : btnPop.titleOfSelectedItem!.lowercased()
+        createFiles(text, type: type)
     }
     /// 按照类型创建文件
     func createFiles(_ text: String, type: String = "swift") {

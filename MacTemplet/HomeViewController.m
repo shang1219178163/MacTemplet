@@ -78,7 +78,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 ////                      @[@"NNButtonStyleController", @"NSButon研究",],
 ////                      @[@"NNButtonStudyController", @"NNButton封装",],
 ////                      @[@"NNLabelStudyController", @"NNLabel封装",],
-//                      @[@"TmpViewController", @"Tmp模块",],
+                      @[@"TmpViewController", @"Tmp模块",],
 //                      @[@"OthersViewController", @"Others",],
 //                      @[@"NNSplitViewController", @"SplitView",],
 //                                            
@@ -92,7 +92,6 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 //                      @[@"MapViewController", @"MapView",],
 ////                      @[@"FileController", @"File处理",],
 ////                      @[@"NNTableViewController", @"NNTable",],
-
                       ];
 
     [self.tabView addItems:list];
@@ -104,7 +103,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
     }
     [self.view addSubview:self.tabView];
     
-    
+    DDLog(@"name: %@", self.vcName);
 //    NSNumberFormatter *fmt =
 }
 

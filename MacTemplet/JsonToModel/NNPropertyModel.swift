@@ -42,7 +42,7 @@ import SwiftExpand
         if self.content.contains("*") {
             if self.isBlock {
 //            "UICollectionViewFlowLayout *(^nn_attributes)(NSArray<NSString *> *);"
-                let lastItems: [String] = self.parts.subarray(NSRange(location: 2, length: self.parts.count - 2))
+                let lastItems: [String] = self.parts.subarray(with: NSRange(location: 2, length: self.parts.count - 2))
                 return lastItems
             } else if self.content.contains("<") {
                 let lastItems: [String] = last.componentsSeparatedByCharactersInString("<>")

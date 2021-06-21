@@ -104,7 +104,7 @@
     
     NSString * folderPath = @"/Users/shang/Downloads";
     [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:kFolderPath];
-    
+
 }
 
 -(void)viewDidLayout{
@@ -199,7 +199,7 @@
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
     BOOL isSwift = NSApplication.isSwift;
     
-    CGFloat windowHeight = NSApplication.windowDefault.frame.size.height;
+    CGFloat windowHeight = NSApplication.homeWindow.frame.size.height;
     CGFloat height = isSwift ? (windowHeight - 50 - 40) : (windowHeight- 50)*0.5;
 //    DDLog(@"__%@_%@_%@_%@",@(NSApp.keyWindow.frame), @(NSScreen.mainScreen.frame), @(NSApp.mainWindow.frame), @(height));
     return height > 0 ? height : tableView.rowHeight;
@@ -392,7 +392,9 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
 }
 
 - (void)hanldeJson{
-    if (self.textField.stringValue.length <= 0 || self.textFieldTwo.stringValue.length <= 0 || self.textFieldThree.stringValue.length <= 0) {
+    if (self.textField.stringValue.length <= 0
+        || self.textFieldTwo.stringValue.length <= 0
+        || self.textFieldThree.stringValue.length <= 0) {
         [NSAlert show:@"提示" message:@"前缀,类名,父类均不能为空" btnTitles:@[kTitleKnow] handler:nil];
         return;
     }
@@ -401,12 +403,12 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     
 //    self.hTextView.string = @"";
 //    self.mTextView.string = @"";
-    id result = [NSJSONSerialization jsonObjectFromString:self.textView.string options:kNilOptions];
+    id result = self.textView.string.objValue;
     self.textLabel.stringValue = result ? @"Valid JSON Structure" : @"JSON isn't valid";
     self.textLabel.textColor = result ? NSColor.systemGreenColor : NSColor.redColor;
     if (!result) {
         NSAlert *alert = [NSAlert create:@"警告" message:@"Error：Json is invalid" btnTitles:@[kTitleKnow]];
-        [alert beginSheetModalForWindow:NSApplication.windowDefault completionHandler:^(NSModalResponse returnCode) {
+        [alert beginSheetModalForWindow:NSApplication.homeWindow completionHandler:^(NSModalResponse returnCode) {
             DDLog(@"%@", @(returnCode));
         }];
         return;
