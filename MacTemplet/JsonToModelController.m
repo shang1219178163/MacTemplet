@@ -395,7 +395,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     if (self.textField.stringValue.length <= 0
         || self.textFieldTwo.stringValue.length <= 0
         || self.textFieldThree.stringValue.length <= 0) {
-        [NSAlert show:@"提示" message:@"前缀,类名,父类均不能为空" btnTitles:@[kTitleKnow] handler:nil];
+        [[NSAlert create:@"提示" message:@"前缀,类名,父类均不能为空" btnTitles:@[kTitleKnow]] beginSheetChain:nil];
         return;
     }
     
