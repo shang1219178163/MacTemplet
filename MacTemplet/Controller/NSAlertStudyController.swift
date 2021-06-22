@@ -57,10 +57,9 @@ beginSheetModal(for sheetWindow: NSWindow, completionHandler handler: ((NSModalR
 
 
 import Cocoa
-import SwiftChain
 import SwiftExpand
 import SnapKit
-
+import Then
 
 enum IconSize: Int, CaseIterable {
     case twentyNine = 29
@@ -144,10 +143,9 @@ class NSAlertStudyController: NSViewController {
 //        }
         
         let titles = sizesToReduce.map { "\($0.rawValue)x\($0.rawValue)" }
-        stackView.distributeViewsAlong(for: titles) { (idx, title) -> NSView in
-            let button = NSButton(radioButtonWithTitle: "\(title)", target: self, action: #selector(self.onClickCheckBox(_:)))
-            button.tag = idx
-            return button
+        stackView.distributeViewsAlongButton(for: titles) { sender in
+//            let sender = NSButton(radioButtonWithTitle: "\(titles[e.tag])", target: self, action: #selector(self.onClickCheckBox(_:)))
+            sender.addTarget(self, action: #selector(self.onClickCheckBox(_:)))
         }
         
 //        stackView.distributeViewsAlongButton(for: .radio, titles: titles) { (sender) in
@@ -234,30 +232,35 @@ class NSAlertStudyController: NSViewController {
 //        button.isHidden = true
         
         let stackView = NSStackView(frame: CGRect(x: 0, y: 0, width: 200, height: 80))
-        stackView.changeViews([nameField, pwdField, button], orientation: .vertical)
+        stackView.orientation = .vertical
+        stackView.changeSubViews([nameField, pwdField, button])
         
-        let alert = NSAlert()
-            .messageTextChain("提示")
-            .informativeTextChain("非图片文件")
-            .alertStyleChain(.warning)
-            .addButtonsChain(["确定", "取消",])
-            .showsHelpChain(true)
-            .showsSuppressionButtonChain(true)
-            .suppressionButtonActionChain({ (sender) in
+        let alert = NSAlert().then({
+            $0.messageText = "提示"
+            $0.informativeText = "非图片文件"
+            $0.alertStyle = .warning
+            $0.addButtonsChain(["确定", "取消",])
+            $0.showsHelp = true
+            $0.showsSuppressionButton = true
+            $0.suppressionButtonActionChain({ (sender) in
                 DDLog(sender.state.rawValue)
             })
-            .delegateChain(self)
-            .accessoryViewChain(stackView)
-            .beginSheetChain { (respone) in
+            $0.delegate = self
+            $0.accessoryView = stackView
+            $0.beginSheetChain { (respone) in
                 print("\(#function)\(respone)")
             }
+        })
+            
+
         alert.window.initialFirstResponder = nameField
     }
     
     func testStackView() {
         let stackView = NSStackView(frame: CGRect(x: 20, y: 320, width: 300, height: 80))
-        view.addSubview(stackView)
+        stackView.orientation = .horizontal
         stackView.layer?.backgroundColor = NSColor.systemGreen.cgColor
+        view.addSubview(stackView)
         
         
         let nameField = NSTextField()
@@ -274,7 +277,7 @@ class NSAlertStudyController: NSViewController {
         button.setButtonType(.onOff)
 //        button.isHidden = true
 
-        stackView.changeViews([nameField, pwdField, button], orientation: .horizontal)
+        stackView.changeSubViews([nameField, pwdField, button])
         
 //        stackView1.changeViews([nameField, pwdField, button], orientation: .horizontal)
 //        stackView1.layer?.backgroundColor = NSColor.red.cgColor

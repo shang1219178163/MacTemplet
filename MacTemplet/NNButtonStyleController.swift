@@ -271,7 +271,10 @@ extension NNButtonStyleController : NSCollectionViewDataSource {
 //    item.btn.image = NSImage(named: "AppIcon")
 //    item.btn.imageScaling = NSImageScaling.scaleNone
 
-    let attDic = NSAttributedString.attrDict()
+    let attDic: [NSAttributedString.Key: Any] = [
+        .font: NSFont.systemFont(ofSize: 15),
+        .foregroundColor: NSColor.black,
+    ]
     item.btn.attributedTitle = NSAttributedString(string: "UIButton", attributes: attDic)
     
 //    item.btn.normalColor = NSColor.black
@@ -352,9 +355,6 @@ extension NNButtonStyleController : NSCollectionViewDataSource {
 
     //        btn.backgroundColor = NSColor.red
     //        btn.titleColor = NSColor.green
-            
-    //        let attDic = NSAttributedString.attrDict(15, textColor: NSColor.red)
-    //        btn.attributedTitle = NSAttributedString(string: "UIButton", attributes: attDic)
 
     //        item.view.getViewLayer()
         case 1:

@@ -138,7 +138,7 @@ class NNTabViewController: NSWindowController {
     lazy var popover: NSPopover = {
         let controller = ListViewController()
         controller.preferredContentSize = CGSize(width: kScreenWidth*0.15, height: kScreenHeight*0.25)
-        let popView = NSPopover.create(controller: controller)
+        let popView = NSPopover(vc: controller)
         return popView
     }()
 

@@ -35,30 +35,32 @@
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"LAYOUT_CONSTRAINTS_NOT_SATISFIABLE"];
     [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
 
-    NSString *controllerName = @"HomeViewController";
-//    controllerName = @"FirstViewController";
-//    controllerName = @"MainViewController";
-//    controllerName = @"NNTabViewController";
-//    controllerName = @"CollectionViewController";
-//    controllerName = @"JsonToModelController";
-//    controllerName = @"NNTextViewContoller";
-//    controllerName = @"ProppertyLazyController";
-//    controllerName = @"MacTemplet.MapViewController";
-//    controllerName = @"MacTemplet.ShowViewController";
+    NSString *vcNmae = @"HomeViewController";
+//    vcNmae = @"FirstViewController";
+//    vcNmae = @"MainViewController";
+//    vcNmae = @"NNTabViewController";
+//    vcNmae = @"CollectionViewController";
+//    vcNmae = @"JsonToModelController";
+//    vcNmae = @"NNTextViewContoller";
+//    vcNmae = @"ProppertyLazyController";
+//    vcNmae = @"MacTemplet.MapViewController";
+//    vcNmae = @"MacTemplet.ShowViewController";
     
-    NSViewController *controller = [[NSClassFromString(controllerName) alloc] init];
+    NSViewController *controller = [[NSClassFromString(vcNmae) alloc] init];
     self.window.contentViewController = controller;
     [self.window makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:true];
 
 //    self.window.opaque = false;
 //    self.window.backgroundColor = [NSColor.whiteColor colorWithAlphaComponent:0.9];
 //    self.windowCtrl.window.contentViewController = controller;
 //    self.windowCtrl.window.title = NSApplication.appName;
 
-//    DDLog(@"NSApplication.sharedApplication.mainWindow_%@", NSApplication.sharedApplication.mainWindow);
-//    DDLog(@"NSApp.mainWindow_%@", NSApp.mainWindow);
-//    DDLog(@"NSApp.keyWindow_%@", NSApp.keyWindow);
-//    DDLog(@"NSApplication.windowDefault_%@", NSApplication.windowDefault);
+    DDLog(@"NSApp.homeWindow_%@", NSApplication.homeWindow);
+    DDLog(@"NSApplication.sharedApplication.mainWindow_%@", NSApplication.sharedApplication.mainWindow);
+    DDLog(@"NSApp.mainWindow_%@", NSApp.mainWindow);
+    DDLog(@"NSApp.keyWindow_%@", NSApp.keyWindow);
+//    DDLog(@"NSApplication.windowDefault_%@", NSApplication.initWindow);
 
 //    id obj = [NSUserDefaults.standardUserDefaults objectForKey:kMainWindowFrame];
 //    DDLog(@"%@", obj);
@@ -170,8 +172,9 @@
 #pragma mark -lazy
 -(NSWindow *)window{
     if (!_window) {
-        _window = NSApplication.windowDefault;
-        _window.contentMinSize = CGSizeMake(kScreenWidth*0.55, kScreenHeight*0.5);
+        _window = NSApplication.homeWindow;
+//        _window.contentMinSize = CGSizeMake(kScreenWidth*0.55, kScreenHeight*0.5);
+        _window.contentMinSize = CGSizeMake(NSScreen.sizeWidth*0.55, NSScreen.sizeHeight*0.5);
         _window.title = @"App代码助手";
     }
     return _window;
@@ -187,10 +190,10 @@
 - (NSPopover *)popover{
     if(!_popover) {
         _popover = ({
-            NSString * controllerName = @"FirstViewController";
-            NSViewController * controller = [[NSClassFromString(controllerName) alloc] init];
-            controller.view.frame = CGRectMake(0, 0, kScreenWidth*0.2, 200);
-            NSPopover *popover = [NSPopover createWithController:controller];
+            NSString *vcNmae = @"FirstViewController";
+            NSViewController * controller = [[NSClassFromString(vcNmae) alloc] init];
+            controller.view.frame = CGRectMake(0, 0, NSScreen.sizeWidth*0.2, 200);
+            NSPopover *popover = [[NSPopover alloc] initWithVc:controller];
 //
             popover;
         });

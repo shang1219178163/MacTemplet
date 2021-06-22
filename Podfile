@@ -29,8 +29,8 @@ def common_pods
   pod 'NNButton'
   pod 'NNLabel'
 
-  pod 'SwiftChain'
   pod 'SwiftExpand'
+  pod 'Then'
 
 #  pod 'FlatButton'
 

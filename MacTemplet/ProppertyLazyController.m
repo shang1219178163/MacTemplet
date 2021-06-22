@@ -116,7 +116,7 @@
 
 - (void)showConvertResult {
     if (![self.textView.string containsString:@"*"]) {
-        [NSAlert show:@"提示" message:@"❌lazy属性必须包含*" btnTitles:nil handler:nil];
+        [[NSAlert create:@"提示" message:@"❌lazy属性必须包含*" btnTitles:@[kTitleKnow]] beginSheetChain:nil];
         return;
     }
     [NSApp.mainWindow makeFirstResponder:nil];
