@@ -44,7 +44,7 @@ class LittleActionController: NSViewController {
         super.viewDidLayout()
         
         let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height*0.1)
-        itemList.updateItemsConstraint(frame, numberOfRow: 6, padding: 8)
+        itemList.updateItemsConstraint(frame, numberOfRow: 6)
     }
     
     // MARK: -funtions
