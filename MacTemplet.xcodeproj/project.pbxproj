@@ -15,6 +15,7 @@
 		14123353264B9A670098C8FB /* NNPropertyFlutterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14123352264B9A670098C8FB /* NNPropertyFlutterModel.swift */; };
 		14132978238559CE00E7AFCA /* NSTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14132977238559CE00E7AFCA /* NSTestViewController.m */; };
 		141495D1242CBFEF00141A9F /* NNLabelStudyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141495CF242CBFEF00141A9F /* NNLabelStudyController.swift */; };
+		141C1FA12685CC2500A120EF /* UImageBatchCreateContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141C1FA02685CC2500A120EF /* UImageBatchCreateContoller.swift */; };
 		142857BB2425A05200BC36F0 /* AAButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 142857BA2425A05200BC36F0 /* AAButton.m */; };
 		142857BE2425A34900BC36F0 /* OOButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 142857BD2425A34900BC36F0 /* OOButton.m */; };
 		142857C12425A5FB00BC36F0 /* RRButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 142857C02425A5FB00BC36F0 /* RRButton.m */; };
@@ -205,6 +206,7 @@
 		14132976238559CE00E7AFCA /* NSTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTestViewController.h; sourceTree = "<group>"; };
 		14132977238559CE00E7AFCA /* NSTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTestViewController.m; sourceTree = "<group>"; };
 		141495CF242CBFEF00141A9F /* NNLabelStudyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNLabelStudyController.swift; sourceTree = "<group>"; };
+		141C1FA02685CC2500A120EF /* UImageBatchCreateContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UImageBatchCreateContoller.swift; sourceTree = "<group>"; };
 		142857B92425A05200BC36F0 /* AAButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAButton.h; sourceTree = "<group>"; };
 		142857BA2425A05200BC36F0 /* AAButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAButton.m; sourceTree = "<group>"; };
 		142857BC2425A34900BC36F0 /* OOButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OOButton.h; sourceTree = "<group>"; };
@@ -562,6 +564,7 @@
 				14886B3F26315DC700788F64 /* ProppertyChainSwiftController.swift */,
 				1412334A264B96BB0098C8FB /* FlutterIconDataController.swift */,
 				14961829264F6F5300DF56FE /* FlutterWidgetToExtController.swift */,
+				141C1FA02685CC2500A120EF /* UImageBatchCreateContoller.swift */,
 				14D40A1022C4A6DA00AF74B9 /* AuthorInfoController.h */,
 				14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */,
 				14132976238559CE00E7AFCA /* NSTestViewController.h */,
@@ -1120,6 +1123,7 @@
 				14F92C5922BB951700A5C5E4 /* NNFileManager.m in Sources */,
 				14F0FDE922B084EC00057093 /* NSTableView+Hook.m in Sources */,
 				148BB41E2438495400ECEF3B /* GreenViewController.swift in Sources */,
+				141C1FA12685CC2500A120EF /* UImageBatchCreateContoller.swift in Sources */,
 				14D4ED5223CA08F300B8BD16 /* NNRootModel.m in Sources */,
 				14D40A1222C4A6DA00AF74B9 /* AuthorInfoController.m in Sources */,
 				14ADE23523CDA13900037B0B /* NNRequestAPIDetailCreater.swift in Sources */,
