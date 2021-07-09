@@ -16,17 +16,6 @@ class UImageBatchCreateContoller: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-        let list = names.componentsSeparatedByCharacters("\n")
-        DDLog(list.count)
-        
-        let tuples = list.map { [self] in return handleToUIImage($0) }
-        tuples.forEach {
-            print("UIImage.\($0.0)")
-        }
-        
-        tuples.forEach {
-            print($0.1)
-        }
     }
     
     
@@ -35,24 +24,62 @@ class UImageBatchCreateContoller: NSViewController {
         
     }
     
-    func handleToUIImage(_ name: String) -> (String, String) {
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+        handleText()
+    }
+    
+    func handleText()  {
+//        let list = names.componentsSeparatedByCharacters("\n")
+        let list = names.componentsSeparatedByCharacters("\n")
+        DDLog(list.count)
+        
+        let tuples = list.map { [self] in return handleToUIImage($0) }
+        
+        let content = tuples.map { $0.2 }.joined(separator: "\n")
+        let hContent =
+"""
+@available(iOS 13.0, *)
+@objc public extension UIImage{
+\(content)
+}
+"""
+        FileManager.createFile(content: hContent, name: "UIImage+Icons", type: "swift")
+    }
+    
+    /// swich to image
+    /// - Returns: (name, varName, body))
+    func handleToUIImage(_ name: String) -> (String, String, String) {
         var varName = name.replacingOccurrences(of: ".", with: "_")
         
         var list = name.components(separatedBy: ".")
-        if list[0] == "0" || list[0].intValue > 0 {
+        if list[0].hasPrefix("0") || list[0].intValue > 0 {
             list.append(list[0])
             list.removeFirst()
 
             varName = "\(list.joined(separator: "_"))"
         }
         
-        let body =
-        """
-        var \(varName): UIImage {
-            return UIImage(systemName: "\(name)") ?? UIImage()
+        if ["repeat", "case", "return"].contains(varName) {
+            varName += "_Image"
         }
-        """
-        return (varName, body)
+        
+        let body =
+"""
+\t/// \(name)
+\tstatic let \(varName) = UIImage(systemName: "\(name)")
+
+"""
+//        let body =
+//"""
+//\t/// \(name)
+//\tstatic var \(varName): UIImage? {
+//\t\treturn UIImage(systemName: "\(name)")
+//\t}
+//
+//"""
+        return (name, varName, body)
     }
     
 }
