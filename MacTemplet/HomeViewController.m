@@ -26,7 +26,6 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
     // Do view setup here.
     
     [self setupUI];
-//    [self.view getViewLayer];
 }
 
 -(void)viewWillAppear{
@@ -45,7 +44,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
     }];
     
     // 保存窗口尺寸
-    [NSUserDefaults.standardUserDefaults setObject: NSStringFromRect(NSApp.mainWindow.frame) forKey:kMainWindowFrame];
+    [NSUserDefaults.standardUserDefaults setObject: NSStringFromRect(NSApp.keyWindow.frame) forKey:kMainWindowFrame];
     [NSUserDefaults.standardUserDefaults synchronize];
 }
 
@@ -69,7 +68,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"NNBatchClassCreateController", @"类文件批量创建",],
                       @[@"ProppertyChainController", @"属性转链式",],
                       @[@"ProppertyChainSwiftController", @"Swift属性转链式",],
-                      @[@"FlutterIconDataController", @"FlutterIconData",],
+//                      @[@"FlutterIconDataController", @"FlutterIconData",],
                       @[@"FlutterWidgetToExtController", @"Widget转扩展",],
             
                       @[@"DragFileController", @"文件拖拽",],
@@ -79,7 +78,8 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 ////                      @[@"NNButtonStudyController", @"NNButton封装",],
 ////                      @[@"NNLabelStudyController", @"NNLabel封装",],
                       @[@"TmpViewController", @"Tmp模块",],
-                      @[@"UImageBatchCreateContoller", @" 字符串转 UImage",],
+//                      @[@"UImageBatchCreateContoller", @" 字符串转 UImage",],
+                      @[@"OtherConvertController", @"字符串加工",],
                       
 //                      @[@"OthersViewController", @"Others",],
 //                      @[@"NNSplitViewController", @"SplitView",],
@@ -95,7 +95,6 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 ////                      @[@"FileController", @"File处理",],
 ////                      @[@"NNTableViewController", @"NNTable",],
                       ];
-
     [self.tabView addItems:list];
 
     if ([NSUserDefaults.standardUserDefaults objectForKey:kDefaultTabIndex]) {

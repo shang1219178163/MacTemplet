@@ -82,7 +82,7 @@ import RxCocoa
         view.title = "Done"
 
         view.addActionHandler { (sender) in
-            NSApp.mainWindow!.makeFirstResponder(nil)
+            NSApp.keyWindow!.makeFirstResponder(nil)
             self.createFiles()
         }
         return view
@@ -95,7 +95,7 @@ import RxCocoa
         view.title = "刷新一下"
 
         view.addActionHandler { (sender) in
-            NSApp.mainWindow!.makeFirstResponder(nil)
+            NSApp.keyWindow!.makeFirstResponder(nil)
             self.convertContent()
         }
         return view

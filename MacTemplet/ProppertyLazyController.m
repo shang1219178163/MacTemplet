@@ -52,8 +52,6 @@
     ;
 
     [self.textView resignFirstResponder];
-
-//    [self.view getViewLayer];
 }
 
 - (void)viewDidLayout{
@@ -119,7 +117,7 @@
         [[NSAlert create:@"提示" message:@"❌lazy属性必须包含*" btnTitles:@[kTitleKnow]] beginSheetChain:nil];
         return;
     }
-    [NSApp.mainWindow makeFirstResponder:nil];
+    [NSApp.keyWindow makeFirstResponder:nil];
     self.textViewOne.string = [self createResult:self.textView.string];
 //    [NSPasteboard.generalPasteboard clearContents];
 //    [NSPasteboard.generalPasteboard setString:self.textViewOne.string forType:NSPasteboardTypeString];

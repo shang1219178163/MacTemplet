@@ -55,11 +55,10 @@ class UUTabViewController: NSTabViewController {
 
         
 //        tabView.tabViewItems = items
-        DDLog(tabView.tabViewItems)
+//        DDLog(tabView.tabViewItems)
     }
     
     override func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-
         super.toolbarDefaultItemIdentifiers(toolbar)
 
         var arr = Array<NSToolbarItem.Identifier>()

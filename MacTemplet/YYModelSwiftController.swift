@@ -43,7 +43,7 @@ class YYModelSwiftController: NSViewController {
 //        view.bezelStyle = .shadowlessSquare
 ////        view.bezelColor = NSColor.blue.withAlphaComponent(0.5)
 //        view.addActionHandler { (control) in
-//            NSApp.mainWindow?.makeFirstResponder(nil)
+//            NSApp.keyWindow?.makeFirstResponder(nil)
 //            self.createFile(self.textView.string)
 //
 //        }
@@ -60,7 +60,7 @@ class YYModelSwiftController: NSViewController {
         view.addSubview(segmentCtl)
         view.addSubview(textView.enclosingScrollView!)
         
-        comboBox.isHidden = true
+//        comboBox.isHidden = true
         segmentCtl.isHidden = true
         
 //        view.getViewLayer()
@@ -71,7 +71,7 @@ class YYModelSwiftController: NSViewController {
                 
         comboBox.snp.makeConstraints { (make) in
             make.right.bottom.equalToSuperview()
-            make.height.equalTo(35)
+            make.height.equalTo(20)
             make.width.equalTo(100)
         }
         

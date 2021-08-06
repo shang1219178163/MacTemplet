@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate+Menu.h"
-
 #import <SwiftExpand-Swift.h>
 
 
@@ -36,10 +35,9 @@
     
     
     NSMenuItem *oneItem3 = ({
-        NSMenuItem *item = [NSMenuItem createWithTitle:@"Load3" keyEquivalent:@"T" handler:^(NSMenuItem * _Nonnull menuItem) {
-                 DDLog(@"%@_%@", menuItem.title, menuItem.keyEquivalent);
-                 
-             }];
+        NSMenuItem *item = [[NSMenuItem alloc]initWithTitle:@"Load3" keyEquivalent:@"T" handler:^(NSMenuItem *item) {
+            DDLog(@"%@_%@", item.title, item.keyEquivalent);
+        }];
         item.submenu = ({
             NSMenu *menu = [[NSMenu alloc] initWithTitle:@"三级目录"];
             [menu addItemWithTitle:@"-30" keyEquivalent:@"T" handler:^(NSMenuItem * _Nonnull menuItem) {
@@ -102,8 +100,8 @@
 //    statusItem.menu = ({
 //        NSMenu *menu = [[NSMenu alloc] initWithTitle:@"menu_right"];
 //        [menu addItemWithTitle:@"保持为默认大小" keyEquivalent:@"E" handler:^(NSMenuItem * _Nonnull menuItem) {
-//            DDLog(@"%@_%@_%@", menuItem.title, menuItem.keyEquivalent, @(NSApp.mainWindow.frame));
-//            [NSUserDefaults.standardUserDefaults setObject: NSStringFromRect(NSApp.mainWindow.frame) forKey:kMainWindowFrame];
+//            DDLog(@"%@_%@_%@", menuItem.title, menuItem.keyEquivalent, @(NSApp.keyWindow.frame));
+//            [NSUserDefaults.standardUserDefaults setObject: NSStringFromRect(NSApp.keyWindow.frame) forKey:kMainWindowFrame];
 //            [NSUserDefaults.standardUserDefaults synchronize];
 //            
 //        }];

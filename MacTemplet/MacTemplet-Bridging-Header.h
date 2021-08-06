@@ -27,3 +27,7 @@
 
 #import "DragDropImageView.h"
 #import "NoodleLineNumberView.h"
+
+
+#import "NNTextViewContoller.h"
+#import "CollectionViewController.h"

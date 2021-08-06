@@ -42,10 +42,10 @@ class NNButtonStudyController: NSViewController {
         view.setTitleColor(NSColor.white, for: .highlighted)
         view.setTitleColor(NSColor.orange, for: .hover)
 
-        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightBlue), for: .normal)
-        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightGreen), for: .selected)
-        view.setBackgroundImage(NSImage.imageWithColor(NSColor.red), for: .highlighted)
-        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightOrange), for: .hover)
+        view.setBackgroundImage(NSImage(color: NSColor.lightBlue), for: .normal)
+        view.setBackgroundImage(NSImage(color: NSColor.lightGreen), for: .selected)
+        view.setBackgroundImage(NSImage(color: NSColor.red), for: .highlighted)
+        view.setBackgroundImage(NSImage(color: NSColor.lightOrange), for: .hover)
 
 //        view.wantsLayer = true
 //        view.layer?.borderColor = NSColor.green.cgColor
@@ -100,11 +100,11 @@ class NNButtonStudyController: NSViewController {
 //        view.setTitleColor(NSColor.red, for: .normal)
 
         view.setBackgroundImage(NSImage(color: NSColor.lightBlue), for: .normal)
-//        view.setBackgroundImage(NSImage.imageWithColor(NSColor.white), for: .hover)
+//        view.setBackgroundImage(NSImage(color: NSColor.white), for: .hover)
 
-        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightGreen), for: .selected)
-//        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightBlue), for: .highlighted)
-//        view.setBackgroundImage(NSImage.imageWithColor(NSColor.white), for: .highlighted)
+        view.setBackgroundImage(NSImage(color: NSColor.lightGreen), for: .selected)
+//        view.setBackgroundImage(NSImage(color: NSColor.lightBlue), for: .highlighted)
+//        view.setBackgroundImage(NSImage(color: NSColor.white), for: .highlighted)
         view.setBorderColor(NSColor.red, for: .hover)
 
 //        view.wantsLayer = true
@@ -127,7 +127,7 @@ class NNButtonStudyController: NSViewController {
         
         view.setTitleColor(NSColor.lightBlue, for: .normal)
 
-//        view.setBackgroundImage(NSImage.imageWithColor(NSColor.white), for: .normal)
+//        view.setBackgroundImage(NSImage(color: NSColor.white), for: .normal)
         
         view.setBorderColor(view.titleColor, for: .normal)
         view.setBorderWidth(3, for: .normal)

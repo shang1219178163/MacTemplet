@@ -92,18 +92,9 @@ class LittleActionController: NSViewController {
     }
     
     func showSheetController() {
-        let controller = NSCtrFromString("NNDatePickerController")
-        let rect = CGRectMake(0, 0, kScreenWidth*0.25, kScreenHeight*0.25)
-//        controller.preferredContentSize = rect.size
-//
-//        let window = NSWindow.create(rect, controller: controller)
-//        window.level = .statusBar
-//        NSApp.mainWindow?.beginSheet(window, completionHandler: { (response) in
-//            DDLog(response)
-//        })
-        NSWindow.showSheet(with: controller, size: rect.size) { (response) in
-            DDLog(response)
-        }
+        let vc = NSCtrFromString("NNDatePickerController")
+        vc.preferredContentSize = CGSize(width: kScreenWidth*0.4, height: kScreenHeight*0.4)
+        vc.showSheet()
     }
 
 }

@@ -27,8 +27,6 @@
     self.imgView.layer.backgroundColor = NSColor.greenColor.CGColor;
     self.label.layer.backgroundColor = NSColor.yellowColor.CGColor;
 
-    [self.view getViewLayer];
-
 }
 
 - (void)viewDidLayout{

@@ -46,7 +46,6 @@
     
     self.textView.string = [NSString stringWithFormat:@"%@\n%@\n%@", NSApplication.appName, NSApplication.appCopyright, @"github/shang1219178163"];
     [self.textView hyperlinkWithDic:dic];
-//    [self.view getViewLayer];
 }
 
 - (void)viewDidLayout{
