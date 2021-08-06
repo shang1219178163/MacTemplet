@@ -87,8 +87,6 @@
     
     [self updateLanguages];
     [self readFile];
-    
-    //    [self.view getViewLayer];
 }
 
 - (void)viewWillAppear{
@@ -199,9 +197,9 @@
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
     BOOL isSwift = NSApplication.isSwift;
     
-    CGFloat windowHeight = NSApplication.homeWindow.frame.size.height;
+    CGFloat windowHeight = NSApp.keyWindow.frame.size.height;
     CGFloat height = isSwift ? (windowHeight - 50 - 40) : (windowHeight- 50)*0.5;
-//    DDLog(@"__%@_%@_%@_%@",@(NSApp.keyWindow.frame), @(NSScreen.mainScreen.frame), @(NSApp.mainWindow.frame), @(height));
+//    DDLog(@"__%@_%@_%@_%@",@(NSApp.keyWindow.frame), @(NSScreen.mainScreen.frame), @(NSApp.keyWindow.frame), @(height));
     return height > 0 ? height : tableView.rowHeight;
 }
 
@@ -408,7 +406,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     self.textLabel.textColor = result ? NSColor.systemGreenColor : NSColor.redColor;
     if (!result) {
         NSAlert *alert = [NSAlert create:@"警告" message:@"Error：Json is invalid" btnTitles:@[kTitleKnow]];
-        [alert beginSheetModalForWindow:NSApplication.homeWindow completionHandler:^(NSModalResponse returnCode) {
+        [alert beginSheetModalForWindow:NSApp.keyWindow completionHandler:^(NSModalResponse returnCode) {
             DDLog(@"%@", @(returnCode));
         }];
         return;
@@ -514,7 +512,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kIsSwift];
     [NSUserDefaults.standardUserDefaults synchronize];
         
-    [NSUserDefaults setArcObject:self.langModel forkey:@"langModel"];
+    [NSUserDefaults archiveObject:self.langModel forkey:@"langModel"];
     [NSUserDefaults synchronize];
 //    id langModel = [NSUserDefaults arcObjectForKey:@"langModel"];
 }
@@ -696,7 +694,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
             NSArray *list = @[@"北京", @"上海", @"广州", @"深圳"];
             [view addItemsWithTitles:list];
             [view addActionHandler:^(NSControl * _Nonnull control) {
-                [NSApp.mainWindow makeFirstResponder:nil];
+                [NSApp.keyWindow makeFirstResponder:nil];
                 [self hanldeJson];
                 
             }];
@@ -715,7 +713,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
             
             view.title = @"保存";
             [view addActionHandler:^(NSControl * _Nonnull control) {
-                [NSApp.mainWindow makeFirstResponder:nil];
+                [NSApp.keyWindow makeFirstResponder:nil];
                 [self creatFile];
                 
             }];

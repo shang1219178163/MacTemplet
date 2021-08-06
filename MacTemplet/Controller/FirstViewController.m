@@ -96,7 +96,7 @@
 #pragma mark -lazy
 -(NSWindowController *)windowCtrl{
     if (!_windowCtrl) {
-        NSWindow *window = [[NSWindow alloc] initWithVc:nil rect:NSWindow.defaultRect];
+        NSWindow *window = [[NSWindow alloc] initWithVc:nil size:NSWindow.defaultSize];
         window.title = @"First";
         ListViewController *contentVC = [[ListViewController alloc]init];
         window.contentViewController = contentVC;

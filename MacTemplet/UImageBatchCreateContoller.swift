@@ -15,22 +15,21 @@ class UImageBatchCreateContoller: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
     }
     
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        
+                
     }
     
     override func viewDidAppear() {
         super.viewDidAppear()
         
-        handleText()
+        convert()
     }
     
-    func handleText()  {
+    func convert() {
 //        let list = names.componentsSeparatedByCharacters("\n")
         let list = names.componentsSeparatedByCharacters("\n")
         DDLog(list.count)
@@ -86,7 +85,7 @@ class UImageBatchCreateContoller: NSViewController {
 
 
 
-let names = """
+fileprivate let names = """
 square.and.arrow.up
 square.and.arrow.up.fill
 square.and.arrow.up.trianglebadge.exclamationmark

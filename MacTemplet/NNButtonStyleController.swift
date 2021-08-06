@@ -67,9 +67,9 @@ class NNButtonStyleController: NSViewController {
         view.setTitleColor(NSColor.blue, for: .selected)
         view.setTitleColor(NSColor.orange, for: .hover)
         
-        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightBlue), for: .normal)
-        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightGreen), for: .selected)
-        view.setBackgroundImage(NSImage.imageWithColor(NSColor.lightOrange), for: .hover)
+        view.setBackgroundImage(NSImage(color: NSColor.lightBlue), for: .normal)
+        view.setBackgroundImage(NSImage(color: NSColor.lightGreen), for: .selected)
+        view.setBackgroundImage(NSImage(color: NSColor.lightOrange), for: .hover)
         
 //        view.wantsLayer = true
 //        view.layer?.borderColor = NSColor.green.cgColor

@@ -22,7 +22,6 @@ class MainViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         view.layer?.backgroundColor = NSColor.lightBlue.cgColor
-
     }
     
 }

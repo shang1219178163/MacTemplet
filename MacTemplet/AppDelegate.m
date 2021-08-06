@@ -29,25 +29,15 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-//    [NSFont initializeMethod];
     
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints"];
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"LAYOUT_CONSTRAINTS_NOT_SATISFIABLE"];
     [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
 
     NSString *vcNmae = @"HomeViewController";
-//    vcNmae = @"FirstViewController";
-//    vcNmae = @"MainViewController";
-//    vcNmae = @"NNTabViewController";
-//    vcNmae = @"CollectionViewController";
-//    vcNmae = @"JsonToModelController";
-//    vcNmae = @"NNTextViewContoller";
-//    vcNmae = @"ProppertyLazyController";
-//    vcNmae = @"MacTemplet.MapViewController";
-//    vcNmae = @"MacTemplet.ShowViewController";
     
-    NSViewController *controller = [[NSClassFromString(vcNmae) alloc] init];
-    self.window.contentViewController = controller;
+    NSViewController *vc = [[NSClassFromString(vcNmae) alloc] init];
+    self.window.contentViewController = vc;
     [self.window makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:true];
 
@@ -56,10 +46,11 @@
 //    self.windowCtrl.window.contentViewController = controller;
 //    self.windowCtrl.window.title = NSApplication.appName;
 
-    DDLog(@"NSApp.homeWindow_%@", NSApplication.homeWindow);
     DDLog(@"NSApplication.sharedApplication.mainWindow_%@", NSApplication.sharedApplication.mainWindow);
     DDLog(@"NSApp.mainWindow_%@", NSApp.mainWindow);
     DDLog(@"NSApp.keyWindow_%@", NSApp.keyWindow);
+    DDLog(@"NSApp.windows_%@", NSApp.windows);
+
 //    DDLog(@"NSApplication.windowDefault_%@", NSApplication.initWindow);
 
 //    id obj = [NSUserDefaults.standardUserDefaults objectForKey:kMainWindowFrame];
@@ -171,8 +162,10 @@
 
 #pragma mark -lazy
 -(NSWindow *)window{
-    if (!_window) {
-        _window = NSApplication.homeWindow;
+    if (!_window) {        
+        CGSize size = CGSizeMake(NSScreen.mainScreen.frame.size.width*0.6, NSScreen.mainScreen.frame.size.height*0.6);
+        _window = [[NSWindow alloc]initWithVc:nil size:size];
+
 //        _window.contentMinSize = CGSizeMake(kScreenWidth*0.55, kScreenHeight*0.5);
         _window.contentMinSize = CGSizeMake(NSScreen.sizeWidth*0.55, NSScreen.sizeHeight*0.5);
         _window.title = @"App代码助手";

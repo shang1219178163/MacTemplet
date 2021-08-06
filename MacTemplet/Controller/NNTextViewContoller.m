@@ -30,8 +30,6 @@
     
     [self.view addSubview:self.slider];
     [self.view addSubview:self.sliderOne];
-
-    [self.view getViewLayer];
 }
 
 - (void)viewDidLayout{

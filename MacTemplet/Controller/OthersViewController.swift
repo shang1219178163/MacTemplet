@@ -20,28 +20,26 @@ class OthersViewController: NSViewController {
         return view
     }()
     
-    lazy var list: [[String]] = {
-        let list = [["NSOutlineViewController", "NSOutlineView",],
-                    ["CollectionViewController", "Collection", ],
-//                      ["FirstViewController", "First",],
-//                      ["ListViewController", "ListVC",],
-//                      ["NNListViewController", "NNListVC",],
-                      ["NNTextViewContoller", "NNTextView",],
-                      ["NSPanelStudyController", "Files pickAndSave",],
-                      ["AppIconActionController", "AppIcon",],
-                      ["NSAlertStudyController", "NSAlertStudy",],
-                      ["LittleActionController", "小功能",],
-                      ["ShowViewController", "控制器呈现",],
-                      ["BookListController", "折叠分段列表",],
-
-//                      ["NSTestViewController", "测试模块",],
-//                      ["TmpViewController", "Tmp模块",],
-//                      ["NSPanelStudyController", "NSOpenPanelStud",],
-//                      ["NSStackViewController", "StackView",],
-//                      ["MapViewController", "MapView",],
-//                      ["FileController", "File处理",],
-                      ];
-        return list
+    lazy var list: [(NSViewController, String)] = {
+        return [(NSOutlineViewController(), "NSOutlineView"),
+                (CollectionViewController(), "Collection"),
+//                (FirstViewController() , "First"),
+//                (ListViewController() , "ListVC"),
+//                (NNListViewController() , "NNListVC"),
+                  (NNTextViewContoller(), "NNTextView"),
+                  (NSPanelStudyController(), "Files pickAndSave"),
+                  (AppIconActionController(), "AppIcon"),
+                  (NSAlertStudyController(), "NSAlertStudy"),
+                  (LittleActionController(), "小功能"),
+                  (ShowViewController(), "控制器呈现"),
+                  (BookListController(), "折叠分段列表"),
+//                  (NSTestViewController() , "测试模块"),
+//                  (TmpViewController() , "Tmp模块"),
+//                  (NSPanelStudyController() , "NSOpenPanelStud"),
+//                  (NSStackViewController() , "StackView"),
+//                  (MapViewController() , "MapView"),
+//                  (FileController() , "File处理"),
+                      ]
     }()
     
 

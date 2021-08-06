@@ -133,7 +133,7 @@
                 NSButton *sender = (NSButton *)control;
                 DDLog(@"%@", sender.title);
 
-                [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseOK];
+                [NSApp.keyWindow endSheet:self.view.window returnCode:NSModalResponseOK];
             }];
             view;
         });
@@ -151,7 +151,7 @@
                 NSButton *sender = (NSButton *)control;
                 DDLog(@"%@", sender.title);
                 
-                [NSApp.mainWindow endSheet:self.view.window returnCode:NSModalResponseCancel];
+                [NSApp.keyWindow endSheet:self.view.window returnCode:NSModalResponseCancel];
             }];
             view;
         });

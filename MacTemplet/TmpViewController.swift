@@ -41,7 +41,7 @@ class TmpViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
                 
-        let list: [String] = ["显示NSWindowController", "sheet弹窗", "Button", "Button", "Button", "Button", ]
+        let list: [String] = ["显示NSWindowController", "iOS系统图标转化", "其他转化", "Button", "Button", "Button", ]
         itemList = list.enumerated().map({ (e) -> NSButton in
             let sender = NSButton(title: e.element, target: self, action: #selector(handleAction(_:)))
             sender.bezelStyle = .regularSquare
@@ -77,27 +77,25 @@ class TmpViewController: NSViewController {
             windowCtrl.showWindow(sender)
 
         case 1:
-            showSheetController()
+            let vc = UImageBatchCreateContoller()
+            vc.preferredContentSize = CGSize(width: kScreenWidth*0.4, height: kScreenHeight*0.4)
+            vc.view.addGestureClick {_ in
+                vc.endSheet(response: .OK)
+            }
+            vc.showSheet()
+            
+        case 2:
+            let vc = OtherConvertController()
+            vc.preferredContentSize = CGSize(width: kScreenWidth*0.4, height: kScreenHeight*0.4)
+            vc.view.addGestureClick {_ in
+                vc.endSheet(response: .OK)
+            }
+            vc.showSheet()
             
         default:
             DDLog(sender.tag)
             break
         }
     }
-    
-    func showSheetController() {
-        let controller = NNBatchClassCreateController()
-        let rect = CGRectMake(0, 0, kScreenWidth*0.25, kScreenHeight*0.25)
-        controller.preferredContentSize = rect.size
-//
-//        let window = NSWindow(contentViewController: controller)
-//        window.level = .statusBar
-//        NSApp.mainWindow?.beginSheet(window, completionHandler: { (response) in
-//            DDLog(response)
-//        })
 
-        NSWindow.showSheet(with: controller, size: rect.size) { (response) in
-            DDLog(response)
-        }
-    }
 }

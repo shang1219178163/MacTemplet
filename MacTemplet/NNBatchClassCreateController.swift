@@ -58,7 +58,7 @@ class NNBatchClassCreateController: NSViewController {
         let list = ["Swift", "ObjC",]
         view.addItems(withTitles: list)
         view.addActionHandler { (control) in
-            NSApp.mainWindow?.makeFirstResponder(nil)
+            NSApp.keyWindow?.makeFirstResponder(nil)
 //            let sender: NSPopUpButton = control as! NSPopUpButton;
 //            DDLog(sender.titleOfSelectedItem)
             self.batchCreateFile(self.textView.string)
@@ -73,7 +73,7 @@ class NNBatchClassCreateController: NSViewController {
         view.bezelStyle = .rounded
 //        view.bezelColor = NSColor.blue.withAlphaComponent(0.5)
         view.addActionHandler { (control) in
-            NSApp.mainWindow?.makeFirstResponder(nil)
+            NSApp.keyWindow?.makeFirstResponder(nil)
             self.batchCreateFile(self.textView.string)
 
         }
@@ -154,10 +154,9 @@ class NNBatchClassCreateController: NSViewController {
 //        guard let window = self.view.window else { return }
 //        if window.isMember(of: NSPanel.classForCoder()) == true {
 ////            view.window?.orderOut(self)
-//            NSApp.mainWindow?.endSheet(window, returnCode: NSApplication.ModalResponse.OK)
+//            NSApp.keyWindow?.endSheet(window, returnCode: NSApplication.ModalResponse.OK)
 //        }
-        NSWindow.endSheet(with: self, response: NSApplication.ModalResponse.OK)
-
+        
         if text.count <= 0 {
             return
         }
