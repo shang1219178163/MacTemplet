@@ -21,60 +21,46 @@ import UIKit
 
 /// 详情
 @objcMembers class \(prefix)Controller: UIViewController {
-
-    var model = NSObject()
     
     var recordID: String = ""
 
     var dataModel = NSObject()
 
-    lazy var viewModel = \(prefix)ViewModel()
+    lazy var viewModel = NSObject()
         
-    lazy var list: [[[String]]] = {
-        var array: [[[String]]] = [
-            [["电子发票进件", "UITableViewCell", "50.0", "", "statusDes",],
-            ["进件车场", "UITableViewCell", "50.0", "", "park_name",],
-            ["复用车场", "UITableViewCell", "50.0", "请输入收款人", "park_name_copy", ],
-            ["进件方式", "UITableViewCell", "50.0", "请输入销货方地址", "is_copyDes", ],
-            ["进件时间", "UITableViewCell", "50.0", "收件人联系方式", "creat_timeDes", ],
-            ["审核时间", "UITableViewCell", "50.0", "收件人联系方式", "update_timeDes", ],
-            ["驳回原因", "UITableViewCell", "50.0", "收件人联系方式", "reject_reason", ],
-
+    lazy var list: [[(String,String,String,String,String)]] = {
+        return [
+            [("电子发票进件", "UITableViewCell", "50.0", "", "statusDes"),
+            ("进件车场", "UITableViewCell", "50.0", "", "park_name"),
+            ("复用车场", "UITableViewCell", "50.0", "请输入收款人", "park_name_copy"),
+            ("进件方式", "UITableViewCell", "50.0", "请输入销货方地址", "is_copyDes"),
+            ("进件时间", "UITableViewCell", "50.0", "收件人联系方式", "creat_timeDes"),
+            ("审核时间", "UITableViewCell", "50.0", "收件人联系方式", "update_timeDes"),
+            ("驳回原因", "UITableViewCell", "50.0", "收件人联系方式", "reject_reason"),
             ],
-            [["企业信息", "UITableViewCell", "50.0", "", "",],
-            ["开票主体名称" + kBlankOne, "UITableViewCell", "50.0", "请输入开票主体名称", "invoicing_name", ],
-            ["纳税人识别号" + kBlankOne, "UITableViewCell", "50.0", "请输入纳税人识别号", "ti_number", ],
-            ["销货方地址" + kBlankTwo, "UITableViewCell", "50.0", "请输入销货方地址", "seller_address", ],
-            ["销货方电话" + kBlankTwo, "UITableViewCell", "50.0", "请输入销货方电话", "seller_telephone", ],
-            ["销货方开户行" + kBlankOne, "UITableViewCell", "50.0", "请输入销货方开户行", "seller_bank", ],
-            ["销货方银行帐号", "UITableViewCell", "50.0", "请输入销货方银行账号", "seller_bank_account", ],
-            ["收款人" + kBlankFour + kBlankQuarter, "UITableViewCell", "50.0", "请输入收款人", "payee", ],
-            ["复核人" + kBlankFour + kBlankQuarter, "UITableViewCell", "50.0", "输入复核人", "reviewer", ],
-            ["开票人" + kBlankFour, "UITableViewCell", "50.0", "请输入开票人", "drawer", ],
-            ["税率" + kBlankFive, "UITableViewCell", "50.0", "请输入税率", "tax_rate", ],
-            ["税收分类编码" + kBlankOne + kBlankHalf, "UITableViewCell", "50.0", "请输入税收分类编码", "tax_code", ],
+            [("企业信息", "UITableViewCell", "50.0", "", ""),
+            ("开票主体名称" + kBlankOne, "UITableViewCell", "50.0", "请输入开票主体名称", "invoicing_name"),
+            ("纳税人识别号" + kBlankOne, "UITableViewCell", "50.0", "请输入纳税人识别号", "ti_number"),
+            ("销货方地址" + kBlankTwo, "UITableViewCell", "50.0", "请输入销货方地址", "seller_address"),
+            ("销货方电话" + kBlankTwo, "UITableViewCell", "50.0", "请输入销货方电话", "seller_telephone"),
+            ("销货方开户行" + kBlankOne, "UITableViewCell", "50.0", "请输入销货方开户行", "seller_bank"),
+            ("销货方银行帐号", "UITableViewCell", "50.0", "请输入销货方银行账号", "seller_bank_account"),
+            ("收款人" + kBlankFour + kBlankQtr, "UITableViewCell", "50.0", "请输入收款人", "payee"),
+            ("复核人" + kBlankFour + kBlankQtr, "UITableViewCell", "50.0", "输入复核人", "reviewer"),
+            ("开票人" + kBlankFour, "UITableViewCell", "50.0", "请输入开票人", "drawer"),
+            ("税率" + kBlankFive, "UITableViewCell", "50.0", "请输入税率", "tax_rate"),
+            ("税收分类编码" + kBlankOne + kBlankHalf, "UITableViewCell", "50.0", "请输入税收分类编码", "tax_code"),
             ],
-            [["收货信息", "UITableViewCell", "50.0", "", "",],
-            ["收件人" + kBlankFour, "UITableViewCell", "50.0", "请输入收款人", "receipter", ],
-            ["收件地址" + kBlankThree, "UITableViewCell", "50.0", "请输入销货方地址", "receipt_address", ],
-            ["收件人联系方式", "UITableViewCell", "50.0", "收件人联系方式", "receipt_phone", ],
+            [("收货信息", "UITableViewCell", "50.0", "", ""),
+            ("收件人" + kBlankFour, "UITableViewCell", "50.0", "请输入收款人", "receipter"),
+            ("收件地址" + kBlankThree, "UITableViewCell", "50.0", "请输入销货方地址", "receipt_address"),
+            ("收件人联系方式", "UITableViewCell", "50.0", "收件人联系方式", "receipt_phone"),
             ],
         ]
-        return array
-    }()
-    
-    lazy var rightBtn: UIButton = {
-        let view = UIButton.create(title: "Next", textColor: .white, backgroundColor: .theme)
-        view.addActionHandler({ (control) in
-//            let controller = UIViewController()
-//            self.navigationController?.pushViewController(controller, animated: true)
-            
-        }, for: .touchUpInside)
-        return view
     }()
     
     lazy var tableView: UITableView = {
-        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 40)
+        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 50)
         view.dataSource = self
         view.delegate = self
 
@@ -91,91 +77,47 @@ import UIKit
         view.endEditing(true)
 //        DDLog(sender.currentTitle)
         
-//        let controller = IOPInpartInvoiceReceiptController()
-//        controller.dataModel = dataModel
-//        self.navigationController?.pushViewController(controller, animated: true)
+//        let vc = IOPInpartInvoiceReceiptController()
+//        vc.dataModel = dataModel
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    lazy var noticeLabel: UILabel = {
-        let rect = CGRectMake(0, 0, kScreenWidth, 30)
-        let view = UILabel.create(rect, textColor: UIColor.hexValue(0xE9852C), type: 2)
-        view.font = UIFont.systemFont(ofSize: 12);
-        view.backgroundColor = UIColor.hexValue(0xFFEBBB)
-        view.text = "   未通过的进件，可通过“创建进件”再次申请"
-        return view
-    }()
 
     // MARK: -lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        edgesForExtendedLayout = []
+        view.backgroundColor = .white
         title = "详情"
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+        navigationItem.rightBarButtonItems = ["Next"].map({
+            return UIBarButtonItem(obj: $0) { item in
+                DDLog(item.title)
+            }
+        })
 
-        view.addSubview(noticeLabel);
 //        tableView.tableFooterView = footerView;
         view.addSubview(tableView)
-        
-        handleRequestDetail()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        noticeLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(0);
-            make.left.equalToSuperview().offset(0);
-            make.right.equalToSuperview().offset(0);
-            make.height.equalTo(30);
-        }
-        
-        tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(noticeLabel.snp.bottom).offset(0);
-            make.left.equalToSuperview().offset(0);
-            make.right.equalToSuperview().offset(0);
-            make.bottom.equalToSuperview().offset(0);
-        }
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        handleRequestDetail()
+//        requestDetail(recordID)
     }
     
-    func handleRequestDetail() {
-        if recordID == "" {
-//            DDLog(self.model.creat_time, self.model.update_time)
-            dataModel = model
-            if ["1", "2"].contains(dataModel.status) == false {
-                noticeLabel.snp.remakeConstraints { (make) in
-                    make.height.equalTo(0);
-                }
-                tableView.snp.remakeConstraints { (make) in
-                    make.height.equalTo(self.view.bounds.height);
-                }
-            }
-            tableView.reloadData()
-            requestDetail(model.topic_id)
-        } else {
-            requestDetail(recordID)
-        }
-    }
-
-    func requestDetail(_ ID: String?) {
-        viewModel.detailAPI.order_id = ID ?? ""
-        viewModel.requestDetail { (model) in
-//            DDLog(model.title)
-            self.dataModel = model.labels
-            self.dataModel.status = self.model.status
-            self.dataModel.reject_reason = self.model.reject_reason ?? ""
-            self.dataModel.creat_time = self.model.creat_time
-            self.dataModel.update_time = self.model.update_time
-            self.tableView.reloadData()
-        }
-    }
-    
+//    func requestDetail(_ ID: String?) {
+//        viewModel.detailAPI.order_id = ID ?? ""
+//        viewModel.requestDetail { (model) in
+////            DDLog(model.title)
+//            self.dataModel = model.labels
+//            self.dataModel.status = self.model.status
+//            self.dataModel.reject_reason = self.model.reject_reason ?? ""
+//            self.dataModel.creat_time = self.model.creat_time
+//            self.dataModel.update_time = self.model.update_time
+//            self.tableView.reloadData()
+//        }
+//    }
 }
 
 
@@ -191,19 +133,21 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.row == 0 ? tableView.rowHeight : 28
-//        return tableView.rowHeight
+        let sections = list[indexPath.section]
+        let tuple = sections[indexPath.row]
+        return tuple.2.cgFloatValue
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sections = list[indexPath.section]
-        let itemList = sections[indexPath.row]
-        let value0 = itemList[0]
-        let value2 = itemList[2]
-        let value3 = itemList[3]
-        let value4 = itemList[4]
+        let tuple = sections[indexPath.row]
+        let value0 = tuple.0
+        let value1 = tuple.1
+        let value2 = tuple.2
+        let value3 = tuple.3
+        let value4 = tuple.4
         
-        switch itemList[1] {
+        switch value1 {
         case "UITableViewCell":
             let cell = UITableViewCell.dequeueReusableCell(tableView, identifier: "UITableViewCellValue1", style: .value1)
             cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -230,7 +174,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
             if indexPath.row == 0 {
                 cell.textLabel?.textColor = .textColor3;
                 cell.detailTextLabel?.text = result
-                cell.detailTextLabel?.textColor = dataModel.statusDesColor
+//                cell.detailTextLabel?.textColor = dataModel.statusDesColor
             } else {
                 cell.textLabel?.font = UIFont.systemFont(ofSize: 13)
                 cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 13)
@@ -241,7 +185,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
             return cell;
             
         case "UITableViewCellTitle":
-            let cell = UITableViewCellTitle.cellWithTableView(tableView)
+            let cell = UITableViewCellTitle.dequeueReusableCell(tableView)
             cell.labelLeft.font = UIFont.systemFont(ofSize: 15, weight: .bold)
             cell.labelLeft.textColor = .textColor3
             cell.isHidden = value2.cgFloatValue <= 0.0
@@ -255,7 +199,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
         default:
             break
         }
-        let cell = UITableViewCellZero.cellWithTableView(tableView)
+        let cell = UITableViewCellZero.dequeueReusableCell(tableView)
         return cell
     }
     

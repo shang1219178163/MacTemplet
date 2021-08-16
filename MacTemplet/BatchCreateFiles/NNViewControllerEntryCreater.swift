@@ -22,15 +22,9 @@ import UIKit
 /// 创建
 @objcMembers class \(prefix)Controller: UIViewController {
 
-    var model = NSObject(){
-        willSet{
-        
-        }
-    }
-
     var dataModel = NSObject()
     
-    lazy var viewModel = \(prefix)ViewModel()
+    lazy var viewModel = NSObject()
 
 //    var isValidateParams: Bool {
 //        viewModel.etcFilesAPI.dataModel = dataModel;
@@ -38,29 +32,18 @@ import UIKit
 //        return isValid
 //    }
     
-    lazy var list: [[[String]]] = {
-        var array: [[[String]]] = [
-            [["[移动端仅支持PDF格式]", "UITableViewCellTitle", "50.0", "", "",],
-            ["*ETC开通协议" + kBlankThree, "UITableViewCell", "50.0", "查看,上传", "etc_protocol_link", ],
-            ["*项目报备单" + kBlankOne, "UITableViewCell", "50.0", "查看,上传", "etc_project_report", ],
-            ["*密钥卡申领单" + kBlankOne, "UITableViewCell", "50.0", "查看,上传", "etc_key_request_form", ],
+    lazy var list: [[(String,String,String,String,String)]] = {
+        return [
+            [("[移动端仅支持PDF格式]", "UITableViewCellTitle", "50.0", "", ""),
+            ("*ETC开通协议" + kBlankThree, "UITableViewCell", "50.0", "查看,上传", "etc_protocol_link"),
+            ("*项目报备单" + kBlankOne, "UITableViewCell", "50.0", "查看,上传", "etc_project_report"),
+            ("*密钥卡申领单" + kBlankOne, "UITableViewCell", "50.0", "查看,上传", "etc_key_request_form"),
             ],
-            [["*收件人" + kBlankThree, "UITableViewCellTextField", "50.0", "请输入名称", "equipment_receiver", ],
-            ["*联系方式" + kBlankTwo, "UITableViewCellTextField", "50.0", "请输入手机号码", "contact_phone", ],
-            ["*收件地址" + kBlankTwo, "UITableViewCellTextField", "50.0", "请输入收件地址", "receiver_address", ],
+            [("*收件人" + kBlankThree, "UITableViewCellTextField", "50.0", "请输入名称", "equipment_receiver"),
+            ("*联系方式" + kBlankTwo, "UITableViewCellTextField", "50.0", "请输入手机号码", "contact_phone"),
+            ("*收件地址" + kBlankTwo, "UITableViewCellTextField", "50.0", "请输入收件地址", "receiver_address"),
             ],
         ]
-        return array
-    }()
-    
-    lazy var rightBtn: UIButton = {
-        let view = UIButton.create(title: "Next", textColor: .white, backgroundColor: .theme)
-        view.addActionHandler({ (control) in
-//            let controller = UIViewController()
-//            self.navigationController?.pushViewController(controller, animated: true)
-            
-        }, for: .touchUpInside)
-        return view
     }()
     
     lazy var tableView: UITableView = {
@@ -83,19 +66,19 @@ import UIKit
 //        if isValidateParams == false {
 //            return
 //        }
-        requestAdd()
+//        requestAdd()
     }
     
 //    lazy var uploadImageVC: IOPUploadImageController = {
-//        let controller = IOPUploadImageController()
-//        controller.delegate = self
-//        return controller
+//        let vc = IOPUploadImageController()
+//        vc.delegate = self
+//        return vc
 //    }()
 //
 //    lazy var uploadFileVC: IOPFileUploadController = {
-//        let controller = IOPFileUploadController()
-//        controller.delegate = self
-//        return controller
+//        let vc = IOPFileUploadController()
+//        vc.delegate = self
+//        return vc
 //    }()
         
     // MARK: -lifecycle
@@ -104,8 +87,13 @@ import UIKit
 
         // Do any additional setup after loading the view.
         edgesForExtendedLayout = []
+        view.backgroundColor = .white
         title = "创建"
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+        navigationItem.rightBarButtonItems = ["Next"].map({
+            return UIBarButtonItem(obj: $0) { item in
+                DDLog(item.title)
+            }
+        })
 
         tableView.tableFooterView = footerView;
         view.addSubview(tableView)
@@ -117,47 +105,43 @@ import UIKit
         tableView.reloadData()
     }
     // MARK: -funtions
-//    func jumpFileAction(_ itemList: [String]) {
-//        DDLog(itemList)
+//    func jumpFileAction(_ tuple: (String,String,String,String,String)) {
+//        let urlString = dataModel.valueText(forKeyPath: tuple.4, defalut: "")
 //
-//        let urlString = dataModel.valueText(forKeyPath: itemList[4], defalut: "")
+//        let vc = IOPFileUploadController()
+//        vc.delegate = self
+//        vc.title = tuple.0.replacingOccurrences(of: "*", with: "")
+//        vc.key = tuple.4
 //
-//        let controller = IOPFileUploadController()
-//        controller.delegate = self
-//        controller.title = itemList[0].replacingOccurrences(of: "*", with: "")
-//        controller.key = itemList[4]
-//
-//        controller.isUpload = urlString == ""
-//        controller.fileUrl = urlString == "" ? nil : NSURL(string: urlString)
-//        DDLog("isUpload:%@_fileUrl:%@", controller.isUpload, controller.fileUrl)
-//        navigationController?.pushViewController(controller, animated: true);
+//        vc.isUpload = urlString == ""
+//        vc.fileUrl = urlString == "" ? nil : NSURL(string: urlString)
+//        DDLog("isUpload:%@_fileUrl:%@", vc.isUpload, vc.fileUrl)
+//        navigationController?.pushViewController(vc, animated: true);
 //    }
 //
-//    func jumpXiangce(_ itemList:[String]) {
-//        let controller = UIStoryboard.storyboard(with: "ParkRecord", identifier: "IOPParkRecordImageViewController") as! IOPParkRecordImageViewController
-//        controller.title = itemList[0].replacingOccurrences(of: "*", with: "")
-//        if let url = URL(string: dataModel.value(forKeyPath: itemList[4]) as! String) {
-//            controller.inImageUrlArray = [url]
+//    func jumpXiangce(_ tuple: (String,String,String,String,String)) {
+//        let vc = UIStoryboard.storyboard(with: "ParkRecord", identifier: "IOPParkRecordImageViewController") as! IOPParkRecordImageViewController
+//        vc.title = tuple.0.replacingOccurrences(of: "*", with: "")
+//        if let url = URL(string: dataModel.value(forKeyPath: tuple.4) as! String) {
+//            vc.inImageUrlArray = [url]
 //        }
-//        navigationController?.pushViewController(controller, animated: true)
+//        navigationController?.pushViewController(vc, animated: true)
 //    }
 //
-//    func jumpUploadPicture(_ itemList: [String]) {
-//        DDLog(itemList)
+//    func jumpUploadPicture(_ tuple: (String,String,String,String,String)) {
+//        let vc = IOPUploadImageController()
+//        vc.delegate = self
+//        vc.title = tuple.0.replacingOccurrences(of: "*", with: "")
+//        vc.key = tuple.4
 //
-//        let controller = IOPUploadImageController()
-//        controller.delegate = self
-//        controller.title = itemList[0].replacingOccurrences(of: "*", with: "")
-//        controller.key = itemList[4]
-//
-//        let imgUrl = dataModel.valueText(forKeyPath: itemList[4], defalut: "")
-//        controller.imgUrl = imgUrl
-//        controller.isFromPickerVC = false
-//        controller.showImageDefault = true
-//        navigationController?.pushViewController(controller, animated: true)
+//        let imgUrl = dataModel.valueText(forKeyPath: tuple.4, defalut: "")
+//        vc.imgUrl = imgUrl
+//        vc.isFromPickerVC = false
+//        vc.showImageDefault = true
+//        navigationController?.pushViewController(vc, animated: true)
 //    }
 
-    func requestAdd() {
+//    func requestAdd() {
 //        viewModel.etcFilesAPI.dataModel = dataModel
 //        viewModel.requestETCFilesAdd { (dic) in
 //            DDLog(dic)
@@ -188,21 +172,22 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let sections = list[indexPath.section]
-        let itemList = sections[indexPath.row]
-        return itemList[2].cgFloatValue
+        let tuple = sections[indexPath.row]
+        return tuple.2.cgFloatValue
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sections = list[indexPath.section]
-        let itemList = sections[indexPath.row]
-        let value0 = itemList[0]
-        let value2 = itemList[2]
-        let value3 = itemList[3]
-        let value4 = itemList[4]
+        let tuple = sections[indexPath.row]
+        let value0 = tuple.0
+        let value1 = tuple.1
+        let value2 = tuple.2
+        let value3 = tuple.3
+        let value4 = tuple.4
         
-        switch itemList[1] {
+        switch value1 {
         case "UITableViewCellTitle":
-            let cell = UITableViewCellTitle.cellWithTableView(tableView)
+            let cell = UITableViewCellTitle.dequeueReusableCell(tableView)
             cell.labelLeft.font = UIFont.systemFont(ofSize: 15, weight: .bold)
             cell.labelLeft.textColor = .textColor3
             cell.isHidden = value2.cgFloatValue <= 0.0
@@ -210,14 +195,14 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
             
             cell.labelLeft.text = value0
             cell.btn.addActionHandler({ (control) in
-                UIAlertController.showAlert(value0, message: value3, alignment: .left)
+                UIAlertController.showAlert(message: value3)
                 
             }, for: .touchUpInside)
 //            cell.getViewLayer()
             return cell
             
         case "UITableViewCellTextField":
-            let cell = UITableViewCellTextField.cellWithTableView(tableView)
+            let cell = UITableViewCellTextField.dequeueReusableCell(tableView)
             cell.labelLeft.font = UIFont.systemFont(ofSize: 14)
             cell.labelLeft.textColor = .textColor3
             cell.isHidden = value2.cgFloatValue <= 0.0
@@ -253,7 +238,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
 
             let hasAsterisk = value0.contains("*")
             if hasAsterisk {
-                cell.textLabel?.attributedText = cell.textLabel!.text!.toAsterisk(cell.textLabel!.textColor, font: cell.textLabel!.font.pointSize)
+                cell.textLabel?.attributedText = cell.textLabel!.text!.matt.appendPrefix(font: cell.textLabel!.font)
             }
             
             if value4.contains("etc_") {
@@ -270,19 +255,18 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
             let cell = UITableViewCellSegment.dequeueReusableCell(tableView)
             cell.labelLeft.font = UIFont.systemFont(ofSize: 14)
             cell.labelLeft.textColor = .textColor3
-            cell.isHidden = itemList[2].cgFloatValue <= 0.0
+            cell.isHidden = value2.cgFloatValue <= 0.0
             cell.hasAsterisk = value0.contains("*")
 
             cell.labelLeft.text = value0
-            cell.segmentCtl.itemList = (itemList.last! as NSString).components(separatedBy: ",")
+            cell.segmentCtl.items = value4.components(separatedBy: ",")
             let index = dataModel.valueText(forKeyPath: value4, defalut: "0") == "0" ? 0 : 1
             cell.segmentCtl.selectedSegmentIndex = index
 //            cell.segmentCtl.addTarget(self, action: #selector(handleActionSender(_:)), for: .valueChanged)
-            cell.segmentCtl.addActionHandler({ (control) in
-                guard let sender = control as? UISegmentedControl else { return }
+            cell.segmentCtl.addActionHandler({ (sender) in
 //                DDLog(sender.selectedSegmentIndex)
 ////                let value = String(sender.selectedSegmentIndex)
-//                let value: String = sender.selectedSegmentIndex == 0 ? "0" : "1"
+                let value: String = sender.selectedSegmentIndex == 0 ? "0" : "1"
                 self.dataModel.setValue(value, forKeyPath: value4)
                 self.tableView.reloadData()
 //                DDLog("%@_%@_%@, sender.selectedSegmentIndex, value4, value)
@@ -294,21 +278,20 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
         default:
             break
         }
-        let cell = UITableViewCellZero.cellWithTableView(tableView)
+        let cell = UITableViewCellZero.dequeueReusableCell(tableView)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sections = list[indexPath.section]
-        let itemList = sections[indexPath.row]
-        
-        if itemList[4].contains("_img") {
-            jumpUploadPicture(itemList)
+        let tuple = sections[indexPath.row]
+        if tuple.4.contains("_img") {
+//            jumpUploadPicture(tuple)
         }
-        else if itemList[4].contains("etc_") {
-            jumpFileAction(itemList)
+        else if tuple.4.contains("etc_") {
+//            jumpFileAction(tuple)
 
-        } else if itemList[0].contains("开户行所在地") {
+        } else if tuple.0.contains("开户行所在地") {
             //地址选择器
 //          present(navController, animated: true, completion: nil)
         }
@@ -332,7 +315,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
 }
         
 extension \(prefix)Controller: IOPUploadImageControllerDelegate{
-    func uploadImage(_ url: String, forKey key: String) {
+    func uploadImage(_ vc: IOPUploadImageController, url: String, forKey key: String) {
         DDLog("%@_%@", key, url)
         dataModel.setValue(url, forKeyPath: key)
         tableView.reloadData()

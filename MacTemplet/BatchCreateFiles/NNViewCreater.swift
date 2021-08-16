@@ -52,7 +52,6 @@ import SwiftExpand
             return;
         }
         
-        
     }
     
     // MARK: - funtions
@@ -106,10 +105,8 @@ import SwiftExpand
         view.adjustsImageWhenHighlighted = false;
         view.tag = 1;
 
-        view.addActionHandler({ (control) in
-            if let sender = control as? UIButton {
-                self.viewBlock?(self,sender.tag);
-            }
+        view.addActionHandler({ (sender) in
+            self.viewBlock?(self, sender.tag);
 
         }, for: .touchUpInside)
         return view;
