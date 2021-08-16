@@ -73,7 +73,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
             
                       @[@"DragFileController", @"文件拖拽",],
 
-////                      @[@"AuthorInfoController", @"Author",],
+                      @[@"AuthorInfoController", @"Author",],
 ////                      @[@"NNButtonStyleController", @"NSButon研究",],
 ////                      @[@"NNButtonStudyController", @"NNButton封装",],
 ////                      @[@"NNLabelStudyController", @"NNLabel封装",],

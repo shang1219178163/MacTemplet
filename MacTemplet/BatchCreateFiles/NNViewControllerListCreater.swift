@@ -25,13 +25,13 @@ import UIKit
     /// 数据请求返回
     var dataModel = NSObject()
     
-    lazy var viewModel = \(prefix)ViewModel()
+    lazy var viewModel = NSObject()
         
     var dataList = NSMutableArray()
 
     // MARK: - lazy
     lazy var tableView: UITableView = {
-        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 60)
+        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 50)
         view.dataSource = self
         view.delegate = self
 
@@ -45,16 +45,7 @@ import UIKit
         return view
     }()
         
-    lazy var rightBtn: UIButton = {
-        let view = UIButton.create(title: "Next", textColor: .white, backgroundColor: .theme)
-        view.addActionHandler({ (sender) in
-//            let controller = UIViewController()
-//            self.navigationController?.pushViewController(controller, animated: true)
-            
-        }, for: .touchUpInside)
-        return view
-    }()
-    
+
     lazy var searchBar: UISearchBar = {
         let view = UISearchBar(frame: CGRectMake(0, 0, kScreenWidth - 70, 50))
         view.textField?.placeholder = "请输入名称搜索";
@@ -67,8 +58,6 @@ import UIKit
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupExtendedLayout()
-        title = ""
         setupUI()
     }
     
@@ -84,10 +73,15 @@ import UIKit
     
     // MARK: - funtions
     func setupUI() {
-        view.backgroundColor = UIColor.white
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
-
+        edgesForExtendedLayout = []
+        view.backgroundColor = .white
+        title = "列表"
+        navigationItem.rightBarButtonItems = ["Next"].map({
+            return UIBarButtonItem(obj: $0) { item in
+                DDLog(item.title)
+            }
+        })
+        
         view.addSubview(tableView);
         tableView.tableHeaderView = searchBar
 
@@ -141,7 +135,7 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
         cell.textLabel?.text = "--"
         cell.textLabel?.textColor = .textColor3;
 
-        cell.detailtextLabel?.font = UIFont.systemFont(ofSize: 13)
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 13)
         cell.detailTextLabel?.text = "--"
         cell.detailTextLabel?.textColor = .textColor6;
         cell.accessoryType = .disclosureIndicator;
@@ -157,9 +151,9 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        guard let model = dataList[indexPath.row] as? IOPParkModel else { return }
-//        let controller = IOPParkDetailController()
-//        controller.parkModel = model
-//        navigationController?.pushViewController(controller, animated: true)
+//        let vc = IOPParkDetailController()
+//        vc.parkModel = model
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -180,9 +174,9 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
 }
 
 
-//extension \(prefix)Controller: \(prefix)ViewModelDelegate{
+//extension \(prefix)Controller: IOPGoodsListViewModelDelegate{
 //
-//    func request(with model: \(prefix)RootModel, isRefresh: Bool, hasNextPage: Bool) {
+//    func request(with model: IOPGoodsListRootModel, isRefresh: Bool, hasNextPage: Bool) {
 //
 //        DispatchQueue.global().async {
 //            self.dataModel = model;

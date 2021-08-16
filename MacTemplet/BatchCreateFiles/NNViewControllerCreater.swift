@@ -24,16 +24,6 @@ import UIKit
         
     var dataList = NSMutableArray()
 
-    lazy var rightBtn: UIButton = {
-        let view = UIButton.create(title: "Next", textColor: .white, backgroundColor: .theme)
-        view.addActionHandler({ (control) in
-//            let controller = UIViewController()
-//            self.navigationController?.pushViewController(controller, animated: true)
-            
-        }, for: .touchUpInside)
-        return view
-    }()
-    
     lazy var tableView: UITableView = {
         let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 50)
         view.dataSource = self
@@ -46,10 +36,7 @@ import UIKit
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupExtendedLayout()
-        title = ""
         setupUI()
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -71,8 +58,14 @@ import UIKit
     func setupUI() {
         edgesForExtendedLayout = []
         view.backgroundColor = .white
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+        title = ""
+        navigationItem.rightBarButtonItems = ["Next"].map({
+            return UIBarButtonItem(obj: $0) { item in
+                DDLog(item.title)
+//            let vc = UIViewController()
+//            self.navigationController?.pushViewController(vc, animated: true)
+            }
+        })
 
         view.addSubview(tableView)
     }
@@ -105,9 +98,9 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        guard let model = dataList[indexPath.row] as? IOPParkModel else { return }
-//        let controller = IOPParkDetailController()
-//        controller.parkModel = model
-//        navigationController?.pushViewController(controller, animated: true)
+//        let vc = IOPParkDetailController()
+//        vc.parkModel = model
+//        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
