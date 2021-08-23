@@ -41,9 +41,9 @@ import UIKit
     override func validateParamsData() -> Bool {
 //        if parkCode.count < 4 {
 //            IOPProgressHUD.showText("不能为空")
-//            return false;
+//            return false
 //        }
-        return true;
+        return true
     }
             
     override func isOriginDic() -> Bool {

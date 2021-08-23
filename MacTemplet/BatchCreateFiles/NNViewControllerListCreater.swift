@@ -31,7 +31,7 @@ import UIKit
 
     // MARK: - lazy
     lazy var tableView: UITableView = {
-        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 50)
+        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 60)
         view.dataSource = self
         view.delegate = self
 
@@ -62,7 +62,7 @@ import UIKit
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated);
+        super.viewWillAppear(animated)
         
     }
         
@@ -133,12 +133,12 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
         let cell = UITableViewCell.dequeueReusableCell(tableView, identifier: "UITableViewCellSubtitle", style: .subtitle)
         cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
         cell.textLabel?.text = "--"
-        cell.textLabel?.textColor = .textColor3;
+        cell.textLabel?.textColor = .textColor3
 
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 13)
         cell.detailTextLabel?.text = "--"
-        cell.detailTextLabel?.textColor = .textColor6;
-        cell.accessoryType = .disclosureIndicator;
+        cell.detailTextLabel?.textColor = .textColor6
+        cell.accessoryType = .disclosureIndicator
         
 //        guard let model = dataList[indexPath.row] as? IOPParkModel else { return cell; }
 //        cell.textLabel?.text = model.name
@@ -157,19 +157,19 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10.01;
+        return 10.01
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UILabel();
+        return UILabel()
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == tableView.numberOfSections - 1 ? 10.01 : 0.01;
+        return section == tableView.numberOfSections - 1 ? 10.01 : 0.01
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UILabel();
+        return UILabel()
     }
 }
 

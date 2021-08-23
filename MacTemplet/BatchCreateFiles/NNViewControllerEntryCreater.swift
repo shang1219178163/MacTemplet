@@ -27,7 +27,7 @@ import UIKit
     lazy var viewModel = NSObject()
 
 //    var isValidateParams: Bool {
-//        viewModel.etcFilesAPI.dataModel = dataModel;
+//        viewModel.etcFilesAPI.dataModel = dataModel
 //        let isValid = viewModel.etcFilesAPI.validateParamsOne()
 //        return isValid
 //    }
@@ -47,7 +47,7 @@ import UIKit
     }()
     
     lazy var tableView: UITableView = {
-        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 50)
+        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 60)
         view.dataSource = self
         view.delegate = self
 
@@ -55,7 +55,7 @@ import UIKit
     }()
     
     lazy var footerView: NNTableFooterView = {
-        let view = NNTableFooterView.create("提交", topPadding: 30);
+        let view = NNTableFooterView.create("提交", topPadding: 30)
         view.btn.addTarget(self, action: #selector(handleAction(_:)), for: .touchUpInside)
         return view
     }()
@@ -162,12 +162,12 @@ import UIKit
 extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     //    MARK: - tableView
     func numberOfSections(in tableView: UITableView) -> Int {
-        return list.count;
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sections = list[section]
-        return sections.count;
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -298,19 +298,19 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10.01;
+        return 10.01
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UILabel();
+        return UILabel()
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == tableView.numberOfSections - 1 ? 10.01 : 0.01;
+        return section == tableView.numberOfSections - 1 ? 10.01 : 0.01
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UILabel();
+        return UILabel()
     }
 }
         

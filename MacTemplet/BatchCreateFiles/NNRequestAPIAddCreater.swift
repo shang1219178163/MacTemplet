@@ -39,9 +39,9 @@ import UIKit
     override func validateParamsData() -> Bool {
 //        if ID.count < 4 {
 //            IOPProgressHUD.showText("ID不能为空")
-//            return false;
+//            return false
 //        }
-        return true;
+        return true
     }
             
     override func isOriginDic() -> Bool {

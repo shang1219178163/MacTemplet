@@ -33,7 +33,7 @@
     self = [self initWithFrame_hook:frameRect];
     if (self) {
         if (![self respondsToSelector:@selector(initWithScrollView:orientation:)]) {
-            self.wantsLayer = true;
+//            self.wantsLayer = true;
         }
     }
     return self;

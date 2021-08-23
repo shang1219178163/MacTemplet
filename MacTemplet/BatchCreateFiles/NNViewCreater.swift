@@ -63,20 +63,20 @@ import SwiftExpand
 //        self.transform = self.transform.scaledBy(x: 1.5, y: 1.5)
         let duration = animated ? 0.15 : 0
         UIView.animate(withDuration: duration, animations: {
-            self.backgroundColor = UIColor.black.withAlphaComponent(0.7);
+            self.backgroundColor = UIColor.black.withAlphaComponent(0.7)
             self.transform = CGAffineTransform.identity
             
-        }, completion: nil);
+        }, completion: nil)
     }
 
     func dismiss(_ animated: Bool = true) {
         let duration = animated ? 0.15 : 0
         UIView.animate(withDuration: duration, animations: {
-            self.backgroundColor = UIColor.black.withAlphaComponent(0);
+            self.backgroundColor = UIColor.black.withAlphaComponent(0)
 //            self.transform = self.transform.scaledBy(x: 0.5, y: 0.5)
 
         }) { (isFinished) in
-            self.removeFromSuperview();
+            self.removeFromSuperview()
         }
     }
         
@@ -90,23 +90,23 @@ import SwiftExpand
     }()
     
     lazy var label: UILabel = {
-        let view = UILabel(frame: .zero);
-        view.text = "请选择";
-        view.textColor = .lightGray;
-        view.textAlignment = .center;
+        let view = UILabel(frame: .zero)
+        view.text = "请选择"
+        view.textColor = .lightGray
+        view.textAlignment = .center
         return view;
     }()
     
     lazy var btnSure: UIButton = {
-        let view = UIButton(type: .custom);
-        view.setTitle(kTitleSure, for: .normal);
-        view.setTitleColor(.systemBlue, for: .normal);
-        view.titleLabel?.font = UIFont.systemFont(ofSize: 16);
-        view.adjustsImageWhenHighlighted = false;
-        view.tag = 1;
+        let view = UIButton(type: .custom)
+        view.setTitle(kTitleSure, for: .normal)
+        view.setTitleColor(.systemBlue, for: .normal)
+        view.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        view.adjustsImageWhenHighlighted = false
+        view.tag = 1
 
         view.addActionHandler({ (sender) in
-            self.viewBlock?(self, sender.tag);
+            self.viewBlock?(self, sender.tag)
 
         }, for: .touchUpInside)
         return view;
