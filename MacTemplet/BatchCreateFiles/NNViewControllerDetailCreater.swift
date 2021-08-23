@@ -60,7 +60,7 @@ import UIKit
     }()
     
     lazy var tableView: UITableView = {
-        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 50)
+        let view = UITableView.create(self.view.bounds, style: .plain, rowHeight: 60)
         view.dataSource = self
         view.delegate = self
 
@@ -163,23 +163,23 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
             if result.contains("http") {
                 cell.detailTextLabel?.text = kTitleLook
                 cell.detailTextLabel?.textColor = UIColor.theme
-                cell.accessoryType = .disclosureIndicator;
+                cell.accessoryType = .disclosureIndicator
 
             } else {
                 cell.detailTextLabel?.text = result
                 cell.detailTextLabel?.textColor = .textColor3
-                cell.accessoryType = .none;
+                cell.accessoryType = .none
             }
             
             if indexPath.row == 0 {
-                cell.textLabel?.textColor = .textColor3;
+                cell.textLabel?.textColor = .textColor3
                 cell.detailTextLabel?.text = result
 //                cell.detailTextLabel?.textColor = dataModel.statusDesColor
             } else {
                 cell.textLabel?.font = UIFont.systemFont(ofSize: 13)
                 cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 13)
             }
-            cell.separatorInset = indexPath.row == 0 ? .zero : UIEdgeInsetsMake(0, 0, 0, kScreenWidth);
+            cell.separatorInset = indexPath.row == 0 ? .zero : UIEdgeInsetsMake(0, 0, 0, kScreenWidth)
 
 //            cell.getViewLayer()
             return cell;
@@ -208,19 +208,19 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10.01;
+        return 10.01
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UILabel();
+        return UILabel()
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == tableView.numberOfSections - 1 ? 10.01 : 0.01;
+        return section == tableView.numberOfSections - 1 ? 10.01 : 0.01
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UILabel();
+        return UILabel()
     }
 }
 
