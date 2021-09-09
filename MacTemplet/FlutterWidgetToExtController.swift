@@ -156,9 +156,6 @@ import Then
             .lineSpacingChain(2)
             .paragraphSpacingChain(2)
             .paragraphSpacingBeforeChain(10)
-        
-    
-        
     }
     
     override func viewDidLayout() {

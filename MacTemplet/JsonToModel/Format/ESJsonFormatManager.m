@@ -150,7 +150,7 @@
     } else if ([value isKindOfClass: NSArray.class]){
         ESClassInfo *childInfo = classInfo.propertyArrayDic[key];
         NSString *type = childInfo.className;
-        return [NSString stringWithFormat:@"    var %@: [%@]?", key, type == nil ? @"String" : type];
+        return [NSString stringWithFormat:@"    var %@: [%@] = []", key, type == nil ? @"String" : type];
         
     } else if ([value isKindOfClass: NSDictionary.class]){
         ESClassInfo *childInfo = classInfo.propertyClassDic[key];

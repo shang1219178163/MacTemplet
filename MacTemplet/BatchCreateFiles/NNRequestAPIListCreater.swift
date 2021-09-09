@@ -22,7 +22,7 @@ import UIKit
     
     var name: String = ""
     
-    var pageModel = IOPPageModel(perPageCounts: UInt(IOPPageSize))!
+    var pageModel = IOPPageModel(perPageCounts: UInt(IOPDataConstansPageSize))!
 
     override func requestURI() -> String {
         return ""

@@ -18,7 +18,8 @@ class NNViewControllerListCreater: NSObject {
         return """
 \(copyRight)
 import UIKit
-        
+import MJRefresh
+
 /// 列表
 @objcMembers class \(prefix)Controller: UIViewController{
     
@@ -48,9 +49,9 @@ import UIKit
 
     lazy var searchBar: UISearchBar = {
         let view = UISearchBar(frame: CGRectMake(0, 0, kScreenWidth - 70, 50))
-        view.textField?.placeholder = "请输入名称搜索";
+        view.textField?.placeholder = "请输入关键字搜索";
+        view.textField?.font = UIFont.systemFont(ofSize: 13)
 
-//        view.delegate = self
         return view
     }()
     
@@ -64,11 +65,7 @@ import UIKit
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-    }
-        
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        tableView.mj_header?.beginRefreshing()
     }
     
     // MARK: - funtions
@@ -82,15 +79,10 @@ import UIKit
             }
         })
         
-        view.addSubview(tableView);
         tableView.tableHeaderView = searchBar
+        view.addSubview(tableView)
 
 //        searchBar.isHidden = true
-    }
-
-    func requestForSearch(_ searchbar: UISearchBar) {
-//        viewModel.listAPI.name = searchBar.text!;
-        tableView.mj_header.beginRefreshing();
     }
 
     @objc func request(_ isRefresh: Bool) {
@@ -173,28 +165,6 @@ extension \(prefix)Controller: UITableViewDataSource, UITableViewDelegate{
     }
 }
 
-
-//extension \(prefix)Controller: IOPGoodsListViewModelDelegate{
-//
-//    func request(with model: IOPGoodsListRootModel, isRefresh: Bool, hasNextPage: Bool) {
-//
-//        DispatchQueue.global().async {
-//            self.dataModel = model;
-//            if isRefresh == true {
-//                self.dataList.removeAllObjects()
-//            }
-////            self.dataList.addObjects(from: self.dataModel.records)
-//            DispatchQueue.main.async {
-//                IOPProgressHUD.dismiss()
-//                self.tableView.mj_header.endRefreshing();
-//                self.tableView.mj_footer.endRefreshing();
-//                self.tableView.mj_footer.isHidden = !hasNextPage;
-//                self.tableView.isHidden = (self.dataList.count <= 0);
-//                self.tableView.reloadData();
-//            }
-//        }
-//    }
-//}
 
 """
     }
