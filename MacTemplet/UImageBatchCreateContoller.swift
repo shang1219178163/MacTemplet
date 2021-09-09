@@ -15,6 +15,11 @@ class UImageBatchCreateContoller: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        view.addGestureClick { reco in
+            self.dismiss(nil)
+            DDLog(reco.view)
+        }
     }
     
     

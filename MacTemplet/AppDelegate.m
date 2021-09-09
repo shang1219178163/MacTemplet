@@ -46,10 +46,10 @@
 //    self.windowCtrl.window.contentViewController = controller;
 //    self.windowCtrl.window.title = NSApplication.appName;
 
-    DDLog(@"NSApplication.sharedApplication.mainWindow_%@", NSApplication.sharedApplication.mainWindow);
-    DDLog(@"NSApp.mainWindow_%@", NSApp.mainWindow);
-    DDLog(@"NSApp.keyWindow_%@", NSApp.keyWindow);
-    DDLog(@"NSApp.windows_%@", NSApp.windows);
+//    DDLog(@"NSApplication.sharedApplication.mainWindow_%@", NSApplication.sharedApplication.mainWindow);
+//    DDLog(@"NSApp.mainWindow_%@", NSApp.mainWindow);
+//    DDLog(@"NSApp.keyWindow_%@", NSApp.keyWindow);
+//    DDLog(@"NSApp.windows_%@", NSApp.windows);
 
 //    DDLog(@"NSApplication.windowDefault_%@", NSApplication.initWindow);
 

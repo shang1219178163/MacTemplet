@@ -24,6 +24,8 @@
 		142C1E7926BD0E71003B7E8C /* NSMenu+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C1E7826BD0E71003B7E8C /* NSMenu+Ext.swift */; };
 		142C1E7B26BD2326003B7E8C /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142C1E7A26BD2326003B7E8C /* String+Ext.swift */; };
 		1430562B23E844D1001F051D /* NSApplication+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1430562A23E844D1001F051D /* NSApplication+Ext.m */; };
+		1437122F26E9A13B00021F29 /* UImageBatchCreateByAssetContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1437122E26E9A13B00021F29 /* UImageBatchCreateByAssetContoller.swift */; };
+		1437123426E9A1B000021F29 /* image assets tree.text in Resources */ = {isa = PBXBuildFile; fileRef = 1437123326E9A1B000021F29 /* image assets tree.text */; };
 		1445780022BCF50E0007C7B3 /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 144577FF22BCF50E0007C7B3 /* Const.m */; };
 		1445780322BDDAF90007C7B3 /* Swift-HandyJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780222BDDAF90007C7B3 /* Swift-HandyJSON.json */; };
 		1445780522BDDB540007C7B3 /* ObjC-YYModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 1445780422BDDB540007C7B3 /* ObjC-YYModel.json */; };
@@ -202,6 +204,8 @@
 		142C1E7A26BD2326003B7E8C /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		1430562923E844D1001F051D /* NSApplication+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSApplication+Ext.h"; sourceTree = "<group>"; };
 		1430562A23E844D1001F051D /* NSApplication+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSApplication+Ext.m"; sourceTree = "<group>"; };
+		1437122E26E9A13B00021F29 /* UImageBatchCreateByAssetContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UImageBatchCreateByAssetContoller.swift; sourceTree = "<group>"; };
+		1437123326E9A1B000021F29 /* image assets tree.text */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "image assets tree.text"; sourceTree = "<group>"; };
 		144577FE22BCF50E0007C7B3 /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		144577FF22BCF50E0007C7B3 /* Const.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
 		1445780222BDDAF90007C7B3 /* Swift-HandyJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Swift-HandyJSON.json"; sourceTree = "<group>"; };
@@ -528,6 +532,7 @@
 				1412334A264B96BB0098C8FB /* FlutterIconDataController.swift */,
 				14961829264F6F5300DF56FE /* FlutterWidgetToExtController.swift */,
 				141C1FA02685CC2500A120EF /* UImageBatchCreateContoller.swift */,
+				1437122E26E9A13B00021F29 /* UImageBatchCreateByAssetContoller.swift */,
 				14E31F1926A13447001506B1 /* OtherConvertController.swift */,
 				14D40A1022C4A6DA00AF74B9 /* AuthorInfoController.h */,
 				14D40A1122C4A6DA00AF74B9 /* AuthorInfoController.m */,
@@ -719,6 +724,7 @@
 		14F92C1C22BB766A00A5C5E4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1437123326E9A1B000021F29 /* image assets tree.text */,
 				1412334E264B97000098C8FB /* IconData.txt */,
 				148BB4172437323C00ECEF3B /* 02@3x.png */,
 				146D28C4244DA169004655B1 /* InfoPlist.strings */,
@@ -909,6 +915,7 @@
 				14F54988243065BF003BC739 /* alert.png in Resources */,
 				14D4ED5623CA159900B8BD16 /* blocks.geojson in Resources */,
 				146D28BF244D9FA2004655B1 /* Main.storyboard in Resources */,
+				1437123426E9A1B000021F29 /* image assets tree.text in Resources */,
 				14F92C5622BB93EB00A5C5E4 /* DataModelsTemplate.txt in Resources */,
 				1412334F264B97000098C8FB /* IconData.txt in Resources */,
 				1482F71A22AB8BD500A7C5E1 /* Assets.xcassets in Resources */,
@@ -1022,6 +1029,7 @@
 				14D40A1222C4A6DA00AF74B9 /* AuthorInfoController.m in Sources */,
 				14ADE23523CDA13900037B0B /* NNRequestAPIDetailCreater.swift in Sources */,
 				1482F86022ABA55F00A7C5E1 /* NNView.m in Sources */,
+				1437122F26E9A13B00021F29 /* UImageBatchCreateByAssetContoller.swift in Sources */,
 				1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */,
 				14492B6A24244D5100A9D3E1 /* HHButton.m in Sources */,
 				148BB41A24383CB600ECEF3B /* ShowViewController.swift in Sources */,
