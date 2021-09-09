@@ -1,0 +1,391 @@
+.
+├── ADView
+│   ├── ad_content_image.imageset
+│   └── ad_logo.imageset
+├── About
+│   ├── icon_logo.imageset
+│   └── icon_more.imageset
+├── AppIcon-New-Year.appiconset
+├── AppIcon.appiconset
+├── AppIconOne.appiconset
+├── Authorization
+│   ├── icon_add.imageset
+│   ├── icon_add_gray.imageset
+│   ├── icon_addnew.imageset
+│   ├── icon_card_tips.imageset
+│   ├── icon_cardhelp.imageset
+│   ├── icon_chooseplate.imageset
+│   ├── icon_decrease.imageset
+│   ├── icon_delete.imageset
+│   ├── icon_explain.imageset
+│   ├── icon_increase.imageset
+│   └── tdy_icon_chooseplate.imageset
+├── BingdingPhone
+│   ├── icon_bound.imageset
+│   ├── ios_unbound.imageset
+│   ├── list_phone.imageset
+│   └── sgll_icon_bound.imageset
+├── Common
+│   ├── Navigation
+│   │   └── navi_search.imageset
+│   ├── State
+│   │   ├── default_data.imageset
+│   │   ├── default_network.imageset
+│   │   ├── default_picture.imageset
+│   │   ├── internet_disable.imageset
+│   │   └── nodata.imageset
+│   ├── common_left.imageset
+│   ├── common_right.imageset
+│   ├── common_success.imageset
+│   ├── common_time.imageset
+│   └── icon_share.imageset
+├── Coupon
+│   ├── dropdown_menu_down.imageset
+│   └── dropdown_menu_up.imageset
+├── FleetMode
+│   ├── fleet_model_selected.imageset
+│   └── fleet_model_unselected.imageset
+├── Guide
+│   ├── btn_finish.imageset
+│   ├── btn_next.imageset
+│   ├── guide_1.imageset
+│   ├── guide_2.imageset
+│   ├── guide_3.imageset
+│   ├── guide_4.imageset
+│   ├── guide_5.imageset
+│   ├── guide_6.imageset
+│   ├── guide_arrow_down.imageset
+│   ├── guide_arrow_up.imageset
+│   ├── guide_next.imageset
+│   ├── icon@2x_316.imageset
+│   ├── icon@2x_319.imageset
+│   ├── tips_1.imageset
+│   ├── tips_2.imageset
+│   ├── tips_3.imageset
+│   ├── tips_4.imageset
+│   └── tips_arrow.imageset
+├── HomePage
+│   └── list_enter.imageset
+├── Launcher
+│   └── launcher_text.imageset
+├── Loading
+│   ├── icon_down.imageset
+│   ├── icon_down2.imageset
+│   ├── icon_loading.imageset
+│   ├── icon_loading2.imageset
+│   ├── icon_up.imageset
+│   ├── icon_up2.imageset
+│   ├── loading_blue.imageset
+│   ├── loading_down_blue.imageset
+│   ├── loading_down_white.imageset
+│   ├── loading_up_blue.imageset
+│   ├── loading_up_white.imageset
+│   ├── loading_white.imageset
+│   └── tdy_icon_loading.imageset
+├── Login
+│   ├── icon_close.imageset
+│   ├── icon_help.imageset
+│   ├── icon_open.imageset
+│   ├── icon_password.imageset
+│   ├── icon_username.imageset
+│   ├── login_eye_normal.imageset
+│   ├── login_eye_pressed.imageset
+│   ├── login_loading.imageset
+│   ├── login_picture.imageset
+│   ├── login_right.imageset
+│   ├── login_wrong.imageset
+│   └── picture_login.imageset
+├── Main
+│   ├── cj_cloud_left.imageset
+│   ├── cj_cloud_right.imageset
+│   ├── cj_dashboard.imageset
+│   ├── cj_data.imageset
+│   ├── cj_detail.imageset
+│   ├── cj_point.imageset
+│   ├── cj_progress_bar.imageset
+│   ├── cj_traffic.imageset
+│   ├── icon_dashboard.imageset
+│   ├── icon_data.imageset
+│   ├── icon_detail.imageset
+│   ├── icon_traffic.imageset
+│   ├── main_dashboard.imageset
+│   ├── main_data.imageset
+│   ├── main_location.imageset
+│   ├── main_radio_button_normal.imageset
+│   ├── main_radio_button_selected.imageset
+│   ├── main_record.imageset
+│   ├── progress_bar.imageset
+│   ├── tdy_icon_dashboard.imageset
+│   ├── tdy_icon_data.imageset
+│   ├── tdy_main_radio_button_normal.imageset
+│   ├── tdy_main_radio_button_selected.imageset
+│   └── tdy_progress_bar.imageset
+├── Menu
+│   ├── TabBar
+│   │   ├── Default
+│   │   │   ├── icon_home.imageset
+│   │   │   ├── icon_home_select.imageset
+│   │   │   ├── icon_user.imageset
+│   │   │   ├── icon_user_select.imageset
+│   │   │   ├── operating_tabbar_normal.imageset
+│   │   │   └── operating_tabbar_seletced.imageset
+│   │   ├── Orange
+│   │   │   ├── tdy_icon_home.imageset
+│   │   │   ├── tdy_icon_home_select.imageset
+│   │   │   ├── tdy_icon_operate.imageset
+│   │   │   ├── tdy_icon_operate_select.imageset
+│   │   │   ├── tdy_icon_user.imageset
+│   │   │   └── tdy_icon_user_select.imageset
+│   │   ├── ShangriLa
+│   │   │   ├── sgll_icon_home.imageset
+│   │   │   ├── sgll_icon_home_selected.imageset
+│   │   │   ├── sgll_icon_operating.imageset
+│   │   │   ├── sgll_icon_operating_seletced.imageset
+│   │   │   ├── sgll_icon_user.imageset
+│   │   │   └── sgll_icon_user_selected.imageset
+│   │   ├── icon_income_detail.imageset
+│   │   ├── icon_income_detail_H.imageset
+│   │   ├── icon_income_statistics.imageset
+│   │   └── icon_income_statistics_H.imageset
+│   ├── cj_avatar.imageset
+│   ├── cj_home.imageset
+│   ├── cj_home_select.imageset
+│   ├── cj_operate.imageset
+│   ├── cj_operate_select.imageset
+│   ├── cj_user.imageset
+│   ├── cj_user_select.imageset
+│   ├── icon_about.imageset
+│   ├── icon_avatar.imageset
+│   ├── icon_avatar_20.imageset
+│   ├── icon_change.imageset
+│   ├── icon_notification.imageset
+│   ├── icon_operate.imageset
+│   ├── icon_operate_select.imageset
+│   ├── menu_avatar.imageset
+│   ├── menu_data.imageset
+│   ├── menu_parking_normal.imageset
+│   └── menu_password.imageset
+├── Navigation
+│   ├── icon_arrow_down_blank.imageset
+│   ├── icon_arrow_down_blank_black.imageset
+│   ├── icon_arrow_down_blank_black_small.imageset
+│   ├── icon_arrow_down_blank_small.imageset
+│   ├── icon_arrow_up_blank.imageset
+│   ├── icon_arrow_up_blank_black.imageset
+│   ├── icon_arrow_up_blank_black_small.imageset
+│   ├── icon_arrow_up_blank_small.imageset
+│   ├── icon_back.imageset
+│   ├── icon_chart.imageset
+│   ├── icon_choose.imageset
+│   ├── icon_choose2.imageset
+│   ├── icon_choose_blue.imageset
+│   ├── icon_close2.imageset
+│   ├── icon_edit.imageset
+│   ├── icon_edit_Disable.imageset
+│   ├── icon_help2.imageset
+│   ├── icon_location.imageset
+│   ├── icon_piechart.imageset
+│   ├── icon_search.imageset
+│   ├── icon_up3.imageset
+│   └── icon_whiteback.imageset
+├── Notification
+│   ├── icon_system.imageset
+│   ├── icon_triangle.imageset
+│   ├── sgll_icon_system.imageset
+│   └── tdy_icon_system.imageset
+├── OnlinePayRecord
+│   ├── pay_record_alipay.imageset
+│   ├── pay_record_buscard.imageset
+│   ├── pay_record_cash.imageset
+│   ├── pay_record_other.imageset
+│   ├── pay_record_unionpay.imageset
+│   ├── pay_record_wallet.imageset
+│   └── pay_record_wechat.imageset
+├── Operate
+│   └── Default
+│       ├── operate_badcar.imageset
+│       ├── operate_coupon_record.imageset
+│       ├── operate_coupon_statistics.imageset
+│       ├── operate_menu_authorization.imageset
+│       ├── operate_menu_car_blue.imageset
+│       ├── operate_menu_charger.imageset
+│       ├── operate_menu_company_blue.imageset
+│       ├── operate_menu_company_yellow.imageset
+│       ├── operate_menu_daily.imageset
+│       ├── operate_menu_daily_statis.imageset
+│       ├── operate_menu_duration.imageset
+│       ├── operate_menu_fleetModel.imageset
+│       ├── operate_menu_free_open.imageset
+│       ├── operate_menu_goods_manage.imageset
+│       ├── operate_menu_goods_setup.imageset
+│       ├── operate_menu_income.imageset
+│       ├── operate_menu_mall.imageset
+│       ├── operate_menu_modify.imageset
+│       ├── operate_menu_park_manage.imageset
+│       ├── operate_menu_record.imageset
+│       ├── operate_menu_search.imageset
+│       ├── operate_menu_traffic.imageset
+│       ├── operate_menu_weekly.imageset
+│       ├── operate_merchant_statistics.imageset
+│       ├── operate_patrol_inspection.imageset
+│       ├── operate_payment_history.imageset
+│       ├── operate_recharge_record.imageset
+│       └── operate_work_order.imageset
+├── Other
+│   ├── arrow_yellow.imageset
+│   ├── icon_cross.imageset
+│   ├── icon_download.imageset
+│   ├── icon_enter.imageset
+│   ├── icon_left.imageset
+│   ├── icon_mask.imageset
+│   ├── icon_question_blue.imageset
+│   ├── icon_right.imageset
+│   ├── icon_select.imageset
+│   ├── icon_success.imageset
+│   ├── toast_error.imageset
+│   ├── toast_loading.imageset
+│   └── toast_success.imageset
+├── ParkRecord
+│   ├── Default
+│   │   ├── icon_time_abnormal.imageset
+│   │   ├── icon_time_in.imageset
+│   │   └── icon_time_out.imageset
+│   ├── ShangriLa
+│   │   ├── sgll_record_in.imageset
+│   │   └── sgll_record_out.imageset
+│   ├── default_picture_fit.imageset
+│   ├── icon_abnormal.imageset
+│   ├── record_time.imageset
+│   └── time_choose.imageset
+├── Report
+├── RoutingInspection
+│   ├── icon_routingInspection_abnormal.imageset
+│   ├── icon_routingInspection_hiddenTrouble.imageset
+│   ├── icon_routingInspection_ignore.imageset
+│   └── icon_routingInspection_normal.imageset
+├── Share
+│   ├── Icon_128.imageset
+│   ├── icon_moments.imageset
+│   └── icon_wechat.imageset
+├── Shop
+│   └── Eximane
+│       ├── icon_examin_expired.imageset
+│       ├── icon_examin_pass_half.imageset
+│       ├── icon_examin_reject.imageset
+│       ├── icon_examine_expired.imageset
+│       ├── icon_examine_pass.imageset
+│       ├── icon_examine_rejected.imageset
+│       ├── icon_failed.imageset
+│       ├── icon_notpass.imageset
+│       ├── icon_pass.imageset
+│       ├── img_car_insurance_certificate.imageset
+│       ├── img_driver_license.imageset
+│       ├── img_driving_license.imageset
+│       ├── sggl_icon_examine_pass.imageset
+│       ├── sggl_icon_pass.imageset
+│       ├── tdy_icon_examine_pass.imageset
+│       ├── tdy_icon_examine_rejected.imageset
+│       ├── tdy_icon_notpass.imageset
+│       └── tdy_icon_pass.imageset
+├── Statistics
+│   ├── arrow.imageset
+│   ├── barchart_selected.imageset
+│   ├── barchart_unselected.imageset
+│   ├── chart_left.imageset
+│   ├── chart_right.imageset
+│   ├── piechart_selected.imageset
+│   ├── piechart_unselected.imageset
+│   ├── vacation.imageset
+│   └── workday.imageset
+├── TotalPark
+│   ├── group_page_cell_network_connection.imageset
+│   ├── group_page_cell_network_disconnection.imageset
+│   └── icon_rank.imageset
+├── UnhealthyCar
+│   ├── unhealthycar_badblue.imageset
+│   ├── unhealthycar_badgreen.imageset
+│   ├── unhealthycar_badorange.imageset
+│   ├── unhealthycar_badred.imageset
+│   └── unhealthycar_badyellow.imageset
+├── UserGuide
+│   ├── guide_view_1.imageset
+│   ├── guide_view_2.imageset
+│   ├── guide_view_3.imageset
+│   ├── guide_view_4.imageset
+│   └── guide_view_5.imageset
+├── VehicleTracking
+│   ├── end.imageset
+│   ├── start.imageset
+│   └── vehicle_track_info_phone.imageset
+├── WorkOrder
+│   ├── icon_issue_evaluated.imageset
+│   ├── icon_issue_finished.imageset
+│   ├── icon_issue_processing.imageset
+│   ├── icon_issue_watting.imageset
+│   ├── icon_sevice.imageset
+│   ├── icon_star_blank.imageset
+│   └── icon_star_yellow.imageset
+├── bg_announce_top.imageset
+├── bg_goods_power_expired.imageset
+├── bg_goods_power_no.imageset
+├── btn_add_blue.imageset
+├── btn_delete_gray.imageset
+├── btn_selected_multiple.imageset
+├── btn_selected_radio.imageset
+├── group_header_enter.imageset
+├── icon_arrow_left_gray.imageset
+├── icon_arrow_right_lightGray.imageset
+├── icon_bell_blue.imageset
+├── icon_bell_white.imageset
+├── icon_bill_red.imageset
+├── icon_client_service.imageset
+├── icon_close_gray.imageset
+├── icon_close_gray_squar.imageset
+├── icon_discout_orange.imageset
+├── icon_fail_yellow_big.imageset
+├── icon_inpart_red.imageset
+├── icon_invoice_yellow.imageset
+├── icon_msg_bulletin.imageset
+├── icon_msg_white.imageset
+├── icon_num
+│   ├── icon_num1.imageset
+│   ├── icon_num2.imageset
+│   ├── icon_num3.imageset
+│   ├── icon_num4.imageset
+│   └── icon_num5.imageset
+├── icon_point_red.imageset
+├── icon_selected_NO_circle_gray.imageset
+├── icon_selected_NO_gray.imageset
+├── icon_selected_NO_rect.imageset
+├── icon_selected_YES_circle.imageset
+├── icon_selected_YES_circle_big.imageset
+├── icon_selected_YES_hollow_circle.imageset
+├── icon_selected_YES_rect.imageset
+├── icon_setting_blue.imageset
+├── icon_setting_white.imageset
+├── icon_shop_green.imageset
+├── icon_success_blue.imageset
+├── icon_success_blue_big.imageset
+├── img_IDCard_back_example.imageset
+├── img_IDCard_front_example.imageset
+├── img_arrowDown_black.imageset
+├── img_car_default.imageset
+├── img_company_check_example.imageset
+├── img_merchant_freedom_form_example.imageset
+├── img_merchant_license_example.imageset
+├── img_merchant_money_management_auth_example.imageset
+├── img_merchant_name_example.imageset
+├── img_oranization_license_example.imageset
+├── img_placeholder.imageset
+├── img_placeholder_empty.imageset
+├── img_placeholder_offonline.imageset
+├── img_placeholder_search.imageset
+├── img_selected_Circle_blue.imageset
+├── img_unselected_Circle_blue.imageset
+├── img_upload.imageset
+├── img_upload_IDCard.imageset
+├── img_upload_placeholder.imageset
+├── pay_ALI.imageset
+└── pay_WX.imageset
+
+388 directories

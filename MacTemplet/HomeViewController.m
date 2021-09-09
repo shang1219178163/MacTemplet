@@ -80,6 +80,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"TmpViewController", @"Tmp模块",],
 //                      @[@"UImageBatchCreateContoller", @" 字符串转 UImage",],
                       @[@"OtherConvertController", @"字符串加工",],
+                      @[@"UImageBatchCreateByAssetContoller", @"UImage转化",],
                       
 //                      @[@"OthersViewController", @"Others",],
 //                      @[@"NNSplitViewController", @"SplitView",],
