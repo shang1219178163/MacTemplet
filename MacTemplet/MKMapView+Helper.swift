@@ -56,7 +56,7 @@ public extension MKMapView {
             return view
         }
         let view = T.init(annotation: annotation, reuseIdentifier: identifier)
-        return view;
+        return view
     }
 }
 
