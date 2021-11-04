@@ -79,7 +79,7 @@ public extension NSAppleScript {
     }
 }
 
-//NSUserAppleScriptTask 中很好的一个东西就是结束时候的回调处理。脚本是异步执行的，所以你的用户界面并不会被一个 (比较长) 的脚本锁住。要小心你在结束回调中做的事情，因为它并不是跑在主线程上的，所以你不能在那儿对你的用户界面做更新。
+///NSUserAppleScriptTask 中很好的一个东西就是结束时候的回调处理。脚本是异步执行的，所以你的用户界面并不会被一个 (比较长) 的脚本锁住。要小心你在结束回调中做的事情，因为它并不是跑在主线程上的，所以你不能在那儿对你的用户界面做更新。
 public extension NSUserAppleScriptTask {
     
     func execute(url: URL) throws {
