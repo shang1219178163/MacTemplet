@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-
+import SwiftExpand
 
 @objc public extension NSWorkspace {
 
@@ -42,7 +42,7 @@ NSUserAppleScript 提供了执行 AppleScript 的多线程方案
                 errorNumber == NSNumber(integerLiteral: -1728) {
                 errorMessage = "Please open Terminal app"
             }
-            NSAlert.showError(errorMessage, message: scriptText)
+            NSAlert(title: errorMessage, message: scriptText, btnTitles: ["确定"]).runModal()
         }
     }
     
@@ -75,7 +75,6 @@ public extension NSAppleScript {
             print("执行 \n\(command)\n命令出错: \(error.debugDescription)")
             return (false, nil)
         }
-        
         return (true, result.stringValue)
     }
 }
@@ -90,7 +89,7 @@ public extension NSUserAppleScriptTask {
             var message = result?.stringValue ?? ""
             // error.debugDescription 也是执行结果的一部分，有时候超时或执行 shell 本身返回错误，而我们又需要打印这些内容的时候，就需要用到它。
             message = message.count == 0 ? error.debugDescription : message
-            NSAlert.showError(url.absoluteString, message: message)
+            NSAlert(title: url.absoluteString, message: message, btnTitles: ["确定"]).runModal()
         }
     }
 }
