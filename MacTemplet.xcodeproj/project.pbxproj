@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		070967CF6BBBA408F67F8E13 /* Pods_MacTemplet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */; };
+		140CE361272F82B3008FBEA8 /* FlutterPluginConvertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE360272F82B3008FBEA8 /* FlutterPluginConvertController.swift */; };
 		140D292E2317E8C200867785 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D292D2317E8C200867785 /* QuartzCore.framework */; };
 		140D294F23189D9600867785 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D294E23189D9600867785 /* Photos.framework */; };
 		1412334B264B96BB0098C8FB /* FlutterIconDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1412334A264B96BB0098C8FB /* FlutterIconDataController.swift */; };
@@ -131,6 +132,7 @@
 		14D4ED5623CA159900B8BD16 /* blocks.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 14D4ED5523CA159900B8BD16 /* blocks.geojson */; };
 		14D4ED5823CA1D3500B8BD16 /* Swift-YYModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 14D4ED5723CA1D3400B8BD16 /* Swift-YYModel.json */; };
 		14E31F1A26A13447001506B1 /* OtherConvertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E31F1926A13447001506B1 /* OtherConvertController.swift */; };
+		14EC65DD27321B6F00831C32 /* NSTextView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EC65DC27321B6F00831C32 /* NSTextView+Ext.swift */; };
 		14F08BCC2303BC1800B75842 /* JsonToModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F08BCB2303BC1800B75842 /* JsonToModelController.m */; };
 		14F0FDA022ADF12C00057093 /* NSObject+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */; };
 		14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDA222ADF14100057093 /* NSViewController+Hook.m */; };
@@ -181,6 +183,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		140CE360272F82B3008FBEA8 /* FlutterPluginConvertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterPluginConvertController.swift; sourceTree = "<group>"; };
 		140D292D2317E8C200867785 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		140D294E23189D9600867785 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		1412334A264B96BB0098C8FB /* FlutterIconDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlutterIconDataController.swift; sourceTree = "<group>"; };
@@ -338,6 +341,7 @@
 		14D4ED5523CA159900B8BD16 /* blocks.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = blocks.geojson; sourceTree = "<group>"; };
 		14D4ED5723CA1D3400B8BD16 /* Swift-YYModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Swift-YYModel.json"; sourceTree = "<group>"; };
 		14E31F1926A13447001506B1 /* OtherConvertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherConvertController.swift; sourceTree = "<group>"; };
+		14EC65DC27321B6F00831C32 /* NSTextView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextView+Ext.swift"; sourceTree = "<group>"; };
 		14F08BCA2303BC1800B75842 /* JsonToModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonToModelController.h; sourceTree = "<group>"; };
 		14F08BCB2303BC1800B75842 /* JsonToModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonToModelController.m; sourceTree = "<group>"; };
 		14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Hook.m"; sourceTree = "<group>"; };
@@ -559,7 +563,9 @@
 				14705CD5243C8246009600C9 /* URLSession+Helper.swift */,
 				146D28C7244DAA51004655B1 /* NNPressGestureRecognizer.swift */,
 				14BC343B2621FEF200BC6123 /* DragFileController.swift */,
+				140CE360272F82B3008FBEA8 /* FlutterPluginConvertController.swift */,
 				142C1E7A26BD2326003B7E8C /* String+Ext.swift */,
+				14EC65DC27321B6F00831C32 /* NSTextView+Ext.swift */,
 				14F92C2522BB8DBB00A5C5E4 /* Controller */,
 				1460510E23A367E600C10F34 /* CocoaExtensions */,
 				14F5498224305DC7003BC739 /* NSTableViewCell */,
@@ -1070,6 +1076,7 @@
 				1496182A264F6F5300DF56FE /* FlutterWidgetToExtController.swift in Sources */,
 				1487189C24349DA7007F618E /* UULabel.swift in Sources */,
 				1480B0E9238CC94100E24BDB /* MKMapView+Helper.swift in Sources */,
+				14EC65DD27321B6F00831C32 /* NSTextView+Ext.swift in Sources */,
 				142857CD2425AA1800BC36F0 /* NSView+Ext.m in Sources */,
 				14F5498124305DB2003BC739 /* NNDrawLineView.swift in Sources */,
 				14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */,
@@ -1080,6 +1087,7 @@
 				14F92BF622BB13E900A5C5E4 /* NSObject+Helper.m in Sources */,
 				14A90F23241B5CE500BC50EC /* NNBatchManager.swift in Sources */,
 				14ADEB8A259F0E8F006D9629 /* NNPropertyModel.swift in Sources */,
+				140CE361272F82B3008FBEA8 /* FlutterPluginConvertController.swift in Sources */,
 				14705CDC243DBA44009600C9 /* NNTreeNodelModel.swift in Sources */,
 				14705CD8243DA3FC009600C9 /* BookListController.swift in Sources */,
 				14F92CF722BC6E6C00A5C5E4 /* NoodleLineNumberView.m in Sources */,
