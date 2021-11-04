@@ -80,12 +80,12 @@ extension NNSplitViewController: NSSplitViewDelegate {
 
     //向左移动拉伸距离最小为30
     func splitView(_ splitView: NSSplitView, constrainMinCoordinate proposedMinimumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
-        return 0
+        return NSWidth(view.bounds)*0.1
     }
 
     //向右移动拉伸最大值为100
     func splitView(_ splitView: NSSplitView, constrainMaxCoordinate proposedMaximumPosition: CGFloat, ofSubviewAt dividerIndex: Int) -> CGFloat {
-        return NSWidth(view.bounds)*0.3
+        return NSWidth(view.bounds)*0.9
     }
 
     //允许调整子视图

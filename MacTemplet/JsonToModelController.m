@@ -131,21 +131,21 @@
     [self.textField makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.superview).offset(kPadding);
         make.left.equalTo(self.bottomView.superview).offset(kX_GAP);
-        make.width.equalTo(150);
+        make.width.equalTo(100);
         make.bottom.equalTo(self.bottomView.superview).offset(-kPadding);
     }];
     
     [self.textFieldTwo makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.superview).offset(kPadding);
         make.left.equalTo(self.textField.right).offset(kX_GAP);
-        make.width.equalTo(150);
+        make.width.equalTo(100);
         make.bottom.equalTo(self.bottomView.superview).offset(-kPadding);
     }];
     
     [self.textFieldThree makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.superview).offset(kPadding);
         make.left.equalTo(self.textFieldTwo.right).offset(kX_GAP);
-        make.width.equalTo(150);
+        make.width.equalTo(100);
         make.bottom.equalTo(self.bottomView.superview).offset(-kPadding);
     }];
     
@@ -393,7 +393,11 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     if (self.textField.stringValue.length <= 0
         || self.textFieldTwo.stringValue.length <= 0
         || self.textFieldThree.stringValue.length <= 0) {
-        [[NSAlert create:@"提示" message:@"前缀,类名,父类均不能为空" btnTitles:@[kTitleKnow]] beginSheetChain:nil];
+        NSAlert *alert = [[NSAlert alloc]initWithTitle:@"提示"
+                                               message:@"前缀,类名,父类均不能为空"
+                                             btnTitles:@[kTitleKnow]
+                                            alertStyle:NSAlertStyleInformational];
+        [alert runModal];
         return;
     }
     
@@ -405,7 +409,10 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     self.textLabel.stringValue = result ? @"Valid JSON Structure" : @"JSON isn't valid";
     self.textLabel.textColor = result ? NSColor.systemGreenColor : NSColor.redColor;
     if (!result) {
-        NSAlert *alert = [NSAlert create:@"警告" message:@"Error：Json is invalid" btnTitles:@[kTitleKnow]];
+        NSAlert *alert = [[NSAlert alloc]initWithTitle:@"警告"
+                                               message:@"Error：Json is invalid"
+                                             btnTitles:@[kTitleKnow]
+                                            alertStyle:NSAlertStyleInformational];
         [alert beginSheetModalForWindow:NSApp.keyWindow completionHandler:^(NSModalResponse returnCode) {
             DDLog(@"%@", @(returnCode));
         }];

@@ -167,7 +167,7 @@
         _window = [[NSWindow alloc]initWithVc:nil size:size];
 
 //        _window.contentMinSize = CGSizeMake(kScreenWidth*0.55, kScreenHeight*0.5);
-        _window.contentMinSize = CGSizeMake(NSScreen.sizeWidth*0.55, NSScreen.sizeHeight*0.5);
+        _window.contentMinSize = CGSizeMake(NSScreen.sizeWidth*0.65, NSScreen.sizeHeight*0.6);
         _window.title = @"App代码助手";
     }
     return _window;
