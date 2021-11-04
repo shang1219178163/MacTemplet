@@ -33,6 +33,7 @@ def common_pods
   pod 'Then'
 
 #  pod 'FlatButton'
+  pod 'Highlightr'
 
 end
 

@@ -67,20 +67,21 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"ProppertyLazyController", @"属性Lazy",],
                       @[@"NNBatchClassCreateController", @"类文件批量创建",],
                       @[@"ProppertyChainController", @"属性转链式",],
-                      @[@"ProppertyChainSwiftController", @"Swift属性转链式",],
+//                      @[@"ProppertyChainSwiftController", @"Swift属性转链式",],
 //                      @[@"FlutterIconDataController", @"FlutterIconData",],
-                      @[@"FlutterWidgetToExtController", @"Widget转扩展",],
+//                      @[@"FlutterWidgetToExtController", @"Widget转扩展",],
             
-                      @[@"DragFileController", @"文件拖拽",],
+//                      @[@"DragFileController", @"文件拖拽",],
 
-                      @[@"AuthorInfoController", @"Author",],
+//                      @[@"AuthorInfoController", @"Author",],
 ////                      @[@"NNButtonStyleController", @"NSButon研究",],
 ////                      @[@"NNButtonStudyController", @"NNButton封装",],
 ////                      @[@"NNLabelStudyController", @"NNLabel封装",],
-                      @[@"TmpViewController", @"Tmp模块",],
+//                      @[@"TmpViewController", @"Tmp模块",],
 //                      @[@"UImageBatchCreateContoller", @" 字符串转 UImage",],
-                      @[@"OtherConvertController", @"字符串加工",],
+//                      @[@"OtherConvertController", @"字符串加工",],
                       @[@"UImageBatchCreateByAssetContoller", @"UImage转化",],
+                      @[@"FlutterPluginConvertController", @"Flutter Plugin",],
                       
 //                      @[@"OthersViewController", @"Others",],
 //                      @[@"NNSplitViewController", @"SplitView",],
@@ -104,9 +105,6 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
         [self.tabView selectTabViewItemAtIndex:idx];
     }
     [self.view addSubview:self.tabView];
-    
-    DDLog(@"name: %@", self.vcName);
-//    NSNumberFormatter *fmt =
 }
 
 #pragma mark -lazy

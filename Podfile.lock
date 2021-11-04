@@ -13,6 +13,7 @@ PODS:
   - AFNetworking/Security (4.0.1)
   - AFNetworking/Serialization (4.0.1)
   - HandyJSON (5.0.2)
+  - Highlightr (2.1.0)
   - Masonry (1.1.0)
   - NNButton (1.1.5.3)
   - NNLabel (1.0.1)
@@ -34,6 +35,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - HandyJSON
+  - Highlightr
   - Masonry
   - NNButton
   - NNLabel
@@ -50,6 +52,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - HandyJSON
+    - Highlightr
     - Masonry
     - NNButton
     - NNLabel
@@ -66,6 +69,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  Highlightr: 595f3e100737c8de41113385da8bd0b5b65212c6
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   NNButton: 5ff24013480dc6012be208bc5b13e2429002cae1
   NNLabel: f7ff344f836f938b499a2df7bc32f50f2e339829
@@ -79,6 +83,6 @@ SPEC CHECKSUMS:
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 3896122730884b11480994a2bef6f98b8f39e403
+PODFILE CHECKSUM: 490fe432198e6079b0609c295400aeda64feb53b
 
 COCOAPODS: 1.10.2
