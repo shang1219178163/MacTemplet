@@ -99,14 +99,14 @@ class UImageBatchCreateByAssetContoller: NSViewController {
             make.height.equalTo(45)
         }
         
-        textViewTitle.enclosingScrollView!.snp.makeConstraints { (make) in
+        textViewTitle.enclosingScrollView!.snp.remakeConstraints { (make) in
             make.top.equalToSuperview().offset(10)
             make.left.equalToSuperview().offset(10)
             make.right.equalToSuperview().offset(-10)
             make.height.equalTo(25)
         }
         
-        textView.enclosingScrollView!.snp.makeConstraints { (make) in
+        textView.enclosingScrollView!.snp.remakeConstraints { (make) in
             make.top.equalTo(textViewTitle.enclosingScrollView!.snp.bottom).offset(10)
             make.bottom.equalTo(btn.snp.top).offset(-10)
             make.left.equalToSuperview().offset(10)

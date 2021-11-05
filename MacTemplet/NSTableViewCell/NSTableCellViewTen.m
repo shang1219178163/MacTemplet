@@ -17,14 +17,6 @@
 
 @implementation NSTableCellViewTen
 
-//- (instancetype)init{
-//    self = [super init];
-//    if (self) {
-//        [self setupUI];
-//    }
-//    return self;
-//}
-
 - (instancetype)initWithFrame:(NSRect)frame{
     self = [super initWithFrame:frame];
     if (self) {

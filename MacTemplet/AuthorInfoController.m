@@ -117,7 +117,7 @@
     NSAlert *alert = [[NSAlert alloc]initWithTitle:title
                                            message:message
                                          btnTitles:list
-                                        alertStyle:NSAlertStyleInformational];
+                                             style:NSAlertStyleInformational];
     [alert beginSheetModalForWindow:NSApplication.sharedApplication.mainWindow completionHandler:^(NSModalResponse returnCode) {
         if (returnCode == NSModalResponseOK){
             DDLog(@"(returnCode == NSOKButton)");

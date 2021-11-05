@@ -70,7 +70,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 //                      @[@"ProppertyChainSwiftController", @"Swift属性转链式",],
 //                      @[@"FlutterIconDataController", @"FlutterIconData",],
 //                      @[@"FlutterWidgetToExtController", @"Widget转扩展",],
-            
+
 //                      @[@"DragFileController", @"文件拖拽",],
 
 //                      @[@"AuthorInfoController", @"Author",],
@@ -82,10 +82,10 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 //                      @[@"OtherConvertController", @"字符串加工",],
                       @[@"UImageBatchCreateByAssetContoller", @"UImage转化",],
                       @[@"FlutterPluginConvertController", @"Flutter Plugin",],
-                      
-//                      @[@"OthersViewController", @"Others",],
+                                            
+                      @[@"OthersViewController", @"Others",],
 //                      @[@"NNSplitViewController", @"SplitView",],
-//                                            
+//
 //                      @[@"YYModelSwiftController", @"YYModelSwift",],
 ////                    @[@"CollectionViewController", @"CollectionView模块",],
 ////                      @[@"NSTestViewController", @"测试模块",],
@@ -97,6 +97,8 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 ////                      @[@"FileController", @"File处理",],
 ////                      @[@"NNTableViewController", @"NNTable",],
                       ];
+//    list = @[@[@"FlutterPluginConvertController", @"Flutter Plugin",],
+//    ];
     [self.tabView addItems:list];
 
     if ([NSUserDefaults.standardUserDefaults objectForKey:kDefaultTabIndex]) {

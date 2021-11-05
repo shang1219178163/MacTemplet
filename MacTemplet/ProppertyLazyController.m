@@ -117,7 +117,7 @@
         NSAlert *alert = [[NSAlert alloc]initWithTitle:@"提示"
                                                message:@"❌lazy属性必须包含*"
                                              btnTitles:@[kTitleKnow]
-                                            alertStyle:NSAlertStyleInformational];
+                                                 style:NSAlertStyleInformational];
         [alert runModal];
         return;
     }

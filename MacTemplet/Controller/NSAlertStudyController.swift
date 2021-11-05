@@ -29,7 +29,7 @@
   helpAnchor: String?
  
  8. NSAlert 样式 (级别):不同样式的级别不同
-  alertStyle: NSAlertStyle
+  style: NSAlertStyle
  
 9 . 代理属性(用来响应帮助选项的事件)
   delegate: NSAlertDelegate?

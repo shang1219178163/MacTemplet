@@ -60,7 +60,7 @@ extension NSOutlineViewController: NSOutlineViewDelegate {
       // If errors try with
         let identifier = NSUserInterfaceItemIdentifier(rawValue: "TextCell")
       // let view = outlineView.make(withIdentifier: "TextCell", owner: self) as? NSTableCellView
-        var view = outlineView.makeView(withIdentifier: identifier, owner: self) as? NSTableCellView
+      var view = outlineView.makeView(withIdentifier: identifier, owner: self) as? NSTableCellView
         if view == nil {
             view = {
                 // Create a text field for the cell
@@ -80,12 +80,12 @@ extension NSOutlineViewController: NSOutlineViewDelegate {
                 return newCell
             }()
         }
-        if let it = item as? FileItem {
-            if let textField = view?.textField {
-                textField.isEditable = false
-                textField.stringValue = it.displayName
-            }
-        }
+//        if let it = item as? FileItem {
+//            if let textField = view?.textField {
+//                textField.isEditable = false
+//                textField.stringValue = it.displayName
+//            }
+//        }
 
 //        view?.getViewLayer()
         return view

@@ -11,14 +11,14 @@ import Cocoa
 class NNOutlineView: NSOutlineView {
     
     lazy var scrollView: NSScrollView = {
-        let scrollView = NSScrollView()
-        scrollView.backgroundColor = NSColor.white
-        scrollView.drawsBackground = false
-        scrollView.hasHorizontalScroller = true
-        scrollView.hasVerticalScroller = true
-        scrollView.autohidesScrollers = true
+        let view = NSScrollView()
+        view.backgroundColor = .white
+        view.drawsBackground = false
+        view.hasHorizontalScroller = true
+        view.hasVerticalScroller = true
+        view.autohidesScrollers = true
         
-        return scrollView
+        return view
     }()
     
     var adjustsTableColumnsWidth = true

@@ -23,7 +23,7 @@
     NSMutableString *resultStr = [NSMutableString stringWithFormat:@"\n@class %@", [[self.classInfos firstObject] className]];
     for (NSInteger i = 0; i < self.classInfos.count - 1; i++) {
         ESClassInfo *info = self.classInfos[i+1];
-        [resultStr appendFormat:@",%@",info.className];
+        [resultStr appendFormat:@",%@", info.className];
     }
     [resultStr appendString:@";"];
     return resultStr;

@@ -55,7 +55,7 @@
 @property (nonatomic, strong) NNClassInfoModel *classFileModel;
 @property (nonatomic, strong) NSMutableArray *dataList;
 
-@property (nonatomic, strong) NSArray *typeList;
+@property (nonatomic, strong) NSArray *types;
 
 @end
 
@@ -87,23 +87,19 @@
     
     [self updateLanguages];
     [self readFile];
-}
-
-- (void)viewWillAppear{
-    [super viewWillAppear];
     
-    NSString *titleOfSelectedItem = [NSUserDefaults.standardUserDefaults objectForKey:kDisplayName];
-//    DDLog(@"titleOfSelectedItem_%@", titleOfSelectedItem);
-    [self.popBtn selectItemWithTitle:titleOfSelectedItem];
-}
-
--(void)viewDidAppear{
-    [super viewDidAppear];
-    
-    NSString * folderPath = @"/Users/shang/Downloads";
-    [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:kFolderPath];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(handleNotifation:)
+                                               name:NSWindowDidBecomeKeyNotification
+                                             object:nil];
 
 }
+
+- (void)handleNotifation:(NSNotification *)n {
+//    DDLog(@"%@", n);
+    [self.tableView reloadData];
+}
+
 
 -(void)viewDidLayout{
     [super viewDidLayout];
@@ -176,14 +172,20 @@
         make.width.equalTo(80);
         make.bottom.equalTo(self.bottomView.superview).offset(-kPadding);
     }];
+}
+
+- (void)viewWillAppear{
+    [super viewWillAppear];
     
-    // 重设宽度
-    //    CGRect rect = self.tableView.frame;
-    //    NSTableColumn * column = self.tableView.tableColumns.firstObject;
-    //    column.width = CGRectGetWidth(rect);
-    //    column.maxWidth = CGFLOAT_MAX;
+    NSString *titleOfSelectedItem = [NSUserDefaults.standardUserDefaults objectForKey:kDisplayName];
+    [self.popBtn selectItemWithTitle:titleOfSelectedItem];
+}
+
+-(void)viewDidAppear{
+    [super viewDidAppear];
     
-    //    [self.tableView reloadData];
+    NSString *folderPath = @"/Users/shang/Downloads";
+    [NSUserDefaults.standardUserDefaults setObject:folderPath forKey:kFolderPath];
 }
 
 
@@ -195,11 +197,8 @@
 }
 
 -(CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
-    BOOL isSwift = NSApplication.isSwift;
-    
-    CGFloat windowHeight = NSApp.keyWindow.frame.size.height;
-    CGFloat height = isSwift ? (windowHeight - 50 - 40) : (windowHeight- 50)*0.5;
-//    DDLog(@"__%@_%@_%@_%@",@(NSApp.keyWindow.frame), @(NSScreen.mainScreen.frame), @(NSApp.keyWindow.frame), @(height));
+    CGFloat tableViewH = CGRectGetHeight(tableView.frame);
+    CGFloat height = NSApplication.isSwift ? tableViewH : tableViewH*0.5;
     return height > 0 ? height : tableView.rowHeight;
 }
 
@@ -249,7 +248,7 @@
 
 //设置每行容器视图
 //- (nullable NSTableRowView *)tableView:(NSTableView *)tableView rowViewForRow:(NSInteger)row{
-//    NNTableRowView * rowView = [[NNTableRowView alloc]init];
+//    NNTableRowView *rowView = [[NNTableRowView alloc]init];
 //    rowView.backgroundColor = NSColor.yellowColor;
 //    return rowView;
 //}
@@ -276,7 +275,12 @@
 //    DDLog(@"didSelect：%@",notification);
 }
 
-- (NSString *)tableView:(NSTableView *)tableView toolTipForCell:(NSCell *)cell rect:(NSRectPointer)rect tableColumn:(nullable NSTableColumn *)tableColumn row:(NSInteger)row mouseLocation:(NSPoint)mouseLocation{
+- (NSString *)tableView:(NSTableView *)tableView
+         toolTipForCell:(NSCell *)cell
+                   rect:(NSRectPointer)rect
+            tableColumn:(nullable NSTableColumn *)tableColumn
+                    row:(NSInteger)row
+          mouseLocation:(NSPoint)mouseLocation{
     NSInteger item = [tableView.tableColumns indexOfObject:tableColumn];
     NSString *string = [NSString stringWithFormat:@"{%@,%@}", @(row), @(item)];
     return string;
@@ -396,7 +400,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
         NSAlert *alert = [[NSAlert alloc]initWithTitle:@"提示"
                                                message:@"前缀,类名,父类均不能为空"
                                              btnTitles:@[kTitleKnow]
-                                            alertStyle:NSAlertStyleInformational];
+                                            style:NSAlertStyleInformational];
         [alert runModal];
         return;
     }
@@ -412,7 +416,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
         NSAlert *alert = [[NSAlert alloc]initWithTitle:@"警告"
                                                message:@"Error：Json is invalid"
                                              btnTitles:@[kTitleKnow]
-                                            alertStyle:NSAlertStyleInformational];
+                                                 style:NSAlertStyleInformational];
         [alert beginSheetModalForWindow:NSApp.keyWindow completionHandler:^(NSModalResponse returnCode) {
             DDLog(@"%@", @(returnCode));
         }];
@@ -671,10 +675,10 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
             
             view.maximumNumberOfLines = 1;
             view.usesSingleLineMode = true;
-            view.stringValue = self.typeList.firstObject;
+            view.stringValue = self.types.firstObject;
             view.mouseDownBlock = ^(HHLabel * _Nonnull sender) {
                 sender.selectable = !sender.selectable;
-                sender.stringValue = sender.selectable == false ? self.typeList.firstObject : self.typeList.lastObject;
+                sender.stringValue = sender.selectable == false ? self.types.firstObject : self.types.lastObject;
                 sender.textColor = sender.selectable == false ? NSColor.grayColor : NSColor.redColor;
                 [self hanldeJson];
                 
@@ -685,11 +689,11 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
     return _valueTypeLab;
 }
 
--(NSArray *)typeList{
-    if (!_typeList) {
-        _typeList = @[@"默认类型", @"字符串类型",];
+-(NSArray *)types{
+    if (!_types) {
+        _types = @[@"默认类型", @"字符串类型",];
     }
-    return _typeList;
+    return _types;
 }
 
 -(NSPopUpButton *)popBtn{

@@ -33,6 +33,8 @@ class OthersViewController: NSViewController {
                   (LittleActionController(), "小功能"),
                   (ShowViewController(), "控制器呈现"),
                   (BookListController(), "折叠分段列表"),
+                  (PageControllerDemo(), "PageControllerDemo"),
+
 //                  (NSTestViewController() , "测试模块"),
 //                  (TmpViewController() , "Tmp模块"),
 //                  (NSPanelStudyController() , "NSOpenPanelStud"),
