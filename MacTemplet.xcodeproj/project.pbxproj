@@ -132,6 +132,7 @@
 		14D4ED5823CA1D3500B8BD16 /* Swift-YYModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 14D4ED5723CA1D3400B8BD16 /* Swift-YYModel.json */; };
 		14E31F1A26A13447001506B1 /* OtherConvertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E31F1926A13447001506B1 /* OtherConvertController.swift */; };
 		14EC65DD27321B6F00831C32 /* NSTextView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EC65DC27321B6F00831C32 /* NSTextView+Ext.swift */; };
+		14EDE35E27351A45001D70B8 /* PageControllerDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDE35D27351A44001D70B8 /* PageControllerDemo.swift */; };
 		14F08BCC2303BC1800B75842 /* JsonToModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F08BCB2303BC1800B75842 /* JsonToModelController.m */; };
 		14F0FDA022ADF12C00057093 /* NSObject+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */; };
 		14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F0FDA222ADF14100057093 /* NSViewController+Hook.m */; };
@@ -340,6 +341,7 @@
 		14D4ED5723CA1D3400B8BD16 /* Swift-YYModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Swift-YYModel.json"; sourceTree = "<group>"; };
 		14E31F1926A13447001506B1 /* OtherConvertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherConvertController.swift; sourceTree = "<group>"; };
 		14EC65DC27321B6F00831C32 /* NSTextView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextView+Ext.swift"; sourceTree = "<group>"; };
+		14EDE35D27351A44001D70B8 /* PageControllerDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControllerDemo.swift; sourceTree = "<group>"; };
 		14F08BCA2303BC1800B75842 /* JsonToModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonToModelController.h; sourceTree = "<group>"; };
 		14F08BCB2303BC1800B75842 /* JsonToModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonToModelController.m; sourceTree = "<group>"; };
 		14F0FD9E22ADF12C00057093 /* NSObject+Hook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Hook.m"; sourceTree = "<group>"; };
@@ -564,6 +566,7 @@
 				146D28C7244DAA51004655B1 /* NNPressGestureRecognizer.swift */,
 				14BC343B2621FEF200BC6123 /* DragFileController.swift */,
 				140CE360272F82B3008FBEA8 /* FlutterPluginConvertController.swift */,
+				14EDE35D27351A44001D70B8 /* PageControllerDemo.swift */,
 				14F92C2522BB8DBB00A5C5E4 /* Controller */,
 				1460510E23A367E600C10F34 /* CocoaExtensions */,
 				14F5498224305DC7003BC739 /* NSTableViewCell */,
@@ -1062,6 +1065,7 @@
 				14886B4026315DC700788F64 /* ProppertyChainSwiftController.swift in Sources */,
 				14A90F1E241B0FDC00BC50EC /* FlatButton.swift in Sources */,
 				1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */,
+				14EDE35E27351A45001D70B8 /* PageControllerDemo.swift in Sources */,
 				14ADE21523CC091000037B0B /* NNClassInfoModel.m in Sources */,
 				14705CD4243C794B009600C9 /* NNPinAnnotation.swift in Sources */,
 				142C1E7B26BD2326003B7E8C /* String+Ext.swift in Sources */,
