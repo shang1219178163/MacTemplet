@@ -20,13 +20,6 @@ import SwiftExpand
 @available(macOS 10.13, *)
 class FlutterPluginConvertController: NSViewController {
     
-    lazy var destinationView: DragDestinationView = {
-        let view = DragDestinationView(types: [.tiff, .color, .string, .fileURL, .html])
-        view.delegate = self
-        return view
-    }()
-    
-    
     lazy var textView: NNTextView = {
         let view = NNTextView.create(.zero)
         view.font = NSFont.systemFont(ofSize: 14, weight: .light)
@@ -124,13 +117,16 @@ class FlutterPluginConvertController: NSViewController {
     
     var clsName = ""
 
+    ///
+    var objcContent = ""
+
     // MARK: -lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         title = "Plugin插件方法生成"
 
-        view.addSubview(destinationView)
+//        view.addSubview(destinationView)
         view.addSubview(textView.enclosingScrollView!)
         view.addSubview(textViewConvert.enclosingScrollView!)
         view.addSubview(btn)
@@ -142,16 +138,11 @@ class FlutterPluginConvertController: NSViewController {
     override func viewDidLayout() {
         super.viewDidLayout()
         
-        guard let textViewEnclosingScrollView = textView.enclosingScrollView,
-              let textViewCreateEnclosingScrollView = textViewConvert.enclosingScrollView
-        else { return }
-        
         let spacing = 10
-        
-        destinationView.snp.makeConstraints { (make) in
-            make.top.left.bottom.equalToSuperview()
-            make.width.equalToSuperview().multipliedBy(0.5)
-        }
+
+        guard let textViewEnclosingScrollView = textView.enclosingScrollView,
+              let textViewConvertEnclosingScrollView = textViewConvert.enclosingScrollView
+        else { return }
         
         btn.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-spacing)
@@ -169,13 +160,13 @@ class FlutterPluginConvertController: NSViewController {
         
         textViewEnclosingScrollView.snp.remakeConstraints { (make) in
             make.top.left.equalToSuperview().offset(spacing)
-            make.right.equalTo(destinationView).offset(-spacing)
             make.bottom.equalTo(btn.snp.top).offset(-spacing)
+            make.width.equalToSuperview().multipliedBy(0.5).offset(-spacing)
         }
 
-        textViewCreateEnclosingScrollView.snp.remakeConstraints { (make) in
+        textViewConvertEnclosingScrollView.snp.remakeConstraints { (make) in
             make.top.equalToSuperview().offset(spacing)
-            make.left.equalTo(destinationView.snp.right)
+            make.left.equalTo(textViewEnclosingScrollView.snp.right).offset(spacing)
             make.right.equalToSuperview().offset(-spacing)
             make.bottom.equalTo(btn.snp.top).offset(-spacing)
         }
@@ -322,6 +313,7 @@ class FlutterPluginConvertController: NSViewController {
 //        DDLog(className, tuples.map{$0.1});
         objcH = createObjcH(tuples, className: clsName)
         objcM = createObjcM(tuples, className: clsName)
+        objcContent = createObjcContent(clsName, objcH: objcH, objcM: objcM)
         dartMain = createDartExampleMain(tuples, clsName: clsName)
                 
         convertOut()
@@ -421,6 +413,23 @@ class FlutterPluginConvertController: NSViewController {
 """
         return contentM
     }
+    /// 拼接 h 和 m 文件
+    func createObjcContent(_ clsName: String, objcH: String, objcM: String) -> String {
+        let content = """
+//\(clsName)Plugin.h
+
+\(objcH)
+
+/*******************************分割线*******************************/
+
+//\(clsName)Plugin.m
+
+\(objcM)
+
+"""
+        return content
+    }
+    
     /// 创建 plugin example 中 main.dart 页面,方便调试
     func createDartExampleMain(_ tuples: [(DartMethodModel, String, String)], clsName: String) -> String {
         
@@ -591,27 +600,7 @@ class _MyAppState extends State<MyApp> {
     }
     
     func convertOut() {
-//        DDLog(segmentCtl.selectedSegment)
-        var content = ""
-        if segmentCtl.selectedSegment == 0 {
-            content = """
-//\(clsName)Plugin.h
-
-\(objcH)
-
-/*******************************分割线*******************************/
-
-//\(clsName)Plugin.m
-
-\(objcM)
-
-"""
-        } else {
-            content = """
-\(dartMain)
-"""
-        }
-        textViewConvert.string = content
+        textViewConvert.string = segmentCtl.selectedSegment == 0 ? objcContent : dartMain
         textViewConvert.setHighlightedCode()
     }
     

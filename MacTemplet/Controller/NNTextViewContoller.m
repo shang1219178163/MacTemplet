@@ -14,7 +14,7 @@
 
 @interface NNTextViewContoller ()<NSControlTextEditingDelegate>
 
-@property (nonatomic, strong) NSTextView *textView;
+@property (nonatomic, strong) NNTextView *textView;
 @property (nonatomic, strong) NSSlider *slider;
 @property (nonatomic, strong) NSSlider *sliderOne;
 
@@ -105,23 +105,13 @@
 
 #pragma mark -lazy
 
--(NSTextView *)textView{
+-(NNTextView *)textView{
     if (!_textView) {
         _textView = ({
-            NSTextView *view = [NSTextView create:CGRectZero];
+            NNTextView *view = [NNTextView create:CGRectZero];
             view.delegate = self;
             view.string = @"";
             view.font = [NSFont systemFontOfSize:NSFont.smallSystemFontSize];
-            
-            ///
-            NSScrollView *scrollView = [[NSScrollView alloc] init];
-            scrollView.backgroundColor = NSColor.redColor;
-            
-            scrollView.drawsBackground = false;//不画背景（背景默认画成白色）
-//            scrollView.hasHorizontalScroller = true;
-//            scrollView.hasVerticalScroller = true;
-//            scrollView.autohidesScrollers = true;//自动隐藏滚动条（滚动的时候出现）
-            scrollView.documentView = view;
             
             view;
         });
