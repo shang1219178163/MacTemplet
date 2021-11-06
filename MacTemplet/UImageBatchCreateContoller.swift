@@ -25,11 +25,7 @@ class UImageBatchCreateContoller: NSViewController {
     
     override func viewWillAppear() {
         super.viewWillAppear()
-                
-//        guard let content = Bundle.string(forResource: "SFSafeSymbols", ofType: "txt") else {
-//            DDLog("文件解析失败")
-//            return }
-//        DDLog(content.count)
+    
     }
     
     override func viewDidAppear() {
