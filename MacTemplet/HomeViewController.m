@@ -78,7 +78,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 ////                      @[@"NNButtonStudyController", @"NNButton封装",],
 ////                      @[@"NNLabelStudyController", @"NNLabel封装",],
 //                      @[@"TmpViewController", @"Tmp模块",],
-//                      @[@"UImageBatchCreateContoller", @" 字符串转 UImage",],
+                      @[@"UImageBatchCreateContoller", @" 字符串转 UImage",],
 //                      @[@"OtherConvertController", @"字符串加工",],
                       @[@"UImageBatchCreateByAssetContoller", @"UImage转化",],
                       @[@"FlutterPluginConvertController", @"Flutter Plugin",],

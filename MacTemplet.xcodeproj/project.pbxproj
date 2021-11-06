@@ -32,6 +32,7 @@
 		1445780F22BDF0520007C7B3 /* NNLanguageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445780E22BDF0520007C7B3 /* NNLanguageModel.m */; };
 		1445782A22C1CDC90007C7B3 /* NSTableCellViewTen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */; };
 		1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */; };
+		1446DA662736C14A00062FFA /* SFSafeSymbols.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1446DA652736C14A00062FFA /* SFSafeSymbols.txt */; };
 		14492B6A24244D5100A9D3E1 /* HHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14492B6924244D5100A9D3E1 /* HHButton.m */; };
 		146D28BF244D9FA2004655B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146D28BE244D9FA1004655B1 /* Main.storyboard */; };
 		146D28C2244DA169004655B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 146D28C4244DA169004655B1 /* InfoPlist.strings */; };
@@ -219,6 +220,7 @@
 		1445782922C1CDC90007C7B3 /* NSTableCellViewTen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTableCellViewTen.m; sourceTree = "<group>"; };
 		1445783C22C2FDCD0007C7B3 /* NNTextViewContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNTextViewContoller.h; sourceTree = "<group>"; };
 		1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NNTextViewContoller.m; sourceTree = "<group>"; };
+		1446DA652736C14A00062FFA /* SFSafeSymbols.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SFSafeSymbols.txt; sourceTree = "<group>"; };
 		14492B6824244D5100A9D3E1 /* HHButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHButton.h; sourceTree = "<group>"; };
 		14492B6924244D5100A9D3E1 /* HHButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHButton.m; sourceTree = "<group>"; };
 		146D28BE244D9FA1004655B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -731,6 +733,7 @@
 		14F92C1C22BB766A00A5C5E4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1446DA652736C14A00062FFA /* SFSafeSymbols.txt */,
 				1437123326E9A1B000021F29 /* image assets tree.text */,
 				1412334E264B97000098C8FB /* IconData.txt */,
 				148BB4172437323C00ECEF3B /* 02@3x.png */,
@@ -919,6 +922,7 @@
 				14F92C1E22BB768400A5C5E4 /* appinfo.txt in Resources */,
 				148BB40F2436DD3700ECEF3B /* timg.gif in Resources */,
 				14F54988243065BF003BC739 /* alert.png in Resources */,
+				1446DA662736C14A00062FFA /* SFSafeSymbols.txt in Resources */,
 				14D4ED5623CA159900B8BD16 /* blocks.geojson in Resources */,
 				146D28BF244D9FA2004655B1 /* Main.storyboard in Resources */,
 				1437123426E9A1B000021F29 /* image assets tree.text in Resources */,
