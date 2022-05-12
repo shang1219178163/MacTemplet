@@ -82,8 +82,9 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
 //                      @[@"OtherConvertController", @"字符串加工",],
                       @[@"UImageBatchCreateByAssetContoller", @"UImage转化",],
                       @[@"FlutterPluginConvertController", @"Flutter Plugin",],
-                                            
-                      @[@"OthersViewController", @"Others",],
+                      @[@"KababCaseToCamelCase", @"中线转驼峰",],
+                                    
+//                      @[@"OthersViewController", @"Others",],
 //                      @[@"NNSplitViewController", @"SplitView",],
 //
 //                      @[@"YYModelSwiftController", @"YYModelSwift",],

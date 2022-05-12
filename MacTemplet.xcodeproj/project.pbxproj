@@ -34,6 +34,7 @@
 		1445783E22C2FDCE0007C7B3 /* NNTextViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445783D22C2FDCD0007C7B3 /* NNTextViewContoller.m */; };
 		1446DA662736C14A00062FFA /* SFSafeSymbols.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1446DA652736C14A00062FFA /* SFSafeSymbols.txt */; };
 		14492B6A24244D5100A9D3E1 /* HHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14492B6924244D5100A9D3E1 /* HHButton.m */; };
+		1453D70F282CB42200A7B20B /* KababCaseToCamelCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1453D70E282CB42200A7B20B /* KababCaseToCamelCase.swift */; };
 		146D28BF244D9FA2004655B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146D28BE244D9FA1004655B1 /* Main.storyboard */; };
 		146D28C2244DA169004655B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 146D28C4244DA169004655B1 /* InfoPlist.strings */; };
 		146D28C8244DAA51004655B1 /* NNPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D28C7244DAA51004655B1 /* NNPressGestureRecognizer.swift */; };
@@ -223,6 +224,7 @@
 		1446DA652736C14A00062FFA /* SFSafeSymbols.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SFSafeSymbols.txt; sourceTree = "<group>"; };
 		14492B6824244D5100A9D3E1 /* HHButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHButton.h; sourceTree = "<group>"; };
 		14492B6924244D5100A9D3E1 /* HHButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHButton.m; sourceTree = "<group>"; };
+		1453D70E282CB42200A7B20B /* KababCaseToCamelCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KababCaseToCamelCase.swift; sourceTree = "<group>"; };
 		146D28BE244D9FA1004655B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		146D28C3244DA169004655B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		146D28C6244DA16D004655B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				14886B3F26315DC700788F64 /* ProppertyChainSwiftController.swift */,
 				1412334A264B96BB0098C8FB /* FlutterIconDataController.swift */,
 				14961829264F6F5300DF56FE /* FlutterWidgetToExtController.swift */,
+				14EDE35D27351A44001D70B8 /* PageControllerDemo.swift */,
 				141C1FA02685CC2500A120EF /* UImageBatchCreateContoller.swift */,
 				1437122E26E9A13B00021F29 /* UImageBatchCreateByAssetContoller.swift */,
 				14E31F1926A13447001506B1 /* OtherConvertController.swift */,
@@ -568,7 +571,7 @@
 				146D28C7244DAA51004655B1 /* NNPressGestureRecognizer.swift */,
 				14BC343B2621FEF200BC6123 /* DragFileController.swift */,
 				140CE360272F82B3008FBEA8 /* FlutterPluginConvertController.swift */,
-				14EDE35D27351A44001D70B8 /* PageControllerDemo.swift */,
+				1453D70E282CB42200A7B20B /* KababCaseToCamelCase.swift */,
 				14F92C2522BB8DBB00A5C5E4 /* Controller */,
 				1460510E23A367E600C10F34 /* CocoaExtensions */,
 				14F5498224305DC7003BC739 /* NSTableViewCell */,
@@ -1003,6 +1006,7 @@
 				14F5497F24305BEF003BC739 /* AppIconActionController.swift in Sources */,
 				14F0FDA022ADF12C00057093 /* NSObject+Hook.m in Sources */,
 				14F0FDA322ADF14100057093 /* NSViewController+Hook.m in Sources */,
+				1453D70F282CB42200A7B20B /* KababCaseToCamelCase.swift in Sources */,
 				148BB40D2435F59300ECEF3B /* LittleActionController.swift in Sources */,
 				14D4ED4B23C9F36900B8BD16 /* NNViewCreater.swift in Sources */,
 				14886B712631815100788F64 /* NNPropertySwiftModel.swift in Sources */,
@@ -1279,10 +1283,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MacTemplet/MacTemplet.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.4.0;
-				DEVELOPMENT_TEAM = UB99NJ7K8G;
+				DEVELOPMENT_TEAM = 2JZLEXVN7E;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PREFIX_HEADER = MacTemplet/PrefixHeader.pch;
 				INFOPLIST_FILE = MacTemplet/Info.plist;
@@ -1295,6 +1299,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet.codeHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MacTemplet/MacTemplet-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1309,10 +1314,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MacTemplet/MacTemplet.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.4.0;
-				DEVELOPMENT_TEAM = UB99NJ7K8G;
+				DEVELOPMENT_TEAM = 2JZLEXVN7E;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PREFIX_HEADER = MacTemplet/PrefixHeader.pch;
 				INFOPLIST_FILE = MacTemplet/Info.plist;
@@ -1325,6 +1330,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = bin.MacTemplet.codeHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MacTemplet/MacTemplet-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
