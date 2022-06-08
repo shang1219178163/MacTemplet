@@ -42,6 +42,9 @@
 
     self.font = [NSFont systemFontOfSize:15];
     self.textColor = NSColor.blackColor;
+//    self.alignment = NSTextAlignmentCenter;
+    self.maximumNumberOfLines = 1;
+    self.usesSingleLineMode = true;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
