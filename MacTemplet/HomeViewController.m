@@ -83,6 +83,7 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
                       @[@"UImageBatchCreateByAssetContoller", @"UImage转化",],
                       @[@"FlutterPluginConvertController", @"Flutter Plugin",],
                       @[@"KababCaseToCamelCase", @"中线转驼峰",],
+                      @[@"SassVariableToVueProps", @"sass变量转vue属性",],
                                     
 //                      @[@"OthersViewController", @"Others",],
 //                      @[@"NNSplitViewController", @"SplitView",],

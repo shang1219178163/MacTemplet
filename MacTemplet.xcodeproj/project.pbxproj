@@ -133,6 +133,7 @@
 		14D4ED5623CA159900B8BD16 /* blocks.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 14D4ED5523CA159900B8BD16 /* blocks.geojson */; };
 		14D4ED5823CA1D3500B8BD16 /* Swift-YYModel.json in Resources */ = {isa = PBXBuildFile; fileRef = 14D4ED5723CA1D3400B8BD16 /* Swift-YYModel.json */; };
 		14E31F1A26A13447001506B1 /* OtherConvertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E31F1926A13447001506B1 /* OtherConvertController.swift */; };
+		14E9BDC42850493800B928DB /* SassVariableToVueProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9BDC32850493800B928DB /* SassVariableToVueProps.swift */; };
 		14EC65DD27321B6F00831C32 /* NSTextView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EC65DC27321B6F00831C32 /* NSTextView+Ext.swift */; };
 		14EDE35E27351A45001D70B8 /* PageControllerDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EDE35D27351A44001D70B8 /* PageControllerDemo.swift */; };
 		14F08BCC2303BC1800B75842 /* JsonToModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F08BCB2303BC1800B75842 /* JsonToModelController.m */; };
@@ -344,6 +345,7 @@
 		14D4ED5523CA159900B8BD16 /* blocks.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = blocks.geojson; sourceTree = "<group>"; };
 		14D4ED5723CA1D3400B8BD16 /* Swift-YYModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Swift-YYModel.json"; sourceTree = "<group>"; };
 		14E31F1926A13447001506B1 /* OtherConvertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherConvertController.swift; sourceTree = "<group>"; };
+		14E9BDC32850493800B928DB /* SassVariableToVueProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SassVariableToVueProps.swift; sourceTree = "<group>"; };
 		14EC65DC27321B6F00831C32 /* NSTextView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextView+Ext.swift"; sourceTree = "<group>"; };
 		14EDE35D27351A44001D70B8 /* PageControllerDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControllerDemo.swift; sourceTree = "<group>"; };
 		14F08BCA2303BC1800B75842 /* JsonToModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonToModelController.h; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 				14BC343B2621FEF200BC6123 /* DragFileController.swift */,
 				140CE360272F82B3008FBEA8 /* FlutterPluginConvertController.swift */,
 				1453D70E282CB42200A7B20B /* KababCaseToCamelCase.swift */,
+				14E9BDC32850493800B928DB /* SassVariableToVueProps.swift */,
 				14F92C2522BB8DBB00A5C5E4 /* Controller */,
 				1460510E23A367E600C10F34 /* CocoaExtensions */,
 				14F5498224305DC7003BC739 /* NSTableViewCell */,
@@ -1052,6 +1055,7 @@
 				14A63DBC23AC63910015725A /* NSTableCellViewOne.swift in Sources */,
 				1480B0EE238CED7200E24BDB /* NNSwitchThumbView.swift in Sources */,
 				14705CD6243C8246009600C9 /* URLSession+Helper.swift in Sources */,
+				14E9BDC42850493800B928DB /* SassVariableToVueProps.swift in Sources */,
 				142857D02425B22200BC36F0 /* NNButtonCell.m in Sources */,
 				1487189A24349D6F007F618E /* UUTextField.swift in Sources */,
 				14F2F5BD22B90109009D49CE /* NSCTViewCellOne.m in Sources */,
