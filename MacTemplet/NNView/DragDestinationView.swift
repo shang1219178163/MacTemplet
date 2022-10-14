@@ -10,8 +10,6 @@ import Cocoa
 import SwiftExpand
 
 @objc protocol DragDestinationViewDelegate: NSObjectProtocol {
-    @objc optional func processImage(_ image: NSImage, pasteBoard: NSPasteboard)
-    
     @objc optional func process(_ obj: Any, pasteBoard: NSPasteboard)
 }
 
@@ -75,13 +73,13 @@ class DragDestinationView: NSView {
         let pasteBoard = sender.draggingPasteboard
         
         let classArray: [AnyClass] = [NSImage.self, NSColor.self, NSString.self, NSURL.self]
-        return pasteBoard.readObjects(forClasses: classArray, options: acceptableUTITypes) { (obj) in
-            if let value = obj as? NSImage {
-                self.delegate?.processImage?(value, pasteBoard: pasteBoard)
-            } else {
-                self.delegate?.process?(obj, pasteBoard: pasteBoard)
-            }
+        guard let pasteboardObjects = pasteBoard.readObjects(forClasses: classArray,
+                                                             options: acceptableUTITypes),
+              pasteboardObjects.count > 0 else {
+            return false
         }
+        self.delegate?.process?(pasteboardObjects, pasteBoard: pasteBoard)
+        return true;
     }
     
     override func concludeDragOperation(_ sender: NSDraggingInfo?) {

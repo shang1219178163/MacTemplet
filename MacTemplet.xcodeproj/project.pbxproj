@@ -35,6 +35,7 @@
 		1446DA662736C14A00062FFA /* SFSafeSymbols.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1446DA652736C14A00062FFA /* SFSafeSymbols.txt */; };
 		14492B6A24244D5100A9D3E1 /* HHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 14492B6924244D5100A9D3E1 /* HHButton.m */; };
 		1453D70F282CB42200A7B20B /* KababCaseToCamelCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1453D70E282CB42200A7B20B /* KababCaseToCamelCase.swift */; };
+		14692AF828F94B4C005C0005 /* DragImagesToBase64Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14692AF728F94B4C005C0005 /* DragImagesToBase64Controller.swift */; };
 		146D28BF244D9FA2004655B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146D28BE244D9FA1004655B1 /* Main.storyboard */; };
 		146D28C2244DA169004655B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 146D28C4244DA169004655B1 /* InfoPlist.strings */; };
 		146D28C8244DAA51004655B1 /* NNPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D28C7244DAA51004655B1 /* NNPressGestureRecognizer.swift */; };
@@ -226,6 +227,7 @@
 		14492B6824244D5100A9D3E1 /* HHButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHButton.h; sourceTree = "<group>"; };
 		14492B6924244D5100A9D3E1 /* HHButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHButton.m; sourceTree = "<group>"; };
 		1453D70E282CB42200A7B20B /* KababCaseToCamelCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KababCaseToCamelCase.swift; sourceTree = "<group>"; };
+		14692AF728F94B4C005C0005 /* DragImagesToBase64Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragImagesToBase64Controller.swift; sourceTree = "<group>"; };
 		146D28BE244D9FA1004655B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		146D28C3244DA169004655B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		146D28C6244DA16D004655B1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 				14705CD3243C794B009600C9 /* NNPinAnnotation.swift */,
 				146D28C7244DAA51004655B1 /* NNPressGestureRecognizer.swift */,
 				14BC343B2621FEF200BC6123 /* DragFileController.swift */,
+				14692AF728F94B4C005C0005 /* DragImagesToBase64Controller.swift */,
 				140CE360272F82B3008FBEA8 /* FlutterPluginConvertController.swift */,
 				1453D70E282CB42200A7B20B /* KababCaseToCamelCase.swift */,
 				14E9BDC32850493800B928DB /* SassVariableToVueProps.swift */,
@@ -1139,6 +1142,7 @@
 				14ADEC9225A2BC5F006D9629 /* NSGestureRecognizer+Rx.swift in Sources */,
 				14705CDA243DAD70009600C9 /* NNSplitViewController.swift in Sources */,
 				148BB4142437114A00ECEF3B /* DragDropImageView.m in Sources */,
+				14692AF828F94B4C005C0005 /* DragImagesToBase64Controller.swift in Sources */,
 				146D28C8244DAA51004655B1 /* NNPressGestureRecognizer.swift in Sources */,
 				14ADE21723CC609400037B0B /* NNRequestViewModelCreater.swift in Sources */,
 				14F5498524306395003BC739 /* NSAlertStudyController.swift in Sources */,
