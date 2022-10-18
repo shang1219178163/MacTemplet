@@ -118,12 +118,13 @@ extension DragImagesToBase64Controller: DragDestinationViewDelegate {
                     let data = image.pngData else {
                 return;
             }
-            let base64 = "data:image/png;base64," + data.base64EncodedString(options: []);
-            mdic[$0.lastPathComponent] = base64;
+            let base64Image = "data:image/png;base64," + data.base64EncodedString(options: []);
+            mdic[$0.lastPathComponent] = base64Image;
             
             let base64JS = convertToBase64Name(fileName: $0.lastPathComponent);
             
-            FileManager.createFile(content: base64, name: "\(base64JS)", type: "js")
+            let fileContent = "const base64_img = '\(base64Image)';\nexport default base64_img;";
+            FileManager.createFile(content: fileContent, name: "\(base64JS)", type: "js")
         }
             
 //        print("mdic", mdic);
