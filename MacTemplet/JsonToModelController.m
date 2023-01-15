@@ -423,7 +423,8 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
         return;
     }
     
-    ESClassInfo *classInfo = [ESClassInfo dealClassNameWithJsonResult:result handler:^(NSString *hFilename, NSString *mFilename) {
+    ESClassInfo *classInfo = [ESClassInfo dealWithJson:result
+                                                     handler:^(NSString *hFilename, NSString *mFilename) {
         self.hFilename = hFilename;
         self.mFilename = mFilename;
     }];

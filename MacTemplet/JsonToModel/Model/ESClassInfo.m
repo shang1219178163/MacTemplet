@@ -15,7 +15,17 @@
 
 @implementation ESClassInfo
 
-- (instancetype)initWithClassNameKey:(NSString *)classNameKey ClassName:(NSString *)className classDic:(NSDictionary *)classDic{
++ (instancetype)classWithKey:(NSString *)key
+                         name:(NSString *)className
+                         dic:(NSDictionary *)classDic{
+    return [[self init]initWithClassNameKey:key
+                                  className:className
+                                   classDic:classDic];
+}
+
+- (instancetype)initWithClassNameKey:(NSString *)classNameKey
+                           className:(NSString *)className
+                            classDic:(NSDictionary *)classDic{
     self = [super init];
     if (self) {
         self.classNameKey = classNameKey;
@@ -146,7 +156,7 @@
     [ESJsonFormatManager createFileWithFolderPath:folderPath classInfo:self];
 }
 
-+ (ESClassInfo *)dealClassNameWithJsonResult:(id)result handler:(void(^)(NSString *hFilename, NSString *mFilename))handler{
++ (ESClassInfo *)dealWithJson:(id)result handler:(void(^)(NSString *hFilename, NSString *mFilename))handler{
     __block ESClassInfo *classInfo = nil;
     
     NSString *rootClassName = [NSUserDefaults.standardUserDefaults objectForKey:kRootClass];
@@ -159,7 +169,10 @@
         //如果是生成到文件，提示输入Root class name
         if (!ESJsonFormatSetting.defaultSetting.outputToFiles) {
             NSString *className = [[NSUserDefaults.defaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
-            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
+
+            classInfo = [ESClassInfo classWithKey:ESRootClassName
+                                             name:className
+                                              dic:result];
             
             BOOL isSwift = NSApplication.isSwift;
             NSString *hName = [className stringByAppendingString: (isSwift ? @".swift" : @".h")];
@@ -172,7 +185,10 @@
         } else {
             //不生成到文件，Root class 里面用户自己创建
             NSString *className = [[NSUserDefaults.defaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
-            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:result];
+            
+            classInfo = [ESClassInfo classWithKey:ESRootClassName
+                                             name:className
+                                              dic:result];
             [ESClassInfo dealPropertyNameWithClassInfo:classInfo];
             
         }
@@ -182,14 +198,19 @@
             NSString *className = [[NSUserDefaults.defaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
             //输入完毕之后，将这个class设置
             NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
-            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
+    
+            classInfo = [ESClassInfo classWithKey:ESRootClassName
+                                             name:className
+                                              dic:dic];
             
             [ESClassInfo dealPropertyNameWithClassInfo:classInfo];
         } else {
             //Root class 已存在，只需要输入JSON对应的key的名字
             NSString *className = [[NSUserDefaults.defaults objectForKey:kClassPrefix] stringByAppendingString:rootClassName];
             NSDictionary *dic = [NSDictionary dictionaryWithObject:result forKey:className];
-            classInfo = [[ESClassInfo alloc] initWithClassNameKey:ESRootClassName ClassName:className classDic:dic];
+            classInfo = [ESClassInfo classWithKey:ESRootClassName
+                                             name:className
+                                              dic:dic];
             [ESClassInfo dealPropertyNameWithClassInfo:classInfo];
         }
     }
@@ -220,7 +241,10 @@
             
             //如果当前obj是 NSDictionary 或者 NSArray，继续向下遍历
             if ([obj isKindOfClass: NSDictionary.class]) {
-                ESClassInfo *childClassInfo = [[ESClassInfo alloc] initWithClassNameKey:key ClassName:childClassName classDic:obj];
+                ESClassInfo *childClassInfo = [ESClassInfo classWithKey:key
+                                                                   name:childClassName
+                                                                    dic:obj];
+                
                 [ESClassInfo dealPropertyNameWithClassInfo:childClassInfo];
                 //设置classInfo里面属性对应class
                 [classInfo.propertyClassDic setObject:childClassInfo forKey:key];
@@ -232,7 +256,9 @@
                     NSObject *obj = array.firstObject;
                     //May be 'NSString'，will crash
                     if ([obj isKindOfClass: NSDictionary.class]) {
-                        ESClassInfo *childClassInfo = [[ESClassInfo alloc] initWithClassNameKey:key ClassName:childClassName classDic:(NSDictionary *)obj];
+                        ESClassInfo *childClassInfo = [ESClassInfo classWithKey:key
+                                                                           name:childClassName
+                                                                            dic:(NSDictionary *)obj];
                         [ESClassInfo dealPropertyNameWithClassInfo:childClassInfo];
                         //设置classInfo里面属性类型为 NSArray 情况下，NSArray 内部元素类型的对应的class
                         [classInfo.propertyArrayDic setObject:childClassInfo forKey:key];
