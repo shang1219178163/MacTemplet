@@ -28,7 +28,7 @@ class TmpViewController: NSViewController {
     
     lazy var windowOneCtrl: NSWindowController = {
         let controller = NNBatchClassCreateController()
-        let rect = CGRectMake(0, 0, kScreenWidth*0.25, kScreenHeight*0.25)
+        let rect = CGRect(0, 0, kScreenWidth*0.25, kScreenHeight*0.25)
         let windowCtrl = NSWindowController(window: NSPanel(vc: controller))
         controller.view.frame = windowCtrl.window!.frame;
         controller.view.getViewLayer()

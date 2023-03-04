@@ -247,7 +247,7 @@ class NNButtonStudyController: NSViewController {
 
         itemList = [btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnTen]
         let rowCount: Int = itemList.count%4 == 0 ? itemList.count/4 : itemList.count/4 + 1
-        let rect = CGRectMake(0, 0, view.frame.width, CGFloat(rowCount*70))
+        let rect = CGRect(0, 0, view.frame.width, CGFloat(rowCount*70))
         setupConstraint(rect)
         
         view.getViewLayer()

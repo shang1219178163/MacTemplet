@@ -107,7 +107,7 @@ class MapViewController: NSViewController {
             stackViewTitles.addArrangedSubview(label)
 
             let switchCtl: NNSwitch = {
-                let view = NNSwitch(frame: CGRectMake(0, 0, 50, 20))
+                let view = NNSwitch(frame: CGRect(0, 0, 50, 20))
                 view.tag = e.offset
                 view.addTarget(self, action: #selector(toggleSwitch(_:)))
                 return view;
