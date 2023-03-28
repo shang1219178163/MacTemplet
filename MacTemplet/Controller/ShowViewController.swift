@@ -53,7 +53,7 @@ class ShowViewController: NSViewController {
 //        print("\(#function)_\(view.bounds.size)_\(vcOne.view.bounds.size)")
 
         for e in children.enumerated() {
-            e.element.view.frame = CGRectMake(40, frame.maxY, view.bounds.width - 80, view.bounds.height - frame.maxY)
+            e.element.view.frame = CGRect(40, frame.maxY, view.bounds.width - 80, view.bounds.height - frame.maxY)
         }
     }
     

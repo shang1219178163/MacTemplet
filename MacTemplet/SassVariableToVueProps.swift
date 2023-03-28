@@ -102,7 +102,7 @@ import RxCocoa
     }()
     
     lazy var switchCtl: NNSwitch = {
-        let view = NNSwitch(frame: CGRectMake(0, 0, 50, 20))
+        let view = NNSwitch(frame: CGRect(0, 0, 50, 20))
         view.setOn(on: true, animated: true)
 //        view.addTarget(self, action: #selector(onSwitch(_:)))
         view.addActionHandler { (sender) in
@@ -119,7 +119,7 @@ import RxCocoa
     }()
     
     lazy var switchLab: HHLabel = {
-        let view = HHLabel(frame: CGRectMake(0, 0, 50, 20))
+        let view = HHLabel(frame: CGRect(0, 0, 50, 20))
         view.stringValue = "vue3 以上版本?";
         
 //        view.wantsLayer = true;

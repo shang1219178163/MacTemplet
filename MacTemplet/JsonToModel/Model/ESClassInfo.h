@@ -72,7 +72,13 @@
 
 @property (nonatomic, strong) NNLanguageModel *langModel;
 
-- (instancetype)initWithClassNameKey:(NSString *)classNameKey ClassName:(NSString *)className classDic:(NSDictionary *)classDic;
++ (instancetype)infoWithKey:(NSString *)classNameKey
+                    clsName:(NSString *)className
+                        dic:(NSDictionary *)classDic;
+
+- (instancetype)initWithKey:(NSString *)classNameKey
+                    clsName:(NSString *)className
+                        dic:(NSDictionary *)classDic;
 
 /**
  *  创建文件

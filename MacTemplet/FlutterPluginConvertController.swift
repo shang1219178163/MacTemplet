@@ -265,12 +265,12 @@ class FlutterPluginConvertController: NSViewController {
                 
                 let returnVal = titles[1]
 
-                let name = e.substring("> ", suffix: "(", isContain: false)
-                let param = e.substring("(", suffix: ")", isContain: true)
+                let name = e.substring("> ", suffix: "(", isContain: false);
+                let param = e.substring("(", suffix: ")", isContain: true);
                 let paramsType = param.substring("(", suffix: " ", isContain: false)
                 let paramsName = param.replacingOccurrences(of: paramsType, with: "").trimmedBy("() ")
                 
-                let body = e.substring("{", prefixOptions: .backwards, suffix: "}", isContain: false)
+                let body = e.substring("{", preOptions: .backwards, suffix: "}", isContain: false)
 
                 let methodModel = DartMethodModel(
                     isStatic: titles[0].hasPrefix("static"),
