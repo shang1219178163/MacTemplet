@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		070967CF6BBBA408F67F8E13 /* Pods_MacTemplet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */; };
 		140CE361272F82B3008FBEA8 /* FlutterPluginConvertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE360272F82B3008FBEA8 /* FlutterPluginConvertController.swift */; };
 		140D292E2317E8C200867785 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D292D2317E8C200867785 /* QuartzCore.framework */; };
 		140D294F23189D9600867785 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 140D294E23189D9600867785 /* Photos.framework */; };
@@ -110,6 +109,7 @@
 		14ADEB8A259F0E8F006D9629 /* NNPropertyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEB89259F0E8F006D9629 /* NNPropertyModel.swift */; };
 		14ADEC5F25A2AA7F006D9629 /* RxCocoaExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEC5E25A2AA7F006D9629 /* RxCocoaExt.swift */; };
 		14ADEC9225A2BC5F006D9629 /* NSGestureRecognizer+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ADEC9125A2BC5F006D9629 /* NSGestureRecognizer+Rx.swift */; };
+		14B3155729D2E5F2003C2574 /* NSColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3155629D2E5F2003C2574 /* NSColorExt.swift */; };
 		14B4DE38241DE7D100901E8D /* NNButtonStyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE36241DE7D100901E8D /* NNButtonStyleController.swift */; };
 		14B4DE3E241DF0BA00901E8D /* NNHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE3D241DF0BA00901E8D /* NNHeaderFooterView.swift */; };
 		14B4DE40241DF5E900901E8D /* NNCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4DE3F241DF5E900901E8D /* NNCollectionViewItem.swift */; };
@@ -171,6 +171,7 @@
 		14F92C5922BB951700A5C5E4 /* NNFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92C5822BB951700A5C5E4 /* NNFileManager.m */; };
 		14F92CF622BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92CF322BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m */; };
 		14F92CF722BC6E6C00A5C5E4 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F92CF422BC6E6C00A5C5E4 /* NoodleLineNumberView.m */; };
+		B6B45C886999C912F8936DE2 /* Pods_MacTemplet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96A661C6ABC0E440A642DCFA /* Pods_MacTemplet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -319,6 +320,7 @@
 		14ADEB89259F0E8F006D9629 /* NNPropertyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNPropertyModel.swift; sourceTree = "<group>"; };
 		14ADEC5E25A2AA7F006D9629 /* RxCocoaExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCocoaExt.swift; sourceTree = "<group>"; };
 		14ADEC9125A2BC5F006D9629 /* NSGestureRecognizer+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSGestureRecognizer+Rx.swift"; sourceTree = "<group>"; };
+		14B3155629D2E5F2003C2574 /* NSColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExt.swift; sourceTree = "<group>"; };
 		14B4DE36241DE7D100901E8D /* NNButtonStyleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNButtonStyleController.swift; sourceTree = "<group>"; };
 		14B4DE3D241DF0BA00901E8D /* NNHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNHeaderFooterView.swift; sourceTree = "<group>"; };
 		14B4DE3F241DF5E900901E8D /* NNCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNCollectionViewItem.swift; sourceTree = "<group>"; };
@@ -416,9 +418,9 @@
 		14F92CF322BC6E6C00A5C5E4 /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberMarker.m; sourceTree = "<group>"; };
 		14F92CF422BC6E6C00A5C5E4 /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberView.m; sourceTree = "<group>"; };
 		14F92CF522BC6E6C00A5C5E4 /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberView.h; sourceTree = "<group>"; };
-		750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacTemplet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.debug.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.debug.xcconfig"; sourceTree = "<group>"; };
-		CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.release.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.release.xcconfig"; sourceTree = "<group>"; };
+		7B842D8005D593656F5F551B /* Pods-MacTemplet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.release.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.release.xcconfig"; sourceTree = "<group>"; };
+		96A661C6ABC0E440A642DCFA /* Pods_MacTemplet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacTemplet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F00CD9AEFD284FA217A3CC9 /* Pods-MacTemplet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacTemplet.debug.xcconfig"; path = "Target Support Files/Pods-MacTemplet/Pods-MacTemplet.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,7 +432,7 @@
 				1480B0E7238CC91F00E24BDB /* CoreLocation.framework in Frameworks */,
 				140D292E2317E8C200867785 /* QuartzCore.framework in Frameworks */,
 				1480B0E5238CC90F00E24BDB /* MapKit.framework in Frameworks */,
-				070967CF6BBBA408F67F8E13 /* Pods_MacTemplet.framework in Frameworks */,
+				B6B45C886999C912F8936DE2 /* Pods_MacTemplet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,9 +446,9 @@
 				1480B0E4238CC90F00E24BDB /* MapKit.framework */,
 				140D294E23189D9600867785 /* Photos.framework */,
 				140D292D2317E8C200867785 /* QuartzCore.framework */,
-				750F95E0B5C6065D36495336 /* Pods_MacTemplet.framework */,
 				149EFE172615C361008462BC /* Cocoa.framework */,
 				149EFE192615C361008462BC /* XcodeKit.framework */,
+				96A661C6ABC0E440A642DCFA /* Pods_MacTemplet.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -587,6 +589,7 @@
 				14F92C0022BB1AC700A5C5E4 /* NNGloble */,
 				14F2F55F22B78078009D49CE /* Other */,
 				14F92C1C22BB766A00A5C5E4 /* Resource */,
+				14B3155629D2E5F2003C2574 /* NSColorExt.swift */,
 			);
 			path = MacTemplet;
 			sourceTree = "<group>";
@@ -844,8 +847,8 @@
 		2FC3B9408044A2619FB61A13 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */,
-				CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */,
+				9F00CD9AEFD284FA217A3CC9 /* Pods-MacTemplet.debug.xcconfig */,
+				7B842D8005D593656F5F551B /* Pods-MacTemplet.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -857,13 +860,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1482F72422AB8BD500A7C5E1 /* Build configuration list for PBXNativeTarget "MacTemplet" */;
 			buildPhases = (
-				6EA340B95869B73EEE817551 /* [CP] Check Pods Manifest.lock */,
+				AC70690108B7A65AED132485 /* [CP] Check Pods Manifest.lock */,
 				1482F70F22AB8BD400A7C5E1 /* Sources */,
 				1482F71022AB8BD400A7C5E1 /* Frameworks */,
 				1482F71122AB8BD400A7C5E1 /* Resources */,
-				8E323FC6F5CA9D2988D98874 /* [CP] Embed Pods Frameworks */,
 				14B617F32397916100A9336D /* bundleVersion */,
 				149EFE252615C362008462BC /* Embed App Extensions */,
+				BD80A27FA159C1B1CB2FDE89 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -963,7 +966,7 @@
 			shellPath = /bin/sh;
 			shellScript = "bundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbundleVersion=$(date \"+%Y%m%d%H%M\")\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"$INFOPLIST_FILE\"\n";
 		};
-		6EA340B95869B73EEE817551 /* [CP] Check Pods Manifest.lock */ = {
+		AC70690108B7A65AED132485 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -985,7 +988,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8E323FC6F5CA9D2988D98874 /* [CP] Embed Pods Frameworks */ = {
+		BD80A27FA159C1B1CB2FDE89 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1096,6 +1099,7 @@
 				142857CD2425AA1800BC36F0 /* NSView+Ext.m in Sources */,
 				14F5498124305DB2003BC739 /* NNDrawLineView.swift in Sources */,
 				14C0625523878FC70016EC8A /* TmpViewController.swift in Sources */,
+				14B3155729D2E5F2003C2574 /* NSColorExt.swift in Sources */,
 				14BC343C2621FEF200BC6123 /* DragFileController.swift in Sources */,
 				14C009582433001800F490D6 /* DepartmentViewController.swift in Sources */,
 				147787892428BDED00D438CC /* NSObject+CrashProtector.m in Sources */,
@@ -1285,7 +1289,7 @@
 		};
 		1482F72522AB8BD500A7C5E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76E84CFC8971B07075DAFB1F /* Pods-MacTemplet.debug.xcconfig */;
+			baseConfigurationReference = 9F00CD9AEFD284FA217A3CC9 /* Pods-MacTemplet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1318,7 +1322,7 @@
 		};
 		1482F72622AB8BD500A7C5E1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA72B7B1C24F23676115F0B0 /* Pods-MacTemplet.release.xcconfig */;
+			baseConfigurationReference = 7B842D8005D593656F5F551B /* Pods-MacTemplet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

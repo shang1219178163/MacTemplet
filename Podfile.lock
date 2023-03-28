@@ -17,19 +17,19 @@ PODS:
   - Masonry (1.1.0)
   - NNButton (1.1.5.3)
   - NNLabel (1.0.1)
-  - RxBlocking (6.2.0):
-    - RxSwift (= 6.2.0)
-  - RxCocoa (6.2.0):
-    - RxRelay (= 6.2.0)
-    - RxSwift (= 6.2.0)
-  - RxRelay (6.2.0):
-    - RxSwift (= 6.2.0)
-  - RxSwift (6.2.0)
-  - SnapKit (5.0.1)
+  - RxBlocking (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SnapKit (5.6.0)
   - SnapKitExtend (1.1.0):
     - SnapKit
   - SwiftExpand (8.0.0)
-  - Then (2.7.0)
+  - Then (3.0.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -73,16 +73,16 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   NNButton: 5ff24013480dc6012be208bc5b13e2429002cae1
   NNLabel: f7ff344f836f938b499a2df7bc32f50f2e339829
-  RxBlocking: 0b29f7d2079109a8de49c411381bed7c33ef1eeb
-  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
-  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
-  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SnapKitExtend: aa30cf37196195fae9c4354686cc7710184ebfcc
   SwiftExpand: 34b1c9bc18a6d1ce46d7b40d1f603ad7317f4951
-  Then: acfe0be7e98221c6204e12f8161459606d5d822d
+  Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 130802ffa9aefdb63675dbb9c2f4c8963eb971fe
+PODFILE CHECKSUM: a3bfbd8610f59dcdd167ff3f5a93f8b3a8d5371a
 
 COCOAPODS: 1.11.3

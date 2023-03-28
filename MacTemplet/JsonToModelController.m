@@ -400,7 +400,7 @@ func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> 
         NSAlert *alert = [[NSAlert alloc]initWithTitle:@"提示"
                                                message:@"前缀,类名,父类均不能为空"
                                              btnTitles:@[kTitleKnow]
-                                            style:NSAlertStyleInformational];
+                                                 style:NSAlertStyleInformational];
         [alert runModal];
         return;
     }

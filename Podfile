@@ -2,6 +2,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :osx, '10.13'
 use_frameworks!
+#use_modular_headers!
+
 
 #target 'MacTemplet' do
 #  # Comment the next line if you don't want to use dynamic frameworks
@@ -42,14 +44,12 @@ target 'MacTemplet' do
 end
 
 
-
-#post_install do |installer|
-#  installer.pods_project.targets.each do |target|
-#    flutter_additional_macos_build_settings(target)
-#    target.build_configurations.each do |config|
-#      config.build_settings['SWIFT_VERSION'] = '5.5';
-#      config.build_settings["CODE_SIGNING_ALLOWED"] = false;
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '5.5';
+      config.build_settings['CODE_SIGNING_ALLOWED'] = false;
 #      config.build_settings['MACOSX_DEPLOYMENT_TARGET'] = '10.15';
-#    end
-#  end
-#end
+    end
+  end
+end
