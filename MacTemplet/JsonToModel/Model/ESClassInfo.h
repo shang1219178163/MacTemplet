@@ -72,13 +72,13 @@
 
 @property (nonatomic, strong) NNLanguageModel *langModel;
 
-+ (instancetype)infoWithKey:(NSString *)classNameKey
-                    clsName:(NSString *)className
-                        dic:(NSDictionary *)classDic;
++ (instancetype)classWithKey:(NSString *)key
+                         name:(NSString *)className
+                         dic:(NSDictionary *)classDic;
 
-- (instancetype)initWithKey:(NSString *)classNameKey
-                    clsName:(NSString *)className
-                        dic:(NSDictionary *)classDic;
+- (instancetype)initWithClassNameKey:(NSString *)classNameKey
+                           className:(NSString *)className
+                            classDic:(NSDictionary *)classDic;
 
 /**
  *  创建文件
@@ -94,7 +94,7 @@
  *
  *  @return 类信息
  */
-+ (ESClassInfo *)dealClassNameWithJsonResult:(id)result handler:(void(^)(NSString *hFilename, NSString *mFilename))handler;
++ (ESClassInfo *)dealWithJson:(id)result handler:(void(^)(NSString *hFilename, NSString *mFilename))handler;
 
 /**
  *  处理属性名字(用户输入属性对应字典对应类或者集合里面对应类的名字)

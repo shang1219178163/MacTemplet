@@ -48,7 +48,7 @@ import MJRefresh
         
 
     lazy var searchBar: UISearchBar = {
-        let view = UISearchBar(frame: CGRectMake(0, 0, kScreenWidth - 70, 50))
+        let view = UISearchBar(frame: CGRect(0, 0, kScreenWidth - 70, 50))
         view.textField?.placeholder = "请输入关键字搜索";
         view.textField?.font = UIFont.systemFont(ofSize: 13)
 

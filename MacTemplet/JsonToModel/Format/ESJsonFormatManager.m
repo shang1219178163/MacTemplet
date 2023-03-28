@@ -9,12 +9,10 @@
 #import "ESJsonFormatManager.h"
 #import "ESClassInfo.h"
 #import "ESFormatInfo.h"
-#import "ESClassInfo.h"
 #import "ESPair.h"
 #import "ESJsonFormat.h"
 #import "ESJsonFormatSetting.h"
 #import "ESPbxprojInfo.h"
-#import "ESClassInfo.h"
 
 #import <SwiftExpand-Swift.h>
 
