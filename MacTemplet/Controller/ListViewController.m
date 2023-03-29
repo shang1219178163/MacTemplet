@@ -8,10 +8,16 @@
 
 #import "ListViewController.h"
 
+#define MAS_SHORTHAND_GLOBALS
+#define MAS_SHORTHAND
+#import "Masonry.h"
+
 #import "NNTableRowView.h"
 #import "NNTextField.h"
 
 #import <SwiftExpand-Swift.h>
+
+#import "MacTemplet-Swift.h"
 
 @interface ListViewController ()<NSTableViewDelegate, NSTableViewDataSource>
 

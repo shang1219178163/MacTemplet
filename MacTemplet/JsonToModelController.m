@@ -28,7 +28,17 @@
 #import <QuartzCore/QuartzCore.h>
 #import "NSApplication+Ext.h"
 
+
+#define MAS_SHORTHAND_GLOBALS
+#define MAS_SHORTHAND
+#import "Masonry.h"
+
+
+#import "NNGloble.h"
+#import "Const.h"
+
 #import <SwiftExpand-Swift.h>
+#import "MacTemplet-Swift.h"
 
 
 @interface JsonToModelController ()<NSTableViewDataSource, NSTableViewDelegate, NSTextViewDelegate, NSTextFieldDelegate, NSTextDelegate>

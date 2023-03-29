@@ -8,6 +8,7 @@
 
 #import "NNFileManager.h"
 #import "ESJsonFormat.h"
+#import "NSApplication+Ext.h"
 
 #import <SwiftExpand-Swift.h>
 

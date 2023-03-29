@@ -8,6 +8,10 @@
 
 #import "NSCTViewCellOne.h"
 
+#define MAS_SHORTHAND_GLOBALS
+#define MAS_SHORTHAND
+#import "Masonry.h"
+
 #import <SwiftExpand-Swift.h>
 
 @interface NSCTViewCellOne ()

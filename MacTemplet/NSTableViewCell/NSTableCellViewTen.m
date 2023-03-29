@@ -8,7 +8,14 @@
 
 #import "NSTableCellViewTen.h"
 
+#define MAS_SHORTHAND_GLOBALS
+#define MAS_SHORTHAND
+#import "Masonry.h"
+
 #import <SwiftExpand-Swift.h>
+
+#import "NNGloble.h"
+#import "Const.h"
 
 @interface NSTableCellViewTen ()
 
@@ -90,7 +97,7 @@
             NSButton * view = [NSButton checkboxWithTitle:@"构造函数" target:nil action:nil];
             [view addActionHandler:^(NSControl * _Nonnull control) {
                 NSButton *sender = (NSButton *)control;
-                DDLog(@"state_%@", @(sender.state));
+//                DDLog(@"state_%@", @(sender.state));
                 
             }];
             view;

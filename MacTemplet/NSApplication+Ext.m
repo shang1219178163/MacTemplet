@@ -14,12 +14,12 @@
 @implementation NSApplication (Ext)
 
 + (void)setIsSwift:(BOOL)isSwift{
-    [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:kIsSwift];
+    [NSUserDefaults.standardUserDefaults setBool:isSwift forKey:@"kIsSwift"];
     [NSUserDefaults.standardUserDefaults synchronize];
 }
 
 + (BOOL)isSwift{
-    BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:kIsSwift];
+    BOOL isSwift = [NSUserDefaults.standardUserDefaults boolForKey:@"kIsSwift"];
     return isSwift;
 }
 

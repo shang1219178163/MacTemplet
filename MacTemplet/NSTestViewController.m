@@ -28,7 +28,7 @@
     [self.view addGestureRecognizer:click];
     
     [click addAction:^(NSGestureRecognizer * reco) {
-        DDLog(@"%@", @"1111");
+//        DDLog(@"%@", @"1111");
     }];
 
 //    [click addAction:^{

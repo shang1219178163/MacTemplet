@@ -7,6 +7,7 @@
 //
 
 #import "NSObject+Helper.h"
+#import <objc/runtime.h>
 
 @implementation NSObject (Helper)
 
@@ -27,7 +28,7 @@
         data = [NSJSONSerialization dataWithJSONObject:obj options:kNilOptions error:&error];
         if (error) {
 #ifdef DEBUG
-            DDLog(@"fail to get NSData from obj: %@, error: %@", obj, error);
+//            DDLog(@"fail to get NSData from obj: %@, error: %@", obj, error);
 #endif
         }
     }
@@ -54,7 +55,7 @@
             return obj;
         }
 #ifdef DEBUG
-        DDLog(@"fail to get dictioanry from JSON: %@, error: %@", data, error);
+//        DDLog(@"fail to get dictioanry from JSON: %@, error: %@", data, error);
 #endif
     } else if ([self isKindOfClass: NSData.class]) {
         id obj = [NSJSONSerialization JSONObjectWithData:(NSData *)self options:kNilOptions error:&error];
@@ -62,7 +63,7 @@
             return obj;
         }
 #ifdef DEBUG
-        DDLog(@"fail to get dictioanry from JSON: %@, error: %@", obj, error);
+//        DDLog(@"fail to get dictioanry from JSON: %@, error: %@", obj, error);
 #endif
     }
     return nil;
@@ -123,7 +124,7 @@
 
 //KVC
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
-    DDLog(@"不存在键_%@:%@",key,value);
+//    DDLog(@"不存在键_%@:%@",key,value);
 }
 
 -(id)valueForUndefinedKey:(NSString *)key{

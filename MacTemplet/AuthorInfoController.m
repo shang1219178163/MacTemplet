@@ -7,6 +7,16 @@
 //
 
 #import "AuthorInfoController.h"
+
+
+#define MAS_SHORTHAND_GLOBALS
+#define MAS_SHORTHAND
+#import "Masonry.h"
+
+
+#import "NNGloble.h"
+#import "Const.h"
+
 #import "NNHeaderView.h"
 
 #import <SwiftExpand-Swift.h>

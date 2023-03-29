@@ -9,6 +9,14 @@
 #import "HomeViewController.h"
 #import "NNTextField.h"
 
+#define MAS_SHORTHAND_GLOBALS
+#define MAS_SHORTHAND
+#import "Masonry.h"
+
+
+#import "NNGloble.h"
+#import "Const.h"
+
 #import <SwiftExpand-Swift.h>
 
 static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
@@ -120,8 +128,8 @@ static NSString *kDefaultTabIndex = @"kDefaultTabIndex";
     if (!_tabView) {
         _tabView = ({
             NSTabView * view = [NSTabView new];
-            view.tabViewBorderType = NSNoTabsNoBorder;
-            view.tabViewType = NSTabViewBorderTypeNone;
+//            view.tabViewBorderType = NSTabViewBorderTypeNone;
+//            view.tabViewType = NSNoTabsNoBorder;
             view.delegate = self;
 
             view;

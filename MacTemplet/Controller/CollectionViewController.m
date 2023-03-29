@@ -9,6 +9,13 @@
 #import "CollectionViewController.h"
 #import "NSCTViewCellOne.h"
 #import "NSCTViewItemOne.h"
+#import "NNGloble.h"
+
+#define MAS_SHORTHAND_GLOBALS
+#define MAS_SHORTHAND
+#import "Masonry.h"
+
+#import "MacTemplet-Swift.h"
 
 @interface CollectionViewController ()<NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
 

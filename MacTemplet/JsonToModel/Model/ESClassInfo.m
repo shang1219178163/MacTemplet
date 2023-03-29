@@ -9,16 +9,20 @@
 #import "ESClassInfo.h"
 #import "ESJsonFormatManager.h"
 #import "ESJsonFormatSetting.h"
+#import "NSApplication+Ext.h"
 
 #import <SwiftExpand-Swift.h>
 
+
+#import "NNGloble.h"
+#import "Const.h"
 
 @implementation ESClassInfo
 
 + (instancetype)classWithKey:(NSString *)key
                          name:(NSString *)className
                          dic:(NSDictionary *)classDic{
-    return [[self init]initWithClassNameKey:key
+    return [[self alloc]initWithClassNameKey:key
                                   className:className
                                    classDic:classDic];
 }

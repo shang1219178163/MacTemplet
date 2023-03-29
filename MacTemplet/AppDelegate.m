@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 #import "AppDelegate+Menu.h"
 #import <SwiftExpand-Swift.h>
-
+#import "NNGloble.h"
+#import "Const.h"
 
 @interface AppDelegate ()
 
@@ -34,9 +35,9 @@
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"LAYOUT_CONSTRAINTS_NOT_SATISFIABLE"];
     [NSUserDefaults.standardUserDefaults setObject:@(0) forKey: @"NSInitialToolTipDelay"];
 
-    NSString *vcNmae = @"HomeViewController";
+    NSString *vcName = @"HomeViewController";
     
-    NSViewController *vc = [[NSClassFromString(vcNmae) alloc] init];
+    NSViewController *vc = [[NSClassFromString(vcName) alloc] init];
     self.window.contentViewController = vc;
     [self.window makeKeyAndOrderFront:self];
     [NSApp activateIgnoringOtherApps:true];

@@ -14,18 +14,20 @@
 //#define kScreenWidth    NSScreen.mainScreen.frame.size.width
 //#define kScreenHeight   NSScreen.mainScreen.frame.size.height
 
-#import "NNGloble.h"
-#import "Const.h"
 
-#import "MacExpand.h"
+//#import "NNGloble.h"
+//#import "Const.h"
+//
+//#import "MacExpand.h"
+//
+//#define MAS_SHORTHAND_GLOBALS
+//#define MAS_SHORTHAND
+//#import "Masonry.h"
+//
+//#import "NSApplication+Ext.h"
+//
+//#import "MacTemplet-Swift.h"
 
-#define MAS_SHORTHAND_GLOBALS
-#define MAS_SHORTHAND
-#import "Masonry.h"
-
-#import "NSApplication+Ext.h"
-
-#import "MacTemplet-Swift.h"
 
 //#ifdef DEBUG
 //#define DDLog(fmt, ...) DDLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);

@@ -12,6 +12,7 @@
 #import "ESPbxprojInfo.h"
 #import "ESJsonFormatSetting.h"
 #import "ESClassInfo.h"
+#import "NSApplication+Ext.h"
 
 @interface ESJsonFormat()
 

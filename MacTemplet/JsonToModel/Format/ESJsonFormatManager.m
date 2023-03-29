@@ -13,6 +13,8 @@
 #import "ESJsonFormat.h"
 #import "ESJsonFormatSetting.h"
 #import "ESPbxprojInfo.h"
+#import "NSApplication+Ext.h"
+#import "Const.h"
 
 #import <SwiftExpand-Swift.h>
 
