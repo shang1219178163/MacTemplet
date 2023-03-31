@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142EEDB929D6DCFA0084A41E /* UnderScoreToCamelCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142EEDB829D6DCFA0084A41E /* UnderScoreToCamelCase.swift */; };
 		14539E0829D42FFD0071D45D /* UImageBatchCreateContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14539D1029D42FF80071D45D /* UImageBatchCreateContoller.swift */; };
 		14539E0929D42FFD0071D45D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14539D1229D42FF80071D45D /* InfoPlist.strings */; };
 		14539E0A29D42FFD0071D45D /* NNPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14539D1429D42FF80071D45D /* NNPinAnnotation.swift */; };
@@ -174,6 +175,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		142EEDB829D6DCFA0084A41E /* UnderScoreToCamelCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderScoreToCamelCase.swift; sourceTree = "<group>"; };
 		14539B5529D4206E0071D45D /* MacTemplet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacTemplet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14539D1029D42FF80071D45D /* UImageBatchCreateContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UImageBatchCreateContoller.swift; sourceTree = "<group>"; };
 		14539D1329D42FF80071D45D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 				14539DF329D42FFC0071D45D /* JsonToModelController.h */,
 				14539DB929D42FFB0071D45D /* JsonToModelController.m */,
 				14539D2A29D42FF90071D45D /* KababCaseToCamelCase.swift */,
+				142EEDB829D6DCFA0084A41E /* UnderScoreToCamelCase.swift */,
 				14539D2629D42FF90071D45D /* MainViewController.swift */,
 				14539D4A29D42FFA0071D45D /* MapViewController.swift */,
 				14539DAA29D42FFA0071D45D /* NNBatchClassCreateController.swift */,
@@ -1131,6 +1134,7 @@
 				14539E7529D42FFD0071D45D /* NNLabelStudyController.swift in Sources */,
 				14539E2129D42FFD0071D45D /* NNListViewController.swift in Sources */,
 				14539E1529D42FFD0071D45D /* HomeViewController.m in Sources */,
+				142EEDB929D6DCFA0084A41E /* UnderScoreToCamelCase.swift in Sources */,
 				14539E9529D42FFD0071D45D /* NNAttStringKey.m in Sources */,
 				14539E3229D42FFD0071D45D /* NNDrawLineView.swift in Sources */,
 				14539E5529D42FFD0071D45D /* ESJsonFormatSetting.m in Sources */,
