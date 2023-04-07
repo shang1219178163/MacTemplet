@@ -107,7 +107,6 @@ extension BookListController: NSOutlineViewDelegate {
  
             view.button.title = it.name
             view.button.addActionHandler { (sender) in
-                guard sender is NSButton else { return }
 //                DDLog(sender.title)
                 outlineView.expandOrCollapseItem(item: item)
             }
